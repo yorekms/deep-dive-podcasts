@@ -653,8 +653,29 @@
       wireRssModal();
     }
 
+    function portalNameFromUrl(url) {
+      var u = String(url || '').toLowerCase();
+      if (u.indexOf('yorek-cancer-ai-primer') !== -1) return 'VCU Cancer AI Primer';
+      if (u.indexOf('public-evidence-library') !== -1) return 'Public Evidence Library';
+      if (u.indexOf('historical-documents-atlas') !== -1) return 'Historical Documents Atlas';
+      return url;
+    }
+
     function attachInterceptors() {
       injectHubUI();
+      document.querySelectorAll('a[href*="chatgpt.site"]').forEach(function (link) {
+        if (link.dataset.crpPortalHooked) return;
+        link.dataset.crpPortalHooked = 'true';
+        link.addEventListener('click', function () {
+          var href = link.getAttribute('href') || '';
+          var inNav = !!link.closest('#crp-top-hub-nav');
+          track('chatgpt_site_click', {
+            portal_name: portalNameFromUrl(href),
+            portal_url: href,
+            placement: inNav ? 'top_nav' : 'showcase_banner'
+          });
+        });
+      });
       document.querySelectorAll('a[href*="drive.google.com"]').forEach(function (link) {
         if (link.dataset.crpHooked || link.dataset.noPlayer) return;
         link.dataset.crpHooked = 'true';
