@@ -1,5 +1,5 @@
 /*!
- * Deep Dive Podcast Network - shared Carrd hub player.
+ * Deep Dive Podcast Network - shared Carrd hub player (v1.2.0).
  * Hosted on GitHub Pages: https://yorekms.github.io/deep-dive-podcasts/hub/player.js
  *
  * Each Carrd site only needs a tiny embed:
@@ -15,9 +15,9 @@
   if (window.__crpHubLoaded) return;
   window.__crpHubLoaded = true;
 
-  var CSS_TPL = "#divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(94vw,1040px) !important;max-width:1040px !important;padding-bottom:145px !important} #text02{font-size:2.35rem !important;margin-bottom:0.28rem !important;letter-spacing:-0.02em !important;line-height:1.12 !important} #text08{font-size:0.98rem !important;opacity:0.88 !important;margin-bottom:0.85rem !important;line-height:1.45 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:11px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.1;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:7px;width:100%;margin:6px 0 16px 0} .crp-ep-btn{display:flex;align-items:center;gap:7px;width:100%;min-height:34px;padding:6px 10px;border-radius:8px;text-decoration:none !important;background:rgba(15,23,42,0.80);border:1px solid rgba(255,255,255,0.14);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:12.2px;font-weight:600;line-height:1.25;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-ico{width:16px;height:16px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:1px 5px;border-radius:999px;flex-shrink:0} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} @media (max-width:640px){.crp-ep-grid{grid-template-columns:1fr} #text02{font-size:1.8rem !important} }";
-  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:680px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:8px;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><a id=\"crp-studio-link\" href=\"https://ais-dev-v3n3vsl4pvdlmev4vcfv5b-514995804668.us-west1.run.app\" target=\"_blank\" rel=\"noreferrer\" title=\"Open interactive synchronized transcript studio\" style=\"font-size:10px;font-weight:800;color:#090E1A;background:{A};text-decoration:none;padding:4px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;box-shadow:0 0 12px {A}55;\">Transcript &#8599;</a><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" crossorigin=\"anonymous\" preload=\"metadata\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:6px;\"><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds\">30s &#8631;</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:2px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
-  var PLAYER_VERSION = "1.1.0";
+  var CSS_TPL = "#divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(94vw,1040px) !important;max-width:1040px !important;padding-bottom:145px !important} #text02{font-size:2.35rem !important;margin-bottom:0.28rem !important;letter-spacing:-0.02em !important;line-height:1.12 !important} #text08{font-size:0.98rem !important;opacity:0.88 !important;margin-bottom:0.85rem !important;line-height:1.45 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:7px;width:100%;margin:6px 0 16px 0} .crp-ep-btn{display:flex;align-items:center;gap:7px;width:100%;min-height:34px;padding:6px 10px;border-radius:8px;text-decoration:none !important;background:rgba(15,23,42,0.80);border:1px solid rgba(255,255,255,0.14);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:12.2px;font-weight:600;line-height:1.25;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-ico{width:16px;height:16px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:1px 5px;border-radius:999px;flex-shrink:0} .crp-inprog-card{border-left:2.5px solid {A} !important} .crp-done-card .crp-ep-ico{background:{A}33;border-color:{A};font-weight:900} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:120px;overflow-y:auto;background:#050914;border:1px solid #1E293B;border-radius:11px;padding:8px 11px;margin-bottom:8px;font-size:11.5px;line-height:1.45;color:#CBD5E1} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:600} #crp-sources-drawer a:hover{text-decoration:underline} @media (max-width:640px){.crp-ep-grid{grid-grid-template-columns:1fr;grid-template-columns:1fr} #text02{font-size:1.8rem !important} }";
+  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:680px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-sources-chip\" type=\"button\" style=\"display:none;background:rgba(148,163,184,0.14);border:1px solid {A}66;color:{A};border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#128218; Sources</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><a id=\"crp-studio-link\" href=\"https://ais-dev-v3n3vsl4pvdlmev4vcfv5b-514995804668.us-west1.run.app\" target=\"_blank\" rel=\"noreferrer\" title=\"Open interactive synchronized transcript studio\" style=\"font-size:10px;font-weight:800;color:#090E1A;background:{A};text-decoration:none;padding:4px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;box-shadow:0 0 12px {A}55;\">Transcript &#8599;</a><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" crossorigin=\"anonymous\" preload=\"metadata\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
+  var PLAYER_VERSION = "1.2.0";
 
   var scriptEl = document.currentScript;
   var rootEl = document.getElementById('crp-hub-root');
@@ -36,6 +36,26 @@
   }
   function slugify(s) {
     return String(s || '').toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+  function parseTimeParam(val) {
+    if (!val) return 0;
+    var s = String(val).trim().toLowerCase();
+    if (/^\d+(\.\d+)?$/.test(s)) return Math.max(0, Math.floor(parseFloat(s)));
+    var hms = s.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+(?:\.\d+)?)s?)?$/);
+    if (hms && (hms[1] || hms[2] || hms[3])) {
+      return (parseInt(hms[1] || '0', 10) * 3600) + (parseInt(hms[2] || '0', 10) * 60) + Math.floor(parseFloat(hms[3] || '0'));
+    }
+    var col = s.split(':').map(Number);
+    if (col.length === 2 && !isNaN(col[0]) && !isNaN(col[1])) return col[0] * 60 + col[1];
+    if (col.length === 3 && !isNaN(col[0]) && !isNaN(col[1]) && !isNaN(col[2])) return col[0] * 3600 + col[1] * 60 + col[2];
+    return 0;
+  }
+  function formatTimeParam(sec) {
+    sec = Math.max(0, Math.floor(sec || 0));
+    var h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+    if (h > 0) return h + 'h' + m + 'm' + (s ? s + 's' : '');
+    if (m > 0) return m + 'm' + (s ? s + 's' : '');
+    return s + 's';
   }
   function fetchJSON(url) {
     var bust = 'v=' + Math.floor(Date.now() / 300000);
@@ -66,6 +86,17 @@
   function boot(cfg, net) {
     var A = cfg.accent || '#34D399';
     var masterTotal = net.master_total || '';
+    var epMetaById = {};
+    var localHubIds = {};
+    (cfg.sections || []).forEach(function (s) {
+      (s.episodes || []).forEach(function (ep) {
+        if (ep && ep.id) {
+          epMetaById[ep.id] = { ep: ep, sec: s.pill || s.heading || '' };
+          localHubIds[ep.id] = true;
+        }
+      });
+    });
+
     function tpl(s) {
       return s.split('{A}').join(A)
         .split('{HUBT}').join(esc(cfg.title))
@@ -85,6 +116,33 @@
         }
       }
     }
+
+    // ---------- Inject RSS auto-discovery <link> + PodcastSeries JSON-LD ----------
+    try {
+      if (cfg.rss && !document.querySelector('link[type="application/rss+xml"]')) {
+        var rssLink = document.createElement('link');
+        rssLink.rel = 'alternate';
+        rssLink.type = 'application/rss+xml';
+        rssLink.title = (cfg.title || 'Deep Dive Podcast') + ' RSS Feed';
+        rssLink.href = cfg.rss;
+        document.head.appendChild(rssLink);
+      }
+      if (!document.getElementById('crp-podcast-jsonld')) {
+        var ld = document.createElement('script');
+        ld.type = 'application/ld+json';
+        ld.id = 'crp-podcast-jsonld';
+        ld.textContent = JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'PodcastSeries',
+          name: cfg.title || 'Deep Dive Podcast Series',
+          description: cfg.subtitle || '',
+          url: cfg.url || location.origin + location.pathname,
+          webFeed: cfg.rss || '',
+          image: cfg.cover || 'https://yorekms.github.io/deep-dive-podcasts/covers/cover-master.png'
+        });
+        document.head.appendChild(ld);
+      }
+    } catch (e) {}
 
     // ---------- Styles + player/RSS markup ----------
     var styleEl = document.createElement('style');
@@ -127,7 +185,7 @@
       } catch (e) {}
     }
 
-    // ---------- Player (ported from the original per-site embed) ----------
+    // ---------- Player ----------
     var player = document.getElementById('carrd-resonance-player');
     var audioEl = document.getElementById('crp-audio-el');
     var nativeWrap = document.getElementById('crp-native-wrap');
@@ -137,6 +195,9 @@
     var statusEl = document.getElementById('crp-status-text');
     var pulseEl = document.getElementById('crp-pulse');
     var restartChip = document.getElementById('crp-restart-chip');
+    var sourcesChip = document.getElementById('crp-sources-chip');
+    var sourcesDrawer = document.getElementById('crp-sources-drawer');
+    var shareBtn = document.getElementById('crp-share-btn');
     var modeBtn = document.getElementById('crp-mode-btn');
     var dlLink = document.getElementById('crp-dl-link');
     var studioLink = document.getElementById('crp-studio-link');
@@ -144,6 +205,8 @@
     var playBtn = document.getElementById('crp-play-btn');
     var rewBtn = document.getElementById('crp-rew-btn');
     var fwdBtn = document.getElementById('crp-fwd-btn');
+    var autoNextBtn = document.getElementById('crp-autonext-btn');
+    var sleepBtn = document.getElementById('crp-sleep-btn');
     var seekEl = document.getElementById('crp-seek');
     var curTimeEl = document.getElementById('crp-time-cur');
     var totTimeEl = document.getElementById('crp-time-tot');
@@ -158,10 +221,16 @@
     var isScrubbing = false;
     var lastSavedSec = 0;
     var savedRate = 1.0;
+    var autoNextOn = false;
+    var sleepMode = 'off'; // 'off' | '15' | '30' | '45' | 'end'
+    var sleepDeadlineMs = 0;
+    var sleepTicker = null;
     var milestonesSent = {};
+
     try {
       var r0 = parseFloat(localStorage.getItem('crp_playback_rate') || '1');
       if (!isNaN(r0) && r0 >= 0.5 && r0 <= 3.0) savedRate = Math.round(r0 * 100) / 100;
+      autoNextOn = localStorage.getItem('crp_autonext') === '1';
     } catch (e) {}
 
     function fmtTime(sec) {
@@ -171,6 +240,65 @@
       var ss = s < 10 ? '0' + s : '' + s;
       if (h > 0) return h + ':' + (m < 10 ? '0' + m : '' + m) + ':' + ss;
       return m + ':' + ss;
+    }
+
+    function syncAutoNextUI() {
+      if (!autoNextBtn) return;
+      if (autoNextOn) autoNextBtn.classList.add('active');
+      else autoNextBtn.classList.remove('active');
+    }
+    syncAutoNextUI();
+
+    function syncSleepUI() {
+      if (!sleepBtn) return;
+      clearInterval(sleepTicker);
+      if (sleepMode === 'off') {
+        sleepBtn.classList.remove('active');
+        sleepBtn.textContent = 'Sleep';
+        return;
+      }
+      sleepBtn.classList.add('active');
+      if (sleepMode === 'end') {
+        sleepBtn.textContent = 'Sleep: End';
+        return;
+      }
+      var updateCountdown = function () {
+        var leftSec = Math.max(0, Math.ceil((sleepDeadlineMs - Date.now()) / 1000));
+        if (leftSec <= 0) {
+          sleepMode = 'off';
+          sleepDeadlineMs = 0;
+          syncSleepUI();
+          if (audioEl && !audioEl.paused) {
+            audioEl.pause();
+            if (statusEl) statusEl.textContent = 'Paused by sleep timer';
+          }
+          return;
+        }
+        sleepBtn.textContent = 'Sleep ' + Math.ceil(leftSec / 60) + 'm';
+      };
+      updateCountdown();
+      sleepTicker = setInterval(updateCountdown, 10000);
+    }
+
+    function refreshCardStates() {
+      document.querySelectorAll('.crp-ep-btn').forEach(function (a) {
+        var href = a.getAttribute('href') || '';
+        var m = href.match(/id=([a-zA-Z0-9_-]+)/);
+        if (!m || !m[1]) return;
+        var id = m[1];
+        var ico = a.querySelector('.crp-ep-ico');
+        var done = false, pos = 0;
+        try {
+          done = localStorage.getItem('crp_done_' + id) === '1';
+          pos = parseFloat(localStorage.getItem('crp_pos_' + id) || '0') || 0;
+        } catch (e) {}
+        a.classList.toggle('crp-done-card', done);
+        a.classList.toggle('crp-inprog-card', !done && pos > 15);
+        if (ico) ico.innerHTML = done ? '&#10003;' : '&#9654;';
+        if (!done && pos > 15) a.title = 'In progress (' + fmtTime(pos) + ') \u2022 Click to resume';
+        else if (done) a.title = 'Completed \u2022 Click to listen again';
+        else a.removeAttribute('title');
+      });
     }
 
     function applySpeed(rate) {
@@ -246,22 +374,76 @@
       if (fallbackWrap) fallbackWrap.style.display = 'none';
       if (nativeWrap) nativeWrap.style.display = 'block';
       if (modeBtn) modeBtn.textContent = 'Backup Player';
-      if (currentDriveId) loadNativeStream(currentDriveId, currentCleanTitle, false);
+      if (currentDriveId) loadNativeStream(currentDriveId, currentCleanTitle, false, 0);
+    }
+
+    function playAdjacentEpisode(delta) {
+      var cards = Array.from(document.querySelectorAll('#crp-curated-audio-hub .crp-ep-btn')).filter(function (c) {
+        return c.style.display !== 'none' && c.closest('.crp-curated-sec') && c.closest('.crp-curated-sec').style.display !== 'none';
+      });
+      if (!cards.length) cards = Array.from(document.querySelectorAll('#crp-curated-audio-hub .crp-ep-btn'));
+      if (!cards.length || !currentDriveId) return false;
+      var idx = -1;
+      for (var i = 0; i < cards.length; i++) {
+        if ((cards[i].getAttribute('href') || '').indexOf(currentDriveId) !== -1) { idx = i; break; }
+      }
+      var nextIdx = idx + delta;
+      if (nextIdx < 0 || nextIdx >= cards.length) return false;
+      cards[nextIdx].click();
+      return true;
     }
 
     function setupMediaSession(title) {
       if (!('mediaSession' in navigator) || !window.MediaMetadata) return;
       try {
-        navigator.mediaSession.metadata = new MediaMetadata({ title: title, artist: cfg.artist || cfg.title, album: 'Deep Dive Podcast Network' });
+        var coverUrl = cfg.cover || 'https://yorekms.github.io/deep-dive-podcasts/covers/cover-master.png';
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: title,
+          artist: cfg.artist || cfg.title,
+          album: 'Deep Dive Podcast Network',
+          artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/png' }]
+        });
         navigator.mediaSession.setActionHandler('play', function () { if (audioEl) audioEl.play(); });
         navigator.mediaSession.setActionHandler('pause', function () { if (audioEl) audioEl.pause(); });
         navigator.mediaSession.setActionHandler('seekbackward', function () { if (audioEl) audioEl.currentTime = Math.max(0, audioEl.currentTime - 15); });
         navigator.mediaSession.setActionHandler('seekforward', function () { if (audioEl && isFinite(audioEl.duration)) audioEl.currentTime = Math.min(audioEl.duration, audioEl.currentTime + 30); });
         navigator.mediaSession.setActionHandler('seekto', function (d) { if (audioEl && d && typeof d.seekTime === 'number') audioEl.currentTime = d.seekTime; });
+        navigator.mediaSession.setActionHandler('previoustrack', function () { playAdjacentEpisode(-1); });
+        navigator.mediaSession.setActionHandler('nexttrack', function () { playAdjacentEpisode(1); });
       } catch (e) {}
     }
 
-    function loadNativeStream(driveId, cleanTitle, useGhStream) {
+    function updateSourcesUI(driveId) {
+      if (!sourcesChip || !sourcesDrawer) return;
+      sourcesDrawer.style.display = 'none';
+      sourcesChip.classList.remove('active');
+      var meta = epMetaById[driveId] && epMetaById[driveId].ep;
+      var sources = meta && meta.sources;
+      var notes = meta && meta.notes;
+      if ((!sources || !sources.length) && !notes) {
+        sourcesChip.style.display = 'none';
+        sourcesDrawer.innerHTML = '';
+        return;
+      }
+      var html = '';
+      if (notes) html += '<div style="margin-bottom:' + (sources && sources.length ? '6px' : '0') + ';color:#E2E8F0;">' + esc(notes) + '</div>';
+      if (sources && sources.length) {
+        html += '<div style="font-size:10px;font-weight:800;color:' + A + ';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;">Primary Sources &amp; References</div><ul style="margin:0;padding-left:16px;">';
+        sources.forEach(function (item) {
+          if (typeof item === 'string') {
+            html += '<li>' + esc(item) + '</li>';
+          } else if (item && item.title) {
+            html += '<li>' + (item.url ? '<a href="' + esc(item.url) + '" target="_blank" rel="noopener">' + esc(item.title) + ' &#8599;</a>' : '<strong>' + esc(item.title) + '</strong>') +
+              (item.detail ? ' — ' + esc(item.detail) : '') + '</li>';
+          }
+        });
+        html += '</ul>';
+      }
+      sourcesDrawer.innerHTML = html;
+      sourcesChip.style.display = 'inline-block';
+    }
+
+    function loadNativeStream(driveId, cleanTitle, useGhStream, forcedStartSec) {
       if (!audioEl) return;
       var streamUrl = (useGhStream && currentGhUrl) ? currentGhUrl : (STREAM_BASE + encodeURIComponent(driveId));
       if (useGhStream) track('stream_fallback', { fallback_to: 'github', episode_title: cleanTitle });
@@ -274,12 +456,20 @@
       setupMediaSession(cleanTitle);
 
       var resumeSec = 0;
-      try { resumeSec = parseFloat(localStorage.getItem('crp_pos_' + driveId) || '0'); } catch (e) {}
+      if (forcedStartSec && forcedStartSec > 0) {
+        resumeSec = forcedStartSec;
+      } else {
+        try { resumeSec = parseFloat(localStorage.getItem('crp_pos_' + driveId) || '0'); } catch (e) {}
+      }
 
       var onLoaded = function () {
         audioEl.removeEventListener('loadedmetadata', onLoaded);
         applySpeed(savedRate);
-        if (resumeSec > 15 && isFinite(audioEl.duration) && resumeSec < audioEl.duration - 20) {
+        if (forcedStartSec && forcedStartSec > 0 && isFinite(audioEl.duration) && forcedStartSec < audioEl.duration - 2) {
+          audioEl.currentTime = forcedStartSec;
+          if (statusEl) statusEl.textContent = 'Jumped to ' + fmtTime(forcedStartSec);
+          if (restartChip) restartChip.style.display = 'inline-block';
+        } else if (resumeSec > 15 && isFinite(audioEl.duration) && resumeSec < audioEl.duration - 20) {
           audioEl.currentTime = resumeSec;
           if (statusEl) statusEl.textContent = 'Resumed at ' + fmtTime(resumeSec);
           if (restartChip) restartChip.style.display = 'inline-block';
@@ -296,13 +486,13 @@
           if (audioEl.error) {
             if (!triedGhFallback && currentGhUrl) {
               triedGhFallback = true;
-              loadNativeStream(driveId, cleanTitle, true);
+              loadNativeStream(driveId, cleanTitle, true, forcedStartSec);
             } else {
               switchToFallback('Switched to Drive backup stream');
             }
           } else {
             if (playBtn) playBtn.innerHTML = '&#9654;';
-            if (statusEl) statusEl.textContent = 'Ready \u2022 Tap Play (' + savedRate + '\u00d7)';
+            if (statusEl) statusEl.textContent = (forcedStartSec ? 'Queued at ' + fmtTime(forcedStartSec) + ' \u2022 ' : 'Ready \u2022 ') + 'Tap Play (' + savedRate + '\u00d7)';
           }
         });
       }
@@ -314,7 +504,7 @@
       document.querySelectorAll('a[href*="' + driveId + '"]').forEach(function (a) { a.classList.add('crp-playing-card'); });
     }
 
-    function playEpisode(driveId, title, ghUrl, section) {
+    function playEpisode(driveId, title, ghUrl, section, forcedStartSec) {
       if (!driveId || !player) return;
       var cleanTitle = (title || 'Deep Dive Podcast')
         .replace(/\s*\b60m\b\s*$/i, '')
@@ -329,6 +519,7 @@
       if (titleEl) titleEl.textContent = cleanTitle;
       if (studioLink) studioLink.href = STUDIO_BASE + '/?driveId=' + encodeURIComponent(driveId) + '&title=' + encodeURIComponent(cleanTitle) + '&autoplay=1';
       if (dlLink) dlLink.href = 'https://drive.google.com/uc?export=download&id=' + driveId;
+      updateSourcesUI(driveId);
       player.style.display = 'block';
       highlightActiveCard(driveId);
 
@@ -338,7 +529,7 @@
       if (nativeWrap) nativeWrap.style.display = 'block';
       if (modeBtn) modeBtn.textContent = 'Backup Player';
       track('episode_play', { episode_title: cleanTitle, episode_id: driveId, section: section || '' });
-      loadNativeStream(driveId, cleanTitle, false);
+      loadNativeStream(driveId, cleanTitle, false, forcedStartSec || 0);
     }
 
     if (audioEl) {
@@ -346,7 +537,7 @@
         if (playBtn) playBtn.innerHTML = '&#10074;&#10074;';
         if (pulseEl) { pulseEl.style.background = A; pulseEl.style.boxShadow = '0 0 10px ' + A; }
         applySpeed(savedRate);
-        if (statusEl && (!statusEl.textContent || statusEl.textContent.indexOf('Resumed') === -1)) {
+        if (statusEl && (!statusEl.textContent || (statusEl.textContent.indexOf('Resumed') === -1 && statusEl.textContent.indexOf('Jumped') === -1))) {
           statusEl.textContent = 'Variable-Speed Stream \u2022 ' + savedRate + '\u00d7';
         }
       });
@@ -358,13 +549,16 @@
       audioEl.addEventListener('pause', function () {
         if (playBtn) playBtn.innerHTML = '&#9654;';
         if (pulseEl) { pulseEl.style.background = '#F59E0B'; pulseEl.style.boxShadow = '0 0 8px #F59E0B'; }
-        if (statusEl && !audioEl.ended) statusEl.textContent = 'Paused \u2022 ' + savedRate + '\u00d7';
+        if (statusEl && !audioEl.ended && statusEl.textContent !== 'Paused by sleep timer') {
+          statusEl.textContent = 'Paused \u2022 ' + savedRate + '\u00d7';
+        }
       });
       audioEl.addEventListener('timeupdate', function () {
         updateTimeUI();
         if (currentDriveId && Math.abs(audioEl.currentTime - lastSavedSec) > 4) {
           lastSavedSec = audioEl.currentTime;
           try { localStorage.setItem('crp_pos_' + currentDriveId, String(Math.floor(audioEl.currentTime))); } catch (e) {}
+          refreshCardStates();
         }
         var dur = audioEl.duration;
         if (currentDriveId && isFinite(dur) && dur > 0) {
@@ -381,15 +575,28 @@
         if (playBtn) playBtn.innerHTML = '&#9654;';
         if (statusEl) statusEl.textContent = 'Episode finished';
         if (currentDriveId) {
-          try { localStorage.removeItem('crp_pos_' + currentDriveId); } catch (e) {}
+          try {
+            localStorage.removeItem('crp_pos_' + currentDriveId);
+            localStorage.setItem('crp_done_' + currentDriveId, '1');
+          } catch (e) {}
+          refreshCardStates();
           track('episode_complete', { episode_title: currentCleanTitle, episode_id: currentDriveId });
+        }
+        if (sleepMode === 'end') {
+          sleepMode = 'off';
+          syncSleepUI();
+          if (statusEl) statusEl.textContent = 'Finished \u2022 Sleep timer stopped playback';
+          return;
+        }
+        if (autoNextOn) {
+          playAdjacentEpisode(1);
         }
       });
       audioEl.addEventListener('error', function () {
         if (currentDriveId && !usingFallback) {
           if (!triedGhFallback && currentGhUrl) {
             triedGhFallback = true;
-            loadNativeStream(currentDriveId, currentCleanTitle, true);
+            loadNativeStream(currentDriveId, currentCleanTitle, true, 0);
           } else {
             switchToFallback('Switched to Drive backup stream');
           }
@@ -402,11 +609,55 @@
     if (fwdBtn) fwdBtn.addEventListener('click', function () {
       if (audioEl) { var dur = isFinite(audioEl.duration) ? audioEl.duration : (audioEl.currentTime + 30); audioEl.currentTime = Math.min(dur, (audioEl.currentTime || 0) + 30); updateTimeUI(); }
     });
+    if (autoNextBtn) autoNextBtn.addEventListener('click', function () {
+      autoNextOn = !autoNextOn;
+      try { localStorage.setItem('crp_autonext', autoNextOn ? '1' : '0'); } catch (e) {}
+      syncAutoNextUI();
+    });
+    if (sleepBtn) sleepBtn.addEventListener('click', function () {
+      var order = ['off', '15', '30', '45', 'end'];
+      var next = order[(order.indexOf(sleepMode) + 1) % order.length];
+      sleepMode = next;
+      sleepDeadlineMs = (next !== 'off' && next !== 'end') ? (Date.now() + parseInt(next, 10) * 60000) : 0;
+      syncSleepUI();
+    });
+    if (sourcesChip && sourcesDrawer) sourcesChip.addEventListener('click', function () {
+      var open = sourcesDrawer.style.display !== 'block';
+      sourcesDrawer.style.display = open ? 'block' : 'none';
+      sourcesChip.classList.toggle('active', open);
+    });
+    if (shareBtn) shareBtn.addEventListener('click', function (ev) {
+      if (!currentDriveId) return;
+      var base = (cfg.url || (location.origin + location.pathname)).replace(/\/+$/, '') + '/';
+      var shareUrl = base + '?ep=' + encodeURIComponent(currentDriveId);
+      if (ev && ev.shiftKey && audioEl && audioEl.currentTime > 5) {
+        shareUrl += '&t=' + formatTimeParam(audioEl.currentTime);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).catch(function () {});
+      }
+      var origHtml = shareBtn.innerHTML;
+      shareBtn.innerHTML = '&#10003; Copied';
+      shareBtn.style.borderColor = A;
+      shareBtn.style.color = A;
+      setTimeout(function () {
+        shareBtn.innerHTML = origHtml;
+        shareBtn.style.borderColor = '#334155';
+        shareBtn.style.color = '#E2E8F0';
+      }, 2000);
+      track('episode_share', { episode_title: currentCleanTitle, episode_id: currentDriveId, share_url: shareUrl });
+    });
     if (restartChip) restartChip.addEventListener('click', function () {
       if (!audioEl) return;
       audioEl.currentTime = 0;
       restartChip.style.display = 'none';
-      if (currentDriveId) { try { localStorage.removeItem('crp_pos_' + currentDriveId); } catch (e) {} }
+      if (currentDriveId) {
+        try {
+          localStorage.removeItem('crp_pos_' + currentDriveId);
+          localStorage.removeItem('crp_done_' + currentDriveId);
+        } catch (e) {}
+        refreshCardStates();
+      }
       if (statusEl) statusEl.textContent = 'Variable-Speed Stream \u2022 ' + savedRate + '\u00d7';
       audioEl.play();
     });
@@ -444,6 +695,34 @@
       if (player) player.style.display = 'none';
       highlightActiveCard(null);
     });
+
+    // Keyboard shortcuts when player is open and user is not typing in a field
+    document.addEventListener('keydown', function (ev) {
+      if (!player || player.style.display !== 'block' || !currentDriveId || usingFallback) return;
+      var t = ev.target;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+      if (ev.metaKey || ev.ctrlKey || ev.altKey) return;
+      if (ev.key === ' ') {
+        ev.preventDefault();
+        if (audioEl.paused) audioEl.play(); else audioEl.pause();
+      } else if (ev.key === 'j' || ev.key === 'J' || ev.key === 'ArrowLeft') {
+        ev.preventDefault();
+        audioEl.currentTime = Math.max(0, (audioEl.currentTime || 0) - 15);
+        updateTimeUI();
+      } else if (ev.key === 'l' || ev.key === 'L' || ev.key === 'ArrowRight') {
+        ev.preventDefault();
+        var dur = isFinite(audioEl.duration) ? audioEl.duration : (audioEl.currentTime + 30);
+        audioEl.currentTime = Math.min(dur, (audioEl.currentTime || 0) + 30);
+        updateTimeUI();
+      } else if (ev.key === '[') {
+        ev.preventDefault();
+        applySpeed(savedRate - 0.1);
+      } else if (ev.key === ']') {
+        ev.preventDefault();
+        applySpeed(savedRate + 0.1);
+      }
+    });
+
     applySpeed(savedRate);
 
     // ---------- RSS modal ----------
@@ -481,6 +760,53 @@
       }
     }
 
+    // ---------- Cross-Hub Network Search Cache ----------
+    var networkEpCache = null;
+    var networkEpPromise = null;
+    function loadAllNetworkEpisodes() {
+      if (networkEpCache) return Promise.resolve(networkEpCache);
+      if (networkEpPromise) return networkEpPromise;
+      var audioHubs = ['consciousness', 'cell-death', 'nutrition-metabolism', 'pharmacology',
+        'forensic-medicine', 'ancient-medicine', 'philosophy-science', 'human-origins'];
+      var siteLabelMap = {};
+      (net.sites || []).forEach(function (s) { if (s.slug) siteLabelMap[s.slug] = s.label || s.slug; });
+      networkEpPromise = Promise.all(audioHubs.filter(function (h) { return h !== HUB; }).map(function (slug) {
+        return fetchJSON(BASE + 'data/' + slug + '.json').then(function (d) {
+          var list = [];
+          (d.sections || []).forEach(function (sec) {
+            (sec.episodes || []).forEach(function (ep) {
+              if (ep && ep.id) {
+                if (!epMetaById[ep.id]) epMetaById[ep.id] = { ep: ep, sec: sec.pill || sec.heading || '' };
+                list.push({
+                  hubSlug: slug,
+                  hubLabel: siteLabelMap[slug] || d.title || slug,
+                  hubUrl: d.url || ('https://my-' + slug + '.carrd.co'),
+                  sec: sec.pill || sec.heading || '',
+                  ep: ep
+                });
+              }
+            });
+          });
+          return list;
+        }).catch(function () { return []; });
+      })).then(function (arrays) {
+        var flat = [];
+        var seen = {};
+        Object.keys(localHubIds).forEach(function (id) { seen[id] = true; });
+        arrays.forEach(function (arr) {
+          arr.forEach(function (item) {
+            if (!seen[item.ep.id]) {
+              seen[item.ep.id] = true;
+              flat.push(item);
+            }
+          });
+        });
+        networkEpCache = flat;
+        return flat;
+      });
+      return networkEpPromise;
+    }
+
     // ---------- Hub UI (navigation, banner, filter bar, episode grid) ----------
     function navPillStyle(active) {
       return active ?
@@ -511,8 +837,9 @@
       return html;
     }
 
-    function epButtonHTML(ep, secIdx) {
-      var tag = ep.tag ? '<span class="crp-ep-tag">' + esc(ep.tag) + '</span>' : '';
+    function epButtonHTML(ep, secIdx, badgeLabel) {
+      var tagTxt = badgeLabel ? (badgeLabel + (ep.tag ? ' \u00b7 ' + ep.tag : '')) : (ep.tag || '');
+      var tag = tagTxt ? '<span class="crp-ep-tag">' + esc(tagTxt) + '</span>' : '';
       return '<a href="https://drive.google.com/uc?export=download&amp;id=' + esc(ep.id) + '"' +
         (ep.gh ? ' data-gh-url="' + esc(ep.gh) + '"' : '') + ' data-sec="' + secIdx + '" class="crp-ep-btn" role="button">' +
         '<span class="crp-ep-ico">&#9654;</span><span class="crp-ep-lbl">' + esc(ep.label) + '</span>' + tag + '</a>';
@@ -532,6 +859,7 @@
       });
       html += '</div><div style="position:relative;flex:1;min-width:190px;max-width:280px;"><input id="crp-ep-search" type="search" placeholder="Search ' + total +
         ' episodes..." aria-label="Search episodes" style="width:100%;padding:5px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.18);background:rgba(15,23,42,0.92);color:#F8FAFC;font-size:12px;outline:none;box-sizing:border-box;font-family:inherit;" /></div></div>';
+      html += '<div id="crp-net-search-wrap" style="display:none;margin:0 0 14px 0;"></div>';
       secs.forEach(function (s, i) {
         var eps = s.episodes || [];
         var countLbl = s.count_label || (eps.length + ' episode' + (eps.length === 1 ? '' : 's'));
@@ -539,7 +867,7 @@
           '<div style="display:flex;align-items:center;justify-content:space-between;margin:8px 0 5px 0;padding-bottom:4px;border-bottom:1px solid rgba(255,255,255,0.12);">' +
           '<h2 style="margin:0;font-size:14.5px;font-weight:800;color:#FFFFFF;letter-spacing:-0.01em;">' + esc(s.heading) + '</h2>' +
           '<span style="font-size:10.5px;font-weight:700;color:#94A3B8;">' + esc(countLbl) + '</span></div><div class="crp-ep-grid">';
-        eps.forEach(function (ep) { html += epButtonHTML(ep, i); });
+        eps.forEach(function (ep) { html += epButtonHTML(ep, i, ''); });
         html += '</div></div>';
       });
       html += '</div>';
@@ -557,6 +885,44 @@
         }
       }
       return null;
+    }
+
+    var deepLinkHandled = false;
+    function handleDeepLinkEpisode() {
+      if (deepLinkHandled) return;
+      try {
+        var sp = new URLSearchParams(location.search);
+        var epParam = (sp.get('ep') || sp.get('episode') || '').trim();
+        if (!epParam) return;
+        deepLinkHandled = true;
+        var tSec = parseTimeParam(sp.get('t') || sp.get('time') || '');
+        var wantSlug = slugify(epParam);
+        var targetCard = null;
+        var cards = document.querySelectorAll('#crp-curated-audio-hub .crp-ep-btn');
+        for (var i = 0; i < cards.length; i++) {
+          var href = cards[i].getAttribute('href') || '';
+          var m = href.match(/id=([a-zA-Z0-9_-]+)/);
+          var id = m ? m[1] : '';
+          var lbl = (cards[i].querySelector('.crp-ep-lbl') || cards[i]).textContent || '';
+          if (id === epParam || (wantSlug && slugify(lbl).indexOf(wantSlug) !== -1)) {
+            targetCard = cards[i];
+            break;
+          }
+        }
+        if (targetCard) {
+          var href2 = targetCard.getAttribute('href') || '';
+          var m2 = href2.match(/id=([a-zA-Z0-9_-]+)/);
+          if (m2 && m2[1]) {
+            var lbl2 = (targetCard.querySelector('.crp-ep-lbl') || targetCard).textContent.trim();
+            var secIdx = targetCard.getAttribute('data-sec');
+            var secName = (secIdx !== null && cfg.sections && cfg.sections[+secIdx]) ? (cfg.sections[+secIdx].pill || cfg.sections[+secIdx].heading) : '';
+            setTimeout(function () {
+              try { targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+              playEpisode(m2[1], lbl2, targetCard.getAttribute('data-gh-url') || '', secName, tSec);
+            }, 150);
+          }
+        }
+      } catch (e) {}
     }
 
     function injectHubUI() {
@@ -586,11 +952,47 @@
         if (subNode && subNode.nextSibling) parent.insertBefore(hubEl, subNode.nextSibling);
         else parent.appendChild(hubEl);
 
+        refreshCardStates();
+
         var activeSec = 'all';
         var query = '';
+        var netExpanded = false;
         var blocks = hubEl.querySelectorAll('.crp-curated-sec');
+        var netWrap = document.getElementById('crp-net-search-wrap');
+
+        var renderNetworkMatches = function (qStr) {
+          if (!netWrap) return;
+          loadAllNetworkEpisodes().then(function (allOther) {
+            if ((query || '').trim().toLowerCase() !== qStr) return;
+            var matches = allOther.filter(function (item) {
+              var hay = (item.ep.label + ' ' + item.sec + ' ' + item.hubLabel).toLowerCase();
+              return hay.indexOf(qStr) !== -1;
+            });
+            if (!matches.length) {
+              netWrap.innerHTML = '<div style="padding:8px 12px;border-radius:10px;background:rgba(15,23,42,0.78);border:1px solid rgba(255,255,255,0.12);color:#94A3B8;font-size:12px;">No matching episodes found across the other hubs for <strong>' + esc(qStr) + '</strong>.</div>';
+              netWrap.style.display = 'block';
+              return;
+            }
+            var h = '<div style="padding:10px 12px;border-radius:12px;background:rgba(9,14,26,0.82);border:1px solid ' + A + '44;">' +
+              '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">' +
+              '<span style="font-size:11.5px;font-weight:800;color:' + A + ';">&#127760; Matches Across Sibling Hubs (' + matches.length + ')</span>' +
+              '<span style="font-size:10.5px;color:#94A3B8;">Click any card to stream right here</span></div><div class="crp-ep-grid" style="margin-bottom:2px;">';
+            matches.slice(0, 24).forEach(function (mItem) {
+              var shortHub = String(mItem.hubLabel).replace(/\s*&.*$/, '').trim();
+              h += epButtonHTML(mItem.ep, 'net', shortHub);
+            });
+            h += '</div></div>';
+            netWrap.innerHTML = h;
+            netWrap.style.display = 'block';
+            refreshCardStates();
+            attachInterceptors();
+            track('network_search', { search_term: qStr, match_count: matches.length });
+          });
+        };
+
         var applyFilter = function () {
           var q = (query || '').trim().toLowerCase();
+          var totalVis = 0;
           blocks.forEach(function (blk) {
             var idx = blk.getAttribute('data-sec-block');
             var secMatch = (activeSec === 'all' || String(idx) === String(activeSec));
@@ -602,7 +1004,27 @@
               if (show) vis++;
             });
             blk.style.display = vis > 0 ? 'block' : 'none';
+            totalVis += vis;
           });
+          if (netWrap) {
+            if (q.length < 2) {
+              netExpanded = false;
+              netWrap.style.display = 'none';
+              netWrap.innerHTML = '';
+            } else if (totalVis === 0 || netExpanded) {
+              renderNetworkMatches(q);
+            } else {
+              netWrap.innerHTML = '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 11px;border-radius:9px;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.12);font-size:11.5px;color:#CBD5E1;">' +
+                '<span>Showing <strong>' + totalVis + '</strong> match' + (totalVis === 1 ? '' : 'es') + ' in this hub.</span>' +
+                '<button type="button" id="crp-expand-net-search" class="crp-mini-chip" style="color:' + A + ';border-color:' + A + '66;">&#127760; Search all 8 hubs' + (masterTotal ? ' (' + masterTotal + ' eps)' : '') + '</button></div>';
+              netWrap.style.display = 'block';
+              var expBtn = document.getElementById('crp-expand-net-search');
+              if (expBtn) expBtn.addEventListener('click', function () {
+                netExpanded = true;
+                renderNetworkMatches(q);
+              });
+            }
+          }
         };
         var activate = function (idx, fromUser) {
           hubEl.querySelectorAll('.crp-sec-pill').forEach(function (x) {
@@ -651,6 +1073,7 @@
         });
       }
       wireRssModal();
+      handleDeepLinkEpisode();
     }
 
     function portalNameFromUrl(url) {
@@ -688,8 +1111,8 @@
             var lblEl = link.querySelector('.crp-ep-lbl');
             var text = lblEl ? lblEl.textContent.trim() : (link.innerText || link.textContent || '').trim();
             var secIdx = link.getAttribute('data-sec');
-            var sec = (secIdx !== null && cfg.sections && cfg.sections[+secIdx]) ? (cfg.sections[+secIdx].pill || cfg.sections[+secIdx].heading) : '';
-            playEpisode(match[1], text, link.getAttribute('data-gh-url') || '', sec);
+            var sec = (secIdx !== null && secIdx !== 'net' && cfg.sections && cfg.sections[+secIdx]) ? (cfg.sections[+secIdx].pill || cfg.sections[+secIdx].heading) : (epMetaById[match[1]] ? epMetaById[match[1]].sec : '');
+            playEpisode(match[1], text, link.getAttribute('data-gh-url') || '', sec, 0);
           }
         });
       });
