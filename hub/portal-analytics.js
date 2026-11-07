@@ -41,22 +41,70 @@
     if (u.indexOf('historical-documents-atlas') !== -1) return 'Historical Documents Atlas';
     return url;
   }
+  var netSynced = false;
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function syncNavFromNetwork() {
+    if (netSynced) return;
+    var nav = document.getElementById('crp-top-hub-nav');
+    if (!nav) return;
+    netSynced = true;
+    var bust = 'v=' + Math.floor(Date.now() / 300000);
+    fetch('https://yorekms.github.io/deep-dive-podcasts/hub/network.json?' + bust, { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (net) {
+        if (!net || !net.sites || !net.sites.length) return;
+        var curNav = document.getElementById('crp-top-hub-nav');
+        if (!curNav) return;
+        var activePill = curNav.querySelector('a[style*="font-weight:800"], a[style*="font-weight: 800"]');
+        var accent = '#38BDF8';
+        if (activePill) {
+          var mBg = (activePill.getAttribute('style') || '').match(/background\s*:\s*(#[0-9a-fA-F]{6})/);
+          if (mBg && mBg[1]) accent = mBg[1];
+        }
+        var rows = curNav.children;
+        if (rows && rows[0]) {
+          var base = 'display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;text-decoration:none;white-space:nowrap;';
+          var html = '';
+          net.sites.forEach(function (s) {
+            var isAct = (s.slug === HUB) || (location.hostname && s.url && s.url.indexOf(location.hostname) !== -1);
+            var st = isAct
+              ? ('font-weight:800;color:#090E1A;background:' + accent + ';box-shadow:0 0 14px ' + accent + '66;border:1px solid ' + accent + ';')
+              : 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);';
+            html += '<a href="' + esc(s.url) + '" class="crp-hub-pill" style="' + base + st + '">' + esc(s.label) + '</a>';
+          });
+          rows[0].innerHTML = html;
+        }
+        if (net.master_total) {
+          var rssModal = document.getElementById('crp-rss-modal');
+          if (rssModal) {
+            rssModal.innerHTML = rssModal.innerHTML.replace(/All \d+ Deep Dive Episodes/g, 'All ' + net.master_total + ' Deep Dive Episodes')
+              .replace(/Apple Podcasts \(All \d+\)/g, 'Apple Podcasts (All ' + net.master_total + ')');
+          }
+        }
+        wire();
+      }).catch(function () {});
+  }
   function wire() {
     var nav = document.getElementById('crp-top-hub-nav');
-    if (nav && !nav.querySelector('a[href*="my-forensic-medicine.carrd.co"]')) {
-      var pharm = nav.querySelector('a[href*="my-pharmacology.carrd.co"]');
-      if (pharm && pharm.parentNode) {
-        var a = document.createElement('a');
-        a.href = 'https://my-forensic-medicine.carrd.co';
-        a.className = pharm.className;
-        a.setAttribute('style', pharm.getAttribute('style') || '');
-        a.style.fontWeight = '600';
-        a.style.color = '#E2E8F0';
-        a.style.background = 'rgba(15,23,42,0.72)';
-        a.style.border = '1px solid rgba(255,255,255,0.14)';
-        a.style.boxShadow = 'none';
-        a.textContent = '🩺 Forensic Medicine & Testing';
-        pharm.parentNode.insertBefore(a, pharm.nextSibling);
+    if (nav) {
+      syncNavFromNetwork();
+      if (!nav.querySelector('a[href*="my-forensic-medicine.carrd.co"]')) {
+        var pharm = nav.querySelector('a[href*="my-pharmacology.carrd.co"]');
+        if (pharm && pharm.parentNode) {
+          var a = document.createElement('a');
+          a.href = 'https://my-forensic-medicine.carrd.co';
+          a.className = pharm.className;
+          a.setAttribute('style', pharm.getAttribute('style') || '');
+          a.style.fontWeight = '600';
+          a.style.color = '#E2E8F0';
+          a.style.background = 'rgba(15,23,42,0.72)';
+          a.style.border = '1px solid rgba(255,255,255,0.14)';
+          a.style.boxShadow = 'none';
+          a.textContent = '🩺 Forensic Medicine & Testing';
+          pharm.parentNode.insertBefore(a, pharm.nextSibling);
+        }
       }
     }
     document.querySelectorAll('a[href*="chatgpt.site"]').forEach(function (link) {
