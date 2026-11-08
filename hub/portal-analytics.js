@@ -58,7 +58,7 @@
         var curNav = document.getElementById('crp-top-hub-nav');
         if (!curNav) return;
         var activePill = curNav.querySelector('a[style*="font-weight:800"], a[style*="font-weight: 800"]');
-        var accent = '#38BDF8';
+        var accent = (HUB === 'scientific-software') ? '#C084FC' : '#38BDF8';
         if (activePill) {
           var mBg = (activePill.getAttribute('style') || '').match(/background\s*:\s*(#[0-9a-fA-F]{6})/);
           if (mBg && mBg[1]) accent = mBg[1];
@@ -76,6 +76,16 @@
           });
           rows[0].innerHTML = html;
         }
+        if (rows && rows[1] && net.portals && net.portals.length) {
+          var phtml = '<span style="font-size:10px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;">Research Portals &amp; Feeds:</span>';
+          net.portals.forEach(function (pt) {
+            phtml += '<a href="' + esc(pt.url) + '" target="_blank" rel="noopener" class="crp-hub-pill" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:700;text-decoration:none;white-space:nowrap;color:' +
+              esc(pt.color || '#E2E8F0') + ';background:' + esc(pt.bg || 'rgba(15,23,42,0.72)') + ';border:1px solid ' + esc(pt.border || 'rgba(255,255,255,0.14)') + ';">' + esc(pt.label) + ' \u2197</a>';
+          });
+          phtml += '<button type="button" id="crp-open-rss-modal-btn" data-series-rss="https://yorekms.github.io/deep-dive-podcasts/feed.xml" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:800;color:#090E1A;background:' +
+            accent + ';border:1px solid ' + accent + ';cursor:pointer;font-family:inherit;white-space:nowrap;">\ud83d\udce1 Podcast App RSS</button>';
+          rows[1].innerHTML = phtml;
+        }
         if (net.master_total) {
           var rssModal = document.getElementById('crp-rss-modal');
           if (rssModal) {
@@ -90,6 +100,8 @@
     var nav = document.getElementById('crp-top-hub-nav');
     if (nav) {
       syncNavFromNetwork();
+      var quotesPill = nav.querySelector('a[href*="my-quotes.carrd.co"]');
+      if (quotesPill && quotesPill.parentNode) quotesPill.parentNode.removeChild(quotesPill);
       if (!nav.querySelector('a[href*="my-forensic-medicine.carrd.co"]')) {
         var pharm = nav.querySelector('a[href*="my-pharmacology.carrd.co"]');
         if (pharm && pharm.parentNode) {
