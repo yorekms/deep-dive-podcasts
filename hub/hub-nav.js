@@ -79,7 +79,9 @@
             var isAct = (s.slug === HUB) || (location.hostname && s.url && s.url.indexOf(location.hostname) !== -1);
             var st = isAct
               ? ('font-weight:800;color:#090E1A;background:' + accent + ';box-shadow:0 0 14px ' + accent + '66;border:1px solid ' + accent + ';')
-              : 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);';
+              : (s.slug === 'clampflow'
+                ? 'font-weight:700;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);'
+                : 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);');
             html += '<a href="' + esc(s.url) + '" class="crp-hub-pill" style="' + base + st + '">' + esc(s.label) + '</a>';
           });
           rows[0].innerHTML = html;
@@ -124,6 +126,22 @@
           a.style.boxShadow = 'none';
           a.textContent = '🩺 Forensic Medicine & Testing';
           pharm.parentNode.insertBefore(a, pharm.nextSibling);
+        }
+      }
+      if (!nav.querySelector('a[href*="my-clampflow.carrd.co"]')) {
+        var sci = nav.querySelector('a[href*="my-scientific-software.carrd.co"]');
+        if (sci && sci.parentNode) {
+          var cf = document.createElement('a');
+          cf.href = 'https://my-clampflow.carrd.co';
+          cf.className = sci.className;
+          cf.setAttribute('style', sci.getAttribute('style') || '');
+          cf.style.fontWeight = '700';
+          cf.style.color = '#FDE68A';
+          cf.style.background = 'rgba(120,53,15,0.48)';
+          cf.style.border = '1px solid rgba(245,158,11,0.55)';
+          cf.style.boxShadow = 'none';
+          cf.textContent = '📈 ClampFlow ABF';
+          sci.parentNode.insertBefore(cf, sci.nextSibling);
         }
       }
     }

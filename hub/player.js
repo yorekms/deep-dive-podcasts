@@ -881,10 +881,14 @@
     }
 
     // ---------- Hub UI (navigation, banner, filter bar, episode grid) ----------
-    function navPillStyle(active) {
-      return active ?
-        'font-weight:800;color:#090E1A;background:' + A + ';box-shadow:0 0 14px ' + A + '66;border:1px solid ' + A + ';' :
-        'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);';
+    function navPillStyle(active, slug) {
+      if (active) {
+        return 'font-weight:800;color:#090E1A;background:' + A + ';box-shadow:0 0 14px ' + A + '66;border:1px solid ' + A + ';';
+      }
+      if (slug === 'clampflow') {
+        return 'font-weight:700;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);';
+      }
+      return 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);';
     }
     function buildNavHTML() {
       var sites = net.sites || [];
@@ -894,7 +898,7 @@
       html += '<div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;">';
       sites.forEach(function (s) {
         var active = s.slug === HUB || (cfg.url && s.url === cfg.url);
-        html += '<a href="' + esc(s.url) + '" class="crp-hub-pill" data-nav-target="' + esc(s.slug || s.url) + '" style="' + base + navPillStyle(active) + '">' + esc(s.label) + '</a>';
+        html += '<a href="' + esc(s.url) + '" class="crp-hub-pill" data-nav-target="' + esc(s.slug || s.url) + '" style="' + base + navPillStyle(active, s.slug) + '">' + esc(s.label) + '</a>';
       });
       html += '</div><div style="margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;">';
       html += '<span style="font-size:10px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;">Research Portals &amp; Feeds:</span>';
