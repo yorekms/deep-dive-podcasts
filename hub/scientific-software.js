@@ -268,6 +268,9 @@
  '</p>' +
  '</div>' +
  '<div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;">' +
+ '<a href="https://my-clampflow.carrd.co" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:12px;font-size:13px;font-weight:800;color:#090E1A;text-decoration:none;background:linear-gradient(135deg, #F59E0B 0%, #10B981 100%);box-shadow:0 0 20px rgba(245,158,11,0.45);">' +
+ '&#128200; Open ClampFlow ABF Student Portal &#8594;' +
+ '</a>' +
  '<a href="https://aistudio.google.com/apps/fa16bbda-602f-48d3-b388-aba63404b252?showPreview=true&showAssistant=true" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:12px;font-size:13px;font-weight:800;color:#090E1A;text-decoration:none;background:linear-gradient(135deg, #38BDF8 0%, #C084FC 100%);box-shadow:0 0 20px rgba(56,189,248,0.45);">' +
  '&#128640; Launch Google AI Studio Workbench &#8599;' +
  '</a>' +
