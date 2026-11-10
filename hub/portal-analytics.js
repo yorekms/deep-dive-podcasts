@@ -126,6 +126,22 @@
           pharm.parentNode.insertBefore(a, pharm.nextSibling);
         }
       }
+      if (!nav.querySelector('a[href*="my-clampflow.carrd.co"]')) {
+        var sci = nav.querySelector('a[href*="my-scientific-software.carrd.co"]');
+        if (sci && sci.parentNode) {
+          var cf = document.createElement('a');
+          cf.href = 'https://my-clampflow.carrd.co';
+          cf.className = sci.className;
+          cf.setAttribute('style', sci.getAttribute('style') || '');
+          cf.style.fontWeight = '700';
+          cf.style.color = '#FDE68A';
+          cf.style.background = 'rgba(120,53,15,0.48)';
+          cf.style.border = '1px solid rgba(245,158,11,0.55)';
+          cf.style.boxShadow = 'none';
+          cf.textContent = '📈 ClampFlow ABF';
+          sci.parentNode.insertBefore(cf, sci.nextSibling);
+        }
+      }
     }
     document.querySelectorAll('a[href*="chatgpt.site"]').forEach(function (link) {
       if (link.dataset.crpPortalHooked) return;
