@@ -2,18 +2,39 @@
 <html lang="en"><head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Deep Dive Podcast Network — RSS Feeds &amp; Research Portals</title>
+<title>Deep Dive Podcast Network — 12 Subject Feeds &amp; Research Portals</title>
 <link rel="alternate" type="application/rss+xml" title="Deep Dive Master Podcast Feed" href="https://yorekms.github.io/deep-dive-podcasts/feed.xml" />
 <style>
   * { box-sizing: border-box; }
   body {
-    margin: 0; padding: 28px 16px 80px 16px;
+    margin: 0; padding: 24px 16px 80px 16px;
     background: radial-gradient(circle at 15% 10%, rgba(56,189,248,0.16), transparent 45%),
                 radial-gradient(circle at 85% 80%, rgba(129,140,248,0.16), transparent 45%),
                 #060B16;
     color: #F8FAFC; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-  .wrap { max-width: 1120px; margin: 0 auto; }
+  .wrap { max-width: 1460px; margin: 0 auto; }
+  .author-box {
+    margin: 0 auto 12px auto; padding: 9px 15px;
+    background: rgba(9,14,26,0.92); border: 1px solid rgba(255,255,255,0.16);
+    border-left: 3px solid #38BDF8; border-radius: 13px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px;
+  }
+  .cred-pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+    border-radius: 999px; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap;
+  }
+  .hub-bar {
+    margin: 0 auto 18px auto; padding: 10px 14px;
+    background: rgba(9,14,26,0.86); border: 1px solid rgba(56,189,248,0.32); border-radius: 15px;
+    display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+  }
+  .hub-pill {
+    display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px;
+    border-radius: 999px; font-size: 11px; font-weight: 600; text-decoration: none;
+    color: #E2E8F0; background: rgba(15,23,42,0.75); border: 1px solid rgba(255,255,255,0.14);
+  }
+  .hub-pill:hover { border-color: #38BDF8; color: #FFFFFF; }
   .hero {
     background: rgba(15,23,42,0.88); border: 1px solid rgba(56,189,248,0.4);
     border-radius: 22px; padding: 26px; margin-bottom: 22px;
@@ -29,7 +50,7 @@
     display: block; transition: transform 0.18s ease, border-color 0.18s ease;
   }
   .portal-card:hover { transform: translateY(-2px); border-color: #38BDF8; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; }
   .feed-card {
     background: rgba(15,23,42,0.86); border-radius: 18px; padding: 18px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.4);
@@ -45,13 +66,27 @@
 </style>
 </head><body>
 <div class="wrap">
+  <div class="author-box" id="crp-author-cred-box">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;">
+      <span style="font-size:13px;font-weight:800;color:#FFFFFF;">Matthew S. Yorek</span>
+      <span style="font-size:11.5px;font-weight:600;color:#94A3B8;">&bull; Biomedical Research, Electrophysiology &amp; Data Engineering</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+      <a href="https://www.ncbi.nlm.nih.gov/myncbi/1XAQAfuLLOMkz/bibliography/public/" target="_blank" rel="noopener" class="cred-pill" style="color:#BAE6FD;background:rgba(14,116,144,0.36);border:1px solid rgba(56,189,248,0.52);">&#128218; PubMed Bibliography &#8599;</a>
+      <a href="https://orcid.org/0000-0002-4737-9367" target="_blank" rel="noopener" class="cred-pill" style="color:#D9F99D;background:rgba(63,98,18,0.42);border:1px solid rgba(163,230,53,0.55);"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:#A6CE39;color:#090E1A;font-size:9.5px;font-weight:900;">iD</span> ORCID 0000-0002-4737-9367 &#8599;</a>
+      <a href="mailto:yorekms@gmail.com" class="cred-pill" style="color:#E2E8F0;background:rgba(30,41,59,0.85);border:1px solid rgba(148,163,184,0.42);">&#9993;&#65039; yorekms@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="hub-bar"><a href="https://my-consciousness.carrd.co" target="_blank" rel="noopener" class="hub-pill">🧠 Consciousness</a><a href="https://my-cell-death.carrd.co" target="_blank" rel="noopener" class="hub-pill">🔥 Cell Death &amp; Immunity</a><a href="https://my-biophysics.carrd.co" target="_blank" rel="noopener" class="hub-pill">⚡ Biophysics &amp; Ion Channels</a><a href="https://my-nutrition-metabolism.carrd.co" target="_blank" rel="noopener" class="hub-pill">🥗 Nutrition &amp; Metabolism</a><a href="https://my-pharmacology.carrd.co" target="_blank" rel="noopener" class="hub-pill">💊 Pharmacology &amp; Toxicology</a><a href="https://my-oncology.carrd.co" target="_blank" rel="noopener" class="hub-pill">🎗️ Precision Oncology</a><a href="https://my-forensic-medicine.carrd.co" target="_blank" rel="noopener" class="hub-pill">🕵️ Forensic Medicine</a><a href="https://my-medical-testing.carrd.co" target="_blank" rel="noopener" class="hub-pill">🩺 Medical Testing &amp; One Medicine</a><a href="https://my-ancient-medicine.carrd.co" target="_blank" rel="noopener" class="hub-pill">⚕️ Ancient Medicine</a><a href="https://my-philosophy-science.carrd.co" target="_blank" rel="noopener" class="hub-pill">🔬 Philosophy &amp; Statistics</a><a href="https://my-human-origins.carrd.co" target="_blank" rel="noopener" class="hub-pill">🏺 Human Origins &amp; Language</a><a href="https://my-religion-cooperation.carrd.co" target="_blank" rel="noopener" class="hub-pill">🏛️ Religion &amp; Cooperation</a><a href="https://my-study-apps.carrd.co" target="_blank" rel="noopener" class="hub-pill">🎓 Estudia! &amp; Web Apps</a><a href="https://my-scientific-software.carrd.co" target="_blank" rel="noopener" class="hub-pill">💻 Scientific Software</a><a href="https://my-clampflow.carrd.co" target="_blank" rel="noopener" class="hub-pill">📈 ClampFlow ABF</a></div>
+
   <div class="hero">
     <div style="font-size:11px;font-weight:800;color:#38BDF8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">
-      Podcast App Directory • Apple Podcasts • Overcast • Pocket Casts • AntennaPod
+      Podcast App Directory &bull; 12 Focused Subject Hubs &bull; Apple Podcasts &bull; Overcast &bull; Pocket Casts &bull; AntennaPod
     </div>
     <h1 style="margin:0 0 8px 0;font-size:28px;font-weight:900;letter-spacing:-0.02em;">Deep Dive Audio Treatise Network — Podcast RSS Feeds</h1>
-    <p style="margin:0;font-size:14px;color:#CBD5E1;line-height:1.55;max-width:820px;">
-      Subscribe to the complete <strong>447-episode Master Feed</strong> or individual subject feeds in any podcast app with full offline downloads, lock-screen controls, and variable-speed playback.
+    <p style="margin:0;font-size:14px;color:#CBD5E1;line-height:1.55;max-width:900px;">
+      Subscribe to the complete <strong>556-episode Master Feed</strong> or any of the <strong>12 focused subject feeds</strong> in your favorite podcast app with offline downloads, lock-screen controls, and variable-speed playback.
     </p>
   </div>
 
@@ -74,17 +109,16 @@
   </div>
 
   <div class="grid">
-    
         <div class="feed-card master-card" style="border:2px solid #38BDF8;">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
             <img src="covers/cover-master.png" alt="Deep Dive Science, Medicine &amp; History — Complete Network" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#38BDF8;letter-spacing:0.08em;text-transform:uppercase;">447 EPISODES • MASTER NETWORK • 447 Episodes</div>
+              <div style="font-size:10.5px;font-weight:800;color:#38BDF8;letter-spacing:0.08em;text-transform:uppercase;">MASTER NETWORK &bull; 556 Episodes &bull; All 12 Subject Hubs</div>
               <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive Science, Medicine &amp; History — Complete Network</h2>
               <a href="https://my-consciousness.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Complete 447-episode Deep Dive audio treatise library curated by Matthew S. Yorek: 60-minute explorations spanning embodied consciousness, 1-angstrom molecular biophysics, regulated cell death, precision oncology, clinical pharmacology, forensic toxicology, human digestion &amp; metabolism, ancient medicine, Bayesian philosophy of science, and human origins.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Complete 556-episode Deep Dive audio treatise library curated by Matthew S. Yorek spanning embodied consciousness, regulated cell death, atomic biophysics &amp; patch-clamp electrophysiology, precision oncology, clinical pharmacology, forensic medicine, medical testing &amp; One Medicine, nutrition &amp; metabolism, ancient medicine, Bayesian philosophy of science, human origins, and religion &amp; human cooperation.</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
             <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed.xml" class="sub-btn" style="background:#38BDF8;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed.xml" class="sub-btn">Overcast</a>
@@ -93,16 +127,17 @@
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
-        <div class="feed-card " style="border:1px solid rgba(255,255,255,0.14);">
+        
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
-            <img src="covers/cover-consciousness.png" alt="Deep Dive: Embodied Consciousness &amp; Neural Computation" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <img src="covers/cover-consciousness.png" alt="Embodied Consciousness &amp; Neural Computation" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#818CF8;letter-spacing:0.08em;text-transform:uppercase;">NEUROSCIENCE &amp; CONSCIOUSNESS • 30 Episodes</div>
-              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive: Embodied Consciousness &amp; Neural Computation</h2>
+              <div style="font-size:10.5px;font-weight:800;color:#818CF8;letter-spacing:0.08em;text-transform:uppercase;">NEUROSCIENCE &amp; CONSCIOUSNESS &bull; 124 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Embodied Consciousness &amp; Neural Computation</h2>
               <a href="https://my-consciousness.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Embodied consciousness, synaptic bioenergetics, clinical disorders of consciousness, stroke syndromes, anesthesia dynamics, and living human neurons vs. artificial neural networks.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Synaptic Biophysics, Language, Clinical Coma, Neuropharmacology &amp; Neural Computation</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
             <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-consciousness.xml" class="sub-btn" style="background:#818CF8;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-consciousness.xml" class="sub-btn">Overcast</a>
@@ -111,16 +146,16 @@
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-consciousness.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
-        <div class="feed-card " style="border:1px solid rgba(255,255,255,0.14);">
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
-            <img src="covers/cover-cell-death-physiology.png" alt="Deep Dive: Cell Death, Atomic Biophysics &amp; Physiology" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <img src="covers/cover-cell-death-physiology.png" alt="Cell Death, Ferroptosis &amp; Inflammatory Crises" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#2DD4BF;letter-spacing:0.08em;text-transform:uppercase;">CELL DEATH &amp; 1-ANGSTROM BIO • 54 Episodes</div>
-              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive: Cell Death, Atomic Biophysics &amp; Physiology</h2>
+              <div style="font-size:10.5px;font-weight:800;color:#2DD4BF;letter-spacing:0.08em;text-transform:uppercase;">CELL DEATH &amp; IMMUNOPATHOLOGY &bull; 66 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Cell Death, Ferroptosis &amp; Inflammatory Crises</h2>
               <a href="https://my-cell-death.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Shoulders of Giants cellular bioenergetics &amp; signaling, undergraduate patch-clamp electrophysiology (MultiClamp 700B, Sutter P-1000, Clampfit 11.4), regulated cell death (ferroptosis, pyroptosis, PANoptosis, NETosis), and 1-angstrom journeys through human molecular machines.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Pyroptosis, Ferroptosis, Sterile Reperfusion, Mitochondrial Stress &amp; Cytokine Storms</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
             <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-cell-death-physiology.xml" class="sub-btn" style="background:#2DD4BF;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-cell-death-physiology.xml" class="sub-btn">Overcast</a>
@@ -129,16 +164,34 @@
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-cell-death-physiology.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
-        <div class="feed-card " style="border:1px solid rgba(255,255,255,0.14);">
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
-            <img src="covers/cover-nutrition-metabolism.png" alt="Deep Dive: Nutrition, Gut-Brain Axis &amp; Metabolism" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <img src="covers/cover-cell-death-physiology.png" alt="Atomic Biophysics, Ion Channels &amp; Molecular Machines" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#10B981;letter-spacing:0.08em;text-transform:uppercase;">NUTRITION &amp; GI METABOLISM • 16 Episodes</div>
-              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive: Nutrition, Gut-Brain Axis &amp; Metabolism</h2>
+              <div style="font-size:10.5px;font-weight:800;color:#22D3EE;letter-spacing:0.08em;text-transform:uppercase;">BIOPHYSICS &amp; ION CHANNELS &bull; 180 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Atomic Biophysics, Ion Channels &amp; Molecular Machines</h2>
+              <a href="https://my-biophysics.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
+            </div>
+          </div>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Patch-Clamp Electrophysiology, 1-Ångström Cryo-EM Structures, Membrane Energetics &amp; Digital Twins</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-biophysics.xml" class="sub-btn" style="background:#22D3EE;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
+            <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-biophysics.xml" class="sub-btn">Overcast</a>
+            <a href="pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed-biophysics.xml" class="sub-btn">Pocket Casts</a>
+            <button type="button" class="sub-btn copy-rss-btn" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed-biophysics.xml">&#128203; Copy RSS URL</button>
+          </div>
+          <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-biophysics.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
+        </div>
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
+            <img src="covers/cover-nutrition-metabolism.png" alt="Nutrition, Gut-Brain Axis &amp; Metabolism" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#10B981;letter-spacing:0.08em;text-transform:uppercase;">NUTRITION &amp; GI METABOLISM &bull; 100 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Nutrition, Gut-Brain Axis &amp; Metabolism</h2>
               <a href="https://my-nutrition-metabolism.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Human digestive physiology, gut microbiome signaling, clinical GI emergencies, nutritional pharmacology, and metabolic epigenetics.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Human Digestion, Microbiome Pharmacology, Lipidomics &amp; Metabolic Crises</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
             <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-nutrition-metabolism.xml" class="sub-btn" style="background:#10B981;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-nutrition-metabolism.xml" class="sub-btn">Overcast</a>
@@ -147,34 +200,88 @@
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-nutrition-metabolism.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
-        <div class="feed-card " style="border:1px solid rgba(255,255,255,0.14);">
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
-            <img src="covers/cover-pharmacology-oncology.png" alt="Deep Dive: Clinical Pharmacology, Oncology &amp; Toxicology" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <img src="covers/cover-pharmacology-oncology.png" alt="Clinical Pharmacology, Drug Safety &amp; Toxicology" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#F43F5E;letter-spacing:0.08em;text-transform:uppercase;">ONCOLOGY &amp; PHARMACOLOGY • 57 Episodes</div>
-              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive: Clinical Pharmacology, Oncology &amp; Toxicology</h2>
+              <div style="font-size:10.5px;font-weight:800;color:#34D399;letter-spacing:0.08em;text-transform:uppercase;">PHARMACOLOGY &amp; DRUG SAFETY &bull; 85 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Clinical Pharmacology, Drug Safety &amp; Toxicology</h2>
               <a href="https://my-pharmacology.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Precision oncology, radioligand theranostics, targeted biologics, patient medication safety, and forensic toxicology investigations.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • GPCR &amp; Channel Pharmacology, Pharmacogenomics, Patient Drug Safety &amp; ICU Toxicology</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
-            <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-pharmacology-oncology.xml" class="sub-btn" style="background:#F43F5E;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
+            <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-pharmacology-oncology.xml" class="sub-btn" style="background:#34D399;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-pharmacology-oncology.xml" class="sub-btn">Overcast</a>
             <a href="pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed-pharmacology-oncology.xml" class="sub-btn">Pocket Casts</a>
             <button type="button" class="sub-btn copy-rss-btn" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed-pharmacology-oncology.xml">&#128203; Copy RSS URL</button>
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-pharmacology-oncology.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
-        <div class="feed-card " style="border:1px solid rgba(255,255,255,0.14);">
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
-            <img src="covers/cover-ancient-medicine.png" alt="Deep Dive: Ancient Medicine, Plagues &amp; Public Health" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <img src="covers/cover-pharmacology-oncology.png" alt="Precision Oncology, Tumor Biology &amp; Cancer Care" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#FB7185;letter-spacing:0.08em;text-transform:uppercase;">MEDICINE &amp; EPIDEMIC HISTORY • 24 Episodes</div>
-              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive: Ancient Medicine, Plagues &amp; Public Health</h2>
+              <div style="font-size:10.5px;font-weight:800;color:#F43F5E;letter-spacing:0.08em;text-transform:uppercase;">PRECISION ONCOLOGY &amp; CANCER CARE &bull; 68 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Precision Oncology, Tumor Biology &amp; Cancer Care</h2>
+              <a href="https://my-oncology.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
+            </div>
+          </div>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Targeted Cancer Therapeutics, Liquid Biopsies, Tumor Metabolism, Supportive Care &amp; Drug Access</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-oncology.xml" class="sub-btn" style="background:#F43F5E;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
+            <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-oncology.xml" class="sub-btn">Overcast</a>
+            <a href="pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed-oncology.xml" class="sub-btn">Pocket Casts</a>
+            <button type="button" class="sub-btn copy-rss-btn" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed-oncology.xml">&#128203; Copy RSS URL</button>
+          </div>
+          <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-oncology.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
+        </div>
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
+            <img src="covers/cover-pharmacology-oncology.png" alt="Forensic Medicine, Taphonomy &amp; Postmortem Science" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#FB923C;letter-spacing:0.08em;text-transform:uppercase;">FORENSIC MEDICINE &amp; TAPHONOMY &bull; 103 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Forensic Medicine, Taphonomy &amp; Postmortem Science</h2>
+              <a href="https://my-forensic-medicine.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
+            </div>
+          </div>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Survival Series • Postmortem Identification, Trace DNA, Impact Biomechanics, Toxicology &amp; Forensic Mimics</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-forensic-medicine.xml" class="sub-btn" style="background:#FB923C;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
+            <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-forensic-medicine.xml" class="sub-btn">Overcast</a>
+            <a href="pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed-forensic-medicine.xml" class="sub-btn">Pocket Casts</a>
+            <button type="button" class="sub-btn copy-rss-btn" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed-forensic-medicine.xml">&#128203; Copy RSS URL</button>
+          </div>
+          <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-forensic-medicine.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
+        </div>
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
+            <img src="covers/cover-philosophy-science.png" alt="Medical Testing, One Medicine &amp; Lab Diagnostics" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#38BDF8;letter-spacing:0.08em;text-transform:uppercase;">MEDICAL TESTING &amp; ONE MEDICINE &bull; 148 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Medical Testing, One Medicine &amp; Lab Diagnostics</h2>
+              <a href="https://my-medical-testing.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
+            </div>
+          </div>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Diagnostic Series • Comparative Human &amp; Veterinary Lab Medicine, Clinical Problem Clusters &amp; Bedside Bayes</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-medical-testing.xml" class="sub-btn" style="background:#38BDF8;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
+            <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-medical-testing.xml" class="sub-btn">Overcast</a>
+            <a href="pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed-medical-testing.xml" class="sub-btn">Pocket Casts</a>
+            <button type="button" class="sub-btn copy-rss-btn" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed-medical-testing.xml">&#128203; Copy RSS URL</button>
+          </div>
+          <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-medical-testing.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
+        </div>
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
+            <img src="covers/cover-ancient-medicine.png" alt="Ancient Medicine, Plagues &amp; Paleopathology" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#FB7185;letter-spacing:0.08em;text-transform:uppercase;">ANCIENT MEDICINE &amp; EPIDEMICS &bull; 65 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Ancient Medicine, Plagues &amp; Paleopathology</h2>
               <a href="https://my-ancient-medicine.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">How ancient viruses, parasites, pandemics, mathematical epidemiology, and public health institutions shaped human biology and civilization.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Paleosurgery, Ancient Pharmacology, Historical Epidemics &amp; Evolutionary Pathogens</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
             <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-ancient-medicine.xml" class="sub-btn" style="background:#FB7185;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-ancient-medicine.xml" class="sub-btn">Overcast</a>
@@ -183,16 +290,16 @@
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-ancient-medicine.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
-        <div class="feed-card " style="border:1px solid rgba(255,255,255,0.14);">
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
-            <img src="covers/cover-philosophy-science.png" alt="Deep Dive: Philosophy of Science, Statistics &amp; Evidence" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <img src="covers/cover-philosophy-science.png" alt="Philosophy of Science, Statistics &amp; Evidence" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#60A5FA;letter-spacing:0.08em;text-transform:uppercase;">PHILOSOPHY &amp; BAYESIAN STATS • 31 Episodes</div>
-              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive: Philosophy of Science, Statistics &amp; Evidence</h2>
+              <div style="font-size:10.5px;font-weight:800;color:#60A5FA;letter-spacing:0.08em;text-transform:uppercase;">PHILOSOPHY &amp; BAYESIAN STATS &bull; 77 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Philosophy of Science, Statistics &amp; Evidence</h2>
               <a href="https://my-philosophy-science.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Karl Popper, adversarial collaboration on consciousness theories, Bayesian medical inference, scientific reproducibility, and open evidence.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Bayesian Reasoning, Lab Instrument Assumptions, Clinical AI Drift &amp; Scientific Epistemology</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
             <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-philosophy-science.xml" class="sub-btn" style="background:#60A5FA;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-philosophy-science.xml" class="sub-btn">Overcast</a>
@@ -201,16 +308,16 @@
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-philosophy-science.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
-        <div class="feed-card " style="border:1px solid rgba(255,255,255,0.14);">
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
           <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
-            <img src="covers/cover-human-origins.png" alt="Deep Dive: Human Origins, Language &amp; Religion" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <img src="covers/cover-human-origins.png" alt="Human Origins, Language &amp; Symbolic Culture" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
             <div>
-              <div style="font-size:10.5px;font-weight:800;color:#FBBF24;letter-spacing:0.08em;text-transform:uppercase;">HUMAN ORIGINS &amp; CIVILIZATION • 14 Episodes</div>
-              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Deep Dive: Human Origins, Language &amp; Religion</h2>
+              <div style="font-size:10.5px;font-weight:800;color:#FBBF24;letter-spacing:0.08em;text-transform:uppercase;">HUMAN ORIGINS &amp; LANGUAGE &bull; 65 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Human Origins, Language &amp; Symbolic Culture</h2>
               <a href="https://my-human-origins.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
             </div>
           </div>
-          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Merged human origins audio series exploring the evolution of spoken language, proto-writing, cuneiform, Big Gods, ritual cooperation, and sacred history.</p>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Origins of Speech, Proto-Writing, Ancient DNA, Archaeometry &amp; Early Human Societies</p>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
             <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-human-origins.xml" class="sub-btn" style="background:#FBBF24;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
             <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-human-origins.xml" class="sub-btn">Overcast</a>
@@ -218,6 +325,24 @@
             <button type="button" class="sub-btn copy-rss-btn" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed-human-origins.xml">&#128203; Copy RSS URL</button>
           </div>
           <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-human-origins.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
+        </div>
+        <div class="feed-card" style="border:1px solid rgba(255,255,255,0.14);">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px;">
+            <img src="covers/cover-human-origins.png" alt="Religion, Ritual &amp; Human Cooperation" width="72" height="72" style="border-radius:14px;border:1px solid rgba(255,255,255,0.18);flex-shrink:0;" />
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#A78BFA;letter-spacing:0.08em;text-transform:uppercase;">RELIGION, RITUAL &amp; COOPERATION &bull; 51 Episodes</div>
+              <h2 style="margin:3px 0 4px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.25;">Religion, Ritual &amp; Human Cooperation</h2>
+              <a href="https://my-religion-cooperation.carrd.co" target="_blank" rel="noopener" style="font-size:11.5px;color:#94A3B8;text-decoration:none;">Open Web Hub &#8599;</a>
+            </div>
+          </div>
+          <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">Deep Dive Audio Series • Moralizing Gods, Collective Ritual Synchrony, Sacred Institutions &amp; Cultural Evolution</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed-religion-cooperation.xml" class="sub-btn" style="background:#A78BFA;color:#090E1A;font-weight:800;">&#127911; Apple Podcasts</a>
+            <a href="overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed-religion-cooperation.xml" class="sub-btn">Overcast</a>
+            <a href="pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed-religion-cooperation.xml" class="sub-btn">Pocket Casts</a>
+            <button type="button" class="sub-btn copy-rss-btn" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed-religion-cooperation.xml">&#128203; Copy RSS URL</button>
+          </div>
+          <input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-religion-cooperation.xml" onclick="this.select()" style="width:100%;padding:6px 9px;border-radius:7px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;" />
         </div>
   </div>
 </div>

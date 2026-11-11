@@ -7,7 +7,7 @@
     if (!document.getElementById('carrd-resonance-player')) {
       var wrap = document.createElement('div');
       wrap.id = 'crp-standalone-shell-scientific-software';
-      wrap.innerHTML = "<style> html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(94vw,1100px) !important;max-width:1100px !important;padding:32px 28px 145px 28px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper{width:100% !important;max-width:1044px !important} #text02, #text08, #divider04, #divider01, #text04, #buttons03, #divider02, #text06, #buttons04, #divider05 { display: none !important; } .crp-hub-pill { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .crp-hub-pill:hover { transform: translateY(-1px); border-color: #38BDF8 !important; background: rgba(30, 41, 59, 0.9) !important; box-shadow: 0 4px 14px rgba(0,0,0,0.35); } .phys-cat-pill { display: inline-flex; align-items: center; gap: 5px; padding: 7px 15px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; color: #CBD5E1; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.16); transition: all 0.18s ease; font-family: inherit; } .phys-cat-pill:hover { border-color: #C084FC; color: #FFFFFF; } .phys-cat-pill.active { background: rgba(192,132,252,0.25); color: #F5D0FE; border-color: #C084FC; box-shadow: 0 0 16px rgba(192,132,252,0.4); } .phys-proto-card { background: rgba(15,23,42,0.92); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .phys-proto-card:hover { transform: translateY(-2px); border-color: rgba(192,132,252,0.7); box-shadow: 0 14px 32px rgba(0,0,0,0.5), 0 0 22px rgba(192,132,252,0.16); } .phys-btn-dl { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 14px; border-radius: 10px; font-size: 12px; font-weight: 700; text-decoration: none !important; color: #090E1A !important; background: linear-gradient(135deg, #38BDF8 0%, #C084FC 100%); border: none; cursor: pointer; transition: opacity 0.18s ease, transform 0.18s ease; } .phys-btn-dl:hover { opacity: 0.94; transform: scale(1.02); } .phys-btn-info { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 12px; border-radius: 10px; font-size: 12px; font-weight: 600; color: #E2E8F0; background: rgba(30,41,59,0.85); border: 1px solid #475569; cursor: pointer; transition: border-color 0.18s ease, color 0.18s ease; } .phys-btn-info:hover { border-color: #38BDF8; color: #38BDF8; } .crp-hub-pill { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .crp-hub-pill:hover { transform: translateY(-1px); border-color: #C084FC !important; background: rgba(30, 41, 59, 0.92) !important; box-shadow: 0 4px 14px rgba(0,0,0,0.35); } .crp-spd-btn { appearance: none; border: 1px solid #334155; background: #131C31; color: #CBD5E1; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 7px; cursor: pointer; line-height: 1.1; font-family: inherit; transition: all 0.15s ease; } .crp-spd-btn:hover { border-color: #C084FC; color: #FFFFFF; } .crp-spd-btn.active { background: #C084FC; color: #090E1A; border-color: #C084FC; box-shadow: 0 0 12px #C084FC66; } .crp-ctrl-btn { appearance: none; border: 1px solid #334155; background: #131C31; color: #E2E8F0; font-size: 11.5px; font-weight: 700; padding: 6px 10px; border-radius: 9px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; font-family: inherit; transition: all 0.15s ease; } .crp-ctrl-btn:hover { border-color: #C084FC; color: #FFFFFF; background: #1E293B; } #crp-seek { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: #1E293B; outline: none; cursor: pointer; margin: 0; } #crp-seek::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #C084FC; border: 2px solid #FFFFFF; box-shadow: 0 0 10px #C084FC; cursor: pointer; } #crp-seek::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #C084FC; border: 2px solid #FFFFFF; box-shadow: 0 0 10px #C084FC; cursor: pointer; } .crp-playing-card { border-color: #C084FC !important; box-shadow: 0 0 0 2px #C084FC66, 0 12px 28px rgba(0,0,0,0.5) !important; background: rgba(30, 41, 59, 0.95) !important; } </style><div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:95%;max-width:680px;background:rgba(9,14,26,0.97);border:1px solid #C084FC99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px #C084FC40;border-radius:20px;padding:13px 16px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"> <div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px;\"> <div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"> <div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div> <div style=\"overflow:hidden;flex:1;\"> <div id=\"crp-title\" style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">Select an episode</div> <div style=\"display:flex;align-items:center;gap:8px;font-size:10.5px;color:#94A3B8;font-weight:600;\"> <span id=\"crp-status-text\">Variable-Speed Stream</span> <button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button> </div> </div> </div> <div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"> <button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button> <a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a> <a id=\"crp-studio-link\" href=\"https://ais-dev-v3n3vsl4pvdlmev4vcfv5b-514995804668.us-west1.run.app\" target=\"_blank\" rel=\"noreferrer\" title=\"Open interactive synchronized transcript studio\" style=\"font-size:10px;font-weight:800;color:#090E1A;background:#C084FC;text-decoration:none;padding:4px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;box-shadow:0 0 12px #C084FC55;\">Transcript &#8599;</a> <button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button> </div> </div> <div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:14px;padding:11px 13px;\"> <audio id=\"crp-audio-el\" crossorigin=\"anonymous\" preload=\"metadata\" style=\"display:none;\"></audio> <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:10px;\"> <span id=\"crp-time-cur\" style=\"font-size:11.5px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span> <input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /> <span id=\"crp-time-tot\" style=\"font-size:11.5px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span> </div> <div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"> <div style=\"display:flex;align-items:center;gap:7px;\"> <button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds\">&#8630; 15s</button> <button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" style=\"width:38px;height:38px;border-radius:50%;border:none;background:#C084FC;color:#090E1A;font-size:15px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 16px #C084FC70;\">&#9654;</button> <button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds\">30s &#8631;</button> <span id=\"crp-rem-badge\" style=\"font-size:10.5px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:2px;\"></span> </div> <div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"> <span style=\"font-size:10px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span> <button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x)\">&minus;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x)\">+</button> <span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:#C084FC;min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span> </div> </div> </div> <div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"> <iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe> </div></div><div id=\"phys-protocol-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.85);backdrop-filter:blur(10px);z-index:1000000;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;\"> <div style=\"width:100%;max-width:680px;background:#090E1A;border:1px solid #C084FC88;border-radius:20px;padding:24px;box-shadow:0 25px 70px rgba(0,0,0,0.9),0 0 40px rgba(192,132,252,0.25);color:#F8FAFC;max-height:88vh;overflow-y:auto;\"> <div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"> <div> <div id=\"phys-modal-badge\" style=\"font-size:10.5px;font-weight:800;color:#C084FC;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;\">Software Suite Details</div> <h3 id=\"phys-modal-title\" style=\"margin:0;font-size:20px;font-weight:800;color:#FFFFFF;\">Protocol Name</h3> </div> <button id=\"phys-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:4px 10px;font-size:16px;cursor:pointer;\">&times;</button> </div> <p id=\"phys-modal-desc\" style=\"font-size:13.5px;line-height:1.6;color:#CBD5E1;margin:0 0 14px 0;\"></p> <div style=\"background:rgba(15,23,42,0.95);border:1px solid #334155;border-radius:12px;padding:12px 14px;margin-bottom:12px;\"> <div style=\"font-size:11px;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;\">Included Scripts &amp; Artifacts</div> <div id=\"phys-modal-files\" style=\"font-family:monospace;font-size:12px;color:#E2E8F0;line-height:1.65;\"></div> </div> <div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(16,185,129,0.4);border-radius:12px;padding:12px 14px;margin-bottom:16px;\"> <div style=\"font-size:11px;font-weight:800;color:#34D399;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;\">Scientific &amp; Code Parity Details</div> <div id=\"phys-modal-python\" style=\"font-size:12.5px;color:#CBD5E1;line-height:1.55;\"></div> </div> <div style=\"display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;\"> <a id=\"phys-modal-dl\" href=\"#\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" class=\"phys-btn-dl\" download>&#11015; Download Archive (.zip)</a> <a href=\"https://aistudio.google.com/apps/fa16bbda-602f-48d3-b388-aba63404b252?showPreview=true&showAssistant=true\" target=\"_blank\" rel=\"noopener\" class=\"phys-btn-info\" style=\"text-decoration:none;\">&#128640; Open AI Studio Workbench &#8599;</a> </div> </div></div>\n<div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\">\n <div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid #C084FC88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\">\n <div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\">\n <div>\n <div style=\"font-size:10.5px;font-weight:800;color:#C084FC;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div>\n <h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3>\n </div>\n <button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button>\n </div>\n <p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\">\n Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player.\n </p>\n <div style=\"background:rgba(15,23,42,0.95);border:1px solid #C084FC55;border-radius:12px;padding:12px;margin-bottom:10px;\">\n <div style=\"font-size:11px;font-weight:800;color:#C084FC;margin-bottom:6px;\">This Hub's Feed (Deep Dive Network)</div>\n <div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\">\n <a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#C084FC;color:#090E1A;border-color:#C084FC;text-decoration:none;font-weight:800;\">Apple Podcasts</a>\n <a href=\"overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a>\n <a href=\"pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a>\n <button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Feed URL</button>\n </div>\n <input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" />\n </div>\n <div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\">\n <div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All 280 Deep Dive Episodes)</div>\n <div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\">\n <a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All 280)</a>\n <button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button>\n <a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All 8 Feeds Directory &#8599;</a>\n </div>\n <input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" />\n </div>\n </div>\n</div>";
+      wrap.innerHTML = "<style> html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:24px 22px 145px 22px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper{width:100% !important;max-width:1510px !important} #text02, #text08, #divider04, #divider01, #text04, #buttons03, #divider02, #text06, #buttons04, #divider05 { display: none !important; } .crp-hub-pill { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .crp-hub-pill:hover { transform: translateY(-1px); border-color: #38BDF8 !important; background: rgba(30, 41, 59, 0.9) !important; box-shadow: 0 4px 14px rgba(0,0,0,0.35); } .phys-cat-pill { display: inline-flex; align-items: center; gap: 5px; padding: 7px 15px; border-radius: 999px; font-size: 12px; font-weight: 700; cursor: pointer; color: #CBD5E1; background: rgba(15,23,42,0.85); border: 1px solid rgba(255,255,255,0.16); transition: all 0.18s ease; font-family: inherit; } .phys-cat-pill:hover { border-color: #C084FC; color: #FFFFFF; } .phys-cat-pill.active { background: rgba(192,132,252,0.25); color: #F5D0FE; border-color: #C084FC; box-shadow: 0 0 16px rgba(192,132,252,0.4); } .phys-proto-card { background: rgba(15,23,42,0.92); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; } .phys-proto-card:hover { transform: translateY(-2px); border-color: rgba(192,132,252,0.7); box-shadow: 0 14px 32px rgba(0,0,0,0.5), 0 0 22px rgba(192,132,252,0.16); } .phys-btn-dl { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 14px; border-radius: 10px; font-size: 12px; font-weight: 700; text-decoration: none !important; color: #090E1A !important; background: linear-gradient(135deg, #38BDF8 0%, #C084FC 100%); border: none; cursor: pointer; transition: opacity 0.18s ease, transform 0.18s ease; } .phys-btn-dl:hover { opacity: 0.94; transform: scale(1.02); } .phys-btn-info { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 8px 12px; border-radius: 10px; font-size: 12px; font-weight: 600; color: #E2E8F0; background: rgba(30,41,59,0.85); border: 1px solid #475569; cursor: pointer; transition: border-color 0.18s ease, color 0.18s ease; } .phys-btn-info:hover { border-color: #38BDF8; color: #38BDF8; } .crp-hub-pill { transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .crp-hub-pill:hover { transform: translateY(-1px); border-color: #C084FC !important; background: rgba(30, 41, 59, 0.92) !important; box-shadow: 0 4px 14px rgba(0,0,0,0.35); } .crp-spd-btn { appearance: none; border: 1px solid #334155; background: #131C31; color: #CBD5E1; font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 7px; cursor: pointer; line-height: 1.1; font-family: inherit; transition: all 0.15s ease; } .crp-spd-btn:hover { border-color: #C084FC; color: #FFFFFF; } .crp-spd-btn.active { background: #C084FC; color: #090E1A; border-color: #C084FC; box-shadow: 0 0 12px #C084FC66; } .crp-ctrl-btn { appearance: none; border: 1px solid #334155; background: #131C31; color: #E2E8F0; font-size: 11.5px; font-weight: 700; padding: 6px 10px; border-radius: 9px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; font-family: inherit; transition: all 0.15s ease; } .crp-ctrl-btn:hover { border-color: #C084FC; color: #FFFFFF; background: #1E293B; } #crp-seek { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: #1E293B; outline: none; cursor: pointer; margin: 0; } #crp-seek::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; border-radius: 50%; background: #C084FC; border: 2px solid #FFFFFF; box-shadow: 0 0 10px #C084FC; cursor: pointer; } #crp-seek::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: #C084FC; border: 2px solid #FFFFFF; box-shadow: 0 0 10px #C084FC; cursor: pointer; } .crp-playing-card { border-color: #C084FC !important; box-shadow: 0 0 0 2px #C084FC66, 0 12px 28px rgba(0,0,0,0.5) !important; background: rgba(30, 41, 59, 0.95) !important; } </style><div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);width:95%;max-width:680px;background:rgba(9,14,26,0.97);border:1px solid #C084FC99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px #C084FC40;border-radius:20px;padding:13px 16px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"> <div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px;\"> <div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"> <div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div> <div style=\"overflow:hidden;flex:1;\"> <div id=\"crp-title\" style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;\">Select an episode</div> <div style=\"display:flex;align-items:center;gap:8px;font-size:10.5px;color:#94A3B8;font-weight:600;\"> <span id=\"crp-status-text\">Variable-Speed Stream</span> <button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button> </div> </div> </div> <div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"> <button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button> <a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a> <a id=\"crp-studio-link\" href=\"https://ais-dev-v3n3vsl4pvdlmev4vcfv5b-514995804668.us-west1.run.app\" target=\"_blank\" rel=\"noreferrer\" title=\"Open interactive synchronized transcript studio\" style=\"font-size:10px;font-weight:800;color:#090E1A;background:#C084FC;text-decoration:none;padding:4px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;box-shadow:0 0 12px #C084FC55;\">Transcript &#8599;</a> <button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button> </div> </div> <div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:14px;padding:11px 13px;\"> <audio id=\"crp-audio-el\" crossorigin=\"anonymous\" preload=\"metadata\" style=\"display:none;\"></audio> <div style=\"display:flex;align-items:center;gap:10px;margin-bottom:10px;\"> <span id=\"crp-time-cur\" style=\"font-size:11.5px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span> <input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /> <span id=\"crp-time-tot\" style=\"font-size:11.5px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span> </div> <div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"> <div style=\"display:flex;align-items:center;gap:7px;\"> <button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds\">&#8630; 15s</button> <button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" style=\"width:38px;height:38px;border-radius:50%;border:none;background:#C084FC;color:#090E1A;font-size:15px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 16px #C084FC70;\">&#9654;</button> <button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds\">30s &#8631;</button> <span id=\"crp-rem-badge\" style=\"font-size:10.5px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:2px;\"></span> </div> <div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"> <span style=\"font-size:10px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span> <button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x)\">&minus;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button> <button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x)\">+</button> <span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:#C084FC;min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span> </div> </div> </div> <div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"> <iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe> </div></div><div id=\"phys-protocol-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.85);backdrop-filter:blur(10px);z-index:1000000;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;\"> <div style=\"width:100%;max-width:680px;background:#090E1A;border:1px solid #C084FC88;border-radius:20px;padding:24px;box-shadow:0 25px 70px rgba(0,0,0,0.9),0 0 40px rgba(192,132,252,0.25);color:#F8FAFC;max-height:88vh;overflow-y:auto;\"> <div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"> <div> <div id=\"phys-modal-badge\" style=\"font-size:10.5px;font-weight:800;color:#C084FC;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;\">Software Suite Details</div> <h3 id=\"phys-modal-title\" style=\"margin:0;font-size:20px;font-weight:800;color:#FFFFFF;\">Protocol Name</h3> </div> <button id=\"phys-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:4px 10px;font-size:16px;cursor:pointer;\">&times;</button> </div> <p id=\"phys-modal-desc\" style=\"font-size:13.5px;line-height:1.6;color:#CBD5E1;margin:0 0 14px 0;\"></p> <div style=\"background:rgba(15,23,42,0.95);border:1px solid #334155;border-radius:12px;padding:12px 14px;margin-bottom:12px;\"> <div style=\"font-size:11px;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;\">Included Scripts &amp; Artifacts</div> <div id=\"phys-modal-files\" style=\"font-family:monospace;font-size:12px;color:#E2E8F0;line-height:1.65;\"></div> </div> <div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(16,185,129,0.4);border-radius:12px;padding:12px 14px;margin-bottom:16px;\"> <div style=\"font-size:11px;font-weight:800;color:#34D399;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;\">Scientific &amp; Code Parity Details</div> <div id=\"phys-modal-python\" style=\"font-size:12.5px;color:#CBD5E1;line-height:1.55;\"></div> </div> <div style=\"display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;\"> <a id=\"phys-modal-dl\" href=\"#\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" class=\"phys-btn-dl\" download>&#11015; Download Archive (.zip)</a> <a href=\"https://aistudio.google.com/apps/fa16bbda-602f-48d3-b388-aba63404b252?showPreview=true&showAssistant=true\" target=\"_blank\" rel=\"noopener\" class=\"phys-btn-info\" style=\"text-decoration:none;\">&#128640; Open AI Studio Workbench &#8599;</a> </div> </div></div>\n<div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\">\n <div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid #C084FC88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\">\n <div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\">\n <div>\n <div style=\"font-size:10.5px;font-weight:800;color:#C084FC;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div>\n <h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3>\n </div>\n <button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button>\n </div>\n <p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\">\n Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player.\n </p>\n <div style=\"background:rgba(15,23,42,0.95);border:1px solid #C084FC55;border-radius:12px;padding:12px;margin-bottom:10px;\">\n <div style=\"font-size:11px;font-weight:800;color:#C084FC;margin-bottom:6px;\">This Hub's Feed (Deep Dive Network)</div>\n <div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\">\n <a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#C084FC;color:#090E1A;border-color:#C084FC;text-decoration:none;font-weight:800;\">Apple Podcasts</a>\n <a href=\"overcast://x-callback-url/add?url=https://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a>\n <a href=\"pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a>\n <button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Feed URL</button>\n </div>\n <input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" />\n </div>\n <div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\">\n <div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All 556 Deep Dive Episodes)</div>\n <div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\">\n <a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All 556)</a>\n <button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button>\n <a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All 12 Feeds Directory &#8599;</a>\n </div>\n <input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" />\n </div>\n </div>\n</div>";
       document.body.appendChild(wrap);
     }
   }
@@ -246,12 +246,12 @@
  
  var wrap = document.createElement('div');
  wrap.id = 'crp-standalone-phys-wrapper';
- wrap.style.cssText = 'width:100%;max-width:1120px;margin:0 auto;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#F1F5F9;';
+ wrap.style.cssText = 'width:100%;max-width:1510px;margin:0 auto;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#F1F5F9;';
  
  var html = '';
  
  /* 1. TOP HUB NAVIGATION BAR */
- html += "<div id=\"crp-top-hub-nav\" style=\"width:100%;max-width:1140px;margin:0 auto 16px auto;padding:9px 12px;background:rgba(9,14,26,0.84);border:1px solid #C084FC44;border-radius:15px;box-shadow:0 10px 28px rgba(0,0,0,0.38);backdrop-filter:blur(14px);box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;\"><div style=\"display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;\"><a href=\"https://my-consciousness.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83e\udde0 Consciousness</a><a href=\"https://my-cell-death.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\u26a1 Cell Death &amp; Biophysics</a><a href=\"https://my-nutrition-metabolism.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83e\udd57 Nutrition &amp; Metabolism</a><a href=\"https://my-pharmacology.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83d\udc8a Pharmacology &amp; Oncology</a><a href=\"https://my-forensic-medicine.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83e\ude7a Forensic Medicine &amp; Testing</a><a href=\"https://my-ancient-medicine.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\u2695\ufe0f Ancient Medicine</a><a href=\"https://my-philosophy-science.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83d\udd2c Philosophy &amp; Statistics</a><a href=\"https://my-human-origins.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83c\udfdb\ufe0f Human Origins, Language &amp; Religion</a><a href=\"https://my-study-apps.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83c\udf93 Estudia! &amp; Web Apps</a><a href=\"https://my-scientific-software.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:800;text-decoration:none;color:#090E1A;background:#C084FC;box-shadow:0 0 14px #C084FC66;border:1px solid #C084FC;white-space:nowrap;\">\ud83d\udcbb Scientific Software</a><a href=\"https://my-clampflow.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:700;text-decoration:none;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);white-space:nowrap;\">📈 ClampFlow ABF</a></div><div style=\"margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;\"><span style=\"font-size:10px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;\">Research Portals &amp; Feeds:</span><a href=\"https://yorek-cancer-ai-primer.tasty-siren-3221.chatgpt.site\" target=\"_blank\" rel=\"noopener\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:800;text-decoration:none;color:#FFE4E6;background:rgba(159,18,57,0.45);border:1px solid rgba(251,113,133,0.65);white-space:nowrap;\">\ud83e\uddec VCU Cancer AI Primer \u2197</a><a href=\"https://public-evidence-library-yorek.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:700;text-decoration:none;color:#DBEAFE;background:rgba(30,58,138,0.42);border:1px solid rgba(96,165,250,0.55);white-space:nowrap;\">\ud83d\udcca Public Evidence Library \u2197</a><a href=\"https://historical-documents-atlas.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:700;text-decoration:none;color:#FEF3C7;background:rgba(120,53,15,0.42);border:1px solid rgba(251,191,36,0.55);white-space:nowrap;\">\ud83d\uddfa\ufe0f Historical Documents Atlas \u2197</a><button type=\"button\" id=\"crp-open-rss-modal-btn\" data-series-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:800;color:#090E1A;background:#C084FC;border:1px solid #C084FC;cursor:pointer;font-family:inherit;white-space:nowrap;\">\ud83d\udce1 Podcast App RSS</button></div></div><div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;margin:0 auto 14px auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><a href=\"https://yorek-cancer-ai-primer.tasty-siren-3221.chatgpt.site\" target=\"_blank\" rel=\"noopener\" style=\"background:linear-gradient(135deg, rgba(136,19,55,0.40) 0%, rgba(15,23,42,0.94) 100%);border:1px solid #F43F5E66;border-radius:13px;padding:11px 14px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;gap:6px;transition:transform 0.16s ease,border-color 0.16s ease;\"><div><div style=\"font-size:9.5px;font-weight:800;color:#F43F5E;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;\">Featured Application Showcase \u2022 VCU Massey Comprehensive Cancer Center</div><div style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;line-height:1.25;margin-bottom:3px;\">Matthew S. Yorek \u2014 Cancer Biology, Computation &amp; Scientific Communication</div><div style=\"font-size:11.5px;color:#CBD5E1;line-height:1.4;\">Cancer biology. Computational tools. Clearer science. Interactive translational oncology &amp; AI primer built to turn complex source data into inspectable evidence.</div></div><div style=\"font-size:11px;font-weight:800;color:#F43F5E;\">Explore VCU Cancer AI Primer \u2197</div></a><a href=\"https://public-evidence-library-yorek.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" style=\"background:linear-gradient(135deg, rgba(30,58,138,0.40) 0%, rgba(15,23,42,0.94) 100%);border:1px solid #60A5FA66;border-radius:13px;padding:11px 14px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;gap:6px;transition:transform 0.16s ease,border-color 0.16s ease;\"><div><div style=\"font-size:9.5px;font-weight:800;color:#60A5FA;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;\">Interactive Open Data &amp; Epistemology Portal</div><div style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;line-height:1.25;margin-bottom:3px;\">Public Evidence Library \u2014 Learn, Explore, Reconsider</div><div style=\"font-size:11.5px;color:#CBD5E1;line-height:1.4;\">Explore public data, inspect primary sources, follow global commodities and purchasing power across places and years, and test assumptions interactively.</div></div><div style=\"font-size:11px;font-weight:800;color:#60A5FA;\">Open Public Evidence Library \u2197</div></a><a href=\"https://historical-documents-atlas.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" style=\"background:linear-gradient(135deg, rgba(120,53,15,0.40) 0%, rgba(15,23,42,0.94) 100%);border:1px solid #FBBF2466;border-radius:13px;padding:11px 14px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;gap:6px;transition:transform 0.16s ease,border-color 0.16s ease;\"><div><div style=\"font-size:9.5px;font-weight:800;color:#FBBF24;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;\">Interactive Primary Source &amp; Archival Cartography</div><div style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;line-height:1.25;margin-bottom:3px;\">Historical Documents &amp; State Killing Atlas</div><div style=\"font-size:11.5px;color:#CBD5E1;line-height:1.4;\">Interactive archival atlas mapping primary historical documents, state violence, institutional records, and comparative historical evidence.</div></div><div style=\"font-size:11px;font-weight:800;color:#FBBF24;\">Launch Historical Documents Atlas \u2197</div></a></div>";
+ html += "<div id=\"crp-top-hub-nav\" style=\"width:100%;max-width:1510px;margin:0 auto 16px auto;padding:9px 12px;background:rgba(9,14,26,0.84);border:1px solid #C084FC44;border-radius:15px;box-shadow:0 10px 28px rgba(0,0,0,0.38);backdrop-filter:blur(14px);box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;\"><div style=\"display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;\"><a href=\"https://my-consciousness.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83e\udde0 Consciousness</a><a href=\"https://my-cell-death.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\u26a1 Cell Death &amp; Biophysics</a><a href=\"https://my-nutrition-metabolism.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83e\udd57 Nutrition &amp; Metabolism</a><a href=\"https://my-pharmacology.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83d\udc8a Pharmacology &amp; Oncology</a><a href=\"https://my-forensic-medicine.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83e\ude7a Forensic Medicine &amp; Testing</a><a href=\"https://my-ancient-medicine.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\u2695\ufe0f Ancient Medicine</a><a href=\"https://my-philosophy-science.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83d\udd2c Philosophy &amp; Statistics</a><a href=\"https://my-human-origins.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83c\udfdb\ufe0f Human Origins, Language &amp; Religion</a><a href=\"https://my-study-apps.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:600;text-decoration:none;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);white-space:nowrap;\">\ud83c\udf93 Estudia! &amp; Web Apps</a><a href=\"https://my-scientific-software.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:800;text-decoration:none;color:#090E1A;background:#C084FC;box-shadow:0 0 14px #C084FC66;border:1px solid #C084FC;white-space:nowrap;\">\ud83d\udcbb Scientific Software</a><a href=\"https://my-clampflow.carrd.co\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;font-weight:700;text-decoration:none;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);white-space:nowrap;\">📈 ClampFlow ABF</a></div><div style=\"margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;\"><span style=\"font-size:10px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;\">Research Portals &amp; Feeds:</span><a href=\"https://yorek-cancer-ai-primer.tasty-siren-3221.chatgpt.site\" target=\"_blank\" rel=\"noopener\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:800;text-decoration:none;color:#FFE4E6;background:rgba(159,18,57,0.45);border:1px solid rgba(251,113,133,0.65);white-space:nowrap;\">\ud83e\uddec VCU Cancer AI Primer \u2197</a><a href=\"https://public-evidence-library-yorek.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:700;text-decoration:none;color:#DBEAFE;background:rgba(30,58,138,0.42);border:1px solid rgba(96,165,250,0.55);white-space:nowrap;\">\ud83d\udcca Public Evidence Library \u2197</a><a href=\"https://historical-documents-atlas.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" class=\"crp-hub-pill\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:700;text-decoration:none;color:#FEF3C7;background:rgba(120,53,15,0.42);border:1px solid rgba(251,191,36,0.55);white-space:nowrap;\">\ud83d\uddfa\ufe0f Historical Documents Atlas \u2197</a><button type=\"button\" id=\"crp-open-rss-modal-btn\" data-series-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" style=\"display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:800;color:#090E1A;background:#C084FC;border:1px solid #C084FC;cursor:pointer;font-family:inherit;white-space:nowrap;\">\ud83d\udce1 Podcast App RSS</button></div></div><div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:10px;margin:0 auto 14px auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><a href=\"https://yorek-cancer-ai-primer.tasty-siren-3221.chatgpt.site\" target=\"_blank\" rel=\"noopener\" style=\"background:linear-gradient(135deg, rgba(136,19,55,0.40) 0%, rgba(15,23,42,0.94) 100%);border:1px solid #F43F5E66;border-radius:13px;padding:11px 14px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;gap:6px;transition:transform 0.16s ease,border-color 0.16s ease;\"><div><div style=\"font-size:9.5px;font-weight:800;color:#F43F5E;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;\">Featured Application Showcase \u2022 VCU Massey Comprehensive Cancer Center</div><div style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;line-height:1.25;margin-bottom:3px;\">Matthew S. Yorek \u2014 Cancer Biology, Computation &amp; Scientific Communication</div><div style=\"font-size:11.5px;color:#CBD5E1;line-height:1.4;\">Cancer biology. Computational tools. Clearer science. Interactive translational oncology &amp; AI primer built to turn complex source data into inspectable evidence.</div></div><div style=\"font-size:11px;font-weight:800;color:#F43F5E;\">Explore VCU Cancer AI Primer \u2197</div></a><a href=\"https://public-evidence-library-yorek.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" style=\"background:linear-gradient(135deg, rgba(30,58,138,0.40) 0%, rgba(15,23,42,0.94) 100%);border:1px solid #60A5FA66;border-radius:13px;padding:11px 14px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;gap:6px;transition:transform 0.16s ease,border-color 0.16s ease;\"><div><div style=\"font-size:9.5px;font-weight:800;color:#60A5FA;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;\">Interactive Open Data &amp; Epistemology Portal</div><div style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;line-height:1.25;margin-bottom:3px;\">Public Evidence Library \u2014 Learn, Explore, Reconsider</div><div style=\"font-size:11.5px;color:#CBD5E1;line-height:1.4;\">Explore public data, inspect primary sources, follow global commodities and purchasing power across places and years, and test assumptions interactively.</div></div><div style=\"font-size:11px;font-weight:800;color:#60A5FA;\">Open Public Evidence Library \u2197</div></a><a href=\"https://historical-documents-atlas.yorekms.chatgpt.site\" target=\"_blank\" rel=\"noopener\" style=\"background:linear-gradient(135deg, rgba(120,53,15,0.40) 0%, rgba(15,23,42,0.94) 100%);border:1px solid #FBBF2466;border-radius:13px;padding:11px 14px;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;gap:6px;transition:transform 0.16s ease,border-color 0.16s ease;\"><div><div style=\"font-size:9.5px;font-weight:800;color:#FBBF24;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;\">Interactive Primary Source &amp; Archival Cartography</div><div style=\"font-size:13.5px;font-weight:800;color:#FFFFFF;line-height:1.25;margin-bottom:3px;\">Historical Documents &amp; State Killing Atlas</div><div style=\"font-size:11.5px;color:#CBD5E1;line-height:1.4;\">Interactive archival atlas mapping primary historical documents, state violence, institutional records, and comparative historical evidence.</div></div><div style=\"font-size:11px;font-weight:800;color:#FBBF24;\">Launch Historical Documents Atlas \u2197</div></a></div>";
  
  /* 2. HERO HEADER & QUICK DOWNLOADS */
  html += '<div style="background:linear-gradient(135deg, rgba(30,27,75,0.7) 0%, rgba(15,23,42,0.92) 100%);border:1px solid rgba(192,132,252,0.4);border-radius:22px;padding:26px;margin-bottom:24px;box-shadow:0 18px 45px rgba(0,0,0,0.55);">' +
@@ -832,21 +832,157 @@
  setInterval(wireAppRssModal, 1500);
 })();
 /*!
- * Shared GA4 / Google Tag + .chatgpt.site portal click tracker + Forensic nav pill injector
+ * Shared GA4 / Google Tag + .chatgpt.site portal click tracker + Author Credentials Box
+ * + 15-site Network Nav + Cross-URL Listened Sync Passthrough (#crp_s)
  * for non-podcast Carrd portfolio sites and external research portals.
  */
 (function () {
   'use strict';
   if (window.__crpPortalAnalyticsLoaded) return;
   window.__crpPortalAnalyticsLoaded = true;
+
+  var FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+  var B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+  var incomingSyncToken = '';
+  var cachedEpIds = [];
+
+  try {
+    if (location.hash && location.hash.indexOf('crp_s=') !== -1) {
+      var rawHash = location.hash.replace(/^#/, '');
+      var kept = [];
+      rawHash.split('&').forEach(function (part) {
+        if (part.indexOf('crp_s=') === 0) {
+          incomingSyncToken = decodeURIComponent(part.slice(6));
+        } else if (part) {
+          kept.push(part);
+        }
+      });
+      if (incomingSyncToken) {
+        localStorage.setItem('crp_sync_token_pending', incomingSyncToken);
+        if (!localStorage.getItem('crp_sync_token')) {
+          localStorage.setItem('crp_sync_token', incomingSyncToken);
+        }
+      }
+      var cleanUrl = location.pathname + location.search + (kept.length ? '#' + kept.join('&') : '');
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', cleanUrl);
+      }
+    }
+  } catch (e) {}
+
+  function decodeBitset(str, ids, cb) {
+    if (!str || !ids || !ids.length) return;
+    for (var g = 0; g < str.length; g++) {
+      var v = B64.indexOf(str.charAt(g));
+      if (v <= 0) continue;
+      for (var b = 0; b < 6; b++) {
+        if (v & (1 << b)) {
+          var idx = g * 6 + b;
+          if (idx < ids.length) cb(ids[idx]);
+        }
+      }
+    }
+  }
+  function encodeBitset(ids, pred) {
+    if (!ids || !ids.length) return '';
+    var out = '';
+    var groups = Math.ceil(ids.length / 6);
+    for (var g = 0; g < groups; g++) {
+      var v = 0;
+      for (var b = 0; b < 6; b++) {
+        var idx = g * 6 + b;
+        if (idx < ids.length && pred(ids[idx])) v |= (1 << b);
+      }
+      out += B64.charAt(v);
+    }
+    return out.replace(/A+$/, '');
+  }
+  function applyTokenToLocal(tok, epIds) {
+    if (!tok || !epIds || !epIds.length) return;
+    try {
+      var parts = String(tok).split('.');
+      decodeBitset(parts[0] || '', epIds, function (id) {
+        localStorage.setItem('crp_done_' + id, '1');
+        localStorage.removeItem('crp_undone_' + id);
+      });
+      (parts[2] ? parts[2].split(',') : []).forEach(function (id) {
+        if (/^[a-zA-Z0-9_-]{10,}$/.test(id)) {
+          localStorage.setItem('crp_done_' + id, '1');
+          localStorage.removeItem('crp_undone_' + id);
+        }
+      });
+      decodeBitset(parts[1] || '', epIds, function (id) {
+        localStorage.removeItem('crp_done_' + id);
+        localStorage.setItem('crp_undone_' + id, '1');
+      });
+      (parts[3] ? parts[3].split(',') : []).forEach(function (id) {
+        if (/^[a-zA-Z0-9_-]{10,}$/.test(id)) {
+          localStorage.removeItem('crp_done_' + id);
+          localStorage.setItem('crp_undone_' + id, '1');
+        }
+      });
+    } catch (e) {}
+  }
+  function currentSyncToken() {
+    try {
+      if (cachedEpIds && cachedEpIds.length) {
+        var idSet = {};
+        cachedEpIds.forEach(function (id) { idSet[id] = true; });
+        var doneBits = encodeBitset(cachedEpIds, function (id) { return localStorage.getItem('crp_done_' + id) === '1'; });
+        var undoneBits = encodeBitset(cachedEpIds, function (id) {
+          return localStorage.getItem('crp_done_' + id) !== '1' && localStorage.getItem('crp_undone_' + id) === '1';
+        });
+        var exD = [], exU = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i) || '';
+          if (k.indexOf('crp_done_') === 0 && localStorage.getItem(k) === '1') {
+            var dId = k.slice(9);
+            if (dId && !idSet[dId]) exD.push(dId);
+          } else if (k.indexOf('crp_undone_') === 0 && localStorage.getItem(k) === '1') {
+            var uId = k.slice(11);
+            if (uId && !idSet[uId] && localStorage.getItem('crp_done_' + uId) !== '1') exU.push(uId);
+          }
+        }
+        var built = [doneBits, undoneBits, exD.join(','), exU.join(',')].join('.').replace(/\.+$/, '');
+        if (built) localStorage.setItem('crp_sync_token', built);
+        return built || localStorage.getItem('crp_sync_token') || '';
+      }
+      return localStorage.getItem('crp_sync_token_pending') || localStorage.getItem('crp_sync_token') || '';
+    } catch (e) {
+      return incomingSyncToken || '';
+    }
+  }
+  function stampCarrdLink(a) {
+    if (!a) return;
+    var rawHref = a.getAttribute('href') || '';
+    if (rawHref.indexOf('.carrd.co') === -1) return;
+    if (!a.dataset.crpBaseHref) {
+      a.dataset.crpBaseHref = rawHref.replace(/([#&])crp_s=[^&]*/g, '').replace(/[?#&]+$/, '');
+    }
+    var baseHref = a.dataset.crpBaseHref;
+    var tok = currentSyncToken();
+    if (tok) {
+      a.setAttribute('href', baseHref + (baseHref.indexOf('#') === -1 ? '#' : '&') + 'crp_s=' + tok);
+    } else {
+      a.setAttribute('href', baseHref);
+    }
+  }
+  ['mousedown', 'auxclick', 'touchstart', 'focusin'].forEach(function (evName) {
+    document.addEventListener(evName, function (ev) {
+      var t = ev.target && ev.target.closest ? ev.target.closest('a[href*=".carrd.co"]') : null;
+      if (t) stampCarrdLink(t);
+    }, true);
+  });
+
   try {
     if (!document.getElementById('crp-homogeneous-layout')) {
       var st = document.createElement('style');
       st.id = 'crp-homogeneous-layout';
-      st.textContent = 'html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(94vw,1100px) !important;max-width:1100px !important;padding:32px 28px 145px 28px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper{width:100% !important;max-width:1044px !important} .crp-ep-lbl{white-space:normal !important;overflow:visible !important;display:block !important;-webkit-line-clamp:unset !important;line-height:1.35 !important;word-break:break-word !important} #crp-title{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.3 !important}';
+      st.textContent = 'html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:24px 22px 145px 22px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper,#crp-standalone-clampflow-wrapper,#crp-top-hub-nav,#crp-author-cred-box{width:100% !important;max-width:1510px !important} .crp-grid,.crp-ep-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px 14px !important} .crp-ep-lbl{white-space:normal !important;overflow:visible !important;display:block !important;-webkit-line-clamp:unset !important;line-height:1.35 !important;word-break:break-word !important} .crp-ep-chk{width:16px;height:16px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22) !important;border-color:#10B981 !important;color:#34D399 !important;font-weight:900} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} #crp-title{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.3 !important} @media (max-width:780px){.crp-grid,.crp-ep-grid{grid-template-columns:1fr !important} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important}}';
       (document.head || document.documentElement).appendChild(st);
     }
   } catch (e) {}
+
   var sEl = document.currentScript;
   var HUB = (sEl && sEl.getAttribute('data-hub')) || location.hostname.replace(/^my-|\.carrd\.co$/g, '');
   var GA_ID = "G-EJ2SRH8M0G";
@@ -882,28 +1018,87 @@
     if (u.indexOf('historical-documents-atlas') !== -1) return 'Historical Documents Atlas';
     return url;
   }
-  var netSynced = false;
   function esc(s) {
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
+
+  function defaultAccent() {
+    if (HUB === 'scientific-software') return '#C084FC';
+    if (HUB === 'clampflow') return '#F59E0B';
+    return '#38BDF8';
+  }
+
+  function buildAuthorBoxHTML(au, accent) {
+    au = au || {};
+    var name = au.name || 'Matthew S. Yorek';
+    var role = au.role || 'Biomedical Research, Electrophysiology & Data Engineering';
+    var email = au.email || 'yorekms@gmail.com';
+    var orcid = au.orcid || '0000-0002-4737-9367';
+    var orcidUrl = au.orcid_url || ('https://orcid.org/' + orcid);
+    var pubmedUrl = au.pubmed_url || 'https://www.ncbi.nlm.nih.gov/myncbi/1XAQAfuLLOMkz/bibliography/public/';
+    var pillBase = 'display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;';
+    return '<div id="crp-author-cred-box" style="width:100%;max-width:1510px;margin:0 auto 10px auto;padding:8px 14px;background:rgba(9,14,26,0.90);border:1px solid rgba(255,255,255,0.16);border-left:3px solid ' + (accent || defaultAccent()) + ';border-radius:13px;box-shadow:0 8px 24px rgba(0,0,0,0.36);backdrop-filter:blur(14px);box-sizing:border-box;font-family:' + FONT + ';display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;text-align:left;">' +
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;">' +
+        '<span style="font-size:13px;font-weight:800;color:#FFFFFF;letter-spacing:-0.01em;">' + esc(name) + '</span>' +
+        '<span style="font-size:11.5px;font-weight:600;color:#94A3B8;">&bull; ' + esc(role) + '</span>' +
+      '</div>' +
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;">' +
+        '<a href="' + esc(pubmedUrl) + '" target="_blank" rel="noopener" class="crp-hub-pill" style="' + pillBase + 'color:#BAE6FD;background:rgba(14,116,144,0.36);border:1px solid rgba(56,189,248,0.52);">&#128218; PubMed Bibliography &#8599;</a>' +
+        '<a href="' + esc(orcidUrl) + '" target="_blank" rel="noopener" class="crp-hub-pill" style="' + pillBase + 'color:#D9F99D;background:rgba(63,98,18,0.42);border:1px solid rgba(163,230,53,0.55);"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:#A6CE39;color:#090E1A;font-size:9.5px;font-weight:900;line-height:1;">iD</span> ORCID ' + esc(orcid) + ' &#8599;</a>' +
+        '<a href="mailto:' + esc(email) + '" class="crp-hub-pill" style="' + pillBase + 'color:#E2E8F0;background:rgba(30,41,59,0.85);border:1px solid rgba(148,163,184,0.42);">&#9993;&#65039; ' + esc(email) + '</a>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function ensureAuthorBox(au, accent) {
+    if (document.getElementById('crp-author-cred-box')) return;
+    var nav = document.getElementById('crp-top-hub-nav');
+    if (!nav || !nav.parentNode) return;
+    var holder = document.createElement('div');
+    holder.innerHTML = buildAuthorBoxHTML(au, accent);
+    if (holder.firstElementChild) {
+      nav.parentNode.insertBefore(holder.firstElementChild, nav);
+    }
+  }
+
+  var netSynced = false;
   function syncNavFromNetwork() {
     if (netSynced) return;
     var nav = document.getElementById('crp-top-hub-nav');
     if (!nav) return;
     netSynced = true;
+    ensureAuthorBox(null, defaultAccent());
     var bust = 'v=' + Math.floor(Date.now() / 300000);
     fetch('https://yorekms.github.io/deep-dive-podcasts/hub/network.json?' + bust, { cache: 'no-cache' })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (net) {
-        if (!net || !net.sites || !net.sites.length) return;
+        if (!net) return;
+        if (Array.isArray(net.ep_ids) && net.ep_ids.length) {
+          cachedEpIds = net.ep_ids;
+          try {
+            var existingTok = localStorage.getItem('crp_sync_token') || '';
+            var pendTok = incomingSyncToken || localStorage.getItem('crp_sync_token_pending') || '';
+            if (existingTok && existingTok !== pendTok) applyTokenToLocal(existingTok, cachedEpIds);
+            if (pendTok) {
+              applyTokenToLocal(pendTok, cachedEpIds);
+              localStorage.removeItem('crp_sync_token_pending');
+            }
+            currentSyncToken();
+          } catch (e) {}
+        }
+        if (!net.sites || !net.sites.length) return;
         var curNav = document.getElementById('crp-top-hub-nav');
         if (!curNav) return;
+        var accent = defaultAccent();
         var activePill = curNav.querySelector('a[style*="font-weight:800"], a[style*="font-weight: 800"]');
-        var accent = (HUB === 'scientific-software') ? '#C084FC' : '#38BDF8';
         if (activePill) {
           var mBg = (activePill.getAttribute('style') || '').match(/background\s*:\s*(#[0-9a-fA-F]{6})/);
           if (mBg && mBg[1]) accent = mBg[1];
         }
+        var existingBox = document.getElementById('crp-author-cred-box');
+        if (existingBox && existingBox.parentNode) existingBox.parentNode.removeChild(existingBox);
+        ensureAuthorBox(net.author, accent);
+
         var rows = curNav.children;
         if (rows && rows[0]) {
           var base = 'display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;text-decoration:none;white-space:nowrap;';
@@ -932,52 +1127,63 @@
         if (net.master_total) {
           var rssModal = document.getElementById('crp-rss-modal');
           if (rssModal) {
-            rssModal.innerHTML = rssModal.innerHTML.replace(/All \d+ Deep Dive Episodes/g, 'All ' + net.master_total + ' Deep Dive Episodes')
-              .replace(/Apple Podcasts \(All \d+\)/g, 'Apple Podcasts (All ' + net.master_total + ')');
+            rssModal.innerHTML = rssModal.innerHTML
+              .replace(/All \d+ Deep Dive Episodes/g, 'All ' + net.master_total + ' Deep Dive Episodes')
+              .replace(/Apple Podcasts \(All \d+\)/g, 'Apple Podcasts (All ' + net.master_total + ')')
+              .replace(/All \d+ Feeds Directory/g, 'All ' + (net.feed_count || 12) + ' Feeds Directory');
           }
         }
         wire();
       }).catch(function () {});
   }
+
+  function refreshStandaloneEpCards() {
+    document.querySelectorAll('.crp-ep-btn').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      var m = href.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || href.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (!m || !m[1]) return;
+      var id = m[1];
+      var chk = a.querySelector('.crp-ep-chk');
+      if (!chk) {
+        chk = document.createElement('span');
+        chk.className = 'crp-ep-chk';
+        chk.setAttribute('role', 'checkbox');
+        chk.innerHTML = '&#10003;';
+        chk.addEventListener('click', function (ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          try {
+            var next = localStorage.getItem('crp_done_' + id) !== '1';
+            if (next) {
+              localStorage.setItem('crp_done_' + id, '1');
+              localStorage.removeItem('crp_undone_' + id);
+            } else {
+              localStorage.removeItem('crp_done_' + id);
+              localStorage.setItem('crp_undone_' + id, '1');
+            }
+            currentSyncToken();
+          } catch (e) {}
+          refreshStandaloneEpCards();
+        });
+        a.appendChild(chk);
+      }
+      var done = false;
+      try { done = localStorage.getItem('crp_done_' + id) === '1'; } catch (e) {}
+      a.classList.toggle('crp-done-card', done);
+      var ico = a.querySelector('.crp-ep-ico');
+      if (ico) ico.innerHTML = done ? '&#10003;' : '&#9654;';
+      chk.setAttribute('aria-checked', done ? 'true' : 'false');
+      chk.title = done ? 'Listened \u2022 Click check to mark unplayed' : 'Mark as Listened';
+    });
+  }
+
   function wire() {
     var nav = document.getElementById('crp-top-hub-nav');
     if (nav) {
+      ensureAuthorBox(null, defaultAccent());
       syncNavFromNetwork();
-      var quotesPill = nav.querySelector('a[href*="my-quotes.carrd.co"]');
-      if (quotesPill && quotesPill.parentNode) quotesPill.parentNode.removeChild(quotesPill);
-      if (!nav.querySelector('a[href*="my-forensic-medicine.carrd.co"]')) {
-        var pharm = nav.querySelector('a[href*="my-pharmacology.carrd.co"]');
-        if (pharm && pharm.parentNode) {
-          var a = document.createElement('a');
-          a.href = 'https://my-forensic-medicine.carrd.co';
-          a.className = pharm.className;
-          a.setAttribute('style', pharm.getAttribute('style') || '');
-          a.style.fontWeight = '600';
-          a.style.color = '#E2E8F0';
-          a.style.background = 'rgba(15,23,42,0.72)';
-          a.style.border = '1px solid rgba(255,255,255,0.14)';
-          a.style.boxShadow = 'none';
-          a.textContent = '🩺 Forensic Medicine & Testing';
-          pharm.parentNode.insertBefore(a, pharm.nextSibling);
-        }
-      }
-      if (!nav.querySelector('a[href*="my-clampflow.carrd.co"]')) {
-        var sci = nav.querySelector('a[href*="my-scientific-software.carrd.co"]');
-        if (sci && sci.parentNode) {
-          var cf = document.createElement('a');
-          cf.href = 'https://my-clampflow.carrd.co';
-          cf.className = sci.className;
-          cf.setAttribute('style', sci.getAttribute('style') || '');
-          cf.style.fontWeight = '700';
-          cf.style.color = '#FDE68A';
-          cf.style.background = 'rgba(120,53,15,0.48)';
-          cf.style.border = '1px solid rgba(245,158,11,0.55)';
-          cf.style.boxShadow = 'none';
-          cf.textContent = '📈 ClampFlow ABF';
-          sci.parentNode.insertBefore(cf, sci.nextSibling);
-        }
-      }
     }
+    refreshStandaloneEpCards();
     document.querySelectorAll('a[href*="chatgpt.site"]').forEach(function (link) {
       if (link.dataset.crpPortalHooked) return;
       link.dataset.crpPortalHooked = 'true';
@@ -994,7 +1200,8 @@
       if (link.dataset.crpNavHooked) return;
       link.dataset.crpNavHooked = 'true';
       link.addEventListener('click', function () {
-        track('hub_nav_click', { target: link.getAttribute('href') || '' });
+        stampCarrdLink(link);
+        track('hub_nav_click', { target: link.dataset.crpBaseHref || link.getAttribute('href') || '' });
       });
     });
   }

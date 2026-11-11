@@ -1,5 +1,5 @@
 /*!
- * Deep Dive Podcast Network - shared Carrd hub player (v1.3.0).
+ * Deep Dive Podcast Network - shared Carrd hub player (v1.6.0).
  * Hosted on GitHub Pages: https://yorekms.github.io/deep-dive-podcasts/hub/player.js
  *
  * Each Carrd site only needs a tiny embed:
@@ -17,7 +17,26 @@
 
   var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:120px;overflow-y:auto;background:#050914;border:1px solid #1E293B;border-radius:11px;padding:8px 11px;margin-bottom:8px;font-size:11.5px;line-height:1.45;color:#CBD5E1} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:600} #crp-sources-drawer a:hover{text-decoration:underline} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} }";
   var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:680px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-sources-chip\" type=\"button\" style=\"display:none;background:rgba(148,163,184,0.14);border:1px solid {A}66;color:{A};border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#128218; Sources</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><a id=\"crp-studio-link\" href=\"https://ais-dev-v3n3vsl4pvdlmev4vcfv5b-514995804668.us-west1.run.app\" target=\"_blank\" rel=\"noreferrer\" title=\"Open interactive synchronized transcript studio\" style=\"font-size:10px;font-weight:800;color:#090E1A;background:{A};text-decoration:none;padding:4px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;box-shadow:0 0 12px {A}55;\">Transcript &#8599;</a><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" preload=\"metadata\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
-  var PLAYER_VERSION = "1.5.0";
+  var PLAYER_VERSION = "1.6.0";
+
+  var pendingSyncToken = '';
+  try {
+    if (location.hash && location.hash.indexOf('crp_s=') !== -1) {
+      var rawHash = location.hash.replace(/^#/, '');
+      var keptParts = [];
+      rawHash.split('&').forEach(function (part) {
+        if (part.indexOf('crp_s=') === 0) {
+          pendingSyncToken = decodeURIComponent(part.slice(6));
+        } else if (part) {
+          keptParts.push(part);
+        }
+      });
+      var cleanUrl = location.pathname + location.search + (keptParts.length ? '#' + keptParts.join('&') : '');
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', cleanUrl);
+      }
+    }
+  } catch (e) {}
 
   var scriptEl = document.currentScript;
   var rootEl = document.getElementById('crp-hub-root');
@@ -111,11 +130,162 @@
       var h0 = location.hash.replace(/^#/, '').toLowerCase();
       for (var key in cfg.redirect_hashes) {
         if (Object.prototype.hasOwnProperty.call(cfg.redirect_hashes, key) && h0.indexOf(key) !== -1) {
-          location.replace(cfg.redirect_hashes[key]);
+          var dest = cfg.redirect_hashes[key];
+          if (pendingSyncToken) {
+            dest += (dest.indexOf('#') === -1 ? '#' : '&') + 'crp_s=' + encodeURIComponent(pendingSyncToken);
+          }
+          location.replace(dest);
           return;
         }
       }
     }
+
+    // ---------- Cross-URL Listened Sync (per-browser localStorage + #crp_s bitset + sync-bridge) ----------
+    var B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+    var epIds = Array.isArray(net.ep_ids) ? net.ep_ids : [];
+    var epIdSet = {};
+    epIds.forEach(function (id) { epIdSet[id] = true; });
+
+    function encodeBitset(ids, pred) {
+      if (!ids || !ids.length) return '';
+      var out = '';
+      var groups = Math.ceil(ids.length / 6);
+      for (var g = 0; g < groups; g++) {
+        var v = 0;
+        for (var b = 0; b < 6; b++) {
+          var idx = g * 6 + b;
+          if (idx < ids.length && pred(ids[idx])) v |= (1 << b);
+        }
+        out += B64.charAt(v);
+      }
+      return out.replace(/A+$/, '');
+    }
+
+    function decodeBitset(str, ids, cb) {
+      if (!str || !ids || !ids.length) return;
+      for (var g = 0; g < str.length; g++) {
+        var v = B64.indexOf(str.charAt(g));
+        if (v <= 0) continue;
+        for (var b = 0; b < 6; b++) {
+          if (v & (1 << b)) {
+            var idx = g * 6 + b;
+            if (idx < ids.length) cb(ids[idx]);
+          }
+        }
+      }
+    }
+
+    function applyIncomingSyncToken(tok) {
+      if (!tok) return;
+      try {
+        var parts = String(tok).split('.');
+        var doneBits = parts[0] || '';
+        var undoneBits = parts[1] || '';
+        var extraDone = parts[2] ? parts[2].split(',') : [];
+        var extraUndone = parts[3] ? parts[3].split(',') : [];
+        decodeBitset(doneBits, epIds, function (id) {
+          localStorage.setItem('crp_done_' + id, '1');
+          localStorage.removeItem('crp_undone_' + id);
+        });
+        extraDone.forEach(function (id) {
+          if (/^[a-zA-Z0-9_-]{10,}$/.test(id)) {
+            localStorage.setItem('crp_done_' + id, '1');
+            localStorage.removeItem('crp_undone_' + id);
+          }
+        });
+        decodeBitset(undoneBits, epIds, function (id) {
+          localStorage.removeItem('crp_done_' + id);
+          localStorage.setItem('crp_undone_' + id, '1');
+        });
+        extraUndone.forEach(function (id) {
+          if (/^[a-zA-Z0-9_-]{10,}$/.test(id)) {
+            localStorage.removeItem('crp_done_' + id);
+            localStorage.setItem('crp_undone_' + id, '1');
+          }
+        });
+      } catch (e) {}
+    }
+
+    function buildSyncToken() {
+      try {
+        var doneBits = encodeBitset(epIds, function (id) { return localStorage.getItem('crp_done_' + id) === '1'; });
+        var undoneBits = encodeBitset(epIds, function (id) {
+          return localStorage.getItem('crp_done_' + id) !== '1' && localStorage.getItem('crp_undone_' + id) === '1';
+        });
+        var extraDone = [];
+        var extraUndone = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i) || '';
+          if (k.indexOf('crp_done_') === 0 && localStorage.getItem(k) === '1') {
+            var id1 = k.slice(9);
+            if (id1 && !epIdSet[id1]) extraDone.push(id1);
+          } else if (k.indexOf('crp_undone_') === 0 && localStorage.getItem(k) === '1') {
+            var id2 = k.slice(11);
+            if (id2 && !epIdSet[id2] && localStorage.getItem('crp_done_' + id2) !== '1') extraUndone.push(id2);
+          }
+        }
+        var tok = [doneBits, undoneBits, extraDone.join(','), extraUndone.join(',')].join('.').replace(/\.+$/, '');
+        if (tok) localStorage.setItem('crp_sync_token', tok);
+        else localStorage.removeItem('crp_sync_token');
+        return tok;
+      } catch (e) {
+        return '';
+      }
+    }
+
+    if (pendingSyncToken) {
+      applyIncomingSyncToken(pendingSyncToken);
+    }
+    buildSyncToken();
+
+    var bridgeFrame = null;
+    try {
+      bridgeFrame = document.createElement('iframe');
+      bridgeFrame.src = BASE + 'sync-bridge.html';
+      bridgeFrame.style.cssText = 'display:none;width:0;height:0;border:0;position:absolute;pointer-events:none;';
+      bridgeFrame.setAttribute('aria-hidden', 'true');
+      bridgeFrame.tabIndex = -1;
+      bridgeFrame.addEventListener('load', function () {
+        try {
+          var initMap = {};
+          for (var i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i) || '';
+            if (k.indexOf('crp_done_') === 0 && localStorage.getItem(k) === '1') {
+              initMap[k.slice(9)] = 1;
+            } else if (k.indexOf('crp_undone_') === 0 && localStorage.getItem(k) === '1') {
+              var uid = k.slice(11);
+              if (initMap[uid] === undefined) initMap[uid] = 0;
+            }
+          }
+          if (bridgeFrame.contentWindow) {
+            bridgeFrame.contentWindow.postMessage({ type: 'CRPSyncInit', map: initMap }, 'https://yorekms.github.io');
+          }
+        } catch (e) {}
+      });
+      (document.body || document.documentElement).appendChild(bridgeFrame);
+    } catch (e) {}
+
+    function stampCarrdLink(a) {
+      if (!a) return;
+      var rawHref = a.getAttribute('href') || '';
+      if (rawHref.indexOf('.carrd.co') === -1) return;
+      if (!a.dataset.crpBaseHref) {
+        a.dataset.crpBaseHref = rawHref.replace(/([#&])crp_s=[^&]*/g, '').replace(/[?#&]+$/, '');
+      }
+      var baseHref = a.dataset.crpBaseHref;
+      var tok = buildSyncToken();
+      if (tok) {
+        a.setAttribute('href', baseHref + (baseHref.indexOf('#') === -1 ? '#' : '&') + 'crp_s=' + tok);
+      } else {
+        a.setAttribute('href', baseHref);
+      }
+    }
+    ['mousedown', 'auxclick', 'touchstart', 'focusin'].forEach(function (evName) {
+      document.addEventListener(evName, function (ev) {
+        var t = ev.target && ev.target.closest ? ev.target.closest('a[href*=".carrd.co"]') : null;
+        if (t) stampCarrdLink(t);
+      }, true);
+    });
 
     // ---------- Inject RSS auto-discovery <link> + PodcastSeries JSON-LD ----------
     try {
@@ -147,7 +317,7 @@
     // ---------- Styles + player/RSS markup ----------
     var styleEl = document.createElement('style');
     styleEl.id = 'crp-hub-style';
-    styleEl.textContent = tpl(CSS_TPL) + (cfg.extra_css || '');
+    styleEl.textContent = tpl(CSS_TPL);
     document.head.appendChild(styleEl);
 
     var holder = document.createElement('div');
@@ -310,13 +480,57 @@
       }
     }
 
+    function setEpisodeDoneState(id, next, notifyBridge) {
+      if (!id) return false;
+      try {
+        if (next) {
+          localStorage.setItem('crp_done_' + id, '1');
+          localStorage.removeItem('crp_undone_' + id);
+        } else {
+          localStorage.removeItem('crp_done_' + id);
+          localStorage.setItem('crp_undone_' + id, '1');
+        }
+      } catch (e) {}
+      buildSyncToken();
+      if (notifyBridge !== false && bridgeFrame && bridgeFrame.contentWindow) {
+        try {
+          bridgeFrame.contentWindow.postMessage({ type: 'CRPSyncSet', id: id, val: next ? 1 : 0 }, 'https://yorekms.github.io');
+        } catch (e) {}
+      }
+      return next;
+    }
+
+    window.addEventListener('message', function (ev) {
+      if (ev.origin !== 'https://yorekms.github.io' || !ev.data || ev.data.type !== 'CRPSyncState' || !ev.data.map) return;
+      var changed = false;
+      try {
+        for (var id in ev.data.map) {
+          if (!Object.prototype.hasOwnProperty.call(ev.data.map, id)) continue;
+          var want = !!ev.data.map[id];
+          var curDone = localStorage.getItem('crp_done_' + id) === '1';
+          var curUndone = localStorage.getItem('crp_undone_' + id) === '1';
+          if (want && !curDone && !curUndone) {
+            localStorage.setItem('crp_done_' + id, '1');
+            changed = true;
+          } else if (!want && curDone) {
+            localStorage.removeItem('crp_done_' + id);
+            localStorage.setItem('crp_undone_' + id, '1');
+            changed = true;
+          }
+        }
+      } catch (e) {}
+      if (changed) {
+        buildSyncToken();
+        refreshCardStates();
+        syncDoneChipUI();
+        if (typeof applyFilterRef === 'function') applyFilterRef();
+      }
+    });
+
     function toggleEpisodeDone(id, forceVal) {
       if (!id) return false;
       var next = (typeof forceVal === 'boolean') ? forceVal : !isEpisodeDone(id);
-      try {
-        if (next) localStorage.setItem('crp_done_' + id, '1');
-        else localStorage.removeItem('crp_done_' + id);
-      } catch (e) {}
+      setEpisodeDoneState(id, next, true);
       refreshCardStates();
       syncDoneChipUI();
       if (typeof applyFilterRef === 'function') applyFilterRef();
@@ -633,7 +847,7 @@
           });
           if (dur > 60 && pct >= 90 && !milestonesSent.done90) {
             milestonesSent.done90 = true;
-            try { localStorage.setItem('crp_done_' + currentDriveId, '1'); } catch (e) {}
+            setEpisodeDoneState(currentDriveId, true, true);
             refreshCardStates();
             syncDoneChipUI();
           }
@@ -645,8 +859,8 @@
         if (currentDriveId) {
           try {
             localStorage.removeItem('crp_pos_' + currentDriveId);
-            localStorage.setItem('crp_done_' + currentDriveId, '1');
           } catch (e) {}
+          setEpisodeDoneState(currentDriveId, true, true);
           refreshCardStates();
           syncDoneChipUI();
           track('episode_complete', { episode_title: currentCleanTitle, episode_id: currentDriveId });
@@ -727,9 +941,10 @@
       if (currentDriveId) {
         try {
           localStorage.removeItem('crp_pos_' + currentDriveId);
-          localStorage.removeItem('crp_done_' + currentDriveId);
         } catch (e) {}
+        setEpisodeDoneState(currentDriveId, false, true);
         refreshCardStates();
+        syncDoneChipUI();
       }
       if (statusEl) statusEl.textContent = 'Variable-Speed Stream \u2022 ' + savedRate + '\u00d7';
       audioEl.play();
@@ -839,8 +1054,11 @@
     function loadAllNetworkEpisodes() {
       if (networkEpCache) return Promise.resolve(networkEpCache);
       if (networkEpPromise) return networkEpPromise;
-      var audioHubs = ['consciousness', 'cell-death', 'nutrition-metabolism', 'pharmacology',
-        'forensic-medicine', 'ancient-medicine', 'philosophy-science', 'human-origins'];
+      var nonAudioSlugs = { 'study-apps': 1, 'scientific-software': 1, 'clampflow': 1 };
+      var audioHubs = (net.sites && net.sites.length)
+        ? net.sites.map(function (s) { return s.slug; }).filter(function (sl) { return sl && !nonAudioSlugs[sl]; })
+        : ['consciousness', 'cell-death', 'biophysics', 'nutrition-metabolism', 'pharmacology', 'oncology',
+          'forensic-medicine', 'medical-testing', 'ancient-medicine', 'philosophy-science', 'human-origins', 'religion-cooperation'];
       var siteLabelMap = {};
       (net.sites || []).forEach(function (s) { if (s.slug) siteLabelMap[s.slug] = s.label || s.slug; });
       networkEpPromise = Promise.all(audioHubs.filter(function (h) { return h !== HUB; }).map(function (slug) {
@@ -889,6 +1107,27 @@
         return 'font-weight:700;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);';
       }
       return 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);';
+    }
+    function buildAuthorBoxHTML() {
+      var au = net.author || {};
+      var name = au.name || 'Matthew S. Yorek';
+      var role = au.role || 'Biomedical Research, Electrophysiology & Data Engineering';
+      var email = au.email || 'yorekms@gmail.com';
+      var orcid = au.orcid || '0000-0002-4737-9367';
+      var orcidUrl = au.orcid_url || ('https://orcid.org/' + orcid);
+      var pubmedUrl = au.pubmed_url || 'https://www.ncbi.nlm.nih.gov/myncbi/1XAQAfuLLOMkz/bibliography/public/';
+      var pillBase = 'display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;';
+      return '<div id="crp-author-cred-box" style="width:100%;max-width:1510px;margin:0 auto 10px auto;padding:8px 14px;background:rgba(9,14,26,0.90);border:1px solid rgba(255,255,255,0.16);border-left:3px solid ' + A + ';border-radius:13px;box-shadow:0 8px 24px rgba(0,0,0,0.36);backdrop-filter:blur(14px);box-sizing:border-box;font-family:' + FONT + ';display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;text-align:left;">' +
+        '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;">' +
+          '<span style="font-size:13px;font-weight:800;color:#FFFFFF;letter-spacing:-0.01em;">' + esc(name) + '</span>' +
+          '<span style="font-size:11.5px;font-weight:600;color:#94A3B8;">&bull; ' + esc(role) + '</span>' +
+        '</div>' +
+        '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;">' +
+          '<a href="' + esc(pubmedUrl) + '" target="_blank" rel="noopener" class="crp-hub-pill" style="' + pillBase + 'color:#BAE6FD;background:rgba(14,116,144,0.36);border:1px solid rgba(56,189,248,0.52);">&#128218; PubMed Bibliography &#8599;</a>' +
+          '<a href="' + esc(orcidUrl) + '" target="_blank" rel="noopener" class="crp-hub-pill" style="' + pillBase + 'color:#D9F99D;background:rgba(63,98,18,0.42);border:1px solid rgba(163,230,53,0.55);"><span style="display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:#A6CE39;color:#090E1A;font-size:9.5px;font-weight:900;line-height:1;">iD</span> ORCID ' + esc(orcid) + ' &#8599;</a>' +
+          '<a href="mailto:' + esc(email) + '" class="crp-hub-pill" style="' + pillBase + 'color:#E2E8F0;background:rgba(30,41,59,0.85);border:1px solid rgba(148,163,184,0.42);">&#9993;&#65039; ' + esc(email) + '</a>' +
+        '</div>' +
+      '</div>';
     }
     function buildNavHTML() {
       var sites = net.sites || [];
@@ -1079,8 +1318,19 @@
         var navEl = navWrap.firstElementChild;
         parent.insertBefore(navEl, parent.firstChild);
         navEl.querySelectorAll('a[data-nav-target]').forEach(function (a) {
-          a.addEventListener('click', function () { track('hub_nav_click', { target: a.getAttribute('data-nav-target') }); });
+          a.addEventListener('click', function () {
+            stampCarrdLink(a);
+            track('hub_nav_click', { target: a.getAttribute('data-nav-target') });
+          });
         });
+      }
+      if (!document.getElementById('crp-author-cred-box')) {
+        var auWrap = document.createElement('div');
+        auWrap.innerHTML = buildAuthorBoxHTML();
+        var auEl = auWrap.firstElementChild;
+        var navRef = document.getElementById('crp-top-hub-nav');
+        if (navRef && navRef.parentNode) navRef.parentNode.insertBefore(auEl, navRef);
+        else parent.insertBefore(auEl, parent.firstChild);
       }
 
       if (!document.getElementById('crp-curated-audio-hub')) {
@@ -1162,7 +1412,7 @@
             } else {
               netWrap.innerHTML = '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 11px;border-radius:9px;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.12);font-size:11.5px;color:#CBD5E1;">' +
                 '<span>Showing <strong>' + totalVis + '</strong> match' + (totalVis === 1 ? '' : 'es') + ' in this hub.</span>' +
-                '<button type="button" id="crp-expand-net-search" class="crp-mini-chip" style="color:' + A + ';border-color:' + A + '66;">&#127760; Search all 8 hubs' + (masterTotal ? ' (' + masterTotal + ' eps)' : '') + '</button></div>';
+                '<button type="button" id="crp-expand-net-search" class="crp-mini-chip" style="color:' + A + ';border-color:' + A + '66;">&#127760; Search all ' + (net.feed_count || 12) + ' hubs' + (masterTotal ? ' (' + masterTotal + ' eps)' : '') + '</button></div>';
               netWrap.style.display = 'block';
               var expBtn = document.getElementById('crp-expand-net-search');
               if (expBtn) expBtn.addEventListener('click', function () {
