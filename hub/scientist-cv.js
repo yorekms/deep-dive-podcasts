@@ -19,7 +19,9 @@
     masterRssUrl: 'https://yorekms.github.io/deep-dive-podcasts/feed.xml',
     // Swap with exact numeric https://www.strava.com/athletes/<id> URL anytime:
     stravaUrl: 'https://www.strava.com/athletes/search?text=Yorek',
-    portraitUrl: '' // Drop headshot URL here tomorrow to replace SVG monogram placeholder automatically
+    portraitVideoUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-loop.mp4',
+    portraitPosterUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-poster.jpg',
+    portraitUrl: ''
   };
 
   var PUBLICATIONS = [
@@ -367,6 +369,17 @@
   }
 
   function buildPortraitSVG() {
+    if (CONFIG.portraitVideoUrl) {
+      return (
+        '<div id="my-cv-video-stage" style="position:relative;width:100%;height:100%;background:#060A14;overflow:hidden;border-radius:18px;cursor:pointer;" title="Click to pause or resume 3D NaV1.6 studio loop">' +
+          '<video id="my-cv-portrait-video" autoplay loop muted playsinline preload="auto" poster="' + esc(CONFIG.portraitPosterUrl) + '" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;">' +
+            '<source src="' + esc(CONFIG.portraitVideoUrl) + '" type="video/mp4" />' +
+          '</video>' +
+          '<img class="my-print-only-portrait" src="' + esc(CONFIG.portraitPosterUrl) + '" alt="' + esc(CONFIG.name) + '" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:18px;" />' +
+          '<button type="button" id="my-cv-video-toggle" aria-label="Pause or play portrait loop" style="position:absolute;bottom:8px;left:9px;z-index:3;appearance:none;border:1px solid rgba(56,189,248,0.42);background:rgba(6,10,20,0.72);backdrop-filter:blur(8px);color:#BAE6FD;font-size:10px;font-weight:800;letter-spacing:0.04em;padding:3px 8px;border-radius:999px;cursor:pointer;opacity:0.78;transition:opacity 0.18s ease;">&#9646;&#9646; 3D NaV1.6</button>' +
+        '</div>'
+      );
+    }
     if (CONFIG.portraitUrl) {
       return '<img id="my-cv-portrait-img" src="' + esc(CONFIG.portraitUrl) + '" alt="' + esc(CONFIG.name) + '" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;" />';
     }
@@ -425,8 +438,9 @@
       '.my-tag-chip { display: inline-flex; align-items: center; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 11.5px; color: #94A3B8; background: rgba(2,6,23,0.72); border: 1px solid rgba(148,163,184,0.24); padding: 2px 8px; border-radius: 6px; }',
       '.my-tag-hi { font-weight: 900; color: #38BDF8; letter-spacing: 0.04em; margin-right: 0.5px; text-shadow: 0 0 10px rgba(56,189,248,0.45); }',
       '.my-hero-card { background: linear-gradient(145deg, rgba(15,23,42,0.96) 0%, rgba(9,14,26,0.98) 100%); border: 1px solid rgba(56,189,248,0.35); border-radius: 24px; padding: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.65), 0 0 40px rgba(56,189,248,0.09); margin-bottom: 18px; position: relative; overflow: hidden; }',
-      '.my-hero-grid { display: grid; grid-template-columns: 215px minmax(0, 1fr); gap: 26px; align-items: center; }',
-      '.my-portrait-box { width: 215px; height: 252px; border-radius: 20px; border: 1.5px solid rgba(192,132,252,0.55); box-shadow: 0 14px 34px rgba(0,0,0,0.55), 0 0 24px rgba(56,189,248,0.16); overflow: hidden; background: #090E1A; flex-shrink: 0; }',
+      '.my-hero-grid { display: grid; grid-template-columns: 432px minmax(0, 1fr); gap: 26px; align-items: center; }',
+      '.my-portrait-box { width: 432px; aspect-ratio: 16 / 9; height: auto; border-radius: 20px; border: 1.5px solid rgba(56,189,248,0.48); box-shadow: 0 18px 42px rgba(0,0,0,0.72), 0 0 32px rgba(56,189,248,0.18); overflow: hidden; background: #060A14; flex-shrink: 0; position: relative; }',
+      '#my-cv-video-stage:hover #my-cv-video-toggle { opacity: 1 !important; border-color: #38BDF8 !important; }',
       '.my-action-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px; border-radius: 999px; font-size: 12.5px; font-weight: 800; text-decoration: none !important; transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease; cursor: pointer; font-family: inherit; }',
       '.my-action-btn:hover { transform: translateY(-1.5px); box-shadow: 0 8px 20px rgba(0,0,0,0.45); }',
       '.my-stat-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }',
@@ -450,9 +464,9 @@
       '.my-hub-card { display: flex; flex-direction: column; justify-content: space-between; gap: 8px; background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 13px 14px; text-decoration: none !important; color: inherit !important; transition: all 0.16s ease; }',
       '.my-hub-card:hover { transform: translateY(-2px); border-color: #C084FC; box-shadow: 0 10px 24px rgba(0,0,0,0.45); }',
       '.my-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }',
-      '@media (max-width: 1100px) { .my-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }',
-      '@media (max-width: 760px) { .my-hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; } .my-bento-grid, .my-hub-grid, .my-two-col, .my-stat-grid { grid-template-columns: 1fr; } .my-hero-card, .my-sec-card { padding: 18px 16px; } .my-jump-bar { position: static; } }',
-      '@media print { body { background: #FFFFFF !important; color: #0F172A !important; } #crp-top-hub-nav, #crp-author-cred-box, .my-jump-bar, #crp-rss-modal { display: none !important; } .my-hero-card, .my-sec-card, .my-tl-item, .my-pub-item, .my-stat-card { background: #FFFFFF !important; color: #0F172A !important; border: 1px solid #CBD5E1 !important; box-shadow: none !important; break-inside: avoid; } h1, h2, h3, strong { color: #0F172A !important; -webkit-text-fill-color: initial !important; } }'
+      '@media (max-width: 1180px) { .my-hero-grid { grid-template-columns: 352px minmax(0, 1fr); gap: 20px; } .my-portrait-box { width: 352px; } .my-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }',
+      '@media (max-width: 820px) { .my-hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; } .my-portrait-box { width: 100%; max-width: 460px; } .my-bento-grid, .my-hub-grid, .my-two-col, .my-stat-grid { grid-template-columns: 1fr; } .my-hero-card, .my-sec-card { padding: 18px 16px; } .my-jump-bar { position: static; } }',
+      '@media print { body { background: #FFFFFF !important; color: #0F172A !important; } #crp-top-hub-nav, #crp-author-cred-box, .my-jump-bar, #crp-rss-modal, #my-cv-portrait-video, #my-cv-video-toggle { display: none !important; } .my-print-only-portrait { display: block !important; } .my-portrait-box { width: 240px !important; border: 1px solid #94A3B8 !important; box-shadow: none !important; } .my-hero-grid { grid-template-columns: 240px minmax(0, 1fr) !important; } .my-hero-card, .my-sec-card, .my-tl-item, .my-pub-item, .my-stat-card { background: #FFFFFF !important; color: #0F172A !important; border: 1px solid #CBD5E1 !important; box-shadow: none !important; break-inside: avoid; } h1, h2, h3, strong { color: #0F172A !important; -webkit-text-fill-color: initial !important; } }'
     ].join('\n');
     (document.head || document.documentElement).appendChild(styleEl);
 
@@ -888,6 +902,30 @@
         window.open(CONFIG.podcastDirectoryUrl, '_blank', 'noopener');
       }
     });
+
+    var videoStage = document.getElementById('my-cv-video-stage');
+    var portraitVid = document.getElementById('my-cv-portrait-video');
+    var videoToggle = document.getElementById('my-cv-video-toggle');
+    if (portraitVid) {
+      portraitVid.muted = true;
+      var playPromise = portraitVid.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {
+          if (videoToggle) videoToggle.innerHTML = '&#9654; Play 3D NaV1.6';
+        });
+      }
+      if (videoStage) {
+        videoStage.addEventListener('click', function () {
+          if (portraitVid.paused) {
+            portraitVid.play().catch(function () {});
+            if (videoToggle) videoToggle.innerHTML = '&#9646;&#9646; 3D NaV1.6';
+          } else {
+            portraitVid.pause();
+            if (videoToggle) videoToggle.innerHTML = '&#9654; Paused';
+          }
+        });
+      }
+    }
 
     var photoInput = document.getElementById('my-cv-photo-input');
     if (photoInput) {
