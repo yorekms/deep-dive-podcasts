@@ -24,35 +24,40 @@
 
   var PUBLICATIONS = [
     {
-      num: 1, year: 2026, firstAuthor: false, cats: ['neuro'],
+      num: 1, year: 2026, firstAuthor: false, cats: ['neuro', 'top10'],
+      pmid: '42218829', cites: 6, fwci: 4.80, oaPct: 92.8, rcr: null, nihPct: null,
       title: 'Microenvironment T-type calcium channels regulate neuronal and glial processes in tumor cells to promote glioblastoma growth',
       authors: 'Dube CJ, Zhang Y, Saha S, Deutsch TCJ, Yorek M, Lai M, Gibert MK, Escalante M, Hudson K, Wong D, Marcinkiewicz P, Yener U, Sun Y, Xu E, Sorot A, Mulcahy E, Kefas B, Hanif F, Guessous F, Vernon A, Schiff D, Zong H, Purow B, Holland E, Sonkusare S, Sontheimer H, Patel MK, Abounader R',
       journal: 'Neuro-Oncology', cite: '2026;28(9):2123–2135',
       doi: '10.1093/neuonc/noag131', roleNote: 'Intracranial glioblastoma tumor-cell stereotaxic injections & microenvironment electrophysiology collaboration (UVA).'
     },
     {
-      num: 2, year: 2026, firstAuthor: false, cats: ['neuro'],
+      num: 2, year: 2026, firstAuthor: false, cats: ['neuro', 'top10'],
+      pmid: '41623181', cites: 7, fwci: 18.27, oaPct: 99.2, rcr: null, nihPct: null,
       title: 'Base editing rescues seizures and sudden death in a SCN8A mutation-associated developmental epileptic encephalopathy model',
       authors: 'Reever CM, Boscia AR, Deutsch TC, Patel MP, Miralles RM, Kittur S, Fleischel EJ, Buo AM, Yorek MS, Meisler MH, Farber CR, Patel MK',
       journal: 'Journal of Clinical Investigation', cite: '2026;136(3):e196402',
       doi: '10.1172/JCI196402', roleNote: 'SCN8A NaV1.6 epileptic encephalopathy seizure & survival rescue data contribution (UVA Anesthesiology).'
     },
     {
-      num: 3, year: 2025, firstAuthor: false, cats: ['cancer'],
+      num: 3, year: 2025, firstAuthor: false, cats: ['cancer', 'top10'],
+      pmid: '40913763', cites: 14, fwci: 4.20, oaPct: 95.1, rcr: 2.65, nihPct: 80.9,
       title: 'FABP5 in skin macrophages mediates saturated fat-induced IL-1β signaling in psoriatic inflammation',
       authors: 'Yu J, Hao J, Yorek MS, Jiang X, Avellino A, Liu S, Han X, Shilyansky J, Wang Z, Wang Y, Kang Z, Jabbari A, Li B',
       journal: 'Cell Reports', cite: '2025;44(9):116254',
       doi: '10.1016/j.celrep.2025.116254', roleNote: 'Macrophage fatty-acid binding protein signaling & dietary lipid immunometabolism.'
     },
     {
-      num: 4, year: 2024, firstAuthor: true, cats: ['cancer', 'first'],
+      num: 4, year: 2024, firstAuthor: true, cats: ['cancer', 'first', 'top10'],
+      pmid: '39513934', cites: 57, fwci: 7.75, oaPct: 98.4, rcr: 4.73, nihPct: 91.5,
       title: 'FABP4-mediated lipid accumulation and lipolysis in tumor-associated macrophages promote breast cancer metastasis',
       authors: 'Yorek M, Jiang X, Liu S, Hao J, Yu J, Avellino A, Liu Z, Curry M, Keen H, Shao J, Kanagasabapathy A, Kong M, Xiong Y, Sauter ER, Sugg SL, Li B',
       journal: 'eLife', cite: '2024;13:RP101221',
-      doi: '10.7554/eLife.101221.2', roleNote: 'First Author • NCI MeDOC (U01CA272424): human breast cancer specimen correlations (FABP4/CD163 & tumor burden), TAM lipolysis & metastasis.'
+      doi: '10.7554/eLife.101221.2', roleNote: 'First Author • NCI MeDOC (U01CA272424): human breast cancer specimen correlations (FABP4/CD163 & tumor burden), TAM lipolysis & metastasis — already 57 citations (7.75× global field impact; Top 1.6% worldwide).'
     },
     {
-      num: 5, year: 2024, firstAuthor: false, cats: ['neuro'],
+      num: 5, year: 2024, firstAuthor: false, cats: ['neuro', 'top10'],
+      pmid: '39435659', cites: 20, fwci: 4.74, oaPct: 96.1, rcr: 3.00, nihPct: 83.8,
       title: 'Parvalbumin interneuron impairment causes synaptic transmission deficits and seizures in SCN8A developmental and epileptic encephalopathy',
       authors: 'Miralles RM, Boscia AR, Kittur S, Hanflink JC, Panchal PS, Yorek MS, Deutsch TCJ, Reever CM, Vundela SR, Wengert ER, Patel MK',
       journal: 'JCI Insight', cite: '2024;9(20):e181005',
@@ -60,13 +65,15 @@
     },
     {
       num: 6, year: 2024, firstAuthor: false, cats: ['cancer'],
+      pmid: '38613778', cites: 3, fwci: 0.45, oaPct: 52.7, rcr: 0.25, nihPct: 15.4,
       title: 'Determination of the FABP5 expression profile in skin lesions of an IMQ-induced psoriasis mouse model using flow cytometry',
       authors: 'Yu J, Hao J, Yorek MS, Han X, Avellino A, Jiang X, Liu S, Wang J, Li B',
       journal: 'STAR Protocols', cite: '2024;5(2):103018',
       doi: '10.1016/j.xpro.2024.103018', roleNote: 'Standardized multiparameter flow-cytometry immunophenotyping protocol.'
     },
     {
-      num: 7, year: 2023, firstAuthor: false, cats: ['cancer'],
+      num: 7, year: 2023, firstAuthor: false, cats: ['cancer', 'top10'],
+      pmid: '37967009', cites: 36, fwci: 3.62, oaPct: 94.4, rcr: 3.27, nihPct: 85.6,
       title: 'Keratinocyte FABP5-VCP complex mediates recruitment of neutrophils in psoriasis',
       authors: 'Hao J, Yu J, Yorek MS, Yu CL, Pope RM, Chimenti MS, Xiong Y, Klingelhutz A, Jabbari A, Li B',
       journal: 'Cell Reports', cite: '2023;42(11):113449',
@@ -74,13 +81,15 @@
     },
     {
       num: 8, year: 2023, firstAuthor: false, cats: ['cancer'],
+      pmid: '36608128', cites: 8, fwci: 0.80, oaPct: 64.8, rcr: 0.66, nihPct: 36.6,
       title: 'CD47 halts Ptpn6-deficient neutrophils from provoking lethal inflammation',
       authors: 'Mazgaeen L, Yorek M, Saini S, Vogel P, Meyerholz DK, Kanneganti TD, Gurung P',
       journal: 'Science Advances', cite: '2023;9(1):eade3942',
       doi: '10.1126/sciadv.ade3942', roleNote: 'Innate immune checkpoint regulation of SHP-1 (Ptpn6)-deficient neutrophil autoinflammation.'
     },
     {
-      num: 9, year: 2022, firstAuthor: false, cats: ['cancer'],
+      num: 9, year: 2022, firstAuthor: false, cats: ['cancer', 'top10'],
+      pmid: '36516778', cites: 26, fwci: 4.26, oaPct: 94.5, rcr: 1.68, nihPct: 67.9,
       title: 'Consumption of fish oil high-fat diet induces murine hair loss via epidermal fatty acid binding protein in skin macrophages',
       authors: 'Hao J, Jin R, Zeng J, Hua Y, Yorek MS, Liu L, Mandal A, Li J, Zheng H, Sun Y, Yi Y, Yin D, Zheng Q, Li X, Ng CK, Rouchka EC, Egilmez NK, Jabbari A, Li B',
       journal: 'Cell Reports', cite: '2022;41(11):111804',
@@ -88,6 +97,7 @@
     },
     {
       num: 10, year: 2022, firstAuthor: false, cats: ['cancer'],
+      pmid: '35304452', cites: 13, fwci: 0.88, oaPct: 67.2, rcr: 0.47, nihPct: 27.6,
       title: 'CD4 expression in effector T cells depends on DNA demethylation over a developmentally established stimulus-responsive element',
       authors: 'Teghanemt A, Pulipati P, Misel-Wuchter K, Day K, Yorek MS, Yi R, Keen HL, Au C, Maretzky T, Gurung P, Littman DR, Issuree PD',
       journal: 'Nature Communications', cite: '2022;13(1):1477',
@@ -95,6 +105,7 @@
     },
     {
       num: 11, year: 2020, firstAuthor: false, cats: ['cancer'],
+      pmid: '32948646', cites: 16, fwci: 1.64, oaPct: 84.2, rcr: 0.71, nihPct: 39.0,
       title: 'Acute IL-4 governs pathogenic T cell responses during Leishmania major infection',
       authors: 'Poudel B, Yorek MS, Mazgaeen L, Brown SA, Kanneganti TD, Gurung P',
       journal: 'ImmunoHorizons', cite: '2020;4(9):546–560',
@@ -102,6 +113,7 @@
     },
     {
       num: 12, year: 2019, firstAuthor: true, cats: ['cancer', 'first'],
+      pmid: '31260451', cites: 9, fwci: 1.13, oaPct: 77.2, rcr: 0.32, nihPct: 19.1,
       title: 'Leishmania major degrades murine CXCL1 – An immune evasion strategy',
       authors: 'Yorek MS, Poudel B, Mazgaeen L, Pope RM, Wilson ME, Gurung P',
       journal: 'PLoS Neglected Tropical Diseases', cite: '2019;13(7):e0007533',
@@ -109,6 +121,7 @@
     },
     {
       num: 13, year: 2017, firstAuthor: true, cats: ['vision', 'first'],
+      pmid: '28025096', cites: 30, fwci: 2.39, oaPct: 86.1, rcr: 1.14, nihPct: 54.5,
       title: 'Early vs. late intervention of high fat/low dose streptozotocin treated C57Bl/6J mice with enalapril, α-lipoic acid, menhaden oil or their combination: Effect on diabetic neuropathy related endpoints',
       authors: 'Yorek MS, Obrosov A, Shevalye H, Coppey LJ, Kardon RH, Yorek MA',
       journal: 'Neuropharmacology', cite: '2017;116:122–131',
@@ -116,6 +129,7 @@
     },
     {
       num: 14, year: 2016, firstAuthor: true, cats: ['vision', 'first'],
+      pmid: '27634964', cites: 9, fwci: 0.65, oaPct: 66.7, rcr: 0.34, nihPct: 20.5,
       title: 'Effect of inhibition or deletion of neutral endopeptidase on neuropathic endpoints in high fat fed/low dose streptozotocin-treated mice',
       authors: 'Yorek MS, Obrosov A, Lu B, Gerard C, Kardon RH, Yorek MA',
       journal: 'J Neuropathol Exp Neurol', cite: '2016;75(11):1072–1080',
@@ -123,48 +137,55 @@
     },
     {
       num: 15, year: 2016, firstAuthor: true, cats: ['vision', 'first'],
+      pmid: '27774316', cites: 29, fwci: 2.17, oaPct: 84.7, rcr: 1.15, nihPct: 54.9,
       title: 'Effect of treatment with salsalate, menhaden oil, combination of salsalate and menhaden oil, or resolvin D1 of C57Bl/6J type 1 diabetic mouse on neuropathic endpoints',
       authors: 'Yorek MS, Coppey LJ, Shevalye H, Obrosov A, Kardon RH, Yorek MA',
       journal: 'Journal of Nutrition and Metabolism', cite: '2016;2016:5905891',
       doi: '10.1155/2016/5905891', roleNote: 'First Author • Specialized pro-resolving lipid mediators (Resolvin D1) & salicylate synergy on nerve regeneration.'
     },
     {
-      num: 16, year: 2016, firstAuthor: false, cats: ['vision'],
+      num: 16, year: 2016, firstAuthor: false, cats: ['vision', 'top10'],
+      pmid: '27230286', cites: 307, fwci: 20.67, oaPct: 99.7, rcr: 9.03, nihPct: 97.0,
       title: 'Nicotinamide riboside opposes type 2 diabetes and neuropathy in mice',
       authors: 'Trammell SA, Weidemann BJ, Chadda A, Yorek MS, Holmes A, Coppey LJ, Obrosov A, Kardon RH, Yorek MA, Brenner C',
       journal: 'Scientific Reports', cite: '2016;6:26933',
-      doi: '10.1038/srep26933', roleNote: 'NAD+ precursor metabolomics & in vivo corneal confocal microscopy neuroprotection.'
+      doi: '10.1038/srep26933', roleNote: 'NAD+ precursor metabolomics & in vivo corneal confocal microscopy neuroprotection — 307 citations (20.67× global field impact; Top 0.3% worldwide).'
     },
     {
       num: 17, year: 2016, firstAuthor: true, cats: ['vision', 'first'],
+      pmid: '27145474', cites: 20, fwci: 2.17, oaPct: 84.7, rcr: 0.93, nihPct: 47.7,
       title: 'Corneal sensitivity to hyperosmolar eye drops: A novel behavioral assay to assess diabetic peripheral neuropathy',
       authors: 'Yorek MS, Davidson EP, Poolman P, Coppey LJ, Obrosov A, Holmes A, Kardon RH, Yorek MA',
       journal: 'Investigative Ophthalmology & Visual Science', cite: '2016;57(6):2412–2419',
       doi: '10.1167/iovs.16-19435', roleNote: 'First Author • Designed, validated & authored novel quantitative ocular psychophysical assay for small-fiber neuropathy.'
     },
     {
-      num: 18, year: 2015, firstAuthor: false, cats: ['vision'],
+      num: 18, year: 2015, firstAuthor: false, cats: ['vision', 'top10'],
+      pmid: '25925322', cites: 85, fwci: 9.27, oaPct: 98.5, rcr: 3.15, nihPct: 84.8,
       title: 'Effect of enriching the diet with menhaden oil or daily treatment with resolvin D1 on neuropathy in a mouse model of type 2 diabetes',
       authors: 'Shevalye H, Yorek MS, Coppey LJ, Holmes A, Harper MM, Kardon RH, Yorek MA',
       journal: 'Journal of Neurophysiology', cite: '2015;114(1):199–208',
       doi: '10.1152/jn.00224.2015', roleNote: 'Nerve conduction velocity, OCT & sub-basal corneal nerve fiber morphometry.'
     },
     {
-      num: 19, year: 2015, firstAuthor: true, cats: ['vision', 'first'],
+      num: 19, year: 2015, firstAuthor: true, cats: ['vision', 'first', 'top10'],
+      pmid: '25858759', cites: 65, fwci: 5.59, oaPct: 96.5, rcr: 2.62, nihPct: 80.7,
       title: 'Effect of diet-induced obesity or type 1 or type 2 diabetes on corneal nerves and peripheral neuropathy in C57Bl/6J mice',
       authors: 'Yorek MS, Obrosov A, Shevalye H, Holmes A, Harper MM, Kardon RH, Yorek MA',
       journal: 'Journal of the Peripheral Nervous System', cite: '2015;20(1):24–31',
       doi: '10.1111/jns.12111', roleNote: 'First Author • Comparative longitudinal staging of pre-diabetic obesity vs. insulinopenic & hyperglycemic neuropathy.'
     },
     {
-      num: 20, year: 2014, firstAuthor: false, cats: ['vision'],
+      num: 20, year: 2014, firstAuthor: false, cats: ['vision', 'top10'],
+      pmid: '25468886', cites: 90, fwci: 6.90, oaPct: 97.2, rcr: 2.74, nihPct: 81.8,
       title: 'Early detection of subclinical visual damage after blast-mediated TBI enables prevention of chronic visual deficit by treatment with P7C3-S243',
       authors: 'Dutca LM, Stasheff SF, Hedberg-Buenz A, Rudd DS, Batra N, Blodi FR, Yorek MS, Yin T, Shankar M, Herlein JA, Naidoo J, Morlock L, Williams N, Kardon RH, Anderson MG, Pieper AA, Harper MM',
       journal: 'Investigative Ophthalmology & Visual Science', cite: '2014;55(12):8330–8341',
       doi: '10.1167/iovs.14-15468', roleNote: 'Thy1-GFP retinal ganglion cell dendritic arborization imaging & NAMPT activator neuroprotection in blast TBI.'
     },
     {
-      num: 21, year: 2014, firstAuthor: true, cats: ['vision', 'first'],
+      num: 21, year: 2014, firstAuthor: true, cats: ['vision', 'first', 'top10'],
+      pmid: '25403729', cites: 51, fwci: 4.03, oaPct: 93.8, rcr: 1.55, nihPct: 65.3,
       title: 'Effect of glycemic control on corneal nerves and peripheral neuropathy in streptozotocin-induced diabetic C57Bl/6J mice',
       authors: 'Yorek MS, Obrosov A, Shevalye H, Lupachyk S, Harper MM, Kardon RH, Yorek MA',
       journal: 'Journal of the Peripheral Nervous System', cite: '2014;19(3):205–217',
@@ -172,17 +193,19 @@
     },
     {
       num: 22, year: 2010, firstAuthor: false, cats: ['neuro'],
+      pmid: '20031321', cites: 85, fwci: 2.19, oaPct: 85.4, rcr: 1.99, nihPct: 73.2,
       title: 'Nociceptive sensitization by complement C5a and C3a in mouse',
       authors: 'Jang JH, Clark DJ, Li X, Yorek MS, Usachev YM, Brennan TJ',
       journal: 'PAIN', cite: '2010;148(2):343–352',
       doi: '10.1016/j.pain.2009.11.021', roleNote: 'Primary DRG sensory-neuron intracellular Ca2+ imaging & TRPV1 sensitization (Usachev & Brennan Labs, UIowa).'
     },
     {
-      num: 23, year: 2008, firstAuthor: false, cats: ['neuro'],
+      num: 23, year: 2008, firstAuthor: false, cats: ['neuro', 'top10'],
+      pmid: '18183531', cites: 70, fwci: 4.66, oaPct: 96.4, rcr: 2.30, nihPct: 77.3,
       title: 'Selective nicotinic acetylcholine receptor agonists: potential therapies for neuropsychiatric disorders with cognitive dysfunction',
       authors: 'Cincotta SL, Yorek MS, Moschak TM, Lewis SR, Rodefer JS',
       journal: 'Curr Opin Investig Drugs', cite: '2008;9(1):47–56',
-      doi: '', pmid: '18183531', roleNote: 'Prefrontal attentional set-shifting & α7/α4β2 nicotinic pharmacology review (Rodefer Lab, UIowa).'
+      doi: '', roleNote: 'Prefrontal attentional set-shifting & α7/α4β2 nicotinic pharmacology review (Rodefer Lab, UIowa).'
     }
   ];
 
@@ -263,13 +286,15 @@
       ]
     },
     {
-      period: '2016 – 2017 (Concurrent Industry Analytical QC)',
+      period: '2016 – 2017 • 12-Hr Rotating Day/Night Shifts',
       role: 'Quality Control Analytical Laboratory Technician',
-      org: 'Grain Processing Corporation',
+      org: 'Grain Processing Corporation (GPC) • Mississippi River Wet-Milling Biorefinery',
       loc: 'Muscatine, IA',
       accent: '#F59E0B',
       bullets: [
-        'Executed high-throughput analytical wet chemistry, HPLC, GC, LC-MS impurity profiling, Kjeldahl protein, ether lipid extraction, and N/S combustion analysis across rotating 12-hour industrial shifts while training incoming laboratory analysts.'
+        'Worked rotating 12-hour day and night shifts (36.75 / 49 hrs/wk plus overtime) inside one of North America’s largest single-site corn wet-milling plants on the banks of the Mississippi River—engineered for whole-kernel utilization of corn sourced across Iowa, Illinois, and Indiana into food/pharmaceutical modified starches, maltodextrins, beverage & USP ethyl alcohol, corn oil, and high-protein feed.',
+        'Conducted real-time surveillance of in-process modified starch reactions, beverage/industrial alcohol distillation & sensory QC, and co-product feed streams via HPLC, GC, and LC-MS impurity & carbohydrate profiling.',
+        'Executed quantitative wet chemistry including Kjeldahl protein, Nitrogen & Sulfur combustion elemental analysis, Soxhlet/ether lipid extraction, active chlorine, sulfur dioxide/sodium bisulfite, carboxyl, viscosity, moisture, ash, particle-size, and specific-gravity determinations—and trained incoming technicians in the starch analytical laboratory.'
       ]
     },
     {
@@ -553,24 +578,24 @@
         /* 5-METRIC TELEMETRY RIBBON */
         '<section class="my-stat-grid" aria-label="Research Telemetry">' +
           '<div class="my-stat-card" style="border-top:2px solid #38BDF8;">' +
-            '<div style="font-size:24px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">23 <span style="font-size:12px;font-weight:700;color:#38BDF8;">(7 First-Author)</span></div>' +
-            '<div style="font-size:11.5px;font-weight:700;color:#94A3B8;margin-top:3px;">Peer-Reviewed Articles (JCI, eLife, Nat Commun, Sci Adv, Cell Rep)</div>' +
-          '</div>' +
-          '<div class="my-stat-card" style="border-top:2px solid #C084FC;">' +
-            '<div style="font-size:24px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">20+ Yrs</div>' +
-            '<div style="font-size:11.5px;font-weight:700;color:#94A3B8;margin-top:3px;">Bench &amp; Quantitative Science (UIowa &bull; Iowa City VA &bull; UVA Health)</div>' +
+            '<div style="font-size:23px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">1,056 <span style="font-size:12px;font-weight:800;color:#38BDF8;">Cites &bull; h=15</span></div>' +
+            '<div style="font-size:11.3px;font-weight:700;color:#94A3B8;margin-top:3px;">23 Papers (8 First-Author) &bull; i10=17 &bull; g-index 23/23 (100%) &bull; 65% h-Core</div>' +
           '</div>' +
           '<div class="my-stat-card" style="border-top:2px solid #34D399;">' +
-            '<div style="font-size:24px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">44 / 15 GEO</div>' +
-            '<div style="font-size:11.5px;font-weight:700;color:#94A3B8;margin-top:3px;">Seizure Transcriptomic Contrasts &amp; 311-Gene Bayesian Forecast Panel</div>' +
+            '<div style="font-size:23px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">4.92&times; <span style="font-size:12px;font-weight:800;color:#34D399;">Global FWCI</span></div>' +
+            '<div style="font-size:11.3px;font-weight:700;color:#94A3B8;margin-top:3px;">2.13&times; NIH RCR Baseline &bull; 13 of 23 (57%) in Global Top 10% for Field &amp; Year</div>' +
           '</div>' +
           '<div class="my-stat-card" style="border-top:2px solid #F59E0B;">' +
-            '<div style="font-size:24px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">14+ Suites</div>' +
-            '<div style="font-size:11.5px;font-weight:700;color:#94A3B8;margin-top:3px;">ClampFlow ABF, Python v14 &amp; MATLAB Electrophysiology &amp; Imaging Tools</div>' +
+            '<div style="font-size:23px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">57 Cites <span style="font-size:12px;font-weight:800;color:#FBBF24;">Top 1.6%</span></div>' +
+            '<div style="font-size:11.3px;font-weight:700;color:#94A3B8;margin-top:3px;">2024 First-Author <em>eLife</em> Study (7.75&times; FWCI &bull; 91.5th NIH Percentile)</div>' +
+          '</div>' +
+          '<div class="my-stat-card" style="border-top:2px solid #C084FC;">' +
+            '<div style="font-size:23px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">20+ Yrs <span style="font-size:12px;font-weight:800;color:#C084FC;">&amp; 14+ Suites</span></div>' +
+            '<div style="font-size:11.3px;font-weight:700;color:#94A3B8;margin-top:3px;">UVA Health &bull; UIowa &bull; Grain Processing Corp. &bull; Iowa City VA &bull; ClampFlow</div>' +
           '</div>' +
           '<div class="my-stat-card" style="border-top:2px solid #FB7185;">' +
-            '<div id="my-live-ep-total" style="font-size:24px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">694+</div>' +
-            '<div style="font-size:11.5px;font-weight:700;color:#94A3B8;margin-top:3px;">Long-Form Scientific Audio Treatises Across 12 <strong style="color:#38BDF8;">MY-</strong> Subject Hubs</div>' +
+            '<div id="my-live-ep-total" style="font-size:23px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">695</div>' +
+            '<div style="font-size:11.3px;font-weight:700;color:#94A3B8;margin-top:3px;">Long-Form Scientific Audio Treatises Across 12 <strong style="color:#38BDF8;">MY-</strong> Subject Hubs</div>' +
           '</div>' +
         '</section>' +
 
@@ -578,8 +603,8 @@
         '<nav class="my-jump-bar" aria-label="CV Sections">' +
           '<span style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.07em;color:#38BDF8;margin-right:4px;">MY&middot;CV Sections:</span>' +
           '<a href="#sec-portals" class="my-jump-link">&#128640; Software &amp; Portals</a>' +
-          '<a href="#sec-appointments" class="my-jump-link">&#127963;&#65039; Research Appointments</a>' +
-          '<a href="#sec-publications" class="my-jump-link">&#128196; Publications (23)</a>' +
+          '<a href="#sec-appointments" class="my-jump-link">&#127963;&#65039; Appointments &amp; GPC</a>' +
+          '<a href="#sec-publications" class="my-jump-link">&#128200; Impact &amp; Publications (23)</a>' +
           '<a href="#sec-methods" class="my-jump-link">&#128736;&#65039; Methods, Education &amp; Talks</a>' +
           '<a href="#sec-audio-hubs" class="my-jump-link">&#127911; 12 MY- Audio Hubs</a>' +
           '<a href="#sec-strava" class="my-jump-link" style="border-color:rgba(252,76,2,0.45);color:#FED7AA;">&#128692; Off-Bench &amp; Strava</a>' +
@@ -601,33 +626,65 @@
         '<section id="sec-appointments" class="my-sec-card">' +
           '<div class="my-sec-hdr">' +
             '<div>' +
-              '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#C084FC;margin-bottom:3px;">Academic &amp; Laboratory Lineage (2005 &ndash; Present)</div>' +
-              '<h2 style="margin:0;font-size:22px;font-weight:900;color:#FFFFFF;">Research Appointments &amp; Experimental Contributions</h2>' +
+              '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#C084FC;margin-bottom:3px;">Academic, Clinical &amp; Industrial Analytical Lineage (2005 &ndash; Present)</div>' +
+              '<h2 style="margin:0;font-size:22px;font-weight:900;color:#FFFFFF;">Research &amp; Analytical Chemistry Appointments</h2>' +
             '</div>' +
-            '<span style="font-size:12px;color:#94A3B8;">UVA Health &bull; University of Iowa &bull; Iowa City VA</span>' +
+            '<span style="font-size:12px;color:#94A3B8;">UVA Health &bull; UIowa &bull; Grain Processing Corp. (Mississippi River) &bull; Iowa City VA</span>' +
           '</div>' +
           '<div class="my-timeline">' + timelineHtml + '</div>' +
         '</section>' +
 
-        /* SECTION 3: PEER-REVIEWED PUBLICATIONS */
+        /* SECTION 3: PEER-REVIEWED PUBLICATIONS & BIBLIOMETRIC IMPACT */
         '<section id="sec-publications" class="my-sec-card">' +
           '<div class="my-sec-hdr">' +
             '<div>' +
-              '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#34D399;margin-bottom:3px;">ORCID 0000-0002-4737-9367 &bull; Verified Bibliography</div>' +
-              '<h2 style="margin:0;font-size:22px;font-weight:900;color:#FFFFFF;">Peer-Reviewed Journal Articles &amp; Reviews (2008 &ndash; 2026)</h2>' +
+              '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#34D399;margin-bottom:3px;">ORCID 0000-0002-4737-9367 &bull; OpenAlex &amp; Official NIH iCite Verified Impact</div>' +
+              '<h2 style="margin:0;font-size:22px;font-weight:900;color:#FFFFFF;">Objective Bibliometrics &amp; Peer-Reviewed Publications (2008 &ndash; 2026)</h2>' +
             '</div>' +
             '<a href="' + esc(CONFIG.pubmedUrl) + '" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:800;color:#38BDF8;text-decoration:none;">Open Official NCBI MyBibliography &#8599;</a>' +
           '</div>' +
 
-          '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;">' +
+          /* OBJECTIVE IMPACT EXPLAINER GRID */
+          '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px;margin-bottom:18px;padding:15px;border-radius:16px;background:linear-gradient(135deg,rgba(14,116,144,0.16) 0%,rgba(15,23,42,0.92) 55%,rgba(16,185,129,0.12) 100%);border:1px solid rgba(52,211,153,0.32);">' +
+            '<div style="background:rgba(2,6,23,0.62);border:1px solid rgba(56,189,248,0.28);border-radius:12px;padding:12px 14px;">' +
+              '<div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#38BDF8;margin-bottom:4px;">Citation Density &amp; Efficiency</div>' +
+              '<div style="font-size:17px;font-weight:900;color:#FFFFFF;margin-bottom:3px;">1,056 Citations &bull; 45.9 / Paper</div>' +
+              '<div style="font-size:12px;line-height:1.45;color:#CBD5E1;"><strong>h-index = 15</strong> (65.2% of all 23 papers inside the h-core; 16th paper at 14 cites), <strong>i10-index = 17</strong> (74%), and maximum possible <strong>g-index = 23/23 (100%)</strong>.</div>' +
+            '</div>' +
+            '<div style="background:rgba(2,6,23,0.62);border:1px solid rgba(52,211,153,0.28);border-radius:12px;padding:12px 14px;">' +
+              '<div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#34D399;margin-bottom:4px;">Field- &amp; Age-Normalized Impact (FWCI)</div>' +
+              '<div style="font-size:17px;font-weight:900;color:#FFFFFF;margin-bottom:3px;">4.92&times; World Average (4.03&times; Median)</div>' +
+              '<div style="font-size:12px;line-height:1.45;color:#CBD5E1;">Unlike raw h-index (capped by paper count), OpenAlex FWCI normalizes by subfield &amp; year (1.0&times; = world mean): <strong>13 of 23 papers (56.5%) rank in the Global Top 10%</strong> and <strong>9 (39%) in the Top 5%</strong>.</div>' +
+            '</div>' +
+            '<div style="background:rgba(2,6,23,0.62);border:1px solid rgba(192,132,252,0.28);border-radius:12px;padding:12px 14px;">' +
+              '<div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#C084FC;margin-bottom:4px;">NIH Study-Section Benchmark (iCite RCR)</div>' +
+              '<div style="font-size:17px;font-weight:900;color:#FFFFFF;margin-bottom:3px;">2.13&times; NIH R01 Peer Baseline</div>' +
+              '<div style="font-size:12px;line-height:1.45;color:#CBD5E1;">Official NIH Office of Portfolio Analysis <em>iCite</em> scores 21 benchmarked articles at <strong>44.69 Weighted RCR</strong> (~45 NIH-average papers of impact), with <strong>9 papers in the NIH Top Quartile (&ge;75th pct)</strong>.</div>' +
+            '</div>' +
+            '<div style="background:rgba(2,6,23,0.62);border:1px solid rgba(245,158,11,0.32);border-radius:12px;padding:12px 14px;">' +
+              '<div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#FBBF24;margin-bottom:4px;">Recent First-Author &amp; UVA Velocity</div>' +
+              '<div style="font-size:17px;font-weight:900;color:#FFFFFF;margin-bottom:3px;">eLife 2024: 57 Cites (7.75&times; FWCI)</div>' +
+              '<div style="font-size:12px;line-height:1.45;color:#CBD5E1;">First-author 2024 <em>eLife</em> breast cancer study is in the <strong>Global Top 1.6% (98.4th pct; NIH RCR 4.73, 91.5th pct)</strong>; 2026 <em>JCI</em> SCN8A base editing is at <strong>18.27&times; FWCI (99.2nd pct)</strong>; 136 cites/yr peak velocity in 2026.</div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;">' +
             '<div id="my-pub-filters" style="display:flex;flex-wrap:wrap;gap:6px;">' +
               '<button type="button" class="my-pub-filter-btn active" data-filter="all">All (23)</button>' +
-              '<button type="button" class="my-pub-filter-btn" data-filter="first">&#9733; First-Author (7)</button>' +
-              '<button type="button" class="my-pub-filter-btn" data-filter="neuro">&#9889; Epilepsy, Glioblastoma &amp; Ion Channels (5)</button>' +
-              '<button type="button" class="my-pub-filter-btn" data-filter="cancer">&#129516; Cancer &amp; Macrophage Immunometabolism (8)</button>' +
-              '<button type="button" class="my-pub-filter-btn" data-filter="vision">&#128065;&#65039; Diabetic Neuropathy, Cornea &amp; Blast TBI (10)</button>' +
+              '<button type="button" class="my-pub-filter-btn" data-filter="first">&#9733; First-Author (8 &bull; 270 Cites)</button>' +
+              '<button type="button" class="my-pub-filter-btn" data-filter="top10">&#127942; Global Top 10% Field Impact (13)</button>' +
+              '<button type="button" class="my-pub-filter-btn" data-filter="neuro">&#9889; Epilepsy, GBM &amp; Ion Channels (5)</button>' +
+              '<button type="button" class="my-pub-filter-btn" data-filter="cancer">&#129516; Cancer &amp; Immunometabolism (8)</button>' +
+              '<button type="button" class="my-pub-filter-btn" data-filter="vision">&#128065;&#65039; Neuropathy, Cornea &amp; TBI (10)</button>' +
             '</div>' +
-            '<input id="my-pub-search" type="search" placeholder="Filter by gene, disease, journal, year (e.g. SCN8A, FABP4, eLife)..." style="min-width:270px;flex:1;max-width:400px;padding:8px 13px;border-radius:999px;border:1px solid rgba(148,163,184,0.35);background:rgba(2,6,23,0.8);color:#F8FAFC;font-size:12.5px;outline:none;" />' +
+            '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;flex:1;justify-content:flex-end;">' +
+              '<div id="my-pub-sorts" style="display:inline-flex;align-items:center;gap:4px;background:rgba(2,6,23,0.75);padding:3px;border-radius:999px;border:1px solid rgba(148,163,184,0.28);">' +
+                '<button type="button" class="my-pub-filter-btn active" data-sort="year" style="padding:4px 10px;font-size:11px;">Newest</button>' +
+                '<button type="button" class="my-pub-filter-btn" data-sort="cites" style="padding:4px 10px;font-size:11px;">Most Cited</button>' +
+                '<button type="button" class="my-pub-filter-btn" data-sort="fwci" style="padding:4px 10px;font-size:11px;">Highest FWCI</button>' +
+              '</div>' +
+              '<input id="my-pub-search" type="search" placeholder="Search gene, journal, year (e.g. SCN8A, FABP4, eLife)..." style="min-width:230px;max-width:340px;padding:7px 13px;border-radius:999px;border:1px solid rgba(148,163,184,0.35);background:rgba(2,6,23,0.8);color:#F8FAFC;font-size:12.2px;outline:none;" />' +
+            '</div>' +
           '</div>' +
           '<div id="my-pub-list"></div>' +
         '</section>' +
@@ -662,7 +719,7 @@
               '<ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.58;color:#CBD5E1;">' +
                 '<li style="margin-bottom:6px;"><strong>Statistical &amp; Scientific Computing:</strong> R (<code>edgeR</code>, <code>limma</code>, study-level meta-regression), Python (<code>NumPy</code>, <code>SciPy</code>, Bayesian forecasting), MATLAB (<code>ClampFlow</code>, 14 physiology &amp; EEG/ABF toolboxes), SQL &amp; REDCap clinical data administration.</li>' +
                 '<li style="margin-bottom:6px;"><strong>Electrophysiology &amp; Live-Cell Biophysics:</strong> Whole-cell voltage/current clamp, intracellular Ca<sup>2+</sup> imaging, DRG &amp; central slice physiology, stereotaxic intracranial surgery, plethysmography &amp; EEG seizure telemetry.</li>' +
-                '<li style="margin-bottom:6px;"><strong>Microscopy, Cytometry &amp; Analytical Chemistry:</strong> Confocal, multiphoton/light &amp; electron microscopy, 3D volume reconstruction (<code>IMARIS</code>, <code>FIJI/ImageJ</code>), optical coherence tomography (OCT), FlowJo multiparameter flow cytometry, HPLC, GC &amp; LC-MS.</li>' +
+                '<li style="margin-bottom:6px;"><strong>Microscopy, Cytometry &amp; Analytical Process Chemistry:</strong> Confocal, multiphoton/light &amp; electron microscopy, 3D volume reconstruction (<code>IMARIS</code>, <code>FIJI/ImageJ</code>), optical coherence tomography (OCT), FlowJo multiparameter flow cytometry, HPLC, GC, LC-MS, Kjeldahl protein, N/S combustion analysis &amp; Soxhlet/ether lipid extraction.</li>' +
                 '<li><strong>Software Heritage:</strong> Coding since 1997 across FORTRAN, Pascal, C/C++ (including early C-based NUTS network servers), Visual Basic, HTML/JS, and two+ years of agentic LLM scientific tool engineering.</li>' +
               '</ul>' +
             '</div>' +
@@ -703,10 +760,10 @@
         '<section id="sec-strava" class="my-sec-card" style="background:linear-gradient(135deg, rgba(252,76,2,0.12) 0%, rgba(15,23,42,0.96) 52%, rgba(56,189,248,0.10) 100%);border-color:rgba(252,76,2,0.42);">' +
           '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">' +
             '<div style="flex:1;min-width:280px;">' +
-              '<div style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.09em;color:#FB923C;margin-bottom:4px;">&#127939;&#8205;&#9794;&#65039; &#128692; Off-Bench Miles, Mechanics &amp; Endurance</div>' +
-              '<h2 style="margin:0 0 8px 0;font-size:22px;font-weight:900;color:#FFFFFF;">Aerobic Miles &amp; Hands-On Craft</h2>' +
-              '<p style="margin:0;font-size:13.6px;line-height:1.6;color:#E2E8F0;max-width:880px;">' +
-                'Outside the electrophysiology rig and R/Python terminal, long endurance miles on the roads and trails around Virginia are where experimental designs, Bayesian models, and 60-minute podcast arcs get stress-tested. Grounded in hands-on mechanical diagnostics (from rebuilding transmissions and hydraulic systems to wiring custom imaging &amp; operant rigs), <strong style="color:#FFFFFF;"><span class="my-hi">MY</span>-scientist</strong> bridges wet-lab craft, open code, and endurance grit.' +
+              '<div style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.09em;color:#FB923C;margin-bottom:4px;">&#127939;&#8205;&#9794;&#65039; &#128692; &#127805; Off-Bench Miles, Riverfront Craft &amp; Endurance</div>' +
+              '<h2 style="margin:0 0 8px 0;font-size:22px;font-weight:900;color:#FFFFFF;">Aerobic Miles, Industrial Grit &amp; Hands-On Mechanics</h2>' +
+              '<p style="margin:0;font-size:13.6px;line-height:1.6;color:#E2E8F0;max-width:900px;">' +
+                'Outside the electrophysiology rig and R/Python terminal, long endurance miles on the roads and trails around Virginia are where experimental designs, Bayesian models, and 60-minute podcast arcs get stress-tested. Grounded in hands-on mechanical diagnostics (rebuilding transmissions, air-brakes &amp; hydraulics), rotating 12-hour day/night analytical shifts on the Mississippi River at Grain Processing Corporation&rsquo;s Muscatine wet-milling plant, and custom imaging/operant rig wiring, <strong style="color:#FFFFFF;"><span class="my-hi">MY</span>-scientist</strong> bridges real-world craft, open code, and endurance grit.' +
               '</p>' +
             '</div>' +
             '<div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px;">' +
@@ -719,8 +776,9 @@
         '</section>' +
       '</div>';
 
-    // Render filterable publications
+    // Render filterable & sortable publications
     var activeFilter = 'all';
+    var activeSort = 'year';
     var searchQuery = '';
     var pubListEl = document.getElementById('my-pub-list');
 
@@ -731,9 +789,17 @@
         var catOk = activeFilter === 'all' || p.cats.indexOf(activeFilter) !== -1;
         if (!catOk) return false;
         if (!q) return true;
-        var hay = (p.title + ' ' + p.authors + ' ' + p.journal + ' ' + p.year + ' ' + (p.roleNote || '')).toLowerCase();
+        var hay = (p.title + ' ' + p.authors + ' ' + p.journal + ' ' + p.year + ' ' + (p.pmid || '') + ' ' + (p.roleNote || '')).toLowerCase();
         return hay.indexOf(q) !== -1;
-      });
+      }).slice();
+
+      if (activeSort === 'cites') {
+        matches.sort(function (a, b) { return (b.cites || 0) - (a.cites || 0) || a.num - b.num; });
+      } else if (activeSort === 'fwci') {
+        matches.sort(function (a, b) { return (b.fwci || 0) - (a.fwci || 0) || (b.cites || 0) - (a.cites || 0); });
+      } else {
+        matches.sort(function (a, b) { return a.num - b.num; });
+      }
 
       if (!matches.length) {
         pubListEl.innerHTML = '<div style="padding:18px;text-align:center;color:#94A3B8;font-size:13.5px;">No publications matched that filter. Try clearing the search box.</div>';
@@ -743,6 +809,17 @@
       pubListEl.innerHTML = matches.map(function (p) {
         var linkUrl = p.doi ? ('https://doi.org/' + p.doi) : (p.pmid ? ('https://pubmed.ncbi.nlm.nih.gov/' + p.pmid + '/') : CONFIG.pubmedUrl);
         var linkLabel = p.doi ? ('DOI: ' + p.doi + ' &#8599;') : ('PMID: ' + p.pmid + ' &#8599;');
+        var citeBadge = '<span title="OpenAlex Verified Citation Count" style="font-family:ui-monospace,monospace;font-size:11.2px;font-weight:800;color:#6EE7B7;background:rgba(6,78,59,0.52);padding:2px 8px;border-radius:999px;border:1px solid rgba(52,211,153,0.45);">&#128200; ' + (p.cites || 0) + ' Cites</span>';
+        var fwciBadge = '';
+        if (p.fwci && p.fwci >= 1.5) {
+          var topTxt = (p.oaPct && p.oaPct >= 90) ? (' &bull; Top ' + Math.max(0.3, (100 - p.oaPct)).toFixed(1).replace(/\.0$/, '') + '%') : '';
+          var isElite = p.oaPct && p.oaPct >= 90;
+          fwciBadge = '<span title="OpenAlex Field-Weighted Citation Impact (1.0x = Global Mean for Field &amp; Year)" style="font-family:ui-monospace,monospace;font-size:11px;font-weight:800;color:' + (isElite ? '#FDE68A' : '#BAE6FD') + ';background:' + (isElite ? 'rgba(146,64,14,0.45)' : 'rgba(14,116,144,0.32)') + ';padding:2px 8px;border-radius:999px;border:1px solid ' + (isElite ? 'rgba(251,191,36,0.52)' : 'rgba(56,189,248,0.38)') + ';">' + p.fwci.toFixed(2) + '&times; FWCI' + topTxt + '</span>';
+        }
+        var rcrBadge = '';
+        if (p.rcr && p.rcr >= 1.5) {
+          rcrBadge = '<span title="Official NIH iCite Relative Citation Ratio (1.0 = NIH-Funded Median)" style="font-family:ui-monospace,monospace;font-size:11px;font-weight:800;color:#E9D5FF;background:rgba(88,28,135,0.42);padding:2px 8px;border-radius:999px;border:1px solid rgba(192,132,252,0.45);">NIH RCR ' + p.rcr.toFixed(2) + '</span>';
+        }
         return (
           '<article class="my-pub-item">' +
             '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;margin-bottom:5px;">' +
@@ -750,6 +827,7 @@
                 '<span style="font-family:ui-monospace,monospace;font-size:11.5px;font-weight:800;color:#38BDF8;background:rgba(14,116,144,0.3);padding:2px 8px;border-radius:6px;border:1px solid rgba(56,189,248,0.35);">#' + p.num + ' &bull; ' + p.year + '</span>' +
                 '<span style="font-size:12px;font-weight:800;color:#F8FAFC;background:rgba(30,41,59,0.9);padding:2px 9px;border-radius:6px;border:1px solid rgba(148,163,184,0.28);">' + esc(p.journal) + ' <span style="color:#94A3B8;font-weight:600;">' + esc(p.cite) + '</span></span>' +
                 (p.firstAuthor ? '<span style="font-size:11px;font-weight:800;color:#FEF08A;background:rgba(161,98,7,0.42);padding:2px 8px;border-radius:999px;border:1px solid rgba(250,204,21,0.5);">&#9733; First Author</span>' : '') +
+                citeBadge + fwciBadge + rcrBadge +
               '</div>' +
               '<a href="' + esc(linkUrl) + '" target="_blank" rel="noopener" style="font-family:ui-monospace,monospace;font-size:11.5px;font-weight:700;color:#34D399;text-decoration:none;">' + linkLabel + '</a>' +
             '</div>' +
@@ -772,6 +850,19 @@
         if (!btn) return;
         activeFilter = btn.getAttribute('data-filter') || 'all';
         filterWrap.querySelectorAll('.my-pub-filter-btn').forEach(function (b) {
+          b.classList.toggle('active', b === btn);
+        });
+        renderPubs();
+      });
+    }
+
+    var sortWrap = document.getElementById('my-pub-sorts');
+    if (sortWrap) {
+      sortWrap.addEventListener('click', function (ev) {
+        var btn = ev.target && ev.target.closest ? ev.target.closest('.my-pub-filter-btn') : null;
+        if (!btn) return;
+        activeSort = btn.getAttribute('data-sort') || 'year';
+        sortWrap.querySelectorAll('.my-pub-filter-btn').forEach(function (b) {
           b.classList.toggle('active', b === btn);
         });
         renderPubs();
