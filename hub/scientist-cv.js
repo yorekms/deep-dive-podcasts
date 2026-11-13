@@ -19,8 +19,8 @@
     masterRssUrl: 'https://yorekms.github.io/deep-dive-podcasts/feed.xml',
     // Swap with exact numeric https://www.strava.com/athletes/<id> URL anytime:
     stravaUrl: 'https://www.strava.com/athletes/search?text=Yorek',
-    portraitVideoUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-loop.mp4',
-    portraitPosterUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-poster.jpg',
+    portraitVideoUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-loop.mp4?v=2',
+    portraitPosterUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-poster.jpg?v=2',
     portraitUrl: ''
   };
 
