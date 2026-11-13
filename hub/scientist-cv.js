@@ -19,9 +19,10 @@
     masterRssUrl: 'https://yorekms.github.io/deep-dive-podcasts/feed.xml',
     // Swap with exact numeric https://www.strava.com/athletes/<id> URL anytime:
     stravaUrl: 'https://www.strava.com/athletes/search?text=Yorek',
-    portraitVideoUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-loop.mp4?v=2',
-    portraitPosterUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-poster.jpg?v=2',
-    portraitUrl: ''
+    portraitUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-portrait.jpg?v=3',
+    portraitAltUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-headshot-portrait-alt.jpg?v=3',
+    nav16VideoUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-nav16-animation.mp4?v=3',
+    nav16PosterUrl: 'https://yorekms.github.io/deep-dive-podcasts/hub/media/my-nav16-poster.jpg?v=3'
   };
 
   var PUBLICATIONS = [
@@ -368,45 +369,21 @@
     return '<span class="my-tag-chip">' + esc(clean) + '</span>';
   }
 
-  function buildPortraitSVG() {
-    if (CONFIG.portraitVideoUrl) {
-      return (
-        '<div id="my-cv-video-stage" style="position:relative;width:100%;height:100%;background:#060A14;overflow:hidden;border-radius:18px;cursor:pointer;" title="Click to pause or resume 3D NaV1.6 studio loop">' +
-          '<video id="my-cv-portrait-video" autoplay loop muted playsinline preload="auto" poster="' + esc(CONFIG.portraitPosterUrl) + '" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;">' +
-            '<source src="' + esc(CONFIG.portraitVideoUrl) + '" type="video/mp4" />' +
-          '</video>' +
-          '<img class="my-print-only-portrait" src="' + esc(CONFIG.portraitPosterUrl) + '" alt="' + esc(CONFIG.name) + '" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:18px;" />' +
-          '<button type="button" id="my-cv-video-toggle" aria-label="Pause or play portrait loop" style="position:absolute;bottom:8px;left:9px;z-index:3;appearance:none;border:1px solid rgba(56,189,248,0.42);background:rgba(6,10,20,0.72);backdrop-filter:blur(8px);color:#BAE6FD;font-size:10px;font-weight:800;letter-spacing:0.04em;padding:3px 8px;border-radius:999px;cursor:pointer;opacity:0.78;transition:opacity 0.18s ease;">&#9646;&#9646; 3D NaV1.6</button>' +
-        '</div>'
-      );
-    }
-    if (CONFIG.portraitUrl) {
-      return '<img id="my-cv-portrait-img" src="' + esc(CONFIG.portraitUrl) + '" alt="' + esc(CONFIG.name) + '" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;" />';
-    }
+  function buildHeroMediaShowcase() {
     return (
-      '<img id="my-cv-portrait-img" src="" alt="' + esc(CONFIG.name) + '" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:18px;" />' +
-      '<div id="my-cv-portrait-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:16px 12px;box-sizing:border-box;background:radial-gradient(circle at 30% 20%, rgba(56,189,248,0.22), rgba(15,23,42,0.96) 68%);position:relative;overflow:hidden;">' +
-        '<svg viewBox="0 0 220 130" style="width:100%;height:112px;overflow:visible;" aria-hidden="true">' +
-          '<defs>' +
-            '<linearGradient id="myGrad" x1="0%" y1="0%" x2="100%" y2="100%">' +
-              '<stop offset="0%" stop-color="#38BDF8"/>' +
-              '<stop offset="52%" stop-color="#C084FC"/>' +
-              '<stop offset="100%" stop-color="#F59E0B"/>' +
-            '</linearGradient>' +
-          '</defs>' +
-          '<circle cx="110" cy="64" r="52" fill="rgba(9,14,26,0.75)" stroke="url(#myGrad)" stroke-width="2" stroke-dasharray="5 3"/>' +
-          '<circle cx="110" cy="64" r="43" fill="rgba(15,23,42,0.9)" stroke="rgba(56,189,248,0.3)" stroke-width="1"/>' +
-          '<path d="M 12 96 L 52 96 L 60 99 L 68 24 L 76 108 L 86 88 L 102 96 L 208 96" fill="none" stroke="rgba(56,189,248,0.42)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
-          '<text x="110" y="76" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif" font-size="34" font-weight="900" letter-spacing="2" fill="url(#myGrad)">MY</text>' +
-        '</svg>' +
-        '<div style="text-align:center;z-index:2;">' +
-          '<div style="font-size:10.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#E2E8F0;margin-bottom:3px;">Portrait Frame Ready</div>' +
-          '<div style="font-size:10px;color:#94A3B8;line-height:1.35;">Headshot slot • Click below to test-preview any photo locally</div>' +
+      '<div class="my-hero-media-pair">' +
+        '<div class="my-portrait-static-frame">' +
+          '<img id="my-cv-static-portrait" src="' + esc(CONFIG.portraitUrl) + '" alt="' + esc(CONFIG.name) + ' — Academic Headshot" style="width:100%;height:100%;object-fit:cover;object-position:center 16%;display:block;border-radius:17px;" />' +
+          (CONFIG.portraitAltUrl
+            ? '<button type="button" id="my-cv-style-toggle" title="Switch portrait attire (Suit & Tie / Open-Collar Blazer)" style="position:absolute;bottom:7px;right:7px;z-index:3;appearance:none;border:1px solid rgba(148,163,184,0.42);background:rgba(6,10,20,0.74);backdrop-filter:blur(8px);color:#E2E8F0;font-size:9.5px;font-weight:800;letter-spacing:0.03em;padding:2.5px 7px;border-radius:999px;cursor:pointer;opacity:0;transition:opacity 0.18s ease;">Blazer Look</button>'
+            : '') +
         '</div>' +
-        '<label style="z-index:2;margin-top:6px;display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;font-size:10.5px;font-weight:700;color:#BAE6FD;background:rgba(14,116,144,0.38);border:1px solid rgba(56,189,248,0.5);cursor:pointer;">' +
-          '&#128247; Preview Photo' +
-          '<input id="my-cv-photo-input" type="file" accept="image/*" style="display:none;" />' +
-        '</label>' +
+        '<div id="my-cv-video-stage" class="my-nav16-anim-frame" title="Click to pause or resume NaV1.6 (SCN8A, PDB 8FHD) + WT vs N1768D action-potential trace">' +
+          '<video id="my-cv-portrait-video" autoplay loop muted playsinline preload="auto" poster="' + esc(CONFIG.nav16PosterUrl) + '" style="width:100%;height:100%;object-fit:contain;background:#03060E;display:block;border-radius:17px;">' +
+            '<source src="' + esc(CONFIG.nav16VideoUrl) + '" type="video/mp4" />' +
+          '</video>' +
+          '<button type="button" id="my-cv-video-toggle" aria-label="Pause or play NaV1.6 animation" style="position:absolute;bottom:7px;left:8px;z-index:3;appearance:none;border:1px solid rgba(56,189,248,0.45);background:rgba(6,10,20,0.76);backdrop-filter:blur(8px);color:#BAE6FD;font-size:9.5px;font-weight:800;letter-spacing:0.04em;padding:2.5px 8px;border-radius:999px;cursor:pointer;opacity:0.82;transition:opacity 0.18s ease;">&#9646;&#9646; SCN8A &bull; PDB 8FHD</button>' +
+        '</div>' +
       '</div>'
     );
   }
@@ -438,8 +415,11 @@
       '.my-tag-chip { display: inline-flex; align-items: center; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 11.5px; color: #94A3B8; background: rgba(2,6,23,0.72); border: 1px solid rgba(148,163,184,0.24); padding: 2px 8px; border-radius: 6px; }',
       '.my-tag-hi { font-weight: 900; color: #38BDF8; letter-spacing: 0.04em; margin-right: 0.5px; text-shadow: 0 0 10px rgba(56,189,248,0.45); }',
       '.my-hero-card { background: linear-gradient(145deg, rgba(15,23,42,0.96) 0%, rgba(9,14,26,0.98) 100%); border: 1px solid rgba(56,189,248,0.35); border-radius: 24px; padding: 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.65), 0 0 40px rgba(56,189,248,0.09); margin-bottom: 18px; position: relative; overflow: hidden; }',
-      '.my-hero-grid { display: grid; grid-template-columns: 432px minmax(0, 1fr); gap: 26px; align-items: center; }',
-      '.my-portrait-box { width: 432px; aspect-ratio: 16 / 9; height: auto; border-radius: 20px; border: 1.5px solid rgba(56,189,248,0.48); box-shadow: 0 18px 42px rgba(0,0,0,0.72), 0 0 32px rgba(56,189,248,0.18); overflow: hidden; background: #060A14; flex-shrink: 0; position: relative; }',
+      '.my-hero-grid { display: grid; grid-template-columns: 526px minmax(0, 1fr); gap: 26px; align-items: center; }',
+      '.my-hero-media-pair { display: grid; grid-template-columns: 196px minmax(0, 1fr); gap: 12px; width: 526px; align-items: stretch; flex-shrink: 0; }',
+      '.my-portrait-static-frame { height: 245px; border-radius: 19px; border: 1.5px solid rgba(148,163,184,0.44); box-shadow: 0 18px 40px rgba(0,0,0,0.72), 0 0 24px rgba(56,189,248,0.12); overflow: hidden; background: #0A1222; position: relative; }',
+      '.my-portrait-static-frame:hover #my-cv-style-toggle { opacity: 0.92 !important; border-color: #38BDF8 !important; }',
+      '.my-nav16-anim-frame { height: 245px; border-radius: 19px; border: 1.5px solid rgba(56,189,248,0.48); box-shadow: 0 18px 42px rgba(0,0,0,0.72), 0 0 32px rgba(56,189,248,0.18); overflow: hidden; background: #03060E; position: relative; cursor: pointer; }',
       '#my-cv-video-stage:hover #my-cv-video-toggle { opacity: 1 !important; border-color: #38BDF8 !important; }',
       '.my-action-btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px; border-radius: 999px; font-size: 12.5px; font-weight: 800; text-decoration: none !important; transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease; cursor: pointer; font-family: inherit; }',
       '.my-action-btn:hover { transform: translateY(-1.5px); box-shadow: 0 8px 20px rgba(0,0,0,0.45); }',
@@ -464,9 +444,10 @@
       '.my-hub-card { display: flex; flex-direction: column; justify-content: space-between; gap: 8px; background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 13px 14px; text-decoration: none !important; color: inherit !important; transition: all 0.16s ease; }',
       '.my-hub-card:hover { transform: translateY(-2px); border-color: #C084FC; box-shadow: 0 10px 24px rgba(0,0,0,0.45); }',
       '.my-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }',
-      '@media (max-width: 1180px) { .my-hero-grid { grid-template-columns: 352px minmax(0, 1fr); gap: 20px; } .my-portrait-box { width: 352px; } .my-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }',
-      '@media (max-width: 820px) { .my-hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; } .my-portrait-box { width: 100%; max-width: 460px; } .my-bento-grid, .my-hub-grid, .my-two-col, .my-stat-grid { grid-template-columns: 1fr; } .my-hero-card, .my-sec-card { padding: 18px 16px; } .my-jump-bar { position: static; } }',
-      '@media print { body { background: #FFFFFF !important; color: #0F172A !important; } #crp-top-hub-nav, #crp-author-cred-box, .my-jump-bar, #crp-rss-modal, #my-cv-portrait-video, #my-cv-video-toggle { display: none !important; } .my-print-only-portrait { display: block !important; } .my-portrait-box { width: 240px !important; border: 1px solid #94A3B8 !important; box-shadow: none !important; } .my-hero-grid { grid-template-columns: 240px minmax(0, 1fr) !important; } .my-hero-card, .my-sec-card, .my-tl-item, .my-pub-item, .my-stat-card { background: #FFFFFF !important; color: #0F172A !important; border: 1px solid #CBD5E1 !important; box-shadow: none !important; break-inside: avoid; } h1, h2, h3, strong { color: #0F172A !important; -webkit-text-fill-color: initial !important; } }'
+      '@media (max-width: 1220px) { .my-hero-grid { grid-template-columns: 444px minmax(0, 1fr); gap: 20px; } .my-hero-media-pair { width: 444px; grid-template-columns: 166px minmax(0, 1fr); gap: 10px; } .my-portrait-static-frame, .my-nav16-anim-frame { height: 208px; } .my-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }',
+      '@media (max-width: 860px) { .my-hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; } .my-hero-media-pair { width: 100%; max-width: 520px; grid-template-columns: 172px minmax(0, 1fr); } .my-portrait-static-frame, .my-nav16-anim-frame { height: 215px; } .my-bento-grid, .my-hub-grid, .my-two-col, .my-stat-grid { grid-template-columns: 1fr; } .my-hero-card, .my-sec-card { padding: 18px 16px; } .my-jump-bar { position: static; } }',
+      '@media (max-width: 520px) { .my-hero-media-pair { grid-template-columns: 1fr; max-width: 340px; } .my-portrait-static-frame { width: 192px; height: 240px; margin: 0 auto; } .my-nav16-anim-frame { height: 220px; } }',
+      '@media print { body { background: #FFFFFF !important; color: #0F172A !important; } #crp-top-hub-nav, #crp-author-cred-box, .my-jump-bar, #crp-rss-modal, #my-cv-video-stage, #my-cv-video-toggle, #my-cv-style-toggle { display: none !important; } .my-hero-media-pair { width: 180px !important; grid-template-columns: 180px !important; } .my-portrait-static-frame { width: 180px !important; height: 225px !important; border: 1px solid #94A3B8 !important; box-shadow: none !important; } .my-hero-grid { grid-template-columns: 192px minmax(0, 1fr) !important; } .my-hero-card, .my-sec-card, .my-tl-item, .my-pub-item, .my-stat-card { background: #FFFFFF !important; color: #0F172A !important; border: 1px solid #CBD5E1 !important; box-shadow: none !important; break-inside: avoid; } h1, h2, h3, strong { color: #0F172A !important; -webkit-text-fill-color: initial !important; } }'
     ].join('\n');
     (document.head || document.documentElement).appendChild(styleEl);
 
@@ -543,7 +524,7 @@
         /* HERO CV & MONOGRAM CARD */
         '<section class="my-hero-card">' +
           '<div class="my-hero-grid">' +
-            '<div class="my-portrait-box">' + buildPortraitSVG() + '</div>' +
+            buildHeroMediaShowcase() +
             '<div>' +
               '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px;">' +
                 '<span class="my-mono-pill"><span class="my-hi" style="font-size:13px;">MY</span><span>&middot;scientist.carrd.co</span></span>' +
@@ -911,14 +892,14 @@
       var playPromise = portraitVid.play();
       if (playPromise && typeof playPromise.catch === 'function') {
         playPromise.catch(function () {
-          if (videoToggle) videoToggle.innerHTML = '&#9654; Play 3D NaV1.6';
+          if (videoToggle) videoToggle.innerHTML = '&#9654; Play SCN8A';
         });
       }
       if (videoStage) {
         videoStage.addEventListener('click', function () {
           if (portraitVid.paused) {
             portraitVid.play().catch(function () {});
-            if (videoToggle) videoToggle.innerHTML = '&#9646;&#9646; 3D NaV1.6';
+            if (videoToggle) videoToggle.innerHTML = '&#9646;&#9646; SCN8A &bull; PDB 8FHD';
           } else {
             portraitVid.pause();
             if (videoToggle) videoToggle.innerHTML = '&#9654; Paused';
@@ -927,22 +908,23 @@
       }
     }
 
-    var photoInput = document.getElementById('my-cv-photo-input');
-    if (photoInput) {
-      photoInput.addEventListener('change', function () {
-        var f = photoInput.files && photoInput.files[0];
-        if (!f) return;
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          var img = document.getElementById('my-cv-portrait-img');
-          var ph = document.getElementById('my-cv-portrait-placeholder');
-          if (img && e.target && e.target.result) {
-            img.src = e.target.result;
-            img.style.display = 'block';
-            if (ph) ph.style.display = 'none';
-          }
-        };
-        reader.readAsDataURL(f);
+    var staticImg = document.getElementById('my-cv-static-portrait');
+    var styleToggle = document.getElementById('my-cv-style-toggle');
+    if (staticImg && styleToggle && CONFIG.portraitAltUrl) {
+      var usingAlt = false;
+      try {
+        usingAlt = window.localStorage.getItem('my_cv_portrait_style') === 'alt';
+      } catch (e) {}
+      function applyPortraitStyle() {
+        staticImg.src = usingAlt ? CONFIG.portraitAltUrl : CONFIG.portraitUrl;
+        styleToggle.textContent = usingAlt ? 'Suit & Tie' : 'Blazer Look';
+      }
+      applyPortraitStyle();
+      styleToggle.addEventListener('click', function (ev) {
+        ev.stopPropagation();
+        usingAlt = !usingAlt;
+        try { window.localStorage.setItem('my_cv_portrait_style', usingAlt ? 'alt' : 'suit'); } catch (e) {}
+        applyPortraitStyle();
       });
     }
 
