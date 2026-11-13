@@ -594,7 +594,7 @@
             '<div style="font-size:11.3px;font-weight:700;color:#94A3B8;margin-top:3px;">UVA Health &bull; UIowa &bull; Grain Processing Corp. &bull; Iowa City VA &bull; ClampFlow</div>' +
           '</div>' +
           '<div class="my-stat-card" style="border-top:2px solid #FB7185;">' +
-            '<div id="my-live-ep-total" style="font-size:23px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">695</div>' +
+            '<div id="my-live-ep-total" style="font-size:23px;font-weight:900;color:#FFFFFF;font-variant-numeric:tabular-nums;">701</div>' +
             '<div style="font-size:11.3px;font-weight:700;color:#94A3B8;margin-top:3px;">Long-Form Scientific Audio Treatises Across 12 <strong style="color:#38BDF8;">MY-</strong> Subject Hubs</div>' +
           '</div>' +
         '</section>' +
