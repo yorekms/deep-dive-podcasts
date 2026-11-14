@@ -1,0 +1,1563 @@
+{
+  "episodeId": "17PPY_6ZT0GierHYmVJtH307IQLY3scVD",
+  "driveId": "17PPY_6ZT0GierHYmVJtH307IQLY3scVD",
+  "title": "Where Did the Rate Change? — Page CUSUM, A. F. M. Smith (1975) Posterior Changepoint Probabilities & Carlin–Gelfand–Smith Gibbs Sampling Across 112 Years of British Coal-Mining Disasters",
+  "duration": 3399.84,
+  "teenKit": {
+    "tldr": "In 15 seconds: Between 1851 and 1962, fatal British coal-mining disasters suddenly dropped from ~3 per year to ~0.9 per year—when did safety rules actually bend the curve? Bayesian changepoint models compute a full probability curve across candidate years instead of guessing a single date.",
+    "whyItMatters": "Whenever hospitals, factories, or climate sensors look for when a rate shifted, reporting a posterior window over the changepoint prevents false certainty around noisy counts.",
+    "keyTakeaways": [
+      "Modeling yearly disaster counts as Poisson(lambda_1) up to year k and Poisson(lambda_2) after year k turns historical regime detection into an explicit likelihood across k = 1..n.",
+      "A. F. M. Smith (1975) and Carlin, Gelfand & Smith (1992) used conjugate Gamma priors and Gibbs sampling to compute exact marginal posteriors for k, lambda_1, and lambda_2.",
+      "On Maguire/Jarrett's 112-year British coal-mining ledger, posterior probability concentrates around ~1889–1892—lining up with the Coal Mines Regulation Act era—while honestly showing multi-year uncertainty."
+    ],
+    "vocab": [
+      {
+        "term": "Changepoint (k)",
+        "meaning": "The unknown time index where a data-generating process switches from an initial parameter regime to a new one."
+      },
+      {
+        "term": "Poisson-Gamma Conjugacy",
+        "meaning": "Pairing Poisson event counts with Gamma rate priors so posterior rate distributions stay closed-form Gamma."
+      },
+      {
+        "term": "Gibbs Sampler",
+        "meaning": "An MCMC algorithm that cycles through sampling each unknown parameter conditionally on the latest values of the others."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Why is a posterior probability distribution over changepoint year k more informative than picking the single year with the lowest p-value?",
+        "options": [
+          "It ignores Poisson counts before 1900",
+          "It quantifies exact uncertainty across neighboring candidate years and averages rate estimates over plausible switch dates",
+          "It forces lambda_1 and lambda_2 to be equal",
+          "It requires millions of sensors"
+        ],
+        "correctIndex": 1,
+        "explanation": "Adjacent years often share substantial posterior mass because annual Poisson counts are noisy; integrating over k propagates date uncertainty honestly."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "So welcome to the steep dive. Today we are calling this one, where did the rate change? Yeah, and we have a really fascinating mission for this one. We're diving into the philosophy of evidence, Bayesian logic, and basically how we use data to figure out exactly when a shift in probability actually happens. Right.",
+      "startTime": 0.0,
+      "endTime": 17.16
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "And whether that's happening in, you know, some fictional factory or a very real historical coal mine. Exactly. And to do this, we're pulling from a few different foundational sources. ES pages work from 1954 on cumulative sums, Adrian Smith's",
+      "startTime": 17.72,
+      "endTime": 33.68
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "1975 paper on Bayesian boundaries, and the really incredible historical analyses by Carlin Gilfand and Smith. Plus we are also looking at a Broni of Adokovich's really great handout on what's called the likelihood principle. Right. We just crucial background for all of this. It really is.",
+      "startTime": 33.68,
+      "endTime": 50.28
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "So to kick things off, I want you, the listener, to just imagine a scene with me, a really specific physical space. Picture a sprawling industrial factory floor. Okay. Like incredibly loud, right? Super loud. The air smells like ozone and hot metal. And the environment is just total chaos.",
+      "startTime": 50.56,
+      "endTime": 69.16
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "Rythmic thumping, hissing steam, just sheer sensory overload of heavy manufacturing. And right in the middle of all that organized chaos is one single human being. And operate exactly standing right there at the nexus of all this machinery. Now, this operator has one primary focal point.",
+      "startTime": 69.32,
+      "endTime": 86.88
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "They are looking at a very specific record of instrument alarms coming from one single critical machine on that floor. And the parameters for this record are super straight forward. The system logs one entry per shift. Right. Just one entry. And we need to be incredibly precise about what is actually being measured here.",
+      "startTime": 87.56,
+      "endTime": 104.08
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "Like in plain language, the physical instrument is measuring exactly one thing. Alarm sounding during a shift. Yes. That is the physical reality. A bell rings or a red light flashes or it just doesn't. But I think we should really focus on the human preparation here, the human element of this whole scenario.",
+      "startTime": 104.28,
+      "endTime": 121.48
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "Yeah, because the operator on the floor, you know, breathing that hot air, they have to make an immediate physical decision based on that log. When they see alarms coming in, they have to ask themselves a really high stakes question. Like, do I need to hit the emergency stop? Exactly. Like, do I shut this multi million dollar machine down and investigate right now,",
+      "startTime": 121.92,
+      "endTime": 139.56
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "which is a radically different vantage point from, say, a statistician or a researcher who comes along, you know, a month later. Oh, totally. Because the researcher is sitting in a quiet temperature controlled office, just looking back at the finished static record of that exact same machine. Right. They aren't panicking. No, they aren't trying to prevent an immediate mechanical failure.",
+      "startTime": 140.0,
+      "endTime": 159.36
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "They're trying to solve a historical puzzle. They look at the timeline and ask at what exact point did the underlying chance of an alarm fundamentally shift? And that contrast right between the operator's immediate panic and the researcher's historical analysis, it highlights this massive conceptual difference that we have to unpack right here at the start.",
+      "startTime": 159.72,
+      "endTime": 179.48
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "We really do. We have to separate the measurement from the inference. Yeah, because the measurement is just the tangible physical sequence of events, the bell rang, the bell stayed silent.",
+      "startTime": 179.72,
+      "endTime": 189.68
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "But what the researchers infer, what they are trying to deduce by looking at those bells is the underlying completely invisible change in the probability of an alarm. Right. Because you can't touch a probability. You can't. You can't take a photograph of a rate. We only ever get to witness the physical exhaust that the probability leaves behind.",
+      "startTime": 190.56,
+      "endTime": 209.32
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "That is a beautiful way to frame it.",
+      "startTime": 209.76,
+      "endTime": 211.64
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "The probability is the invisible engine and the alarm is the visible exhaust. I like that.",
+      "startTime": 212.4,
+      "endTime": 218.48
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "We are just using the exhaust to reverse engineer the state of the engine. So to you, our listener, here's the setup for the puzzle. We are going to solve today. This is the fictional record from our factory floor machine. Okay, lay it out. I am going to read the four alarm results to you in exact order. These cover four consecutive working shifts. Ready?",
+      "startTime": 219.6,
+      "endTime": 239.47
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "Here's the log. Let's hear it. No alarm, no alarm, an alarm and an alarm. OK, so just to summarize that sequence, quiet, quiet, alarm alarm. That is the physical measurement.",
+      "startTime": 239.63,
+      "endTime": 256.42
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "Now I'm going to give you the invisible parameters you need to solve this. The hidden rules. Right. Let's say that through years of extensive bench testing of this specific machine model, the engineers know for a fact that there are only two possible states it can operate in. A low probability state and a high probability state. OK, and what are those?",
+      "startTime": 257.1,
+      "endTime": 276.3
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "The low probability of an alarm sounding during any given shift is exactly one quarter, one and four. Got it. And the high probability of an alarm sounding is three quarters, three and four. And we must establish one foundational assumption here. We assume that the outcomes of these shifts are completely independent of one another.",
+      "startTime": 276.94,
+      "endTime": 295.62
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "Meaning what exactly in this context? Meaning the machine doesn't have a memory.",
+      "startTime": 295.94,
+      "endTime": 300.74
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "Like one alarm doesn't mechanically trigger the next one. OK, so it's not a domino effect. Right. The machine isn't say slowly overheating where one hot shift guarantees the next shift will be even hotter. Every time a new shift starts, it's a fresh roll of probabilistic dice determined solely",
+      "startTime": 301.66,
+      "endTime": 318.9
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "by whether the machine is currently sitting in the low state or the high state. Got it. Independent outcomes, low state is one quarter, high state is three quarters, and the historical log is no alarm, no alarm alarm alarm. So here is the prediction we want you to make. Yes, before we dive into the deep mathematical philosophy of how to prove this,",
+      "startTime": 318.9,
+      "endTime": 337.46
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "I want you to just pause. Use your raw human intuition. Based on that sequence of four shifts, when did the instrument actually switch from the low probability state to the high probability state? Right. Did the switch happen after shift one after shift two after shift three? Or did the machine never switch at all?",
+      "startTime": 337.94,
+      "endTime": 357.06
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "We are going to let you sit with that puzzle in your mind for a little bit. Quiet, quiet, alarm alarm. When exactly did the underlying reality change? Now human intuition is a funny thing. You probably have an immediate gut feeling about the answer right now. But how do we actually prove it? Exactly.",
+      "startTime": 357.26,
+      "endTime": 377.18
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "How do we build a mathematical architecture that justifies our gut feeling? Well, to do that, we need to understand the statistical philosophy that even allows us to attempt a solution. So we are going to step away from the noise of the factory floor for a moment. And we are going to travel into the quiet, slightly intense, theoretical foundation",
+      "startTime": 377.34,
+      "endTime": 395.9
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "of Bayesian logic, which brings us to a concept that has historically sparked what you might call a civil war in the world of mathematics. A civil war. Yeah. Oh, wow.",
+      "startTime": 395.9,
+      "endTime": 405.58
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "We are going to look at Brandy Vadakovich's foundational handout on what is known as the likelihood principle.",
+      "startTime": 406.46,
+      "endTime": 412.46
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "And this isn't just a math formula. It is a deeply philosophical stance on the very nature of evidence. A civil war in statistics. OK, you definitely have my attention. What is the likelihood principle claiming that is so controversial? Let's let's translate it out of the textbook and into plain language. Sure.",
+      "startTime": 413.22,
+      "endTime": 430.18
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "So at its core, the likelihood principle makes a seemingly simple claim.",
+      "startTime": 430.97,
+      "endTime": 434.93
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "It states that all the relevant experimental information about an unknown parameter, like our indivisible probability engine is contained entirely within the observed data itself. OK. The likelihood of our theory being true is directly proportional to how well it predicts the exact data we just saw with our own eyes.",
+      "startTime": 436.22,
+      "endTime": 455.45
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "If your theory says an event is highly probable and that event happens, your theory gains weight. Makes sense. And if your theory says it's impossible and it happens, your theory loses weight. Wait, I have to stop you there. You're telling me this caused a civil war. I am.",
+      "startTime": 456.2,
+      "endTime": 472.52
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "That sounds like the most obvious common sense statement in the history of science. You know, the evidence is the evidence. If I look out the window and see rain, the relevant information is the rain. Why would anyone ever disagree with that? It sounds obvious until you look at how classical statistics, specifically the",
+      "startTime": 472.88,
+      "endTime": 489.96
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "frequentist school of thought, which really dominated the 20th century, actually handles data. OK.",
+      "startTime": 490.0,
+      "endTime": 495.12
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "To understand why the likelihood principle is a battleground, we have to look at a thought experiment. Vydukovic provides.",
+      "startTime": 496.04,
+      "endTime": 502.08
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "It's originally from a statistician named Leonard Jimmy Savage. Oh, the Rashomonian analysis. Exactly. It's often referred to as a Rashomonian analysis, like the Akira Kurosawa film Rashomon, where the exact same physical event is interpreted in wildly different ways, depending on subjective perspectives.",
+      "startTime": 502.92,
+      "endTime": 520.56
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "OK, lay up the Rashomon event for us. Imagine a scientist is testing a coin to see if it is rigged. We don't know the true invisible probability of it landing on heads.",
+      "startTime": 521.2,
+      "endTime": 530.4
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "But no hypothesis, the default assumption is that the coin is perfectly fair, a 50-50 chance. Right.",
+      "startTime": 531.35,
+      "endTime": 537.59
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "The alternative hypothesis is that the coin is biased toward heads.",
+      "startTime": 538.39,
+      "endTime": 542.27
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "So the scientist flips the coin and the physical data generated on the table is this.",
+      "startTime": 543.02,
+      "endTime": 548.34
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "Nine heads and three tails.",
+      "startTime": 549.1,
+      "endTime": 550.98
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "So 12 flips total, nine heads, three tails.",
+      "startTime": 551.79,
+      "endTime": 556.93
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "It definitely leans heavy on the heads, but is 12 flips really enough to permanently declare a coin rigged? According to the likelihood principle, those nine heads and three tails are the only things that exist in the universe.",
+      "startTime": 558.01,
+      "endTime": 569.21
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "But watch what happens when a strict frequentist looks at this data. What do they do?",
+      "startTime": 570.05,
+      "endTime": 574.09
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "The frequentist cannot just look at the nine heads and three tails. The frequentist has to ask a meta question.",
+      "startTime": 575.74,
+      "endTime": 581.3
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "How was this experiment designed in the scientist's head before the first flip ever occurred? Wait, the scientist's internal thoughts matter to the math? Entirely.",
+      "startTime": 582.48,
+      "endTime": 593.56
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "Let's look at scenario one. In this scenario, the scientist wrote down in the notebook in advance. I am going to flip this coin exactly 12 times no matter what happens. The number of flips is fixed. OK.",
+      "startTime": 594.98,
+      "endTime": 605.74
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "They perform the experiment and they get nine heads and three tails. OK, a straightforward fixed run experiment.",
+      "startTime": 606.54,
+      "endTime": 611.58
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "When a frequentist calculates the significance of this result, the p value, which is the probability of seeing a result this extreme if the coin were actually fair, they use a standard binomial distribution for 12 fixed trials. Right. And when you run that specific math, the p value comes out to approximately 0.073.",
+      "startTime": 612.57,
+      "endTime": 631.45
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "And if we remember our introductory stats classes, standard classical testing usually uses a threshold of 0.05. So if your p value is greater than 0.05, you do not have enough evidence to prove your case. Correct. So in scenario one, the frequentist scientist writes in their conclusion, we fail to",
+      "startTime": 632.05,
+      "endTime": 650.93
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "reject the null hypothesis. We cannot legally claim this coin is biased. It might just be a slightly lucky streak of heads. Fine. That seems rigorous enough. But you implied there is a scenario two where the thoughts in the scientist's",
+      "startTime": 650.93,
+      "endTime": 666.85
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "head changed the math scenario to a different scientist is holding the exact same coin. But this scientist wrote a different rule in their notebook before starting. What are they right? They wrote, I am not doing a fixed number of flips.",
+      "startTime": 666.85,
+      "endTime": 681.41
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "I am going to keep flipping this coin continuously until I see exactly three tails. The moment the third tail appears, I will stop the experiment. Ah. So the stopping rule is entirely different. It's not based on time or total flips. It's based on accumulating a specific result.",
+      "startTime": 681.89,
+      "endTime": 701.22
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "Yes. So scientists to start flipping and just by the sheer randomness of the universe, the third tail happens to land on the 12th flip. OK. And in the process of getting to that 12th flip, they accumulated exactly nine heads. Wait a minute.",
+      "startTime": 701.82,
+      "endTime": 719.42
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "So the physical data lying on the table is utterly identical. Identical nine heads, three tails, 12 total flips. If you recorded it on video, the video would look exactly the same. But the math changes radically because the stopping rule was based on waiting for",
+      "startTime": 719.78,
+      "endTime": 739.62
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "tails. The frequent is framework dictates that you cannot use the normal binomial distribution. You must use a negative binomial distribution. Wow. OK. The frequent is now has to calculate the probability of getting nine or more heads before seeing the third tail because the sample space of what could have",
+      "startTime": 739.62,
+      "endTime": 759.14
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "happened is completely different. How so? Well, in the first scenario, they could have gotten zero tails. In the second scenario, it is physically impossible to get zero tails because the experiment literally cannot end until three tails appear. OK. I see the structural difference there, but what does it actually do to the final conclusion?",
+      "startTime": 759.14,
+      "endTime": 778.18
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "When you run the negative binomial math for scenario two, the p value comes out to 0.0327. 0.0327, which is significantly less than the 0.05 threshold. Yes. In scenario two, the frequent is to mathematically rejects the null hypothesis and",
+      "startTime": 778.62,
+      "endTime": 795.78
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "definitively declares to the scientific community, this coin is rigged. That is genuinely absurd. It's wild, right? I just want to make sure I am fully grasping the sheer madness of this. That is like saying the outcome of a tied sports game, whether it goes down to the",
+      "startTime": 795.78,
+      "endTime": 812.94
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "history books as a valid win or a draw depends entirely on a secret thought the referee had in the locker room before the game started. It's a great way to think about it. Imagine two teams play game. The referee secretly decides we will play a 10 minute overtime.",
+      "startTime": 813.18,
+      "endTime": 828.78
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "They play a team scores. The game ends at 10 minutes. Now, imagine the exact same physical game. The exact same passes, the exact same sweat on the field, the exact same goal at the exact same second. But this time, the referee had secretly decided before the game, we will play sudden death until someone scores.",
+      "startTime": 829.59,
+      "endTime": 849.35
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "Yeah. You are telling me that classical frequentist statistics looks at those two identical physical realities and says the meaning of the goal changes based on the referee's secret locker room intention because they are evaluating the game against what would have happened if they hadn't scored. That analogy is brilliant.",
+      "startTime": 849.87,
+      "endTime": 869.27
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "I'm not going to lie. Because it highlights exactly what classical statistics does. It evaluates the data you did get against the backdrop of data you didn't get.",
+      "startTime": 869.39,
+      "endTime": 877.19
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "That's just that is just wow. The frequentist decision changes because they are averaging over unobserved hypothetical sample spaces. In scenario one, they have to mathematically account for the timeline where they flip 12 times and get zero tails. Right. In scenario two, they have to mathematically account for the timeline where it takes",
+      "startTime": 877.94,
+      "endTime": 897.62
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "10,000 flips to finally see the third tail. Oh, I see.",
+      "startTime": 897.94,
+      "endTime": 901.58
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "The Bayesian looks at this and just shakes their head to a Bayesian strictly applying the likelihood principle, the intentions of the experimenter, the rules governing when they plan to stop the alternate timelines of what might have happened if the coin bounced differently.",
+      "startTime": 902.51,
+      "endTime": 916.8
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "All of that is completely mathematically irrelevant. You have nine heads. You have nine for the evidence is the evidence period, which honestly feels infinitely more grounded in reality. Like if I walk into my kitchen and find a puddle of water on the floor, I don't need to know if the person who spilled it intended to carry the glass for 10 feet or 12 feet.",
+      "startTime": 917.56,
+      "endTime": 937.44
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "I don't need to know their stopping rule. I just have a puddle of water to deal with. The puddle is the data. Exactly. And this leads us to the second pillar of this philosophy, which Vadonovich discusses. It's called the conditionality principle. Okay. If the likelihood principle is about what data matters, the conditionality principle",
+      "startTime": 937.44,
+      "endTime": 956.04
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "is about what experiments matter. Okay, the conditionality principle. How does it differ? It focuses on how we handle choices in experimental design.",
+      "startTime": 956.04,
+      "endTime": 965.04
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "There's a classic thought experiment for this one too. Originally published in a 1958 paper by DR Cox, it perfectly illustrates how integrating over hypothetical realities can lead you completely astray. Late on me.",
+      "startTime": 965.93,
+      "endTime": 979.21
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "Imagine you are a senior scientist. You have a highly sensitive, incredibly important chemical substance that needs to be analyzed.",
+      "startTime": 981.09,
+      "endTime": 988.17
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "You have two laboratories available to you to do this work. One is in New York and one is in California. Okay. Coast to coast. Both labs are equally equipped. Detections are equally qualified. You genuinely do not care which one performs the analysis. So to make the decision completely unbiased, you flip a coin.",
+      "startTime": 989.01,
+      "endTime": 1006.89
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "A literal coin flip to choose the geography of the experiment. Yes. The coin comes up tails. Tails dictates that the chemical gets packed up, shipped across the country and sent to the laboratory in California.",
+      "startTime": 1007.65,
+      "endTime": 1018.73
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "Okay, off it goes. The California lab receives it. They run the substance through their mass spectrometers. They do the analysis. They generate the data and they mail you a final comprehensive report.",
+      "startTime": 1019.62,
+      "endTime": 1029.58
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "Got the report in hand. Now, here is the pivotal question of the conditionality principle. When you sit down at your desk to write your final scientific conclusion based on that California data.",
+      "startTime": 1030.35,
+      "endTime": 1040.83
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "Should your statistical confidence in that data be mathematically altered by the fact that the New York laboratory could have been chosen if the coin had landed heads? No, I wouldn't. The New York lab never saw the sample. They never unboxed it. Their machines never touched it. The alternate reality where New York does the test as a ghost.",
+      "startTime": 1041.83,
+      "endTime": 1060.63
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "Why on earth with the hypothetical New York lab have any bearing on the physical data generated in California? Human common sense screams no. A Bayesian conditionalist screams no. But if you strictly follow Orthodox frequentist procedures, where you are required to look for pre experimental accuracy across all possible long run repetitions of the experiment,",
+      "startTime": 1060.79,
+      "endTime": 1080.27
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "the frequentist math actually demands that you average over all possible data generating mechanisms. Wait, really? Yeah. And that includes the hypothetical non-existent data distribution from the New York lab that was never generated simply because it was part of the initial experimental design. Because on the grand blueprint of the universe before the coin was flipped,",
+      "startTime": 1080.91,
+      "endTime": 1100.47
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "sending it to New York was a valid path. So the frequentist math carries the ghost of New York into the final equation, even though the path was never taken. Precisely.",
+      "startTime": 1100.47,
+      "endTime": 1109.55
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "The Conditionality Principle argues that this is fundamentally flawed. It states that if an experiment is chosen from a collection of possible experiments, independently of the parameter you are actually trying to measure, like choosing a lab based on a coin flip, then any experiment not chosen is completely mathematically irrelevant to the final inference.",
+      "startTime": 1110.31,
+      "endTime": 1128.83
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "It's like judging the safety of my drive to work today based on the traffic accidents that happen on a completely different route that I almost took, but didn't. Another perfect analogy. Wow.",
+      "startTime": 1128.91,
+      "endTime": 1138.03
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "You don't only evaluate the road you actually drove. Wow. And if we connect this to the broader history of statistics, this is where Alan Burnbaum drops a massive bombshell in 1962. What did he do? Burnblum proved mathematically that if you accept the sufficiency principle, which is a non-controversial idea that you",
+      "startTime": 1138.79,
+      "endTime": 1157.35
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "should use sufficient statistics if you have them, and if you accept the Conditionality Principle that unchosen experiments don't matter, then you must logically and mathematically accept the likelihood principle. So sufficiency plus Conditionality equals the likelihood principle. You can't have the first two without adopting the third.",
+      "startTime": 1157.35,
+      "endTime": 1176.47
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "Yes. Okay. And adopting the likelihood principle means we must focus only on the data we hold in our hands. We don't average over the hypothetical. We don't worry about the referee's secret overtime intentions. We look at the puddle on the floor. Vittakovich even calls it a sin in his handout, doesn't he?",
+      "startTime": 1177.15,
+      "endTime": 1194.67
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "He says it is a sin of non-basion statistics. Thou shalt not integrate with respect to sample space. He does. And it's a brilliant way to phrase it because when you commit that sin, when you integrate over the sample space of things that never happened,",
+      "startTime": 1194.67,
+      "endTime": 1209.23
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "you can end up rejecting a perfectly valid true hypothesis simply because your test failed to account for highly unlikely bizarre data that was never even observed. It deludes reality with fiction. Okay. So armed with this profound Bayesian philosophy that only the observed data",
+      "startTime": 1209.91,
+      "endTime": 1229.07
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "matters, that the evidence is the evidence and we only judge the road we drove on. Let's leave the theoretical laboratories of New York and California back to the factory. Let's return to the grime and the noise of our factory floor. Let's return to those four shifts and the puzzle we asked you to solve at the beginning.",
+      "startTime": 1229.07,
+      "endTime": 1245.43
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "It is time to look at that alarm log through a strict Bayesian lens. Let's lay the physical reality back on the table, the fictional published numbers, four shifts.",
+      "startTime": 1245.79,
+      "endTime": 1256.03
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "The outcomes we observed were quiet, quiet, alarm, alarm. And let's remind ourselves of the invisible parameters we are trying to map this data onto.",
+      "startTime": 1256.85,
+      "endTime": 1267.09
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "The instrument has a low probability state where the chance of an alarm sounding is one quarter.",
+      "startTime": 1268.05,
+      "endTime": 1272.37
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "It has a high probability state where the chance of an alarm sounding is three quarters. And the units here are crucial for the math we are about to do. We are talking about the probability of an alarm per discrete shift. Now, before we left the factory earlier, you mentioned the assumption of independence,",
+      "startTime": 1273.25,
+      "endTime": 1289.49
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "that one shift doesn't mechanically heat up the next shift. I want to linger on that because why is that assumption the linchpin of the calculation we are about to do? Because in probability theory, if events are truly independent, you can calculate the likelihood of a sequence of events simply by multiplying their individual probabilities together. Ah, OK.",
+      "startTime": 1289.81,
+      "endTime": 1309.21
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "If I flip a fair coin, the chance of heads is one half. If I flip it twice and the lips are independent, the chance of getting two heads in a row is one half, multiplied by one half, which is one quarter. Right.",
+      "startTime": 1309.65,
+      "endTime": 1320.21
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "If the factory shifts were not independent, if the quiet shift somehow made an alarm shift mathematically more likely because pressure was building up, we would need a vastly more complex formula. We couldn't just multiply. The assumption of independence links our basic calculation directly to the conclusion.",
+      "startTime": 1321.05,
+      "endTime": 1338.33
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "OK, so we have four independent shifts and we want to know when the invisible boundary happened. When did the probability engine switch from low to high? Let's map out the possible realities. In Bayesian statistics, before you ever look at the data, you have to establish your priors, your prior probabilities.",
+      "startTime": 1338.57,
+      "endTime": 1356.29
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "What do you believe before the evidence arrives? OK. Since we are approaching this machine completely blind with no outside knowledge of its maintenance history, let's be as radically objective as possible. Let's employ what's sometimes called the principle of indifference.",
+      "startTime": 1357.07,
+      "endTime": 1372.91
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "Let's give equal prior probability to all the main possibilities, meaning we don't play favorites. Exactly.",
+      "startTime": 1373.47,
+      "endTime": 1379.47
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "So what are the possibilities?",
+      "startTime": 1380.23,
+      "endTime": 1382.35
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "Possibility one, the switch happened after shift one, possibility two, the switch happened after shift two,",
+      "startTime": 1383.33,
+      "endTime": 1390.5
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "possibility three, the switch happened after shift three, possibility four, the machine stayed in the low probability state the entire time. There was no switch.",
+      "startTime": 1391.56,
+      "endTime": 1401.08
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "What about switching after shift four or before shift one? A switch after shift four wouldn't affect our data because our universe ends at shift four. And for the sake of keeping this puzzle elegant, let's assume it starts in the low state and only switches upward.",
+      "startTime": 1402.05,
+      "endTime": 1416.69
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "Fair enough. So four possibilities, equal prior weight. What we are going to do now is conceptually calculate the likelihood of our exact observed data, quiet, quiet alarm alarm occurring under each of those four hypothetical realities. Let's reason through the likelihoods.",
+      "startTime": 1417.46,
+      "endTime": 1435.81
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "Instead of just grinding the rope math, let's look at how well the data matches the rules of each reality. Perfect. Let's start with the reality where the switch happens after shift one. OK. If the boundary is after shift one, it means shift one operates under the low probability rules shifts two, three, and four operate under the high probability rules.",
+      "startTime": 1436.41,
+      "endTime": 1456.13
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "Right. OK, shift one is low rules. Under low rules, an alarm is rare, just a one fourth chance. Our data says shift one was quiet. So that is a highly probable outcome for that state, three fourth chance of being quiet. Yes. But now the boundary happens. Right.",
+      "startTime": 1456.49,
+      "endTime": 1474.65
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "So shift two is now operating under high probability rules. Under high rules, alarms should be ringing constantly a three fourth chance. But our data says shift two was quiet. Yep. That is a massive mismatch. The reality says alarm should be ringing, but the physical data is silence.",
+      "startTime": 1475.13,
+      "endTime": 1493.21
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "That silence only has a one fourth chance of happening under these rules. Exactly. You know, penalizing the hypothesis because it doesn't fit the data well, shifts three and four are alarm alarm, which fits the high probability rules perfectly. That's a three fourth and the three fourth. Right. But because of that mismatch on shift two, when you multiply the sequence,",
+      "startTime": 1493.57,
+      "endTime": 1513.21
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "the threes and the ones, the numerator comes out to twenty seven. OK, a raw weight of twenty seven. Now let's look at possibility two. The reality where the switch happens exactly in the middle after shift two. In this reality shifts one into our low probability shifts three and four are high probability.",
+      "startTime": 1513.65,
+      "endTime": 1531.93
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "Look at how that aligns with our physical data. It's a perfect mirror shift one into our low rules, meaning quiet is expected. Our data is quiet, quiet, perfect match. Then the boundary hits shift three and four are high rules, meaning alarms are expected. Our data is alarm alarm, perfect match.",
+      "startTime": 1532.05,
+      "endTime": 1549.89
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "Every single physical observation aligns exactly with what the invisible state expects to happen most often. And the math brilliantly rewards that symmetry because every observation is the highly probable three fourths outcome. You're multiplying three by three by three by three. That yields a massive numerator of 81.",
+      "startTime": 1550.37,
+      "endTime": 1569.93
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "81 compared to the 27 we got for the first hypothesis. It's triple the weight simply because it doesn't force a mismatch. Now let's quickly reason through the remaining two. Possibility three, the switch happens after shift three. So shifts one, two and three are low rules. Our data is quiet, quiet alarm.",
+      "startTime": 1569.93,
+      "endTime": 1589.65
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "Ah, there's the mismatch. Right. Shift three is operating under low rules, meaning it should be quiet, but the data shows an alarm and alarm under low rules is rare, only a quarter percent chance. Right. And shift four is high rules. Data is an alarm. So that matches.",
+      "startTime": 1590.05,
+      "endTime": 1605.85
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "But because of that one mismatch on shift three, the math penalizes it. The numerator drops right back down to 27. So it's tied with possibility one, both contain exactly one mismatch. And finally, possibility for no switch at all. The machine stays in low rules for all four shifts.",
+      "startTime": 1606.25,
+      "endTime": 1624.57
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "This is where the penalty gets brutal. Let's see. Low rules for all four. Data is quiet, quiet alarm alarm shifts one and two match the low rules perfectly, but shifts three and four alarm alarm are profound mismatches. Under low rules, getting two alarms in a row is incredibly rare because you have",
+      "startTime": 1624.61,
+      "endTime": 1642.97
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "two severe mismatches, two one quarter probabilities, multiplying against each other, the numerator plummets. It drops all the way down to nine. So let's lay out those raw weights of evidence, clearly, just looking at the comparative numerators because the denominators are all a common 256. Switch after one is 27.",
+      "startTime": 1642.97,
+      "endTime": 1662.37
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "Switch after two is 81. Switch after three is 27. No switch is nine. That's quite a spread. I want you to pause again. Just look at the architecture of those numbers. The raw weight of evidence for a switch after shift to is 81. It utterly dominates the landscape. It is an elegant reflection of how Bayesian's process reality.",
+      "startTime": 1662.89,
+      "endTime": 1682.53
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "The math inherently searches for the explanation that requires the least amount of coincidence. A switch after shift to requires zero coincidence. It is exactly what you would expect to happen. Right. But we aren't done. We have the raw weights of evidence, the likelihoods, but likelihoods are not probabilities. Right.",
+      "startTime": 1683.09,
+      "endTime": 1702.25
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "If someone asks me, Hey, what's the chance it broke after shift to, I can't just say 81. That's not a probability. We need a percentage. We need to normalize this. How do we translate these raw weights into the definitive answer to our puzzle? This is the mechanical heart of Bay's rule.",
+      "startTime": 1702.25,
+      "endTime": 1719.01
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "Normalization is simply the process of making sure all the slices of our probability pie add up to exactly 100%. Okay. Because we started with the assumption that all four possibilities were equally likely are equal priors. The normalization process is incredibly simple. We just take all of our evidence weights, dump them into a single pool to find",
+      "startTime": 1719.49,
+      "endTime": 1739.17
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "the total volume and then see what percentage of the pool belongs to each possibility. Okay. So we add the numerators, 27 plus 81 plus 27 plus nine. Adam all up. And our total pool of evidence weight is 144. Exactly. 144 represents 100% of the probability space for this specific scenario.",
+      "startTime": 1739.17,
+      "endTime": 1759.05
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "To find the final normalized posterior probability of any specific boundary, you just take its raw weight and divide it by that total of 144. Okay. Here is where we deliver the final verdict on the puzzle you've been holding in your head. If your human intuition told you that the machine switched from low to high",
+      "startTime": 1759.73,
+      "endTime": 1775.73
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "exactly in the middle after shift to, well, your intuition was mathematically flawless.",
+      "startTime": 1775.73,
+      "endTime": 1780.37
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "So out of all the possible realities, the boundary occurring after shift to captures just over 56% of the total probability. And that's our key number. Right. For the flow of our conversation right now, that 56% is the key quantitative result you need to hold on to.",
+      "startTime": 1781.37,
+      "endTime": 1797.09
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "Now, for those of you who love diving into the exact fractions, you know, tracing how 81 out of 144 breaks down into decimals. We have put all of those additional numbers, all the step by step arithmetic right into the show notes for you to explore. But here just know over half of the probability rests on that single moment",
+      "startTime": 1797.41,
+      "endTime": 1816.21
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "in time, which is a remarkably strong conclusion from such a tiny amount of data. It really is. And just to conceptually round out the picture, look at the no switch scenario, the reality where the machine never broke. Its raw weight was only nine out of that 144.",
+      "startTime": 1816.21,
+      "endTime": 1830.81
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "That translates to roughly six percent, which means it's highly, highly unlikely that the machine didn't change state. The alarm sequence was just too suspicious. But crucially, it is not absolutely impossible. Six percent is low, but it's not zero. The Bayesian framework never completely closes the door on a possibility unless",
+      "startTime": 1831.33,
+      "endTime": 1851.01
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "it's logically contradictory. And this brings us to what I consider the most fascinating and sometimes controversial aspect of Bayesian statistics. Oh, what's that? Everything we just calculated that 56 percent dominance for a middle switch was completely dependent on a very specific assumption we made before we started.",
+      "startTime": 1851.01,
+      "endTime": 1870.89
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "The assumption of equal priors. We assumed every date was equally likely. Right. But what if we alter our prior assumptions? What happens to our final scientific conclusion? If we start with different subjective beliefs about the world, this is where subjective belief interacts with objective data.",
+      "startTime": 1871.25,
+      "endTime": 1890.37
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "Let's run a couple of thought experiments on this. Let's change our minds without changing the physical alarms on the factory floor. Let's do it. Let's call this scenario a what if just as we sit down to do the math, a senior mechanic walks in and this mechanic says, look, I was monitoring the power draw.",
+      "startTime": 1890.37,
+      "endTime": 1908.17
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "I know for an absolute undeniable fact that an internal breaker tripped during those four shifts, a switch definitely occurred. I just can't tell you exactly one. OK, so if we accept the mechanics, knowledge as absolute truth, our prior probabilities instantly shift.",
+      "startTime": 1908.21,
+      "endTime": 1924.49
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "The prior probability of the no switch scenario becomes exactly zero. It is no longer a possible reality. So we mathematically drop that hypothesis entirely. We throw out its raw weight of nine. Yes. Our total pool of evidence weight shrinks. It is no longer 144. It is 144 minus nine.",
+      "startTime": 1925.01,
+      "endTime": 1944.65
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "Which leaves us with a new total pool of 135. The denominator shrinks. So how does that mathematically boost our leading candidate, the switch after shift to? Well, its raw evidence weight remains 81. The data didn't change. But now we divide 81 by our new smaller total of 135.",
+      "startTime": 1944.89,
+      "endTime": 1963.05
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "If you do the math on that, the probability jumps up to exactly 60%. 60%. It was 56% and it grew to 60%. Simply because we eliminated a competing hypothesis using outside knowledge. The pie got smaller. So the biggest slice took up a larger percentage of what was left. Precisely.",
+      "startTime": 1963.73,
+      "endTime": 1983.29
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "Now let's go the opposite direction scenario B. Imagine we are not talking to a mechanic. Imagine we are talking to the CEO who bought the machine.",
+      "startTime": 1983.61,
+      "endTime": 1992.41
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "OK, the boss. The CEO is highly, highly skeptical of this machine ever breaking. They paid a fortune for it. It's built like a tank.",
+      "startTime": 1993.17,
+      "endTime": 2001.16
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "Before we look at a single data point, the CEO firmly believes that the machine not changing state is just as likely as all the other through switch dates combined. Wow. OK, so the CEO is giving a massive subjective prior advantage to the no change hypothesis.",
+      "startTime": 2002.11,
+      "endTime": 2018.07
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "Yes, mathematically to encode the CEO's belief, we multiply the prior weight of the no change hypothesis by three relative to the others. So its original raw weight of evidence from the data was nine. But we amplify it by three based on belief, making its new functional numerator 27. Right.",
+      "startTime": 2018.15,
+      "endTime": 2036.79
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "And to find our new total denominator, we add them up again. The switch dates are still 27, 81 and 27. But now no change is also a heavy 27. Add those up 27 plus 81 plus 27 plus the new 27. Our total pool inflates to 162.",
+      "startTime": 2037.31,
+      "endTime": 2055.96
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "So what is the new posterior probability of the no change scenario? Under the CEO's worldview, it's 27 divided by 162, which simplifies to roughly 16.6%. I really want to emphasize what just happened across those scenarios.",
+      "startTime": 2056.52,
+      "endTime": 2072.56
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "In all these variations, the purely objective equal priors, the absolute certainty of the mechanic, the deep stubborn skepticism of the CEO, the four physical shifts recorded on the factory floor never changed. The data was eternally quiet, quiet alarm alarm. The data was identical.",
+      "startTime": 2073.24,
+      "endTime": 2091.6
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "The likelihoods generated by the data were identical. But the prior assumptions profoundly shaped the final inference.",
+      "startTime": 2091.76,
+      "endTime": 2098.54
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "This is why Bayesian statistics is so powerful. It doesn't pretend the data exists in a vacuum. It provides a rigorous mathematical framework to take your outside knowledge or expertise, or even your deep skepticism. Combine it with the cold hard evidence of the data and arrive at a logically sound conclusion.",
+      "startTime": 2100.02,
+      "endTime": 2116.86
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "It acknowledges that human beings don't process evidence blankly. It's not just what does the data say. It is always what does the data say given what we already know about the structure of the world? Exactly. But you know, as deeply satisfying as it is to talk about fictional machines",
+      "startTime": 2117.38,
+      "endTime": 2133.74
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "where we perfectly know the 14 and 34% probabilities because an engineer told us the real world is almost never that clean. Now the real world is terrifyingly messy. We rarely know the exact parameters of the invisible engines driving our reality, which means it is time to leave the fictional factory behind.",
+      "startTime": 2133.74,
+      "endTime": 2153.42
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "We've solved the theoretical puzzle. Now we are going to take this exact same Bayesian logic and apply it to real historical human data. The heavy stuff. Data where the stakes are literal life and death and crucially data where the before and after rates aren't neatly given to us on a silver platter by a bench test.",
+      "startTime": 2154.06,
+      "endTime": 2171.94
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "We are moving from act four to act five. We are opening the disaster log. This is a heavy but incredibly important application of the math we just learned.",
+      "startTime": 2172.3,
+      "endTime": 2181.18
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "We are going to look at the work published by researchers Carlin, Gelfind and Smith in 1992. Okay. They took these Bayesian change point models and applied them to a very sobering historical data set concerning disasters in British coal mines. Right. To give you the historical context in 1979, a statistician named RG Jarrett",
+      "startTime": 2181.98,
+      "endTime": 2201.06
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "published a heavily researched, corrected and extended timeline. This wasn't just a list of accidents. This timeline cataloged 191 severe disasters in British coal mines. And we need to define severe here because Jarrett used a very strict tragic threshold to make this list.",
+      "startTime": 2201.06,
+      "endTime": 2218.78
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "A single mining disaster had to involve the deaths of at least 10 miners. Ten lives lost in a single incident just to be counted as a single data point. This year human scale of that is hard to fathom. And this data set spans over a century of the industrial revolution.",
+      "startTime": 2219.06,
+      "endTime": 2235.18
+    },
+    {
+      "id": "turn-147",
+      "speaker": "Host 1",
+      "text": "It starts in 1851 and runs all the way through 1962. It is a long dark record of subterranean tragedy. What Carlin, Gelfind and Smith did in 1992 was take Jarrett's grim timeline and group these disasters by year. They looked at the annual accounts. Okay.",
+      "startTime": 2235.18,
+      "endTime": 2253.22
+    },
+    {
+      "id": "turn-148",
+      "speaker": "Host 2",
+      "text": "And they wanted to know using the exact same philosophical framework as our factory operator. If and when the underlying invisible rate of these disasters fundamentally shifted, did the industry somehow change its probabilistic state? But unlike our factory machine, no one had bench tested 19th century British coal mines.",
+      "startTime": 2253.86,
+      "endTime": 2273.34
+    },
+    {
+      "id": "turn-149",
+      "speaker": "Host 1",
+      "text": "They didn't know the low rate. They didn't know the high rate. They only had the raw counts of the dead. So how do you apply a Bayesian model when you don't even know the parameters you are looking for? This requires a massive leap in mathematical sophistication. You can't just multiply simple fractions on a chalkboard anymore.",
+      "startTime": 2273.86,
+      "endTime": 2291.94
+    },
+    {
+      "id": "turn-150",
+      "speaker": "Host 2",
+      "text": "The utilized what is called a Poisson model. A Poisson distribution is a specific mathematical tool designed for modeling the number of times a random event occurs within a continuous interval of time or space. Stop right there because I want to make sure we understand why they chose a Poisson model.",
+      "startTime": 2292.5,
+      "endTime": 2310.2
+    },
+    {
+      "id": "turn-151",
+      "speaker": "Host 1",
+      "text": "We are shifting our units entirely. On the factory floor, the unit was discrete, the probability of an alarm per defined shift. The shift had a start and an end. Why doesn't that work for a coal mine disaster? Because time in reality isn't a neat discrete grid.",
+      "startTime": 2310.92,
+      "endTime": 2328.4
+    },
+    {
+      "id": "turn-152",
+      "speaker": "Host 2",
+      "text": "A factory shift is a box, but a coal mine disaster doesn't wait for a shift to start. It could happen at 2 p.m. on a Tuesday or 3 14 a.m. on a Sunday. Time is continuous. Right. The Poisson model is brilliant because it handles continuous time. Instead of checking a box once a day, it's more like measuring drops of rain",
+      "startTime": 2329.0,
+      "endTime": 2347.12
+    },
+    {
+      "id": "turn-153",
+      "speaker": "Host 1",
+      "text": "falling into a bucket over the course of a year. Some years you get a downpour, some years a drizzle. The Poisson model looks for the expected rate of those random drops. Got it. It handles the fluidity of time. Exactly. Here, the units change to annual counts per unit calendar time.",
+      "startTime": 2347.12,
+      "endTime": 2362.72
+    },
+    {
+      "id": "turn-154",
+      "speaker": "Host 2",
+      "text": "We are looking for an expected rate of disasters per year, which we represent with the Greek letter lambda. OK. And the structural assumption of the model is that there is one underlying annual disaster rate. Let's call it lambda one operating before some unknown boundary year in",
+      "startTime": 2363.28,
+      "endTime": 2379.8
+    },
+    {
+      "id": "turn-155",
+      "speaker": "Host 1",
+      "text": "history and a different annual rate, lambda two, operating after that boundary. That is the core setup.",
+      "startTime": 2379.8,
+      "endTime": 2386.0
+    },
+    {
+      "id": "turn-156",
+      "speaker": "Host 2",
+      "text": "But the immense complexity they faced in 1992 with it, everything was unknown. The boundary year was unknown. The early rate lambda one was unknown. The later rate lambda two was unknown.",
+      "startTime": 2386.75,
+      "endTime": 2396.83
+    },
+    {
+      "id": "turn-157",
+      "speaker": "Host 1",
+      "text": "That's a lot of unknowns. It is. The model has to estimate all three of these invisible parameters simultaneously. It has to allow both rates to be highly uncertain and essentially average over that swirling cloud of uncertainty to find the most probable",
+      "startTime": 2397.64,
+      "endTime": 2412.69
+    },
+    {
+      "id": "turn-158",
+      "speaker": "Host 2",
+      "text": "mathematically stable reality, which sounds like an impossible calculation to do by hand. If you don't know the dates and you don't know the rates, aren't there millions of possible combinations? How does a computer in 1992 even begin to solve that without just guessing blindly forever?",
+      "startTime": 2413.09,
+      "endTime": 2429.69
+    },
+    {
+      "id": "turn-159",
+      "speaker": "Host 1",
+      "text": "It was computationally incredibly demanding to solve it. They used a technique called Gibbs sampling. I've seen that term in the literature. What is Gibbs sampling actually doing under the hood? The best way to visualize Gibbs sampling is to imagine a blindfolded hiker dropped into a massive alien mountain range.",
+      "startTime": 2429.89,
+      "endTime": 2449.05
+    },
+    {
+      "id": "turn-160",
+      "speaker": "Host 2",
+      "text": "Okay, I'm picturing it. This mountain range represents the posterior distribution, the landscape of all possible answers.",
+      "startTime": 2449.09,
+      "endTime": 2456.69
+    },
+    {
+      "id": "turn-161",
+      "speaker": "Host 1",
+      "text": "The highest peak in this mountain range is the most probable reality, the true answer we are looking for.",
+      "startTime": 2457.53,
+      "endTime": 2463.17
+    },
+    {
+      "id": "turn-162",
+      "speaker": "Host 2",
+      "text": "But the hiker is blindfolded. They can't see the peak. So how do they find it? They find it by taking one step at a time along a single axis. The hiker freezes all their movements except for, say, stepping north or south. They feel the ground with their foot is north slipping up. Yes. So they take a step north.",
+      "startTime": 2464.13,
+      "endTime": 2483.85
+    },
+    {
+      "id": "turn-163",
+      "speaker": "Host 1",
+      "text": "Oh, I see. Then they freeze that axis and only test east or west is east slipping up. Yes, they take a step east.",
+      "startTime": 2484.29,
+      "endTime": 2492.09
+    },
+    {
+      "id": "turn-164",
+      "speaker": "Host 2",
+      "text": "Gibbs sampling does this mathematically. It freezes the assumed rates and asks, given these rates, what is the best boundary year? It moves the year. Then it freezes the year and asks, given this year, what are the best rates? It adjusts the rates. That is fascinating.",
+      "startTime": 2493.09,
+      "endTime": 2510.29
+    },
+    {
+      "id": "turn-165",
+      "speaker": "Host 1",
+      "text": "By iteratively taking thousands and thousands of these tiny calculated steps, the algorithm eventually climbs the invisible slopes of probability and arrives at the absolute highest peak of the mathematical landscape. That is an incredible visual. It feels out the shape of reality one variable at a time.",
+      "startTime": 2511.08,
+      "endTime": 2528.04
+    },
+    {
+      "id": "turn-166",
+      "speaker": "Host 2",
+      "text": "So Carlin, Gelfand and Smith unleash this Gibbs sampling hiker onto a hundred and twelve years of tragic, continuous mining data. They ask the algorithm to find the peak.",
+      "startTime": 2528.64,
+      "endTime": 2539.12
+    },
+    {
+      "id": "turn-167",
+      "speaker": "Host 1",
+      "text": "Where is the boundary? When did the rate of severe disasters fundamentally alter? After thousands of iterations, the model returns a definitive, sharply illuminated answer. The most probable split, the highest peak in that multi-dimensional mountain range falls precisely after the year 1891. 1891.",
+      "startTime": 2539.97,
+      "endTime": 2559.81
+    },
+    {
+      "id": "turn-168",
+      "speaker": "Host 2",
+      "text": "Yes. There were a couple of runner-up years that also held high probability. The model noted that a shift after 1889 or 1890 were strong secondary possibilities. But 1891 was the statistical mode. The absolute most probable change point.",
+      "startTime": 2559.97,
+      "endTime": 2576.41
+    },
+    {
+      "id": "turn-169",
+      "speaker": "Host 1",
+      "text": "Let's look at the raw historical numbers surrounding that specific boundary to see why the math pointed its finger so emphatically at 1891. Let's do it. If we start from the beginning of the data set in 1851 and run through the year 1891, we have a period of 41 years.",
+      "startTime": 2577.23,
+      "endTime": 2595.03
+    },
+    {
+      "id": "turn-170",
+      "speaker": "Host 2",
+      "text": "In those 41 years, Jarrett's table records a staggering 127 severe disasters. If you just do the blunt arithmetic on that, 127 disasters divided by 41 years, you get an observed average of approximately 3.10 disasters per year.",
+      "startTime": 2595.89,
+      "endTime": 2613.45
+    },
+    {
+      "id": "turn-171",
+      "speaker": "Host 1",
+      "text": "Over three severe disasters, meaning an absolute minimum of 30 minors dying in mass casualty events every single year on average for four decades. The brutality of that era is staggering. Really is. Now look at the period after the mathematical boundary.",
+      "startTime": 2613.97,
+      "endTime": 2632.77
+    },
+    {
+      "id": "turn-172",
+      "speaker": "Host 2",
+      "text": "From 1892 through the end of the data set in 1962, we have a much longer period of 71 years. In that 71 year stretch, there were 64 disasters. In 64 disasters divided by 71 years, yields an observed average of approximately 0.90 disasters per year.",
+      "startTime": 2633.29,
+      "endTime": 2652.85
+    },
+    {
+      "id": "turn-173",
+      "speaker": "Host 1",
+      "text": "It dropped from 3.10 down to 0.90. The rate fell by more than two thirds. It dropped below one disaster per year. Now we need to highlight a critical nuance in how Carlin, Gelfand and Smith reported their final findings. It's a step that showcases the intellectual honesty of the Bayesian method. What did they do?",
+      "startTime": 2653.05,
+      "endTime": 2671.37
+    },
+    {
+      "id": "turn-174",
+      "speaker": "Host 2",
+      "text": "Those numbers we just said 3.10 and 0.90 are what you get if you mathematically hard code the boundary exactly, rigidly at the end of 1891. But the researchers didn't hard code it. Right. You mentioned the model saw 1889 and 1890 as valid secondary possibilities. Exactly.",
+      "startTime": 2672.12,
+      "endTime": 2689.16
+    },
+    {
+      "id": "turn-175",
+      "speaker": "Host 1",
+      "text": "A Bayesian doesn't just pick the highest peak and ignore the rest of the mountain. They acknowledge the uncertainty. The researchers mathematically averaged over the uncertainty of the exact change date. They blended the realities where it changed in 89, 90 and 91, weighted by their probabilities to calculate the true estimated underlying rates.",
+      "startTime": 2689.76,
+      "endTime": 2708.8
+    },
+    {
+      "id": "turn-176",
+      "speaker": "Host 2",
+      "text": "They refused to let 1891 become absolute gospel because the data didn't support absolute certainty. Precisely. And when they averaged over that uncertainty, the resulting posterior rate distributions peaked at slightly different numbers than the raw averages. What were they?",
+      "startTime": 2709.08,
+      "endTime": 2724.24
+    },
+    {
+      "id": "turn-177",
+      "speaker": "Host 1",
+      "text": "The estimated underlying rate for the early dangerous segment peaked at 3.06 disasters per year. And the estimated rate for the later safer segment peaked at 0.89 disasters per year. 3.10 versus 3.06. 0.90 versus 0.89.",
+      "startTime": 2724.88,
+      "endTime": 2743.08
+    },
+    {
+      "id": "turn-178",
+      "speaker": "Host 2",
+      "text": "It is a tiny, almost negligible numerical difference in the grand scheme of things, but conceptually, it is a massive leap. It really is. It represents the mathematical model explicitly saying, I am giving you my absolute best estimate of the danger these miners faced while fully acknowledging",
+      "startTime": 2743.4,
+      "endTime": 2760.84
+    },
+    {
+      "id": "turn-179",
+      "speaker": "Host 1",
+      "text": "that my boundary line might be blurred by a year or two. It is the statistical embodiment of humility. It is. It acknowledges the limits of what we can know from the exhaust. OK, here is where this entire deep dive gets incredibly profound for me. The statistics, the Bayesian inference, the continuous Poisson distributions,",
+      "startTime": 2761.08,
+      "endTime": 2779.72
+    },
+    {
+      "id": "turn-180",
+      "speaker": "Host 2",
+      "text": "the Gibbs sampling, Hiker, feeling its way up the mountain, all of this incredible towering math tells us that the rate of horrific mining disasters dropped off an absolute cliff right around 1891. Yep. But the math cannot tell us why. The math is utterly blind to human history. It is just numbers rearranging themselves.",
+      "startTime": 2780.08,
+      "endTime": 2799.79
+    },
+    {
+      "id": "turn-181",
+      "speaker": "Host 1",
+      "text": "It acts as a compass pointing to a spot on a historical timeline and saying, look here, something happened here. Right. If you are a historian holding the statistical paper in your hand, looking at the years immediately surrounding 1891, what exactly would you look for?",
+      "startTime": 2800.35,
+      "endTime": 2818.04
+    },
+    {
+      "id": "turn-182",
+      "speaker": "Host 2",
+      "text": "How does a mathematical boundary translate into human inquiry? That is the ultimate question. The math serves the history. The model flags 1891. As a historian, I would just stare at the calendar year 1891.",
+      "startTime": 2818.16,
+      "endTime": 2830.8
+    },
+    {
+      "id": "turn-183",
+      "speaker": "Host 1",
+      "text": "I would look at the broader chaotic era surrounding it. I would be hunting for systemic structural changes in the British mining industry that coalesced right around that time. OK. And where would you start? I would categorize my search into three main areas. What is area number one?",
+      "startTime": 2831.87,
+      "endTime": 2848.11
+    },
+    {
+      "id": "turn-184",
+      "speaker": "Host 2",
+      "text": "Technology and scale were the physical mechanics of mining fundamentally changing, for example, explosives. The transition from volatile black powder, which caused massive, unpredictable coal dust explosions to much more stable high explosives, began occurring in this era. Oh, that's a big one.",
+      "startTime": 2848.27,
+      "endTime": 2865.03
+    },
+    {
+      "id": "turn-185",
+      "speaker": "Host 1",
+      "text": "Did a critical mass of mines adopt the safer explosives around 1890 or ventilation and lighting. The shift from open flame candles, which were essentially ignition sources waiting for a pocket of methane to enclosed technologically advanced safety lamps, did a new patent or a drop in manufacturing costs suddenly make",
+      "startTime": 2865.27,
+      "endTime": 2884.78
+    },
+    {
+      "id": "turn-186",
+      "speaker": "Host 2",
+      "text": "safety lamps universal just prior to 1891. OK, that makes perfect sense. A technological tipping point that immediately reduces the probability of a spark, finding gas. What is the second area? The human element, the legislation, legislation and regulation. The late 19th century in Britain was a crucible for labor rights.",
+      "startTime": 2884.9,
+      "endTime": 2904.86
+    },
+    {
+      "id": "turn-187",
+      "speaker": "Host 1",
+      "text": "The public was becoming increasingly intolerant of industrial slaughter. Right. A historian would scour the parliamentary records. Was there a massive sweeping piece of safety legislation passed shortly before this drop? And in fact, history provides a massive candidate. The coal mines regulation act of 1887,",
+      "startTime": 2905.3,
+      "endTime": 2923.42
+    },
+    {
+      "id": "turn-188",
+      "speaker": "Host 2",
+      "text": "1887, just four years before our statistical boundary. Exactly. This act introduced much stricter, legally enforceable rules on mine ventilation, the handling of explosives, and it demanded far more rigorous, standardized inspections by government officials. And crucially, it takes time for a law written in London to actually filter down",
+      "startTime": 2923.5,
+      "endTime": 2943.22
+    },
+    {
+      "id": "turn-189",
+      "speaker": "Host 1",
+      "text": "into the dark, grimy reality of hundreds of individual mines across the country. Mine owners have to be forced to comply. Inspectors have to be hired and trained equipment has to be upgraded to meet the new code. Yes, not overnight. So in 1887 law, causing a sudden measurable drop in the actual death rate by",
+      "startTime": 2943.22,
+      "endTime": 2961.06
+    },
+    {
+      "id": "turn-190",
+      "speaker": "Host 2",
+      "text": "1891, that makes perfect historical and logistical sense. It creates a beautiful synergy between the legal history and the mathematical inference, but a rigorous historian must always consider a third area.",
+      "startTime": 2961.06,
+      "endTime": 2974.63
+    },
+    {
+      "id": "turn-191",
+      "speaker": "Host 1",
+      "text": "And this one is considerably darker. Darker than mass casualty explosions. Darker in terms of human deceit.",
+      "startTime": 2975.58,
+      "endTime": 2982.98
+    },
+    {
+      "id": "turn-192",
+      "speaker": "Host 2",
+      "text": "We had to consider changes in reporting standards. Wait, you mean the disasters might have still been happening, but they just weren't being written down? It is a systemic possibility. You must always check when dealing with historical data provided by institutions in power. Did the legal definition of a disaster change?",
+      "startTime": 2983.98,
+      "endTime": 3002.38
+    },
+    {
+      "id": "turn-193",
+      "speaker": "Host 1",
+      "text": "Remember, Jared's data set uses a strict threshold of 10 deaths. Right. Did the 1887 act or some other bureaucratic shift in 1891 introduce severe financial penalties for disasters with 10 or more deaths? If so, did record keeping practices suddenly become, well, creative? Oh, wow.",
+      "startTime": 3002.5,
+      "endTime": 3021.06
+    },
+    {
+      "id": "turn-194",
+      "speaker": "Host 2",
+      "text": "Did mine owners start covering up the 10th or 11th death? Did they started attributing a minor's death to natural causes or a separate incident days later, just to keep the official single incident death toll legally at nine, thereby dodging the threshold and vanishing from our data set? That is deeply chilling.",
+      "startTime": 3021.58,
+      "endTime": 3039.1
+    },
+    {
+      "id": "turn-195",
+      "speaker": "Host 1",
+      "text": "The data looks safer, but the reality is just better paperwork masking the same tragedy. No, to be clear, given the sheer massive magnitude of the drop from over three a year to less than one, I highly doubt deceit is the primary driver here. You can't easily hide that many mass casualty events.",
+      "startTime": 3039.54,
+      "endTime": 3057.3
+    },
+    {
+      "id": "turn-196",
+      "speaker": "Host 2",
+      "text": "The technological and legislative improvements were very real. Right. The scale is just too big to hide completely. But historian is obligated to investigate the dark side of the data. And that highlights the true beauty of the Bayesian change point model. The math doesn't try to arrogantly answer the why.",
+      "startTime": 3057.74,
+      "endTime": 3074.82
+    },
+    {
+      "id": "turn-197",
+      "speaker": "Host 1",
+      "text": "It doesn't claim to know about safety lamps or greedy mine owners. It just points. It simply provides the human historian with a massive, brightly illuminated, mathematically undeniable signpost that says, whatever changed the physical reality of British coal mining, it reached its tipping point right here.",
+      "startTime": 3075.42,
+      "endTime": 3093.26
+    },
+    {
+      "id": "turn-198",
+      "speaker": "Host 2",
+      "text": "It radically narrows the search grid. Instead of a historian watering aimlessly through a century of records asking, why did mining eventually get safer? The math allows them to ask a laser focus question. What specific technological, legal or cultural shifts collided in the dirt in the years immediately preceding 1891?",
+      "startTime": 3093.7,
+      "endTime": 3113.58
+    },
+    {
+      "id": "turn-199",
+      "speaker": "Host 1",
+      "text": "Exactly. It focuses human inquiry using the cold precision of mathematics.",
+      "startTime": 3113.78,
+      "endTime": 3118.46
+    },
+    {
+      "id": "turn-200",
+      "speaker": "Host 2",
+      "text": "OK, let's take a breath and pull all of this together. We have covered an immense challenging landscape today. We really have. We started in the abstract theoretical foundations of evidence. We explored the likelihood principle and the conditionality principle. We saw how classical frequentist statistics can sometimes trap highly educated",
+      "startTime": 3119.26,
+      "endTime": 3139.14
+    },
+    {
+      "id": "turn-201",
+      "speaker": "Host 1",
+      "text": "scientists in the absurdity of judging physical reality based on hypothetical experiments that never even happened. Like evaluating a coin toss based on a referee's secret overtime rules. Right. Or judging a chemical test based on a New York lab that was never used.",
+      "startTime": 3139.14,
+      "endTime": 3154.66
+    },
+    {
+      "id": "turn-202",
+      "speaker": "Host 2",
+      "text": "And we saw how the Beijing perspective, the philosophy of focusing solely and relentlessly on the observed data, the puddle on the floor, frees us from that trap. We took that philosophy out of the clouds and onto a fictional factory floor. We walked conceptually through the math of four simple independent shifts,",
+      "startTime": 3155.06,
+      "endTime": 3173.3
+    },
+    {
+      "id": "turn-203",
+      "speaker": "Host 1",
+      "text": "quiet, quiet, alarm, alarm. We calculated how well different realities match that data. And we used Bayes rule to normalize those likelihoods into actual actionable probabilities, finding that a mechanical shift after the second period was the most",
+      "startTime": 3173.42,
+      "endTime": 3190.1
+    },
+    {
+      "id": "turn-204",
+      "speaker": "Host 2",
+      "text": "mathematically likely reality holding over 56% of the probability pie. We also demonstrated the profound power of priors. We saw how our final scientific conclusions can and absolutely should shift mathematically when our subjective background knowledge of a situation like",
+      "startTime": 3190.1,
+      "endTime": 3207.38
+    },
+    {
+      "id": "turn-205",
+      "speaker": "Host 1",
+      "text": "a mechanic certainty or a CEO skepticism changes the starting parameters. And finally, we scaled this entire elegant framework up to the messy, tragic reality of historical human data. We looked at over a century of disaster in the British coal mines.",
+      "startTime": 3207.7,
+      "endTime": 3223.38
+    },
+    {
+      "id": "turn-206",
+      "speaker": "Host 2",
+      "text": "We saw how a continuous Bayesian Poisson model powered by a Gibbs sampling algorithm, feeling its way up a mountain of uncertainty could sift through the noise of history. It averaged over the unknowns to definitively pinpoint the year 1891 as the pivot point of a deadly industry, tracking a drop from over three severe",
+      "startTime": 3224.06,
+      "endTime": 3243.26
+    },
+    {
+      "id": "turn-207",
+      "speaker": "Host 1",
+      "text": "disasters a year to less than one and pointing historians toward the life saving impact of the 1887 regulations. It is a sweeping journey from the abstract philosophy of a coin toss to the mechanical hum of a factory to the harsh subterranean reality of the industrial",
+      "startTime": 3243.26,
+      "endTime": 3260.58
+    },
+    {
+      "id": "turn-208",
+      "speaker": "Host 2",
+      "text": "revolution, all of it connected by the exact same underlying logic of evidence. Figuring out where the boundaries are drawn helps us interpret the architecture of our world. It really does. It has been an incredibly rigorous, illuminating deep dive.",
+      "startTime": 3260.58,
+      "endTime": 3276.3
+    },
+    {
+      "id": "turn-209",
+      "speaker": "Host 1",
+      "text": "But before we let you go, we want to leave you with one final provocative thought. Something to chew on. We want to challenge your understanding of evidence one last time based on the very first puzzle we solve together.",
+      "startTime": 3276.3,
+      "endTime": 3288.46
+    },
+    {
+      "id": "turn-210",
+      "speaker": "Host 2",
+      "text": "Think back to our fictional operator on the factory floor, staring at that alarm log. The record they saw was quiet, quiet, alarm, alarm. Right. And that specific sequence led us to mathematically conclude that the reality most likely changed exactly in the middle right after shift to.",
+      "startTime": 3289.26,
+      "endTime": 3306.58
+    },
+    {
+      "id": "turn-211",
+      "speaker": "Host 1",
+      "text": "But imagine the universe played a tiny trick on us. Imagine one microscopic thing was different in that log. What if we recorded just one more shift? Say shift five happened and it was quiet. Or what if the operators suddenly discovered that the very first alarm, the",
+      "startTime": 3307.53,
+      "endTime": 3323.85
+    },
+    {
+      "id": "turn-212",
+      "speaker": "Host 2",
+      "text": "one in shift three was actually a false positive, a glitch in the physical speaker wire, not a real alarm from the machine. If either of those tiny single data points were different, the entire towering mathematical structure we just built would instantly collapse, recalculate and reform into a completely new shape.",
+      "startTime": 3323.85,
+      "endTime": 3341.89
+    },
+    {
+      "id": "turn-213",
+      "speaker": "Host 1",
+      "text": "It forces us to confront a fundamental question about the fragility of our own inferences.",
+      "startTime": 3342.21,
+      "endTime": 3347.33
+    },
+    {
+      "id": "turn-214",
+      "speaker": "Host 2",
+      "text": "Exactly. So I ask you, which observation actually changed the explanation?",
+      "startTime": 3349.31,
+      "endTime": 3355.75
+    },
+    {
+      "id": "turn-215",
+      "speaker": "Host 1",
+      "text": "That's a good one. Leave that question tumbling around in your mind today. Think about how a single new piece of data or the sudden invalidation of an old one doesn't just quietly add a footnote to the record. It has the power to entirely rewrite the mathematical boundary of our reality. A single drop of water can move the line.",
+      "startTime": 3356.55,
+      "endTime": 3375.79
+    },
+    {
+      "id": "turn-216",
+      "speaker": "Host 2",
+      "text": "Well said. Thank you so much for doing the heavy lifting and joining us on this journey today. As always, a quick reminder to check the show notes. We've put all the full step by step mathematical breakdowns, the fractions out of 256 and links to the foundational papers by Smith page and Jarrett right there for you to explore at your own pace. Thanks for listening, everyone.",
+      "startTime": 3376.07,
+      "endTime": 3395.95
+    },
+    {
+      "id": "turn-217",
+      "speaker": "Host 1",
+      "text": "Until next time, keep questioning where the boundaries are drawn.",
+      "startTime": 3396.63,
+      "endTime": 3399.75
+    }
+  ]
+}

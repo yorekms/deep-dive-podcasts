@@ -1,0 +1,1143 @@
+{
+  "episodeId": "15Pej0FDbgzRLh_PYmZN0Qye2u-SamJsE",
+  "driveId": "15Pej0FDbgzRLh_PYmZN0Qye2u-SamJsE",
+  "title": "Whose Wages Make It Into the Survey? — Reuben Gronau’s Reservation Wage Puzzle, James Heckman’s (1979) Two-Step Inverse Mills Ratio Selection Correction & Thomas Mroz’s PSID Married Women’s Labor-Supply Tests",
+  "duration": 2549.04,
+  "teenKit": {
+    "tldr": "In 15 seconds: Surveys can only record hourly wages for people currently working—so estimating wage equations on workers alone hides everyone whose market offer fell below their home reservation wage. Heckman's (1979) selection correction turns missing nonworkers from a mystery into an omitted variable we can model.",
+    "whyItMatters": "From labor economics to clinical follow-up, analyzing only 'who showed up' confuses selection into the sample with real causal effects.",
+    "keyTakeaways": [
+      "Reuben Gronau highlighted the reservation-wage threshold: we observe market wage W only when W exceeds an individual's reservation value of non-market time W*.",
+      "James Heckman (1979) proved truncation of the error term creates an omitted-variable bias proportional to the Inverse Mills Ratio lambda(Z*gamma) from a first-stage participation probit.",
+      "Thomas Mroz (1987) tested married women's labor supply in PSID microdata, demonstrating why credible exclusion restrictions (variables shifting participation without directly shifting wage offers) anchor selection models."
+    ],
+    "vocab": [
+      {
+        "term": "Reservation Wage",
+        "meaning": "The minimum hourly wage offer required to induce a person to enter paid employment."
+      },
+      {
+        "term": "Inverse Mills Ratio",
+        "meaning": "phi(z) / Phi(z)—standard normal density over cumulative probability, capturing expected truncated error given selection."
+      },
+      {
+        "term": "Exclusion Restriction",
+        "meaning": "A variable affecting probability of sample participation (stage 1) without directly entering the outcome equation (stage 2)."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Why does running ordinary least squares (OLS) only on employed respondents bias market-wage estimates?",
+        "options": [
+          "Employed people forget their age",
+          "Workers are non-randomly selected on having unobserved wage/participation shocks high enough to cross their reservation threshold",
+          "OLS cannot divide by hours worked",
+          "Census computers round wages to integers"
+        ],
+        "correctIndex": 1,
+        "explanation": "Conditioning on employment truncates the joint error distribution, making E[u_i | working] nonzero and correlated with covariates."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "We are basically looking at a mathematical landscape that is just full of ghosts. Oh, absolutely. Right. Ghosts everywhere. Because usually, you know, when you pull up a massive, beautifully organized dataset, there is this comforting expectation of absolute precision. Yeah, you see the rows and columns and you just trust it. Exactly. You look at this spreadsheet, you see everything perfectly lined,",
+      "startTime": 0.0,
+      "endTime": 19.84
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "and you assume that what you are looking at is, well, the complete picture. Right. Because the numbers are physically there on your screen. Yeah. So you trust them.",
+      "startTime": 19.84,
+      "endTime": 27.68
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "But today, we are going to actually track down the ghosts hiding in that very same spreadsheet. It's kind of spooky when you really get into it. It really is. We are looking at survey data today, and specifically, we're looking at the empty boxes. The boxes were the wages of millions of non-working people should be. It is, I mean, it's the ultimate statistical illusion. Yeah.",
+      "startTime": 28.48,
+      "endTime": 48.08
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "Because when you analyze an economy or, you know, a labor market, the most profound story isn't always told by the data you've actually collected. Right. It's about what's missing. Exactly. Sometimes the entire narrative hinges on how you managed to measure something that simply isn't there. And that is exactly our mission for this deep dive. Yeah.",
+      "startTime": 48.08,
+      "endTime": 67.36
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "We are exploring the unseen. We're trying to answer one foundational question, which is, whose wages actually make it into the survey? It's a huge question. It's massive. We are going to figure out how statisticians and economists managed to calculate the invisible.",
+      "startTime": 67.36,
+      "endTime": 82.08
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "And how the data we don't see heavily, heavily biases the data we do see. Yeah, completely skews reality. To get to the bottom of this, we are pulling from an incredible stack of foundational sources today. Some really heavy hitters. Totally. So we have the structural context provided by the IPUMS repository. Right.",
+      "startTime": 82.72,
+      "endTime": 101.68
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "That's the integrated public use micro data series. Such a mouthful, but so important. Oh, incredibly important. And then we are going to trace the intellectual breadcrumbs through three seminal economic studies. We've got Ruben Grownow from 1974. We've got James Heckman from 1976 and 1979.",
+      "startTime": 101.68,
+      "endTime": 119.2
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "And finally, Thomas Moreau's from 1987. Yeah, to really appreciate the sheer scale of the puzzle we are dealing with here, we first have to understand the physical reality of the data itself. Okay. Set the scene for us. So that is where IPUMS comes into the picture. For anyone doing deep economic or demographic research,",
+      "startTime": 119.2,
+      "endTime": 136.16
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "IPUMS is just, I mean, it's a world-renowned repository. Right. It's like the gold standard. Exactly. It provides census and survey data integrated across time and space. Which sounds huge. It is. We are talking about billions of individual records here. Managing colossal surveys like the current population survey.",
+      "startTime": 136.16,
+      "endTime": 155.76
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "The CPS, right? Yeah, the CPS. And the National Historical Geographic Information System, the NHGIS. Okay. Let's make sure we really grasp what that repository actually represents to a researcher on the ground. Sure. Because, you know, integrated across time and space sounds great in a brochure. Oh, yeah. Sounds very sci-fi. Right.",
+      "startTime": 155.76,
+      "endTime": 174.88
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "But practically speaking, what kind of monumental effort actually goes into that? It is a staggering amount of invisible labor. Like really staggering. I can imagine. I imagine a researcher who wants to study employment trends spanning, say, half a century. Okay.",
+      "startTime": 174.88,
+      "endTime": 190.4
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "A census taker in 1960 might have asked a question about work in a really specific mid-century phrasing. Like, are you the head of household or whatever? Right. Exactly. And they recorded the answer on a physical punch card. Wow. Punch cards. Yeah. And then by 1990, the census is using completely different digital systems,",
+      "startTime": 190.4,
+      "endTime": 209.36
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "different variable codes. Right. Totally different tech. And they're asking about employment with slightly different nuances. So if you just download the raw files for those two different years, they don't talk to each other. Not at all. They are basically speaking different statistical languages. Precisely.",
+      "startTime": 209.36,
+      "endTime": 225.44
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "Or rather, they would be if Uphams hadn't done the harmonization. Harmonization. Yeah. Okay. Yeah. Uphams takes those disparate historical voices and forces them to speak the exact same language. That's amazing. It really is. They standardize all the variables so a researcher can seamlessly track a single concept across",
+      "startTime": 226.0,
+      "endTime": 244.48
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "decades without constantly translating the codes themselves. Right. Which would take years to do on your own. Oh, it would be impossible. But the true superpower of Uphams, especially for our deep dive today, is that it provides micro data. Okay. Let's draw a hard line there between micro data and macro data. Good idea.",
+      "startTime": 244.48,
+      "endTime": 262.16
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "Because we consume macro data on the news every single night. Right. Constantly. Like the unemployment rate in this county is 5%.",
+      "startTime": 262.16,
+      "endTime": 269.6
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "Or the average income in this state is $50,000. Exactly. That's an aggregate. An aggregate smooth out all the interesting, messy human details. They hide a lot. They hide everything. Micro data gives you the individual anonymized records. Okay. You aren't looking at a county average.",
+      "startTime": 270.4,
+      "endTime": 289.44
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "You are looking at a line of data representing a single household. A specific family. Right. And this is revolutionary because it allows researchers to analyze individuals within their actual family contexts. Oh, wow. You can see how one person's labor decision interacts with the age of their children",
+      "startTime": 289.44,
+      "endTime": 307.52
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "or the income of their spouse all living under the exact same roof. Which is incredibly powerful. You have this beautifully organized, harmonized, microscopic view of millions of households. Yeah. But I feel like this is exactly where the trap gets set. Oh, it is. It's a huge trap.",
+      "startTime": 307.6,
+      "endTime": 325.12
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "When a researcher has access to this pristine micro data, the temptation is just overwhelming to run a quick mathematical average on a column. Just highlight the column and click average. Exactly. So you just average the hourly earnings column and declare that you have found the truth.",
+      "startTime": 325.12,
+      "endTime": 341.6
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "And the moment you do that, without thinking, you walk straight off a cliff into selection bias. Yeah. Because the data resting in those beautifully organized columns is strictly conditioned by the messy human choices people made long before the survey taker ever even knocked on their door. Okay.",
+      "startTime": 341.6,
+      "endTime": 359.6
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "Let's lay out the central puzzle here. I want you the listener to picture a standard labor survey. It was a very classic setup. Right. A census taker sits down at a kitchen table and asks a series of very standard questions. How many hours did you work last year? And what did you earn from that work? And the person sitting at the table had a job.",
+      "startTime": 359.6,
+      "endTime": 378.72
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "The process is incredibly straightforward. Sure. They report their hours. They report their earnings. And the survey boxes are filled in. Done. But consider the person who did no paid work at all that year. Right. Maybe they were looking for a job and couldn't find one. Maybe they were staying home to care for a newborn. Or going to school full time. Lots of reasons.",
+      "startTime": 379.36,
+      "endTime": 397.28
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "The survey can accurately write down a zero for the hours worked box. Yes. But what happens to their wage? Their potential hourly wage. What they could have earned if an employer had made the right offer remains a completely empty box on that survey. It is a void. Yeah. Literally just empty space. Right.",
+      "startTime": 397.28,
+      "endTime": 416.4
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "And it is crucial to understand that an empty box is not a zero. Wait, explain that. Well, if the data set records a zero for their wage. It mathematically implies that their labor is worthless. Oh, right. Or that they are willing to work for absolutely free. Which obviously isn't true. No, of course not. It is a missing value.",
+      "startTime": 416.4,
+      "endTime": 435.36
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "The survey instrument simply lacks the capacity to see it. This sets up a massive dilemma for our economist. Suppose an economist wants to estimate the true average potential wage for a very specific population. Okay. Let's say they want to look at everyone with exactly 12 years of education and five years of general experience.",
+      "startTime": 436.14,
+      "endTime": 454.94
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "So a very specific slice of people. Exactly. They want to know the true earning power of that entire demographic slice. Including the people who are currently outside the workforce. Right. If they just take the data they have, the wages of the people who actually decided to work, what happens to their math?",
+      "startTime": 454.94,
+      "endTime": 471.18
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "Well, the economist is trying to make a universal claim about an entire group. Right. Yeah. But they are drawing their evidence from a completely self-selected subset. The missing data is actively hiding the true average. Okay. Before we dig into the historical solution for this, let's put this to you, the listener. Let's do it.",
+      "startTime": 471.18,
+      "endTime": 488.94
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "I want you to pause and make a prediction in your head right now. Think about that broader group of people with the exact same education and experience. If them all identical on paper. Right. If an economist only calculates the average wage of the people who are currently working, does that observed average go up, down, or stay the same compared to the true hidden",
+      "startTime": 488.94,
+      "endTime": 508.78
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "average of the entire group? It's a tricky question. Just lock in your guess right now. Up, down, or stays the same? The answer to this changes the entire foundation of labor economics. It really does. It took a major conceptual breakthrough by Ruben Grunell in 1974 to really articulate why the answer is what it is. Okay.",
+      "startTime": 508.78,
+      "endTime": 527.34
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "So what did Grunell figure out? Well, Grunell was studying job search behaviors, and he zeroed in on a fundamental aspect of human psychology and economics, which is a higher wage offer, makes taking a job significantly more attractive. Which feels completely intuitive when you say it out loud. Right. It seems so obvious.",
+      "startTime": 527.34,
+      "endTime": 545.34
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "If I'm on the fence about working and someone offers me $5 an hour, I'm staying home. Exactly. If they offer me $50 an hour, I am grabbing my coat and heading out the door right then. That intuition is the absolute key.",
+      "startTime": 545.34,
+      "endTime": 557.18
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "Because of that behavior, the observed wages sitting in a survey's data set are not a random representative sample of all the wage offers floating around in the economy. Oh, wow. They are disproportionately drawn from the high end of the wage offers. Okay. Let me make sure I'm locking this in.",
+      "startTime": 558.0,
+      "endTime": 574.56
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "The people who received the low wage offers, the ones who were offered $5 an hour, they looked at that offer, decided it wasn't worth the cost of a commute or child care, and they stayed out of the workforce entirely. Exactly. So they stayed home. So their low potential wages just vanished into those empty boxes. Poof. Gone.",
+      "startTime": 575.04,
+      "endTime": 594.48
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "Meanwhile, the people who got the fantastic high end offers said yes, and those high numbers got recorded in the survey. Yes. Therefore, the observed average goes up. Up. Okay. So if you guessed up, you were right. Right. The average wage you see in the data set is artificially inflated compared to the true",
+      "startTime": 594.48,
+      "endTime": 613.12
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "hidden average of the whole group. I want to use an analogy here to really cement this mechanism because it's so important. Go for it. It feels like a town trying to figure out the average height of its citizens, but the only data they collect is from the people who chose to sign up for the local basketball league. Oh, that captures the mechanical flaw perfectly. Right.",
+      "startTime": 613.12,
+      "endTime": 632.4
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "If you only measure the basketball players, you are going to write a report concluding that your town is full of giants. You'll think everyone is 7 feet tall. Exactly. You aren't measuring a random sample of the population. You are measuring a sample of people who self-selected into an activity, where height provides a massive overwhelming advantage.",
+      "startTime": 632.4,
+      "endTime": 649.28
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "In the exact same way, people self-select into the workforce when the wage offer provides an overwhelming advantage. And that self-selection creates a highly distorted, artificially tall picture of the economy. Artificially tall. Yeah. I like that. Yeah. Gurnell was brilliant for conceptualizing this distortion, for explaining the why.",
+      "startTime": 649.28,
+      "endTime": 667.76
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "But knowing why it's happening doesn't fix the math, right? Exactly. Recognizing a distortion and mathematically fixing it are two very different things. So who fixed it? It was James Heckman.",
+      "startTime": 667.76,
+      "endTime": 678.0
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "Starting in 1976 and expanding in 1979, he built the rigorous mathematical framework to actually solve it. What did he do? Heckman proved that you can't just look at a worker's average wage in a vacuum. That wage physically contains the mathematical effect of who entered the sample in the first place. Okay. I need to hit the brakes here for a second. Sure.",
+      "startTime": 678.8,
+      "endTime": 698.72
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "We are throwing around words like wage and earnings and offers. But if we are going to dive into Heckman's math, we have to be incredibly strict about our terms. Very true. Economists are sticklers for terms. So what exactly did the survey instruments actually measure in plain language?",
+      "startTime": 698.72,
+      "endTime": 715.92
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "And what were the researchers forced to infer? That is a critical distinction. Because that empty box is a very slippery concept. The distinction between measurement and inference is the beating heart of this entire problem. Okay. Break it down. When a census taker sat down, the physical survey instrument measured two things.",
+      "startTime": 715.92,
+      "endTime": 734.88
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "First, reported labor earnings. Which is what? That is the total pile of money someone made over the entire year. Okay. The annual pile of cash got it. And the second thing? And second, annual hours. Which is the total amount of time they reported working during that year. Wait.",
+      "startTime": 735.44,
+      "endTime": 752.88
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "So the survey did not actually ask what is your hourly wage rate? No. And the foundational data sets these economists were using? No. Wow. Okay. The hourly wage itself is not a raw measurement. Researchers inferred the hourly wage by taking the measured annual earnings and dividing it by the measured annual hours.",
+      "startTime": 752.88,
+      "endTime": 772.83
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "Oh, I see. That division gave them a fictional calculated hourly rate for the workers. Okay. That is step one of the inference. But what about the non-workers? That requires an even deeper leap. I figured. Once they inferred the hourly wage for the workers, they had to build a massive statistical model to further infer",
+      "startTime": 772.83,
+      "endTime": 792.59
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "the potential hourly wages of the people with the empty boxes. The people who had zero annual earnings and zero annual hours. Exactly. So the foundation is just a measured pile of money and a measured block of time. Yes.",
+      "startTime": 793.31,
+      "endTime": 805.87
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "From that, we mathematically construct an hourly wage for the workers. And then we have to basically invent a statistical ghost hunting machine to guess the potential wage for the non-workers. That's a great way to put it. Which brings us to the mechanics of Heckman's machine. Right. We need to work out exactly how much of a bell curve",
+      "startTime": 806.83,
+      "endTime": 825.15
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "survives this brutal selection process. To truly grasp Heckman's framework, we have to isolate the variables. We need a controlled environment. Let's build one right now. Okay. I am going to set up an imagined scene. Okay. Let's visualize this.",
+      "startTime": 825.15,
+      "endTime": 838.35
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "And I want to be incredibly explicit with you, the listener, right up front. The numbers we are about to use are a fictional mathematical illustration. Completely made up for the sake of the example. Right. We are building a mental sandbox just to see how the gears of Heckman's model actually turn. These numbers are completely distinct from the published historical numbers",
+      "startTime": 839.23,
+      "endTime": 858.83
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "from the 1970s that we will look at later. Totally separate. Please keep this fictional illustration in its own little mental box.",
+      "startTime": 858.83,
+      "endTime": 865.55
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "Let's lay out the parameters of our sandbox then. Okay. Picture our massive auditorium. Inside this room, there is a fictional group of people who are essentially clones on paper. Clones. Okay. They have the exact same measured experience and the exact same education. To a census taker looking at their basic stats, they are indistinguishable.",
+      "startTime": 866.46,
+      "endTime": 885.26
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "So we are holding all the obvious observable variables perfectly constant. Exactly. Now let's lay out the base inputs.",
+      "startTime": 885.26,
+      "endTime": 892.46
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "Our model dictates that the true underlying mean potential wage for this entire room is exactly $20 an hour. Okay. $20.",
+      "startTime": 893.41,
+      "endTime": 902.05
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "If we possessed a magic wand and could force every single person in this auditorium to work a job, the average of all their wages would hit exactly $20. But our magic wand doesn't exist. Not everyone is going to work. Right. Because every single person sitting in that auditorium has a hidden trait.",
+      "startTime": 903.01,
+      "endTime": 922.37
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "A secret variable. We will call it their unobserved score. Okay. You can imagine this score as an invisible number hovering over their head that dictates their sheer willingness to accept a shift. Like an enthusiasm meter. Exactly. It could be a combination of things the survey just can't see.",
+      "startTime": 922.37,
+      "endTime": 939.81
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "Like their personal energy levels, their commute tolerance, how much they value their free time, or even the cost of replacing their labor at home. Right. It is the dark matter of the labor decision. The dark matter. Yeah. It exerts this massive gravitational pull, but the survey instrument is completely blind to it.",
+      "startTime": 939.89,
+      "endTime": 959.25
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "So in our mathematical illustration, this unobserved score follows a standard normal curve. Okay. For anyone trying to visualize this, picture the classic symmetrical bell curve. Right. The big hill in the middle. Exactly. The vast majority of the people in the auditorium are clustered right in the fat middle of a bell. They're just kind of average in their motivation.",
+      "startTime": 959.25,
+      "endTime": 978.93
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "Right. The curve tails off equally on both the high and low ends. And because it is a standard normal curve, the mean, the dead center of the bell is exactly zero. Okay. Minum zero. And the standard deviation, which measures how wide or squished the bell is exactly one.",
+      "startTime": 978.93,
+      "endTime": 996.21
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "So most people have a score hovering right around zero. A few are highly motivated with positive scores, and a few are highly reluctant with negative scores. Exactly. Here's the absolute rule for our fictional auditorium. Okay. A person only decides to enter the workforce if their unobserved score is above zero.",
+      "startTime": 996.85,
+      "endTime": 1016.29
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "Let's look at the geometry of that rule. Yeah. If the mean of a symmetrical bell curve is zero, and you draw a hard line right at zero, you are perfectly slicing the bell curve in half. Right. Down the middle. Yep. Anyone on the positive side of zero works. Anyone on the negative side of zero stays home.",
+      "startTime": 1016.29,
+      "endTime": 1033.41
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "So this means exactly 50% of the auditorium enters the workforce. Yes. And the other 50% become the empty boxes on our survey. Okay. Now we have to link that hidden willingness to their actual money. The wage deviation. Right.",
+      "startTime": 1033.41,
+      "endTime": 1046.85
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "Our model assigns an average wage deviation of two dollars an hour for each additional point of that unobserved score. So if an individual's hidden willingness to work score goes up by one standard deviation, a full point on the curve, their potential hourly wage simultaneously goes up by two dollars. Okay. We have all our inputs on the table.",
+      "startTime": 1047.65,
+      "endTime": 1067.41
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "Let's recap them. Good idea. The true mean wage of everyone is $20. Exactly half the group works. And a one point increase in the hidden score bumps the wage by two dollars. Okay. Got it. Now we arrive at the calculation prompt. We need to figure out what the survey actually sees.",
+      "startTime": 1067.41,
+      "endTime": 1086.37
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "We know the unobserved score for the entire room averages out to zero. Right. But how high does that score average among the 50% who actually decided to work? We need to find the center of gravity for just the upper half of a severed bell curve. This is where Heckman's mechanics really come into play. How does the math work?",
+      "startTime": 1086.37,
+      "endTime": 1103.09
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "The math required to find the average of a truncated standard normal curve is surprisingly elegant. Elegant math. I love it. To find the new average score for that upper half, you divide the density of the curve at your cutoff point by the probability of being above that cutoff point. Okay. Let me translate those terms into numbers for you to work with.",
+      "startTime": 1103.09,
+      "endTime": 1122.53
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "The density is just a fancy term for the physical height of the bell curve at the exact spot we drew our line. Right. Our cutoff is zero. The mathematical height of a standard normal curve at zero is approximately .399. Okay. And the probability is the total area of the curve above our line.",
+      "startTime": 1123.33,
+      "endTime": 1140.77
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "Since exactly half the people are above zero, the area is .50. We simply need to divide the height of the cut by the area of the remaining tail. I want to give you the listener the exact intermediate steps to reproduce this main calculation. Go ready to do some math. Here are your instructions.",
+      "startTime": 1141.41,
+      "endTime": 1158.85
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "Take the height, which is .399, and divide it by the area, which is .50. Okay. Take that result, multiply it by our $2 wage deviation. Right. And finally, add that number to our $20 starting base wage.",
+      "startTime": 1158.85,
+      "endTime": 1175.65
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "I am going to give you a moment of quiet right now to work this out in your head. .399 divided by .50, multiply that by $2, add $20.",
+      "startTime": 1176.29,
+      "endTime": 1187.25
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "Okay. Let me run that in my head to see if we land in the exact same place. Let's see what you get.",
+      "startTime": 1188.3,
+      "endTime": 1192.62
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "If I take .399 and divide it by .50, well, dividing by half is just doubling it, right? Yep. So, .399 is roughly .798.",
+      "startTime": 1193.63,
+      "endTime": 1204.67
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "That means the average hidden score for the workers isn't zero anymore. It has shifted all the way up to .798. Exactly. Then I multiply that score by the $2 wage deviation, which gives me 1.596, or let's just call it a Buck 60. A Buck 60.",
+      "startTime": 1205.47,
+      "endTime": 1222.83
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "I add that $1.60 to the $20 base wage, and I get $2.160. That is the exact mathematical reveal. The workers in our fictional survey will report an average wage of $21.60 an hour, even though the true underlying potential mean wage of the entire auditorium is only $20.",
+      "startTime": 1222.83,
+      "endTime": 1241.94
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "Wow. Wow. The survey data set is literally lying to us by $1.60 an hour, purely because of the invisible characteristics of the people who bother to show up. It is a critical insight, and it is important to add a slight caveat here. Okay, what's that?",
+      "startTime": 1243.14,
+      "endTime": 1259.12
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "If a higher unobserved score was somehow linked to a lower potential wage. Wait, how would that happen? Well, for example, if the people most desperate for a job were actually the ones with the lowest market skills, the adjustment would simply go in the opposite direction. Oh, I see. The survey would artificially suppress the true wage, but the underlying mathematical",
+      "startTime": 1259.12,
+      "endTime": 1278.8
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "mechanism, the center of gravity shifting on the severed bell curve, remains exactly the same. Right. Right.",
+      "startTime": 1278.8,
+      "endTime": 1284.08
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "I want to explicitly point out to you that this $21.60 is the one quantitative result from this conceptual math that we are going to keep in the spoken lesson today. Yeah, because the math gets pretty intense from here. Very intense. As we get into Heckman's models, the math becomes incredibly dense,",
+      "startTime": 1284.88,
+      "endTime": 1300.88
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "but that single $1.60 discrepancy perfectly illustrates the ghost we are hunting. It really does.",
+      "startTime": 1300.88,
+      "endTime": 1307.2
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "So how did James Heckman actually apply this geometric concept to a massive messy data set from the 1970s? He built what became famously known in econometrics as Heckman's two step procedure. Two steps. Okay. It is a mathematical method for artificially recreating that missing lower half of the bell",
+      "startTime": 1308.08,
+      "endTime": 1326.72
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "curve so you can extract the true base wage. Walk me through the mechanics of the first step. In step one, Heckman takes the entire sample, both the workers and the non-workers. He runs all of them through what is called a probit model. Let's unpack the probit model because that is a heavy piece of jargon. It is.",
+      "startTime": 1326.72,
+      "endTime": 1344.56
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "It's not just a straight line predicting things, right? No, it's not linear at all. You can think of a probit model like a highly sophisticated mathematical sorting hat. Oh, I like that. You've feed it all the observable traits of a person. Their age, their education, whether they are married.",
+      "startTime": 1344.56,
+      "endTime": 1359.92
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "And the model spits out a percentage probability that this specific person will choose to work. Okay. Crucially, the probit model forces all these probabilities to map perfectly onto the shape of a normal bell curve. It forces them. Yeah, it mathematically forces the messy human data into that smooth,",
+      "startTime": 1359.92,
+      "endTime": 1377.04
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "standard normal distribution we just played with in our fictional auditorium. So step one uses this probit sorting hat to figure out where everyone theoretically sits on the bell curve, which allows you to calculate the exact cutoff point for any given group. Exactly. And once you have that cutoff point from the probit model, you perform the exact same division we just did in our heads.",
+      "startTime": 1377.04,
+      "endTime": 1395.76
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "The height divided by the area. Yes. You calculate the ratio of the curve's height at the cutoff to the total area of the tail above it.",
+      "startTime": 1396.56,
+      "endTime": 1404.56
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "In econometrics, this specific mathematical fraction, density over probability, is named the inverse Mills ratio. The inverse Mills ratio. So when an economist says inverse Mills ratio, they are just referring to a calculated number that",
+      "startTime": 1405.33,
+      "endTime": 1421.17
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "represents the sheer magnitude of the unseen selection bias for that specific group of people. That's precisely what it is.",
+      "startTime": 1421.17,
+      "endTime": 1427.89
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "It isolates the unobserved propensity to work. Okay. So that's step one. Right. Once Heckman has that ratio, he moves to step two. He runs a standard regression to predict the wages, looking only at the workers. Because they're the only ones with actual wages recorded. Exactly.",
+      "startTime": 1428.69,
+      "endTime": 1444.85
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "But, and this is the genius part, he adds the inverse Mills ratio into the equation as a brand new extra predictive variable. Let me stop and make sure I understand the physics of what you just described. Sure. By adding this inverse Mills term into the regression, he is essentially creating a mathematical counterweight. Yes.",
+      "startTime": 1444.85,
+      "endTime": 1463.57
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "A counterweight. He's using the ratio to mathematically subtract the enthusiasm of the eager workers, subtracting that $1.60 bias so that the equation reveals what the baseline $20 wage actually is.",
+      "startTime": 1464.54,
+      "endTime": 1477.34
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "You've got it perfectly. The estimated coefficient of that new term reveals exactly how much the unobserved participation factors are artificially inflating or deflating the wage.",
+      "startTime": 1478.22,
+      "endTime": 1489.18
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "It strips away the bias entirely. That is mathematically elegant. It's brilliant. But what happens if the rules of the game change? What if our fictional group gets significantly pickier? Pickier, how?",
+      "startTime": 1489.98,
+      "endTime": 1501.98
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "Well, suppose a person doesn't just work when their score clears zero. What if they require an unobserved score greater than one to get off the couch? Oh, that's a big shift. Changing that threshold dramatically alters the geometry of the curve we are looking at. Right. If the cutoff shifts all the way up to one, we are moving far to the right on the bell curve.",
+      "startTime": 1502.74,
+      "endTime": 1522.18
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "We aren't slicing it in half anymore. No, not at all. At a score of one, only about 15.9% of the auditorium is going to choose to work. Wow. So the remaining 84% become empty boxes.",
+      "startTime": 1522.18,
+      "endTime": 1535.22
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "Yes. And the physical height of the normal curve at a score of one is much lower down the slope. The density is only about 0.242. Now, I am going to explicitly tell you the listener that we are leaving the exact numbers and calculations for this second pickier scenario in the deep dives notes. Yeah, we don't need to do that math right now.",
+      "startTime": 1536.02,
+      "endTime": 1555.7
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "Right. If you want to grab a pencil and run the math on a cutoff of 1.5 later, check the notes. I will tell you that the result yields a mean hidden score of about 1.52, pushing the worker average wage up to $23.05. A huge jump.",
+      "startTime": 1555.7,
+      "endTime": 1571.46
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "But I want to focus our conversation strictly on the concept of what just happened. The conceptual shift is the entire point because the participation cutoff changed, because the group demanded a much higher invisible threshold before agreeing to work. The wages we actually observe in the data set are now being drawn from a totally different,",
+      "startTime": 1571.46,
+      "endTime": 1590.5
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "much higher extreme of the exact same underlying wage offer distribution. The true potential average of the whole room is still exactly $20. Nothing about their fundamental skills changed. But because they got pickier, the survey now thinks the average is over $23.",
+      "startTime": 1590.5,
+      "endTime": 1606.5
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "The more exclusive the sample, the more extreme the selection bias. And identifying what makes a sample exclusive brings us to a massive real world challenge. Which is. We need to find something that physically moves participation. Because right now, Heckman's two step procedure is just a beautiful math equation floating in avoid.",
+      "startTime": 1607.06,
+      "endTime": 1626.98
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "It's just theory. To make it actually work on historical data and produce a conclusion we can trust, you have to anchor it to reality. You have to satisfy a fundamental core assumption. What assumption? To mathematically disentangle the decision to work from the wage you are offered,",
+      "startTime": 1626.98,
+      "endTime": 1642.82
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "you need a variable, a piece of data that gives the participation equation variation that is completely separate from the wage equation. Completely separate. Economists have a very specific name for this requirement. They do. It is called an exclusion restriction. It is the linchpin of the entire model.",
+      "startTime": 1642.82,
+      "endTime": 1660.18
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "An exclusion restriction is a factor that strongly, undeniably influences whether someone decides to enter the workforce, but has absolutely zero direct effect on the hourly wage an employer eventually offers them. Let's pull this out of the abstract and paint a picture to illustrate what a perfect exclusion restriction would actually look like.",
+      "startTime": 1660.18,
+      "endTime": 1679.78
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "Good idea. Imagine a city decides to run a lottery. The prize is a fully funded, guaranteed spot in a high quality child care center. That's a great prize. Right.",
+      "startTime": 1679.78,
+      "endTime": 1689.46
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "Crucially, imagine this lottery happens after parents have already received their fixed wage offers from local employers. In the realm of econometrics, this scenario is the holy grail. It's perfect. It is the perfect instrument. Winning that child care lottery massively changes the physical ability of a parent",
+      "startTime": 1690.34,
+      "endTime": 1709.38
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "to accept a job. It violently moves the participation dial. Right. But theoretically, winning a spot in daycare doesn't change the potential hourly wage the employer is offering. The employer doesn't suddenly increase your hourly rate. It's because your kid is taken care of.",
+      "startTime": 1709.38,
+      "endTime": 1724.9
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "Wait, I have to push back on this because human reality is so much messier than a clean theoretical model. Oh, absolutely. If a parent suddenly gets guaranteed free child care, doesn't that open up their ability to take a night shift instead of a day shift? Be good. Doesn't it allow them to commute to a totally different higher paying employer",
+      "startTime": 1724.9,
+      "endTime": 1743.62
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "across town that they physically couldn't reach before? That's also true. Wouldn't changing your shift or changing your employer inevitably change your wage too? And that very logical skepticism highlights exactly why this is such a nightmare in practice. Yeah, it seems impossible.",
+      "startTime": 1743.62,
+      "endTime": 1758.9
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "You have just identified why true exclusion restrictions are incredibly rare, if not entirely impossible, to prove definitively in the real world. Right. You're absolutely right. The child care offer could easily affect which specific employers or she has someone can consider, which instantly breaks the core assumption that it has zero effect on the wage.",
+      "startTime": 1759.62,
+      "endTime": 1778.66
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "Because if the variable affects the wage even slightly, it is no longer an exclusion restriction. Nope. It is just another normal wage predictor. And the math just kind of falls apart. Which leads us directly into the major danger that our source materials highlight. The danger of uncertainty. Exactly.",
+      "startTime": 1778.66,
+      "endTime": 1794.02
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "If you fail to find a perfect exclusion restriction, meaning if the equation predicting whether someone works and the equation predicting what they earn, are forced to use the exact same set of variables like age and education, then the mathematical identification of the bias leans entirely on the assumed shape of the curve.",
+      "startTime": 1794.02,
+      "endTime": 1812.18
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "It leans heavily and dangerously on the fact that the probate model mathematically forced everyone into a standard normal bell curve. It forces the assumption that the unexplained messy part of wages and the unexplained messy part of human decision making regarding participation perfectly align in what is called a joint normal distribution.",
+      "startTime": 1812.18,
+      "endTime": 1832.1
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "It basically assumes that the ghosts hiding in our spreadsheet are shaped exactly like a flawless symmetrical bell curve. And human behavior is rarely perfectly symmetrical. Very rarely.",
+      "startTime": 1832.1,
+      "endTime": 1841.94
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "The source is stressed that relying on this joint normal distribution is incredibly fragile. Especially in data sets where very few people's wages are actually observed. Yeah, that makes sense. If you have a demographic group of 100 people and only five of them are actually employed.",
+      "startTime": 1842.99,
+      "endTime": 1858.75
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "Trying to mathematically infer the wages of the other 95 people based purely on the assumed slope of a bell curve without a rock solid exclusion restriction, it's a terrifying proposition. Because you're basically guessing. Your final conclusions might be entirely a hallucination produced by your own mathematical",
+      "startTime": 1859.31,
+      "endTime": 1878.38
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "assumptions, not a reflection of reality. And that is a deeply unsettling thought for anybody who relies on this economic policy",
+      "startTime": 1878.38,
+      "endTime": 1887.1
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "or economic data to go to the next step, which is drafting policy. I mean, we're building laws on top of shapes, really. We really are. In fact, I think this is the perfect moment to move on from this kind of fictional sandbox that we've been working with with our lotteries and our perfect clones and actually start digging into",
+      "startTime": 1887.9,
+      "endTime": 1904.78
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "the historical household records, see how this stuff plays out with actual humans. Let's do it. Let's look at Thomas Maraz's landmark 1987 study. Maraz really wanted to kind of pressure test this exact fragility that we've been talking about.",
+      "startTime": 1905.74,
+      "endTime": 1920.3
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "He wanted to see how relying on different assumptions about selection bias actually altered the final estimates of how much people worked. And what data did he use?",
+      "startTime": 1921.42,
+      "endTime": 1930.62
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "To do this, he did he, you'd like something called the 1976 panel study of income dynamics or the PSID. The PSID is amazing. Oh, so you're familiar with it. It is actually an amazing resource. Yeah, it's incredible. It is a classic example of the kind of longitudinal household micro data you would find",
+      "startTime": 1931.42,
+      "endTime": 1948.46
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "contextualized within the Ipums repository. We talked about it at the top of the deep dive. Longitudinal meaning researchers are following the exact same families year after year building a deep historical narrative of their economic lives. Yes.",
+      "startTime": 1948.46,
+      "endTime": 1962.94
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "And Maraz focused specifically on the interviews conducted in 1976, which asked detailed questions covering the respondents' entire work history for the previous calendar year, 1975. Okay. I want to explicitly name the specific human preparation used in Maraz's study. It's important to specify.",
+      "startTime": 1962.94,
+      "endTime": 1980.38
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "Because when you are dealing with selection bias, the specific group you choose to look at dictates everything about the results. Maraz's sample consisted of exactly 753 white married women between the ages of 30 and 60. The choice of that specific demographic in 1975 was highly intentional. Why them specifically?",
+      "startTime": 1980.38,
+      "endTime": 1999.5
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "Historically, married women in that specific era exhibited vastly more variation in labor force participation than married men. Right. Men of that age in 1975 were almost universally employed in the formal labor market. Married women were transitioning, making complex household decisions about entering or",
+      "startTime": 1999.5,
+      "endTime": 2018.96
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "exiting the workforce. So they were moving in and out of those empty boxes a lot. Exactly. That high variance makes them the absolute ideal group for studying the mechanics of selection bias. Let's break down the raw numbers of what Maraz actually saw in that 1976 data set.",
+      "startTime": 2018.96,
+      "endTime": 2035.04
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "Out of those 753 women, exactly 428 reported working for pay during the previous year. Which leaves a substantial portion of the sample over 300 women as non-workers. 300 women. Over 300 empty wage boxes to deal with. Right.",
+      "startTime": 2035.04,
+      "endTime": 2050.24
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "And I need to reiterate the distinction we established earlier between what is physically measured and what is mathematically inferred.",
+      "startTime": 2051.04,
+      "endTime": 2058.24
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "Okay. The survey instrument in the PSID measured the labor earnings and the annual work hours. Maraz then inferred the average hourly earnings for the 428 workers. Yep. In his study, that inferred average came out to $4.18 per hour.",
+      "startTime": 2059.2,
+      "endTime": 2074.24
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "I want to ask you the listener to keep this inferred $4.18 hourly wage conceptually distinct from the annual hours estimates we are about to discuss.",
+      "startTime": 2075.22,
+      "endTime": 2084.1
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "So we have our baseline inferred wage for the workers. Maraz then took Heckman's framework, the conditional mean idea using the inverse Mills ratio and applied it to an hours equation. Okay. What does that mean? You wanted to see how the number of hours a woman chose to work varied depending on the hourly wage she could earn. How exactly did he set that up?",
+      "startTime": 2084.98,
+      "endTime": 2104.82
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "Because we just established you needed an exclusion restriction to make it work. He used instrumental variables. Instrumental variables. Yeah. An instrumental variable is basically a researcher's best attempt at creating an exclusion restriction in messy real world data. A best guess at one. Right.",
+      "startTime": 2104.82,
+      "endTime": 2121.46
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "It is a variable that is highly correlated with the wage but supposedly doesn't directly affect the preference for how many hours to work. Okay.",
+      "startTime": 2121.46,
+      "endTime": 2128.9
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "Maraz allowed the initial decision of whether to participate in the workforce at all to have its own set of predictors completely separate from the equation predicting the total hours worked. So he builds this complex mechanism. What were the actual results when he ran the data through it? Well, he ran the numbers two ways to compare them. First, he ran the regression without any selection adjustment.",
+      "startTime": 2129.73,
+      "endTime": 2149.33
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "Just the raw numbers. He just took the data of the 428 workers at pure face value. The estimated slope he found was 46 annual hours per log unit of wage. Let's translate log unit of wage into plain English because that is a thick econometric jargon. Very thick.",
+      "startTime": 2149.33,
+      "endTime": 2166.13
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "Saying 46 hours per log unit basically means that if a wage increased by roughly 10%,",
+      "startTime": 2166.13,
+      "endTime": 2171.01
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "it resulted in about 4.4 extra annual hours worked. That is the unadjusted reality. Correct. Now, Maraz flipped the switch. He added the ghosts. He applied the normal model adjustment. Heckman's full correction incorporating the inverse mill's ratio to account for the 300 missing women. And what happened?",
+      "startTime": 2171.81,
+      "endTime": 2191.65
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "When he did that, the slope jumped. It increased from 46 to 64 annual hours per log unit. Translating that again. With the adjustment applied, a 10% higher wage now correlated to 6.1 extra annual hours worked. Right.",
+      "startTime": 2191.65,
+      "endTime": 2206.53
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "So flipping the statistical switch moved the needle from finding 4.4 extra hours to finding 6.1 extra hours. On the surface, if you just look at those two numbers, it looks like a meaningful discovery. It suggests that the invisible selection bias was actively hiding a stronger relationship",
+      "startTime": 2207.09,
+      "endTime": 2224.21
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "between the wages offered and the hours worked. But the source material throws a massive bucket of cold water on that conclusion, doesn't it? It does. And we really have to evaluate the evidence critically here. Yeah. The vital takeaway here isn't the difference in hours. It's the uncertainty surrounding that difference. What do you mean?",
+      "startTime": 2224.21,
+      "endTime": 2243.65
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "The mathematical difference between 46 hours and 64 hours is 18 or roughly 19 hours, depending on rounding. Right. But Raw's rigorously reported the standard error for that difference. The standard error was 8.4. A standard error of 8.4.",
+      "startTime": 2243.65,
+      "endTime": 2259.97
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "Let's pause on that because that completely recontextualizes the finding. Completely. A standard error is essentially a measure of blurriness. It tells you how confident the math is and the number it just spit out. Think of it like looking through a telescope. The mathematical difference of 19 hours is the blurry object you think you see. Okay.",
+      "startTime": 2260.61,
+      "endTime": 2280.13
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "The standard error of 84 means the lens is so out of focus that the object could actually be 100 miles to the left or 100 miles to the right. The margin of error is absolutely massive compared to the finding itself. Exactly.",
+      "startTime": 2280.13,
+      "endTime": 2292.45
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "So a difference of 19 hours is incredibly small relative to its own uncertainty. It is statistically noisy. It's not a clear signal. It's just static. Precisely. With the specific instrumental variables and assumptions Raw's initially chose, the Hecman adjustment did not definitively prove a massive,",
+      "startTime": 2293.33,
+      "endTime": 2311.41
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "statistically significant selection effect. Wow. The noise completely drowned out the signal. If you stopped reading the paper there, you might conclude that selection bias isn't actually a big deal in the real world. But Mros didn't stop there, did he? No he didn't. He wanted to see what happened if he changed the lens on the telescope.",
+      "startTime": 2311.41,
+      "endTime": 2330.06
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "He ran a completely different specification. He changed his core assumptions. How so? In his next model, he decided to treat a woman's earlier work experience as an additional instrumental variable for wages. Which is a bold assumption to make, assuming that how much you worked 10 years ago affects",
+      "startTime": 2330.54,
+      "endTime": 2347.1
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "your current wage but has no direct effect on your current desire to work hours today. It is highly debatable. But when he injected that new assumption into the math, the results radically changed. What did it show? The evidence for severe selection effects suddenly became significantly stronger and far more statistically robust.",
+      "startTime": 2347.1,
+      "endTime": 2366.88
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "Interesting. The noise cleared up and a massive ghost appeared in the data. In this totally validates the nightmare we discussed back when we were talking about exclusion restrictions. Exactly. The historical reality you uncover, whether you see a ghost or not. Whether the selection bias is negligible or economy-altering,",
+      "startTime": 2367.52,
+      "endTime": 2385.52
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "totally depends on the assumptions you, the human researcher, make. If you assume past experiences of valid instrument, you mathematically generate one reality. If you assume it isn't, you generate a completely different reality from the exact same dataset. It perfectly illustrates how fragile economic modeling truly is.",
+      "startTime": 2385.52,
+      "endTime": 2404.96
+    },
+    {
+      "id": "turn-147",
+      "speaker": "Host 1",
+      "text": "The math underlying Hechman's two-step procedure is rigorous, it is brilliant, and it won a Nobel Prize.",
+      "startTime": 2405.78,
+      "endTime": 2410.82
+    },
+    {
+      "id": "turn-148",
+      "speaker": "Host 2",
+      "text": "But it ultimately rests on a precarious foundation of unprovable human assumptions about human behavior. Which brings us to our synthesis as we wrap up this journey. It's been right. We started today looking at a single empty box on a physical survey, the missing wage of someone who didn't work.",
+      "startTime": 2411.7,
+      "endTime": 2430.34
+    },
+    {
+      "id": "turn-149",
+      "speaker": "Host 1",
+      "text": "We explored how Ruben Grunau realized that empty box wasn't just a random missing variable, but a deliberate human choice driven by the wage offer itself. And we traced how James Hechman revolutionized the field by finding a way to mathematically model the invisible shape of that choice. Yeah.",
+      "startTime": 2430.34,
+      "endTime": 2447.86
+    },
+    {
+      "id": "turn-150",
+      "speaker": "Host 2",
+      "text": "He used the geometric properties of a severed normal distribution to calculate the inverse mill's ratio, creating a mathematical counterweight to correct the regression. But we also saw through the meticulous work of Thomas Moroz that this mathematical revolution isn't a magic wand that automatically fixes everything. Definitely not.",
+      "startTime": 2447.86,
+      "endTime": 2467.3
+    },
+    {
+      "id": "turn-151",
+      "speaker": "Host 1",
+      "text": "It requires incredibly strong, often impossible assumptions like the elusive perfect exclusion restriction. And depending on how you build your model, it can produce results that are entirely swamped by statistical uncertainty. It really highlights how the data we don't see, heavily, heavily biases the data we do see,",
+      "startTime": 2467.3,
+      "endTime": 2486.26
+    },
+    {
+      "id": "turn-152",
+      "speaker": "Host 2",
+      "text": "and how hard it is to actually correct for that blindness.",
+      "startTime": 2486.26,
+      "endTime": 2488.98
+    },
+    {
+      "id": "turn-153",
+      "speaker": "Host 1",
+      "text": "It is a profoundly humbling reminder of the limits of scientific observation. It is. And it underscores the immense irreplaceable value of repositories like items.",
+      "startTime": 2489.78,
+      "endTime": 2499.7
+    },
+    {
+      "id": "turn-154",
+      "speaker": "Host 2",
+      "text": "By meticulously preserving and standardizing this household micro data over decades, they provide the raw historical material that allows researchers to continually test, challenge, and refine these fragile assumptions. Right. Without that historical data preserved, we wouldn't even be able to see the ghosts,",
+      "startTime": 2500.5,
+      "endTime": 2518.9
+    },
+    {
+      "id": "turn-155",
+      "speaker": "Host 1",
+      "text": "let alone try to measure their impact on the economy. It is a constant ongoing process of discovery demanding that we constantly question the numbers on the spreadsheet. Always question the numbers. So look again at the empty box on that survey. Which observation changed the explanation for you?",
+      "startTime": 2518.9,
+      "endTime": 2535.86
+    },
+    {
+      "id": "turn-156",
+      "speaker": "Host 2",
+      "text": "And what information about wage offers could you realistically collect even from the people who turned those jobs down?",
+      "startTime": 2535.86,
+      "endTime": 2541.62
+    },
+    {
+      "id": "turn-157",
+      "speaker": "Host 1",
+      "text": "Thank you for navigating the unseen data with us. Keep questioning the numbers, and we will catch you on the next deep dive.",
+      "startTime": 2542.45,
+      "endTime": 2549.09
+    }
+  ]
+}

@@ -1,0 +1,1178 @@
+{
+  "episodeId": "1xz1epedNdOxrj4jqBhH3GJgaO9PGIHUO",
+  "driveId": "1xz1epedNdOxrj4jqBhH3GJgaO9PGIHUO",
+  "title": "The Phenytoin That Was Free — Merritt & Putnam Hydantoin Screen, State-Dependent NaV Inactivation, Michaelis–Menten Capacity-Limited CYP2C9 Clearance (PDB 1R9O), ICU Hypoalbuminemia Winter–Tozer Limits & Direct Ultrafiltration LC–MS/MS",
+  "duration": 2956.18,
+  "teenKit": {
+    "tldr": "In 15 seconds: Ninety percent of phenytoin rides bound to blood albumin, while only the 10% 'free' unbound fraction enters the brain. In sick ICU patients with low albumin and saturable CYP2C9 clearance (PDB 1R9O), a 'normal' total level can hide severe phenytoin toxicity.",
+    "whyItMatters": "Treating the total blood number instead of the unbound concentration in hypoalbuminemic or renal-failure patients can cause clinicians to give *more* phenytoin to a patient who is already toxic.",
+    "keyTakeaways": [
+      "Phenytoin stabilizes inactivated voltage-gated sodium channels and follows non-linear Michaelis–Menten pharmacokinetics because hepatic CYP2C9 (PDB 1R9O) saturates right inside the therapeutic range.",
+      "Because phenytoin is ~90% albumin-bound, low serum albumin or uremic displacers double the pharmacologically active unbound fraction while total serum concentration looks deceptively normal.",
+      "The Winter–Tozer equation estimates corrected phenytoin, but in multi-organ ICU illness direct ultrafiltration + LC–MS/MS free phenytoin measurement (therapeutic 1–2 mcg/mL) is the gold standard."
+    ],
+    "vocab": [
+      {
+        "term": "Michaelis–Menten Kinetics",
+        "meaning": "Capacity-limited metabolism where small dose increases above enzyme saturation cause disproportionately huge jumps in drug levels."
+      },
+      {
+        "term": "Unbound (Free) Fraction",
+        "meaning": "The percentage of drug not attached to plasma proteins like albumin—the only fraction free to cross into brain tissue or liver enzymes."
+      },
+      {
+        "term": "Ultrafiltration LC–MS/MS",
+        "meaning": "Spinning plasma through a molecular-weight membrane at 37 °C to physically separate protein-free drug before mass spectrometry."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "An ICU patient with serum albumin of 1.8 g/dL has a total phenytoin level of 14 mcg/mL (reference 10–20) alongside nystagmus and ataxia. What is happening?",
+        "options": [
+          "The phenytoin dose is too low",
+          "Low albumin has elevated the unbound active phenytoin concentration into the toxic range (>2 mcg/mL) despite a 'normal' total number",
+          "CYP2C9 has stopped binding oxygen",
+          "Phenytoin has turned into levetiracetam"
+        ],
+        "correctIndex": 1,
+        "explanation": "With fewer albumin binding sites, a total level of 14 mcg/mL corresponds to roughly double the normal free concentration, explaining clinical neurotoxicity."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "Imagine standing over a patient, right? You're at the bedside and the guy can barely sit up. Oh, it's one of the most terrifying situations in medicine. It really is. You're trying to perform, you know, just a basic neurological exam. But his eyes are darting involuntarily all across the room. Then a sagueness. Right.",
+      "startTime": 0.0,
+      "endTime": 18.8
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "And his speech is so slurred, you can barely make out a single word he's saying, his whole body just seems to be shutting down from what looks, sounds, and acts exactly like a massive drug overdose. But then you look at the chart. Exactly. You look at the laboratory results in your hand.",
+      "startTime": 18.8,
+      "endTime": 37.6
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "And the math of the page is basically saying he doesn't have enough of the drug in his system. So, you know, what do you do? Do you trust the math? Or do you trust your own eyes? It is the ultimate clinical nightmare. I mean, you have a direct terrifying contradiction between the biochemistry on paper",
+      "startTime": 37.6,
+      "endTime": 57.54
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "and the actual human being crashing in the bed right in front of you. And that contradiction, that exact nightmare, is the mission of today's deep dive. We are calling this exploration the phenitoid that was free. I like that title. Thanks. Very fitting. Yeah. So we've pulled together this massive stack of sources",
+      "startTime": 57.54,
+      "endTime": 76.34
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "to solve this puzzle today. We've got clinical case notes, some incredibly dense chapters from the handbook of pharmacogenomics and stratified medicine. And I love this part. Even historical pharmacology patents dating back decades. The patents are fascinating. They really show you the raw engineering of the drugs.",
+      "startTime": 76.34,
+      "endTime": 95.82
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "They really do. And the reason you, the listener, should care about this, even if you never set foot in a hospital, is that we all increasingly rely on standardized algorithms. Right? We just trust formulas to make decisions for us. Oh, completely. We just plug numbers into an app and blindly follow the output. Right.",
+      "startTime": 95.82,
+      "endTime": 115.02
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "But today, we are going to show you exactly how standard formulas can completely disintegrate in the face of human biology. And while looking at the actual individual is honestly the only true safety net we have. Because the human body doesn't read the textbook, a formula built for a stable, healthy population",
+      "startTime": 115.02,
+      "endTime": 134.18
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "will just absolutely collapse when you apply it to someone in a state of critical illness. Well said. So let's just step right into the hospital room and establish this baseline mystery. The patient we are looking at is fictional, but his measurements, his presentation, and the cascading failures of his lab work",
+      "startTime": 134.18,
+      "endTime": 151.82
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "is all built from very real everyday clinical realities. Standard ICU stuff. Exactly. So we have a 63-year-old man hospitalized with severe pneumonia. And as a complication to that severe infection, he's developed acute kidney injury or AKI. OK, so his kidneys are taking a hit. Big time.",
+      "startTime": 151.82,
+      "endTime": 170.66
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "Medically, he also has a history of focal epilepsy. To control those seizures, he takes extended release phenotone. And phenotone is a heavy hitter. It's a classic, highly potent anti-seizure medication. Managing it during a systemic illness is notoriously difficult. Well, we're about to see just how difficult. So his respiratory status is actually",
+      "startTime": 170.66,
+      "endTime": 190.3
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "recovering from the pneumonia. We are making headway there. But suddenly, his neurological exam just falls off a cliff. Just completely tanks. Tanks. I'm examining him, and I find this new direction-changing gaze-evoked nystagmus. OK, so when he tracks movement. Right. When I ask him to follow my finger,",
+      "startTime": 190.3,
+      "endTime": 209.14
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "his eyes are just violently jerking back and forth. If he looks left, if he beat to the left, if he looks right, they beat to the right. That is a textbook cerebellar sign. The system in his brain coordinating his spatial balance is completely overwhelmed. And it gets worse. He has profound dysarthria. I ask him his name, and it sounds like his mouth is full of marbles.",
+      "startTime": 209.14,
+      "endTime": 227.86
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "Plus, Trunkle attacks you. He literally cannot sit upright on the edge of the bed to talk to me. Wow. If I don't physically hold him up by the shoulders, you just falls backward. Yet, ironically, his vital signs are strangely perfect. Heart rate is 86. Blood pressure is 120 over 71.",
+      "startTime": 227.86,
+      "endTime": 246.25
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "So he's hemodinamically stable. Perfectly stable. But we rush him for a stat MRI anyway, just to ensure he hasn't thrown a clot and suffered an acute stroke. And we hook him up to a continuous EEG to make sure these physical symptoms aren't the result of active, silent seizures deep in the rain.",
+      "startTime": 246.25,
+      "endTime": 263.57
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "And I assume both of those diagnostic avenues turned up empty? Completely negative. No stroke, no active electrical seizure. His basic metabolic labs show a sodium of 139 millimoles per liter. Magnesium is 1.9 milligrams per deciliter. So his electrolytes are flawless. Flawless.",
+      "startTime": 263.57,
+      "endTime": 281.48
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "So as the clinician, I am staring at a guy who is physically radiating every single hallmark sign of phenitoid toxicity. But I need the blood concentrations to prove it before I can actually make a move. And this is where the trap is set. Because interpreting those concentrations requires a really deep understanding",
+      "startTime": 281.48,
+      "endTime": 300.92
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "of plasma protein binding. Right. So I pull up his baseline labs from six weeks prior. This is back when he was healthy and just seeing his neurologist in the outpatient clinic. OK. What were his baseline numbers? Back then, his paired predos serum results were 13.2 micrograms per milliliter for the total phenitoid.",
+      "startTime": 300.92,
+      "endTime": 318.76
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "And 1.3 micrograms per milliliter for the free phenitoid. And his albumin was robust, sitting at 4.0 grams per deciliter. See, those baseline numbers are a perfect picture of stability. The standard therapeutic target is 10 to 20 micrograms per milliliter for the total drug and 1 to 2 for the unbound or free fraction.",
+      "startTime": 318.76,
+      "endTime": 338.16
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "He was perfectly dialed in. Right. But now I look at the labs drawn just a few hours ago, right here in the ICU, just before his usual oral dose was due. His total serum result is 9.0 micrograms per milliliter. OK, so that's dropped. Yeah. And his albumin has plummeted to 2.1 grams per deciliter.",
+      "startTime": 338.16,
+      "endTime": 357.24
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "Plus his kidney indices are a disaster. His creatinine is 2.0 up from a baseline of 0.9. That's a huge jump in creatinine. Yeah. And his blood urea nitrogen, his bun, is 48. But the number that really stops me dead in my tracks is the directly measured unbound or free phenitoid.",
+      "startTime": 357.24,
+      "endTime": 376.34
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "It is 2.7 micrograms per milliliter. Oh, wow. That is severely toxic. The critical reporting threshold for that specific lab assay is usually around 2.5. So he is well beyond it. Way beyond. So if you pull up our visual guide for this deep dive explicitly",
+      "startTime": 376.34,
+      "endTime": 393.67
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "right here at the 05 minute mark, visual Q1 is a split screen. On the left side, you see these paired fictional serum results, right? The 9.0 total in the 2.7 free? Exactly. Alongside the time the blood was drawn. And on the right side, there's a clinical sketch",
+      "startTime": 393.67,
+      "endTime": 410.83
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "of that direction changing nystagmus next to the time of my physical exam. It really paints a stark picture. It does, because if a clinician only ordered the total level, they would just see that 9.0. They would think, oh, he's below the target of 10. His seizures might return. We need to give him more drug. Which would be catastrophic.",
+      "startTime": 410.83,
+      "endTime": 430.55
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "Exactly. Because the free result from that exact same vial of blood is screaming that he is overdosed. So to understand how a drug level can be simultaneously too low on paper and wildly too high in reality, we really have to look at the pharmacology of acidic drugs. Break it down for us. Well, phenotone is highly lipophilic, right?",
+      "startTime": 430.55,
+      "endTime": 450.19
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "It loves fat. So in the bloodstream, it doesn't just float around in the water freely. It binds aggressively to albumin. I always like to think of albumin as a fleet of buses circulating through the bloodstream. The phenotone molecules are the passengers. That's a great analogy. Thanks. So when the lab runs a test for a total concentration,",
+      "startTime": 450.19,
+      "endTime": 468.31
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "they are literally counting everyone. They count the passengers strapped into the bus seats, and they count the people walking freely on the sidewalk. Right. But the passengers strapped into the seats, the bound fraction of the drug, they are pharmacologically inert. Meaning they can't do anything. Exactly. They cannot cross the blood brain barrier.",
+      "startTime": 468.31,
+      "endTime": 486.47
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "They cannot exert any effect. Only the molecules walking on the sidewalk, the unbound or free fraction, can actually enter the brain tissue. And in our patient, his albumin dropped from 4.0 to 2.1 because of his critical illness. So basically, half the buses have just been driven off a cliff. Half the fleet is gone. Yeah.",
+      "startTime": 486.47,
+      "endTime": 505.3
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "Furthermore, his kidneys are failing. His BUN is 48, so his blood is just full of your e-mectoxins. And those e-mectoxins are incredibly aggressive. They compete for the exact same binding sites on the few remaining albumin molecules. So they basically board the remaining buses and physically shove the phenytoin passengers out into the street.",
+      "startTime": 505.3,
+      "endTime": 524.58
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "That's exactly what happens. So even though the total number of passengers in the city has dropped, which gives us that deceptively low total level of 9.0, the streets themselves are absolutely flooded with free active drug molecules looking for somewhere to go. They are just pouring into a central nervous system,",
+      "startTime": 524.58,
+      "endTime": 542.18
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "driving that free level all the way up to 2.7, which perfectly explains an astagmus and the ataxia. But recognizing that the drug is flooding the brain doesn't actually explain how it's causing the ataxia. Right. Like what is it physically doing up there? Exactly. To understand why a free concentration of 2.7 micrograms",
+      "startTime": 542.18,
+      "endTime": 562.14
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "per milliliter causes a grown man to lose the ability to even sit upright, we need to look at the molecule itself. We have to zoom in. And honestly, we have to go all the way back to the 1900s for this. We do. The chemistry actually begins with the high-down twin ring. OK. Let's get into the chemistry. So the IUPAC designation for phenotone",
+      "startTime": 562.14,
+      "endTime": 580.7
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "is 5.5 difenyl, amid azolidine 2.4 diod. Say that three times fast. Right. It's mouthful. It has a molar mass of 252.27 grams per mole. And if you look at its physical structure, you have this core ring.",
+      "startTime": 580.7,
+      "endTime": 597.78
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "And sitting at the C5 position are two identical phenyl substituents. And because those two bulky phenyl groups are completely identical, the parent molecule is a chiral. Correct. A chiral meaning it doesn't have a left-handed or right-handed optical orientation. It's perfectly symmetrical in that sense.",
+      "startTime": 597.78,
+      "endTime": 616.14
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "And a guy named Heinrich Biltz first reported this exact synthesis way back in 1908. What? You're telling me a molecule synthesized in a German laboratory in 1908, like before the Titanic even sank, is what we are trusting to stabilize this patient's brain today? Yes. How does an obscure chemical from the turn of the century",
+      "startTime": 616.14,
+      "endTime": 635.54
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "become a frontline urologic drug? Well, Biltz was a brilliant chemist, sure. But he wasn't a clinician. He synthesized it and basically just put it on a shelf. It wasn't until 1937 that Tracy Putnam and H. Houston merit dug it back up. What were they looking for?",
+      "startTime": 635.54,
+      "endTime": 652.24
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "Well, you have to understand the medical landscape of the 1930s. Back then, the primary treatment for severe epilepsy was phenobarbital, which is essentially just a massive systemic depressant. You weren't necessarily stopping the seizure mechanism. You were just suppressing the entire brain until the patient was practically comatose. Exactly.",
+      "startTime": 652.24,
+      "endTime": 670.52
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "It was a very blunt instrument. Putnam and merit wanted something surgically precise. They wanted to separate the anti-convulsant effect from the purely sedative effect. So how did they test that? They designed this series of animal experiments using electrically induced seizures. They would systematically shock animals",
+      "startTime": 670.52,
+      "endTime": 688.72
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "and then screen various phenol derivatives to see which ones stopped the convulsions without just putting the animal to sleep. So they were basically looking for a sniper rifle in an era of medical shotguns. That's a great way to put it. And when they finally published their landmark clinical report in 1938, the results were staggering. What did the human data look like?",
+      "startTime": 688.72,
+      "endTime": 708.24
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "They took 200 human patients with what they categorized back then as grand mal attacks. They treated 142 of those patients for two to 11 months with sodium, a diphenyl, high-dantinate. And? The data showed that 58% of their attacks were completely relieved and another 27% were greatly reduced.",
+      "startTime": 708.24,
+      "endTime": 727.28
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "That is incredible for the 1930s. I mean, we obviously have to view that 1938 paper through the lens of modern evidence-based medicine. It was an uncontrolled series, right? Right. And their diagnostic categories definitely wouldn't meet today's rigorous syndrome-specific trial standards. Sure.",
+      "startTime": 727.28,
+      "endTime": 744.76
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "But functionally, it was a massive paradigm shift. They proved you could stop a seizure without shutting down human consciousness. Absolutely. Let me try to conceptualize how it actually does that without shutting the brain down, because it kind of feels like a bouncer at a nightclub. Ooh, I like this. Go on. So if a normal orderly flow of people",
+      "startTime": 744.76,
+      "endTime": 764.12
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "walks up to the door of the club, which is basically your normal healthy brain activity, the bouncer just lets them in. He doesn't interfere. Right. Normal traffic. But the second a massive chaotic stampede tries to rush the entrance all at once, the bouncer slams the heavy door shut, and just locks it until things calm down.",
+      "startTime": 764.12,
+      "endTime": 782.64
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "The bouncer analogy works beautifully for this mechanism, because what we're talking about is state-dependent voltage-gated sodium channel block. OK, so break down the anatomy of that door for me. What are we looking at? So a voltage-gated sodium channel is this massive complex protein embedded directly into the membrane of the neuron. It consists of an alpha subunit made up",
+      "startTime": 782.64,
+      "endTime": 802.6
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "of four homologous domains. And each of those four domains has six transmembrane segments, weaving in and out of the cell wall. It sounds huge. It is. But the crucial parts are the S4 segment, which acts as the voltage sensor, and the S5 and S6 segments, which physically line the poor.",
+      "startTime": 802.6,
+      "endTime": 820.68
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "They are essentially the door frame. Got it. So normally when a neuron wants to fire and send a signal, the electrical voltage across the membrane shifts. That S4 sensor detects the depolarization. Shifts its physical position and pulls the S5, S6 door open. Exactly. And sodium rushes into the cell,",
+      "startTime": 820.68,
+      "endTime": 840.56
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "triggering the action potential. Right. And then milliseconds after it opens, it snaps shut again. A tiny molecular gate swings over the poor, putting the channel into a state of fast inactivation. So it's locked? Yes. The channel physically cannot fire again until it resets to its resting state. So where does the phenotone bouncer fit",
+      "startTime": 840.56,
+      "endTime": 859.92
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "into this millisecond to millisecond cycle? This is where quo and beans classic voltage clamp experiments come in. They did this on rat hippocampal neurons. They calculated the dissociation constant, the K-D, a phenotone. And what did they find? They found it was about seven micromolar for binding to these channels, but specifically",
+      "startTime": 859.92,
+      "endTime": 878.96
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "when the channels were in that inactivated state. Meaning the drug ignores the door when it's closed and resting, and it completely ignores the door when it's wide open. It specifically latches onto the door the moment it slams shut after a firing event. Yes. Exactly. Quo and Bean demonstrated that the binding actually takes seconds of depolarization of fully developed.",
+      "startTime": 878.96,
+      "endTime": 898.8
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "Ah, so it needs time. Right. If a neuron fires once or twice at a normal baseline rate, the channel resets so fast that the phenotone just doesn't have time to lock on. The bouncer just watches them go by. But during a seizure, when a neuron is spitting out a rapid fire train of spikes, the channel spent vastly more time hovering in that depolarized,",
+      "startTime": 898.8,
+      "endTime": 918.72
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "inactivated state. So the bouncer sees the stampede, grabs the door while it's in the closed position, and just holds it shut, delaying its recovery. Yep. The harder the neuron tries to fire, the more aggressively the drug shuts it down. That is so elegant. It really is. We even know the exact amino acids the bouncer is grabbing onto.",
+      "startTime": 918.72,
+      "endTime": 938.36
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "We really. Yeah. In a fascinating mutagenesis study using rat brain type 2A sodium channels, which by the way, correspond to human NAV 1.2 channels, researchers started swapping out specific amino acids in the inner lining of the pore. They wanted to see if they could break the drug's grip. Exactly. And where did they mutate it?",
+      "startTime": 938.36,
+      "endTime": 957.88
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "They mutated the DIVS6 segment, right? Which is domain 4 transmembrane segment 6? Precisely. They made two critical substitutions. They changed phenylalanine 1764 to alanine, and they changed tyrosine 1771 to alanine. What happened?",
+      "startTime": 957.88,
+      "endTime": 976.44
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "When they did that, the state dependent block was drastically weakened. So by swapping out just two tiny amino acids, the bouncer's hands basically slipped right off the door handle. Exactly. And while those specific coordinate distances apply to the mutated rat models, so they don't give us the exact 3D coordinates for human channels,",
+      "startTime": 976.44,
+      "endTime": 995.2
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "they functionally confirm exactly where the drug is exerting its control inside the pore. To give you the listener a concrete visual of how incredibly selective this state dependent block is, let's look at another study on rat CA1 pyramidal neurons. This is a great study. It really highlights the cell activity.",
+      "startTime": 995.2,
+      "endTime": 1013.8
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "So the investigators took a fixed 50 micromolar dose of phenotone, the exact same concentration of drug every time. Then they forcefully stepped the voltage of the neuron to negative 20 millivolts. But they started from three different baseline holding voltages. OK, what were the three baselines?",
+      "startTime": 1013.8,
+      "endTime": 1031.56
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "They started at negative 120, negative 100, and negative 80 millivolts. Now the holding voltage is critical context here. A holding voltage of negative 120 millivolts means the neuron is in a deep, highly polarized resting state. The channels are very stable. But a holding voltage of negative 80 is much closer to the threshold of firing.",
+      "startTime": 1031.56,
+      "endTime": 1051.44
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "The channels are agitated, lingering in that inactivated state we talked about. Right. So applying the exact same 50 micromolar dose of drug, when they stepped the voltage from the deep rest of negative 120, the peak electrical current was only reduced by 14.1%.",
+      "startTime": 1051.44,
+      "endTime": 1068.52
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "So the drug barely touched the healthy resting neuron. Exactly. But when they stepped it from negative 100, the current dropped by 23.8%. And when they stepped it from the highly agitated seizure-like state of negative 80 millivolts, the exact same amount of drug slashed the peak current by 38.7%. It's amazing. It's amazing.",
+      "startTime": 1068.52,
+      "endTime": 1087.76
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "The drug dynamically scales its inhibition based on the pathological state of the neuron. It's just a beautiful piece of molecular engineering. It really is. But knowing how beautifully it binds to the sodium channel in the brain doesn't actually explain why it is catastrophically backing up in our fictional patient's bloodstream today. Right. Because its free level is 2.7, it's",
+      "startTime": 1087.76,
+      "endTime": 1107.18
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "absolutely drowning those channels. Right. So to understand why it's backing up, we have to leave the brain entirely and travel down to the liver. Yes. Because phenotone is a highly lipophilic xenobiotic. Basically, the body sees it as a foreign fat-soluble substance. And the kidneys hate fat-soluble molecules.",
+      "startTime": 1107.18,
+      "endTime": 1126.96
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "They do. The kidneys cannot filter fat-soluble molecules efficiently. They just reabsorb them right back into the blood. So to clear the drug, the liver has to biochemically transform it into something water-soluble. The handbook outlines this metabolic factory in two stages. Phase one reactions basically functionalize the molecule,",
+      "startTime": 1126.96,
+      "endTime": 1146.2
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "preparing it for disposal. Right. And for phenotone, the liver utilizes aromatic four prime hydroxylation. OK. What does that actually mean? It takes one of those phenyl rings we discussed earlier and attaches a hydroxyl group to it, transforming the parent drug into a major metabolite called PHPPH.",
+      "startTime": 1146.2,
+      "endTime": 1162.84
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "Which stands for 5-4 hydroxophenyl-5 phenyl hydantone. Exactly. And based on human microcymal data, this specific transformation relies heavily on the cytochrome P450 system. Specifically, the CYP2C9 enzyme handles roughly 90%",
+      "startTime": 1162.84,
+      "endTime": 1180.64
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "of the intrinsic clearance, while CYP2C19 ships in for about 10%. And there's this brilliant little quirk of organic chemistry here. Remember how we said the parent molecule was a chiral because those two phenyl rings were completely identical? Right. Perfectly symmetrical. Well, the moment the liver hydroxylates, just one of those rings,",
+      "startTime": 1180.64,
+      "endTime": 1200.52
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "they are no longer identical. The molecule suddenly gains chirality. Oh, yes. The recombinant CYP2C9 enzyme actually preferentially spits out the S-hydroxylated enantiomer. It's so cool. And once phase one creates that hydroxyl handle, the phase two enzymes take over.",
+      "startTime": 1200.52,
+      "endTime": 1218.48
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "Specifically, UGT1A1, UGT1A9, and UGT2B15. They catalyze O-glucuronidation. Which means what? They basically attach this massive bulky, highly polar sugar molecule to the handle, making it incredibly water soluble and ready to be dumped into the urine.",
+      "startTime": 1218.48,
+      "endTime": 1237.32
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "But the entire assembly line is bottlenecked at that very first step, right? The CYP2C9 enzyme. That is the ultimate bottleneck. So if you refer to our show notes right at the 26.00 minute mark, you'll see visual Q2. It is a stunning 2.0 angst from X-ray crystallography structure from the protein databank.",
+      "startTime": 1237.32,
+      "endTime": 1257.31
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "It is labeled PDB1R9O. Now, we need to be incredibly careful here to separate the pharmacogenomic concepts. Clinicians and researchers often blur the lines between the physical enzyme, laboratory experiments, the patient's genetic code, and the actual clinical reality. It gets confusing fast. It does.",
+      "startTime": 1257.31,
+      "endTime": 1277.03
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "So we are going to separate this into four distinct pillars. Perfect. Pillar 1, the coordinate contact. Pillar 1 requires looking at that 1R9O structure. You must realize that you are looking at the crystallized human CYP2C9 catalytic domain.",
+      "startTime": 1277.03,
+      "endTime": 1294.87
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "But it is bound to a drug called flurbyprophen, not phenotoyne. May wife flurbyprophen. If we care about phenotoyne, why are we looking at an enzyme holding a totally different drug? Because capturing a high resolution X-ray structure of an enzyme actively holding its substrate is incredibly difficult.",
+      "startTime": 1294.87,
+      "endTime": 1312.99
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "Flurbyprophen crystallized very cleanly and gave us the precise atomic geography of the CYP2C9 active site. So it gave us the map. Exactly. From that map, we see the exact distances. The modeled carboxylic contact between Arginine 108's, nitrogen epsilon, and flubroprophins oxygen 1,",
+      "startTime": 1312.99,
+      "endTime": 1331.83
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "is exactly 2.69 angstroms. 2.69 angstroms is an unfathomably small distance. I mean, we are talking about fractions of an nanometer. At that proximity, the atoms are practically locked together in a physical embrace. They really are.",
+      "startTime": 1331.83,
+      "endTime": 1349.31
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "And the proximity from phenylalanine 114's carbon epsilon 1 to that exact same oxygen 1 is 3.81 angstroms. And the heme group? The heme group, the iron containing core that actually performs the oxidation, is positioned right there, orienting the entire molecular complex.",
+      "startTime": 1349.31,
+      "endTime": 1367.07
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "OK, so Pillar 1 gives us the physical atomic map of the enzyme's pocket. What is Pillar 2? Pillar 2 is the functional mutation. A researcher named Mosher and his colleagues took that 1R 9O physical map and used it to build a computer docking model for phenitoid. OK. So they digitally swapped the drugs?",
+      "startTime": 1367.07,
+      "endTime": 1386.83
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "Right. Once they mapped where phenitoid should theoretically sit, they went into the actual lab and actively mutated the human enzyme to see how changing the physical shape of the pocket altered the clearance of the drug. I imagine if you change the amino acids in a pocket that is measured in angstroms, you run the risk of completely breaking the machine.",
+      "startTime": 1386.83,
+      "endTime": 1405.93
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "You do. But the results were highly specific. When they mutated phenylalanine 100 to leucine and phenylalanine 114 to tryptophan, creating the F100L and F114W mutants, it actually increased the catalytic efficiency of phenitoid four to fivefold. We made it faster.",
+      "startTime": 1405.93,
+      "endTime": 1425.33
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "The drug processed much faster. But when they made other changes like F100W, F114L or F476L and W, it slashed the enzyme's hydroxylation capacity by over 90%. That is wild. They changed a single amino acid, altered the physical shape of the pocket by a fraction",
+      "startTime": 1425.33,
+      "endTime": 1444.57
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "of a nanometer, and the drug simply couldn't fit into the catalytic site anymore. The clearance just plummeted. Which brings us out of laboratory and back into the human being in our ICU bed. Pillar three, the predicted genotype effect. Right. Because our fictional patient is an elaborate experiment. He was born with his own specific genetic code for this enzyme.",
+      "startTime": 1444.57,
+      "endTime": 1464.13
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "And looking at his old chart, he has a previously documented pharmacogenomic report showing a CIP2C913 diplotype. OK, so he inherited one normal wild type allele, the one, and one variant allele, the three. Exactly. And the three core variant is a highly documented single nucleotide polymorphism.",
+      "startTime": 1464.13,
+      "endTime": 1483.97
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "C.1075AC. A single genetic typo? Yes. And that typo causes an amino acid substitution at position 359, swapping isolucine for lucine. The P.ILE 359 LU mutation. Correct. The clinical pharmacogenetics implementation consortium,",
+      "startTime": 1483.97,
+      "endTime": 1503.49
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "or CPIC, assigns the specific 1 slash 3 diplotype an activity score of 1.0. So what does that mean clinically? Clinically, this classifies our patient as an intermediate metabolizer. It predicts that his liver has a slower innate clearance capability than someone with a normal 1 slash 1 genotype.",
+      "startTime": 1503.49,
+      "endTime": 1522.93
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "So you just inherently processes it slower. Right. Guidelines often suggest starting with a lower maintenance dose for these patients because their liver simply can't clear the chemical debris fast enough. His metabolic engine is permanently downgraded. But, and this is a critical distinction that trips up a lot of practitioners,",
+      "startTime": 1522.93,
+      "endTime": 1541.25
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "knowing his genetic code brings us to Pillar 4. Measured patient exposure. This is so important. Pillar 4 is the stark reality that a genotype only tells you the predicted capability of the liver. It is just a blueprint. Right. It is entirely distinct from the actual amount of drug trapped in our patient's blood right now.",
+      "startTime": 1541.25,
+      "endTime": 1560.81
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "His DNA hasn't mutated since he was in the outpatient clinic six weeks ago, but his free phenotone level has doubled. Exactly. He tolerated his usual regimen perfectly fine at baseline. His genetics didn't cause this current crisis. His acute critical illness did. Yes. But the 13 genotype means he has absolutely no reserve capacity",
+      "startTime": 1560.81,
+      "endTime": 1580.29
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "to handle the crisis. And to understand why his blood levels didn't just rise linearly, but spiked exponentially into toxicity, we have to look at Macchylus-menting kinetics. Oh, yes. Phenetone is notorious for non-linear or saturable metabolism. The handbook outlines this beautifully. Most drugs follow first order kinetics.",
+      "startTime": 1580.29,
+      "endTime": 1599.21
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "If you double the dose of the drug, the steady state concentration in the blood just doubles. It is a predictable straight line. Right. Very easy to manage. But phenetoy metabolism acts completely differently once the liver gets busy. A researcher named Mauer modeled this dynamic mathematically. He took concentration data from 15 patients",
+      "startTime": 1599.21,
+      "endTime": 1615.65
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "and fitted it to the McAllis-Menton elimination curve. What were his numbers? He established a mean VMAX, which is the absolute maximum rate of elimination the liver is capable of, at 435 milligrams per day. He also calculated a KM, which is the concentration at which",
+      "startTime": 1615.65,
+      "endTime": 1633.05
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "the enzymes are working at exactly half of their maximum speed of 3.8 micrograms per milliliter. You know, it's hard to visualize VMAX and KM in a vacuum. So let's use an analogy. First order kinetics, the normal drugs, are like a massive multilane highway. OK, I'm following.",
+      "startTime": 1633.05,
+      "endTime": 1651.43
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "If the traffic doubles, the cars just spread out into the other lanes. They maintain the speed limit and the congestion just clears on its own. The liver handles it gracefully. But phenetoy metabolism is not a highway. It is a highly restricted toll booth. A toll booth with a very strict physical limit",
+      "startTime": 1651.43,
+      "endTime": 1670.47
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "on how many cars can pass through per hour. Exactly. Let's apply Mauer's mathematical model to our toll booth. At steady state, the rate of drug elimination equals the VMAX multiplied by the concentration, all divided by the sum of the KM plus the concentration. OK, so let's plug some numbers into that.",
+      "startTime": 1670.47,
+      "endTime": 1688.75
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "Let's say our patient's YP2C9 toll booth is currently operating at 70% of its maximum capacity. It's busy, but traffic is moving. Now, let's see you increase the input rate of the cars, the dose, by just 14%, pushing the toll booth",
+      "startTime": 1688.75,
+      "endTime": 1705.9
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "to 80% of its maximum VMAX. What happens to the traffic jam behind the booth? The concentration of cars waiting doesn't just go up by 14%. The math dictates that the concentration rockets from 2.33 times the KM all the way up to four times the KM. Which is a massive jump.",
+      "startTime": 1705.9,
+      "endTime": 1725.1
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "That is a 71% spike in the blood concentration. Think about that. A 14% increase in the dose causes a 71% explosion in the blood level. Because the CYP2C9 toll booth operators physically cannot take the tickets any faster, the drug just endlessly backs up into the bloodstream.",
+      "startTime": 1725.1,
+      "endTime": 1744.72
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "And remember, our patient has that slash 13 genotype. His toll booth is permanently short staffed from birth. Yes. Now you merge that severely limited metabolic capacity with the protein binding crisis we discovered in Act I. The liver can't clear the drug. The albumin buses are gone.",
+      "startTime": 1744.72,
+      "endTime": 1762.36
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "And the euremic toxins are pushing whatever drug is left directly into the brain. It's a perfect storm. Which means it is time to crunch the physical numbers on our fictional patient and see exactly why standard medical math can be so dangerous in a crisis. Let's work his free fraction calculations allowed to prove how wildly his physiology has shifted.",
+      "startTime": 1762.36,
+      "endTime": 1781.24
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "Walk us through the baseline first. OK. So six weeks ago, before the pneumonia, his free level was 1.3 and his total was 13.2. If you divide 1.3 by 13.2, you get a 9.8% free fraction. Right. Essentially, 10% of the drug was off the bus walking free, actively doing its job.",
+      "startTime": 1781.24,
+      "endTime": 1801.05
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "That is textbook normal. But look at the critical illness labs drawn today in the ICU. The directly measured free level is 2.7. And the total is 9.0. If you divide 2.7 by 9.0, you get a 30% free fraction. 30%. Triple the normal amount of drug is off the bus",
+      "startTime": 1801.05,
+      "endTime": 1820.77
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "and pouring into his nervous system. It's astounding. Now, here is where the clinical traps snapped shut. Let's say you are the physician covering the night shift. You see the total level of 9.0 come across your pager. And you see the album end is low at 2.1. OK. But the lab hasn't run the expensive, directly measured",
+      "startTime": 1820.77,
+      "endTime": 1839.25
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "free level yet. You want to know fee safe, so you reach for your medical calculator app. You pull up the conventional Shiner-Tozer correction equation for low albumin. Oh, boy. It is the standard algorithm taught in literally every medical school and pharmacy program in the world.",
+      "startTime": 1839.25,
+      "endTime": 1856.32
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "I am going to work this equation aloud right now to show you what it actually does. The formula takes the reported total level and divides it by a correction factor derived from the low albumin. Walk me through it. So, we take his total of 9.0 and we divide it by open parentheses.",
+      "startTime": 1856.32,
+      "endTime": 1873.44
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "0.2 times the albumin of 2.1 plus 0.1 close parentheses. That denominator calculates out to 0.52. So, 9.0 divided by 0.52 gives us an adjusted total level of 17.3 micrograms per milliliter. OK.",
+      "startTime": 1873.44,
+      "endTime": 1891.76
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "And since standard pharmacokinetic doctrine assumes the normal free fraction is roughly 10%, you simply divide that adjusted total of 17.3 by 10. Which gives you? It gives you an estimated free level of 1.73 micrograms per milliliter. So, I look at that estimated number of 1.73 on my phone.",
+      "startTime": 1891.76,
+      "endTime": 1909.76
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "And I think, great. He is perfectly between the target of 1 and 2. He is completely safe. But the actual measured free level from the lab is 2.7. Exactly. The patient is profoundly toxic. The math on my phone is lying to me. The math is lying because the Shiner-Tozer equation has",
+      "startTime": 1909.76,
+      "endTime": 1927.76
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "a fatal flaw when you apply it to critically ill patients. It only corrects for the sheer quantity of albumin. It assumes the albumin is still healthy. Exactly. It assumes that the 2.1 grams of albumin still circulating in his blood are completely healthy and functioning normally. But our patient has AKI.",
+      "startTime": 1927.76,
+      "endTime": 1945.76
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "His BUN is 48. So it's ignoring the euremia? Completely ignores it. It ignores the presence of euremic toxins competitively displacing the phenitoid. And it ignores the structural conformational changes that the euremia actually inflicts on the albumin molecules themselves, making them far less capable of binding drugs.",
+      "startTime": 1945.76,
+      "endTime": 1964.76
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "I refuse to believe we just blindly accept the output of an algorithm when the alternative is missing severe neurotoxicity. Has anyone actually quantified how often this equation fails in the real world? They have. And the data is sobering. Wilfred and his colleagues conducted a study on this exact phenomenon. What do they find?",
+      "startTime": 1964.76,
+      "endTime": 1983.02
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "They analyzed 57 critically ill ICU patients all with low albumin. The researchers ran the standard sheener tozer adjusted calculations for every single patient. And then they completely bypass the math and directly measured the true free concentrations using high performance liquid chromatography. Okay.",
+      "startTime": 1983.02,
+      "endTime": 2002.02
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "Moment of truth. How often did the math get it right? The mathematical equation matched the real measured therapeutic category in only 42 out of the 57 cases. That is only a 73.7% match rate. More than one in four critically ill patients was miscategorized by the standard math.",
+      "startTime": 2002.02,
+      "endTime": 2021.02
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "In the fog of the ICU, when kidney function, fluid shifts and protein binding are dynamically changing by the hour, you just cannot rely on rigid equations built for stable out patient populations. Which makes the actual physical laboratory measurement the only beacon of truth we have left. It really is.",
+      "startTime": 2021.02,
+      "endTime": 2040.05
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "If you direct your attention to our third visual cue right at the 3730 mark in the show notes, we are looking at a diagram of how the laboratory actually finds that truth. It shows a membrane ultra filtration setup sitting next to a complex mass spectrometer readout.",
+      "startTime": 2040.05,
+      "endTime": 2059.05
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "You cannot calculate the free drug. You must physically separate it. The laboratory uses membrane ultra filtration. How does that work? They place the plasma sample into a device with a specialized microscopic filter. They spin it in a centrifuge and the sheer physical force pushes the",
+      "startTime": 2059.05,
+      "endTime": 2075.05
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "tiny unbound phenitoid molecules through the microscopic pores of the membrane, while the massive albumin proteins and all the bound drug trapped on them are completely blocked. So you were basically left with a tiny pool of ultra filtrate fluid at the bottom that contains only the free drug. Exactly.",
+      "startTime": 2075.05,
+      "endTime": 2093.05
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "But how do you accurately measure the microscopic concentration of drug suspended in that tiny drop of fluid? Well laboratories generally employ one of two methods. The Mayo Clinic, for example, utilizes a Kim's assay, kinetic interaction of micro particles in solution.",
+      "startTime": 2093.05,
+      "endTime": 2111.05
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "Okay, so that's an immuno assay technique. Right. In essence, the native phenitoid pulled from the patient's ultra filtrate competes with a laboratory labeled drug derivative for binding sites on specific antibodies. And those antibodies are attached to tiny micro particles. Got it. So if the patient has a massive amount of phenitoid in their",
+      "startTime": 2111.05,
+      "endTime": 2129.05
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "sample, it binds to all the antibodies blocking the label derivative, which prevents the micro particles from clumping together or aggregating. So a weaker aggregation signal in the machine actually means a higher concentration of drug in the patient? Exactly. That is a very clever optical trick. But it's an indirect measurement.",
+      "startTime": 2129.05,
+      "endTime": 2147.05
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "It relies on antibodies behaving perfectly. I want to talk about the heavy machinery. The isotope dilution LCMSMS method.",
+      "startTime": 2147.05,
+      "endTime": 2154.05
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "Liquid chromatography with tandem mass spectrometry. It is the absolute gold standard for specificity. It doesn't rely on antibodies at all. It relies on raw molecular physics. Let's detail the exact specifications of this method, because the engineering is just stunning. The laboratory takes the patient's ultra filtrate and",
+      "startTime": 2155.05,
+      "endTime": 2174.05
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "deliberately spikes it with the known quantity of a deuterated internal standard, phenitoid D10. Which gives the machine a perfectly stable baseline to compare against. Exactly. Then they pump this mixture through a highly specific chromatography column to physically separate all the microscopic molecules based on their chemical properties.",
+      "startTime": 2174.05,
+      "endTime": 2193.05
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "And the published method for this uses a very specific column. A 50 by 2.1 millimeter, 5 micrometer, ultra by phenol reversed phase column. And the mobile phase, the liquid solvent watching the sample through that column, is a highly controlled mixture of water and methanol, containing exactly 0.1% formic",
+      "startTime": 2193.05,
+      "endTime": 2212.05
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "acid. The formic acid is the secret weapon here. As the liquid spray enters the mass spectrometer, the formic acid donates protons, ionizing the molecules. It gives them a charge. Yes. It gives them an electrical charge so the electromagnetic fields inside the mass spectrometer can actually grip them and manipulate them.",
+      "startTime": 2212.05,
+      "endTime": 2231.05
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "So cool. Once those charged molecules fly into the tandem mass spectrometer, they enter a collision cell where they are violently smashed into specific fragments. The machine then scans for very precise signature positive ion transitions. What transitions is it looking for? For the native fennetoint from our patient, the machine",
+      "startTime": 2231.05,
+      "endTime": 2249.05
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "isolates the parent mass of 253.0. It smashes it and specifically counts how many fragments break into a mass of 182.2 and how many break into a mass of 104.0. And for the internal standard, the deuterated D10 version",
+      "startTime": 2249.05,
+      "endTime": 2265.05
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "they spiked into the sample, the machine isolates a heavier parent mass of 263.2 and watches it transition into a fragment of 192.12. By tracking those exact atomic level mass transitions, the machine completely ignores every other protein, every other",
+      "startTime": 2265.05,
+      "endTime": 2282.05
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "drug and every other piece of biological debris in the blood. The precision is unmatched. It is. The linearity of this assay is incredible. It can accurately measure from 0.1 all the way up to 4.0 micrograms per milliliter with an imprecision of less than 5%. When the mass spec says the free level is 2.7, you can bet the",
+      "startTime": 2282.05,
+      "endTime": 2301.05
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "patient's life on that number. Which is vital because that brings us to the final hidden variable that can destroy this entire diagnostic process. Okay. What is it? We understand the parent drug, the sodium channels, the YCP2C9 bottleneck and the mass spectrometry. But before we can resolve our fictional patient's crisis, we have",
+      "startTime": 2301.05,
+      "endTime": 2319.05
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "to issue a massive warning about a specific drug formulation that can completely deceive these lab results if you aren't paying attention. Oh, right. We have to open up the patent archives. Specifically, Stella and Sloan's United States patent number 426-0769A.",
+      "startTime": 2319.05,
+      "endTime": 2336.05
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "This patent was filed in April 1979 and officially issued in April 1981, although it actually traces back to a parent filing in 1977. What problem were Stella and Sloan trying to solve in the 1970s? The problem of physics. Yeah.",
+      "startTime": 2336.05,
+      "endTime": 2353.05
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "Finitoyne is notoriously stubbornly insoluble in water. If a patient is an actively convulsing status epilepticus, you cannot wait for them to swallow a pill. You need to give the drug intravenously. Makes sense. But because Finitoyne hates water, manufacturers had to dissolve",
+      "startTime": 2353.05,
+      "endTime": 2371.05
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "it in a toxic soup of propylene glycol and ethanol and forcefully adjust the pH to 12. A pH of 12 is insanely basic. That is basically injecting drain cleaner into a human vein. It was brutal. It caused excruciating flibitis, massive tissue necrosis if the",
+      "startTime": 2371.05,
+      "endTime": 2390.05
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "IV line leaked into the muscle, and severe cardiovascular collapse, drastic drops in blood pressure and arrhythmias if you push the infusion too fast. It sounds like a highly dangerous delivery mechanism for a life-saving drug. It was. So Stella and Sloan utilized medicinal chemistry to create a prodrug.",
+      "startTime": 2390.05,
+      "endTime": 2409.05
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "If you look at claim three of their 1981 patent, it explicitly names three phosphoryloxymethyl-55-difenyl-hydantooine. So they chemically grafted a bulky phosphate group onto the parent Finitoyne molecule? They did. They synthesized the dicodium salt, which the medical world now",
+      "startTime": 2409.05,
+      "endTime": 2427.05
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "knows as phosphhenetoyne. That attached phosphate group completely changes the physics of the molecule, making it highly water-soluble. Oh, that's brilliant. It is. You can mix phosphhenetoyne in standard normal saline, and you can inject it rapidly without burning the veins or rotting the tissue.",
+      "startTime": 2427.05,
+      "endTime": 2444.05
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "Once it enters the bloodstream, the body's natural phosphatase enzymes act like chemical scissors, rapidly cleaving off the phosphate group and releasing the active parent Finitoyne to do its job. It is basically a chemical Trojan horse. But what are the clinical implications of that conversion timeline?",
+      "startTime": 2444.05,
+      "endTime": 2461.05
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "Because it obviously takes time for those enzymes to cut the phosphate off. According to the official U.S. labeling, the conversion half-life of phosphhenetoyne to Finitoyne in the blood is approximately 15 minutes. 15 minutes. And as a quick clinical aside, because it is a heavier pro drug, it is prescribed and dosed in Finitoyne sodium",
+      "startTime": 2461.05,
+      "endTime": 2480.05
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "equivalents, or PE. So the nurses and physicians don't have to do molar mass conversions at the bedside during an emergency. But here is the critical danger for our laboratory diagnostics. Immunoassays can be severely dangerously deceived by phosphhenetoyne. Wait, if the lab runs a Kim's assay, the antibody test we talked",
+      "startTime": 2480.05,
+      "endTime": 2498.18
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "about earlier, can the antibodies accidentally grab the phosphofhenetoyne Trojan horse before it has been converted? They absolutely can. The antibodies cross-react with the bulky pro drug. If you draw the blood too soon after giving phosphhenetoyne, the immunoassays will count the pro drug and the active drug together,",
+      "startTime": 2498.18,
+      "endTime": 2516.18
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "severely overestimating the true Finitoyne level. Or how severe of an overestimate are we talking about? Like a little bit? In a documented 17-patient series examining individuals with renal dysfunction who received phosphhenetoyne, certain assays overestimated the true active Finitoyne level by up to 20",
+      "startTime": 2516.18,
+      "endTime": 2534.18
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "fold compared to the highly specific HPLC method. 20 fold. If a lab reports a level of 40, you would assume the patient is massively overdosed and completely withhold the medication. But if the true level is actually, say, 2, they might suffer a breakthrough life-threatening seizure while you were just",
+      "startTime": 2534.18,
+      "endTime": 2552.18
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "staring at a false lab report. Which is exactly why the official labeling explicitly warns clinicians that they must wait approximately 2 hours after finishing an IV infusion of phosphhenetoyne, or 4 hours after an intramuscular injection before drawing a blood level. You have to give the body's enzymes time to finish clipping",
+      "startTime": 2552.18,
+      "endTime": 2570.18
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "off all the phosphate groups so the lab has a clean sample to read. Exactly. And I want to be very clear for our listeners. Phosphhenetoyne is a spectacular life-saving invention. We aren't criticizing the drug at all. In the massive randomized ESET trial, which looked at patients in established status epilepticus, the phosphhenetoyne arm",
+      "startTime": 2570.18,
+      "endTime": 2589.18
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "demonstrated that 53 out of 118 patients, that's 45%, successfully met the clinical 60 minute endpoint of seizure sensation and improved neurological responsiveness without needing any additional rescue medications. It is highly effective. It is, but you have to respect the timeline of the pharmacology.",
+      "startTime": 2589.18,
+      "endTime": 2608.18
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "Which brings us to our final visual cue. If you look at the 4930 mark in the show notes, visual cue 4 is a timeline graph. It visually compares the mere minutes required for that phosphhenetoyne pro drug conversion, that 15 minute half-life,",
+      "startTime": 2608.18,
+      "endTime": 2624.18
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "against the agonizing days required for our fictional patients liver and kidneys to clear his overdose and allow for his clinical recovery. And remember, our fictional patient was not given phosphhenetoyne in the hospital. We didn't have an immunoassay cross-reactivity problem today.",
+      "startTime": 2624.18,
+      "endTime": 2641.18
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "He used oral extended release phenetoyne. In our laboratory, utilized paired, highly specific chromatographic mass spectrometry measurements. Right, so his labs were real. Very real. His profoundly toxic free level of 2.7 was purely",
+      "startTime": 2641.18,
+      "endTime": 2658.18
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "exclusively driven by his critical illness. The failing kidneys and the dropping albumin displaced the drug. And his 13 liver mutation just couldn't clear the backlock. So how does this complex puzzle finally resolve? Well, let's walk back into his ICU room. It is 48 hours later.",
+      "startTime": 2658.18,
+      "endTime": 2675.18
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "The neurology team heavily revised his anti-seizure regimen based entirely on that directly measured free level. We draw a new set of paired labs. His total concentration is now 7.5 micrograms per milliliter. Okay, so it dropped a bit.",
+      "startTime": 2675.18,
+      "endTime": 2691.17
+    },
+    {
+      "id": "turn-147",
+      "speaker": "Host 1",
+      "text": "But his directly measured free concentration has fallen to 1.6 micrograms per milliliter. And a free level of 1.6 puts him safely back into the targeted 1-2 therapeutic window. But, you know, the numbers don't matter if the patient isn't recovering. What does the physical exam show?",
+      "startTime": 2691.17,
+      "endTime": 2709.17
+    },
+    {
+      "id": "turn-148",
+      "speaker": "Host 2",
+      "text": "I walk up to the bed and I check his eyes. The violent direction changing nystag miss is almost completely gone. There is only a tiny flicker when he looks to the extreme edges. That's a huge improvement. Huge. His speech is clear. The dysarthria has resolved.",
+      "startTime": 2709.17,
+      "endTime": 2726.62
+    },
+    {
+      "id": "turn-149",
+      "speaker": "Host 1",
+      "text": "And most importantly, with just a little bit of assistance from the nurse, he's able to swing his legs over the edge of the bed, stand upright, and walk. The clinical exam tracked flawlessly with the free concentration. It tracked it perfectly.",
+      "startTime": 2726.62,
+      "endTime": 2741.62
+    },
+    {
+      "id": "turn-150",
+      "speaker": "Host 2",
+      "text": "It proves exactly why the laboratory's direct physical membrane ultrafiltration measurement was the only true beacon of light in the fog of his critical illness. Think about it. Over those 48 hours, his total level only dropped from 9.0 to 7.5.",
+      "startTime": 2741.62,
+      "endTime": 2756.78
+    },
+    {
+      "id": "turn-151",
+      "speaker": "Host 1",
+      "text": "Yeah, a clinician looking only at the total level wouldn't think anything significant had changed. But his free level dropped from a highly toxic 2.7 down to a safe 1.6. And the patient regained his ability to literally walk. As clinicians, this requires meticulous documentation.",
+      "startTime": 2756.78,
+      "endTime": 2773.78
+    },
+    {
+      "id": "turn-152",
+      "speaker": "Host 2",
+      "text": "When handing this case off to the next shift, you don't just write down the numbers. You document the timeline. The exact minute the blood was drawn, the state of his renal function, the albumin level. And you must explicitly document both the total and the free concentrations. The next medical team needs the complete pharmacokinetic picture, not just a fraction of it.",
+      "startTime": 2773.78,
+      "endTime": 2791.78
+    },
+    {
+      "id": "turn-153",
+      "speaker": "Host 1",
+      "text": "This has been an astonishing journey from a single molecule to a walking, recovering patient. Just to recap the ground we have covered today. We started way back in 1908 in a German laboratory with Heinrich Pilts, synthesizing the achiral-high-dant-win-ring.",
+      "startTime": 2791.78,
+      "endTime": 2809.78
+    },
+    {
+      "id": "turn-154",
+      "speaker": "Host 2",
+      "text": "Then we moved into the 1930s with Tracy Putnam and H. Houston Merit, proving we could stop a seizure without suppressing the entire nervous system. We dove into the microscopic architecture of the voltage-gated sodium channels, watching Finitoying Act as a highly selective state-dependent bouncer,",
+      "startTime": 2809.78,
+      "endTime": 2828.81
+    },
+    {
+      "id": "turn-155",
+      "speaker": "Host 1",
+      "text": "forcefully locking down the rapidly firing S5S6 doors of seizing neurons, while leaving the rusty ones entirely alone. We hit the bottleneck in the liver. We looked at the exact 2.69 angstrom atomic contact inside the side 2C9 enzyme",
+      "startTime": 2828.81,
+      "endTime": 2845.81
+    },
+    {
+      "id": "turn-156",
+      "speaker": "Host 2",
+      "text": "and saw how a single genetic mutation, the slash 3, slash 3, dipletype, combined with the unforgiving mathematics of Michaelis-Menten kinetics caused a massive compounding traffic jam of unmatabolized drug in the bloodstream.",
+      "startTime": 2845.81,
+      "endTime": 2860.81
+    },
+    {
+      "id": "turn-157",
+      "speaker": "Host 1",
+      "text": "And finally we saw how acute kidney injury, anuremic toxins, stripped away the albumin carrying capacity, completely shattering our standard medical math equations and forcing us to rely on the physical truth of an LC-MS-MS membrane filter, smashing molecules to find the true free fraction.",
+      "startTime": 2860.81,
+      "endTime": 2879.81
+    },
+    {
+      "id": "turn-158",
+      "speaker": "Host 2",
+      "text": "It's incredible when you step back and look at it all together. It really is. Which leads me with a final provocative thought for you, our listener, to carry with you. We just spent this entire deep dive proving beyond a shadow of a doubt that our bodies are not static predictable machines. No, they definitely aren't.",
+      "startTime": 2879.81,
+      "endTime": 2896.81
+    },
+    {
+      "id": "turn-159",
+      "speaker": "Host 1",
+      "text": "They are dynamic, chaotic, ever-changing chemical filters. When kidney function dips. When protein binding dynamically shifts, the standard medical equations, the algorithms taught in textbooks, programmed into our hospital computers and downloaded onto our phones can fail us dramatically. They absolutely can.",
+      "startTime": 2896.81,
+      "endTime": 2914.81
+    },
+    {
+      "id": "turn-160",
+      "speaker": "Host 2",
+      "text": "So if the highly trusted, shiner-tozer formula can miscategorize a quarter of our critically ill patients, how many other standard medical calculations, algorithms, and automated warning systems that we use every single day in the hospital are currently hiding massive dangers in plain sight?",
+      "startTime": 2914.81,
+      "endTime": 2932.81
+    },
+    {
+      "id": "turn-161",
+      "speaker": "Host 1",
+      "text": "It is a question that requires every practitioner to maintain a profound level of humility. You just have to verify everything. Keep questioning the data on the screen. Keep digging into the molecular pharmacology underneath the algorithms.",
+      "startTime": 2932.81,
+      "endTime": 2947.81
+    },
+    {
+      "id": "turn-162",
+      "speaker": "Host 2",
+      "text": "And never, ever lose sight of the actual living, breathing human beings sitting on the edge of the bed in front of you. Thanks for joining us on this deep dive.",
+      "startTime": 2947.81,
+      "endTime": 2955.81
+    }
+  ]
+}

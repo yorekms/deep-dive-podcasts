@@ -1,0 +1,1066 @@
+{
+  "episodeId": "1S_53-tjK32Dw3J25DFmCB8ZA4PM7OqGq",
+  "driveId": "1S_53-tjK32Dw3J25DFmCB8ZA4PM7OqGq",
+  "title": "Why the Same Import Surge Reaches Towns Differently — Timothy Bartik’s (1991) Shift-Share Instruments, Autor–Dorn–Hanson Local Labor-Market China Trade Exposure & Borusyak–Hull–Jaravel Shock Orthogonality",
+  "duration": 2393.93,
+  "teenKit": {
+    "tldr": "In 15 seconds: When national trade or industry booms and busts hit the country, why do neighboring towns feel totally different shocks? Bartik's shift-share instrument multiplies each town's historic factory mix by national industry shifts—and modern econometrics reveals which assumption actually makes that causal.",
+    "whyItMatters": "Policymakers can't run randomized trials on national trade surges, so shift-share math is one of economics' most important tools for measuring real-world job impacts.",
+    "keyTakeaways": [
+      "A Bartik (shift-share) measure weights national or foreign industry shocks ('shifts') by a local region's pre-existing employment shares ('shares').",
+      "Autor, Dorn, and Hanson (2013) used Chinese exports to other high-income countries paired with earlier U.S. commuting-zone factory shares to isolate supply-driven import competition.",
+      "Goldsmith-Pinkham, Sorkin & Swift vs. Borusyak, Hull & Jaravel clarified two distinct paths to validity: exogenous local shares vs. many quasi-random industry shocks."
+    ],
+    "vocab": [
+      {
+        "term": "Shift-Share (Bartik) Instrument",
+        "meaning": "An exposure index summing (local initial industry share x national/external industry shock) across sectors."
+      },
+      {
+        "term": "Commuting Zone",
+        "meaning": "A cluster of counties grouped by journey-to-work flows to represent a self-contained local labor market."
+      },
+      {
+        "term": "Reverse Causality",
+        "meaning": "When local economic booms or slumps change imports directly, confounding naive correlations."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Why did Autor, Dorn, and Hanson instrument U.S. imports from China using Chinese export growth to eight other high-income nations?",
+        "options": [
+          "Because U.S. customs lost its records",
+          "To isolate China's internal productivity/supply surge from U.S.-specific domestic demand shocks",
+          "To measure ocean shipping speeds",
+          "Because commuting zones have identical factory shares"
+        ],
+        "correctIndex": 1,
+        "explanation": "Exports rising simultaneously across other high-income countries capture China's supply shock rather than local U.S. demand shifts."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "Welcome to the deep dive. Yeah, glad to be here. So today we are opening up this really fascinating stack of economic papers and data manuals too. Oh, definitely. And a lot of data manuals. Right. And our mission today is basically to look at how researchers actually measure",
+      "startTime": 0.0,
+      "endTime": 17.44
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "the localized impacts of, well, massive global trade shifts. Which is way harder than it sounds, honestly. Oh, I bet. Yeah. And we're going to trace the evolution of this one kind of clever accounting trick that was, you know, originally just meant for looking at local job growth. Yeah, back in the day.",
+      "startTime": 17.44,
+      "endTime": 32.88
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "Exactly. And we'll see how it kind of morphed into one of the absolute most sophisticated tools in modern economics. It's a pretty well journey. It really exposes like the plumbing of empirical economics, you know. The plumbing. Yeah. I like that. We're going to look at how two totally identical towns can be just devastated differently by the",
+      "startTime": 32.88,
+      "endTime": 51.76
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "exact same trade shock. Right. The exact same one. And how data from like foreign countries is used to diagnose American labor markets. Plus how this recent reexamination of decades old data managed to cut a really widely accepted economic estimate by more than half. Yeah. That part is really going to blow people's minds.",
+      "startTime": 51.76,
+      "endTime": 70.8
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "I mean, we tend to take broad national statistics at face value. Right. Oh, for sure. We just read the headline. Exactly.",
+      "startTime": 71.44,
+      "endTime": 77.6
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "But the second you try to pin a global macroeconomic trend to like a specific local zip code, the methodology has to get incredibly creative. Okay. Let's unpack this. I want to set up a thought experiment for you, the listener. Love a good thought experiment. Right. So imagine a tale of two towns and on the surface, if you were just, I don't know,",
+      "startTime": 78.4,
+      "endTime": 96.64
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "driving through on a road trip, they look virtually indistinguishable. Main street, local diner, all of that. Yep. The main street has the exact same layout. The local high school has the same colors. And most importantly for our journey today, their economies look completely identical on paper. Which is the dream scenario for researchers, right?",
+      "startTime": 96.64,
+      "endTime": 115.28
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "A perfectly matched pair. Totally. So in both of these fictional towns, exactly 20% of the human population works in manufacturing. And just to be precise here regarding the demographic we're looking at, we are talking specifically about the working age residents. Right. Right. So those ages 16 to 64. Good clarification.",
+      "startTime": 115.36,
+      "endTime": 134.32
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "So 20% of that 16 to 64 group works in manufacturing in both towns.",
+      "startTime": 134.96,
+      "endTime": 139.76
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "But here is the hidden twist that totally doesn't show up in the top line summary. The detail that changes everything. Exactly. In town A, that 20% makes furniture. Okay. But in town B, that exact same 20% of people makes machinery. Got it. So town A is furniture, town B is machinery.",
+      "startTime": 140.56,
+      "endTime": 157.92
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "Right. So from a macro perspective, looking at the whole US, they both just have a 20% manufacturing base. They look identical on this spreadsheet. They really do. But suddenly out of nowhere, there is this massive national surge in imported furniture coming into the United States.",
+      "startTime": 157.92,
+      "endTime": 173.84
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "Like a sudden massive shift in global trade dynamics, just targeting that one specific sector. Yeah, exactly. So here is the puzzle for you listening right now. A broad national trade statistic, like if you looked it up in a standard government report, would show both of these towns having a 20% manufacturing base, right?",
+      "startTime": 173.84,
+      "endTime": 192.24
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "Right. They look equally exposed to general manufacturing trends. But how can we mathematically measure which town is actually more exposed to this really specific import surge? I want you just to make a prediction right now in your head. It's a great question to ponder. Like how do we put a reliable causal number on that difference?",
+      "startTime": 192.24,
+      "endTime": 208.98
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "I mean, it's the absolute definition of a structural economic puzzle. We generally like things to be, you know, visible and neatly categorized in our national data. We want to just point at a map. Exactly. We look at a map and say, oh yes, the industrial Midwest or the manufacturing belt.",
+      "startTime": 208.98,
+      "endTime": 225.14
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "But the reality of global trade just doesn't hit a map evenly. No, not at all. It behaves much more like a targeted storm system.",
+      "startTime": 225.78,
+      "endTime": 232.66
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "And figuring out where the lightning is actually going to strike requires looking way past the broad averages. So to solve the puzzle of these two identical looking towns, we actually, we have to step away from international trade entirely for a minute. We do. We have to take a little detour.",
+      "startTime": 233.54,
+      "endTime": 247.78
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "Yeah. We have to act as your present day guides here and travel all the way back to the year 1991. A different era for economics for sure. Very different. We meet this economist named Timothy Bartik. And he published a book that was really just looking at local job growth. Right. He wasn't looking at Chinese imports or global supply chains at all.",
+      "startTime": 247.78,
+      "endTime": 267.3
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "No, not at all. He just wanted to know what happens when local employment grows. And to do that, he needed a way to isolate like why jobs were shifting in specific metropolitan areas. Because Bartik was wrestling with honestly one of the most persistent headaches in regional economics, which is what exactly?",
+      "startTime": 267.3,
+      "endTime": 285.62
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "Well, when a city's economy booms or when it completely collapses, it is incredibly difficult to untangle the localized internal factors from the broad external macroeconomic factors. Oh, like, is it us or is it the whole country? Exactly.",
+      "startTime": 285.62,
+      "endTime": 301.86
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "So he utilized and kind of popularized this older regional accounting technique known as the shift share method to solve this. This shift share method. Yeah. And the underlying brilliance of this method is really in how it breaks down economic changes into two very distinct, highly measurable components.",
+      "startTime": 302.42,
+      "endTime": 320.9
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "Okay. So the shifts in the shares.",
+      "startTime": 320.9,
+      "endTime": 323.06
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "I feel like this is one of those concepts that sounds really simple, but actually hides a massive amount of analytical power. Oh, definitely. It's elegantly simple, but deeply powerful.",
+      "startTime": 323.92,
+      "endTime": 334.88
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "Let's look at the shares first. Okay. Shares. The shares represent the local mix of industries that are already physically present and operating in a specific metropolitan area before any new economic event happens. So like a baseline. Exactly. It's the baseline structural snapshot.",
+      "startTime": 335.68,
+      "endTime": 354.08
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "It's just what the town already does historically. Right. So in our fictional example, that would be the fact that town A is historically heavily invested in furniture production and town B is heavily invested in machinery production. Yes. That historical commitment layout is their local share of the national economic pie.",
+      "startTime": 354.08,
+      "endTime": 373.76
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "Okay. So the shares are the local static snapshot. What about the shifts?",
+      "startTime": 374.16,
+      "endTime": 378.4
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "So the shifts are the national dynamic changes in employment for those specific industries across the entire country. The big picture stuff. Right. It's the macro trend operating way above the town level. So our furniture jobs growing nationwide by 5% are machinery jobs shrinking nationwide by 2%.",
+      "startTime": 379.2,
+      "endTime": 397.92
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "Okay. Let me see. The shift is that broad national tide that raises or lowers all boats in a specific industry totally regardless of what town those boats are parked in. I'm tracking the two components. So Bartik basically took these local shares and these national shifts.",
+      "startTime": 398.64,
+      "endTime": 415.92
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "And he essentially multiplied the local share by the national shift. He did. And by doing that, he created this predicted measure of local job variation. Like he created what kind of matricians call an instrument. Yes. An instrument. Which is basically a mathematical tool to reflect changes in the demand for workers",
+      "startTime": 416.64,
+      "endTime": 436.24
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "that is completely sanitized of whatever local drama is happening in that specific town. Right. Because the core problem he was trying to solve is endogeneity. Endogeneity. That's a fun word. It is. And in economics, you are constantly battling endogeneity. Which is really just a fancy way of saying you are trying to figure out cause and effect.",
+      "startTime": 436.24,
+      "endTime": 455.76
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "When everything is completely tangled together in a feedback loop. Everything affects everything else. Exactly. If a local town is suddenly booming with like thousands of new jobs, is it because the national economy is experiencing a golden age? Or is it because the local mayor just passed some massive highly specific corporate tax break",
+      "startTime": 455.76,
+      "endTime": 474.48
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "that lured a giant factory across the county line? Wait, if we want to know why a local town is growing, shouldn't we look at those local factors? It seems like you should, right? Yeah. I mean, if I want to know why my specific town is booming, I want to look at my town's policies, my town's infrastructure, my town's workforce.",
+      "startTime": 474.48,
+      "endTime": 492.24
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "Why on earth would I rely on a national industry growth average to tell me what's happening in my own backyard? That instinct is incredibly common. And it is the exact trap that economists try to avoid when they are measuring broad labor demand. Really? Why is it a trap?",
+      "startTime": 492.96,
+      "endTime": 507.84
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "Because if you only look at local factors, you literally cannot tell what is a broad external economic force and what is just a local supply side quirk?",
+      "startTime": 507.84,
+      "endTime": 516.56
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "I see. If the town's employment is growing strictly because of that local tax break, that's a local labor supply issue. But Bartik wanted to isolate shifts in the demand for labor coming from the outside world. Okay, I think I see the distinction here. He wanted to know what happens to a town when the",
+      "startTime": 517.6,
+      "endTime": 534.48
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "rest of the world suddenly wants more of what it makes, right? Independent of anything the town did to make itself attractive. Precisely that. By using the national growth rates of industries, the shifts, right, the shifts, and applying them to the local historical industrial composition,",
+      "startTime": 534.48,
+      "endTime": 550.88
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "the shares, exactly the shares, he could formulate a very specific counterfactual. Like a what if scenario? Right. He could say based on what this town historically makes, and based strictly on how those specific industries are performing across the entire United States, here's exactly how much we expect this town's employment to grow.",
+      "startTime": 550.88,
+      "endTime": 569.44
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "Assuming it just performs exactly average. Exactly average. It cleans the data. It strips out all the local noise, the local tax breaks, the local zoning laws, and it just leaves you with a pure mathematical measure of external demand. It's almost like evaluating a surfer's speed. Okay. I like where this is going.",
+      "startTime": 569.44,
+      "endTime": 588.48
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "Like you can't just clock how fast they are moving across the water and assume it's purely their physical skill, right? You have to measure the size and power of the ocean wave. They just happen to be riding. Yes. So the national shift is the ocean wave, and the local share is the surfboard.",
+      "startTime": 588.48,
+      "endTime": 604.48
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "You are just trying to figure out how much of the speed is just the wave doing the work. That is a brilliant way to visualize it. And to truly see how this isolates demand and actually solves our initial puzzle about the import surge, we need to take Bartik's shift share logic, apply it to our two identical looking",
+      "startTime": 604.48,
+      "endTime": 623.52
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "manufacturing towns and just see what happens when the wave hits the surfboards. Okay. Let's model this ourselves. We are going to paint the picture of these two fictional labor markets again, and we are going to look at the exact inputs. Let's do the math. So holding onto the image of these two towns, here is the scenario strictly laid out in the data.",
+      "startTime": 623.52,
+      "endTime": 642.32
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "And remember, we have our working age residents, those ages 16 to 64 making up our labor pool. Right. So before any imports rise, before the global economy changes at all, we look at the first town, we'll call it the furniture town. In this town, 15% of the working age residents make furniture",
+      "startTime": 642.32,
+      "endTime": 661.52
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "and 5% make machinery. Okay. And in the second town, the machinery town, the shares are naturally swapped. Yep. So 5% make furniture and 15% make machinery. And keep in mind to make this model super clean, the other 80% of the working age population in each",
+      "startTime": 661.52,
+      "endTime": 676.96
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "town works in services. Right. Like hospitals, schools, restaurants, local retail stuff like that. Exactly. And for the sake of this specific economic calculation, those service jobs contribute zero to the initial import shock we are measuring. They are insulated from that direct first hit.",
+      "startTime": 676.96,
+      "endTime": 693.28
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "Right. The direct hit is contained entirely within that 20% manufacturing base. So we have our local shares established 15 and five for town A, five and 15 for town B. We have the surfboards. No, we need the wave. The national shifts, the shock to the system.",
+      "startTime": 693.28,
+      "endTime": 712.24
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "Here is the shock. Imports into the United States rise by $6,000 per national furniture worker, and they rise by $2,000 per national machinery worker. Whoa. Okay. So the national furniture industry is experiencing an import surge that is literally",
+      "startTime": 712.24,
+      "endTime": 728.16
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "three times as intense as the machinery industry on a per worker basis. Yes. Now we can run the intermediate steps to reproduce the main calculation that an actual economist would run. Let's get your mental calculators ready. For each town, we are going to multiply the industry's import increase,",
+      "startTime": 728.16,
+      "endTime": 747.28
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "which is the shock or the shift. Right. By the share of the town's jobs in that industry. And then you simply add those two products together to get the total localized impact. So walk into the logic for the furniture town. You would calculate 15% of that $6,000 furniture",
+      "startTime": 747.28,
+      "endTime": 763.28
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "shock and then 5% of the $2,000 machinery shock, then combine them. And for the machinery town, you literally just swap the shares in the equation. You calculate 5% of the $6,000 furniture shock and 15% of the 2,000 machinery shock and combine those. Think of it kind of like a recipe. Oh, a recipe. Okay.",
+      "startTime": 763.28,
+      "endTime": 783.12
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "The national shocks that $6,000 furniture hit and the $2,000 machinery hit, those are raw ingredients just sitting on the counter. Every single town in America has access to the exact same macroeconomic ingredients. Right. Because it's a national shift.",
+      "startTime": 784.34,
+      "endTime": 799.86
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "Exactly. But the local employment percentages, those historical 15% and 5% shares, that is the recipe. And the recipe dictates how much of each raw ingredient gets mixed into the local economy. Which ultimately determines how potent the final economic effect is going to be.",
+      "startTime": 799.86,
+      "endTime": 816.26
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "Precisely. So the national data is really just the environment. The local labor market structure dictates the actual lived experience of surviving that environment. Yes. Okay. I want to give everyone listening just a quick moment to run those numbers in their head.",
+      "startTime": 816.26,
+      "endTime": 829.86
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "15% of 6,000, 5% of 2,000, and then swap them. It's good to visualize the gap.",
+      "startTime": 830.9,
+      "endTime": 839.02
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "So let's add the two contributions together and actually look at the final numbers. All right. Starting with the furniture town, we take 15% of the $6,000 furniture import shock. That gives us $900. And then we take 5% of the $2,000 machinery import shock, and that is $100.",
+      "startTime": 839.9,
+      "endTime": 857.98
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "You add those together, and the total exposure for the furniture town is $1,000. Now we run the exact same macroeconomic environment through the machinery town's recipe. So 5% of $6,000 is $300. And 15% of $2,000 is $300.",
+      "startTime": 858.86,
+      "endTime": 875.5
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "Add those together, and the total exposure for the machinery town is $600.",
+      "startTime": 876.06,
+      "endTime": 880.06
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "So the gap between the two towns is $400. And this is the magic of the shift share instrument right here. The two nationally import increases, the 6K and 2K ingredients on the counter, were absolutely identical for both towns. Neither town experienced a different global market.",
+      "startTime": 880.91,
+      "endTime": 898.51
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "Exactly. But simply because of the historical layout of their labor force, one town is facing nearly double the exposure. It's wild. We should probably define the units clearly here though, because units are like the anchor of any economic model. Oh, absolutely.",
+      "startTime": 898.51,
+      "endTime": 914.27
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "The answer we just calculated is the town's exposure expressed in dollars per starting worker. It's dollars per starting worker. Okay. So town A has $1,000 of import exposure per starting worker. And town B has $600 of import exposure per starting worker.",
+      "startTime": 914.91,
+      "endTime": 932.03
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "It's got to break down the deeper methodology of what we just did, because it directly mirrors the architecture of professional economic research. Okay. Let's do it. First, to get the national shift, you divide the total dollars of national import growth in a specific industry by the number of US workers in that industry. That gives you the shock per worker.",
+      "startTime": 932.03,
+      "endTime": 950.43
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "Right. Which in our scenario were those $6,000 and $2,000 figures? Which is so smart, because it grounds these massive billions of dollars of international trade into an actual human-scale metric. Exactly. It makes it measurable. Then you wait that per worker increase by the fraction of all",
+      "startTime": 950.43,
+      "endTime": 968.75
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "local workers in that industry. Multiplying it by the 15% or the 5%. Right. And the reason this matters so profoundly to researchers is that this technique allows them to assign a specific quantifiable slice of a massive abstract national import increase",
+      "startTime": 968.75,
+      "endTime": 985.39
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "to a highly specific town using only its employment mix. So you can calculate the exact exposure of a town in the landlocked middle of Ohio, even if that town is literally thousands of miles away from the coastal ports in LA or Newark where the imported goods actually physically arrived.",
+      "startTime": 985.39,
+      "endTime": 1002.91
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "Yes. You don't need to track the shipping containers on the highway. And you don't need to survey local businesses to see if they are hurting. No. You just look at the local labor mix, apply the national shock, and you can mathematically map the pressure points across the entire country. Okay. That is incredibly elegant.",
+      "startTime": 1002.91,
+      "endTime": 1019.63
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "It is. But we must make a very crucial distinction here. One that honestly often gets lost when this kind of research is summarized in the media. Okay. What is it? We have to distinguish measurement from inference.",
+      "startTime": 1019.63,
+      "endTime": 1032.43
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "Measurement from inference. Yes. What we just calculated that $1,000 versus $600 is purely a measurement. It is a strict mathematical measurement of dollars of import exposure per worker based on historical shares. Right. It's just an accounting fact based on a formula. It doesn't actually tell us what happened to the people living there.",
+      "startTime": 1033.23,
+      "endTime": 1053.15
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "Exactly. The measurement is completely distinct from what researchers inferred. The inference is the actual causal impact this calculated exposure had on local human employment. Okay. I follow you.",
+      "startTime": 1053.15,
+      "endTime": 1064.19
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "The measurement tells us Town A had $1,000 of exposure. The inference is the really painful work of proving whether that $1,000 of exposure actually caused people to lose their jobs or caused factory wages to stagnate or pushed people out of the labor force entirely.",
+      "startTime": 1064.98,
+      "endTime": 1081.22
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "So the measurement is the math and the inference is the economic story we tell about the consequences of that math perfectly said. This is exactly where I hit a massive logical wall when I was reading through these sources. Really? Where did you get stuck? Well, we have this really elegant math formula. It gives us a neat dollar amount per worker.",
+      "startTime": 1081.22,
+      "endTime": 1100.5
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "We can definitively say furniture town is mathematically more exposed. But how do we know this import surge wasn't just caused by Americans suddenly wanting more furniture? Yes. The demand side confounding variable. Right. Because if the US economy is booming and everyone decides to buy new houses and redecorate",
+      "startTime": 1100.5,
+      "endTime": 1119.7
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "their living rooms, demand obviously spikes. So retailers import more furniture to meet that demand. But local American factories might also be running triple shifts because demand is just that high across the board. Yeah. It's all the time in boom cycles. So if I only look at the US, I just see imports going up and maybe jobs going up or staying flat.",
+      "startTime": 1119.7,
+      "endTime": 1138.74
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "How do we separate domestic demand from global supply? How do we actually prove that the imports are a disruptive competitive shock, wiping out local jobs rather than just a symptom of a booming US economy buying everything in sight? That is the billion dollar question in econometrics. I mean, you have two variables,",
+      "startTime": 1138.74,
+      "endTime": 1157.7
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "imports and local employment moving at the exact same time and you are trying to figure out the direction of causality. It seems impossible. It is incredibly tough. And to answer that, economists realize they couldn't just look at US data. The US data is irreparably contaminated by US consumer behavior. The endogeneity problem again.",
+      "startTime": 1157.7,
+      "endTime": 1177.06
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "Exactly. They had to look way beyond US borders and build a second number using data from entirely different countries. So if looking at domestic demand is basically a dead end for finding peer data, we have to go global to understand what's happening locally. We do. And this brings us to",
+      "startTime": 1177.06,
+      "endTime": 1192.58
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "the landmark 2013 study by three economists, David Otter, David Dorn and Gordon Hanson. The famous ADH paper. The ADH paper. Exactly. Widely known in the field. They were looking at the massive structural changes in the US labor market from 1990 to 2007, which is an era totally",
+      "startTime": 1192.66,
+      "endTime": 1210.66
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "dominated by the rise of Chinese manufacturing. They looked at 722 US commuting zones and they skilled their analysis to 10 year intervals. Just to clarify the terminology for a second for anyone listening, when they say commuting zones, they're basically talking about regional labor",
+      "startTime": 1210.66,
+      "endTime": 1226.34
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "markets, right? Yeah. Like areas where people live and work, which might cross county or even state lines rather than just looking at arbitrary city limits. Correct. The commuting zone is a much more accurate reflection of an actual economic ecosystem than a political boundary. And Otter,",
+      "startTime": 1226.34,
+      "endTime": 1242.58
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "Dorn and Hanson face the exact endogeneity problem you just described a minute ago. The demand contamination. Right. A jump in US demand could simultaneously raise imports and change US employment, completely severing the causal link. You literally cannot tell if the",
+      "startTime": 1242.58,
+      "endTime": 1258.1
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "imports are displacing the workers or if both are just rising on a tide of strong domestic consumption. So how did they build this second number? I mean, where do you even go for clean data if the US is totally contaminated? They built what is called an instrumental variable.",
+      "startTime": 1258.1,
+      "endTime": 1273.3
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "Okay. An instrumental variable. Yeah. An instrument is essentially a proxy variable that is highly correlated with the thing you want to measure, which in this case is Chinese import pressure, but it is completely isolated from the confounding factors, which is US domestic demand.",
+      "startTime": 1273.38,
+      "endTime": 1287.22
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "Okay. So how did they do that? Their solution was honestly brilliantly counterintuitive. They built a second exposure measure using Chinese imports into eight other high income countries. Wait, wait, I want to make sure I'm fully grasping this. They wanted to measure the impact of Chinese",
+      "startTime": 1287.78,
+      "endTime": 1305.04
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "imports on the United States, but they fed their model data on imports going into countries that are not the United States. You got it. They combined Chinese imports into these eight other high income countries, places like Germany, Japan, Australia, Switzerland, with US employment shares",
+      "startTime": 1305.04,
+      "endTime": 1322.8
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "from the preceding decade. Okay. You have to say what this instrument measured in plain language, because relying on German trade data to diagnose Ohio's job market sounds like a massive conceptual leap. I know it sounds a little crazy at first, but in plain language, the instrument measured China's",
+      "startTime": 1322.8,
+      "endTime": 1340.16
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "rapidly growing global capacity to supply products, completely isolated from US internal demand. Oh, I see. Okay. It's like testing a viral consumer trend. How do you mean? Like if a specific brand of shoes suddenly sells out in our town, maybe we just really like them, right? Maybe our local",
+      "startTime": 1340.16,
+      "endTime": 1359.04
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "high school basketball team wore them and it's just a local fat. Sure. But if those exact same shoes, simultaneously sell out in Tokyo, London, Berlin, and Sydney, we know it's not a local fat. Right. We know the manufacturer is doing something globally impactful. Like they've ramped up their global",
+      "startTime": 1359.04,
+      "endTime": 1376.96
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "supply chain or they drop the price or launched a massive global marketing campaign and they are literally just flooding the world market. That is a perfect analogy. If Chinese furniture imports are surging into Germany, Japan, Australia, and five other high income countries at the",
+      "startTime": 1376.96,
+      "endTime": 1393.44
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "exact same time they are surging into the US, it is statistically highly improbable that this is happening because consumers in all nine separate economies simultaneously spontaneously decided to buy the exact same amount of new furniture. The only common denominator there is the source.",
+      "startTime": 1393.44,
+      "endTime": 1411.44
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "Exactly. It is much more likely that China just experienced a massive internal productivity boom. They built better infrastructure, mobilized a massive workforce, joined the WTO, and just got really, really efficient at making and exporting furniture to the whole world. Yes.",
+      "startTime": 1411.6,
+      "endTime": 1427.44
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "It isolates a supply shock originating in China, separating it entirely from a demand shock originating in the US. But realizing you need this multi-country data is one thing. Actually, tracking it all down is a monumental logistical challenge. Oh, I can imagine.",
+      "startTime": 1428.24,
+      "endTime": 1444.4
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "Yeah. This is where the context from our economic data for model building source becomes absolutely crucial to the story. Because in 2013, or certainly in the 1990s when their data actually starts, you couldn't just like run a quick web search for how much furniture did Germany buy from China in",
+      "startTime": 1444.4,
+      "endTime": 1460.64
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "1995. Not at all. Getting this highly detailed bilateral trade flow data relies on massive international resources like the UN Com Trade Database. The UN Com Trade Database. Yeah. And this isn't just a simple spreadsheet.",
+      "startTime": 1460.64,
+      "endTime": 1473.52
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "The UN Com Trade Database literally transforms localized, messy customs data from over a hundred different countries into a standardized machine readable format. That sounds like a nightmare to build. Oh, it is an incredible feat of data engineering. It tracks highly granular commodities using what",
+      "startTime": 1474.64,
+      "endTime": 1491.68
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "are called harmonized system or HS classifications. So it's not just a column labeled furniture. It has to be insanely specific to actually map to labor markets, right? Oh, the harmonized system breaks things down to a microscopic level. It's not furniture. It's a specific six-digit code for like wooden chairs with a",
+      "startTime": 1491.68,
+      "endTime": 1511.04
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "postured seats versus a completely different code for metal filing cabinets.",
+      "startTime": 1511.04,
+      "endTime": 1516.08
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "And by utilizing modern APIs, application programming interfaces, data scientists can programmatically query this vast matrix of international trade flows. They use these statistical data and metadata exchange or SDMX standard to ingest this data smoothly into their statistical software.",
+      "startTime": 1516.88,
+      "endTime": 1534.72
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "That is seriously nerdy, but so cool. It is. And this standardization is what allows econometric models to track structural shifts in exports across the globe with such incredible precision. Honestly, without the physical infrastructure of UN com trade and the",
+      "startTime": 1534.72,
+      "endTime": 1549.84
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "SDMX standards harmonizing the world's customs manifests, calculating this eight-country instrument across hundreds of industries over two decades would be functionally impossible. So they have the UN data. They have the eight-country instrument proxying China's global supply power.",
+      "startTime": 1549.84,
+      "endTime": 1566.16
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "How do they actually plug that back into the Bardic shift share model we talked about earlier? Good question. So they run a two-stage least squares regression model. Two-stage model. Got it. Stage one uses the eight-country instrument to predict what US exposure should be based purely on the trajectory of China's global supply growth.",
+      "startTime": 1566.72,
+      "endTime": 1585.52
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "Okay. So stage one filters out the American demand noise, leaving you with just this sterilized predicted shock. Exactly. Then stage two takes that predicted sterilized exposure and estimates how manufacturing employment in those 722 US commuting zones actually changes in response to it.",
+      "startTime": 1585.52,
+      "endTime": 1603.6
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "I mean, this feels like an incredibly tight airtight model. You've isolated supply, if control for demand, you've mapped it locally using historical shares. But, you know, this is economics, there is always a catch. There is always a catch. What is the uncertain step in this two-stage process? Like, what is the core assumption that",
+      "startTime": 1603.6,
+      "endTime": 1621.84
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "links this massive mathematical calculation to the actual real-world conclusion that trade caused the job losses? Right. So the crucial assumption underpinning all of this is called the exclusion restriction. The exclusion restriction. Yeah. For the instrument to be valid, the imports into those eight other countries must",
+      "startTime": 1621.84,
+      "endTime": 1641.68
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "only affect local US employment through the specific import exposure being studied.",
+      "startTime": 1641.68,
+      "endTime": 1646.0
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "Meaning there cannot be some secret third variable hovering in the background. That is somehow causing both the imports to rise globally and the US jobs to fall locally. Exactly. And the sources actually provide a very specific, highly plausible example of how this exclusion restriction could be violated in reality. Okay. Let's hear it.",
+      "startTime": 1646.9,
+      "endTime": 1666.03
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "Imagine if there was a massive global technology change during this exact same period. Say, a new computerized robotic assembly line is invented that drastically cuts the need for human furniture workers across all rich countries simultaneously. So in that scenario, the jobs in Ohio are falling because factories are automating, not because of Chinese imports.",
+      "startTime": 1666.03,
+      "endTime": 1685.15
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "Right. But simultaneously, this new robotics technology also makes it incredibly cheap and efficient to produce furniture anywhere. Boosting furniture imports globally as supply chains reorganize around the new tech. Oh, wow. If that happens, the technological change is driving both the job losses in the US and the",
+      "startTime": 1685.15,
+      "endTime": 1703.74
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "import surge into those eight high income countries. The assumption is violated.",
+      "startTime": 1703.74,
+      "endTime": 1708.3
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "The statistical model might spit out a result saying imports caused the job loss. But the unobserved reality was really technology caused both.",
+      "startTime": 1709.54,
+      "endTime": 1718.9
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "And the sources acknowledged this, right? They basically leave this potential overlap of technology and trade inherently uncertain. They do. Because it's incredibly hard to untangle tech from trade, especially in the 90s and 2000s. Because the computer revolution and the globalization revolution are happening simultaneously.",
+      "startTime": 1719.79,
+      "endTime": 1737.87
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "Yeah, deeply, deeply historically intertwined. And you know, before we move on to the actual quantitative results, Otter Dorn and Hanson found, we really need to pause and enforce a strict boundary on our discussion here. Oh, absolutely. When we discuss the rise in Chinese imports, the loss of US manufacturing jobs, and the",
+      "startTime": 1737.87,
+      "endTime": 1755.87
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "methodology of these economic papers, we are objectively reporting the economic methodology, the mathematical modeling, and the data flows from the provided academic studies. Yes, to be completely clear to you, the listener, we are exploring how economists use UN",
+      "startTime": 1755.87,
+      "endTime": 1772.59
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "comm trade data and shift share instruments to build causal models. We are not taking any political stance on international trade policies or the ethics of globalization or tariff structures. None of that. We are simply conveying the ideas, the challenges, and the math contained in the original source",
+      "startTime": 1772.59,
+      "endTime": 1790.75
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "material. It's really about understanding the mechanics of how we measure reality, regardless of whatever policy implications someone might draw from those measurements. Perfectly said. So keeping our focus strictly on the mechanics and the data, with that highly sophisticated eight country instrument in place, successfully filtering out",
+      "startTime": 1790.75,
+      "endTime": 1810.7
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "US demand, what did the 2013 Otter Dorn and Hanson study actually find when they ran the numbers?",
+      "startTime": 1810.7,
+      "endTime": 1817.34
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "The results were huge. And perhaps more importantly, for the evolution of economics, what happened when another team of researchers reexamined the exact same data a decade later? This is where the story of empirical certainty takes a really fascinating turn. It shows how economics is just a constantly iterative science.",
+      "startTime": 1818.38,
+      "endTime": 1837.2
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "So let's look at the original ADH 2013 estimate first. Okay, so they looked at the change in employment over roughly a decade. And their main analysis utilizing their full set of statistical controls, they found that an extra $1,000 of import exposure per worker over a decade",
+      "startTime": 1837.76,
+      "endTime": 1855.12
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "corresponded to a decline of .596 percentage points in the share of working age residents employed in manufacturing. Let me just lock in the denominator on that real quick, because the scale really matters. It does. The outcome denominator here is the share of the working age population,",
+      "startTime": 1855.76,
+      "endTime": 1872.48
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "those 16 to 64 year olds. So for every $1,000 of import exposure, a town faced the manufacturing employment share of that specific demographic drops by roughly .6 percentage points over 10 years. Right. And that was the consensus number. When that paper was published,",
+      "startTime": 1872.56,
+      "endTime": 1890.08
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "it fundamentally shifted the way economists viewed the friction of globalization. It was a huge deal. But science never stops analyzing its own assumptions. Thank goodness. In 2022, a new study was published by economists, Kurel Burys-Yach, Peter Hall, and Javier Jaravil. We'll refer to them as the BHJ paper.",
+      "startTime": 1890.08,
+      "endTime": 1909.92
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "Okay, BHJ. They revisited the exact same 1990 2007 timeline, the exact same 722 commuting zones, and the exact same UN-contrade import numbers. Wait, they didn't find new data. They just looked at the old data through a different lens.",
+      "startTime": 1909.92,
+      "endTime": 1926.99
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "Exactly. Why? What did they think the 2013 paper actually missed? Well, they were deeply concerned about something called emitted variable bias, specifically regarding the shares part of our shift share instrument. The local recipe part? Right. They noticed that towns that already had a massive amount of",
+      "startTime": 1926.99,
+      "endTime": 1943.47
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "manufacturing in their history might just be on a fundamentally different long-term economic trajectory than towns that didn't, completely regardless of the new China trade shock. Oh, I see. So if a town was like 40% manufacturing back in 1980, it was already exposed to long-term",
+      "startTime": 1943.47,
+      "endTime": 1959.15
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "secular trends. Yes. Like the slow rise of automation or the shift towards a service economy that a town with only 5% manufacturing simply wasn't facing. Precisely. So to fix this, BHJ changed the statistical controls in the regression model. They let each town's earlier manufacturing share,",
+      "startTime": 1959.15,
+      "endTime": 1977.47
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "it's historical baseline before the China shock really ramped up, have a different association with employment changes in each time period. So they essentially said, look, before we blame all these job losses in the 90s and 2000s strictly on this specific international trade shock,",
+      "startTime": 1977.55,
+      "endTime": 1993.63
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "we need to control for the broad overarching long-term trends that were already affecting all heavy manufacturing towns. That's it, exactly. It was a methodological adjustment to control for shifts that were common across manufacturing industries within a given period, isolating the trade shock",
+      "startTime": 1994.35,
+      "endTime": 2010.19
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "even further from just general industrial decline. Okay, that makes sense. And when they ran the massive two-stage model with this new historical control, the revised estimate dropped significantly. How much did it drop? It became a decline of 0.267 percentage points per $1,000 of exposure.",
+      "startTime": 2010.19,
+      "endTime": 2027.31
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "Wow. From 0.596 down to 0.267, that is a massive revision. It's less than half. Let's actually apply these published slopes to our fictional towns from the beginning to see the real-world mathematical difference. Good idea. And I want to explicitly distinguish our simplified",
+      "startTime": 2027.95,
+      "endTime": 2044.03
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "fictional example from the dense published academic numbers, but it really helps visualize the scale of the revision. Applying the published coefficients to our Thought Experiment is absolutely the best way to visualize the magnitude of the change. We are going to keep this final quantitative result",
+      "startTime": 2044.03,
+      "endTime": 2059.31
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "central to our spoken lesson, and we will leave the more complex standard errors, confidence intervals, and full equation numbers for the show notes. Perfect. So bringing back our fictional towns, remember the furniture town had $1,000 of exposure per starting worker. The machinery town had $600",
+      "startTime": 2059.31,
+      "endTime": 2076.03
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "of exposure. The calculated gap between them was $400. Let's just treat that $400 gap as a 10-year exposure difference for the sake of the model. Okay, here is the final calculation. $400 is four-tenths of $1,000 or $0.4, because the published academic slopes are based on a",
+      "startTime": 2076.03,
+      "endTime": 2094.11
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "per $1,000 unit. We need to multiply each published slope by $0.4 to find the difference between our two towns. Okay, using the original 2013 Otter-Dorn Hanson slope, 0.596 multiplied by 0.4, that equals",
+      "startTime": 2094.11,
+      "endTime": 2111.39
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "approximately 0.24. So under the original 2013 model, the furniture town would see a 0.24 percentage point large decline in its manufacturing employment share than the machinery town over a decade.",
+      "startTime": 2111.39,
+      "endTime": 2125.31
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "Now let's use the revised 2022 Boraciek hull and jerevel slope. 0.267 multiplied by 0.4, that equals approximately 0.11. Under the revised model, the furniture town only sees a 0.11 percentage",
+      "startTime": 2125.31,
+      "endTime": 2142.43
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "point larger decline. The implication of that drop is staggering. I mean 0.24 versus 0.11. By slightly changing the statistical controls to account for broader historical industry trends, just acknowledging that manufacturing towns were already on a specific trajectory. Right, the estimated",
+      "startTime": 2142.43,
+      "endTime": 2159.95
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "impact of the specific trade shock was cut by more than half. What's fascinating here is that it completely reframes the severity of the economic story. It really does. The fundamental mechanism remains intact. Imports absolutely do affect local labor markets, and the instrument proves it. But the magnitude of",
+      "startTime": 2159.95,
+      "endTime": 2178.66
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "that specific causal link is drastically reduced when you properly adjust for pre-existing trends. Right. It forces policymakers to realize that maybe half of the localized pain was going to happen anyway due to broader industrial shifts rather than just international trade. So stepping back, what does this all mean for how we understand the world?",
+      "startTime": 2178.66,
+      "endTime": 2197.68
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "That's a big question. If two teams of brilliant, highly credentialed economists can look at the exact same UN Comtray data, use the exact same sophisticated eight country bartic instrument and get results that are over 50% different just by tweaking a historical control variable,",
+      "startTime": 2197.68,
+      "endTime": 2214.64
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "how should we think about economic certainty like are these models even reliable? Well, it means we must treat economic data not as absolute immutable gospel, but as a continuously evolving narrative. Data points are not just cold math. They require profound",
+      "startTime": 2215.2,
+      "endTime": 2230.5
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "inherently human assumptions. They'd require researchers to make difficult choices about how you separate global tech changes from global trade flows or how you control for a town's long-term history. Every single statistical choice, every control variable you include or emit builds a slightly different causal story about reality.",
+      "startTime": 2230.5,
+      "endTime": 2250.42
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "It's a really humbling reminder that even with the best API feeds, the most robust SDMx data pipelines pulling millions of rows from the UN and the cleverest shift share instruments dating back to 1991, we are still just building models. And models are just approximations of a terrifyingly",
+      "startTime": 2250.42,
+      "endTime": 2269.46
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "complex, noisy reality. Which perfectly summarizes the arc of our journey today. We've traveled all the way from Timothy Bartik's early attempts to isolate regional labor demand shifts using local shares and national shifts in 1991, all the way to understanding our fictional",
+      "startTime": 2269.46,
+      "endTime": 2286.1
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "$400 localized exposure gap. We've seen how Otter, Dorne, and Hansen took that framework global, you know, building an instrument using Chinese imports into eight other countries to filter out US consumer demand. Right. And how Borosiak, Hull, and Jaravol refine that narrative in 2022",
+      "startTime": 2286.1,
+      "endTime": 2303.66
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "by controlling for prior decade manufacturing shares, effectively cutting the final impact estimate in half. It really is a testament to the rigorous self-correcting scientific method in empirical economics. The mathematical tools get sharper, the global data infrastructure gets broader, and the inferences we draw just become more nuanced and cautious.",
+      "startTime": 2303.66,
+      "endTime": 2322.78
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "Well, before we wrap up, I want to leave you with one final provocative thought to mull over. Think about the entire analytical journey we just took. The shift share math, the multi-country data requirement, the drastically changing estimates. Exactly. Here is my question for you. Which observation changed the explanation for you?",
+      "startTime": 2322.78,
+      "endTime": 2341.34
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "Was it seeing how the local industry shares, the recipe, dictate the local exposure, even when the macroeconomic shock hitting the country is identical? Or was it the realization that we actually have to use other countries' data, like imports into Australia and Germany, just to understand what is happening in our own domestic labor markets?",
+      "startTime": 2341.9,
+      "endTime": 2361.34
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "Or perhaps it was the fact that simply controlling for a town's prior decade manufacturing history could cut the estimated impact of a massive global trade shock by more than 50%, which really reminds us of the power of omitted variable bias. Which piece of the puzzle made you rethink how",
+      "startTime": 2361.9,
+      "endTime": 2378.54
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "you consume economic narratives and data? Thank you so much for taking this deep dive with us today. It's been incredibly eye-opening unpacking this with you. Until next time, keep questioning the numbers and remember that every statistic has a complex story behind it.",
+      "startTime": 2378.54,
+      "endTime": 2392.38
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "See you on the next deep dive.",
+      "startTime": 2392.38,
+      "endTime": 2400.46
+    }
+  ]
+}

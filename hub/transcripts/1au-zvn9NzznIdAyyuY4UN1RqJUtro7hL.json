@@ -1,0 +1,1052 @@
+{
+  "episodeId": "1au-zvn9NzznIdAyyuY4UN1RqJUtro7hL",
+  "driveId": "1au-zvn9NzznIdAyyuY4UN1RqJUtro7hL",
+  "title": "What Can a Private Draw Tell Us About a Crowd? — Stanley Warner’s (1965) Randomized-Response Spinner, Boruch Forced-Response Likelihoods & Höglinger–Jann Individual-Level Validation Against Observed Dice-Game Cheating",
+  "duration": 2432.29,
+  "teenKit": {
+    "tldr": "In 15 seconds: How do you measure cheating, tax evasion, or illicit drug use when respondents lie to protect themselves? Warner's (1965) randomized response lets a private coin or spinner shield every individual's answer while simple algebra recovers the crowd's true rate.",
+    "whyItMatters": "Privacy-preserving randomization inspired modern differential privacy—yet real-world validation experiments reveal a surprising human twist when innocent people hate tossing a 'say yes' coin!",
+    "keyTakeaways": [
+      "In forced-response randomized response, a private random device forces 'Yes' with known probability p1, 'No' with p0, and asks for the truthful sensitive answer with probability (1 - p1 - p0).",
+      "No interviewer can prove any single 'Yes' came from guilt rather than the coin, yet observed 'Yes' rate P(Yes) = p1 + (1 - p1 - p0)*pi solves cleanly for population prevalence pi (at the cost of higher variance).",
+      "Hoglinger and Jann's clever dice-game validation compared randomized-response estimates against *known* ground-truth cheating—exposing protective noncompliance when honest participants refuse to obey a forced 'Yes.'"
+    ],
+    "vocab": [
+      {
+        "term": "Randomized Response",
+        "meaning": "Survey technique injecting known private randomness into individual answers to guarantee plausible deniability while preserving group estimability."
+      },
+      {
+        "term": "Plausible Deniability",
+        "meaning": "Mathematical protection ensuring an external observer's posterior belief about any single respondent stays bounded away from certainty."
+      },
+      {
+        "term": "Self-Protective Noncompliance",
+        "meaning": "Behavioral bias where innocent respondents disobey a random device's instruction to answer 'Yes' out of fear of looking guilty."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Suppose a private coin forces 'Yes' with probability 0.25 and otherwise asks truthfully (probability 0.75). If 40% of a large crowd answers 'Yes' (and everyone follows instructions), what is the estimated true prevalence pi?",
+        "options": [
+          "40%",
+          "20%",
+          "15%",
+          "65%"
+        ],
+        "correctIndex": 1,
+        "explanation": "0.40 = 0.25 + 0.75 * pi => 0.15 = 0.75 * pi => pi = 0.15 / 0.75 = 0.20 (20%)."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "So back in 2018, there was this team of statisticians who essentially built what they thought was, you know, completely flawless system. Right. Mathematically perfect. Exactly. Or so they thought. Exactly.",
+      "startTime": 0.0,
+      "endTime": 12.48
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "I mean, they were trying to solve this really old, really stubborn problem and research.",
+      "startTime": 13.32,
+      "endTime": 17.68
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "Basically, how do you figure out exactly how many people are cheating in an online game when, well, when every single person has a reason to lie to you? Which is pretty much the classic survey dilemma. Yeah, totally.",
+      "startTime": 18.7,
+      "endTime": 33.86
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "So they use this elegant, like decades old cryptographic method to guarantee perfect privacy for every single player. The equation was pristine. Pristine on paper anyway. Right. But when they actually ran the real world numbers through this perfect system, the math just, uh, it spit out a result that was physically impossible.",
+      "startTime": 34.5,
+      "endTime": 52.54
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "Which is just the best part of this whole story. It's wild. The system literally concluded that negative 1.94% of people were cheaters. A negative percentage. Yeah. And you don't need a math degree to know that you can't have negative people. No.",
+      "startTime": 52.66,
+      "endTime": 67.74
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "So today in this deep dive, we're looking at what a private draw can tell us about a crowd and specifically how this pristine mathematical formula was just completely shattered by, well, human stubbornness.",
+      "startTime": 67.9,
+      "endTime": 79.22
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "It is honestly one of my absolute favorite examples of what happens when you take these beautiful, airtight, theoretical models and they just violently collide with the messy reality of human behavior. Because I mean, a mathematical model is really only as good as the assumptions it makes about the humans feeding it the data. Exactly.",
+      "startTime": 79.66,
+      "endTime": 97.78
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "If the humans don't act like the math expects them to, the whole thing falls apart. So I want you, the person listening right now, to just picture a scene for a second. Let's kind of make this personal. OK, set the stage. Imagine you're sitting at your computer or, you know, maybe you're in a waiting room with a tablet on your lap and you're taking a survey. Sure.",
+      "startTime": 97.94,
+      "endTime": 115.5
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "And it's been pretty standard so far, like demographic stuff, basic opinions on whatever. But then you click to the next page and it asks you a really deeply sensitive question. Like something that could actually get you in trouble. Right.",
+      "startTime": 116.26,
+      "endTime": 131.38
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "Let's say it asks whether you have ever claimed a financial reimbursement, maybe from an employer or, I don't know, on your taxes, that you knew deep down. You were totally ineligible for. Oh, yeah. That's a tense moment. You read the question and your finger just sort of hovers over the screen.",
+      "startTime": 131.54,
+      "endTime": 150.94
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "You hesitate. And that hesitation. That is just a completely universal human reaction. Right. Because the very first thought that flashes through your mind is, wait, who is actually looking at this? Is this really anonymous? Because they always say it's anonymous. But exactly. You're thinking, can this be traced back to my IP address?",
+      "startTime": 151.54,
+      "endTime": 168.78
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "Can they like cross-reference my age, my zip code and figure out exactly who I am? And from the perspective of the researchers conducting that survey, that exact hesitation you just felt is, well, it's a massive structural catastrophe. Wait, really? A catastrophe. Oh, absolutely. Think about it.",
+      "startTime": 169.14,
+      "endTime": 184.94
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "If the people who have actually made a false claim in the past tend to get spooked by the question and just answer no to protect themselves. Which they probably will. Right. Then this huge, expensive, beautifully designed survey is essentially useless. It's just going to give the researchers a very, very precise estimate of the completely wrong number. Right.",
+      "startTime": 185.22,
+      "endTime": 202.9
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "So you are basically just precisely measuring how much people lie rather than measuring tax for us. Exactly. Which is entirely unhelpful. You're measuring the lie, not the behavior. Which is entirely unhelpful.",
+      "startTime": 202.98,
+      "endTime": 214.7
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "How in the world do researchers get accurate, truthful data about a crowd when the individuals making up that crowd have, you know, every possible incentive to lie? It's a great puzzle. And the workaround we're going to explore is honestly one of the most fascinating things in the history of statistics. I love this concept so much. Right.",
+      "startTime": 215.18,
+      "endTime": 233.62
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "Like, what if the researcher gives you a private instruction, an instruction that they cannot see and will never see. But that strictly dictates how you must answer the sensitive question. Which sounds crazy at first. It does.",
+      "startTime": 233.62,
+      "endTime": 246.3
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "But the question is, can they mathematically figure out the guilt of the crowd without ever knowing anything about your individual guilt? Now, before we dive into the actual mechanics of how that could possibly work, I want you, the listeners to make a prediction. I want you to lock in a gut feeling right now. No, we're thinking aloud. Right. Just a gut check.",
+      "startTime": 246.78,
+      "endTime": 266.58
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "If a researcher gives a human subject a physical spinner and that spinner occasionally forces the subject to say the word yes to a crime purely at random. Will the crowd's final data actually reflect reality? That's such a counterintuitive idea. Forcing random yeses. Forcing random yeses. Just making prediction.",
+      "startTime": 267.06,
+      "endTime": 286.1
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "If you force random yeses into the data pool, will that final data be accurate? We're going to reveal the result of this later. And well, it might just change how you view data forever. It's a really profound question because it forces us to look right at the scene where mathematics meets psychology.",
+      "startTime": 286.38,
+      "endTime": 303.1
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "So we have a really fantastic stack of sources to guide it through this today. We're looking at a classic 1965 statistical method by a guy named Stanley Warner. The pioneer of this whole thing. Yeah. Right. And then a really clever 1971 variation of that method by Robert Boruck. Which I think is the most elegant version. I agree.",
+      "startTime": 303.62,
+      "endTime": 322.5
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "We're also going to examine that deeply revealing 2018 behavioral study by Mark Hoechleinger and Ben Yan. The one that gave us the impossible negative percentage. Exactly. And anchoring all of this, we're diving deep into the bedrock principles of Bayesian statistics from a source simply titled one, the likelihood principle. So much good stuff.",
+      "startTime": 322.62,
+      "endTime": 342.46
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "We really need to start in 1965 though with Stanley Warner. Let's do it. Because he was really the first person to attack this problem from a structural angle. Like back then, you didn't have anonymous online surveys. Surveys were often conducted face to face. Oh man. Yeah.",
+      "startTime": 343.02,
+      "endTime": 358.54
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "Imagine a researcher with a clipboard literally sitting in your living room, asking you if you've committed a crime or, you know, engaged in some socially taboo behavior. Exactly. The non-response and lying rates were just astronomical. Well, understandably. I mean, I am not telling a complete stranger on my couch. My dark is secret.",
+      "startTime": 359.06,
+      "endTime": 378.94
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "Right. Nobody would. So Warner proposes this concept called randomized response. And the actual instrument used in this early version wasn't like a digital algorithm hidden in code. It was a physical object. That's right. It was a literal physical spinner or sometimes they used to take a card, but they handed it directly into the respondents hands.",
+      "startTime": 378.98,
+      "endTime": 397.46
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "And that physical aspect is incredibly important to visualize. Picture a board game spinner. The instrument has two outcomes on the dial. One position selects the sensitive statement itself. So for example, it points to I have claimed a false reimbursement. Got it. And the other position.",
+      "startTime": 397.98,
+      "endTime": 415.46
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "The other position on the dial selects the exact opposite statement. I have never claimed a false reimbursement. So to put it in the plaintiff's language possible, the physical instrument measured absolutely nothing but the spoken word yes or no. That is all it recorded. Exactly.",
+      "startTime": 416.47,
+      "endTime": 432.35
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "And we have to be very, very precise here about what we called the human preparation. The human preparation. Let's let's break that down for everyone. So the human preparation is the physical and psychological sequence. The respondent goes through the human respondent privately engages with the physical instrument. Right.",
+      "startTime": 432.79,
+      "endTime": 451.19
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "They're spitting the spinner in their own hands. Yes. They spin it shielding the result entirely from the interviewer's view. The interviewer has zero visual access to where the arrow lands. Total privacy for the physical spin. Right. Then based purely on where the spinner lands, the human preparation dictates",
+      "startTime": 451.35,
+      "endTime": 468.15
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "that the respondent simply speaks a required word out loud to the interviewer. They just say yes or they say no. Because they're answering whichever statement the spinner landed on. And the interviewer doesn't know which statement that was. They just hear the word. Exactly.",
+      "startTime": 468.15,
+      "endTime": 482.59
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "And this is a massive, massive distinction. We have to draw a very hard line here between two concepts, the measurement and the inference. OK, break that down. Measurement versus inference. The instrument measures only the spoken word. The researcher with the clipboard records a binary audio input. Yes or no, that is the measurement. Right.",
+      "startTime": 483.38,
+      "endTime": 502.58
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "Just a tally mark on a clipboard. But that measurement is absolutely not the answer to the research question. The researcher must then infer the actual behavioral rate, the true proportion of the crowd that has committed the act by working backward from that superficial measurement. I see.",
+      "startTime": 502.74,
+      "endTime": 520.1
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "So they are inferring a hidden reality from a shielded proxy. Beautifully put. Yes. You know, I was trying to wrap my head around how this actually secures privacy and practice and it feels exactly like a cryptographic system. Oh, that's a great way to think about it. Right. Like think about it like you're a spy in World War II, sending a message",
+      "startTime": 520.38,
+      "endTime": 540.18
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "using a one time pad. The sender uses a totally random key to scramble their message. Yep. And the receiver intercepting it on the other end does not have the individual key to read that specific individual message. If the receiver intercepts just a single transmission, it looks like total gibberish because it is gibberish without the key.",
+      "startTime": 540.18,
+      "endTime": 559.9
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "Exactly. But and here's the magic. If the receiver knows the mathematical properties of how those random keys were generated in the aggregate, they can decode the average sentiment of a thousand messages, even if every single individual message remains perfectly flawlessly encrypted.",
+      "startTime": 560.02,
+      "endTime": 577.54
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "That cryptographic analogy is honestly spot on. The spinner acts as the one time pad for the respondents privacy. Right. You the respondent, you know your true status. The spinner gives you a random rule for how to encode that status into a simple yes or no, which protects you. Exactly.",
+      "startTime": 577.78,
+      "endTime": 595.26
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "Because the researcher knows the statistical distribution of the rules the spinner generates. Say they know the spinner lands on the sensitive question exactly 70% of the time. They can decrypt the behavior of the crowd in aggregate while you remain individually perfectly secure. It's just brilliant. It feels like a magic trick where the math actually protects you.",
+      "startTime": 595.34,
+      "endTime": 615.18
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "But, you know, Warner's original two statement spinner was really just the beginning of this. Right. It evolved pretty quickly. Yeah, the sources move us a few years later to 1971. A researcher named Robert Borak comes up with a variation that honestly, I think, is conceptually much easier to grasp.",
+      "startTime": 615.94,
+      "endTime": 632.62
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "And it feels a bit more robust for the person actually taking the survey. Yeah. Borak introduced what we call a three instruction variant. Okay. So three instructions instead of two statements. Right. Instead of pointing to different statements, the randomizing device, let's, let's imagine drawing a single card from a deck this time instead of a spinner.",
+      "startTime": 633.06,
+      "endTime": 652.9
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "Okay. I'm picturing a deck of cards. So this card gives you one of three direct commands. Command one, answer the sensitive question truthfully. Easy enough. Command two, automatically say yes, regardless of the actual truth. Oh, wow. And command three automatically say no, regardless of the actual truth, which,",
+      "startTime": 653.26,
+      "endTime": 672.62
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "I mean, that feels like it offers so much better cover. If I look the interviewer in the eye and say, yes, they have absolutely no idea if I'm confessing to a crime or if I just happened to draw the card that literally forced me to say yes. Exactly. Your privacy is mathematically guaranteed by the presence of those forced answers in the deck.",
+      "startTime": 672.62,
+      "endTime": 692.34
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "But this raises the obvious question, right? If a bunch of people in your survey are just blindly shouting yes, because a piece of paper told them to, how do you actually decode the real average of the crowd? Well, to understand that we have to look under the hood and actually do the math. We do.",
+      "startTime": 692.54,
+      "endTime": 708.62
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "And I want to set up a vivid thought experiment for you listening based on borax three instruction method. We are going to run a fictional survey right now. Let's do it. Imagine I hand you a deck of exactly 12 cards. The backs of the cards are completely identical. You cannot tell them apart.",
+      "startTime": 708.82,
+      "endTime": 725.94
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "But on the hidden faces of those 12 cards, the instructions are distributed very, very specifically. And we need to know exactly how they are distributed to do the inference later. Right. So in this fictional 12 card deck, exactly two cards force you to automatically say, yes, exactly one card forces you to automatically say no.",
+      "startTime": 726.62,
+      "endTime": 745.3
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "And the remaining nine cards instruct you to answer the sensitive question truthfully. Okay. Let me repeat that setup because those inputs are the absolute key to unlocking the entire equation later. They are everything. 12 cards total, two cards force a yes, one card forces a no. Nine cards say answer truthfully. So we roll out this fictional survey.",
+      "startTime": 746.14,
+      "endTime": 765.78
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "We get a sample size of exactly 120 people. 120 people got it. Each of those 120 people independently draws one card from a freshly shuffled deck, reads their private instruction and gives the researcher their final single word answer. And then the survey concludes. The researcher looks at their clipboard.",
+      "startTime": 766.14,
+      "endTime": 784.54
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "And they have recorded exactly 47 yes answers out of the 120 people. 47 total yes answers. So here is the challenge for you listening. How much of that 47 represents the real truth? Because some of them are forced. Right. We know some of those are fake yeses generated by the cards.",
+      "startTime": 785.06,
+      "endTime": 804.3
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "How do we strip away the cryptographic noise to find the true crowd rate? Think about this inputs again. 120 people, two out of 12 cards force a yes. Nine out of 12 require the truth. We have 47 total yeses.",
+      "startTime": 804.98,
+      "endTime": 819.98
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "Give it a thought. I'll give you a second. Just let it marinate. OK, let's walk through the intermediate steps to actually decode this. It is basically a process of systematic subtraction and division. It's quite elegant when you break it down.",
+      "startTime": 820.8,
+      "endTime": 833.86
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "We start with our total population, 120 people. Right. We know the probability of drawing a forced yes card is two and 12, which you know, simplifies to one sixth. Right. Two divided by 12 is one six. Right. So out of 120 people drawing randomly, we expect one sixth of them to draw that specific forced yes card.",
+      "startTime": 834.62,
+      "endTime": 854.58
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "One sixth of 120 is 20. OK, the math tracks. We expect exactly 20 automatic meaningless yes answers. OK, I follow that completely. So we take our total recorded yeses, which was 47. And we just subtract those 20 expected automatic yeses. Exactly.",
+      "startTime": 854.9,
+      "endTime": 874.1
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "47 minus 20 leaves us with 27. Yep. Those 27 remaining yes answers must have come from the group of people who drew the answer truthfully cards because we just removed all the fake ones. Right. But to find the percentage, the final rate, we need to know how big that truthful group actually is. We can't just divide by the whole 120.",
+      "startTime": 874.3,
+      "endTime": 894.26
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "Oh, because some of those 120 got forced no's or forced yeses. Exactly. We know that nine out of the 12 cards, which is three quarters of the deck, instruct the respondent to be truthful. Nine out of 12, three quarters. Yeah. So we calculate three quarters of our total 120 people. That gives us 90.",
+      "startTime": 894.66,
+      "endTime": 912.98
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "We expect that 90 people in our survey got a truthful instruction, which brings us to the final calculation. We have 27 real truthful yes answers. And they came from an expected pool of 90 truthful respondents. So we divide. We divide 27 by 90.",
+      "startTime": 913.42,
+      "endTime": 931.1
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "And when you do that, you get a beautiful, clean number. 27 divided by 90 is exactly 30%. 30% as our inferred behavioral rate. It is the underlying truth of the crowd. Extracted from a pile of noisy, shielded data. It's amazing.",
+      "startTime": 931.46,
+      "endTime": 947.02
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "And for anyone who really loves the deeply granular math, we are going to leave the more complex decimal fractions and the heavy algebraic formulas for the show notes. Yeah. Nobody wants to hear us read long decimals out loud. Definitely not. For our spoken conversation today, we're just going to use that nice, clean, 30% baseline as our anchor. Sounds good.",
+      "startTime": 947.54,
+      "endTime": 967.26
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "But wait, stop right there. I am looking at this logic we just walked through and there is a glaring hole in what we just did.",
+      "startTime": 967.34,
+      "endTime": 975.34
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "Oh, where do you see a hole? We just said that we expect 20 people to draw the automatic yes, cart. Because two out of 12 is one sixth and one sixth of 120 is 20. Yes. But this is random card drawing. It's messy humans pulling from a shelf of deck. What if 25 people drew the automatic yes, card?",
+      "startTime": 976.12,
+      "endTime": 995.7
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "What if it was just a weird run of like an only 15 people draw it? Ah, yes. This raises a crucial question and it is exactly where the profound beauty of probability theory comes into play. Because it can't just be exactly 20 every time. You are absolutely right to question that.",
+      "startTime": 996.34,
+      "endTime": 1013.5
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "That 20 is just a model expectation. It is the average outcome. If we ran this fictional survey a million times in a row, but in real life, you only run the survey once. Exactly. You have sampling variation. The actual number of automatic yeses could absolutely fluctuate.",
+      "startTime": 1013.9,
+      "endTime": 1031.46
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "And if we rigidly blindly assume it was exactly 20, we are creating a dangerous false sense of certainty in our data. So how do we deal with the fact that our cryptographic shield is inherently unstable? The noise isn't fixed. To deal with that, we don't try to lock it down to a single perfect number.",
+      "startTime": 1031.98,
+      "endTime": 1048.94
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "We don't just solve backward algebraically like we did a second ago. Okay. So what do we do? Instead, we embrace the uncertainty using Bayesian statistics and specifically a concept called the likelihood principle. The likelihood principle. Right. Okay. Instead of just solving for a one point estimate, like 30%, we construct candidate rates.",
+      "startTime": 1048.94,
+      "endTime": 1068.26
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "We ask the math, given the messy data we saw, is it more likely that the true crowd rate is 20% or is it more likely that it's 30%? We compare the different theoretical worlds that could have produced our actual data. You know, our sources get incredibly deep into this, specifically the handout on the likelihood principle.",
+      "startTime": 1068.62,
+      "endTime": 1087.14
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "And I have to say this completely broke my brain when I was prepping for this. It's a heavy concept. It really is. To understand how Bayesian's view evidence, we have to talk about Leonard Jimmy Savage. Yes, Savage. Savage was an absolute giant in the field of statistics in the 20th century. And the source material details an argument he made at the Purdue Symposium",
+      "startTime": 1087.54,
+      "endTime": 1106.22
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "in 1962, involving something as simple as coin flipping. It's such a brilliant example. It is a masterclass in how different statistical philosophies look at the exact same physical reality and draw entirely different conclusions. Yeah. Savage's example is famously known as testing fairness.",
+      "startTime": 1106.46,
+      "endTime": 1124.7
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "And the premise is incredibly simple. Suppose you hand me a coin and you want to know if it's rigged. Does it land on heads more often than it mathematically should? OK, fair enough. To find out, we have to gather data. So we conduct an experiment. We flip the coin and the final outcome of the experiment is that we",
+      "startTime": 1125.22,
+      "endTime": 1142.26
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "observe nine heads and three tails, 12 flips total, nine heads, three tails. Right. Now, the source text introduces a really brilliant term here. It calls this a Rachamanian analysis named after the classic Akira Kurosawa movie Rachaman, where the exact same event is viewed through different contradictory perspectives by different characters.",
+      "startTime": 1142.26,
+      "endTime": 1161.9
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "Let's look at the scenario one in this Rachamanian analysis. OK, scenario one. Scientist A conducts the coin flip experiment. Before they even start flipping, scientist A writes down a plan. I am going to flip this coin exactly 12 times, no matter what happens. OK, so they have a set limit. Right.",
+      "startTime": 1162.46,
+      "endTime": 1179.66
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "That is what statisticians call a fixed sample size. That makes perfect sense. I'm going to flip it 12 times. Then stop under that specific intention, the data of nine heads and three tails yields a specific probability curve called a binomial distribution. If you use classical frequentist statistics to calculate the p value, which",
+      "startTime": 1180.26,
+      "endTime": 1198.98
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "is the probability of getting a result this extreme, if the coin was actually totally fair, you get a p value of about .073 .073. OK, which in classical testing usually means you do not reject the hypothesis that the coin is fair.",
+      "startTime": 1198.98,
+      "endTime": 1215.38
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "The standard cutoff for statistical significance is usually .05 or 5%. Right. Exactly. Since .073 is higher than 5%. Scientist A looks at the data and says, yeah, nine heads out of 12 is weird, but it's not extreme enough to mathematically prove the coin is rigged. Exactly.",
+      "startTime": 1216.26,
+      "endTime": 1234.42
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "But here is scenario two. Scientist B walks into the room. Scientist B conducts the exact same physical actions, but with a different internal intention. Their mental intent is different. Yes. Scientist B writes down, I'm going to keep flipping this coin until I get exactly three tails.",
+      "startTime": 1235.02,
+      "endTime": 1254.22
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "However long that takes. OK, so their rule for when to stop the experiment is entirely different. Yes. That is called a negative binomial distribution. The stopping rule has changed. And lo and behold, scientists B starts flipping and they happen to stop after",
+      "startTime": 1254.3,
+      "endTime": 1269.78
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "exactly 12 flips because by sheer chance that is exactly when their third tail appears. Oh, wow. So they also observe nine heads and three tails. Exactly. The physical reality is identical. The data is identical. 12 flips, nine heads, three tails.",
+      "startTime": 1269.78,
+      "endTime": 1287.31
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "But the interpretation changes to a frequentist statistician. Yes. The p-value calculation changes entirely. Why? Because the frequentist method doesn't just look at what happened. It looks at what could have happened. It looks at the sample space of unobserved possibilities. Let me just get my head around this.",
+      "startTime": 1287.59,
+      "endTime": 1306.95
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "The sample space of unobserved possibilities, like alternate realities. Think about it this way. For scientists A, the maximum number of flips was always 12. They were always going to stop. Right. But for scientists B, because they were waiting for three tails, the",
+      "startTime": 1307.15,
+      "endTime": 1323.91
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "experiment could have theoretically gone on for a hundred flips or a thousand flips. If they kept getting heads, the unobserved timelines are vastly different. Oh, I see. Because those invisible alternate realities stretch out much further for scientists B, the probability of the data sitting on the extreme edge of the curve changes.",
+      "startTime": 1323.91,
+      "endTime": 1343.35
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "For scientists B, the frequentist p-value was calculated to be about 0.032. Wait, 0.032 is less than the standard 0.05 cutoff. It is. Which means scientists B would declare the coin rigged. Yes. They absolutely would. This is completely wild to me. You have two scientists.",
+      "startTime": 1343.71,
+      "endTime": 1362.63
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "They flip the exact same physical coin. They generate the exact same sequence of heads and tails in reality. But they draw completely opposite scientific conclusions about the fundamental nature of that coin simply because of what they intended to do before they started. It feels crazy, right? The frequentist math literally depends on the mental intent of the human",
+      "startTime": 1362.75,
+      "endTime": 1382.31
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "flipping the coin. The unobserved timelines alter the value of the reality you actually saw. And that right there is exactly what Savage and the Bayesians found philosophically unacceptable. I can see why.",
+      "startTime": 1382.31,
+      "endTime": 1395.13
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "According to the likelihood principle, intent does not matter. The rules governing when data collection stops are utterly irrelevant to the interpretation of the data you actually collected. The evidence is just the evidence. You don't get to dilute it with your mental state or, you know, alternate timelines that never happened. Precisely.",
+      "startTime": 1395.89,
+      "endTime": 1413.77
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "All the relevant information, all the evidence the universe has actually given you about that coin is contained purely in the observed data itself. The likelihood function only cares about the nine heads and the three tails you actually saw sitting on the table, not the infinite alternate realities you might have seen if you hadn't stopped flipping.",
+      "startTime": 1414.37,
+      "endTime": 1432.93
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "OK, so this is a really profound philosophical shift in how we view data. But how does this abstract debate about coin flips and alternate timelines connect back to our survey with the 12 cards? Good question. It dictates exactly how we handle that sampling variation you were worried about. The messy humans drawing cards. Right.",
+      "startTime": 1433.17,
+      "endTime": 1451.97
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "Remember, you were worried that we didn't know exactly how many people drew the forced yes card. The Bayesian approach says we don't pretend we know exactly how many forced yeses there were. We don't try to lock down a single algebraic answer. Instead, we use the likelihood principle to evaluate candidate realities. Candidate realities.",
+      "startTime": 1452.17,
+      "endTime": 1471.93
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "Like asking which universe we are most likely living in based on the evidence. Exactly. Suppose we start our survey analysis by believing it's equally likely that the true crowd rate of our sensitive behavior is either 20% or 30%. OK, so 50 50 prior belief equal odds for those two candidate rates. Yes.",
+      "startTime": 1472.41,
+      "endTime": 1490.65
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "The likelihood principle tells us to look at our actual observed data, the 47 total yeses and the 73 total nos from our 120 people. We then calculate the probability of seeing exactly that data. If the true rate was 20%, then we independently calculate the probability of",
+      "startTime": 1491.01,
+      "endTime": 1509.57
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "seeing exactly that data if the true rate was 30%. So we compare them. Exactly. We compare the likelihood of the data under those two competing models of reality. Now the actual math for this gets intense. It involves taking the predicted probability of a yes under each model, raising it to the power of 47 for the yeses.",
+      "startTime": 1509.57,
+      "endTime": 1528.69
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "Doing the same for the nose to the power of 73 and multiplying them. Just heavy computation. Very heavy. As promised, the show notes will have all the complex powers and likelihood ratios mapped out. But the conceptual takeaway is what we really need to focus on. When you do that Bayesian updating, you find that the likelihood of our data under",
+      "startTime": 1529.25,
+      "endTime": 1547.73
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "the 30% model is substantially higher. Yes. The data pulls you toward the 30. It creates a posterior probability shift in our fictional example of massive shift to about 82% confidence in the 30% candidate rate up from our initial 50 50 guess.",
+      "startTime": 1547.73,
+      "endTime": 1565.37
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "We let the data speak for itself and it pointed strongly toward 30%, even carrying the uncertainty of the random cards through the calculation. But here is the crucial catch and it ties directly back to the strength of our cryptographic shield. Oh man, there's always a catch. There really is.",
+      "startTime": 1565.77,
+      "endTime": 1582.17
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "The more automatic forced answers you put in the deck to protect privacy, the more you flatten those likelihood curves. Flatten them. Yeah. A larger allocation of automatic responses means that each individual person's answer carries less and less real information about their true status. Because it's mostly just noise.",
+      "startTime": 1582.85,
+      "endTime": 1601.73
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "If I build a deck where I don't know, 99 cards out of 100, four say yes.",
+      "startTime": 1602.05,
+      "endTime": 1606.49
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "A recorded yes tells the researcher almost nothing at all. Exactly.",
+      "startTime": 1607.32,
+      "endTime": 1611.24
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "So to confidently distinguish between two competing candidate rates, to get the Bayesian math to firmly point to 30% over 20%, you need a much, much larger sample size to overcome the noise of the shield. I see. You are fundamentally trading statistical efficiency for respondent",
+      "startTime": 1612.0,
+      "endTime": 1628.68
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "privacy, the stronger the shield, the more data you need to see through it. Okay. So the Bayesian math is incredibly elegant. It perfectly counts for uncertainty. It rejects the weirdness of intent altering reality. And it gives us a rigorous logical way to decode the noise of our shield. It is an airtight logical construct.",
+      "startTime": 1628.68,
+      "endTime": 1648.22
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "It is beautiful, but I feel a bug coming.",
+      "startTime": 1648.22,
+      "endTime": 1651.6
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "What happens when we take this beautiful pristine textbook math and handed to actual unpredictable, messy human beings? That is when the theoretical rubber completely melts on the highly irregular road of human psychology, which brings us to the year 2018. And this incredible study by researchers, Mark Hoeglinger and Ben Jan.",
+      "startTime": 1652.49,
+      "endTime": 1671.33
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "And this study is phenomenal because they didn't just run a theoretical survey. They built a trap. A very clever, scientifically necessary trap, honestly. Right. They needed a way to test if randomized response methods actually work better in the real world than just looking someone in the eye and asking them a direct question.",
+      "startTime": 1671.69,
+      "endTime": 1689.29
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "But to test that, you need to know the ground truth. You need to know exactly who was lying. And usually you can't know that. That's the whole problem. If you knew who was lying, you would need the survey. Exactly. But they figured out a workaround. They set up an online experiment with thousands of participants, featuring a digital game called Rolla 6.",
+      "startTime": 1689.61,
+      "endTime": 1708.25
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "The premise was so simple and incredibly tempting. Participants were instructed to roll a die. If they rolled a six, they were entitled to claim a $2 bonus. It is essentially an honor system game designed explicitly to create a clear financial incentive to cheat. Totally.",
+      "startTime": 1708.65,
+      "endTime": 1726.02
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "If you roll a three in your living room, you have a $2 reason to lie to the screen and say you rolled a six.",
+      "startTime": 1726.46,
+      "endTime": 1732.7
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "I'm not going to lie. For two bucks, the temptation is real. You think who's going to know?",
+      "startTime": 1733.64,
+      "endTime": 1738.9
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "But the researchers had a secret weapon. The interface involved a digital element. And crucially, the researchers secretly logged the first role generated by the system before the participant even clicked the button to make their claim. They possessed the omniscient perspective. The researchers had the exact ground truth.",
+      "startTime": 1739.81,
+      "endTime": 1757.85
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "They knew with absolute certainty, every single person who rolled a non six, but claimed the $2 bonus anyway. Oh man. They had a perfect unimpeachable list of the cheaters. So now armed with this godlike knowledge of who actually cheated, they can finally test the survey methods.",
+      "startTime": 1757.93,
+      "endTime": 1775.33
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "They split the thousands of participants into groups. Let's talk about the first group.",
+      "startTime": 1776.24,
+      "endTime": 1780.7
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "One group was just asked the direct question. Did you claim a win after rolling something other than a six? No fancy cards, no spinners, just did you cheat? And they compared the published survey estimates against the recorded secret game behavior. Let's break down the data for that direct question group first.",
+      "startTime": 1782.12,
+      "endTime": 1802.1
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "Based on the secret logs, the observed cheating rate, the undeniable ground truth reality was 4.46 percent. 4.46. Okay. When they just asked the direct question in the survey, the standard math estimated a cheating rate of 3.94 percent.",
+      "startTime": 1802.7,
+      "endTime": 1820.62
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "That is shockingly close. I mean, just asking them directly with no fancy cryptographic shield got them within half a percentage point of the absolute truth. People were surprisingly honest or at least the errors were really small. Yeah, the direct question did surprisingly well.",
+      "startTime": 1820.7,
+      "endTime": 1837.38
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "But then we look at the group assigned to the forced response method. The shield group. Right. This group used the exact same random ice set up we talked about earlier, the specific deck positions, the forced yeses, the forced nose, the truthful instructions, the impenetrable mathematical shield.",
+      "startTime": 1837.86,
+      "endTime": 1854.58
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "And this is where the entire theory collides with reality and just completely shatters. It really does. In the forced response group, the secret logs revealed that the true observed cheating rate was 5.20 percent.",
+      "startTime": 1854.7,
+      "endTime": 1866.66
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "But when the researchers took the recorded answers from the survey and ran them through the flawless Bayesian math we just spent all that time discussing. Oh, it hurts to even say it. The mathematical model calculated a crowd cheating rate of minus 1.94 percent. Minus 1.94. Wait, stop. A negative percentage.",
+      "startTime": 1867.57,
+      "endTime": 1886.57
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "I have the challenges that makes absolutely no physical or logical sense. A negative percent of people cheated. That is like saying the amount of water in my glasses less than empty. It's an ontological impossibility. It is entirely multiple. Yes. You were telling me this flawless mathematical model built by geniuses like",
+      "startTime": 1887.05,
+      "endTime": 1904.69
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "Savage spit out a reality that cannot exist in this universe. It did. It absolutely did. To understand how the beautiful math broke so spectacularly, we have to look at the hidden fragile thread that holds the entire randomized response theory",
+      "startTime": 1904.69,
+      "endTime": 1920.13
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "together. We have to look at what the math inherently assumes about human behavior. OK, before we talk about behavior, explain to me how a negative percentage even happens mathematically, like break the arithmetic down for me.",
+      "startTime": 1920.13,
+      "endTime": 1933.33
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "OK, let's run a new fictional example to show the math. Same 12 card set up. Two forced yeses, one forced no nine truthful. Same 120 people taking the survey. Right. But this time, suppose the survey concludes and the researcher looks at their",
+      "startTime": 1934.15,
+      "endTime": 1950.43
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "clipboard and has recorded only 15 yes answers in total.",
+      "startTime": 1950.43,
+      "endTime": 1954.71
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "OK, let's walk through the calculation against step by step. We have our total of 15 observed yeses. Yes. And we still expect 20 automatic yeses from the one sixth of the deck that forces a yes, that hasn't changed. OK, so we do the subtraction.",
+      "startTime": 1955.47,
+      "endTime": 1971.07
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "15 total observed yeses minus the 20 expected automatic yeses. 15 minus 20 equals negative five. Right. We have negative five real guesses. Then we do the division. We divide that negative five by the expected 90 truthful instructions.",
+      "startTime": 1971.63,
+      "endTime": 1988.91
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "Negative five divided by 90 is roughly negative five point six percent. Wow.",
+      "startTime": 1989.11,
+      "endTime": 1995.15
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "That is the mechanical reason the estimator goes below zero. The total recorded yes, share in reality simply fell below the baseline. Automatic yes, share that the structural design demanded. OK, I see the literal mechanics of it, but we talked about sampling variation",
+      "startTime": 1996.3,
+      "endTime": 2011.78
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "earlier. Couldn't a slight dip below zero just be weird luck, fluke of the draw, where hardly anyone drew the forced yes card? A slight dip, perhaps. Sure. Random noise happens, but a massive shortfall consistently generating deeply negative numbers like Hoeglinger and Jansaw across thousands of participants.",
+      "startTime": 2011.78,
+      "endTime": 2031.74
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "That is not a fluke. No, you can't blame thousands of participants on a fluke. Exactly. That is a structural failure of the highest order, which brings us to the ultimate question, which assumption links the perfect mathematical calculation to the conclusion of the study? What is the model blindly taking for granted? What is the assumption?",
+      "startTime": 2032.14,
+      "endTime": 2050.74
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "The foundational assumption of randomized response is absolute unquestioning compliance. The math assumes that when a human being is sitting in the privacy of their own home, staring at a screen that says automatically say yes, they will actually obey that instruction like a robot. And they didn't. They absolutely did not.",
+      "startTime": 2051.34,
+      "endTime": 2069.98
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "The researchers dug deep into the data and found something incredible. Remember, they had the secret logs. Oh, right. The God mode logs. Yeah. So they looked at a very specific group, the participants whose secret die rolls and their final claims perfectly matched, meaning they were completely honest people who did not cheat in the game. Okay.",
+      "startTime": 2070.54,
+      "endTime": 2089.74
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "Even within that specific, innocent subgroup, the adjusted survey estimate fell completely below zero. Oh, wow. Let me synthesize what that actually means in practice. You have an honest person. They rolled a three.",
+      "startTime": 2090.66,
+      "endTime": 2103.82
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "They did not claim the two dollar bonus. They are totally innocent. Right. Then they take the survey and the randomizing digital device lands on the instruction automatically say yes, you cheated.",
+      "startTime": 2104.57,
+      "endTime": 2115.53
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "And that honest person looks at the screen, thinks about their own integrity and says, no, absolutely not. I am not saying I cheated when I didn't. Precisely. The psychological aversion to saying the words I cheated, even when the researcher explicitly told them it was a forced response, even when they knew the researcher could",
+      "startTime": 2116.64,
+      "endTime": 2135.92
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "approve anything, that deep seated psychological aversion completely overrode the mathematical shield that is wild. They refuse to falsely confess to a crime they didn't commit even to a computer. It is the ultimate irony. The entire method was designed to protect the guilty from having to confess.",
+      "startTime": 2135.92,
+      "endTime": 2154.2
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "But it broke because it forced the innocent to confess. Yes. The honest people sabotaged the baseline mathematical noise that the guilty people desperately needed for cover. It is a profound lesson in the absolute limits of quantitative modeling. A Bayesian model can be designed with priors that mathematically constrain the",
+      "startTime": 2154.72,
+      "endTime": 2173.52
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "final result between zero and one. You can force the math to never output a negative number by tweaking the parameters. Sure. You can put guardrails on it. But no amount of elegant Bayesian updating can fix bad human inputs. The math is just a machine. It only processes what it has fed. If the humans refuse to feed it, the baseline randomness, it strictly requires",
+      "startTime": 2173.52,
+      "endTime": 2193.32
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "that the machine fundamentally breaks. So going back to the question I asked you, the listener, at the very beginning of the deep dive, will the final data reflect reality if you force people to randomly say, yes, to a crime?",
+      "startTime": 2193.32,
+      "endTime": 2204.76
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "We now know the answers are resounding catastrophic. Yeah, the math cannot conquer the human ego. But I want to ask you another question. One that tests how we evaluate evidence. Think about the story we just told, which specific observation in the Hugglinger and Jan study actually changed our explanation of what went wrong.",
+      "startTime": 2205.64,
+      "endTime": 2225.23
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "What was the linchpin data point that cracked the case? Give it a moment's thought. What piece of data proved it was human psychology and not a math error.",
+      "startTime": 2225.95,
+      "endTime": 2235.43
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "It was a discrepancy between the secretly recorded die rolls and the final survey estimate without that omniscient ground truth, without the researchers secretly knowing exactly who actually rolled a six.",
+      "startTime": 2236.26,
+      "endTime": 2248.12
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "The negative percentage would just look like a bizarre unexplainable statistical anomaly. Exactly. It was the secret logs that definitively proved it was a behavioral failure of compliance, not a mathematical failure of probability. And that leads to a very, very practical piece of advice for any researcher or,",
+      "startTime": 2248.88,
+      "endTime": 2267.32
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "frankly, anyone interpreting this kind of complex data in the wild. Before you ever rely on a randomized response design for deeply sensitive data, you must test the machinery on the humans first. You can't just trust the formula. You have to run a practice question with a known ground truth.",
+      "startTime": 2267.44,
+      "endTime": 2284.36
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "And critically, you must check compliance separately for different groups. You need to see if people whose true answer is yes, follow the rules and you need to see if people whose true answer is no follow the rules. Because as we just saw, the innocent people are the ones who shatter the shield.",
+      "startTime": 2284.8,
+      "endTime": 2299.92
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "This has been a wild journey. We started with Stanley Warner's physical spinner back in 1965, trying to build a perfect cryptographic wall around the anxious survey responded. We moved to Robert Borges' elegant three card deduction, where we learned to subtract the noise and divide by the truth, which was so clean.",
+      "startTime": 2300.88,
+      "endTime": 2318.0
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "We took a deep, deep detour into the likelihood principle, discovering that the intentions of a scientist shouldn't change the evidence of a simple coin flip. And finally, we crashed headfirst into the hoechlinger and Jan Dies game, where human stubbornness and the absolute fear",
+      "startTime": 2318.56,
+      "endTime": 2334.4
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "of a false confession completely shattered a perfect mathematical equation. It really emphasizes that a shortcut to being truly well informed isn't just about knowing what the final data says or even understanding how the complex math works under the hood. Right. There's a deeper layer.",
+      "startTime": 2334.4,
+      "endTime": 2349.96
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "True deep insight comes from understanding what assumptions the math fundamentally takes for granted about the world. Because when the assumptions fail, the data is just fiction, which brings me to a final provocative thought I want to leave you with. It's drawn from a brief mention in the source text regarding the two envelope",
+      "startTime": 2350.36,
+      "endTime": 2368.72
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "paradox and the principle of conditionality in statistics, choosing exactly what information we condition our beliefs on can sometimes act as a psychological trap.",
+      "startTime": 2368.72,
+      "endTime": 2378.64
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "So think about this in the context of our survey. Does the very act of handing someone a complicated randomized spinner or a deck of cards to protect them actually make them more suspicious? Oh, that's interesting. Does introducing this bizarre, mathematically complex shield",
+      "startTime": 2379.58,
+      "endTime": 2396.46
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "unconsciously signal to the respondent that the question must be incredibly dangerous? Does the shield itself create the very paranoia? It was designed to cure, making them far less likely to tell the truth than if you had just looked them in the eye and asked them directly. It really makes you wonder about the unintended consequences of all the security.",
+      "startTime": 2396.94,
+      "endTime": 2414.42
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "It is something to seriously maul over the next time you were asked to trust a complex system. Thank you so much for joining us on this journey. Remember to check the show notes for all the heavy, busy and math equations and the decimal breakdowns we skipped today. Until next time, keep questioning the assumptions.",
+      "startTime": 2414.66,
+      "endTime": 2432.06
+    }
+  ]
+}

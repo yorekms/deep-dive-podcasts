@@ -1,0 +1,821 @@
+{
+  "episodeId": "1WCbIx0zUgoOluV2zGPm86Dgs_F418fpN",
+  "driveId": "1WCbIx0zUgoOluV2zGPm86Dgs_F418fpN",
+  "title": "When Should a Pay Raise Change Spending? — Modigliani & Friedman Permanent Income, Robert Hall’s (1978) Martingale Consumption Euler Equation & Campbell–Mankiw Rule-of-Thumb Income Sensitivity in BEA Data",
+  "duration": 1826.88,
+  "teenKit": {
+    "tldr": "In 15 seconds: If your boss announces a pay raise six months early, do you adjust spending when you hear the news or wait until the paycheck hits? Hall's (1978) permanent-income martingale says predictable income shouldn't jolt spending at payday—and Campbell & Mankiw measured how real households split that rule.",
+    "whyItMatters": "Stimulus checks, tax refunds, and interest-rate policy work completely differently depending on what fraction of households smooth life-cycle income vs. spend paycheck-to-paycheck.",
+    "keyTakeaways": [
+      "Friedman and Modigliani argued rational forward-looking consumers smooth consumption across life-cycle permanent income.",
+      "Robert Hall (1978) proved a striking implication via the consumption Euler equation: only *unanticipated* news should move consumption, so lagged predictable income changes shouldn't predict consumption growth.",
+      "Campbell and Mankiw (1989) used instrumental variables on BEA aggregate data to estimate lambda ~ 0.5: roughly half of income goes to liquidity-constrained or rule-of-thumb consumers who spend when cash arrives."
+    ],
+    "vocab": [
+      {
+        "term": "Euler Equation",
+        "meaning": "First-order optimality condition equating today's marginal utility of consumption to discounted expected future marginal utility."
+      },
+      {
+        "term": "Martingale / Random Walk",
+        "meaning": "A sequence whose future change cannot be predicted from information already known today."
+      },
+      {
+        "term": "Excess Sensitivity",
+        "meaning": "Empirical response of consumption growth to predictable income changes, violating pure frictionless permanent-income smoothing."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Under Robert Hall's (1978) pure rational-expectations permanent-income hypothesis, when should a pre-announced bonus change household consumption?",
+        "options": [
+          "Only two years after it is deposited",
+          "When the news is first learned, with zero extra jump on the predictable payday itself",
+          "Never under any circumstance",
+          "Only during recessions"
+        ],
+        "correctIndex": 1,
+        "explanation": "Forward-looking consumers without credit constraints incorporate expected income at announcement, leaving no predictable jump left on payday."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "Imagine your boss calls you into their office today. Oh, always a stressful moment, right? Right, exactly. You sit down and they slide this piece of paper across the desk. And it is like a massive life-changing pay raise. The dream scenario. Totally. A guaranteed promotion in writing. But there is a catch.",
+      "startTime": 0.0,
+      "endTime": 18.96
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "The new salary doesn't actually go into effect for three months. Ah, right. It's a classic corporate maneuver. You get the title today, but you know the actual cash doesn't show up until next quarter. Exactly. So here is the puzzle for you. You know the money is absolutely guaranteed.",
+      "startTime": 18.96,
+      "endTime": 34.84
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "On which date should your daily spending habits actually change? It's a really good question. Like, do you celebrate tonight? Do you go out and order a massive stake, book a vacation, and just start living like a person with a higher salary right now? Because you know it's coming. Yeah. Or do you wait out the 90 days living on your old budget",
+      "startTime": 34.84,
+      "endTime": 52.72
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "until the cash actually clears your bank? So lock in your answer. Don't say it out loud. Just, you know, make your prediction in your head. It really is a phenomenal puzzle. And while the answer reveals these mechanics about human behavior that literally dictate the flow of trillions of dollars globally. Welcome to today's Deep Dive.",
+      "startTime": 52.72,
+      "endTime": 70.24
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "It is Saturday, November 14th, 2026. And our topic today is, when should a pay raise change spending? I'm really excited for this one. Me too. Because our mission today is to take you behind the curtain of that exact puzzle. We want to bypass all the heavy and penetrable academic jargon",
+      "startTime": 70.24,
+      "endTime": 87.16
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "and just give you a shortcut to understanding the incredibly complex relationship between when we find out about new money and when we actually spend it. Because I mean, this dynamic doesn't just dictate the balance of your personal checking account. It dictates how entire nations function. Oh, for sure. Like how recessions start, how economic booms are sustained.",
+      "startTime": 87.16,
+      "endTime": 105.8
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "We are talking about the literal mechanics of household consumption. And to get to the bottom of this, we are pulling from just an incredible stack of sources today. First, we have the official web portal for the Bureau of Economic Analysis Data. Right, the BEA. The BEA, exactly. Which is basically the ultimate ledger of the American economy.",
+      "startTime": 105.8,
+      "endTime": 123.32
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "And we are placing that massive real world data sandbox right next to some of the most foundational economic studies of the 20th century. Some really big names in here. Yeah, we're talking Franco Magliani and Richard Brumberg, Milton Friedman, Robert Hall, and the duo of John Campbell and Greg Reimancue. It is a heavyweight lineup of thinkers for sure.",
+      "startTime": 123.32,
+      "endTime": 141.24
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "And what we're really tracking today is like a collision. Yeah, because we are going to look at these pristine, mathematically elegant theoretical models of how humans supposedly should behave.",
+      "startTime": 141.24,
+      "endTime": 152.92
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "And then we are going to smash those models into decades of cold, hard, national data to see what actually happens. Like do we act the way the math says we should? Exactly. Okay, let's unpack this. Because to understand how economists even approach the puzzle of the delayed pay raise,",
+      "startTime": 153.91,
+      "endTime": 171.11
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "we have to look at how their understanding of humans evolved over time. We used to think about spending in a very primitive way, right? We really did. I mean, for a long time, the prevailing thought in economics was that saving and spending were almost day to day whims. Totally random. Basically, the assumption was that your spending was strictly tied to whatever cash",
+      "startTime": 171.19,
+      "endTime": 189.99
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "was physically sitting in your pocket. That specific week. You make a dollar, you spend a dollar. Which sounds a little like, I don't know, surviving week to week without any grand strategy at all. And that didn't sit right with Franco Modigliani and Richard Brumberg. This was back in 1954. Okay, 1954. Yeah. And if you think about the context of the 1950s, right?",
+      "startTime": 189.99,
+      "endTime": 209.83
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "Post-war America, people buying homes, planning for retirement, taking out 30-year mortgages. Oh, right. Humans clearly weren't just thinking about the next weekend. Exactly. So Modigliani and Brumberg introduced this idea called the life cycle hypothesis.",
+      "startTime": 209.83,
+      "endTime": 224.07
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "They framed saving, not as a reaction to your weekly paycheck, but as a lifelong conscious decision. So they argued that we are basically looking at the whole chessboard of our lives. Yeah, they suggested that you, as a rational person, look at your entire expected lifespan. Like, you know that your trajectory. Right. And you start out broke.",
+      "startTime": 224.89,
+      "endTime": 244.39
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "Pretty much. You will have very low income when you are young and just starting out. Then you'll hit a high peak income in your middle years. And then you will eventually have zero income when you retire. That makes total sense. And to avoid starving when you were old or living in utter poverty when you were young, you try to smooth out your consumption over time.",
+      "startTime": 244.39,
+      "endTime": 264.31
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "So you borrow when you're young to go to school or buy a house, I guess? Right. And then you save like crazy during your peak earning years to pay off that debt and build an aesthetic. And finally, you spend down those savings in retirement. Nobody wants to feast in their 40s and starve in their 70s. That makes total sense. You want to relatively smooth ride.",
+      "startTime": 264.31,
+      "endTime": 284.07
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "It's very logical. But, I mean, real life isn't a perfectly predictable curve. Medigliani's model assumes, you know, exactly how your life is going to play out. What about surprises? Like, what if I get laid off? Or I don't know, what if I hit a $500 parlay on a football game? And that is the exact flaw that drove the next big leap in the theory.",
+      "startTime": 284.07,
+      "endTime": 302.79
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "Medigliani's model couldn't properly account for the chaos of real life. Because life is messy. Very messy. So in 1957, Milton Friedman stepped in to solve that exact problem with his permanent income. Hypothesis. Permanent income. Yeah. Okay. Yeah. Friedman realized that people don't actually treat all money the same way.",
+      "startTime": 302.79,
+      "endTime": 322.71
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "He separated our resources into two distinct buckets. First, you have your permanent income. Which is what exactly? It's the long run steady resource you can reliably count on. Your salary, your baseline business revenue. It's the signal and the noise, basically. Okay, got it. And the second bucket?",
+      "startTime": 322.71,
+      "endTime": 339.51
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "The second bucket is temporary fleeting changes in cash flow. The noise. Like the football parlay. Exactly. Winning a small scratch-off lottery ticket, getting a surprise one-time bonus at work, or you know, finding $20 in a winter coat. The best feeling. Right. But Friedman argued that humans base their day-to-day lifestyle and consumption",
+      "startTime": 339.51,
+      "endTime": 358.95
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "almost entirely on their permanent income. We don't permanently upgrade our apartment just because we want a couple hundred bucks at a casino. Okay. Bringing this back to our puzzle then. If my boss gives me a permanent raise, Friedman is saying my baseline spending behavior should permanently shift upward to match it",
+      "startTime": 358.95,
+      "endTime": 378.15
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "because my permanent income just increased. That is the logical conclusion of his theory, yes. But Friedman's theory still left a massive question on the table regarding timing. Timing. Like when the spending actually happens. Exactly.",
+      "startTime": 378.15,
+      "endTime": 392.31
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "It wasn't until 1978 that an economist named Robert Hall took the evolutionary next step. Hall looked at this established idea that, okay, humans plan for their whole lives and they separate permanent income from temporary noise.",
+      "startTime": 392.87,
+      "endTime": 406.71
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "And he asked this brilliant question. He said, if human households are already factoring in everything they know about their future resources, can the information we had last quarter help predict this quarter's change in spending? But you're losing me a little bit. You're saying my brain is subconsciously doing like predictive algebra every time I buy a coffee.",
+      "startTime": 407.59,
+      "endTime": 427.19
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "Well. Because that doesn't sound like real human behavior. If I know I'm getting a raise in three months, I might logically know my permanent income went up. But if my checking account is literally at zero today, I can't spend money I physically do not have. Yes. I mean, I don't care how much permanent income I'm expecting in the future. Zero dollars is zero dollars.",
+      "startTime": 427.19,
+      "endTime": 445.35
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "You are hitting on the exact friction point between high level economic theory and grounded biological reality. You're bringing up what economists call the budget constraint. The budget constraint. Because I am constrained by reality. Exactly. Exactly.",
+      "startTime": 445.35,
+      "endTime": 460.71
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "And to truly understand how Robert Hall and modern economists solve the exact puzzle you just laid out,",
+      "startTime": 460.71,
+      "endTime": 465.75
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "we cannot just talk about it conceptually. We have to look under the hood. Okay. Here is where it gets really interesting. We are going to build a fictional budget right now. A little thought experiment. Yeah. And I want to be incredibly clear with you listening right now. The numbers we are about to use are strictly fictional examples. They are not published historical data from the BEA.",
+      "startTime": 466.71,
+      "endTime": 485.75
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "We are just using these specific numbers to help illustrate the core concept of how you price one single dollar across two different dates and time. It really is the only way to demystify the mechanics of human preparation. So we are going to build a simple two period model. Two periods. Right. Think of period one as today right now.",
+      "startTime": 485.83,
+      "endTime": 504.47
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "And think of period two as tomorrow or you know next quarter. Okay. I am going to read the inputs for our fictional model very clearly so you can track this with us. Input number one. In this scenario your fictional budget is exactly $1,960 in purchasing power right now. Today. Yes. Today.",
+      "startTime": 505.4,
+      "endTime": 525.0
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "That is what you have. And you have absolutely no additional income coming in the second period. Just that $1,960 today to last you through both periods. So let's lock that in. Okay. $1,960. Okay. Next input. The gross real return.",
+      "startTime": 525.0,
+      "endTime": 542.36
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "Let's say a completely safe investment turns $1 saved today into $1.05 of second period purchasing power. Which means you are getting a 5% real return on your savings.",
+      "startTime": 542.92,
+      "endTime": 555.8
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "Economists call this a gross return of $1.05. The reward for patience basically. Exactly. If you don't spend a dollar today, the universe will rewards you with a dollar and five cents tomorrow. Okay. Final input. The discount factor. And this is where it gets a little psychological.",
+      "startTime": 556.6,
+      "endTime": 572.36
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "We are going to give your utility, which is the pure satisfaction you get from spending money. In the second period, a weight of 0.96 relative to today. Economists call this weight beta. And we really need to pause on beta because this is the variable that captures human nature. How so?",
+      "startTime": 573.08,
+      "endTime": 590.52
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "Beta represents our inherent biological impatience. Think about it. If I offer you $100 today or $100 a year from now, you will take it today. Oh, absolutely. Right. I want it now. Right. Our brain's heavily taxed future rewards because the future is uncertain.",
+      "startTime": 591.08,
+      "endTime": 607.96
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "A beta of 0.96 means that enjoying a dollar tomorrow is only worth 96% as much to you as enjoying that exact same dollar today. Now, to make this mathematical model work, we have to account for one more human quirk. Using something called log utility. Log utility.",
+      "startTime": 608.6,
+      "endTime": 627.24
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "How does that translate to real life?",
+      "startTime": 627.24,
+      "endTime": 629.16
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "In plain language, log utility means that the gain in satisfaction you get from spending just a little bit more money is equal to 1 over C, where C is your current spending in dollars. Okay. 1 over C.",
+      "startTime": 630.2,
+      "endTime": 643.96
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "So if I am currently only spending $10 a day, the joy of getting to spend one more dollar is 1 over 10,",
+      "startTime": 643.96,
+      "endTime": 650.92
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "1 tenth of a unit of joy. Yes. But if you are already spending $1,000, the joy of spending one more dollar is 1 over 1,000. It's a microscopic fraction. So it's the law of diminishing returns. Precisely. It's like think about upgrading a car.",
+      "startTime": 651.99,
+      "endTime": 667.67
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "If you are driving a rusted out $500 beater that breaks down on the highway every week and you upgrade to a reliable $10,000 used Honda Civic, your life fundamentally changes. Massive jump in utility. Huge jump, yeah. But if you already drive a $90,000 Mercedes and you spend $10,000 to upgrade to a $100,000",
+      "startTime": 667.67,
+      "endTime": 686.23
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "Porsche, your daily commute doesn't really change. The thrill is tiny. The more you spend, the flatter the curve gets. That is a perfect analogy. So now we have all the pieces. How do we balance today versus tomorrow with our $1,960?",
+      "startTime": 686.23,
+      "endTime": 702.07
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "How do we figure that out? Think of it like a seesaw. If you move a few cents from today's spending into tomorrow's savings, you give up today's marginal utility. You lose that powerful one over today's spending joy. Right, because he didn't spend it.",
+      "startTime": 703.03,
+      "endTime": 717.59
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "But that saving adds 1.05 times as many dollars tomorrow, because of the 5% interest. Oh, okay. However, that future benefit gets punished by your biological impatience, that 0.96 beta weight. So there has to be a perfect balancing point where the pain of waiting is exactly offset",
+      "startTime": 717.59,
+      "endTime": 737.51
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "by the reward of the interest rate. Yes, there is. At a perfect balance, what economists call an interior optimum, these forces perfectly equalize. The equation looks like this.",
+      "startTime": 737.51,
+      "endTime": 748.23
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "1 over today's spending equals 0.96 times 1.05 divided by tomorrow's spending. Okay, we are going to pause right here. We want you, the listener, to actually do the math.",
+      "startTime": 749.19,
+      "endTime": 763.91
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "Multiply the discount factor, which is 0.96, by the gross return, which is 1.05. That will give you the perfect ratio of tomorrow's spending to today's spending. Yeah, we'll just give you a moment of space for on those numbers in your head.",
+      "startTime": 763.91,
+      "endTime": 777.03
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "0.96 times 1.05. You got it? The ratio is 1.008. Tomorrow's spending is exactly 8 tenths of a percent higher than today's spending. Which means we can now perfectly split your $1,960 across the two periods.",
+      "startTime": 777.91,
+      "endTime": 797.02
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "Let's walk through that split. So out of your $1,960, you spend exactly $1,000 today. That leaves you with $960 to put into savings.",
+      "startTime": 797.02,
+      "endTime": 806.62
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "Now, what happens to that $960? Well, it grows by that 5% interest rate. Right. And 960, multiplied by 1.05, yields exactly $1,008 tomorrow. So both conditions are met?",
+      "startTime": 807.5,
+      "endTime": 822.46
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "The budget constraint, which is the total $1960 you had to work with, and the Euler equation. The Euler equation? Yeah. That's the marginal condition that told us exactly how to divide it to maximize your lifelong happiness. Both are perfectly satisfied.",
+      "startTime": 822.46,
+      "endTime": 839.42
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "Your spending ratio is 1,008 over 1,000, which is exactly the 1.008 ratio you just calculated. Wow. Okay.",
+      "startTime": 839.42,
+      "endTime": 848.78
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "But now we have to solve the puzzle we set up at the very beginning of the deep dive. The raise. Let's introduce the new information. Our fictional household is suddenly called into the office. The boss says they will receive a guaranteed $105 payment, but they won't get it until period two next quarter.",
+      "startTime": 849.53,
+      "endTime": 865.93
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "Okay. So to figure out what a perfectly rational human does here, we have to figure out what that future money is actually worth today. We do evaluation.",
+      "startTime": 866.01,
+      "endTime": 874.65
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "How do we do that? We take that future $105 and we divide it by 1.05, which is our gross return. Wait, why are we dividing it? Because we are working backwards from the future to find the present value. Oh, I see. Yeah. If you had $100 today and grew up by 5% interest, it would become $105 tomorrow.",
+      "startTime": 875.46,
+      "endTime": 895.06
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "Therefore, finding out you are getting $105 tomorrow is worth exactly $100 in today's purchasing power. Okay. So our household's lifetime resources just permanently rose. They originally had $1960. Now they have an additional $100 in present value from the boss. So their new lifetime total budget is $2060.",
+      "startTime": 895.54,
+      "endTime": 915.22
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "Right. And because our interest rate of 5% didn't change",
+      "startTime": 915.78,
+      "endTime": 918.5
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "and our human impatience, our beta of 0.96 didn't change. That perfect spending ratio of $1.008 stays exactly the same. So what's the new math? The new math dictates that we divide our new total budget of 2060 by 1.96. And the result?",
+      "startTime": 919.3,
+      "endTime": 936.9
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "Spending today increases to about $1,051. It does. Wait, pause.",
+      "startTime": 936.9,
+      "endTime": 942.9
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "Before the boss called us in, we were spending $1,000 today. Now we just found out we are getting a raise tomorrow. And the math says we should immediately jump to spending $1,051 today.",
+      "startTime": 943.78,
+      "endTime": 956.18
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "Like why does spending go up by about $51 today before the $105 paycheck has actually arrived? Because the household can borrow against their future earnings. Or they can draw down on their existing savings right now, knowing that the new money is going to replenish it later. Oh, wow.",
+      "startTime": 956.18,
+      "endTime": 975.62
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "Now you don't have to wait for the check to clear to start living a slightly better life, provided you have access to credit or savings. See, this circles back to my skepticism from earlier. I asked what if my checking account is at zero today? I can't buy a stake with $0. But you're saying, well, if you have a credit card with an open limit,",
+      "startTime": 975.62,
+      "endTime": 994.74
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "or if you can divert $50 you were going to put into a retirement account and just spend it on a nice dinner today instead, you can adjust your spending immediately. Exactly. The news of the money changes your behavior before the money itself changes hands. That is the vital real world mechanism you borrow while you reduce your saving rate.",
+      "startTime": 994.74,
+      "endTime": 1012.9
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "And this brings us right back to Robert Hall in 1978.",
+      "startTime": 1013.77,
+      "endTime": 1016.89
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "There was a core linking assumption between this little fictional math problem we just did, and Hall's massive, broader conclusion about the whole economy. Let's break down that assumption then. Hall established that if we assume three things. First, a fixed real return. Okay.",
+      "startTime": 1018.06,
+      "endTime": 1034.78
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "Second, a discount factor times the gross return that perfectly equals one. Meaning the impatience perfectly balances the interest. Right. And third, quadratic utility. Okay. I have to stop you. Quadratic utility. I am not an academic. What does that actually mean for my life?",
+      "startTime": 1034.78,
+      "endTime": 1051.98
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "It simply means that marginal utility is a straight line. It's an assumption that simplifies the math, making the decrease in your satisfaction from each additional dollar you spend perfectly constant. Oh, okay. So it's just flattening the math out of it. Exactly.",
+      "startTime": 1051.98,
+      "endTime": 1068.81
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "If you assume those three things, then the expected change in spending based on today's information is exactly zero. The expected change is zero. Meaning, if I am a rational planner, I have already factored in everything I know about my life. I already factored in my regular salary. I already factored in the promotions I know I'm going to get. Yes.",
+      "startTime": 1068.81,
+      "endTime": 1088.01
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "Therefore, my spending shouldn't bounce around based on old news. The only thing that should cause my spending to change from yesterday to today is new unexpected information. You've got it. Actual spending only moves when unexpected information arrives. Treating forecast errors as unpredictable is Hall's massive empirical claim.",
+      "startTime": 1088.01,
+      "endTime": 1106.81
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "That's fascinating. Think about it. If I can look at your income from last year and use it to predict how your spending is going to wildly swing around next week, then you aren't acting like the perfectly rational, forward-looking consumer our model says you should be. You're reacting to the past. Not planning for the future.",
+      "startTime": 1106.81,
+      "endTime": 1126.01
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "So Hall has this beautiful, mathematically perfect model that says old news shouldn't change current behavior. But I mean, a model is just a hypothesis until you test it on actual humans. He needed a laboratory. He did. And that laboratory was the US Bureau of Economic Analysis Data, the BEA portal.",
+      "startTime": 1126.57,
+      "endTime": 1145.08
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "The BEA is basically where macroeconomic theories go to either be proven right or completely destroyed by reality. It really is. It is this massive, aggregated data set. It tracks US gross domestic product, consumer spending, personal income, and national saving. Like every paycheck, every grocery run aggregated into millions of data points over decades.",
+      "startTime": 1145.08,
+      "endTime": 1164.28
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "And Hall used this BEA data in his 1978 test. He wanted to see if the real American public behaved like our fictional model. Did people actually smooth out their consumption? So how did he actually test it? What was his statistical instrument measuring in plain language?",
+      "startTime": 1164.28,
+      "endTime": 1180.44
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "In plain language, Hall looked at quarterly US national accounts to measure the real per-person spending specifically on non-durable goods and services. Non-durable. So we aren't talking about buying a house or a car. Right. Because buying a house is an investment. Buying groceries is pure consumption.",
+      "startTime": 1180.44,
+      "endTime": 1199.16
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "So we are talking about food, haircuts, gas, stuff that gets used up quickly. Okay. That makes sense. He took the previous quarter spending data and tested a simple question against the current quarter. Could older information improve our predictions of current spending?",
+      "startTime": 1199.16,
+      "endTime": 1215.88
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "Because if his model is right, old information shouldn't help at all. We should already be perfectly adjusted. Exactly. And we are only going to give you one single quantitative result from this study on the audio today. Yeah, we will not bog you down with the heavy statistics while you're listening.",
+      "startTime": 1215.88,
+      "endTime": 1233.88
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "Like if you want to see Hall's joint test statistic of 6.5 against the 5% cut off of 2.4, or if you want Campbell and main queue specific fractional percentage coefficients, we have left all of those additional numbers right in the show notes for you to explore later. Yes, all in the notes.",
+      "startTime": 1233.96,
+      "endTime": 1251.8
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "But the one spoken result you need to know from Hall's test is this. In his fitted sample, using old data barely moved the needle on predicting spending. The standard error fell from $14.60 to just $14.40 per person at an annual rate. Wait, that's it?",
+      "startTime": 1251.8,
+      "endTime": 1268.92
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "Yeah, a tiny, almost insignificant drop of 20 cents. It means looking at last quarter's income barely helped predict this quarter spending on groceries and gas. Oh, wow. It strongly suggested Hall was absolutely right. People were acting like forward-looking planners. They were smoothing their consumption based on their permanent income, just like the math said they should.",
+      "startTime": 1268.92,
+      "endTime": 1287.4
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "But wait, there is a fascinating wrinkle in Hall's findings here. Because while looking at old paychecks didn't help predict spending, there was one piece of old information that it did help his forecast. Oh, yeah. This is really interesting. Adding four lags of a real stock price index actually improved the prediction of how much people would spend.",
+      "startTime": 1287.96,
+      "endTime": 1307.56
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "It's a fascinating anomaly. Like, why would old stock market data predict today's consumption better than old income data? It makes a intuitive sense to me if I think about how people feel about wealth. It's like trying to guess how much I'll spend on my upcoming vacation. How so? Well, looking at my recent pay stubs doesn't really help me predict my vacation budget because my pay stubs are always the same.",
+      "startTime": 1307.56,
+      "endTime": 1327.48
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "It's old news. Right. But what if I look at the overall health of my 401K or my stock portfolio? If the market has been on an absolute tear for the last four quarters, my balance is way up. I might feel richer. And because I feel richer, I might spontaneously decide to upgrade to the Oceanview suite. The wealth effect. That's exactly it.",
+      "startTime": 1327.48,
+      "endTime": 1346.6
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "Stock prices capture expected future corporate profits and broader economic health. So if the stock market drops for a year, your expectations of your permanent income might drop. Oh, I see. You might, if your layoff is coming, causing you to tighten your belt and buy cheaper groceries today, even if your actual literal paycheck hasn't changed yet.",
+      "startTime": 1346.6,
+      "endTime": 1365.56
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "So, Hall basically proves that for the most part, we act like rational planners. We look ahead. But then 11 years later, a new study comes out that throws a massive wrench into this pristine theory. Yes. Enter John Campbell and Gregory Manq in 1989. What did they do differently?",
+      "startTime": 1365.56,
+      "endTime": 1381.72
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "Well, they looked at the exact same US quarterly data, but they expanded the timeline, examining the economy from the first quarter of 1953, all the way through the last quarter of 1986. That's a huge chunk of time. What were they looking for that Hall missed? Their goal was to use earlier data, specifically spending growth from two through six quarters",
+      "startTime": 1381.72,
+      "endTime": 1400.68
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "earlier to estimate the part of income growth that people could actually anticipate. They wanted to isolate the part of your income growth that you knew was coming and see how you reacted to it. And here we have to be incredibly careful. As consumers of this research, we have to distinguish between what these researchers",
+      "startTime": 1400.68,
+      "endTime": 1417.72
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "physically measured versus what they inferred from those measurements. An incredibly important distinction in economics. In terms of hard measurement, Campbell and Manq physically measured the statistical relationship between predicted growth rates for real disposable income and the actual growth in real spending on those non-dervals and surfaces. Okay.",
+      "startTime": 1417.72,
+      "endTime": 1436.92
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "So that's the math. That's the indisputable data. But from that measurement, they made a massive inference about human behavior. They inferred an approximate share of total income that was going to a very specific human preparation. They had identified a group they called rule of thumb consumers. Rule of thumb consumers. Meaning what?",
+      "startTime": 1436.92,
+      "endTime": 1456.9
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "These are people who simply spent their current income. Wait, so they're arguing that there isn't just one type of human. There are two groups of people operating in the economy simultaneously. Exactly. That is their famous two-group model. Group one consists of the rational forward-looking planners and Robert Hall's model.",
+      "startTime": 1456.9,
+      "endTime": 1475.62
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "The people subconsciously doing the oiler equation in their heads, borrowing against future raises and smoothing their consumption. And group two. Group two represents households living paycheck to paycheck. If group two gets a dollar, they spend a dollar. If their income goes down, their spending immediately goes down. So they aren't planning ahead at all. Right.",
+      "startTime": 1476.26,
+      "endTime": 1495.3
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "They don't smooth their consumption. They don't look at permanent income. They just look at their checking account balance today and spend what is there. This is why we need to dive into the why. Because calling them rule of thumb consumers almost makes it sound like they are just bad at math. Or, you know, that they failed macroeconomics. But that's not the reality of the American economy, is it? Not at all.",
+      "startTime": 1495.3,
+      "endTime": 1513.7
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "People in group two often aren't acting irrationally. They are acting under severe constraints. Think back to our fictional model where you borrowed against your future raised to spend a thousand fifty one dollars today. That assumes you actually can borrow. Right. What if my credit score is five hundred? What if my credit cards are maxed out?",
+      "startTime": 1513.7,
+      "endTime": 1532.02
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "What if literally no bank will lend to me? Exactly. That is called a liquidity constraint. If you literally cannot borrow money and you have zero savings, you are physically forced to be a group two consumer. Wow. Yeah. You might want to smooth your consumption. You might know a raise is coming in three months.",
+      "startTime": 1532.02,
+      "endTime": 1549.22
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "But if your kid needs groceries today, you are strictly bound by the cash in your pocket. Systemic poverty, lack of access to credit, wealth inequality. All of it. These systemic factors force a massive chunk of the population to live paycheck to paycheck, completely violating Hall's perfect mathematical model.",
+      "startTime": 1549.22,
+      "endTime": 1567.46
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "This raises an important question though about Campbell and ManQ study. Aren't there massive gaps in their methodology? Like how can you conclusively prove that a specific percentage of the population is living paycheck to paycheck based purely on aggregated national GDP data? You've hit on the major vulnerabilities of the 1989 study right there.",
+      "startTime": 1567.46,
+      "endTime": 1587.38
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "There are key steps in this research that the sources leave highly uncertain. Let's break down the three big ones. Okay. Let's hear them. First, using aggregate growth rates is merely an approximation. When you look at national BEA data, you are blending billionaires, middle-class planners,",
+      "startTime": 1588.26,
+      "endTime": 1605.3
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "and struggling college students into one giant statistical smoothie. Right. Which completely hides the individual flavor of what is actually happening on the ground. Exactly.",
+      "startTime": 1605.3,
+      "endTime": 1614.82
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "Second, the entire interpretation rests heavily on that theoretical two-group model.",
+      "startTime": 1615.7,
+      "endTime": 1620.74
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "They are assuming people strictly fall into either the perfect planner category or the paycheck spender category.",
+      "startTime": 1621.62,
+      "endTime": 1627.7
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "Reality is probably much more fluid. Oh, I know I am. I bounce between the two groups depending on what month it is, whether I have an unexpected medical bill or just how stressed I am. Sometimes I'm a perfect planner, sometimes I stress spend whatever is in my checking account. Human behavior is rarely binary. And that leads to the third and ultimate uncertainty of the study.",
+      "startTime": 1628.63,
+      "endTime": 1647.43
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "We cannot see individual household decisions. Because of the data they used. Right. Because Camelovanki relied on national BEA data. They lacked data on individual paychecks and individual purchases. They couldn't confirm the exact behavior of specific households when a raise is announced versus when it arrives.",
+      "startTime": 1647.43,
+      "endTime": 1666.98
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "So they were looking at the entire forest, but trying to write definitive rules about the biology of a single pine tree. To really definitively prove the paycheck to paycheck theory down to the individual, you would need to track a specific person. You would need to read the email where their boss offered them the raise. And then you would need to look at their personal credit card statement that same afternoon",
+      "startTime": 1666.98,
+      "endTime": 1686.58
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "to see if they bought a stake. Which would be a privacy nightmare. But an absolute dream for an economist. Truly. But without that micro level data, the macro level inferences will always have a degree of uncertainty. Okay, let's pull all of this together and look at the big picture of what we have learned today.",
+      "startTime": 1686.58,
+      "endTime": 1705.06
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "We started with the mathematical perfection of the Euler equation. This beautiful, elegant idea that if you know a raise is coming in three months, you can smoothly adjust your spending upward today by borrowing or tapping into savings. You perfectly balance your human impatience with a gross, real return of the market.",
+      "startTime": 1705.62,
+      "endTime": 1724.02
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "But then we took that perfect sterile math and we smashed it into the messy, aggregated reality of the BEA national accounts. And what we found is basically a paradox. While a lot of human behavior does look forward, acting on permanent income rather than daily cash flow,",
+      "startTime": 1724.66,
+      "endTime": 1741.78
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "there is also a mass of chunk of reality or humans do not act like perfectly rational calculators.",
+      "startTime": 1741.78,
+      "endTime": 1747.38
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "Campbell and Menkew showed us that you cannot ignore the systemic realities of the economy. You cannot ignore the people who are just spending whatever current income they have, constrained by credit limits and daily needs, regardless of what the future holds. It is the ultimate friction between what we should do optimally on paper",
+      "startTime": 1748.84,
+      "endTime": 1767.88
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "and what our environment and our biology actually allow us to do in practice. It really is. So we have covered the evolution from 1954 to 1989. We have walked through the fictional budget, priced a dollar across time, and looked at the national data. And this brings us right back to you listening.",
+      "startTime": 1767.88,
+      "endTime": 1786.2
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "I want to leave you with a final thought to mull over as you go about your day. Let's hear it. Based on your own life and your own budget, which observation changed the explanation for you today? Was it the realization that you actually can and mathematically should borrow against a guaranteed future raise to increase your happiness today?",
+      "startTime": 1786.84,
+      "endTime": 1806.52
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "Or was it the fact that real world data proves a massive chunk of the population just spent whatever current income they have, completely blowing up the idea that we are all perfectly rational, forward-looking planners? It really makes you look at your next paycheck and your next credit card swipe a little differently, doesn't it? Thank you so much for joining us on this deep dive.",
+      "startTime": 1806.52,
+      "endTime": 1825.4
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "We will catch you next time.",
+      "startTime": 1825.4,
+      "endTime": 1826.76
+    }
+  ]
+}

@@ -1,0 +1,1101 @@
+{
+  "episodeId": "1lTz_xztLpAo2WHLqk80E4F06EVMf33-R",
+  "driveId": "1lTz_xztLpAo2WHLqk80E4F06EVMf33-R",
+  "title": "What Is the Next Trial Worth? — Raiffa & Schlaifer Expected Value of Sample Information (EVSI), Claxton–Posnett Optimal Trial Sizing & Li Bayesian Value-of-Information Analysis in Kenyan HIV Alcohol Care",
+  "duration": 2469.54,
+  "teenKit": {
+    "tldr": "In 15 seconds: Before spending millions on another clinical trial, how much could new data actually change the medical decision? Expected Value of Sample Information (EVSI) prices a proposed study by asking how often—and by how much—a finite sample would overturn today's best choice.",
+    "whyItMatters": "P-values never tell you whether a 500-patient trial is too small to matter or wastefully oversized; Bayesian Value of Information weighs health gains directly against trial cost and delay.",
+    "keyTakeaways": [
+      "EVPI (Expected Value of Perfect Information) sets an upper ceiling on research value by asking what eliminating all uncertainty would gain.",
+      "EVSI (Raiffa & Schlaifer) simulates realistic noisy trials of size n, updates the posterior each time, and averages the net benefit improvement over choosing today.",
+      "Optimal sample size sits where the Expected Net Benefit of Sampling (ENBS = population EVSI minus trial cost) peaks."
+    ],
+    "vocab": [
+      {
+        "term": "EVPI",
+        "meaning": "Expected Value of Perfect Information—the average gain from knowing true parameters with zero error before deciding."
+      },
+      {
+        "term": "EVSI",
+        "meaning": "Expected Value of Sample Information—the expected decision gain from running a real study of finite sample size n."
+      },
+      {
+        "term": "ENBS",
+        "meaning": "Expected Net Benefit of Sampling: population-scaled EVSI minus the financial and opportunity cost of conducting the trial."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "When is the Expected Value of Sample Information (EVSI) equal to zero even if parameter uncertainty remains?",
+        "options": [
+          "Whenever sample size n exceeds 100",
+          "When no plausible outcome of the proposed sample could shift the posterior enough to change which treatment maximizes expected net benefit",
+          "Whenever a prior distribution is normal",
+          "Only after 50 years"
+        ],
+        "correctIndex": 1,
+        "explanation": "Information only has decision value if observing the sample can change the action you take."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "So imagine you are running a massive healthcare system. Okay. You have this strict budget and you need to test a brand new medical intervention, right? Just to see if it's actually worth rolling out to thousands of your patients. Right. A pretty common scenario. Yeah. And you basically have two choices for how you designed your experiment. Okay. What are they?",
+      "startTime": 0.0,
+      "endTime": 19.52
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "Well, option one, you can spend 40,000 US dollars to fund a small, you know, somewhat sloppy clinical trial. Or option two, you can spend 95,000 US dollars to fund a massive, highly rigorous, like a heavily monitored trial. And that one is going to give you incredibly accurate data.",
+      "startTime": 19.52,
+      "endTime": 38.16
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "Okay. So cheap, sloppy one or an expensive, perfect one. Exactly. So here is the puzzle for you. Which one of those gives your hospital system more net value? I mean, instinctively, we are all trained to just worship accuracy. Right.",
+      "startTime": 38.16,
+      "endTime": 53.6
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "It feels completely obvious. You know, you pay for the big accurate study because bad data is dangerous data. Yeah, you want the true thing. But I want you to hold that prediction in your head for a second. Small and cheap or big and accurate. I think most people are guessing big and accurate",
+      "startTime": 53.68,
+      "endTime": 69.36
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "right now. I know. But the answer, which we are going to really prove today, is that you are almost always better off buying the smaller, less accurate study, which just sounds so counterintuitive. It really does. But to understand how paying for worse data is like actually the better scientific",
+      "startTime": 69.36,
+      "endTime": 86.99
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "and economic choice, we're going to explore a question that kind of plagues modern science. And that is, what is the next trial worth? Oh, wow. Yeah. That is a question that basically forces us to blur the lines between pure statistics, human psychology, and just cold, hard economics.",
+      "startTime": 86.99,
+      "endTime": 105.07
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "Exactly. And we are looking at a really fascinating stack of sources to unpack this deep dive today. We've got some great material. We do. We're going to start with this foundational paper by a philosopher named Jan Springer. It's all about Bayesian statistics and sequential trials.",
+      "startTime": 105.07,
+      "endTime": 122.75
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "Right. And then we'll dive into the absolute bedrock of decision theory. Yeah. Specifically, the 1961 work of Howard Raffa and Robert Schleifer, which was actually later adapted for medical trials by Carl Clackston and John Postenit in 1996. Yeah. And we aren't just going to stay in the",
+      "startTime": 122.75,
+      "endTime": 140.75
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "theoretical clouds either. No, we need to ground this. Exactly. We are going to take all of that math and apply it directly to the real world. We'll look at a 2011 clinical trial by Rebecca Pappas and then a really brilliant 2018 economic simulation by Link Fangingly. So our mission today is basically",
+      "startTime": 140.75,
+      "endTime": 157.95
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "to figure out how to put a concrete dollar value on curiosity. That's a great way to put it. But before we can price a clinical trial, we have this massive philosophical problem to solve first. Oh, right. The definition of evidence. Yeah. We have to figure out what actually counts",
+      "startTime": 157.95,
+      "endTime": 175.22
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "as evidence. Because if you can't agree on what makes data valid, you certainly can't slap a price tag on it. Exactly. And this is where Jan Springer's analysis drops us right into the middle of this century old war in the philosophy of statistics. It is a really bitter dispute too.",
+      "startTime": 175.22,
+      "endTime": 191.94
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "It's between two major camps, the frequentists and the Bayesians. And the entire battlefield is centered around this one concept called a stopping rule. Okay, let's unpack this because I want to make sure we don't get lost in the academic weeds right away. What exactly is a stopping rule just",
+      "startTime": 191.94,
+      "endTime": 209.62
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "in plain English? Sure. So in any experiment where you test things one after another, like say, enrolling patients into a trial one by one, a stopping rule is just the pre-planned finish line. Okay. It's the specific condition the researcher decides on like in advance that will tell them,",
+      "startTime": 209.62,
+      "endTime": 225.7
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "okay, we have enough data, stop the experiment. So it's literally just a rule for when to stop. Exactly. It could be a fixed rule. Like we stop exactly when we hit 100 patients. Right. It makes sense. Or it could be a financial rule. You know, we stop when the grant money runs out. Or even a",
+      "startTime": 225.7,
+      "endTime": 242.02
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "conditional rule. Like we stop as soon as we see five patients in a row have a negative reaction. I mean, all of that sounds perfectly reasonable to me. You obviously need to know when to pack up and go home. So why are statisticians like ready to go to war over a finish line? Well, it comes down to how the frequentist can't view data and they rely heavily on things like",
+      "startTime": 242.02,
+      "endTime": 262.02
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "error statistics and Neiman Pearson methods, which is what most scientists use today, actually. Okay. They believe that the stopping rule you choose fundamentally alters the validity of your final data. Wait, alters it how? To a frequentist, a p-value or a statistical significance level",
+      "startTime": 262.02,
+      "endTime": 279.78
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "isn't just about the data you actually collected. It's about the data you could have collected. The data you could have collected. Yeah, it's about this imaginary sample space of all possible outcomes. If you change the finish line, you change the probabilities of making an error.",
+      "startTime": 279.78,
+      "endTime": 296.98
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "And to them, that means you change the meaning of the evidence itself. Okay. I am going to need you to ground that for me. Okay. I know it's a bit abstract. Yeah, I am struggling to see how a rule in a scientist's head changes the physical data in a test tube. Give me a tangible example of a stopping rule actually corrupting the science.",
+      "startTime": 296.98,
+      "endTime": 314.74
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "Okay. Let's imagine a researcher who is just absolutely desperate for their new drug to look effective. Probably because they need to secure the next round of funding. Exactly. So they start testing patients sequentially. Now, if they set a rigid stopping rule in advance, like I will test exactly 50 people, then stop and look at the results.",
+      "startTime": 314.74,
+      "endTime": 333.3
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "They are playing by the rules. Right. That's standard. But our dodgy researcher doesn't do that. Their secret internal stopping rule is this. I am going to keep testing one more patient and one more patient and recalculating the data every single time. Oh, wow. And the exact second,",
+      "startTime": 333.38,
+      "endTime": 350.02
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "the math briefly flickers into a statistically significant positive result. I will immediately halt the trial and publish. Oh, I see. They're essentially cherry picking the finish line. Yep. It's like if you flip a coin long enough, eventually you're going to get a streak of hits.",
+      "startTime": 350.02,
+      "endTime": 366.5
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "And if you just yell stop right then, you can claim it's a trick coin. Precisely. That is a great analogy. To the frequentist, this kind of behavior renders the evidence completely invalid. I would agree with that. Right. Even if the drug does absolutely nothing, random chance guarantees that if you test long enough, you will eventually hit a fluctuation",
+      "startTime": 366.5,
+      "endTime": 386.1
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "that looks like a breakthrough. Yeah, just statistically, it has to happen eventually. Exactly. So because the researcher's intention was to stop only when they got a favorable result, the frequentist argues that their p-value is effectively meaningless. The data is tainted.",
+      "startTime": 386.1,
+      "endTime": 401.3
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "The post experimental evidence is permanently tainted by their pre experimental intentions. I mean, I am entirely on the side of the frequentists here. It's a very compelling argument. If you just keep rolling the dice until you get a six and then publish a paper claiming your dice",
+      "startTime": 401.3,
+      "endTime": 415.78
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "only roll sixes, you're a fraud. It's manipulation. How could the Bayesians possibly argue with that? Well, the Bayesians operate on something called the stopping rule principle. To a strict Bayesian, the data simply speaks for itself. Once the experiment is over, the physical observations",
+      "startTime": 415.78,
+      "endTime": 433.02
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "you collected are the only things that contain information about reality. But what about the cherry picking? They argue that the psychological intentions locked inside the experimenter's head, why they chose to stop, are completely irrelevant to how we should update our beliefs about the drug. Hold on. Let me play devil's advocate for a second here.",
+      "startTime": 433.02,
+      "endTime": 451.66
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "Go for it. That sounds completely reckless. If I know a researcher rigged the finish line to artificially make their drug look good, you're telling me a Bayesian just shrugs and says math as math? Essentially, yes. How is that good science? Well, it's not that Bayesians endorse cherry",
+      "startTime": 451.66,
+      "endTime": 468.46
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "picking. It's that Bayesian mathematical updating doesn't care about the alternate realities of what might have happened if the researcher kept going. It only cares about the likelihood of the data you actually observed. If I show you a sequence of 10 coin flips that are all heads, the mathematical",
+      "startTime": 468.54,
+      "endTime": 485.9
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "probability of that exact sequence happening under the hypothesis of a fair coin is identical. Identical to what? It's identical regardless of whether I intended to flip it 10 times or intended to flip it until I got 10 heads. Oh, I see what you're saying. The physical odds of the sequence",
+      "startTime": 485.9,
+      "endTime": 503.34
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "don't change based on your thoughts. Right. The Bayesians argue that the evidence itself is objective. It shouldn't change just because we discover the researcher had sneaky thoughts. But practically, doesn't that open the door to massive scientific fraud? Like people would just abuse that. Here is the brilliant twist in Jan Spranger's analysis though. Okay.",
+      "startTime": 503.34,
+      "endTime": 522.54
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "Spranger actually argues that it is the frequentest reliance on stopping roles that creates the greatest danger of manipulation. Wait, really? How? Because intentions are invisible. What do you mean? Think about a malicious researcher who runs a fixed trial of 46 patients. The data comes back",
+      "startTime": 522.54,
+      "endTime": 539.42
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "and the p-value is .051. Oh, brutal. It's agonizingly close to being significant. Exactly. It just barely misses that gold standard .05 cutoff. They can't publish it as a success. Now, faking actual patient data is incredibly dangerous. Like that's how you go to prison.",
+      "startTime": 539.42,
+      "endTime": 558.7
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "Yeah. You can't just make up lab results. But what if they just lie about their stopping rule?",
+      "startTime": 558.7,
+      "endTime": 564.14
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "I'm not following. How does lying about the rule fix the data? Okay. So the researcher writes up their paper. But instead of admitting they plan to stop at 46 patients, they claim they were using a highly complex rule. Like what? Say a negative binomial",
+      "startTime": 565.34,
+      "endTime": 580.3
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "stopping rule. They tell the journal, oh, my preplanned intention was to stop only after observing a specific number of patient failures. Okay. But the data is still the same. The raw data in the spreadsheets doesn't change one bit. But because they claimed a different finish line, the imaginary",
+      "startTime": 580.3,
+      "endTime": 595.9
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "sample space of possible outcomes changes. Oh, my gosh. Yeah. The frequentest math is recalculated under this new made up rule. And suddenly that exact same raw data yields a p-value of .036. You're kidding. No, it magically becomes statistically significant. That is wild.",
+      "startTime": 595.9,
+      "endTime": 613.82
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "And scientific institutions have absolutely no way to control or verify what the researcher's internal intentions truly were when they started. Because it was all in their head. The physical reality of the patients didn't change at all. Just the researcher's story about their imaginary finish line changed. And suddenly a failed drug is a published breakthrough.",
+      "startTime": 613.82,
+      "endTime": 632.78
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "Exactly. Springer points out that this inability to detect the subjective distortion of intentions is a grave fatal flaw for any methodology that relies on post experimental stopping rules. Wow. So how does he resolve this? What's fascinating here is how he breaks the philosophical",
+      "startTime": 632.78,
+      "endTime": 649.82
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "deadlock. Springer concludes that post experimentally when the trial is over and you are looking at the data on your desk, stopping rules shouldn't change how you interpret the results. Okay. So the Bayesians are right about that part. Yes. The evidence is just the evidence. But pre experimentally,",
+      "startTime": 649.82,
+      "endTime": 665.82
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "when you are designing the trial, stopping rules are the most important thing in the world. Pre experimentally, meaning before we even enroll the first patient. Yes. You must care deeply about stopping rules before the experiment begins. Not to calculate p-values later, but to minimize",
+      "startTime": 665.82,
+      "endTime": 682.78
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "your financial costs. Right. Because trials are expensive. Very. Every single day a trial runs you are burning money. You are paying doctors, monitoring patients, running labs. Yeah, that adds up fast. So you need a rigorous stopping rule to halt the trial. The exact millisecond you have",
+      "startTime": 682.78,
+      "endTime": 698.78
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "gathered enough information to make a confident decision. So you don't waste resources. And that transition from the philosophy of evidence to the economics of evidence brings us right back to our central question. It does indeed. If experimental design is ultimately about minimizing cost and",
+      "startTime": 698.78,
+      "endTime": 715.07
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "maximizing the value of information, we need a way to mathematically price the trial before it ever happens. Right. We need to know if buying a peek at the truth is actually worth the price of admission. Which leads us to the foundational work of Howard Rife and Robert Schleifer from 1961.",
+      "startTime": 715.07,
+      "endTime": 732.51
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "Rife and Schleifer were absolute pioneers. Back in their early 60s, they formalized a concept in decision theory called EVSI. EVSI. Yeah. It was a respected value of sample information. Yes. It was originally built for complex business and engineering decisions, honestly. But in 1996,",
+      "startTime": 732.51,
+      "endTime": 749.79
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "Carl Clackston and John Posnett brilliantly adapted it for clinical trials.",
+      "startTime": 749.79,
+      "endTime": 753.55
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "So what is it exactly? EVSI is a mathematical framework that calculates exactly how much money a future experiment is going to be worth to your organization before you even conduct it. Okay. Let's ground this in reality because the math can get dense very quickly. How does this",
+      "startTime": 754.46,
+      "endTime": 770.7
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "actually work in practice? Think of the logic of EVSI as essentially a time machine. A time machine. Yeah. You sit down today and you imagine every possible result that a future experiment might produce. Okay. For each of those hypothetical results, you update your current",
+      "startTime": 770.7,
+      "endTime": 785.82
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "beliefs using Bayesian logic and you work out exactly what real world action you would take based on that new belief. So you're playing out all the scenarios? Exactly. Then you average the financial benefit of all those future actions based on how likely you are to actually see those",
+      "startTime": 785.82,
+      "endTime": 801.42
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "specific results. Okay. I think we need an imagined scene right now as an illustration for this. Good idea. Let's say you, the listener, are the health policy director for a major regional health care system. You have a massive decision on your desk today. A very expensive decision. Exactly. You have to decide whether to implement a highly publicized brand new medical program",
+      "startTime": 801.5,
+      "endTime": 820.74
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "for a thousand of your future patients. Right. Or you can just reject it and stick with what you are currently doing, which we'll call usual care. Now in health economics, we always need a baseline to measure against. So we will assign usual care a baseline value of zero us dollars.",
+      "startTime": 820.74,
+      "endTime": 837.46
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "Just to be clear, we aren't saying usual care is literally free. Right. No, no. We are saying it is the status quo. It's the baseline. Any new program has to beat zero. It has to provide an incremental net monetary benefit above the status quo. Okay. So let's define the inputs for this fictional new program and let's use some explicit units so we don't get lost. Okay.",
+      "startTime": 837.46,
+      "endTime": 857.22
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "Implementing this new intervention costs exactly 300 US dollars per patient. That's the upfront price tag. Got it. Now, because medicine is uncertain, we don't actually know if this program works yet. Let's say there are two possible realities. The favorable and unfavorable states. Right. A",
+      "startTime": 858.1,
+      "endTime": 873.86
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "favorable state where the drug is highly effective and an unfavorable state where the drug is a complete dud and does absolutely nothing. Right. So if the true underlying reality is the favorable state, the program produces long term health improvements that your hospital system values at 700 US dollars",
+      "startTime": 873.86,
+      "endTime": 890.26
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "per patient. So if we are lucky in the drug works, the net benefit is those $700 of health gain minus the $300 upfront cost of the program, which gives us a positive net benefit of plus 400 US dollars per patient. Okay, plus $400. But what if it fails? If the underlying reality is the unfavorable",
+      "startTime": 890.26,
+      "endTime": 909.46
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "state, the program produces zero health gains. So the net benefit in that scenario is the $0 of gain minus the $300 cost of the program. You are left with a net benefit of minus 300 US dollars per patient. You basically just set that money on fire. You did. So we have our two possible realities,",
+      "startTime": 909.46,
+      "endTime": 928.1
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "plus $400 if it works or minus $300 if it doesn't. Right. But as the policy director, you have to make a decision today under uncertainty. We need to know what our current pretrial evidence tells us what is our prior probability.",
+      "startTime": 928.1,
+      "endTime": 943.3
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "Let's assume your current evidence, maybe it's a mix of early observational data and biological theory, suggests there is a 40% probability that the program is actually in the favorable state, which necessarily means there is a 60% probability it is in the unfavorable state.",
+      "startTime": 943.86,
+      "endTime": 959.94
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "Exactly. Okay. I am going to walk through the intermediate steps to reproduce this baseline calculation. And I'm going to avoid just reading raw decimals because honestly, nobody could listen to a string of fractions and retain them. It's true. It just turns into noise. Instead, let's think about this like parallel universes.",
+      "startTime": 960.02,
+      "endTime": 977.63
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "Oh, I like that. So imagine 100 parallel universes where you, the policy director, decide to blindly fund this program for one patient. Okay, 100 universes.",
+      "startTime": 977.63,
+      "endTime": 986.43
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "Based on your current evidence, in 40 of those universes, the program is favorable. In those 40 universes, you make a net gain of $400. Right. So 40 times 400 is $16,000 of total gain across that part of the multiverse. Yep. The math checks out.",
+      "startTime": 987.31,
+      "endTime": 1002.67
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "But in the other 60 universes, the program is unfavorable. In those 60 universes, you lose $300 each time. Ouch. Yeah. So 60 times minus 300 is a total loss of $18,000.",
+      "startTime": 1003.23,
+      "endTime": 1015.31
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "And to find your expected net benefit in the real world, you just combine those outcomes and divide by the 100 universes. Right. So $16,000 of gain minus $18,000 of loss leaves you $2,000 in the whole. And when you divide that $2,000 loss by the 100 universes, your expected net benefit right",
+      "startTime": 1016.19,
+      "endTime": 1034.43
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "now is exactly minus 20 US dollars per patient minus 20 dollars. So what does this all mean?",
+      "startTime": 1034.43,
+      "endTime": 1041.31
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "Your decision today is completely clear. Very clear. Because minus 20 dollars is obviously worse than the zero dollar value of just sticking with the status quo, you must reject the new program. Exactly. You lock in usual care. You do not fund the program. Right. The financial risk of the",
+      "startTime": 1042.11,
+      "endTime": 1060.27
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "unfavorable state is just too heavy. It drags the expected value into the negative, which highlights a really terrifying reality about medical innovation. But without new information, progress completely stalls. Oh, wow. Yeah. The new treatment just sits on the shelf gathering dust",
+      "startTime": 1060.27,
+      "endTime": 1076.91
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "because the hospital can't justify the financial risk of finding out if it actually works, which is precisely why you, as the policy director, would want to commission a clinical study. You need an injection of new evidence to shift your confidence and hopefully push that expected",
+      "startTime": 1076.91,
+      "endTime": 1092.43
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "value out of the negative. Exactly. So let's work out exactly what a study could say. Okay. Let's introduce the parameters for our proposed small study first. This is the $40,000 study from our intro puzzle. Right. Okay. So this small study is relatively cheap, but it's not",
+      "startTime": 1092.51,
+      "endTime": 1109.79
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "perfect. It will ultimately hand you one of two results. It will either tell you the drug looks promising or it looks unpromising. Okay. Now if the true effect in reality is actually favorable, this study will correctly catch it and report a promising result 75% of the time.",
+      "startTime": 1109.79,
+      "endTime": 1125.95
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "But it's a bit sloppy, so it makes mistakes. If the true effect is actually unfavorable, like if the drug is a dud, the study will still accidentally give a false promising result 33.3% of the time. Right. Basically one third of the time it gives you a false positive.",
+      "startTime": 1125.95,
+      "endTime": 1142.75
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "So now we need to use Bayesian logic to figure out how this study changes our minds. We need to calculate the joint probabilities. Let's go back to your 100 parallel universes to make this intuitive. Okay. Let's do it. We start with our prior belief. 40% favorable universes, 60% unfavorable universes.",
+      "startTime": 1142.75,
+      "endTime": 1161.63
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "Let's look at the 40% favorable ones first. Okay. So we know the small study correctly spots the drug working 75% of the time. Right. And 75% of 40 is 30. So in 30 universes, the drug works and the",
+      "startTime": 1161.63,
+      "endTime": 1175.95
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "study correctly says promising. Now let's look at the 60 unfavorable universes where the drug is a dud. Okay. We know the study accidentally flags a dud is promising one third of the time. Right. The false positive. And one third of 60 is 20. So in 20 universes, the drug is a dud,",
+      "startTime": 1176.03,
+      "endTime": 1192.99
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "but the study falsely says promising. This is the crucial Bayesian update right here. Yes. Imagine the trial finishes. And the researcher's hand you were a report that says result promising.",
+      "startTime": 1192.99,
+      "endTime": 1204.03
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "You know that across our 100 universes, this report gets printed a total of 50 times. How do you get 50? 30 times because the drug actually works plus 20 times because the study made a mistake. 30 plus 20 is 50. Exactly. So out of a bucket of 50 promising reports, 30 of them",
+      "startTime": 1204.8,
+      "endTime": 1223.12
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "represent the actual truth. Right. And 30 divided by 50 is 60%. Yep. So if the study says promising, your confidence that the drug actually works jumps from your original 40% all the way up to 60%.",
+      "startTime": 1223.12,
+      "endTime": 1237.36
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "Now I want to explicitly give you the listener a moment to work out the math in your head for the opposite result. Okay. Yeah. Take a second. Imagine the researcher's hand you report that says unpromising out of our 100 universes. And how many does the study correctly call a dud",
+      "startTime": 1238.16,
+      "endTime": 1255.28
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "unpromising? And in how many does it falsely call a working drug unpromising? Just try to calculate your new confidence level. I'm just going to give you a brief pause here.",
+      "startTime": 1255.36,
+      "endTime": 1265.81
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "Okay. Let's walk through the intermediate steps to reveal the answer. Let's do it. Out of the 60 dud universes, the study correctly calls them unpromising two thirds of the time. Right. Because it messes up one third of the time. So two thirds of 60 is 40 universes.",
+      "startTime": 1266.58,
+      "endTime": 1282.58
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "Exactly. Now out of the 40 working universes, the study falsely calls them unpromising 25% of the time. Right. The false negatives. And 25% of 40 is 10 universes. So you have a bucket of 50",
+      "startTime": 1282.66,
+      "endTime": 1296.98
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "unpromising reports. 40 plus 10. But only 10 of them contain a drug that actually works. Yep. And 10 divided by 50 is 20%. So if the study says unpromising, your confidence that the drug works plummets to 20%. Now we have to choose our action within each hypothetical result.",
+      "startTime": 1296.98,
+      "endTime": 1316.18
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "What do you, the policy director, actually do with that new confidence? Well, if the result is unpromising, you are only 20% confident the drug works. That pushes your expected financial value incredibly deep into the negative. Way below zero.",
+      "startTime": 1316.18,
+      "endTime": 1331.54
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "Yeah. You obviously reject the drug. You stick with usual care, locking in a value of zero dollars. Right. The study didn't actually change your mind in that scenario. You were already doing usual care before the study. But if the result is promising, your confidence rises to 60%.",
+      "startTime": 1331.54,
+      "endTime": 1348.02
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "Let's do the baseline math again with this new 60% confidence. Okay. Walk me through it.",
+      "startTime": 1348.82,
+      "endTime": 1353.46
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "60% probability of a $400 gain is $240. Correct. And then the 40% probability of a $300 loss is minus $120. Yep. So 240 minus 120 leaves you with an expected net benefit of plus $120",
+      "startTime": 1354.42,
+      "endTime": 1371.3
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "US dollars per patient. And plus $120 beats the zero dollar status quo. It does. Because of this new information, you change your policy, you fund the program. The study actually had the power to change your decision. Exactly. And in decision theory, if a study has the power to alter a decision,",
+      "startTime": 1371.3,
+      "endTime": 1388.42
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "that study has concrete financial value. That is so cool. So we are finally ready to calculate the EVSI, the expected value of sample information. Let's do it. We know the promising result leads to a decision worth $120. And we know the unpromising result leads to a decision worth $0. Right. And",
+      "startTime": 1388.42,
+      "endTime": 1407.78
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "because there is an equal 5050 chance of getting either report from the specific study. Oh, right. 50 promising and 50 unpromising reports across the 100 universes. Exactly. We just average the benefits. Half of 120 is 60. Half of zero is zero.",
+      "startTime": 1407.78,
+      "endTime": 1423.14
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "So the expected value of your decision with the study is $60 per patient. Yep.",
+      "startTime": 1423.7,
+      "endTime": 1428.1
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "And since your baseline decision without the study was worth zero, the sheer value of the information itself is exactly $60 per patient. And since we established your hospital system has a population of 1000 future patients, this small study provides a gross informational value of",
+      "startTime": 1429.06,
+      "endTime": 1445.14
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "exactly $60,000 US dollars. Wow. Okay, $60,000. But the study wasn't free, right? We said the small study costs $40,000 to run. Right. You have to pay for it. So we subtract the cost of finding out",
+      "startTime": 1445.14,
+      "endTime": 1459.65
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "60,000 in gross value minus 40,000 in costs. Leads us with a net benefit of $20,000 US dollars. Boom. So this small, slightly sloppy study generates $20,000 of net value for your hospital. Here's where it gets really interesting, though. Oh, I'm ready. We need to compare this to the",
+      "startTime": 1460.48,
+      "endTime": 1479.52
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "massive, expensive, highly accurate study. The one from our intro puzzle. Exactly. Let's look at its parameters. If the drug is favorable, the big study will catch it and report promising a massive 90% of the time compared to the small study 75%. Okay, that's a lot better. And if the drug is",
+      "startTime": 1479.52,
+      "endTime": 1497.76
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "unfavorable, the big study is incredibly strict. It only gives a false promising result 20% of the time compared to the small studies, 33.3%. Okay, so it's a way better test.",
+      "startTime": 1497.76,
+      "endTime": 1509.12
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "I am going to give our listeners another moment to work through this conceptually. Good idea. Think about our 100 universes again, 40 favorable, 60 unfavorable. Apply those new, highly accurate percentages, the 90% and the 20%. Right. Find the total number of promising",
+      "startTime": 1510.1,
+      "endTime": 1527.7
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "universes, figure out the new confidence level, calculate the expected benefit against the $400 gain and $300 loss. And scale it up to a thousand patients. Yes. How much more is this massive study worth than the small study? Take pause and think about it. Okay, let's reveal the intermediate steps.",
+      "startTime": 1527.7,
+      "endTime": 1546.82
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "Walk us through. In the 40% favorable universes, the 90% accuracy gives us 36 true promising reports. Okay. In the 60 unfavorable universes, the 20% false positive rate gives us 12 false promising",
+      "startTime": 1546.82,
+      "endTime": 1560.9
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "reports. So 36 plus 12 means there are 48 promising reports total. Yep. And 36 of them are true.",
+      "startTime": 1560.9,
+      "endTime": 1567.86
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "So 36 divided by 48 means if this big study says promising, we are 75% confident the drug works, which is significantly higher than the 60% confidence the small study gave us. It is. So we use that 75% confidence to choose our action. Right. 75% probability of a $400 gain",
+      "startTime": 1568.64,
+      "endTime": 1588.24
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "is $300. The remaining 25% probability of a $300 loss is minus $75. And 300 minus 75 yields a net benefit of $225 US dollars per patient if we get a promising result. But we only get that promising result 48% of the time, right? Because there were 48 promising",
+      "startTime": 1588.32,
+      "endTime": 1607.65
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "universes. Exactly. The other 52% of the time the result is unpromising. We choose usual care and the value is zero. So we average it. 48% of $225 is exactly 108 US dollars per patient.",
+      "startTime": 1607.65,
+      "endTime": 1622.45
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "And scaled up to 1000 patients, the gross EVSI for the big study is $108,000. Wow. Compared to the small studies gross EVSI of $60,000, this massive trial provides $48,000 more informational value. It is objectively superior science. It provides better data and",
+      "startTime": 1622.45,
+      "endTime": 1642.13
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "just more clarity overall. But here is the ultimate twist that answers our opening question. The twist. We have to look at the resource constraints. The larger trial costs $95,000 to run that is $55,000 more than the $40,000 small study. Right. And here is the fatal math. The extra $48,000 in",
+      "startTime": 1642.13,
+      "endTime": 1661.09
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "informational value falls $7,000 short of covering the extra $55,000 in cost. Exactly. When you subtract the $95,000 cost from the $108,000 gross value, the larger trial leaves you with $13,000 of net",
+      "startTime": 1661.09,
+      "endTime": 1676.85
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "value. Right. But the smaller trial which had a $60,000 gross value might say $40,000 cost leaves you with $20,000 of net value. And $20,000 is greater than $13,000. That sure is. Despite being mathematically and scientifically less accurate, the smaller study is the undeniably better economic",
+      "startTime": 1676.85,
+      "endTime": 1696.69
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "choice. It actually maximizes the net monetary benefit to the healthcare system. You know, it's like paying for a weather report before deciding to pour a million dollar concrete foundation for a stadium. How do you mean? If a $1,000 basic radar report is enough to make you cancel the poor when a storm is coming, paying $10,000 for a satellite meteorological",
+      "startTime": 1696.69,
+      "endTime": 1716.64
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "analysis that tells you the exact same thing is just burning money. Oh, that's a great way to think about it. Right. At a certain point, you are just overpaying for certainty. The marginal cost of acquiring the next drop of accuracy heavily outpaces the marginal benefit of that",
+      "startTime": 1716.64,
+      "endTime": 1731.68
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "accuracy in changing your actual policy decisions. It completely dismantles the assumption that larger, more precise clinical trials are always objectively better science. Yeah. Science doesn't exist in a vacuum, you know, it exists in an economy of finite resources. Now, we have spent a",
+      "startTime": 1731.68,
+      "endTime": 1748.48
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "lot of time in these incredibly robust but ultimately fictional parallel universes to prove the concept. Yeah. I think it is time to compare these trial size economics with actual real-world evidence. If we connect this to the bigger picture, it is crucial for us to explicitly separate the",
+      "startTime": 1748.48,
+      "endTime": 1764.96
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "fictional examples, you know, the round numbers and the hundred universes we just used from the published peer reviewed numbers we are about to discuss. Right, because the real world is never that clean. Exactly. The underlying philosophical math of EVSI remains the exact same but real-world",
+      "startTime": 1764.96,
+      "endTime": 1780.08
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "modeling involves massively complex layers of patient simulation and economic projection that are just far messier than our simple positive or negative states. So let's transition from theory to reality. This starts with a really fascinating 2011 pilot study conducted by Rebecca Pappas and",
+      "startTime": 1780.16,
+      "endTime": 1798.4
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "her colleagues in Elderet, Kenya. Right. Let's talk about the human preparation for the study. The researchers enrolled a group of 75 outpatients who were living with HIV. And we need to understand the biological context here. Like why is a study about HIV looking at behavior? Yeah, that's a good",
+      "startTime": 1798.4,
+      "endTime": 1815.52
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "question. In HIV treatment, anti-retroviral therapy is highly effective but it requires incredibly strict adherence to a daily medication schedule. Okay. One of the greatest threats to medication adherence is alcohol use disorder. If a patient is heavily drinking, they are",
+      "startTime": 1815.52,
+      "endTime": 1831.2
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "significantly more likely to miss doses which leads to viral rebound and increased transmission rates in the community. So the trial randomized these 75 outpatients into two arms to try and reduce alcohol use. Correct. One group received group cognitive behavioral therapy or CBT. Right. The",
+      "startTime": 1831.2,
+      "endTime": 1848.16
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "other group received usual care which in this specific context meant assessment only without the active psychological therapy component. Now what did the instrument in this trial actually measure? In plain language. In plain language, the primary measurement was self-reported",
+      "startTime": 1848.16,
+      "endTime": 1863.52
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "abstinence from drinking alcohol in the previous 30 days. Okay. And this specific measurement was taken at the 90 day visit following the intervention. And the raw data from that measurement was actually quite striking wasn't it? Very much so. In the group receiving the cognitive behavioral",
+      "startTime": 1863.52,
+      "endTime": 1878.56
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "therapy, 25 out of the 36 respondents reported no drinking. Right. In the usual care group, only 12 out of the 32 respondents reported no drinking. But here is where we must be incredibly clear. We need to sharply distinguish between the actual physical measurement taken by the",
+      "startTime": 1878.56,
+      "endTime": 1894.32
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "researchers in the clinic and what was inferred from that measurement for the economic models that followed. Right. Because a health system doesn't necessarily care about 30 days of sobriety and a vacuum. Right. They care about long-term health outcomes. Precisely. The actual observation",
+      "startTime": 1894.32,
+      "endTime": 1909.84
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "was a short-term self-report of avoiding alcohol for a single month taken at a 90-day mark. That is the hard data. But for the subsequent economic model to have any meaning, the modelers had to infer that the short-term reduction in alcohol use translates into permanent long-term",
+      "startTime": 1909.84,
+      "endTime": 1927.2
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "behavioral changes. Oh, that's a big jump. It is. Changes that will deeply impact regional HIV progression, immune system recovery, and viral transmission over decades. Decades. Wow. This brings us to the remarkable 2018 analysis by Lingfeng Li and colleagues. Yes.",
+      "startTime": 1927.2,
+      "endTime": 1944.88
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "They looked at the Papas Pilot Trial from Kenya and they used it to perform a massive EVSI analysis. They did. They basically simulated data from further hypothetical trials in different sizes to see exactly what sample size would provide the most net economic value for a regional health care system that was deciding whether to actually fund this CBT program.",
+      "startTime": 1944.96,
+      "endTime": 1964.56
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "And to run these simulations, they utilized a vital metric in health economics, which is the quality. The quality. What does that stand for? It stands for quality adjusted life year.",
+      "startTime": 1965.2,
+      "endTime": 1974.88
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "A quality is how health economists put a mathematical weight on human suffering and life extension. It combines the sheer amount of time a person remains alive with a specific weight for their quality of health during that time. So like one year in perfect health?",
+      "startTime": 1975.68,
+      "endTime": 1991.6
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "One year in perfect disease-free health is exactly one quality. A year in severe decline or suffering might only be a fraction of a quality. Got it. And in this economic simulation, Li and colleagues placed a specific real world monetary value on one quality. They did.",
+      "startTime": 1991.6,
+      "endTime": 2008.48
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "For the context of this regional health care setting, they valued one quality at $2,473 US dollars.",
+      "startTime": 2008.48,
+      "endTime": 2015.44
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "They also determined the real world sampling cost to run an expanded trial was $1,140 per single participant. So they ran thousands of simulations. They mapped out the expected value of decisions based on hypothetical trial results, updating the expected intervention effect for each simulated",
+      "startTime": 2016.48,
+      "endTime": 2035.6
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "result. It's just massive scale EVSI. Exactly. And projecting the health outcomes based on those qualities. They were searching for the apex of the curve, the exact sample size, where the net value of the information peaked before the cost dragged it down. Okay. So we are going to keep just one",
+      "startTime": 2035.6,
+      "endTime": 2053.5
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "primary quantitative result in this spoken lesson to ensure it sticks. Yeah, we don't want to overwhelm anyone. We'll leave the more complex simulated figures like the gross EVSI curves and alternate quality valuations in the show notes for you to explore on your own. But the big number is-",
+      "startTime": 2053.5,
+      "endTime": 2068.94
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "The single most important published result you need to know is this. The Li model determined that a study of exactly 200 participants yielded the highest model net value after subtracting research",
+      "startTime": 2069.5,
+      "endTime": 2082.46
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "costs. 200 participants. And that maximum net value was $67,400 US dollars. Which means perfectly mirroring our fictional puzzle from earlier. The simulation found a strict mathematical upper limit where gathering more evidence stopped being economically rational.",
+      "startTime": 2082.46,
+      "endTime": 2100.46
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "Going beyond 200 participants would cost more in sampling expenses than it would ever generate an improved decision making power for the health system. It's really a brilliant application of EVSI. It proves you don't need a 1000 person mega trial if a 200 person trial gives you enough",
+      "startTime": 2101.34,
+      "endTime": 2117.34
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "confidence to pull the trigger on funding the therapy. It really does. However, we do have to point out an uncertain step in the source material itself. Yes, we should mention that. In the Lee paper, the results section text explicitly specifies 200 participants total as the optimal size.",
+      "startTime": 2117.34,
+      "endTime": 2133.34
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "But there was an ambiguous heading in their table too, where it is unclear if they meant 200 total or 100 per trial arm. Oh, interesting. Yeah, the text has one thing, but the table heading formatting creates a bit of a shadow of doubt. For our purposes, we rely on the specific 200 total figures stated",
+      "startTime": 2134.14,
+      "endTime": 2151.95
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "in the text, but it highlights how even in rigorous peer reviewed math, human communication could be a bit messy. It always is. But honestly, that minor textual ambiguity is nothing compared to the massive structural assumptions supporting this entire calculation. Oh, absolutely. The 67,400",
+      "startTime": 2151.95,
+      "endTime": 2169.55
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "net value is completely tethered to one crucial assumption linking the calculation to the conclusion of the study. And this assumption just blew my mind. Let's hear it. It is the assumption of a 20 year time horizon. We really need to unpack what that means. The model assumes that whatever decision",
+      "startTime": 2169.55,
+      "endTime": 2186.67
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "the health system makes after the trial, specifically the decision to adopt the CBT intervention, if the trial results are promising, will be maintained, funded, and utilized regionally for 20 continuous years. 20 years without interruption. Yes. Accumulating all those health benefits at that",
+      "startTime": 2186.67,
+      "endTime": 2204.91
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "2473 dollar per quality valuation. Wait, you're telling me that if a new politician comes into office and cuts funding after five years, or a new health minister decides to pivot to a different drug, this entire clinical trial we just spent money on was mathematically worthless. Basically,",
+      "startTime": 2205.47,
+      "endTime": 2222.99
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "yes, Lee and colleagues modeled that exact scenario. They did. They looked at the separate economic projections for simulated trials under different time horizons. If the program was only going to be funded and used for five years or even 10 years, the model showed that the behavioral interventions",
+      "startTime": 2222.99,
+      "endTime": 2238.67
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "simply didn't have enough time to accumulate enough qualities to offset its initial costs. This is the absolute aha moment for me. It's huge. In those shorter time horizons of 10 years or less, even perfect, instantaneous, free information added exactly zero modeled value. Zero.",
+      "startTime": 2238.67,
+      "endTime": 2256.35
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "The optimal decision would just be to stick with usual care, regardless of what any trial might say. Because it just doesn't pay off fast enough. Right. And therefore, if the time horizon is 10 years or less, running any trial of any size wouldn't be worth the cost. The trial shouldn't",
+      "startTime": 2256.91,
+      "endTime": 2271.55
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "be run at all. That is staggering. The scientific value of the evidence we gather today is entirely dependent on the political and bureaucratic commitment to using it over decades. It completely redefines what it means for an experiment to be worth doing. It really does. We like to think of clinical trials",
+      "startTime": 2271.55,
+      "endTime": 2288.91
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "as these pure isolated bubbles of science. But the math proves they are inextricably linked to the messy reality of government budgets and long-term political stability. Which brings us to the ultimate synthesis of our journey today, really. Yeah. We started in the abstract philosophical battle grounds of statistics with Jan Springer,",
+      "startTime": 2288.99,
+      "endTime": 2307.63
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "debating whether the intentions locked in an experimenter's head, their stopping rules, should matter when interpreting data. And we found that while the Bayesians are right, that the data speaks for itself post-exfer mentally to avoid manipulation, those stopping rules are absolutely vital pre-experimentally. Right. You have to know when to stop paying for",
+      "startTime": 2307.63,
+      "endTime": 2326.11
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "data. Exactly. From there, we dove into the rigorous math of decision theory and EVSI with Rife, Schleifer, Klakstan and Posnett. Our 100 parallel universes. Yes, we used our parallel universes to prove that because information is only valuable if it has the power to change a",
+      "startTime": 2326.11,
+      "endTime": 2341.63
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "real-world decision. Paying for massive, highly accurate data is often a mathematically worse investment than a good enough smaller study. And finally, we saw that exact principle apply to a real-world HIV intervention trial in Kenya, proving that optimal trial size isn't just",
+      "startTime": 2341.63,
+      "endTime": 2357.39
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "a clever math trick for economists. No, it's not. It's a vital tool for allocating scarce global health resources. This phrase is an important question, and I want to pose it directly to you, the listener. Looking back at the HIV intervention study, which observation changed the explanation",
+      "startTime": 2357.39,
+      "endTime": 2373.23
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "for you? Was it the concrete short-term measurement of self-reported abstinence at 90 days that proved the therapy worked? Or was it the massive underlying economic assumption of a 20-year uninterrupted regional rollout that actually gave the trial its financial value in the first place?",
+      "startTime": 2373.23,
+      "endTime": 2390.03
+    },
+    {
+      "id": "turn-147",
+      "speaker": "Host 1",
+      "text": "Wow. It makes you look at every single headline about a new medical trial differently. It really does. You don't just ask, did the drug work. You have to ask, can we afford to act on this? Exactly. And I want to leave you with a final thought to mull over today.",
+      "startTime": 2390.03,
+      "endTime": 2403.15
+    },
+    {
+      "id": "turn-148",
+      "speaker": "Host 2",
+      "text": "If the mathematical value of a trial depends entirely on how long a health system commits to using the treatment afterward, shouldn't political stability and long-term funding guarantees be factored into the scientific value of every clinical trial before a single patient is ever enrolled? That's a tough pill to swallow. Can you even separate the pure science from the political",
+      "startTime": 2403.94,
+      "endTime": 2423.22
+    },
+    {
+      "id": "turn-149",
+      "speaker": "Host 1",
+      "text": "reality? It is a daunting reality to face, but it is exactly why this kind of decision theory is so absolutely vital. At the very beginning of this deep dive, I said that we are trained to worship accuracy. We are. We want our trial data to be like a clean, high-definition photograph,",
+      "startTime": 2423.22,
+      "endTime": 2440.9
+    },
+    {
+      "id": "turn-150",
+      "speaker": "Host 2",
+      "text": "definitively pointing at the truth and saying, there it is. But as we've seen today, that expectation is an illusion. We are navigating a landscape of parallel universes, statistical probabilities, and rigid financial constraints. Absolutely. The true value of a clinical trial isn't found in a",
+      "startTime": 2440.9,
+      "endTime": 2459.22
+    },
+    {
+      "id": "turn-151",
+      "speaker": "Host 1",
+      "text": "flawless, highly expensive p-value. It is found to the messy, human intersection of what we can learn and our actual willingness to act on the evidence we can afford.",
+      "startTime": 2459.22,
+      "endTime": 2475.3
+    }
+  ]
+}
