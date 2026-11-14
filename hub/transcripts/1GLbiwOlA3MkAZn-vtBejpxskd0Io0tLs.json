@@ -1,0 +1,1540 @@
+{
+  "episodeId": "1GLbiwOlA3MkAZn-vtBejpxskd0Io0tLs",
+  "driveId": "1GLbiwOlA3MkAZn-vtBejpxskd0Io0tLs",
+  "title": "One Ångström at the Transition-State Mimic & Lizard Peptide — Akira Endo, Brown & Goldstein, Habener, Mojsov & Holst, Human HMG-CoA Reductase Statin Locks (PDB 1HWK & 1HW9), Active GLP-1R–Gs Cryo-EM (PDB 5VAI & 6X18) & 4S / SELECT Cox Hazard Math",
+  "duration": 3752.86,
+  "teenKit": {
+    "tldr": "In 15 seconds: Scientists discovered two miracle drug classes by looking at nature—fungi fighting over sterols in soil mold (leading to statins that lower cholesterol) and desert Gila monster venom combined with gut hormones (leading to semaglutide for diabetes and heart health).",
+    "whyItMatters": "Heart disease and diabetes are leading causes of death worldwide. Understanding the exact atomic structures of these proteins allows scientists to design drugs that save millions of lives, prevent heart attacks, and protect kidneys.",
+    "keyTakeaways": [
+      "Akira Endo screened 6,000 mold broths to find compactin, a fungal molecule that mimics the high-energy intermediate of cholesterol synthesis.",
+      "Brown and Goldstein discovered that lowering liver cholesterol triggers cell-surface LDL receptors to suck plaque-forming cholesterol out of the blood.",
+      "Semaglutide attaches a fatty acid tail to hitchhike on blood albumin, stretching its half-life from 90 seconds to a full week."
+    ],
+    "vocab": [
+      {
+        "term": "HMG-CoA Reductase",
+        "meaning": "The rate-limiting enzyme in human cholesterol synthesis located in the endoplasmic reticulum."
+      },
+      {
+        "term": "Transition-State Mimic",
+        "meaning": "A drug molecule shaped to resemble the fleeting, high-energy intermediate of an enzymatic reaction, binding extremely tightly."
+      },
+      {
+        "term": "Cryo-EM",
+        "meaning": "Cryogenic electron microscopy, a technique that flash-freezes biological macromolecules to image them at near-atomic resolution."
+      },
+      {
+        "term": "DPP-4",
+        "meaning": "A blood enzyme that rapidly chops up and destroys native gut hormones like GLP-1 within minutes."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Where did Akira Endo discover the first fungal HMGCR inhibitor (compactin)?",
+        "options": [
+          "A deep-sea hydrothermal vent",
+          "A blue-green Penicillium mold broth from a Kyoto rice shop",
+          "The venom glands of a Gila monster",
+          "Anglerfish pancreatic islets"
+        ],
+        "correctIndex": 1,
+        "explanation": "Akira Endo isolated compactin from Penicillium citrinum broth #3,882, fermented from a rice sample collected in Kyoto."
+      },
+      {
+        "question": "What structural modification protects semaglutide from being instantly destroyed by the DPP-4 enzyme?",
+        "options": [
+          "Replacing Alanine-8 with Aib (2-aminoisobutyric acid)",
+          "Adding a heavy metal core",
+          "Removing the N-terminal histidine entirely",
+          "Wrapping the peptide in a lipid micelle"
+        ],
+        "correctIndex": 0,
+        "explanation": "Swapping the canonical Ala8 residue for achiral Aib8 blocks DPP-4 protease recognition completely."
+      },
+      {
+        "question": "How does binding to human serum albumin (HSA) extend semaglutide's half-life in the bloodstream?",
+        "options": [
+          "It makes the peptide heavy enough to sink to the bottom of blood vessels",
+          "It triggers immune system destruction",
+          "It prevents rapid kidney filtration and allows FcRn receptor recycling",
+          "It neutralizes all blood cholesterol instantly"
+        ],
+        "correctIndex": 2,
+        "explanation": "By binding >99% to abundant 66.5-kDa human serum albumin, semaglutide avoids glomerular filtration and is rescued by endothelial FcRn receptors."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "Usually when we talk about a medical diagnosis, there's this expectation of absolute undeniable precision like engineering almost. Right, like it's math. Exactly. You fall off a bike, you break your arm, the x-ray shows that jagged white line through the bone and the doctor just points at the film and says, well there it is, that's the problem. It is wonderfully binary.",
+      "startTime": 0.0,
+      "endTime": 18.88
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "I mean, it's broken or it's not broken, it's clean. And it's comforting. We like things to be visible, to be categorized. We want to see the enemy. But then you step into the world of cardiometabolic disease. Which by the way, has been the leading cause of human mortality for the last hundred years. Right. And suddenly that reliable x-ray machine is fundamentally broken.",
+      "startTime": 18.88,
+      "endTime": 38.71
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "We're looking at a diagnostic landscape that is, honestly it's murky. Oh, it was the absolute definition of diagnostic muddy waters. Yeah, because for decades, clinicians just treated the slow narrowing of arteries as an inevitable rust of aging. It was viewed as irreversible. Totally.",
+      "startTime": 38.71,
+      "endTime": 55.55
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "And because the early lipid lowering drugs of the mid 20th century either caused terrible disfiguring side effects or just flat out failed to reduce all cause mortality in clinical trials, prominent critics at the time dismissed the entire cholesterol hypothesis as a complete mirage. Like it wasn't even real. Right. They thought we were just chasing ghosts.",
+      "startTime": 55.55,
+      "endTime": 73.83
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "Well, welcome to the deep dive where we've built a custom journey today for our listener, the learner. And today we're looking at exactly how we finally cleared up those muddy waters. It's a massive story. It really is. The theme for this deep dive is one onstrum at the transition state mimic and lizard peptide.",
+      "startTime": 73.83,
+      "endTime": 90.83
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "And our mission today is monumental. Monumental is a good word for it. We are going to explore how two profoundly unlikely biological discoveries became the twin pillars of modern cardiometabolic survival. We are talking about interventions that are literally saving millions of lives from atherosclerotic",
+      "startTime": 90.83,
+      "endTime": 108.99
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "cardiovascular disease as we speak. And what is so deeply fascinating here is the sheer improbability of the sources we're drawing from. Oh, it's wild. It is. On one hand, we are talking about a microscopic molecule fished out of a blue-green rice mold in a Tokyo fermentation warehouse. Right.",
+      "startTime": 108.99,
+      "endTime": 127.11
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "And on the other, a peptide sequence decoded from cold water, angler fish, synthetic gut hormones, and the venomous saliva of a hila monster. I know. I mean, it sounds like we're gathering ingredients for a potion in a fantasy novel, not synthesized as in the absolute pinnacle of modern pharmacology. It really does.",
+      "startTime": 127.11,
+      "endTime": 145.99
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "But to do this, really understand it, we've pulled a massive stack of sources. We've got historical accounts, clinical trial data, complex pharmacokinetic mathematical derivations. The math is incredible, by the way. And precise one angstrom x-ray and cryo EM structural coordinates.",
+      "startTime": 145.99,
+      "endTime": 163.07
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "We'll be looking specifically at PDB files, one H W K one H W nine, five V a I and six X one eight later on. Exactly. And our goal today isn't just to list what these drugs do. I mean, anyone can read it with a PDF summary. If we really want to understand their impact, if we want to honor the science, we have to",
+      "startTime": 163.07,
+      "endTime": 182.11
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "look at exactly why and how they work at the exact atomic level. The actual mechanics. Yes, because knowledge is most valuable when it's deeply understood and applied. We are going to see how manipulating atomic distances by fractions of an anometer. So small, they're hard to even conceptualize.",
+      "startTime": 182.11,
+      "endTime": 201.79
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "Exactly. How those tiny distances change global human survival rates. Okay. Let's unpack this. We have this incredible 50 year intellectual symmetry to track. We do. On one side, a fungal chemical weapon against cholesterol. On the other, a desert lizards remarkably slow metabolism. Yeah.",
+      "startTime": 201.79,
+      "endTime": 220.74
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "And somehow, through decades of grueling research, these oddities led to molecular hacks that literally trick ourselves into clearing out deadly arterial plaques and visceral fat. But to really appreciate that symmetry and the urgency behind it, we have to go back to 1968. Okay.",
+      "startTime": 220.74,
+      "endTime": 237.86
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "We need to go to the clinical center of the National Institutes of Health in Bethesda, Maryland, because we really need to start with the human stakes. Right. And this is a truly heartbreaking starting point. We're looking at a case study of a six year old girl identified in the medical literature only as JP. That's tragic.",
+      "startTime": 237.86,
+      "endTime": 255.9
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "She and her eight year old brother were both at the NIH because they had severe atherosclerotic engine of pectoris, meaning they were having chest pain and heart attacks before they even reached the first grade. Yes. They suffered from a condition called homozygous familial hypercholesterolemia or HOFH, which",
+      "startTime": 255.9,
+      "endTime": 274.45
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "is super rare, right? Devastatingly rare. It occurs in roughly one in 300,000 to perhaps one in a million births. Their total serum cholesterol levels were hovering near 850 to 1000 milligrams per deciliter. Okay. To put that in perspective for you, the learner, that is five to six times the normal adult",
+      "startTime": 274.45,
+      "endTime": 293.97
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "level. Yeah. It's off the charts. Their blood was so saturated with cholesterol that they had these bright yellow bulging deposits, cholesterol tuberous xanthomas, literally pushing up under their skin, especially when they're joints and tendons. And this presented a massive, seemingly unsolvable riddle for the scientific community at the",
+      "startTime": 293.97,
+      "endTime": 312.97
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "time. Does they already knew how cholesterol was made? Exactly. Brilliant biochemists like Conrad Block and Fyodor Linen had already meticulously mapped out how the mammalian body synthesizes its own cholesterol. Right. Furthermore, researchers had demonstrated a clear biological feedback loop.",
+      "startTime": 312.97,
+      "endTime": 331.49
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "If you feed normal, healthy laboratory rats, a diet incredibly high in cholesterol, their delivers just shut down their own internal cholesterol production by over 95%. The body senses it has enough from the outside and it responsibly turns off the internal factory. It's just basic supply and demand. Exactly.",
+      "startTime": 331.49,
+      "endTime": 349.57
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "Specifically, the cells shut down a rate-controlling enzyme at the very beginning of the assembly line called HMG-CoA reductase or HMGCR for short. Okay. This enzyme is responsible for the crucial bottleneck step of turning a molecule called HMG-CoA into mevalonate. So the agonizing question at the NIH was this.",
+      "startTime": 349.57,
+      "endTime": 368.93
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "Why were JP's cells flooded with 1000 mg per deciliter of blood cholesterol, yet her internal HMGCR enzyme was still churning out endogenous cholesterol at absolute full blast? The feedback loop was completely disastrously broken.",
+      "startTime": 368.93,
+      "endTime": 386.38
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "And this is where two young physician scientists, Michael Brown and Joseph Goldstein enter the picture. Yes. They were absolutely captivated by this mystery. They moved to the University of Texas, Southwestern Medical Center in Dallas in the early 70s, specifically to figure this out. And what they did was brilliant. Right.",
+      "startTime": 386.38,
+      "endTime": 405.58
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "They started growing cultured human skin fiber blast, just basic skin cells from both healthy volunteers and from HOFH children like little JP. Their experimental design was so elegant, they took normal skin cells and bathed them in what's called lipoprotein deficient serum. Basically starving them. Right.",
+      "startTime": 405.58,
+      "endTime": 424.86
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "They scrubbed the fluid of all external cholesterol completely starving the cells. Predictably the HMGCR enzyme activity inside those normal cells surged 50 to 100 fold. Because the cells were panicking, desperately trying to make their own cholesterol to survive. Exactly.",
+      "startTime": 424.86,
+      "endTime": 440.38
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "But then the researchers added purified human low density lipoprotein, LDL, the bad cholesterol, back into the fluid. And what happened? Within hours, the internal HMGCR activity was completely crushed back down to baseline. Okay. So the normal cells drank the LDL from the fluid and shut off their internal factories.",
+      "startTime": 440.38,
+      "endTime": 459.62
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "Precisely. But when they did the exact same experiment with JP's HOFH cells, the HMGCR enzyme just kept roaring continuously at maximum velocity, even when the cells were absolutely swimming in a massive dense sea of LDL. Which naturally raised an incredibly important mechanical question.",
+      "startTime": 459.62,
+      "endTime": 478.26
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "Were JP's cells simply incapable of shutting off the internal enzyme at all? Right. Was the HMGCR enzyme itself mutated to be permanently stuck in the on position? I love how they tested this because it's so clever. It really is. Brown and Goldstein dissolved free on asteroid cholesterol in pure ethanol. And they added that directly to the cells.",
+      "startTime": 478.26,
+      "endTime": 497.38
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "Because here's the trick. Free cholesterol dissolved in ethanol can diffuse passively right across the cell's plasma membrane. It just slips right through the wall. Yeah, it doesn't need any special biological door or surface carrier to get inside. And the results were definitive.",
+      "startTime": 497.38,
+      "endTime": 512.18
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "When they forced the cholesterol inside using the ethanol, JP's HMGCR enzyme shut right off, exactly like the normal cells. So the internal factory machinery worked perfectly fine? The problem was that the border wall. Exactly. The cells just couldn't see the massive amounts of LDL that were piled up right outside their front doors.",
+      "startTime": 512.18,
+      "endTime": 530.46
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "So what did they do next? By labeling LDL with a radioactive iodine 125 so they could track it, Brown and Goldstein discovered the missing molecular machine. And they eventually won the 1985 Nobel Prize in medicine for this.",
+      "startTime": 530.46,
+      "endTime": 544.42
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "They proved that normal cells have these specific doorways, LDL receptors or LDLR. Clustered in little dimples on their surface called clathrin coated pits. These receptors reach out, grab the LDL from the blood, pull it inside the cell, release",
+      "startTime": 544.42,
+      "endTime": 560.86
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "the cholesterol and then recycle back to the surface to do it again, roughly 150 times per receptor lifetime. And JP and her brother were genetically missing these receptors entirely. Exactly. And over the subsequent two decades, Brown and Goldstein didn't stop there. They kept digging.",
+      "startTime": 560.86,
+      "endTime": 576.22
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "They drilled down and uncovered the exact molecular thermostat operating on the endoplasmic reticulum, the ER, membrane deep inside the cell that controls this whole process. Right. And there's a gorgeous three protein complex consisting of SR eBP2, SCAP and INSAG.",
+      "startTime": 576.22,
+      "endTime": 593.94
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "And what is brilliant is that it works on a razor sharp cooperative threshold of exactly 5 mole percent of total ER lipids. Okay, Leonard, let's unpack this thermostat concept because it's crucial. Think of this mechanism exactly like the thermostat on the wall of your house, but instead of",
+      "startTime": 593.94,
+      "endTime": 610.04
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "sensing temperature, it's sensing the concentration of cholesterol in the cell's internal memory. That's a perfect analogy. And the cholesterol in that membrane is abundant, meaning it's above that magical 5 mole percent threshold. The cholesterol physically binds to the sensor, which is SCAP. And this binding acts like a lock. Right.",
+      "startTime": 610.04,
+      "endTime": 629.76
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "It locks SCAP and it's precious cargo, a transcription factor called SR eBP2, tightly to an anchor protein called INSAG. As long as they are anchored, the heat is off. The factory is quiet. But the moment that interest cellular ER cholesterol dips even slightly below that 5 mole percent",
+      "startTime": 629.76,
+      "endTime": 648.52
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "threshold, say the cell uses up some cholesterol or a starved of it, the thermostat violently clicks on. Without the cholesterol to hold the lock, SCAP physically changes its shape. Yes. It lets go of the INSAG anchor and it actually rides transport vesicles straight to the Golgi apparatus. Okay.",
+      "startTime": 648.52,
+      "endTime": 667.84
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "So here, cellular proteases act like scissors and clip off the active part of SR eBP2. This active fragment is now free to enter the cell nucleus, bind directly to the DNA, and command the cell to do two things. Turn on the HMGCR factory to make more cholesterol and flood the cell surface with fresh LDL receptors",
+      "startTime": 667.84,
+      "endTime": 687.6
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "to pull more cholesterol out of the blood. Wait, hold on. I need to ask a really obvious question here. If we are looking at JP's cells, or anyone with high cholesterol, and we know they can't read the LDL in the blood, why didn't scientists just invent a drug to block cholesterol synthesis completely?",
+      "startTime": 687.6,
+      "endTime": 705.72
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "If the factory is running too hot, just bomb the factory. Wouldn't that fix the problem entirely? It's an incredibly logical thought. In fact, it's so logical that pharmaceutical companies tried exactly that in the late 1950s. Oh, they did. They did. In the context of the late 1960s, one brown and gold steam were working, inhibiting cholesterol",
+      "startTime": 705.72,
+      "endTime": 724.88
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "synthesis was considered a disastrous, almost taboo idea. Really? Mm-hmm. Why? Because of a drug called Mer 29, or traperenal, between 1959 and 1962, this drug was heavily",
+      "startTime": 724.88,
+      "endTime": 739.52
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "marketed to lower cholesterol by blocking the internal factory, but it had a fatal flaw. It blocked an enzyme at the very last step of the cholesterol synthesis pathway. Ah, I see. Because it's a multi-step biochemical assembly line. If you block the very last step, all the almost finished products are just going to pile up",
+      "startTime": 739.52,
+      "endTime": 759.04
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "on the factory floor, right? They have nowhere to go. Precisely. And that almost finished product was an intermediate sterile called desmostrol. Unlike some other molecules, desmostrol is highly insoluble. Oh, no. Because it couldn't dissolve and it couldn't be turned into a finished cholesterol, it aggressively",
+      "startTime": 759.04,
+      "endTime": 776.04
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "accumulated in crystalline sheets inside human tissues. That sounds horrible. It was. Most tragically, it crystallized inside the lenses of the eyes and in the skin. It permanently blinded hundreds of patients with severe irreversible cataracts and caused extreme skin conditions and hair loss. Wow.",
+      "startTime": 776.04,
+      "endTime": 794.44
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "It was a massive medical scandal. Because of the Mer 29 disaster, the entire field of medicinal chemists firmly believed that interfering with cholesterol synthesis was inherently inevitably dangerous. So enter our hero, Akira Endo. A brilliant biochemist working at the Sanquio company in Tokyo. Yes.",
+      "startTime": 794.44,
+      "endTime": 813.48
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "He looked at the Mer 29 disaster not as a reason to give up, but as a very specific map of where not to strike. He realized you absolutely shouldn't target the end of the assembly line. Right. He figured you have to target HMGCR, the enzyme at the very, very top of the pathway. Exactly.",
+      "startTime": 813.48,
+      "endTime": 832.04
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "Because the chemical precursors at that early stage, like HMGCoa, are heavily water soluble. So if you block the pathway there, the raw materials don't crystallize. They just safely dissolve, wash away and get recycled into other harmless metabolic pathways. No insoluble crystal buildup.",
+      "startTime": 832.04,
+      "endTime": 848.88
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "His chemical intuition was spot on, but his biological intuition was perhaps even more profound. He asked himself a fundamental evolutionary question, wearing nature. What I find a molecule that has already been perfected to block HMGCR. Okay, I love this part. He remembered foraging for wild mushrooms as a young boy in Akita prefecture.",
+      "startTime": 848.88,
+      "endTime": 868.35
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "And he knew from his microbiology training that fungi build their cell walls using a molecule called ergostrol. Which is basically their version of cholesterol. Right. And the synthesis of ergostoral relies on the exact same HMGCoa bottleneck enzyme as human cholesterol. He reasoned that fungi, which live in incredibly dense, highly competitive environments in",
+      "startTime": 868.35,
+      "endTime": 887.15
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "the soil, had probably spent the last 500 million years evolving chemical weapons to shut down their neighbor's sterile synthesis to fight for territory. And it's just insanely cool. We always think of drugs being designed in sterile labs, but this is ancient, subterranean chemical warfare in the soil. It really is.",
+      "startTime": 887.15,
+      "endTime": 904.71
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "So starting in 1971, Ando and his team embark on this massive grueling operation. They built this remarkably clever two stage radiochemical funnel to test 6,000 individual fungal fermentation broths. Imagine the smell and the tedium of that lab. The design of the assay was critical though.",
+      "startTime": 904.71,
+      "endTime": 924.63
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "They couldn't just find something that killed cells. They needed a precise surgical strike. Right. Stage one of the funnel used radioactive carbon 14 labeled acetate. The very raw starting material to see if a broth halted sterile synthesis at all. Okay. But stage two was the genius part. It was the anti-mer 29 filter.",
+      "startTime": 924.63,
+      "endTime": 942.87
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "They took the broths that successfully blocked synthesis in stage one. And they retested them using radioactive tritium labeled mevelinate. And mevelinate is the product that comes immediately after the HMGCR step, right? Exactly. If a broth blocked the pathway when you started with acetate, but let the process run completely",
+      "startTime": 942.87,
+      "endTime": 961.71
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "uninhibited when you started with mevelinate, it meant the drug had to be hitting the pathway exactly between those two steps. It had to be hitting HMGCR and nowhere else. Brilliant, right? So 3,81 failed broths later. They test broth number 3,882.",
+      "startTime": 961.71,
+      "endTime": 979.75
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "It's fermented from a blue-green mold called penicillum citrinum, which they actually isolated from a mundane rice sample from a grain shop in Kyoto. Yeah. It completely lights up stage one with a 95% block and it sails flawlessly through stage two.",
+      "startTime": 979.75,
+      "endTime": 997.22
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "They purify it and isolate a molecule they called ML236B, later known as compactin. And its affinity for the human enzyme is just mind-blowing. Let's talk about that binding strength. It was unprecedented. The competitive inhibitor constant, the KI, was roughly 1.0 nanomolar.",
+      "startTime": 997.22,
+      "endTime": 1014.5
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "To put that in perspective for our listeners, the human body's natural substrate, HMG-CoA, has a binding affinity of about 4 to 10 micromolar. Wow. Okay. That means Endo's fungal molecule bound to the human enzyme roughly 4,000 to 10,000 times tighter than the body's own natural substrate.",
+      "startTime": 1014.5,
+      "endTime": 1034.34
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "A total unmitigated triumph. You'd think so. Except here comes the narrative tension. It's 1974. They are ecstatic. They feed this miracle mold juice to standard laboratory rats and mice. Well, the serum cholesterol in the animals does not budge by a single percent.",
+      "startTime": 1034.34,
+      "endTime": 1052.66
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "It completely utterly fails. The executives at Sanqui were furious and ready to pull the plug on the entire program immediately. And this is where we encounter the infamous rodent paradox in pharmacology. Rodents are actually a terrible, fundamentally flawed model for human LDL pharmacology. What is that?",
+      "startTime": 1052.66,
+      "endTime": 1070.5
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "Endo and his colleague Noratoshi Kitano had to do some frantic biological detective work. They discovered that unlike humans, rats carry over 80% of their plasma cholesterol in HDL, the good cholesterol, because they naturally lack a specific cholesterol ester transfer protein. Okay, so they're wired differently.",
+      "startTime": 1070.5,
+      "endTime": 1087.26
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "But even worse, when you give a rat a statin, their livers don't just quietly up-regulate LDL receptors. They mount an explosive eight to tenfold compensatory surge in new HMGCR enzyme production, completely overpowering the drug and masking any potential LDL clearance in the blood. So picture this.",
+      "startTime": 1087.66,
+      "endTime": 1106.58
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "They are sitting over beers at a local tavern near Shenagawa station, probably feeling incredibly defeated, thinking their miracle drug is dead in the water. And Kitano, who happens to be a veterinary scientist, has a stroke of lateral genius. He says, what about laying hens? Which is such a brilliant leap.",
+      "startTime": 1106.58,
+      "endTime": 1125.1
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "Because if you think about it, egg yolk production requires massive, continuous amounts of lipid transport, specifically VLDL and LDL in the blood, to get the fat into the egg. Exactly. They rush to test the hens, and boom, within two weeks, the hens plasma cholesterol plummets by 50%.",
+      "startTime": 1125.1,
+      "endTime": 1143.26
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "This is rapidly followed by huge successful drops in dogs and monkeys. Which leads directly to the clinical triumph in 1978. Even as the Sanquio executives hesitated, terrified of the M.E.R. 29 legacy, Endo quietly partnered with a bold physician named Dr. Akira Yamamoto in Osaka.",
+      "startTime": 1143.26,
+      "endTime": 1161.58
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "They gave the drug to an 18-year-old woman with severe, receptor-defective FH, and then to nine other heterozygous FH patients. Their plasma cholesterol fell dramatically by nearly 30%. And those visible, hard, yellow, tendons and thomas enter their skin actually softened and began to shrink.",
+      "startTime": 1161.58,
+      "endTime": 1181.46
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "But then, another devastating crisis. In 1980, Sanquio suddenly halts all clinical development. They literally pulled the drug from the patients. It was heartbreaking. Why? Because of a toxicology report in dogs that was later shown to be completely misread.",
+      "startTime": 1181.46,
+      "endTime": 1198.02
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "The pathologists thought they were seeing intestinal lymphomas, cancer. But it was actually just severe but reversible mucosal toxicity from completely insane doses, like 200 times the normal human dose. Yeah, total overreaction.",
+      "startTime": 1198.02,
+      "endTime": 1211.94
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "Endo is so heartbroken, he leaves Sanquio entirely, ultimately getting zero corporate royalties for inventing what would become a multi-hundred billion-dollar drug class. However, the scientific genie was already out of the bottle. Over at Merck in the United States, scientists Roy Vagulos and Alfred Alberts had independently",
+      "startTime": 1211.94,
+      "endTime": 1230.58
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "isolated the exact same molecule, just with one extra methyl group attached from a completely different fungus, Aspergillus Terreus. They called their molecule Lovastatin, and they pushed it all the way through to FDA approval in 1987. That early success laid the groundwork for a Simvastatin, and eventually a chemist named",
+      "startTime": 1230.58,
+      "endTime": 1249.64
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "Bruce Roth at Park Davis made a massive leap. He replaced the complex fungal ring structure entirely with a purely synthetic parole ring to create a Torvastatin, which the world now knows as Lipitor. And what I find to be the most beautiful poetic part of this whole first chapter, statins don't",
+      "startTime": 1249.64,
+      "endTime": 1267.86
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "just act like a dumb sponge in the blood soaking up cholesterol. No, they don't. That brings us right back to the SREB P2 thermostat we talked about earlier. Because statins inhibit the HMGCR factory in the liver, they artificially dip the cell's internal cholesterol level just below that 5 mole percent threshold. Exactly.",
+      "startTime": 1267.86,
+      "endTime": 1287.02
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "The cell panics, digging it starving, the SEAP-IN-SIG switch flips, and the liver floods its surface with those LDL receptors that brown and gold steam discovered, sweeping the deadly LDL out of the bloodstream. We are literally hacking the cell's own ancient survival thermostat to save our arteries.",
+      "startTime": 1287.02,
+      "endTime": 1303.7
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "It is a breathtakingly elegant hijacking of a natural feedback loop. But as incredible as statins were, while they were conquering LDL cholesterol, a parallel metabolic pandemic was quietly raging across the globe. The rise of visceral obesity and insulin-resistant type 2 diabetes.",
+      "startTime": 1303.7,
+      "endTime": 1322.7
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "Statins protected the arteries, but they didn't stop the metabolic collapse driving the inflammation. And that brings us to our second incredible biological relay, spanning from roughly 1979 to 2015. Yes, so statins saved the liver, but the pancreas was failing.",
+      "startTime": 1322.7,
+      "endTime": 1337.7
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "For 50 years, endocrinologists were completely stumped by an observation they called the Inkritin effect. This is a wild story. Here's how it works. If you have a patient drink a sugary drink containing 50 to 75 grams of glucose, their pancreas secrete a massive amount of insulin.",
+      "startTime": 1337.7,
+      "endTime": 1355.72
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "But, if a doctor infuses the exact same amount of glucose directly into their veins, carefully matching the exact same blood sugar curve over time, the pancreas secrete 50 to 70% less insulin. The math was undeniable.",
+      "startTime": 1355.72,
+      "endTime": 1371.7
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "It clearly indicated that the gastrointestinal tract itself was sending a powerful pre-emptive chemical signal to the pancreas as the food physically passed through the gut, warning the pancreas to prepare for a sugar spike. They call these hypothetical chemical signals Inkritins. Right.",
+      "startTime": 1371.7,
+      "endTime": 1388.42
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "And in the 1970s, researchers found a promising gut hormone candidate called GIP. But when they excitedly gave GIP to patients with type 2 diabetes, the beta cells in their pancreas barely responded at all. So it was a bust. GIP was a therapeutic dead end for diabetes, which logically meant there had to be another",
+      "startTime": 1388.42,
+      "endTime": 1407.51
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "missing hormone doing the heavy lifting. Finding that missing hormone required a frankly ridiculous MacGyver level workaround. A researcher named Joel Habener in Boston wanted to clone mammalian glucagon genes to go fishing for this missing hormone. But it was the late 70s. Exactly.",
+      "startTime": 1407.51,
+      "endTime": 1426.15
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "And they were incredibly strict recombinant DNA containment rules. People were terrified of genetic engineering. He couldn't just do this in a regular hospital lab with human or rat DNA. So he turned to the cold water angler fish. Lothius americanus. It sounds bizarre, but it was biologically brilliant. How so?",
+      "startTime": 1426.15,
+      "endTime": 1444.63
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "You see, the maley and pancreas is a messy organ to work with because it produces both hormones and highly destructive digestive enzymes, proteases, that instantly chew up delicate mRNA when you try to extract it. Wow, that makes sense. But angler fish had these anatomically distinct endocrine structures called brockman bodies.",
+      "startTime": 1444.63,
+      "endTime": 1464.29
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "They sit completely separate from their exocrine digestive pancreas. It made isolating the fragile mRNA so much cleaner and safer. Wow. And when Haberner's team sequenced the angler fish pre-pro-glucagon gene, they struggled. They found the sequence for regular pancreatic glucagon.",
+      "startTime": 1464.29,
+      "endTime": 1483.83
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "But sitting right next to it, on the same gene, were two previously unknown closely related sequences. They called them glucagon-like peptides, GLP1 and GLP2. The moment this was published, the scientific community rushed to synthesize the full 37 amino",
+      "startTime": 1483.83,
+      "endTime": 1500.03
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "acid sequence of human GLP1 and tested on pancreatic eyelids in the lab. And absolutely nothing happened. Yeah, it was completely biologically dead. The whole field led out a collective groan. It looked like another dead end. But just down the hall from Haberner was Dr. S. Fittlana Moyzoff.",
+      "startTime": 1500.03,
+      "endTime": 1517.76
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "Dr. Moyzoff was a brilliant, meticulous peptide chemist who had actually trained under Bruce Maryfield, the legendary pioneer of solid phase peptide synthesis. She saw something everyone else missed, right? She did. She looked at the sequence of this supposedly dead 37 amino acid peptide and noticed something.",
+      "startTime": 1517.76,
+      "endTime": 1536.0
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "After a short six residue leader sequence at the very beginning of the chain, there was an arginine at position six. Okay, why is that important? In biological processing, single arginines or pairs of basic amino acids are classic cleavage sites for enzymes to cut proteins. It was the ultimate biological typo correction.",
+      "startTime": 1536.0,
+      "endTime": 1555.48
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "She realized that the full 37 amino acid chain wasn't the final product. If you imagine the gut proteases chopping off those first six amino acids and starting the new sequence at histidine, which is position seven, suddenly the peptide aligns perfectly residue for residue with the active, highly potent part of normal glucagon.",
+      "startTime": 1555.48,
+      "endTime": 1574.2
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "Her hypothesis was radical, but mathematically beautiful. The gut doesn't release the full 37 amino acid chain into the blood. It releases a specifically truncated version, GLP one dash seven dash 37. And she proved it. She did. And the derivative she used her Marifield synthesizer to physically build both versions",
+      "startTime": 1574.2,
+      "endTime": 1593.08
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "from scratch, amino acid by amino acid. And when she and her collaborators, including Daniel Drucker and Gordon Weir tested her newly minted truncated GLP one dash seven dash 37 on an isolated, perfused pancreas. Well, the result was staggering. It ignited a roaring insulin release at concentrations as low as 50 picomolar.",
+      "startTime": 1593.08,
+      "endTime": 1612.76
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "Yeah. And here is the absolute magic of GLP one, the thing that makes it a miracle drug. It only triggers that insulin release when your blood glucose is elevated. Exactly. The instant your blood sugar drops down to a normal baseline of about 4.5 millimolar,",
+      "startTime": 1612.76,
+      "endTime": 1628.56
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "the insulin release automatically shuts off, meaning it causes zero hypoglycemia. You don't crash. You don't go into a coma. It is glucose dependent. It was the perfect therapeutic profile concurrently. A brilliant researcher named Yens Jule Holst in Copenhagen independently discovered the exact same truncated active peptide in pigs.",
+      "startTime": 1628.56,
+      "endTime": 1648.32
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "When his team infused it into actual human type two diabetics, it did everything they dreamed of. It normalized fasting blood sugar. It suppressed the counter regulatory hormone glucagon. And it even crossed into the brain to quietly suppress the appetite centers. Okay. Stop right there. I have to push back again on this.",
+      "startTime": 1648.72,
+      "endTime": 1666.56
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "If this GLP one peptide is a miracle cure for diabetes that doesn't cause blood sugar crashes, why wasn't every doctor on earth prescribing it the day it was discovered in 1993? What took 20 years to get this to the masses? Because of a highly efficient biological assassin lurking in our capillary beds.",
+      "startTime": 1666.56,
+      "endTime": 1684.72
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "The clinical researchers quickly realized that the moment you turned off the intravenous infusion pump in the hospital, the native GLP one simply vanished from the human bloodstream. Not fast. Its plasma half-life was in an agonizingly short 90 to 120 seconds. 90 seconds. Mm hmm.",
+      "startTime": 1684.72,
+      "endTime": 1701.56
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "You can't make a practical drug out of something that disappears in a minute and a half. But patients are going to walk around with a continuous IV drip of peptides. Exactly. Researchers furiously hunted for the culprit. And they found it. An endothelial brush border protease called dipeptodil peptidase four or DPP four for short.",
+      "startTime": 1701.56,
+      "endTime": 1720.64
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "Okay. DPP four is an enzyme lining our blood vessels that acts as a quality control checkpoint. It specifically recognizes a proline or an alanine sitting at the second position of any peptide chain. In Sphetlana, MOSOV's truncated GLP one that critical second position is alanine eight. So what does the enzyme do?",
+      "startTime": 1720.64,
+      "endTime": 1740.28
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "As the peptide flits by DPP four acts like molecular scissors, snipping off the first two amino acids, histidine seven and alanine eight in roughly 90 seconds, rendering the hormone completely inactive. Wow. And whatever piece was left over was so physically small, it just got instantly filtered out by the kidneys into the urine.",
+      "startTime": 1740.28,
+      "endTime": 1758.64
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "So we have the perfect microscopic key to unlock insulin. But our own bodies keep ruthlessly snapping the key in half before it can even reach the door. Exactly. Which brings us to a veterans hospital in the Bronx and well, a venomous lizard. John Eng was a dedicated endocrinologist working in the Bronx VA.",
+      "startTime": 1758.64,
+      "endTime": 1777.87
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "He was fascinated by the venom of the Helomoster. Yes. Now the Helomoster is this sluggish desert dwelling lizard that eats massive meals like whole bird eggs or small mammals. But only a few times a year. Eng noticed that its venom contained a strange peptide that massively stimulated the pancreas.",
+      "startTime": 1777.87,
+      "endTime": 1796.95
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "He managed to purify this venom peptide and called it Exidin four. When he finally sequenced it, he found it shared a remarkable 53% structural identity with human GLP one. But there was a difference. But crucially, and this is the evolutionary hack where human GLP one has that vulnerable",
+      "startTime": 1796.95,
+      "endTime": 1814.31
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "alanine sitting at position eight, the Helomoster peptide had a glycine instead. It's single amino acid change. It's single tiny amino acid substitution, effectively removing one microscopic methyl group completely ruined the fit for the human DPP four molecular scissors. The scissors couldn't grip it.",
+      "startTime": 1814.31,
+      "endTime": 1832.59
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "Exidin four was essentially immune to DPP four cleavage. When injected into humans, it's half life stretched from two minutes to roughly 2.4 hours. It's just wild to think about. The Helomoster solved the DPP four problem millions of years ago.",
+      "startTime": 1832.59,
+      "endTime": 1849.09
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "So it could process those massive infrequent meals slowly in the harsh desert environment without spiking its blood sugar. That's biology for you. Eng patented the peptide and it eventually became the twice daily injectable drug by eta. But here's where it gets really interesting because let's be honest, 2.4 hours is better",
+      "startTime": 1849.09,
+      "endTime": 1869.01
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "than 90 seconds, but you're still forcing patients to do twice daily injections. That's a huge burden. It is. Enter a lot of Björgudsen, a brilliant scientist at Novo Nordisk. She looked at this and said, we need a once weekly drug. Right. Because even though Xenden four resisted the scissors, it was still a tiny peptide, meaning",
+      "startTime": 1869.01,
+      "endTime": 1888.93
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "it was small enough to be rapidly filtered out by the kidneys. Knudsen and her engineering team asked a profoundly elegant pharmacokinetic question, which was, what is already floating naturally in human plasma that possesses a massive 19 to 21-day circulatory half-life? What evades the kidneys?",
+      "startTime": 1888.93,
+      "endTime": 1908.81
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "The answer is human serum albumin. Oh, albumin. It's an absolutely massive protein, vastly too large to be filtered by the kidneys, and it has special biological privileges that actively protect it from being destroyed by the body's cellular recycling centers.",
+      "startTime": 1908.81,
+      "endTime": 1925.65
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "Think of albumin like the body's massive, untouchable cargo ships constantly circulating in the blood, transporting fatty acids and other bulk goods. So Knudsen thinks, what if we can make our GLP1 drug act like a stowaway? What if it can hit you right on this cargo ship? Exactly.",
+      "startTime": 1925.65,
+      "endTime": 1943.76
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "So the engineer at a molecule called semaglutide. They made two absolutely critical microscopic changes. First, to fix the scissor problem. They swapped that vulnerable alanine 8, not for glycine like lizard, but for a completely",
+      "startTime": 1943.76,
+      "endTime": 1958.36
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "synthetic amino acid called AIB8, which sterically blocks the DPP-4 scissors with brute force. And the second, far more elegant hack. They chemically attached a C18 octadecanoic fatty diacid, basically a long sticky lipid tail, to the peptide at position lysine 26.",
+      "startTime": 1958.36,
+      "endTime": 1978.24
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "This lipid tail acts exactly like a molecular grappling hook. When a patient injects semaglutide, the drug enters the blood and instantly fires that grappling hook, binding tightly to human serum albumin. In fact, in a patient's bloodstream, over 99% of the drug is securely bound to albumin at any given moment.",
+      "startTime": 1978.72,
+      "endTime": 1997.12
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "99%. Because it is physically attached to this massive protein ship, the kidneys look at it and say too big to filter, and it stays in the blood. The result is staggering. By hitching a ride on albumin, they stretch the elimination half-life from 1.8 minutes, all the way to 165 hours.",
+      "startTime": 1997.12,
+      "endTime": 2015.96
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "That's nearly a full week. A 5,500-fold increase in half-life from a single fatty acid chain. It is a masterclass in molecular engineering. Now, we have the history and the biology down. We know the narrative of how these were found. But how do we prove these chemical hacks actually work mathematically?",
+      "startTime": 2015.96,
+      "endTime": 2035.6
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "How do we know that it's not just a fluke? That's the real question. This brings us to explicit mathematical pharmacology. This is where you really shine. I want you to break down the math on why classical enzyme equations and stuff we all learned in Biology 101 completely fail to describe how Akira and Dostatin's work.",
+      "startTime": 2035.6,
+      "endTime": 2054.28
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "To truly understand statins, we have to throw out standard textbooks and look at John F. Morrison's type binding equation from 1969. Okay. In classical, micollisment, and kinetics, we make a huge simplifying assumption. We assume that the amount of free drug floating around in a test tube is basically equal to",
+      "startTime": 2054.28,
+      "endTime": 2072.44
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "the total amount of drug we dropped in. We assume this because standard drugs bind loosely, pop off quickly, and are present in massive excess compared to the enzyme. But statins don't bind loosely. Exactly. We established that Akira and Dostin mold juice binds 4,000 times tighter than normal. Exactly. And that ruins the math.",
+      "startTime": 2072.44,
+      "endTime": 2091.4
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "Prior to human liver cell, the concentration of the HMGCR enzyme active sites is roughly 2 to 20 nanomolar. The binding affinity, or KI, of statins is incredibly strong, also sitting in that exact same 0.5 to 10 nanomolar range. They're right on top of each other. Because the concentration of the target and the affinity of the drug are so numerically",
+      "startTime": 2091.4,
+      "endTime": 2110.88
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "close and the statin binds, so fiercely, almost every single statin molecule you add is instantly sucked up and physically sequestered onto an enzyme. This phenomenon is called inhibitor depletion. So the classical equations just fall apart because they assume there's plenty of free",
+      "startTime": 2110.88,
+      "endTime": 2127.12
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "drug left to measure, but in reality, there is almost zero free drug. It's all locked in a molecular embrace with the enzyme. Precisely. To solve this, Morrison had to derive an exact quadratic equation based on strict mass conservation principles. He couldn't use approximations.",
+      "startTime": 2127.12,
+      "endTime": 2142.96
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "The crucial takeaway from Morrison's math is a specific correction factor, a plus one half total enzyme concentration floor in the equation. And what happens if you ignore that? Researchers in the 1980s who ignorantly ignored this mathematical floor and used the old Macchylus",
+      "startTime": 2142.96,
+      "endTime": 2158.56
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "Mentin equations routinely underestimated how incredibly potent stands truly are. They were getting the wrong answers. So how do we actually measure that grip strength? Is there a way to put a number on the physical force of that embrace? Yes, we look at the thermodynamic transition state free energy.",
+      "startTime": 2158.56,
+      "endTime": 2176.67
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "Specifically, the delta delta G double dagger. Okay, lay it on me. Enzymes work their magic by stabilizing the high energy incredibly unstable midway point of a chemical reaction, which we call the transition state. HMGCR accelerates its reaction by stabilizing a specific transient shape called the meveladil",
+      "startTime": 2176.67,
+      "endTime": 2195.75
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "CoA oxygen ion. When we compare the statin's binding constant of roughly one nanomolar to the natural substrates 4,000 nanomolar affinity at human body temperature, the thermodynamic advantage is staggering. Okay, so like calculating the energy difference between the two, if we plug in the numbers,",
+      "startTime": 2195.75,
+      "endTime": 2214.23
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "we take the universal gas constant, multiply it by 310 Kelvin for body temperature and take the natural log of that 4,000 fold ratio. We get roughly negative 21.4 kilojoules per mole. That negative 21.4 kilojoules per mole of free energy difference is the thermodynamic proof",
+      "startTime": 2214.23,
+      "endTime": 2231.67
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "of why statins win the tug of war inside your liver. Because e to the power of that energy ratio equals 4,000, it dictates that even trace nanomolar concentrations of statins arriving in your portal vein will completely utterly out compete the massive micromolar concentrations of the natural substrate inside your liver cells.",
+      "startTime": 2231.67,
+      "endTime": 2251.55
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "That is just beautiful. Okay, now explain the math for the albumin hitchhiker, sumogluetide. How does Lydic condense C18 lipid tail actually perform mathematically in the blood? How do we know it doesn't just overwhelm the albumin system? To prove that, we look at a non-satchable mass action equilibrium.",
+      "startTime": 2251.55,
+      "endTime": 2269.63
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "Normal human plasma albumin is immense, roughly 600 micromolar in concentration. But the therapeutic levels of sumogluetide that we inject into patients are tiny, only about 30 to 75 nanomolar. Okay. The album takes up less than 0.013% of the available albumin in the blood.",
+      "startTime": 2269.63,
+      "endTime": 2288.95
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "Because there is such a massive overwhelming excess of albumin, the binding is strictly non-satchable. Let me translate that. It means there is always an empty seat on the cargo ship. You could never inject enough drug to fill up all the ships. Always. Using the association constant of that specific C18 die asset tail, we can calculate the free",
+      "startTime": 2288.95,
+      "endTime": 2308.07
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "drug fraction denoted as FU. When we run the numbers, FU turns out to be less than 0.01, meaning more than 99% of the drug is safely bound to albumin at all times. And that mathematically proves the three clearance shields you mentioned.",
+      "startTime": 2308.07,
+      "endTime": 2323.95
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "Shield one, the AIB8 synthetic amino acid modification drives a DPP4 scissor clearance rate straight to zero. Yes. Shield two, the 99% albumin binding means the glomerular seving coefficient, the rate at which the kidneys filter the blood, drops to almost zero because the complex is physically",
+      "startTime": 2323.95,
+      "endTime": 2342.09
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "too huge a pass through the kidneys filters. And Shield three, active endothelial rescue. This is fascinating. When blood vessel cells normally swallow plasma fluid to sample it, they take the albumin-bound drug into acidic compartments called endosomes to destroy it.",
+      "startTime": 2342.09,
+      "endTime": 2358.21
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "But a specialized receptor inside the cell called the neonatal FC receptor, or FCRN, recognizes the albumin, grabs it, and actively recycles it back to the neutral pH of the bloodstream, saving the drug from destruction in the cellular lysosomes.",
+      "startTime": 2358.21,
+      "endTime": 2374.21
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "When you plug all three of those shields into an ordinary differential equation, the math on the elimination rate constant is just beautiful. It yields a half-life of 165 hours. Incredible. And if a patient takes it once a week, every 168 hours, the steady state accumulation ratio",
+      "startTime": 2374.21,
+      "endTime": 2392.53
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "is roughly 1.98, meaning over the course of four to five weeks, the drug gently builds up to exactly double the single dose level, providing a perfectly smooth 24-7 engagement of your insulin receptors. No spikes, no crashes, just mathematical perfection.",
+      "startTime": 2392.53,
+      "endTime": 2410.49
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "But here is the ultimate challenge. Connecting this elegant molecular math to actual, messy human survival requires a completely different kind of mathematics. Why is that? How do we rigorously, statistically prove that a daily pill or a weekly injection actually",
+      "startTime": 2410.49,
+      "endTime": 2426.49
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "prevents a heart attack, or delays death over a five-year clinical trial, especially when we can't possibly know how the baseline risk of death naturally behaves over time? Right, because risk is in a straight line. You can't just draw a simple slope on a graph. Patients' risk of a heart attack changes based on age, stress, winter weather, or a thousand",
+      "startTime": 2426.49,
+      "endTime": 2446.41
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "variables. Exactly. I'm aware Sir David Cox revolutionized medical statistics with his proportional hazards model in 1972. Before Cox, statisticians struggled because they had to guess the shape of the underlying hazard, the baseline risk of dying over time. Cox's genius was the partial likelihood equation.",
+      "startTime": 2446.41,
+      "endTime": 2465.57
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "He said, let's stop guessing the shape of the baseline hazard entirely. I love this concept. It's like a marathon where people keep dropping out from exhaustion. And instead of trying to mathematically guess how hard the whole 26-mile race is, you just pause the race completely every single time someone twists an ankle.",
+      "startTime": 2465.57,
+      "endTime": 2485.26
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "And you only look at the shoes of everyone who is still running at that exact moment. That is a perfect analogy for risk sets. At the exact mathematical moment a patient in the trial experiences an event, like a heart attack, Cox's equation pauses time. We look at the risk set, all the patients in the trial who are still alive and event-free",
+      "startTime": 2485.26,
+      "endTime": 2504.3
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "at that exact second. We ask, what is the probability that the person who just had the heart attack was in the placebo group versus the drug group compared to the proportion of everyone else standing in the room right now? And because you were only comparing them to the people at that exact moment in time, the",
+      "startTime": 2504.3,
+      "endTime": 2520.94
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "unknown baseline hazard, the overall difficulty of the race, mathematically cancels out of the numerator and the denominator. Exactly. We can calculate the hazard ratio cleanly without assumptions. And to ensure the drug isn't just working for the first month and then failing, we use",
+      "startTime": 2520.94,
+      "endTime": 2536.42
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "something called show-and-fell residuals to rigorously verify that the protective effect, the proportional hazard, stays strictly constant over the entire five years. And when researchers finally applied this rigorous math to the landmark clinical trials, the results literally altered the course of human medical history.",
+      "startTime": 2536.42,
+      "endTime": 2555.36
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "The 4S trial, published in 1994, tested Simvastatin in over 4,400 patients. The hazard ratio came out to 0.70. A 30% reduction. That is a staggering 30% reduction in all-cause mortality. The number needed to treat the NNT was 30.",
+      "startTime": 2555.36,
+      "endTime": 2574.72
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "You only needed to give the drug to 30 patients to mathematically guarantee you saved one human life. And nearly 30 years later, the select trial in 2023 used the exact same Cox math to test weekly Simvastatin over 17,600 patients.",
+      "startTime": 2574.72,
+      "endTime": 2591.68
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "These patients had obesity and cardiovascular disease, but crucially no diabetes. And the results? The hazard ratio was 0.80, a 20% reduction in major cardiovascular events, with an NNT of 67. And what's vital to understand is that 90% of those patients were already taking statins.",
+      "startTime": 2591.68,
+      "endTime": 2610.68
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "The lizard peptide layered an additional 20% protection right on top of the fungal molecule. It is truly breathtaking. Okay, learner, it is time for a listener prediction pause. I'm going to pose two major structural questions. I want you to pause and really think about the mechanics before we shrink down to the atomic scale to answer them.",
+      "startTime": 2610.68,
+      "endTime": 2630.36
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "This is the fun part. First, remember how the HMGCR enzyme naturally binds its substrate, HMG-CoA. That natural substrate has this massive long tail called a co-apantethine tail. But the statin drugs don't have that tail at all.",
+      "startTime": 2630.36,
+      "endTime": 2647.32
+    },
+    {
+      "id": "turn-147",
+      "speaker": "Host 1",
+      "text": "They just have these bulky rigid hydrophobic rings. So structurally, where exactly do those rings sit inside the enzyme if there's no tail tunnel for them to fit into? A great question. Second question. Think back to Sv'etlana Moyzov.",
+      "startTime": 2647.32,
+      "endTime": 2662.72
+    },
+    {
+      "id": "turn-148",
+      "speaker": "Host 2",
+      "text": "We know she proved that the six extra amino acids on the uncut GOP-1-1-37 rendered it completely biologically dead. But physically, mechanically, why? What did those six amino acids hit?",
+      "startTime": 2662.72,
+      "endTime": 2677.66
+    },
+    {
+      "id": "turn-149",
+      "speaker": "Host 1",
+      "text": "But how could a floppy little 31 amino acid peptide physically bend a massive cellular receptor sharply enough to rip open an 18 angst from cavity on the inside of the cell to trigger an insulin cascade? To answer these profound mechanical questions, we have to leave the macroscopic world of clinical",
+      "startTime": 2677.66,
+      "endTime": 2695.54
+    },
+    {
+      "id": "turn-150",
+      "speaker": "Host 2",
+      "text": "trials, survival curves, and patient outcomes. We must descend 50,000-fold into the realm of structural biology. Yes. Let's fire up our one angst from camera. Before we do, let's do a quick epistemic calibration. We need to be very clear with our listener about separating epistemic reality from narrative",
+      "startTime": 2695.54,
+      "endTime": 2714.96
+    },
+    {
+      "id": "turn-151",
+      "speaker": "Host 1",
+      "text": "flair. It is a critical distinction for scientific integrity. Everything we have discussed so far, the radiochemical assays in Tokyo, the pikomolar insulin readouts in Boston, the Cox hazard ratios, these are all dynamic benchtop and clinical measurements",
+      "startTime": 2714.96,
+      "endTime": 2731.04
+    },
+    {
+      "id": "turn-152",
+      "speaker": "Host 2",
+      "text": "of ensemble kinetics, happening at 37 degrees Celsius in living beings. But what we are about to describe is drawn from deposited x-ray crystallography and cryo-electron microscopy atomic coordinates, specifically rigorously verified RCSB-MMCIF files. Right.",
+      "startTime": 2731.04,
+      "endTime": 2750.44
+    },
+    {
+      "id": "turn-153",
+      "speaker": "Host 1",
+      "text": "So we are looking at frozen structural ground truth. We are diving into PDB, one HWK and one HW9, solved by Eva Istvan and Johann Dysonhoffer in 2001.",
+      "startTime": 2750.44,
+      "endTime": 2763.4
+    },
+    {
+      "id": "turn-154",
+      "speaker": "Host 2",
+      "text": "And PDB-5VAI and 6x18, solved by the Kobilka, Scheniades, Sexton and Wooten teams between 2017 and 2020. Our camera, shrinking down, is just a pedagogical device. We visualize it.",
+      "startTime": 2763.4,
+      "endTime": 2780.02
+    },
+    {
+      "id": "turn-155",
+      "speaker": "Host 1",
+      "text": "But every single distance we state down to the 100th of an onxtrum is a verified, mathematically calculated, heavy atom coordinate. It is real physical space. Let's begin by shrinking down onto the cytosolic face of a human liver cells endoplasmic reticulum.",
+      "startTime": 2780.02,
+      "endTime": 2797.59
+    },
+    {
+      "id": "turn-156",
+      "speaker": "Host 2",
+      "text": "We are hovering right in front of the massive four subunit catalytic tetramer of the human HMG-CoA reductase enzyme. And immediately looking at the structure, there is a massive architectural surprise. A single monomer, one single protein chain of this enzyme is completely helpless.",
+      "startTime": 2797.59,
+      "endTime": 2815.55
+    },
+    {
+      "id": "turn-157",
+      "speaker": "Host 1",
+      "text": "The active site, the actual machine that does the work, doesn't exist on one protein chain. It sits perfectly across the homodimer seam between chain A and chain B. They have to embrace head to tail to form the catalytic pocket. It's a beautiful example of quaternary structure.",
+      "startTime": 2815.55,
+      "endTime": 2832.55
+    },
+    {
+      "id": "turn-158",
+      "speaker": "Host 2",
+      "text": "Let's step inside PDB-1HWK. This is the human enzyme bound to the synthetic drug Adervastatin at an incredibly sharp resolution of 2.22 angstroms. If we're right beside Adervastatin's open, dihydroxyheptanoic acid warhead, this is the",
+      "startTime": 2832.55,
+      "endTime": 2850.91
+    },
+    {
+      "id": "turn-159",
+      "speaker": "Host 1",
+      "text": "specific chemical part that acts as the transition state mimic. This is the very heart of Akira Endo's 4,000-fold affinity miracle. During the normal biological reaction, the natural substrate briefly forms a transient, high-energy tetrahedral oxy anion shape.",
+      "startTime": 2850.91,
+      "endTime": 2867.75
+    },
+    {
+      "id": "turn-160",
+      "speaker": "Host 2",
+      "text": "Statins perfectly mimic this exact shape with their C5-hydroxyl oxygen, which we'll call O5. And if you look at the exact atomic distances around O5, it's intense. It is a remarkably tight, almost violent electrostatic grip.",
+      "startTime": 2867.75,
+      "endTime": 2883.15
+    },
+    {
+      "id": "turn-161",
+      "speaker": "Host 1",
+      "text": "Adervastatin's O5 forms an ultra-tight, proton-shared hydrogen bond to glutamate 559 on chain B at a distance of exactly 2.69 angstroms. 2.69 angstroms. Yes, at distances below 2.7 angstroms, atoms are practically sharing electron clouds.",
+      "startTime": 2883.15,
+      "endTime": 2901.35
+    },
+    {
+      "id": "turn-162",
+      "speaker": "Host 2",
+      "text": "Simultaneously, it hydrogen bonds to lysine 691 on chain A at 2.84 angstroms. It's getting ripped from both sides of the dimer seam. Chain A and chain B are both holding onto it for dear life.",
+      "startTime": 2901.35,
+      "endTime": 2914.95
+    },
+    {
+      "id": "turn-163",
+      "speaker": "Host 1",
+      "text": "And right behind that lysine 691, there is an aspartate 767 that clamps down at 2.71 angstroms, locking the lysine directly against the O5. The statin is clamped in a sub-3 angstrom electrostatic vice grip. No wonder it binds 4000 times tighter.",
+      "startTime": 2914.95,
+      "endTime": 2933.79
+    },
+    {
+      "id": "turn-164",
+      "speaker": "Host 2",
+      "text": "Now, to answer your first prediction pause question, where do the bulky hydrophobic rings of the statin go since they lack the long co-A tail of the natural substrate? The answer is they do not enter the co-A pantathione tunnel at all.",
+      "startTime": 2933.79,
+      "endTime": 2949.63
+    },
+    {
+      "id": "turn-165",
+      "speaker": "Host 1",
+      "text": "It turns out when the normal substrate binds, a highly mobile C-terminal alpha helix on the enzyme folds shut over the active site like a protective lid. But when a rigid statin binds, residues 863 to 888 become completely disordered.",
+      "startTime": 2949.63,
+      "endTime": 2966.35
+    },
+    {
+      "id": "turn-166",
+      "speaker": "Host 2",
+      "text": "The statin's bulky rings literally force that helix to swing completely out of the way. It breaks the lid. And by whitching that helix open through sheer steric hindrance, the statin uncovers a brand new shallow greasy hydrophobic basin right next to the active site that didn't even exist when the lid was closed.",
+      "startTime": 2966.35,
+      "endTime": 2984.07
+    },
+    {
+      "id": "turn-167",
+      "speaker": "Host 1",
+      "text": "If we blink over to PDB-1HW9, which shows the fungal cimvastat at 2.33 angstroms, we see its rigid fungal decal in ring making pure non-polar van der Waals context inside that newly exposed basin. It's just pure hydrophobic packing, like grease, sticking to grease.",
+      "startTime": 2985.07,
+      "endTime": 3003.14
+    },
+    {
+      "id": "turn-168",
+      "speaker": "Host 2",
+      "text": "But synthetic a torvastatin, Bruce Roth's synthetic molecule in PDB-1HWK goes even further. It adds two extra polar anchors that the original fungus didn't have. What are those? It's four fluorofennal fluorine atom, reaches into the edge of arginine 590 at exactly 2.77",
+      "startTime": 3003.14,
+      "endTime": 3021.46
+    },
+    {
+      "id": "turn-169",
+      "speaker": "Host 1",
+      "text": "angstroms, and its amide oxygen, and it's a crisp 2.86 angstrom hydrogen bond to serine 565. It's bolted down even tighter than the natural fungal weapon. It truly is a masterclass in structural pharmacology. Now, let's teleport out of the liver and travel to the plasma membrane of a human pancreatic",
+      "startTime": 3021.46,
+      "endTime": 3041.1
+    },
+    {
+      "id": "turn-170",
+      "speaker": "Host 2",
+      "text": "beta cell. We are diving into the 2.10 angstrom atomic resolution structure of the GLP-1 receptor, bound to the GLP-1 peptide, and the massive intracellular GS protein. This is PDB-6x18. And here we get to answer the second listener prediction.",
+      "startTime": 3041.1,
+      "endTime": 3058.18
+    },
+    {
+      "id": "turn-171",
+      "speaker": "Host 1",
+      "text": "This receptor is what's called a class B-GPCR. It has a massive extracellular domain, the ECD, rising high above the cell membrane like a giant baseball catcher's myth. Okay, I can picture that. The GLP-1 peptide forms a stiff alpha helix, and the back half of it snaps perfectly into the groove of that catcher's myth.",
+      "startTime": 3058.18,
+      "endTime": 3077.1
+    },
+    {
+      "id": "turn-172",
+      "speaker": "Host 2",
+      "text": "Notice exactly where lysine-26 sits when the peptide is caught in the myth. It sits right at the solvent-exposed rim. It is pointing straight out into the open water, away from the receptor entirely. Which perfectly explains why a lot of Knutzen's massive C-18-diacid lipid attachment on some agletide doesn't clash with the receptor.",
+      "startTime": 3077.1,
+      "endTime": 3096.66
+    },
+    {
+      "id": "turn-173",
+      "speaker": "Host 1",
+      "text": "Exactly. The cateaacid can easily dissociate from the albumin cargo ship and float harmlessly in the water while the peptide docks cleanly into the myth. But the real action is deep in the dark core of the receptor. Follow the front half of the GLP-1 peptide, the N-terminus, as it plunges straight down",
+      "startTime": 3096.66,
+      "endTime": 3115.62
+    },
+    {
+      "id": "turn-174",
+      "speaker": "Host 2",
+      "text": "into the transmembrane throat of the receptor, piercing the cell membrane. This is exactly where we answer the prediction about Sphetlana-Mojisov's truncation. Phebrating-7 is the very tip of the active peptide. It reaches the absolute deepest floor of the receptor pocket, forming a critical hydrogen",
+      "startTime": 3115.62,
+      "endTime": 3134.26
+    },
+    {
+      "id": "turn-175",
+      "speaker": "Host 1",
+      "text": "bond to glutamine-234 at exactly 3.12 angstroms. And there it is, the physical answer. If those six extra amino acids of the uncut GLP-1, 1-37, were still attached, they would crash straight into the closed rigid floor of the seven transmembrane bundle.",
+      "startTime": 3134.26,
+      "endTime": 3152.9
+    },
+    {
+      "id": "turn-176",
+      "speaker": "Host 2",
+      "text": "It physically, sterically prevents histidine-7 from ever reaching the glutamine-234 trigger at the bottom. That is precisely why the 37 amino acid version was completely biologically dead. It didn't fit in the lock.",
+      "startTime": 3152.9,
+      "endTime": 3167.46
+    },
+    {
+      "id": "turn-177",
+      "speaker": "Host 1",
+      "text": "Conversely, when the blood enzyme DPP-4 snips off histidine-7 and Elanine-8, the remaining shortened peptide still hangs tightly under the outer catcher's mitt. But it lacks the histidine-7 plunger needed to push the trigger at the core floor. It effectively becomes an antagonist, blocking the receptor without firing it.",
+      "startTime": 3167.46,
+      "endTime": 3187.3
+    },
+    {
+      "id": "turn-178",
+      "speaker": "Host 2",
+      "text": "But what happens when the plunger actually fires? Look closely at glutamate-9 on the peptide. It forms a powerful bidentate lock, grabbing tyrosine-152 at 2.76 angstroms, and arginine-190 at 2.78 angstroms.",
+      "startTime": 3187.3,
+      "endTime": 3203.06
+    },
+    {
+      "id": "turn-179",
+      "speaker": "Host 1",
+      "text": "And in the ultra-high resolution 2.10 angstroms structure of PD-DB-6x18, we can actually see individual highly ordered water molecules facilitating this mechanism. It's not just protein-to-protein. Water is a structural component. Yes.",
+      "startTime": 3203.06,
+      "endTime": 3218.66
+    },
+    {
+      "id": "turn-180",
+      "speaker": "Host 2",
+      "text": "Structural water, HOH-101, bridges that arginine to tyrosine-241, which in turn clasps glutamate 364 alongside another water, HOH-512. It is a precise, cascading waterwire relay. It's literally like dominoes made of water molecules.",
+      "startTime": 3218.66,
+      "endTime": 3236.14
+    },
+    {
+      "id": "turn-181",
+      "speaker": "Host 1",
+      "text": "And pulling that glutamate 364 via the water relay triggers the structural climax of the whole massive receptor. Six residues down the sixth transmembrane helix TM6. Deep inside the cell membrane, there is a highly conserved sequence motif, Proline 358.",
+      "startTime": 3236.14,
+      "endTime": 3255.22
+    },
+    {
+      "id": "turn-182",
+      "speaker": "Host 2",
+      "text": "The famous PXXG motif. PXXG is a unique amino acid because it lacks a hydrogen atom on its backbone amide, meaning it creates a natural weak point in an alpha helix. Because of that water relay pulling violently on the top of the helix, TM6 doesn't just bend gently.",
+      "startTime": 3255.22,
+      "endTime": 3272.98
+    },
+    {
+      "id": "turn-183",
+      "speaker": "Host 1",
+      "text": "It partially unwinds its backbone hydrogen bonds at Proline 358 and snaps into a sharp, violent 90-degree kink. It literally breaks its own helix like snapping a glow stick. And that sharp 90-degree kink kicks the cytoplasmic bottom half of TM6, a massive 18 angstroms outward into the cytoplasm.",
+      "startTime": 3272.98,
+      "endTime": 3292.34
+    },
+    {
+      "id": "turn-184",
+      "speaker": "Host 2",
+      "text": "It's a huge movement. That movement ribs open a gaping intracellular cleft, and the alpha 5 helix of the GS protein docks perfectly inside that new cavity, triggering the CAMP energy cascade that commands the cell to release the insulin. Just wow. The physical mechanics of life.",
+      "startTime": 3292.34,
+      "endTime": 3310.7
+    },
+    {
+      "id": "turn-185",
+      "speaker": "Host 1",
+      "text": "The insulin is deeply staggering to visualize. But we must remember, we've only seen the atoms frozen in a vacuum. We need to pull back up to the bedside. Let's look at how these microscopic locks and keys dictate the modern clinical rules that doctors use every single day in the hospital.",
+      "startTime": 3310.7,
+      "endTime": 3328.34
+    },
+    {
+      "id": "turn-186",
+      "speaker": "Host 2",
+      "text": "Right, because there are these famous bedside rules of statin pharmacology that every medical resident learns, like Donald Huntington's famous rule of 6%. A resident learns that if you give a patient 10 mg of a torvastatin, it lowers their LDL cholesterol by a massive 39%.",
+      "startTime": 3328.34,
+      "endTime": 3345.18
+    },
+    {
+      "id": "turn-187",
+      "speaker": "Host 1",
+      "text": "But if you double the dose, if you double the dose to 20 mg or 40 or even 80 mg, you don't get another 39%. You only get an additional 6% drop in LDL for every doubling of the dose. Why such brutal diminishing returns?",
+      "startTime": 3345.18,
+      "endTime": 3359.7
+    },
+    {
+      "id": "turn-188",
+      "speaker": "Host 2",
+      "text": "Because of an evolutionary counter break built right into the SREBP2 thermostat we discussed in the very beginning. Remember when the liver cell panics and sends SREBP2 to the nucleus to upregulate the LDL receptors to grab cholesterol from the blood, that same genetic switch simultaneously, unavoidably",
+      "startTime": 3359.7,
+      "endTime": 3378.9
+    },
+    {
+      "id": "turn-189",
+      "speaker": "Host 1",
+      "text": "upregulates a secondary protein called PCSK9. PCSK9, the chaperone of doom for the LDL receptor. Exactly. PCSK9 is secreted by the cell. It binds to the newly minted LDL receptor. And instead of letting the receptor happily recycle to the surface 150 times to clear",
+      "startTime": 3378.9,
+      "endTime": 3398.74
+    },
+    {
+      "id": "turn-190",
+      "speaker": "Host 2",
+      "text": "LDL, PCSK9 drags the receptor deep into the lysosome to be permanently destroyed in an acid bath. The harder the statin pushes to make receptors, the harder the body produces PCSK9 to pull them down into the trash. It's a biological tug of war.",
+      "startTime": 3398.74,
+      "endTime": 3414.9
+    },
+    {
+      "id": "turn-191",
+      "speaker": "Host 1",
+      "text": "Which perfectly explains why inhibiting PCSK9 with modern monoclonal antibodies or SIRNA drugs completely remove that evolutionary break, dropping LDL to incredibly safely low levels. Okay, what about statin myopathy?",
+      "startTime": 3414.9,
+      "endTime": 3432.2
+    },
+    {
+      "id": "turn-192",
+      "speaker": "Host 2",
+      "text": "Why do 1 to 5% of patients on high dose cymbal statin get severe muscle pain? And sometimes dangerous muscle breakdown called rhabdomyolysis. Is the drug attacking the muscle? It's not attacking the muscle intentionally. It comes down to pharmacogenomics.",
+      "startTime": 3432.2,
+      "endTime": 3448.84
+    },
+    {
+      "id": "turn-193",
+      "speaker": "Host 1",
+      "text": "Remember statins are supposed to be sucked out of the portal blood selectively into the liver. This is done by a specific transporter protein on the liver surface called OATP1B1, which is coated by the gene SLCO1B1.",
+      "startTime": 3448.84,
+      "endTime": 3463.36
+    },
+    {
+      "id": "turn-194",
+      "speaker": "Host 2",
+      "text": "And the search consortium data showed us that some patients carry a tiny genetic variant, RS4149056 that completely cripples this hepatic transporter. Right. So the liver physically cannot take up the cymbal statin efficiently. The drug bounces off the liver and stays in the peripheral blood.",
+      "startTime": 3463.36,
+      "endTime": 3482.28
+    },
+    {
+      "id": "turn-195",
+      "speaker": "Host 1",
+      "text": "The systemic blood levels spike threefold and up to 16.9 fold in patients with two copies of the variant allele. Oh, well, that's high. Because there is so much statin in the blood, it floods non selectively into the skeletal muscle, inhibiting HMGCR there and starving the muscle of necessary downstream molecules like",
+      "startTime": 3482.28,
+      "endTime": 3501.84
+    },
+    {
+      "id": "turn-196",
+      "speaker": "Host 2",
+      "text": "CoQ10. By simply genetically testing for this variant or using a more hydrophilic statin that avoids this transporter entirely, we can almost completely prevent the myopathy. That is the definition of precision medicine. And we are seeing the exact same precision evolving with the GLP1 drugs.",
+      "startTime": 3501.84,
+      "endTime": 3519.8
+    },
+    {
+      "id": "turn-197",
+      "speaker": "Host 1",
+      "text": "In the select trial, researchers noticed something crazy. The survival curves, the lines on the graph showing who had heart attacks and who didn't, separated in the first three to six months. Yeah, that was surprising. Long before the patients reached their maximum weight loss, which usually takes around a year and a half, I have to push back on this weight.",
+      "startTime": 3519.8,
+      "endTime": 3539.28
+    },
+    {
+      "id": "turn-198",
+      "speaker": "Host 2",
+      "text": "How is that physically possible? If this is just an obesity drug, shouldn't the heart protection only kick in after they actually lose the physical weight? If we connect this to the bigger picture, we realize this isn't just an obesity drug at all. Those GLP1 receptors we visualized snapping open like glow sticks and PDB 6x18 aren't",
+      "startTime": 3539.28,
+      "endTime": 3559.0
+    },
+    {
+      "id": "turn-199",
+      "speaker": "Host 1",
+      "text": "just located in the pancreas and the appetite centers of the brain. They are physically located on macrophages and endothelial cells right inside the arterial plaques themselves. They are directly acting on the vascular inflammation. That's not just about weight. Yes.",
+      "startTime": 3559.0,
+      "endTime": 3574.92
+    },
+    {
+      "id": "turn-200",
+      "speaker": "Host 2",
+      "text": "Semicluetide directly cuts systemic HSCRP, a major marker of whole body inflammation by 38%. And it does this rapidly and entirely independently of the weight loss. This pleotropic multi-organ biology is exactly why GLP1 therapies are rapidly conquering sister metabolic syndromes.",
+      "startTime": 3574.92,
+      "endTime": 3591.76
+    },
+    {
+      "id": "turn-201",
+      "speaker": "Host 1",
+      "text": "In the recent flow trial, semagluetide cut major diabetic kidney failure by 24%. In step HF PEF, it completely reversed the trajectory of obesity-related heart failure. It's even resolving stiado hepatitis and regressing liver fibrosis in the mash trials. The clinical applications are just exploding across every discipline of medicine.",
+      "startTime": 3591.76,
+      "endTime": 3611.52
+    },
+    {
+      "id": "turn-202",
+      "speaker": "Host 2",
+      "text": "Because the GLP1 receptor isn't just a blood sugar switch, it is a fundamental node in human metabolic inflammation and energy homeostasis. Let's synthesize this whole incredible 50-year panorama. Imagine a 58-year-old patient who survived a heart attack.",
+      "startTime": 3611.52,
+      "endTime": 3628.66
+    },
+    {
+      "id": "turn-203",
+      "speaker": "Host 1",
+      "text": "Tonight they swallow in a tour of a statin pill. And on the Sunday morning, they inject their weekly semagluetide. That single patient is the direct beneficiary of a half-century chain of absolute scientific genius.",
+      "startTime": 3628.66,
+      "endTime": 3644.02
+    },
+    {
+      "id": "turn-204",
+      "speaker": "Host 2",
+      "text": "Akira Endo's 6,000 fungal broths and Brown and Goldstein's ER thermostat are actively clearing the cholesterol out of their coronary wall. Whilst Fettlana Moisad's histidine 7 key, John Aung's Helomonster Shield and Lottie",
+      "startTime": 3644.02,
+      "endTime": 3657.84
+    },
+    {
+      "id": "turn-205",
+      "speaker": "Host 1",
+      "text": "Bjärk Unudsen's Albiuman hitchhiker are bending Proline 358 to quell their systemic inflammation and melt their visceral fat. It is half a century of taking the most unlikely, bizarre things in nature and refining them down to one angstrom chemical precision.",
+      "startTime": 3657.84,
+      "endTime": 3675.7
+    },
+    {
+      "id": "turn-206",
+      "speaker": "Host 2",
+      "text": "It proves that we can decode the most complex microscopic machinery in ourselves, understand exactly why they fail dynamically, and engineer molecular solutions that fundamentally alter human survival trajectories. It really is a profound testament to the sheer tenacity of scientific curiosity.",
+      "startTime": 3675.7,
+      "endTime": 3694.06
+    },
+    {
+      "id": "turn-207",
+      "speaker": "Host 1",
+      "text": "Thank you for taking this incredibly deep, complex journey with us today. I want to leave you, to learn, with one final lingering concept to mull over. Think about this. Our own human evolution completely failed to prepare our bodies for the modern era of extreme",
+      "startTime": 3694.06,
+      "endTime": 3711.56
+    },
+    {
+      "id": "turn-208",
+      "speaker": "Host 2",
+      "text": "caloric abundance and sedentary living. Our genetics left our cardiovascular systems completely vulnerable to diseases our ancient ancestors rarely saw. And yet, through this incredible almost poetic irony, the solutions to our modern metabolic collapse didn't come from human biology at all.",
+      "startTime": 3711.56,
+      "endTime": 3730.66
+    },
+    {
+      "id": "turn-209",
+      "speaker": "Host 1",
+      "text": "By studying how ancient soil fungi waged chemical warfare to survive, and how a sluggish desert lizard evolved to endorse starvation in the sand, we successfully hacked our own metabolic destiny through precise molecular mimicry.",
+      "startTime": 3730.66,
+      "endTime": 3745.38
+    },
+    {
+      "id": "turn-210",
+      "speaker": "Host 2",
+      "text": "That is the true beauty of discovering and understanding our world at a one angstrom resolution. Until next time.",
+      "startTime": 3745.38,
+      "endTime": 3752.49
+    }
+  ]
+}

@@ -1,0 +1,1715 @@
+{
+  "episodeId": "1aAO8h2lx6Onp1y6ZLmKk_1JtUwp8ScCi",
+  "driveId": "1aAO8h2lx6Onp1y6ZLmKk_1JtUwp8ScCi",
+  "title": "One Ångström at the Blizzard Milk Can & S1 Chlorothiophene Lock — Karl Paul Link’s Sweet Clover Warfarin, Human VKORC1 (PDB 6WV3) & CYP2C9 (PDB 1OG5) Pharmacogenomics, Direct Factor Xa / Thrombin Pockets (PDB 2W26 & 1KTS), INR Power Laws & RE-LY / ARISTOTLE Math",
+  "duration": 3890.76,
+  "teenKit": {
+    "tldr": "In 15 seconds: A spoiled clover hay pile in a 1933 Wisconsin blizzard led to rat poison and heart-saving blood thinners. Today, we map these drugs down to a single angstrom using high-tech protein structures to prevent strokes without causing deadly bleeding.",
+    "whyItMatters": "Blood clotting is a matter of life and death—too slow and you bleed to death, too fast and you get a stroke. Understanding how drugs lock onto clotting proteins at the atomic scale allows doctors to tailor treatments safely for every unique human body.",
+    "keyTakeaways": [
+      "Karl Paul Link isolated dicoumarol from spoiled sweet clover and created warfarin, which was originally used as a rat poison before becoming a human lifesaver.",
+      "Warfarin works by blocking VKORC1, a tiny enzyme that recycles vitamin K, while modern drugs like rivaroxaban directly lock onto Factor Xa using precise atomic interactions like chlorine-pi bonds.",
+      "Genetics explain why people need drastically different doses of blood thinners; variations in VKORC1 and CYP2C9 change how much drug stays in the body."
+    ],
+    "vocab": [
+      {
+        "term": "Ångström (Å)",
+        "meaning": "A unit of length equal to 0.1 nanometers (10^-10 meters), used by scientists to measure distances between individual atoms in proteins."
+      },
+      {
+        "term": "Prothrombinase Complex",
+        "meaning": "A membrane-assembled molecular machine where Factor Xa speeds up thrombin production by nearly 300,000-fold."
+      },
+      {
+        "term": "VKORC1",
+        "meaning": "Vitamin K 2,3-epoxide reductase complex subunit 1—the exact molecular target inside liver cells that warfarin locks onto."
+      },
+      {
+        "term": "INR (International Normalized Ratio)",
+        "meaning": "A standardized blood test score used to monitor how long it takes a patient's blood to clot while on warfarin."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What unusual event in February 1933 sparked the discovery of coumarin anticoagulants?",
+        "options": [
+          "A chemistry lab explosion in Madison",
+          "Farmer Ed Carlson driving 190 miles through a blizzard with a dead heifer, a milk can of liquid blood, and moldy sweet clover",
+          "A naval recruit overdosing on rat bait in Philadelphia",
+          "An accidental discovery during penicillin production"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ed Carlson brought spoiled sweet clover hay and uncoagulable cow blood to Karl Paul Link's lab after his cattle died from sweet clover disease."
+      },
+      {
+        "question": "In PDB 6WV3, how does (S)-warfarin primarily lock human VKORC1?",
+        "options": [
+          "By forming covalent bonds with cysteine residues",
+          "By forming an extraordinary 2.46-Å short strong hydrogen bond to Tyr139",
+          "By blocking iron inside a heme ring",
+          "By permanently destroying the cell membrane"
+        ],
+        "correctIndex": 1,
+        "explanation": "Warfarin's coumarin oxygen forms a tight 2.46-Å hydrogen bond directly to the phenolic hydroxyl of Tyr139 inside VKORC1."
+      },
+      {
+        "question": "Why did modern direct oral anticoagulants (DOACs) like rivaroxaban achieve high oral bioavailability without basic amidine charges?",
+        "options": [
+          "They are injected intravenously instead of swallowed",
+          "They rely on a neutral 5-chlorothiophene chlorine atom making a chlorine-pi halogen bond with Tyr228",
+          "They require double prodrugs to survive the gut",
+          "They do not bind to Factor Xa at all"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rivaroxaban uses a neutral 5-chlorothiophene ring that forms a directional halogen-pi interaction with Tyr228 at the bottom of the S1 pocket, avoiding the absorption barrier of permanent positive charges."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "Right now, as you listen to this, you are exactly five minutes away from dying in one of two horrifyingly opposite ways. Yeah, which is a bit of a grim way to start, but it's completely true. It is. And I mean, every single verdrit on this planet with a high pressure closed circulatory",
+      "startTime": 0.0,
+      "endTime": 17.6
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "system that includes you, me, and the person sitting next to you on the train. Because if you get a tiny puncture and your blood stays completely liquid, you will bleed out. You exanguinate. But then on the flip side, if your intravascular blood suddenly turns solid inside a coronary artery",
+      "startTime": 17.6,
+      "endTime": 37.2
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "or a cerebral artery, you suffer a heart attack or a stroke. It's just wild to think about. Every minute of every day we are walking that tight rope. It's the ultimate engineering paradox of biology. Really? I mean, you're dealing with a fluid that has to flow perfectly through tens of",
+      "startTime": 37.2,
+      "endTime": 55.76
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "thousands of miles of microscopic piping. Right. But that same fluid must also possess the capability to instantly and aggressively solidify the very second there's a structural leak and only at the exact site of that leak. So today we are looking at the 85 year scientific work to control",
+      "startTime": 55.76,
+      "endTime": 73.44
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "that razor's edge. Our mission is to trace how humanity learned to manipulate human blood coagulation. And it is a fascinating journey. It really is. We're calling this deep dive one angstrom at the Blizzard Milk Can and chlorothiophine lock. And the source material for this is this",
+      "startTime": 73.44,
+      "endTime": 91.31
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "incredibly dense, fascinating stack of research packed with crystal structure coordinates, clinical trial math, historical epics, all of it. It's got a bit of everything. Yeah. So we are going to start at the macroscopic scale of sheer agricultural serendipity. And we're going to push all the way down to",
+      "startTime": 91.31,
+      "endTime": 108.51
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "the subatomic electron clouds of drug design. But you know, to appreciate what those drug designers were actually up against, you have to understand how nature solved that flowing versus solidifying paradox in the first place. Okay, let's unpack this. How did nature solve it? Evolution",
+      "startTime": 108.51,
+      "endTime": 124.03
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "built what can only be described as a hair trigger proteolytic amplifier. It's basically a membrane assembled cascade of Zimagens. Zimogens. Meaning like enzymes that are floating around in an active",
+      "startTime": 124.03,
+      "endTime": 138.27
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "sleeping state, just waiting to be triggered. Exactly. Like biochemical landmines. Just a vast field of landmines floating in our veins. Right. And when they are triggered, the amplification is mathematically staggering. Just to give you an idea. If you take one single",
+      "startTime": 138.75,
+      "endTime": 153.63
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "molecule of an activated enzyme called factor XA. It's factor 10a for those listening. Yes, factor Xa. If you bolt that single molecule onto a damaged cell surface, it can generate roughly 1000 molecules of activated thrombin in a single minute. Wait, one molecule spawns a",
+      "startTime": 153.63,
+      "endTime": 171.47
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "thousand lethal clot forming molecules in 60 seconds. Yes. And then those 1000 molecules activate thousands more. It is a literal biological explosion. Wow. And the journey to figuring out how to safely put a lock on that amplifier at the one angstrom scale, which I mean is a scale so",
+      "startTime": 171.47,
+      "endTime": 189.55
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "impossibly small. It's just a fraction of a nanometer. It actually begins with something massive. Massive freezing and completely macroscopic. Right. We have to go back to 1933. A hundred pounds of Boldie hay in the Wisconsin blizzard. Setting the scene. Yeah, picture this.",
+      "startTime": 189.63,
+      "endTime": 205.79
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "It's February, a bitterly cold Saturday afternoon. The wind is whipping massive snow drips across the Great Depression plains of northern Wisconsin. The wind chill was like pushing 10 degrees below zero Fahrenheit. Just brutal conditions. Absolutely brutal. And there was a desperate dairy farmer",
+      "startTime": 205.79,
+      "endTime": 223.66
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "named Ed Carlson living near a town called Deer Park. And Carlson was basically watching his entire livelihood bleed to death right there on the floor of his barn. Because this has been building for months, right? Yeah. Back in December, two of his young bulls had actually bled fatally from what should have been routine castration. I mean, the bleeding just never",
+      "startTime": 223.66,
+      "endTime": 243.3
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "stopped. And then in January, his prized cows started developing these massive, fluctuate blood blisters, like subcutaneous hematomas all over their flanks. Right. They were bleeding relentlessly from tiny, completely insignificant scratches. They were essentially",
+      "startTime": 243.3,
+      "endTime": 259.14
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "oozing to death until they collapsed from hemorrhagic shock. Which is terrifying. Right. And the local veterinarians had started calling this phenomenon sweet clover disease, which you know, sounds almost quaint. It does sound quaint, but it was an absolute nightmare for",
+      "startTime": 259.14,
+      "endTime": 274.26
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "the agricultural economy at the time. So why were they feeding him sweet clover in the first place? Well, during the 1920s, farmers across the northern plains were desperate for a drought-hardy forage that could actually survive the winters. So they planted massive, massive acreage of sweet",
+      "startTime": 274.26,
+      "endTime": 290.1
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "clover. But there was a hidden variable. Exactly. When the summers were unusually wet, the farmers couldn't get the hay to cure and dry properly before storing it in the barns. So these massive stacks of damp, sweet clover would heat up and they'd start to mold from the inside",
+      "startTime": 290.1,
+      "endTime": 306.34
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "out. And there was a Canadian veterinary pathologist, Frank W. Schofield, along with Lee M. Roderick, who had actually recently proven that its mysterious bleeding disease came strictly from the spoiled moldy hay. Right. Because if you fed the cows fresh, sweet clover, they were",
+      "startTime": 306.34,
+      "endTime": 321.86
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "perfectly fine. So the connection was made. But the mechanism was a complete black box, right? Like nobody knew what the chemical agent in the mold was or how to cure the cows once they started bleeding. Nobody had a clue. So Ed Carlson, completely at the end of his rope, decides to bypass the",
+      "startTime": 321.94,
+      "endTime": 337.62
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "local vets entirely. He loads of frozen dead young heifer into the back of his truck. As you do. Yeah. And next to the dead cow, he places a steel milk can sloshing with liquid cow blood. Blood that utterly refuses to coagulate. Right. And then he adds 100 pounds of this spoiled",
+      "startTime": 337.62,
+      "endTime": 355.46
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "moldy, sweet clover hay. And he drives 190 miles through a blinding February blizzard all the way to the University of Wisconsin, Madison, which is just a crazy dedication to finding an answer. He gets there late on a Saturday afternoon. The veterinary science office is totally dark.",
+      "startTime": 355.46,
+      "endTime": 370.98
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "Doors are locked. Of course they are. It's Saturday in a blizzard. Right. But Carlson sees lights burning over in the agricultural chemistry building. So he hauls this heavy milk can of unclotable blood inside, walks down the hall and stubble straight into the laboratory of a 32-year-old",
+      "startTime": 370.98,
+      "endTime": 388.26
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "carbohydrate biochemist named Carl Paul Link. Now the historical descriptions of Link are amazing. I mean, he was known for being highly theatrical. Oh, yeah. Walking around campus and flannel shirts into flowing cape in the winter. A cape. I love that. And on that Saturday, he's standing in his lab",
+      "startTime": 388.26,
+      "endTime": 405.94
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "with his German doctoral student, Juggen Wilhelm Schofel. And what makes this encounter so, like, fortuitous is that Link had actually been studying sweet clover. Right. But he was looking at it from a completely different angle. He was trying to figure out why certain genetic strains of the plant",
+      "startTime": 405.94,
+      "endTime": 422.82
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "didn't contain cumarin. Come on being the natural chemical that gives fresh hay that sweet vanilla like smell. Exactly. So he wasn't looking at the disease at all. And when Carlson sets this milk can of blood on the counter, Link has absolutely no chemical antidote to offer him. He can only give",
+      "startTime": 422.82,
+      "endTime": 440.83
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "him the standard frustrating veterinary advice, right? Like stop feeding the herd the moldy hay. And if it cal looks like it's going to die, try to transfuse it with fresh blood from a healthy animal. Yeah. What, as you can imagine, is not what Carlson wanted to hear. He just turns around,",
+      "startTime": 440.83,
+      "endTime": 457.79
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "climbs back into his freezing truck and vanishes into the snowstorm. But that encounter left an indelible mark on the lab. Like Link's student Schofel was reportedly so agitated by the farmer's plight that he paced the laboratory floor for hours. Shouting in his thick,",
+      "startTime": 457.79,
+      "endTime": 476.22
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "the very in-accident English about the tragedy of it all. Meanwhile, Link just stood there, staring at this sloshing milk can of ruby red completely fluid blood. And that single visual pivoted to his entire laboratory away from agricultural genetics and onto this grueling",
+      "startTime": 476.22,
+      "endTime": 495.66
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "six-year hunt. They decided right then that they were going to isolate the single specific small molecule hiding in that moldy hay that was causing the disease. And this took from 1933 all the way to 1939. And our source material describes it as an absolute analytical nightmare. Because this chemical",
+      "startTime": 496.3,
+      "endTime": 514.35
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "wasn't acting like a normal poison. Right. It was a physiological trap. Like if you take a chemical extract of that moldy hay and dump it directly into a test tube full of normal cow blood or rabbit blood, you would expect the blood to stay liquid, right? Like the blood in the milk can. That's the",
+      "startTime": 514.43,
+      "endTime": 531.71
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "logical assumption. But it doesn't. The blood in the test tube clots perfectly normally in minutes. So the poison doesn't actually stop blood from clotting. Not directly. No. The toxin hiding in the hay only exerts its effect inside a living liver over the course of 24 to 72 hours.",
+      "startTime": 531.71,
+      "endTime": 549.39
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "It's a delayed fuse bomb. Exactly. Which means Link's team couldn't just test their hay extractions in a beaker on a lab bench. They had to run a new chemical separation, feed that specific fraction to a live rabbit, wait three entire days, and then draw the rabbit's blood to see if its prothrombin",
+      "startTime": 549.95,
+      "endTime": 568.91
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "levels had dropped. Oh my god. That is so tedious. And just detecting that drop in prothrombin was a monumental challenge, wasn't it? It was. Link's students, Willard Roberts and Harold Campbell, were trying to use a newly developed blood test called the one stage prothrombin time or PT test.",
+      "startTime": 568.91,
+      "endTime": 585.63
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "But they hit a massive biochemical roadblock. What was the roadblock? The clotting cascade is just so robust. It has so much built-in redundancy that if you use undiluted rabbit plasma for the test, the clotting time won't actually lengthen until more than 70% of the prothrombin is already",
+      "startTime": 585.63,
+      "endTime": 603.15
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "gone from the blood. So they were flying blind. They could feed a rabbit a highly concentrated extract, destroy half of its prothrombin, and the test would still tell them the rabbit was perfectly fine. Exactly. They had to invent a workaround just to increase the sensitivity of the assay. They figured out that by taking the rabbit plasma and diluting it down to 12.5% using",
+      "startTime": 603.15,
+      "endTime": 622.91
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "saline, they could strip away that buffer of redundancy. Oh, that's clever. It was. Only then did the assay yield a razor-sharp linear measurement where they could track the clotting time lengthening day by day, hour by hour. So they are bleeding thousands of rabbit ears to run these newly sensitive",
+      "startTime": 622.99,
+      "endTime": 639.47
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "assays while simultaneously grinding through tons of spoiled A to physically locate the molecule. And finding it was literally like looking for an insoluble needle in a haystack. We mentioned that fresh sweet clover has harmless cumarin. Well, the chemistry of the spoilage is fascinating.",
+      "startTime": 639.47,
+      "endTime": 657.39
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "When fungi like penicillium or aspergillus infect the damp hay, the molds enzymes oxidize the natural cumarin. Okay. Then a trace formaldehyde bridge chemically links two of these oxidized cumarin molecules together. So they fuse into a dimer? A highly hydrophobic water-insoluble",
+      "startTime": 657.39,
+      "endTime": 676.59
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "dimer that cling stubbornly to plant tars and human. I mean, it made up less than 0.003% of the spoiled hay by weight. It's nothing. It's a ghost. Harold Campbell basically lived at his laboratory bench for six years, running endless cycles of extracting the material with dilute",
+      "startTime": 676.59,
+      "endTime": 693.87
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "alkali and then acidifying it back out of methanol ether solvents. Six years of continuous extraction. Until June 28, 1939, it's just before 5 a.m., Campbell is exhausted, looking through his microscope",
+      "startTime": 693.87,
+      "endTime": 707.39
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "at a cooled glass flask, and he finally sees it. The shimmering microscopic rosettes of colorless crystals. He had isolated the hemorrhagic agent. He immediately passed those precious few milligrams over to Mark Stonman and Charles Hubener, the analytical chemist in the lab,",
+      "startTime": 707.39,
+      "endTime": 724.91
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "who cracked the molecular structure. It was 3,3 prime methylene bis4 hydroxycumarin. And they gave it the trivial name dicumeral. Now, you would assume that the moment they cracked the structure pharmaceutical companies would swoop in and turn this into a blockbuster heart",
+      "startTime": 724.91,
+      "endTime": 740.83
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "drug. Like, we finally have a pill that can thin the blood. Right, that's the dream. But dicumeral was actually a terrible drug for humans. It was incredibly erratic. It absorbed poorly in the human gut and doctors just couldn't control the dosing. So, Lynx team recognized the limitations",
+      "startTime": 740.83,
+      "endTime": 757.07
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "and then went back to the bench. They systematically synthesized over 150 different structural analogues of dicumeral, tweaking the molecules slightly each time and numbering them sequentially in their notebooks. And compound number 42 was a standout. It synthesized beautifully, it formed a crisp,",
+      "startTime": 757.07,
+      "endTime": 774.51
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "water-soluble sodium salt, but it didn't find its way into human pharmacies. No, it went into a hardware stores. As a rat poison. The pivot to pass control is honestly one of the strangest detours in medical history. In 1945, Karl Paul Lynx suffered a severe relapse of pulmonary",
+      "startTime": 774.51,
+      "endTime": 792.29
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "tuberculosis. Oh, wow. Yeah. He was confined to a sanatorium for eight months. And while he was recovering, he started reading extensively about municipal rodent control. As one does when stuck in a sanatorium, obviously. But he realized that the existing arsenal of rat poisons, things like",
+      "startTime": 792.29,
+      "endTime": 808.61
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "Strict 9, Red Squill or Arsenic, they were fundamentally flawed. Because they either tasted extremely better, which rats avoided. Or they were acute toxins that killed the rat in violent convulsions within minutes of eating it. Right. And rats are incredibly social, highly intelligent",
+      "startTime": 808.69,
+      "endTime": 824.29
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "animals. If one rat eats a piece of poisoned bait and immediately drops dead convulsing, the rest of the colony observes this. They develop what exterminators call bait shyness. Exactly. They will completely refuse to touch that food source ever again. So Lynx saw the chemical solution. A slow acting, completely painless,",
+      "startTime": 824.29,
+      "endTime": 843.73
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "odorless, oral anticoagulant would bypass bait shyness entirely. Yes. The rats would eat the bait, feel perfectly fine, and return night after night to consume more. By the time the delayed fuse bomb went off and they succumbed to internal hemorrhage days later, they would just peacefully",
+      "startTime": 843.73,
+      "endTime": 860.05
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "go to sleep in their burrows. The colony would never connect the death to the food. It's dark but brilliant. So he went back to his library of analogues, pulled out compound number 42, and tested it. It turned out to be five to 10 times more potent in rats than the original",
+      "startTime": 860.05,
+      "endTime": 875.49
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "dichomerol. So in 1948, Lynx assigns the patent rights to the Wisconsin Alumni Research Foundation, an organization known by the acronym, Worf. He takes Worf, adds the errand suffix from",
+      "startTime": 875.49,
+      "endTime": 889.63
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "and names the chemical, Warfarin. And it becomes the most commercially successful rodenticide in the history of the world. The irony is profound though. By 1949, knowing that Warfarin was the most lethal and effective rat poison ever invented, the global medical community",
+      "startTime": 890.59,
+      "endTime": 905.97
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "formed this rigid consensus. Giving this specific chemical to a human heart patient would be absolute madness. It was viewed strictly as a toxic pesticide, nothing more. But that consensus held",
+      "startTime": 905.97,
+      "endTime": 919.26
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "until April 1951, when a distraught 22 year old Navy recruit walked into a store, bought a commercial package of de-con Worfrin cornmeal rat bait and decided to end his life. Right. Over the course of six days, he ingested 567 milligrams of pure warfarin.",
+      "startTime": 919.9,
+      "endTime": 939.18
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "To put that in perspective, that is roughly 100 times the standard human therapeutic dose. He fully expected to die. But instead, he walks into a Philadelphia Naval Hospital, completely alive. I mean, he's bleeding from his nose. His back is aching from microscopic",
+      "startTime": 939.18,
+      "endTime": 955.5
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "muscle hemorrhages. And his prothrombin time is so prolonged, it's unmeasurable by the lab. But he is breathing. And the military physicians treating him did two things that literally changed the course of cardiology. They gave him whole blood transfusions to replace the lost volume.",
+      "startTime": 955.5,
+      "endTime": 971.82
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "And they administered massive therapeutic doses of vitamin K. And within hours, his clotting times began to normalize. He survived with zero permanent organ toxicity. The medical community watched this case study and experienced a collective paradigm",
+      "startTime": 972.46,
+      "endTime": 989.5
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "shift. They realized that this rat poison was an accrued destructive toxin. It was actually the safest, cleanest, most mathematically predictable anticoagulant ever discovered. And it came with a perfect built in antidote, vitamin K. The shift in perception was so rapid and total",
+      "startTime": 989.5,
+      "endTime": 1009.42
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "that just four years later, in September, 1955, President Dwight D. Eisenhower suffered a massive myocardial infarction, a heart attack. And as Harvard trained cardiologist didn't hesitate, he treated the president of the United States with Coumadin, which was the clinical brand name",
+      "startTime": 1009.42,
+      "endTime": 1026.06
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "for Warfarin from a frozen dead cow in Wisconsin barn to the veins of the commander in chief in just over two decades. It's an incredible trajectory. It really is. But if we pause here in 1955, there is a glaring hole in the science. Eisenhower is taking this drug daily. Millions of patients",
+      "startTime": 1026.06,
+      "endTime": 1043.18
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "are soon taking it. But nobody actually knows how warfarin or vitamin K works at a molecular level. For 30 years, medical textbooks relied on a very vague assumption. They guessed that vitamin K simply acted as a switch to stimulate the liver's production of prothrombin protein.",
+      "startTime": 1043.18,
+      "endTime": 1059.5
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "They thought it was a factory switch. No vitamin K, no protein rolls off the assembly line. But immunologists in the 1960s noticed a massive paradox. When they took cows or humans that were heavily dosed with warfarin and they tested their blood, the liver was still secreting",
+      "startTime": 1059.5,
+      "endTime": 1075.82
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "completely normal concentrations of the prothrombin protein into the bloodstream. Wait, the protein was physically present. It was present. They had the exact same amino acid sequence, the exact same molecular weight. It reacted normally to antibodies, but it was entirely",
+      "startTime": 1075.82,
+      "endTime": 1092.3
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "inert. They called it PQV2, protein induced by vitamin K absence. The factory was still running. The protein was there, but it was broken. It physically could not bind to calcium ions, which meant it couldn't anchor itself to the phospholipid membranes of blood vessels and platelets",
+      "startTime": 1092.3,
+      "endTime": 1108.46
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "where the coagulation cascade has to physically assemble. And the mystery of why the protein was broken was finally solved in 1974 by a researcher named Johann Stenflow at Lund University in Sweden. How did Stenflow figure it out? Well, Stenflow isolated that broken",
+      "startTime": 1108.46,
+      "endTime": 1124.3
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "inert prothrombin from cows treated with dichromoral. And he compared it directly to normal active prothrombin using nuclear magnetic resonance spectroscopy and mass spectrometry. Okay. He focused specifically on the N-terminal region of the protein, the first 42 amino acids",
+      "startTime": 1124.3,
+      "endTime": 1141.74
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "of the chain. And he discovered something that shocked biochemists. In normal functional prothrombin, every single glutamate amino acid in that specific region had been chemically modified after the protein was built. Modified how? A second carboxyl group had been enzymatically grafted onto the",
+      "startTime": 1141.74,
+      "endTime": 1159.98
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "side chain, transforming those standard glutamate into a brand new amino acid that had never been seen before in nature. Gamma-carboxy-glutamic acid. We call them glau residues for short. The glau claws. Think of those glau modifications as twin chemical claws built right into the protein",
+      "startTime": 1159.98,
+      "endTime": 1176.78
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "structure. Those two adjacent negative charges perfectly coordinate and grab onto a doubly positive calcium ion. Right, because opposites attract. Exactly. When the protein grabs that calcium, the entire N-terminal domain folds inside out, exposing these greasy hydrophobic side chains that",
+      "startTime": 1176.78,
+      "endTime": 1193.18
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "plunge into the cell membrane, anchoring the clotting factor firmly in place. So without vitamin K, the liver builds the protein, but it fails to attach the glau claws. You just have normal glutamate, which doesn't have the geometry to grab calcium, so the clotting factor just floats",
+      "startTime": 1193.18,
+      "endTime": 1209.18
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "uselessly in the blood, unable to dock in the sight of a wound. This completely redefined our understanding of the vitamin K cycle. Inside your liver cells, there is an enzyme called gamma-glutamyl carboxylase. It uses vitamin K as an essential cofactor to forge those GLA claws onto newly minted",
+      "startTime": 1209.18,
+      "endTime": 1226.94
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "clotting factors. Specifically, factors two, seven, nine, and ten. Right. And also the body's natural anticoagulant proteins, protein C, S, and Z. Yes. But the vitamin K doesn't just help the enzyme and walk away intact, does it? No. The chemical reaction is incredibly demanding.",
+      "startTime": 1226.94,
+      "endTime": 1245.95
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "In the process of adding that carboxyl group, the vitamin K molecule is literally oxidized into an exhausted, structurally warped form called vitamin K epoxide. And because human beings only get tiny trace amounts of vitamin K in their diet, mostly from leafy greens like spinach and kale,",
+      "startTime": 1246.51,
+      "endTime": 1263.07
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "your liver can't just discard the exhaustive oxide. It has to aggressively recycle it back into fresh vitamin K, thousands of times a day. It uses a specialized recycling enzyme called vitamin K epoxide reductase or VKOR. And that enzyme is the true target of orphrine. So warfarin doesn't touch",
+      "startTime": 1263.07,
+      "endTime": 1281.95
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "the clotting proteins. Not at all. It physically jams the VKOR recycling enzyme. The liver rapidly runs out of fresh vitamin K, the carboxylase enzyme grinds to a halt, and the liver begins pumping out clawless, useless clotting factors into the blood. Now, this mechanism explains something that is",
+      "startTime": 1282.03,
+      "endTime": 1298.99
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "always terrified me about this drug. If orphrine simply stops the claws from forming on new proteins, why do some patients experience a paradoxical, hypercoagulable reaction when they first are taking it? You're talking about warfarin induced skin necrosis. Yes.",
+      "startTime": 1298.99,
+      "endTime": 1315.87
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "Where a drug meant to thin the blood actually causes massive destructive blood clots in the skin during the first 48 hours. How does that make sense? It comes down to clearance half-lives. Warfarin has no effect whatsoever on the normal fully clogged clotting factors that are already circulating in your bloodstream when you take the first pill. It only prevents the functional",
+      "startTime": 1315.87,
+      "endTime": 1334.43
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "assembly of new ones. So you have to wait for the old functional proteins to naturally degrade and clear out of your system. Like waiting for a bathtub to drain before you could put new water in. Precisely. But the different proteins in the bathtub drain at vastly different speeds.",
+      "startTime": 1334.43,
+      "endTime": 1349.15
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "The body's natural anti-coagulant break, protein C, has a very short metabolic half-life of only about eight hours. Wow, that's fast. It is. It's levels plummet almost immediately. Meanwhile, the most powerful pro-coagulant engine in the blood, pro-thrombin, factor two,",
+      "startTime": 1349.15,
+      "endTime": 1364.51
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "has a massive half-life of 60 to 72 hours. So for the first two or three days on Warfarin, you lose your body's natural breaks before you lose your engine. Exactly. You are temporarily at a much higher risk of clotting than you were before you took the pill. Which is why in modern medicine, if you have a patient at severe risk of clotting,",
+      "startTime": 1364.59,
+      "endTime": 1383.79
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "you never start them on high-dose Warfarin alone. If you do, that rapid drop in protein C removes the breaks and they can suffer microvascular thrombrosis. The tiny blood vessels in their skin literally clot off, starving the tissue of oxygen, and the skin that closes and dies. You have to use a fast-acting, immediate drug like injectable",
+      "startTime": 1383.79,
+      "endTime": 1403.47
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "heparin as a bridge for those first few days until the pro-thrombin levels finally drain away. It's an incredibly delicate balancing act. And while Yohan Stenflow figured out what Warfarin was doing to the proteins in 1974, it took the scientific community another 30 years to physically",
+      "startTime": 1403.47,
+      "endTime": 1420.43
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "locate and isolate the VKOR recycling enzyme that Warfarin was jamming. It wasn't until 2004 that Darryl Stafford and Yohanis Oldenburg finally cloned the target gene. VKORC1, which means we are finally ready to descend to the atomic scale.",
+      "startTime": 1420.43,
+      "endTime": 1436.51
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "We are shrinking down 50,000-fold into the interior of a human hepatocyte, the liver cell. But before we go down there, there are two massive mysteries in the history of this drug. And we want to try and solve them with you, the listener, as we look at the molecular blueprints.",
+      "startTime": 1436.51,
+      "endTime": 1451.47
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "Okay, the first mystery. Why does changing just one single oxygen atom on that VKORC1 enzyme? Make certain rats completely immune to Warfarin. While shifting one methyl group on a totally different liver enzyme, CYP2C9, make humans fatally sensitive to it.",
+      "startTime": 1451.47,
+      "endTime": 1469.07
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "And the second mystery. How do you chemically block a negatively charged pocket in a clotting enzyme without using a positively charged drug? Those two structural puzzles drove medicinal chemistry for decades. So let's tackle the first mystery by dropping down into the smooth",
+      "startTime": 1470.26,
+      "endTime": 1487.28
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "endoplasmic reticulum membrane of the liver cell, where the VKORC1 enzyme lives. We are opening our first blueprint. This is PDB6WV3. It's a crystal structure solved by Wacai Lee and published in Science on January 1, 2021.",
+      "startTime": 1487.28,
+      "endTime": 1505.94
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "So we are looking at a resolution of 2.20 Angstroms, which means we can practically see the individual atoms. It's a snapshot of human VKORC1 physically bound to the active S enantiomer of Warfarin. When structural biologists finally managed to get a crystal clear image of this enzyme,",
+      "startTime": 1505.94,
+      "endTime": 1525.14
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "literally freezing it in time to see how the gears work, they found an elegant mechanism. Inside the membrane bundle of the protein, there is a four cysteine luminal redox relay. Like a bucket brigade for electrons? Exactly like that. Electrons are essentially handed from",
+      "startTime": 1525.14,
+      "endTime": 1540.9
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "a pair of cysteine amino acids near the surface, labeled cyst 43 and cyst 51, down into the deep membrane pocket to another pair, cis 132 and cis 135. And the critical fraction of a second occurs",
+      "startTime": 1540.9,
+      "endTime": 1554.34
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "when a transient interloop bond forms between cis 51 and cis 132. That is the exact moment when the enzyme is primed and ready to transfer its electrons to reduce the exhausted vitamin K epoxide back to its active form. And when we look at the crystal structure right there,",
+      "startTime": 1554.34,
+      "endTime": 1570.5
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "wedged deep inside this greasy hydrophobic pocket sits the Warfarin molecule. It is deliberately mimicking the shape of the vitamin K transition state. Also, the exact distances between the atoms here because this is wild. Warfarin forms this incredibly short, intensely strong 2.46 angstrom",
+      "startTime": 1570.5,
+      "endTime": 1588.67
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "hydrogen bond directly to the hydroxyl oxygen of an amino acid called tyrosine 139. To understand the physics here, you have to appreciate how absurdly powerful a 2.46 angstrom bond is. In a normal glass of liquid water, standard hydrogen bonds between water molecules hover around",
+      "startTime": 1588.67,
+      "endTime": 1606.43
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "three angstroms. But this 2.46 angstrom bond isn't in water. It sits inside a greasy, lipid-lined cavity that has a very low dielectric constant, meaning there is no water around to dampen the electrical attraction. In that dry, isolated environment, that single, incredibly short",
+      "startTime": 1606.51,
+      "endTime": 1624.11
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "hydrogen bond contributes massive, disproportionate binding energy. It's like superglue curing in a vacuum. It locks the drug in with insane force. And directly across the pocket, the Warfarin molecules keytone oxygen accepts a second hydrogen bond, 2.76 angstroms long, from a sparaging 80.",
+      "startTime": 1624.11,
+      "endTime": 1642.67
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "It physically freezes the enzyme's internal cap so the electrons cannot move down the bucket brigade. And this beautiful atomic geometry perfectly answers the first part of our mystery.",
+      "startTime": 1642.67,
+      "endTime": 1652.03
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "Think back to those super rats we mentioned earlier, the ones that can eat decon, warfarin, bait all day and survive? Yes. When geneticists sequenced their VKORC1 gene, they found a single-point mutation where that critical tyrosine 139 is swapped out for a different amino acid, phenylalanine 139. And if you look at a chemical chart,",
+      "startTime": 1652.83,
+      "endTime": 1672.19
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "phenylalanine is structurally identical to tyrosine, except it is missing that one single hydroxyl oxygen atom on the end of its ring. Remove that one single oxygen atom from an 18,000",
+      "startTime": 1673.02,
+      "endTime": 1686.22
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "Dalton protein, and that 2.46 angstroms superglue bond vanishes completely. The physical anchor point is just gone. Without it, Warfarin's binding affinity crashes by 50 to 100-fold. The rats survive the",
+      "startTime": 1686.3,
+      "endTime": 1700.78
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "poison because the Warfarin physically cannot hold onto the enzyme. But normal vitamin K, which has a massive long lipophilic tail that creates its own binding energy, still has enough traction to stick around in the pocket and get recycled. One single atom dictates whether an animal bleeds",
+      "startTime": 1700.78,
+      "endTime": 1718.14
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "to death or lives. Unbelievable. Okay, so that's the target enzyme. Now let's travel about 50 nanometers further down the smooth endoplasmic reticulum to look at the enzyme responsible for clearing warfarin",
+      "startTime": 1718.14,
+      "endTime": 1730.38
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "out of the human body. We are opening PDB-10G5. Humans CYP2C9, solved in 2003 by Pamela Williams and Heron Joti at a resolution of 2.55 angstroms. CYP2C9 is the cellular incinerator. It is the enzyme",
+      "startTime": 1730.38,
+      "endTime": 1749.82
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "that destroys the active SN-antium or of Warfarin by hydroxylating it. Basically, it forcefully adds an oxygen atom to Warfarin's carbon-7 ring, making it water-soluble so the kidneys can excrete it. Now given that job description, you would naturally expect that when they crystallize the enzyme",
+      "startTime": 1749.82,
+      "endTime": 1765.98
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "with the drug, the Warfarin would be sitting right on top of the enzyme's catalytic heme iron ready to be burned. But it wasn't. When they processed the diffraction data, they found a 10.0 angstrom surprise. Warfarin wasn't anywhere near the iron. Its closest carbon atom was sitting a full",
+      "startTime": 1765.98,
+      "endTime": 1782.38
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "10 angstroms away. It was wedged high up into a distal hydrophobic pocket, pie stacking perfectly flat against a phenylene ring at residue 476, with a distance of 3.37 angstroms. It was a revelation about how these clearing enzymes function. The drug is sitting in an",
+      "startTime": 1782.38,
+      "endTime": 1800.78
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "allosteric waiting room. The enzyme was captured in an open capture state. To actually destroy the Warfarin, the enzyme cavity has to undergo a massive conformational change, clamping shut and sliding the drug's 6 angstroms down the corridor straight onto the heme iron. Which seems like a neat",
+      "startTime": 1800.78,
+      "endTime": 1817.1
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "bit of trivia, but why does this waiting room matter to a cardiologist prescribing the drug? Because that waiting room corridor is a communal space. It's shared by dozens of other molecules. Imagine a nightclub bouncer with very narrow hallway. If you prescribe a patient their daily",
+      "startTime": 1817.1,
+      "endTime": 1834.14
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "dose of Warfarin, and a week later they get a UTI and give them an antibiotic like trimethoprym sulfomethoxazole. Or they develop an arrhythmia and get put on an amiodorone. Or they take an antifungal like fluconazole. Those new drugs jam into that exact same microscopic corridor.",
+      "startTime": 1834.14,
+      "endTime": 1851.82
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "Exactly. It's a molecular traffic jam. The bouncer can only process one person at a time. The new drugs physically block the Warfarin from sliding down to the iron.",
+      "startTime": 1851.82,
+      "endTime": 1861.66
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "So the Warfarin just backs up in the bloodstream. And within days the patient's blood becomes dangerously thin, putting them at imminent risk of a massive internal hemorrhage. And this exact corridor bottleneck solves the second half of our genetic mystery. We asked why shifting one methyl group makes humans fatally sensitive to the drug.",
+      "startTime": 1862.46,
+      "endTime": 1880.7
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "It's a genetic variant known as CYP2C9-3. Let's look at the coordinates for this.",
+      "startTime": 1881.58,
+      "endTime": 1886.94
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "At residue 359 in the enzyme, normal patients have an amino acid called isoleucine. The dash 3 mutation swaps that isoleucine for allucine. Now isoleucine and leucine have the exact same chemical formula and the exact same atomic mass. They are what we call constitutional isomers.",
+      "startTime": 1887.78,
+      "endTime": 1906.34
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "The only difference in their structure is that one of the methyl branches on the side chain is shifted down by one single carbon atom. But the impact is catastrophic when you look at where residue 359 physically sits in the crystal structure. It is located 13.4 angstroms away from",
+      "startTime": 1906.34,
+      "endTime": 1922.42
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "that allosteric wading room sitting right on the inner wall of the narrow catalytic throat leading down to the iron. So if you shift that one tiny methyl branch you actually deform the shape of the throat. The throat physically narrows. It's a steric clash. Warfarin can no longer slide forward",
+      "startTime": 1922.42,
+      "endTime": 1938.58
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "from the wading room to the iron efficiently. That single carbon shift collapses the clearance rate of the drug by 75 to 90 percent. 90 percent. Yeah. If a doctor doesn't know a patient has this mutation and they give them a standard 5 milligram daily starter dose, that drug isn't being cleared.",
+      "startTime": 1938.58,
+      "endTime": 1957.62
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "It will just relentlessly accumulate in their blood day after day until they suffer a fatal bleed.",
+      "startTime": 1957.62,
+      "endTime": 1962.58
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "This perfectly frames the frustration of 20th century cardiology. Warfarin acts agonizingly slowly because of the 72 hour half-life of Protherompin. And determining the correct dose is an absolute nightmare of genetic traffic jams in VKRC1 and CYP2C9. If Warfarin was this messy, doctors must have",
+      "startTime": 1963.47,
+      "endTime": 1983.25
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "been desperate for an alternative. Why did it take 50 years after Eisenhower to replace it?",
+      "startTime": 1983.25,
+      "endTime": 1989.17
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "Because for five decades hematologists were chasing a holy grail. They wanted a systemic oral pill that worked in two hours instead of three days. Warfarin quickly, if the patient started bleeding, had zero interactions with the vitamin K in your spinach or kale salad, and never required",
+      "startTime": 1990.03,
+      "endTime": 2006.91
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "those constant anxiety-inducing blood draws to check the dose. And they knew it was biologically possible to block the clotting cascade directly because of leeches. Yes, leeches.",
+      "startTime": 2006.91,
+      "endTime": 2017.47
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "Medicinal leeches bite you and immediately inject a peptide called Herodin that directly binds to and blocks thrombin with insane femtomolar potency. The problem is you can't put a 65 amino acid leech peptide into a pill. The acid in your stomach will just digest it like a piece of steak.",
+      "startTime": 2018.43,
+      "endTime": 2037.95
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "You have to inject it intravenously. When medicinal chemists tried to design small synthetic molecules that could mimic the leech and be swallowed as a pill, they slammed into a massive physical chemistry wall. The Asp 189 wall. This was the ultimate structural barrier",
+      "startTime": 2037.95,
+      "endTime": 2055.06
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "in coagulation drug design. Both thrombin and factor 10a are serine proteases that naturally cut other proteins right after the amino acid arginine. And arginine carries a strong positive electrical charge. Evolution designed these enzymes to recognize that positive charge.",
+      "startTime": 2055.06,
+      "endTime": 2072.1
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "So at the very bottom of their deep active site pocket, which we call the S1 pocket,",
+      "startTime": 2072.66,
+      "endTime": 2076.9
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "these enzymes possess a permanently fixed amino acid called Aspartate 189, which carries a strict negative charge. That's basic magnetism. Opposites attract. The negative aspartate at the bottom of the pocket reaches up and grabs the positive arginine on the target protein to lock it in for",
+      "startTime": 2077.81,
+      "endTime": 2095.65
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "the cut. So logically, to block that pocket, early drug designers synthesized molecules that featured a chemical group called benzamidine, which is permanently stubbornly positively charged. It was a perfect lock and key fit for the enzyme. But if we pull back and look at the broader",
+      "startTime": 2095.65,
+      "endTime": 2112.77
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "requirements of oral drug delivery, you encounter a catastrophic physiological problem. At the normal neutral pH of the human intestine, that benzamidine group carries a hard plus one positive charge.",
+      "startTime": 2112.77,
+      "endTime": 2124.37
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "In a watery environment, that charge attracts a massive tightly bound shell of water molecules. Wait, hold on. If you have this huge waterlogged positively charged molecule floating in the gut, what happens when it actually hits the lipid membrane of the intestinal wall? Because",
+      "startTime": 2125.17,
+      "endTime": 2141.49
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "cell membranes are made of fat and water and fat don't mix. It bounces right off. Charged molecules absolutely despise lipid membranes. The thermodynamic energy required to strip away that water shell and force a full positive charge through a greasy lipid bilayer is immense.",
+      "startTime": 2141.49,
+      "endTime": 2159.14
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "Because of this, the oral bioavailability of these early benzamidine drugs was abysmal, less than 5%. You would swallow a pill and 95% of it would just pass straight through your digestive tract into the toilet. So how did they finally get a positively charged drug across the gut wall?",
+      "startTime": 2159.14,
+      "endTime": 2175.54
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "Let's open our third blueprint. Human Alpha Thrombin, PDB1KTS, solved at 2.40 angstroms. This is the structure of the breakthrough drug, Debitgatron. If you look closely at 1KTS, you see exactly why Debitgatron works so well once it gets into the",
+      "startTime": 2176.1,
+      "endTime": 2192.42
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "blood. It's positively charged benzamidine group plunges straight down to the floor of the S1 pocket and forms a textbook by dentate, meaning too pronged. Ionic salt bridge with that negative",
+      "startTime": 2192.42,
+      "endTime": 2203.78
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "aspartate 189. The atomic distances are beautifully tight. Exactly 2.63 and 3.12 angstroms. It slips perfectly under Thrombin's rigid 60 loop awning and locks the enzyme shut. Okay, but you haven't answered the physical chemistry problem.",
+      "startTime": 2203.78,
+      "endTime": 2220.9
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "If it still relies on that hard positive charge to make that beautiful salt bridge, how did it get absorbed? You just said charge molecules bounce off the gut wall. The chemist said to employ a brilliant, elaborate disguise. A scientist named Norbert Howell at Boring Your Angleheim realized he couldn't change the drug, so he hit it. He hit it.",
+      "startTime": 2221.7,
+      "endTime": 2241.38
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "He used a double prodrug trick. He took the positively charged benzamidine and chemically capped it with a highly lipophilic greasy structure called a hexaloxy carbonyl group. Then he capped the other end of the molecule with an ethyl ester. We basically dressed the drug in a",
+      "startTime": 2241.38,
+      "endTime": 2256.98
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "greasy neutral raincoat to hide the positive charge from the gut. Exactly. This newly masked molecule, which they named Debitgatron a textillate, carries zero net charge in the intestine. It slips seamlessly across the lipid membrane of the gut wall. And once it successfully crosses into",
+      "startTime": 2256.98,
+      "endTime": 2273.7
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "the portal blood, the body's naturally occurring estuaries enzymes act like biochemical scissors. They chop off the raincoats, revealing the active positively charged Debitgatron molecule, which is then free to hunt down thrombin. This elaborate chemical disguise brought the",
+      "startTime": 2273.7,
+      "endTime": 2287.94
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "oral bioavailability up to 6.5%. Still not massive, but just enough to make it a reliable billion dollar blockbuster drug. That is incredibly clever. But this brings us to the second mystery we posed earlier. And this is where the science",
+      "startTime": 2287.94,
+      "endTime": 2303.78
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "gets truly wild. How do you block that deep negatively charged aspartate 189 pocket without relying on a positive charge or a complicated prodrug raincoat at all? Let's open the fourth blueprint. Human factor 10a, PDB 2W26. The drug? Revarix van.",
+      "startTime": 2303.78,
+      "endTime": 2323.54
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "Two scientists at Bayer, Suzanne Rorich and Elizabeth Persborn, decided they wanted a drug that didn't need a disguise. They literally screened 200,000 different chemical compounds, looking for a molecule with zero positive charge that could somehow still bind to that negative",
+      "startTime": 2323.54,
+      "endTime": 2340.42
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "pocket. Through sheer iterative grinding, they optimized a promising hit 25,000 fold down to the final molecule, Revarix van, which binds and locks factor 10a with a staggering 0.4 nanomolar",
+      "startTime": 2340.42,
+      "endTime": 2354.58
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "affinity. Let's look inside 2W26. Revarix van is this fascinating molecule that bends 90 degrees in the middle via an L-shaped oxazolidin-known ring, dropping a 2.97 angstrom hydrogen bond onto an amino acid",
+      "startTime": 2354.58,
+      "endTime": 2371.62
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "called glycine 219. But all the magic is down at the bottom of the S1 pocket. We look for that famous interaction with the negative aspartame 189 and… And there is zero ionic salt bridge.",
+      "startTime": 2371.62,
+      "endTime": 2383.78
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "The aspartate 189 is sitting 3.75 angstroms away from the drug, completely unengaged. It ignores the fundamental rule of the pocket. Instead, Revarix van uses a completely neutral",
+      "startTime": 2384.56,
+      "endTime": 2398.69
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "5 chlorothiophine ring. It points a single, uncharged chlorine atom almost perpendicularly onto the flat pie electron cloud of a completely different amino acid on the wall of the pocket, tyrosine 228. The distance is 3.61 angstroms, but wait a hold on. You cannot just break the laws of physics.",
+      "startTime": 2398.69,
+      "endTime": 2417.34
+    },
+    {
+      "id": "turn-147",
+      "speaker": "Host 1",
+      "text": "You were telling me a neutral chlorine atom is binding tightly enough to a flat carbon ring to replace a massive electrostatic positive to negative salt bridge? It seems impossible, right? How is a neutral atom doing that? It requires a deep dive into the quantum distribution of",
+      "startTime": 2418.1,
+      "endTime": 2433.46
+    },
+    {
+      "id": "turn-148",
+      "speaker": "Host 2",
+      "text": "electrons. It's a phenomenon called a halogen pi bond, driven by something called a sigma hole. A sigma hole, okay? Because that chlorine atom is covalently bonded to an electron-deficient thiophine ring, the electrons that normally swarm around the spherical tip of the chlorine atom",
+      "startTime": 2433.46,
+      "endTime": 2451.06
+    },
+    {
+      "id": "turn-149",
+      "speaker": "Host 1",
+      "text": "actually get pulled back toward the ring. So the electron cloud is asymmetrical? Precisely. It creates a microscopic bald spot of electron density right on the very tip of the chlorine atom. Because the negatively charged electrons are pulled away, that tiny bald spot",
+      "startTime": 2451.06,
+      "endTime": 2467.38
+    },
+    {
+      "id": "turn-150",
+      "speaker": "Host 2",
+      "text": "becomes electropositive. It forms an electropositive crown, the sigma hole. So it's not truly neutral. It essentially fakes a tiny, highly directional positive charge just at the very tip, while the molecule as a whole remains totally neutral. Yes. And that concentrated sigma hole creates a",
+      "startTime": 2467.38,
+      "endTime": 2485.22
+    },
+    {
+      "id": "turn-151",
+      "speaker": "Host 1",
+      "text": "highly directional, remarkably strong bond right against the electron-rich face of tyrosine 228. It is so precise that if you synthesize the exact same drug but remove that single chlorine atom,",
+      "startTime": 2485.22,
+      "endTime": 2499.7
+    },
+    {
+      "id": "turn-152",
+      "speaker": "Host 2",
+      "text": "the drug's binding affinity plunges by more than 200 fold. Wow. And the physiological payoff is massive because river oxivan doesn't possess a permanent plus one charge. It doesn't attract a massive shell of water molecules. It doesn't have to expend huge amounts of thermodynamic energy",
+      "startTime": 2499.7,
+      "endTime": 2516.66
+    },
+    {
+      "id": "turn-153",
+      "speaker": "Host 1",
+      "text": "to strip water away before entering the pocket. And crucially, because it's completely neutral, it doesn't need a greasy pro-drug raincoat to trick the intestines. It just absorbs straight through the gut wall on its own. River oxivan achieves 80 to 100% oral bioavailability right out of the",
+      "startTime": 2516.66,
+      "endTime": 2534.74
+    },
+    {
+      "id": "turn-154",
+      "speaker": "Host 2",
+      "text": "model. And on top of that, it has 10,000 fold target selectivity for factor 10a over thrombin.",
+      "startTime": 2535.22,
+      "endTime": 2541.14
+    },
+    {
+      "id": "turn-155",
+      "speaker": "Host 1",
+      "text": "Why doesn't it accidentally block thrombin though? It comes down to the architecture of the upper pocket, the S4 pocket. Factor 10a possesses this breathtaking three walled aromatic cage made of three specific amino acids, tyrosine 99, phenylalanine 174, and trip to fan 215.",
+      "startTime": 2542.02,
+      "endTime": 2561.78
+    },
+    {
+      "id": "turn-156",
+      "speaker": "Host 2",
+      "text": "So it's like a specific lock. Yeah. River oxabands flat, more full unknown phenyl arm is designed to slide straight into that aromatic box like a sword slipping into a perfectly tailored scabbard. Thrombin simply lacks this specific rigid aromatic box. So the drug bumps against it and ignores thrombin",
+      "startTime": 2561.86,
+      "endTime": 2581.06
+    },
+    {
+      "id": "turn-157",
+      "speaker": "Host 1",
+      "text": "entirely. Okay. So we've successfully locked these proteases at the one angstrom scale. We've seen how Dabigatran uses a disguised salt bridge to lock thrombin and how river rock's a band uses quantum sigma holes to lock factor 10a. But let's zoom back out to the macro",
+      "startTime": 2581.06,
+      "endTime": 2597.14
+    },
+    {
+      "id": "turn-158",
+      "speaker": "Host 2",
+      "text": "scale. Because that's where the real impact is. Right. What does locking just one factor 10a molecule actually mean in the grand scheme of a human being who is bleeding? How much work is one enzyme really doing? Let's run the quantitative math on coagulation. To appreciate the scale,",
+      "startTime": 2597.14,
+      "endTime": 2614.62
+    },
+    {
+      "id": "turn-159",
+      "speaker": "Host 1",
+      "text": "we have to calculate the pro thrombinase amplification factor. This math is exactly why factor 10a was chosen as such a critical biological choke point for these new drugs. If you isolate free factor 10a floating all by itself in the blood water, meaning no calcium,",
+      "startTime": 2614.62,
+      "endTime": 2629.5
+    },
+    {
+      "id": "turn-160",
+      "speaker": "Host 2",
+      "text": "no cell membrane to dock on, it is incredibly slow. How slow? Its relative cleavage rate is basically a baseline of one. It would take one free factor 10a molecule roughly 2.4 hours to generate a single molecule of thrombin. It's virtually inert. But then you add stem flows, claw claws.",
+      "startTime": 2629.5,
+      "endTime": 2647.66
+    },
+    {
+      "id": "turn-161",
+      "speaker": "Host 1",
+      "text": "Right. When factor 10a utilizes its claw claws and calcium to bolt onto a damaged phospholipid cell membrane, the physics change. Moving from a 3D fluid into a 2D surface confinement drops its Michaelis constant, its KM, which measures how easily it grabs its target by over 1000 fold.",
+      "startTime": 2648.14,
+      "endTime": 2665.98
+    },
+    {
+      "id": "turn-162",
+      "speaker": "Host 2",
+      "text": "So it gets way more efficient. The catalytic rate instantly jumps 50 to 100 times. But the real mathematical explosion happens when the final puzzle piece arrives. A non-ensematic cofactor called factor 5a. So when factor 5a binds to factor 10a on that",
+      "startTime": 2665.98,
+      "endTime": 2682.46
+    },
+    {
+      "id": "turn-163",
+      "speaker": "Host 1",
+      "text": "membrane, they form the complete prothrombinase complex. Think of factor 5a like a heavy-duty industrial jig on a factory floor. It perfectly rigidly aligns the incoming prothrombin molecules straight into factor 10a's catalytic cutting triad. The efficiency leaves exponentially.",
+      "startTime": 2682.46,
+      "endTime": 2699.82
+    },
+    {
+      "id": "turn-164",
+      "speaker": "Host 2",
+      "text": "When biochemists run the math at normal physiological concentrations, the complete membrane-bound complex generates roughly 1,120 molecules of thrombin per minute per single factor",
+      "startTime": 2699.82,
+      "endTime": 2712.78
+    },
+    {
+      "id": "turn-165",
+      "speaker": "Host 1",
+      "text": "XA molecule. Let me do that math. You go from one thrombin every 2.4 hours to over a thousand every minute. That is an amplification factor of nearly 300,000 fold. It's staggering. It's like going from a single guy whispering in a quiet room to a stadium concert sound system instantly switching",
+      "startTime": 2712.78,
+      "endTime": 2732.54
+    },
+    {
+      "id": "turn-166",
+      "speaker": "Host 2",
+      "text": "on at maximum volume. Which means that locking just one factor XA active site with a tiny river oxen bin molecule actively prevents a thousand thrombins a minute from ever being born. And because river oxen bin is physically so tiny, weighing just 436 daltons, it can slip deep inside",
+      "startTime": 2732.62,
+      "endTime": 2752.3
+    },
+    {
+      "id": "turn-167",
+      "speaker": "Host 1",
+      "text": "the microscopic crevices of established actively growing blood clots to shut down the factor XA that is already bound and firing. Whereas older, massive, bulky, intravenous drugs like heparin are physically too large to penetrate the clot, they can only act on the surface.",
+      "startTime": 2752.3,
+      "endTime": 2768.7
+    },
+    {
+      "id": "turn-168",
+      "speaker": "Host 2",
+      "text": "Exactly. So we have these incredible direct inhibitors moving through development. But meanwhile, back in the clinics of the 1980s and 90s, Warfarin was still the undisputed king of the world. And hematologists were desperately trying to standardize how to dose it safely before they killed half",
+      "startTime": 2768.7,
+      "endTime": 2786.78
+    },
+    {
+      "id": "turn-169",
+      "speaker": "Host 1",
+      "text": "their patients. Which brings us to a massive mathematical breakthrough, the WHOINR. If you look at the medical literature between 1955 and 1982, Warfarin dosing across the globe was absolute chaos. Two different hospitals in two different cities could target the exact same",
+      "startTime": 2786.78,
+      "endTime": 2804.78
+    },
+    {
+      "id": "turn-170",
+      "speaker": "Host 2",
+      "text": "prothrombin time ratio for a patient, say a ratio of 2.2, but end up giving wildly, dangerously different doses of the drug. I always struggled to understand how a standardized blood test could be that chaotic. Why were the numbers so disconnected from reality?",
+      "startTime": 2804.78,
+      "endTime": 2820.78
+    },
+    {
+      "id": "turn-171",
+      "speaker": "Host 1",
+      "text": "Because the test itself relies on biological tissue to trigger the clot. To run the PD test in a lab, you have to add a tissue extract called a thromboplastin to the patient's plasma. The problem was labs were sourcing their thromboplastins locally. A lab in the United States might use",
+      "startTime": 2821.34,
+      "endTime": 2838.38
+    },
+    {
+      "id": "turn-172",
+      "speaker": "Host 2",
+      "text": "an extract made from rabbit brains, which was notoriously insensitive to the drug. Meanwhile, lab in Europe might use a highly sensitive extract made from human brains.",
+      "startTime": 2838.38,
+      "endTime": 2847.58
+    },
+    {
+      "id": "turn-173",
+      "speaker": "Host 1",
+      "text": "So it's like trying to measure temperature, but one hospital is using Celsius, one is using Fahrenheit, and neither of them knows the other scale exists. It was incredibly dangerous.",
+      "startTime": 2848.46,
+      "endTime": 2858.3
+    },
+    {
+      "id": "turn-174",
+      "speaker": "Host 2",
+      "text": "Finally, in 1983, a statistician named Tom Kirkwood solved it. He discovered that if you plot the clotting times generated by a local commercial rabbit reagent against the times from a highly sensitive WHO primary reference reagent on a logarithmic scale, they form a strict,",
+      "startTime": 2859.22,
+      "endTime": 2876.26
+    },
+    {
+      "id": "turn-175",
+      "speaker": "Host 1",
+      "text": "beautiful linear power law relationship. And the slope of that mathematical line is what we now call the ISI, the International Sensitivity Index. By taking the patient's local PT ratio and raising it to the mathematical power of the ISI, Kirkwood gave us the INR, the International",
+      "startTime": 2876.9,
+      "endTime": 2893.78
+    },
+    {
+      "id": "turn-176",
+      "speaker": "Host 2",
+      "text": "Normalized Ratio. That single mathematical standardization saved countless lives. Without it, the translation errors were lethal. Imagine a US patient in the 1970s who has told their PT ratio is 2.2, using an insensitive rabbit reagent with an ISI of 2.4. The doctor thinks they are safe.",
+      "startTime": 2893.78,
+      "endTime": 2913.1
+    },
+    {
+      "id": "turn-177",
+      "speaker": "Host 1",
+      "text": "But if you do Kirkwood's math, 2.2 raised to the power of 2.4, their actual standardized INR was 6.64. And an INR of 6.64 means they were deep into the zone of spontaneous, fatal brain hemorrhage.",
+      "startTime": 2913.66,
+      "endTime": 2928.06
+    },
+    {
+      "id": "turn-178",
+      "speaker": "Host 2",
+      "text": "And the doctors didn't even know it. Targeting a standardized INR of 2.0 to 3.0 brought global sanity to the therapy. And to track that safety over time, a researcher named Fritz Rosendahl introduced a metric called Time in Therapeutic Range, or TTR. Using linear interpolation,",
+      "startTime": 2928.62,
+      "endTime": 2946.06
+    },
+    {
+      "id": "turn-179",
+      "speaker": "Host 1",
+      "text": "you mathematically assume the patient's INR drifts in a straight line between their monthly clinic visits. Studies show that if a patient's TTR drops below 60%, the clinical benefit of taking warfare in completely vanishes. The strokes and bleeds outnumber the cures.",
+      "startTime": 2946.06,
+      "endTime": 2961.34
+    },
+    {
+      "id": "turn-180",
+      "speaker": "Host 2",
+      "text": "But even with a standardized INR, dosing warfare in accurately on day one is still a nightmare. Because of those genetic mutations in VKORC1 and CYP2C9 we explored earlier, you don't know the patient's genetics just by looking at them.",
+      "startTime": 2961.34,
+      "endTime": 2975.74
+    },
+    {
+      "id": "turn-181",
+      "speaker": "Host 1",
+      "text": "That is where the IWPC stepped in to try and save warfare in the modern era. The International Warfarin Pharmacogenetics Consortium. In 2009, they pooled massive amounts of clinical data from 5,052 stabilized warfarin patients across four continents. They used this data to build a massive,",
+      "startTime": 2976.62,
+      "endTime": 2995.79
+    },
+    {
+      "id": "turn-182",
+      "speaker": "Host 2",
+      "text": "multivariable square root regression equation. The goal was to predict the exact, perfect weekly dose a patient would need before they ever swallowed their first pill. Let's roleplay a real-world clinical scenario of the IWPC equation to show how terrifyingly wide this genetic variance really is.",
+      "startTime": 2995.79,
+      "endTime": 3012.91
+    },
+    {
+      "id": "turn-183",
+      "speaker": "Host 1",
+      "text": "Imagine two 60-year-old 175 centimeter tall, 80 kilogram European patients walking into your clinic on the same day. Visually, they are identical. Let's calculate patient A. They have wild-type",
+      "startTime": 3013.55,
+      "endTime": 3026.35
+    },
+    {
+      "id": "turn-184",
+      "speaker": "Host 2",
+      "text": "genetics, normal fully functional VKORC1 promoters, normal CYP2C9 clearance enzymes. If you plug their age, height, and weight into the baseline clinical core of the IWPC equation, the math dictates they",
+      "startTime": 3026.35,
+      "endTime": 3039.71
+    },
+    {
+      "id": "turn-185",
+      "speaker": "Host 1",
+      "text": "need roughly 6.2 milligrams of warfare in per day to stay in range. Now, patient B walks in, exact same height, weight, and age. But patient B has a genetic variant called the VKORC1-1639GA promoter",
+      "startTime": 3039.71,
+      "endTime": 3056.72
+    },
+    {
+      "id": "turn-186",
+      "speaker": "Host 2",
+      "text": "variant. This mutation severely downgrades the blueprint copying process, cutting the physical synthesis of the VKORC1 enzyme in half. With half as many target enzymes existing in the liver,",
+      "startTime": 3056.72,
+      "endTime": 3069.28
+    },
+    {
+      "id": "turn-187",
+      "speaker": "Host 1",
+      "text": "you need way less drug to jam the system. Plus, patient B has that CYP2C9-33 coding variant we talked about, the one that shifted the methyl group and warped the enzyme's throat, destroying the liver's ability to clear the drug. And just to make it a true clinical nightmare, patient B is also",
+      "startTime": 3069.28,
+      "endTime": 3087.92
+    },
+    {
+      "id": "turn-188",
+      "speaker": "Host 2",
+      "text": "taking amiodarone for an irregular heartbeat, which creates that massive traffic jam in the clearance corridor. So we run the IWPC math on patient B. You subtract the heavy mathematical penalties for the",
+      "startTime": 3087.92,
+      "endTime": 3100.0
+    },
+    {
+      "id": "turn-189",
+      "speaker": "Host 1",
+      "text": "VKORC1 variant. You subtract the massive penalty for the CYP2C9-33 variant. And you subtract the penalty for the amiodarone interaction. You execute the square root regression, and patient B's required",
+      "startTime": 3100.0,
+      "endTime": 3115.07
+    },
+    {
+      "id": "turn-190",
+      "speaker": "Host 2",
+      "text": "dose plummets to roughly 0.57 milligrams per day. Patient A needs 6.2 milligrams. Patient B needs 0.57 milligrams. That is an 11-fold difference for identically sized people. If you didn't have the genetic test and you gave patient B the standard 5 milligram empirical starter dose,",
+      "startTime": 3115.07,
+      "endTime": 3133.26
+    },
+    {
+      "id": "turn-191",
+      "speaker": "Host 1",
+      "text": "they would accumulate it for weeks, overshoot their INR completely, and likely bleed to death. And this raises a deeply vital question about medical data. If we possess this incredibly powerful genetic equation, why isn't it universally mandated for every patient on Earth? The answer lies in",
+      "startTime": 3133.26,
+      "endTime": 3151.15
+    },
+    {
+      "id": "turn-192",
+      "speaker": "Host 2",
+      "text": "two back-to-back clinical trials published in the New England Journal of Medicine in November 2013. The EU PAC trial versus the COAG trial. EU PAC tested a cohort of European patients using this genetic dosing algorithm, and it was a massive success. It significantly raised their time in",
+      "startTime": 3151.15,
+      "endTime": 3167.39
+    },
+    {
+      "id": "turn-193",
+      "speaker": "Host 1",
+      "text": "therapeutic range, safely up to 67.4%. But the COAG trial, which tested a United States population that included about 27% black ancestry, found something deeply disturbing. Genotype-guided dosing actually harmed the black patients compared to clinical guessing. Their",
+      "startTime": 3167.47,
+      "endTime": 3185.55
+    },
+    {
+      "id": "turn-194",
+      "speaker": "Host 2",
+      "text": "TTR dropped to an abysmal 35.2%. Why did the math fail so spectacularly? It was a catastrophic failure of genetic panel design. The COAG trial used genetic testing panels that only looked for the common European variants of CYP2C9, the two and three alleles. They completely systematically",
+      "startTime": 3185.55,
+      "endTime": 3205.07
+    },
+    {
+      "id": "turn-195",
+      "speaker": "Host 1",
+      "text": "ignored African-specific variants like the 5, 6, 8, and 11 alleles. The 5 variant, for example, is a mutation that sits right next to the three spot, and it drastically slows down clearance. So the genetic test came back and told the doctors these black patients were wild type,",
+      "startTime": 3205.07,
+      "endTime": 3220.59
+    },
+    {
+      "id": "turn-196",
+      "speaker": "Host 2",
+      "text": "normal metabolizers, when in reality they were severely slow metabolizers. The algorithm confidently prescribed them a massive overdose. A precision medicine tool built predominantly on Eurocentric data actively harmed a diverse population when deployed in the real world.",
+      "startTime": 3220.59,
+      "endTime": 3236.75
+    },
+    {
+      "id": "turn-197",
+      "speaker": "Host 1",
+      "text": "It is a sobering reminder that our sub-enxtrum structural insights and our mathematical equations are only as robust as the populations we include in our baseline data. And while pharmacogenomics was fighting this complex, messy war to make warfarin safer,",
+      "startTime": 3237.31,
+      "endTime": 3251.23
+    },
+    {
+      "id": "turn-198",
+      "speaker": "Host 2",
+      "text": "the DO-X, the direct oral anticoagulants like Dabogatran and River Oxivan, were quietly marching into phase three mega trials designed to wipe warfarin off the map completely. The clinical trial mathematics used to dethrone warfarin are just as elegant and complex as",
+      "startTime": 3251.79,
+      "endTime": 3267.47
+    },
+    {
+      "id": "turn-199",
+      "speaker": "Host 1",
+      "text": "the crystal structures we looked at. To run these trials, you have to enroll over 71,000 patients worldwide with atrial fibrillation. You want to prove your shiny new DO-X drug is better than warfarin. But you face an ethical wall. You cannot ethically use a placebo. Giving a sugar pill to",
+      "startTime": 3267.47,
+      "endTime": 3286.3
+    },
+    {
+      "id": "turn-200",
+      "speaker": "Host 2",
+      "text": "someone at a high documented risk of having a stroke is gross medical malpractice. You have to test your new drug head to head against the reigning champion, warfarin. So how do you mathematically prove a new drug is better when the old drug already prevents most strokes? You use something called",
+      "startTime": 3286.3,
+      "endTime": 3303.1
+    },
+    {
+      "id": "turn-201",
+      "speaker": "Host 1",
+      "text": "an active controlled non-inferiority trial. You have to first prove your new drug is at least not unacceptably worse than warfarin. To define what unacceptably worse means, statisticians use a method called the fixed margin effect retention derivation. First,",
+      "startTime": 3303.18,
+      "endTime": 3320.7
+    },
+    {
+      "id": "turn-202",
+      "speaker": "Host 2",
+      "text": "they look at decades of historical data. Historically, adjusted dose warfarin reduces the risk of stroke compared to placebo by a massive 64%. That means the placebo hazard ratio versus warfarin is around 2.63. But to be mathematically conservative, statisticians take the lower 95%",
+      "startTime": 3320.7,
+      "endTime": 3339.1
+    },
+    {
+      "id": "turn-203",
+      "speaker": "Host 1",
+      "text": "confidence bound of that historical effect. Let's call it M1, which sits around 1.90. Then the FDA demands that the new DO-X drug must preserve at least 50% of that historical benefit on the log-relative risk scale. The math works out that the non-inferiority margin, which they call",
+      "startTime": 3339.1,
+      "endTime": 3357.9
+    },
+    {
+      "id": "turn-204",
+      "speaker": "Host 2",
+      "text": "delta NI, is roughly the square root of M1. So delta NI was set at 1.38 for the Aristotle trial and 1.46 for the Verlai trial. This is where the statisticians execute a true masterpiece of trial",
+      "startTime": 3357.9,
+      "endTime": 3373.18
+    },
+    {
+      "id": "turn-205",
+      "speaker": "Host 1",
+      "text": "design, something called closed hierarchical gatekeeping. In any trial, you have to set your overall false positive error rate, your alpha, at 0.05. You are only allowed a 5% chance of being wrong. Gate 1. You test your drug for non-inferiority. Does the upper bound of your drug's confidence",
+      "startTime": 3373.18,
+      "endTime": 3392.7
+    },
+    {
+      "id": "turn-206",
+      "speaker": "Host 2",
+      "text": "interval fall safely below that 1.38 margin? If yes, you successfully pass gate 1. You are officially not worse than warfarin. And if you pass gate 1, the statistics allow you to instantly proceed to gate 2, superiority. You test if your drug is actually statistically better than warfarin,",
+      "startTime": 3392.7,
+      "endTime": 3411.66
+    },
+    {
+      "id": "turn-207",
+      "speaker": "Host 1",
+      "text": "meaning the upper bound is entirely below 1.00. And you get to do this at the exact same 0.05 alpha level with zero statistical penalty for running a second test. Now why is there no penalty?",
+      "startTime": 3411.74,
+      "endTime": 3423.9
+    },
+    {
+      "id": "turn-208",
+      "speaker": "Host 2",
+      "text": "Because mathematically, the space of superiority is a strict logical subset of the space of non-inferiority. If the drug is proven superior, it is automatically by definition non-inferior. The overall false positive error rate of the trial can never mathematically exceed your original 0.05.",
+      "startTime": 3424.7,
+      "endTime": 3444.38
+    },
+    {
+      "id": "turn-209",
+      "speaker": "Host 1",
+      "text": "This brilliant design allowed these massive trials to pivot seamlessly from proving the drugs were just as good to proving they were actually statistically superior to Karl Paul Link's 55-year champion. And let's look at the staggering results. The Reli trial tested Dabogitran in over 18,000",
+      "startTime": 3444.38,
+      "endTime": 3464.22
+    },
+    {
+      "id": "turn-210",
+      "speaker": "Host 2",
+      "text": "patients. The Aristotle trial tested a Pixaban in over 18,000 patients. The DOACs achieved something seemingly impossible. They slashed the rate of fatal endocranial hemorrhage, bleeding in the brain by 58 to 70 percent compared to well managed warfarin. This specific outcome raises the",
+      "startTime": 3464.22,
+      "endTime": 3483.74
+    },
+    {
+      "id": "turn-211",
+      "speaker": "Host 1",
+      "text": "deepest physiological question of the mega trials. Why did every single DOAC regardless of whether it locked thrombin or factor XA protect the human brain so profoundly much better than Warfin did? It actually circles all the way back to Johan's stenflow and the GLA clause.",
+      "startTime": 3483.74,
+      "endTime": 3501.42
+    },
+    {
+      "id": "turn-212",
+      "speaker": "Host 2",
+      "text": "Precisely. To understand the brain leads, you have to look at the architecture of the blood vessels inside the human brain. The capillaries in the brain are tightly wrapped in astrocytic end feed. And these cells express massive concentrated densities of protein called tissue factor.",
+      "startTime": 3501.42,
+      "endTime": 3519.1
+    },
+    {
+      "id": "turn-213",
+      "speaker": "Host 1",
+      "text": "It acts as an evolutionary hemostatic envelope. It makes sense. The brain is soft and engaged in a rigid skull. If you get a microscopic tear in a brain capillary, you need it to clot instantly right there on the spot before the leaking blood crushes and destroys the delicate neurons. Exactly.",
+      "startTime": 3519.66,
+      "endTime": 3536.14
+    },
+    {
+      "id": "turn-214",
+      "speaker": "Host 2",
+      "text": "When a brain capillary tears that concentrated tissue factor binds to circulating factor 7A in the blood, triggering an instant massive localized burst of thrombin to seal the hole. It's an emergency local shield. But Warfern operates by systematically stripping the GLA clause off of factor 7.",
+      "startTime": 3536.94,
+      "endTime": 3556.3
+    },
+    {
+      "id": "turn-215",
+      "speaker": "Host 1",
+      "text": "It dismantles the brain's primary emergency shield. The DOACs on the other hand do not touch the production of clotting factors. They leave factor 7A completely intact with its clause fully The DOACs are just reversible, competitive inhibitors. They suppress the low level",
+      "startTime": 3557.18,
+      "endTime": 3573.42
+    },
+    {
+      "id": "turn-216",
+      "speaker": "Host 2",
+      "text": "pathological clotting in the heart. But when that massive localized burst of tissue factor fires in the brain during a microbleed, the sheer local concentration of active enzymes easily outcompets the DOAC drug molecules and successfully seals the leak. The clinical community viewed",
+      "startTime": 3573.42,
+      "endTime": 3589.66
+    },
+    {
+      "id": "turn-217",
+      "speaker": "Host 1",
+      "text": "this as a total triumph. The cardiologists were flush with victory. The DOACs were safer, easier, and mathematically superior. They naturally assumed these new drugs would wipe Warfern off the face of modern medicine forever, replacing it for every single cardiovascular indication.",
+      "startTime": 3589.66,
+      "endTime": 3606.46
+    },
+    {
+      "id": "turn-218",
+      "speaker": "Host 2",
+      "text": "Including patients who had implanted mechanical prosthetic heart valves. And this brings us to the ultimate twist in our story, the real line humbling in 2013. Cardiologists initiated a trial called Real Line, comparing high-dose Dabogatran directly to",
+      "startTime": 3606.46,
+      "endTime": 3621.66
+    },
+    {
+      "id": "turn-219",
+      "speaker": "Host 1",
+      "text": "Warfern in patients with mechanical bilefoot heart valves. It was an absolute disaster. The independent data safety monitoring board took one look at the incoming data, and abruptly halted the entire trial at just 252 patients.",
+      "startTime": 3621.66,
+      "endTime": 3635.54
+    },
+    {
+      "id": "turn-220",
+      "speaker": "Host 2",
+      "text": "Because Dabogatran was losing catastrophically on both efficacy and bleeding at the exact same time. 5% of the Dabogatran patients suffered strokes or valve thromboses compared to 0% on Warfern.",
+      "startTime": 3636.18,
+      "endTime": 3650.26
+    },
+    {
+      "id": "turn-221",
+      "speaker": "Host 1",
+      "text": "And simultaneously, the Dabogatran group had a 2.45 hazard ratio for major bleeding. It forces us to ask, why did these sub-nanomolar structure-based quantum-engineered marvels of modern drug design fail so completely where Ed Carlson's crude 1933 blizzard molecule succeeded?",
+      "startTime": 3650.82,
+      "endTime": 3670.5
+    },
+    {
+      "id": "turn-222",
+      "speaker": "Host 2",
+      "text": "It comes down to the Cascades stoichiometry on an artificial surface. Let's break that down. A mechanical hard valve uses leaflets made of pyrolytic carbon. It is not human endothelium. It is a completely foreign surface to the blood.",
+      "startTime": 3670.5,
+      "endTime": 3684.9
+    },
+    {
+      "id": "turn-223",
+      "speaker": "Host 1",
+      "text": "When human blood hits a foreign surface under the extreme high shear stress of a beating heart valve, it triggers a massive auto-activation of what we call the intrinsic contact pathway. It's a chain reaction. Factor 12 activates to 11, which activates 9, which activates 10.",
+      "startTime": 3685.46,
+      "endTime": 3701.06
+    },
+    {
+      "id": "turn-224",
+      "speaker": "Host 2",
+      "text": "Inside the microscopic turbulent hinge of that mechanical carbon valve, the prothrombides complex is a symbol and generate immense micromolar bursts of factor 10a and thrombin. And this is where the one-to-one lock fails. These bursts are so massive and concentrated that the",
+      "startTime": 3701.62,
+      "endTime": 3718.18
+    },
+    {
+      "id": "turn-225",
+      "speaker": "Host 1",
+      "text": "sheer number of active enzyme molecules physically outnumber the available, reversible doeact drug molecules circulating in the blood. Histichiometry flips. The drug is simply overwhelmed by this warm event times. And you can't just crank up the doeactose to suppress the valve because if you flood the",
+      "startTime": 3718.18,
+      "endTime": 3735.94
+    },
+    {
+      "id": "turn-226",
+      "speaker": "Host 2",
+      "text": "body with enough drug to win that localized numbers game, you completely paralyze coagulation everywhere else, causing massive systemic surgical and gastrointestinal bleeding, which is exactly what happened in the trial. So why does Warfarin easily win this fight? Because Warfarin doesn't fight the proteases hand-to-hand after they wake up, it bombs the",
+      "startTime": 3735.94,
+      "endTime": 3755.66
+    },
+    {
+      "id": "turn-227",
+      "speaker": "Host 1",
+      "text": "supply chain. Warfarin decarboxylates 70 to 85% of the upstream's Zimogen pools simultaneously at four separate sequential stages of the cascade, factor 9, factor 10, factor 7, and prothrombin.",
+      "startTime": 3755.66,
+      "endTime": 3769.18
+    },
+    {
+      "id": "turn-228",
+      "speaker": "Host 2",
+      "text": "So the doeacts are fighting an army hand-to-hand at the front line, but Warfarin starve the production of the entire army before it can even deploy.",
+      "startTime": 3769.94,
+      "endTime": 3777.3
+    },
+    {
+      "id": "turn-229",
+      "speaker": "Host 1",
+      "text": "You multiply that starvation effect across all four factors, and you attenuate the entire contact pathway before that 300,000-fold prothrombinase explosion can ever assemble on the carbon leaflet. Ed Carlson's 1933 blizzard molecule remains the undisputed,",
+      "startTime": 3778.8,
+      "endTime": 3794.24
+    },
+    {
+      "id": "turn-230",
+      "speaker": "Host 2",
+      "text": "undefeated chaplain for mechanical valves. It forces modern high-tech medicine to step back and respect the sheer brute force power of multi-factor suppression. You can engineer the most perfect one-ankstrom lock in the world, but sometimes shutting down the factory is the only",
+      "startTime": 3794.24,
+      "endTime": 3810.64
+    },
+    {
+      "id": "turn-231",
+      "speaker": "Host 1",
+      "text": "way to win the war. We've gone from a frozen heifer and a Wisconsin barn in 1933 to the quantum electron clouds of human liver enzymes. We've seen how Revoroxaban uses a chlorine pie bond to bypass the human gut wall and how pyrolytic carbon triggers the contact pathway to completely defeat",
+      "startTime": 3810.64,
+      "endTime": 3828.56
+    },
+    {
+      "id": "turn-232",
+      "speaker": "Host 2",
+      "text": "systemic doe acts. But before we go, I'm going to leave you with one final thought to chew on, something that pushes all of this into the future. It's the next logical step in the engineering paradox. Exactly. What if the future of mechanical valves isn't a better systemic pill at",
+      "startTime": 3828.56,
+      "endTime": 3843.36
+    },
+    {
+      "id": "turn-233",
+      "speaker": "Host 1",
+      "text": "all? What if using these exact same sub-ankstrom structural insights, we could engineer the atomic surface coating of the mechanical valve itself? Imagine a covalent inhibitor, a permanent lock bonded directly to the pyrolytic carbon leaflet that instantly neuters factor 12 the second it",
+      "startTime": 3843.36,
+      "endTime": 3860.88
+    },
+    {
+      "id": "turn-234",
+      "speaker": "Host 2",
+      "text": "makes contact. It would make the artificial heart valve perfectly invisible to the blood's contact pathway, requiring no systemic blood thinners at all. That is the ultimate frontier. Neutralizing the threat at the exact site of the trigger without compromising the rest of the body.",
+      "startTime": 3860.88,
+      "endTime": 3875.92
+    },
+    {
+      "id": "turn-235",
+      "speaker": "Host 1",
+      "text": "Thank you for joining us on this incredible deep dive. Just remember, the next time you look at a tiny pill in the palm of your hand, the line between a lethal poison and a life-saving cure is sometimes just one angstrom wide. Catch on the next one.",
+      "startTime": 3876.67,
+      "endTime": 3896.19
+    }
+  ]
+}

@@ -1,0 +1,1722 @@
+{
+  "episodeId": "1FqpIZuARJMSgQHg2lEOz2Irh4ePi6Yjf",
+  "driveId": "1FqpIZuARJMSgQHg2lEOz2Irh4ePi6Yjf",
+  "title": "One Ångström at the Willow Bark Acetyl — Stone (1763), Hoffmann & Eichengrün (1897), John Vane & Philip Majerus, Covalent Ser530 Acetylation of COX-1 & COX-2 (PDB 1PTH, 5F19 & 5IKR), the Val523 Celecoxib Pocket (PDB 3LN1) & ISIS-2 Factorial Math",
+  "duration": 3959.77,
+  "teenKit": {
+    "tldr": "Aspirin is a 180-dalton molecule that permanently 'glues' a tiny acetyl group onto a specific amino acid (Ser530) inside your platelets, stopping them from clotting for a whole week.",
+    "whyItMatters": "It is the difference between a life-saving treatment for heart attacks and a risk of internal bleeding; understanding the structure allows us to predict who actually benefits.",
+    "keyTakeaways": [
+      "Aspirin doesn't just block a receptor; it chemically alters the enzyme COX-1 permanently.",
+      "The body replaces platelets slowly (8-10 days), which is why one low-dose pill works for a week.",
+      "Small structural changes in enzymes (like Ile523 vs Val523) determine if a drug is a miracle or a danger."
+    ],
+    "vocab": [
+      {
+        "term": "Ser530",
+        "meaning": "The specific Serine amino acid residue where aspirin covalently attaches its acetyl group."
+      },
+      {
+        "term": "PDB 1PTH",
+        "meaning": "The scientific code for the 3D X-ray crystal structure of COX-1, allowing us to see aspirin at the atomic level."
+      },
+      {
+        "term": "TXA2/PGI2 Seesaw",
+        "meaning": "The balance between platelet-clotting thromboxane (TXA2) and vessel-dilating prostacyclin (PGI2)."
+      },
+      {
+        "term": "NNT",
+        "meaning": "Number Needed to Treat: How many people need to take the drug to save one life."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Why does low-dose aspirin stop platelets from clotting for days?",
+        "options": [
+          "It stays in the blood",
+          "It permanently acetylates COX-1 in anucleate platelets",
+          "It binds to the DNA of platelets",
+          "It is stored in the liver"
+        ],
+        "correctIndex": 1,
+        "explanation": "Platelets have no nucleus to make new enzymes, so once the COX-1 enzyme is acetylated by aspirin, it stays dead until the platelet is replaced."
+      },
+      {
+        "question": "What is the primary structural difference between COX-1 and COX-2?",
+        "options": [
+          "COX-2 has a wider side pocket due to Val523",
+          "COX-1 is larger",
+          "COX-2 lacks an active site",
+          "They are identical"
+        ],
+        "correctIndex": 0,
+        "explanation": "COX-2 has a Valine at position 523, whereas COX-1 has a bulky Isoleucine, creating extra space in COX-2 for drugs like celecoxib."
+      },
+      {
+        "question": "What does NNT stand for in clinical trials?",
+        "options": [
+          "Number of New Treatments",
+          "Number Needed to Treat",
+          "Normal Nutritional Threshold",
+          "None of the above"
+        ],
+        "correctIndex": 1,
+        "explanation": "NNT measures how many patients must be treated to prevent one additional adverse outcome."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host 1",
+      "text": "Every single year, human beings swallow roughly 100 billion tablets of aspirin.",
+      "startTime": 0.0,
+      "endTime": 5.36
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host 2",
+      "text": "I mean, it is without a doubt the most successful, most widely consumed, synthesized drug in the history of our species. Oh, absolutely. It's staggering. Right. And yet for 74 years after it became this massive global blockbuster, if you went up to the greatest doctors on Earth and asked them how it actually",
+      "startTime": 6.18,
+      "endTime": 23.74
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host 1",
+      "text": "stopped a headache or, you know, prevented a heart attack, they would have to look you straight in the eye and a bit they had absolutely no idea.",
+      "startTime": 23.74,
+      "endTime": 31.3
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host 2",
+      "text": "Yeah, it is a phenomenal blind spot in the history of medicine. We had this, well, this magical white pill, essentially, that could drop a fever, so a swollen joint, keep a patient's blood from clotting. But the actual molecular machinery inside the human body, making all of that",
+      "startTime": 32.06,
+      "endTime": 48.7
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host 1",
+      "text": "happen, it was just a complete black box, which is exactly why this deep dive is so fascinating to me.",
+      "startTime": 48.7,
+      "endTime": 54.3
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host 2",
+      "text": "Because we aren't just talking about a headache pill today. For you listening, we are tracking a biological mystery. We were trying to understand how a tiny molecule, something so fragile that your liver just shreds it into useless pieces, barely 15 or 20 minutes after it enters your bloodstream. Right. It's gone almost instantly. Exactly. It's gone.",
+      "startTime": 55.1,
+      "endTime": 74.92
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host 1",
+      "text": "But it somehow manages to fundamentally alter the architecture of your blood platelets for an entire week. I mean, just think about the physics of that timeframe. The drug is completely gone in 20 minutes. It vanishes, yet its biological effect persists for days. It's the ultimate molecular hit and run operation.",
+      "startTime": 75.24,
+      "endTime": 93.16
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host 2",
+      "text": "The getaway car, like the intact aspirin molecule, has already crossed state lines and disappeared before the cops even show up. But the vaulted hit is permanently locked shut for seven days. Yeah. How does it do that? Right. We are going to solve that today. We are going to take a journey that starts with macroscopic human history,",
+      "startTime": 93.76,
+      "endTime": 111.52
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host 1",
+      "text": "ancient texts, damp English meadows, morally fraught laboratories in World War II era Germany. And we are going to end up zooming in exactly one onstrum, which is mind bending. Right. We are going to shrink down 50,000 times smaller than the absolute diffraction limit of a standard light microscope. Wow.",
+      "startTime": 111.92,
+      "endTime": 131.28
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host 2",
+      "text": "Our goal is to watch one specific chemical reaction, a single covalent bond snapping into place. Because that one microscopic event changed the entire course of human immunology and cardiology. And the sources we are pulling from to build this picture, they are just incredible.",
+      "startTime": 131.96,
+      "endTime": 148.48
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host 1",
+      "text": "We've got historical letters from 18th century English parsons. We have these tragic archival lab notebooks from the 1890s in Elbafield, plus groundbreaking 1970s radio isotope experiments and massive clinical trial data too. Yeah, involving tens of thousands of patients.",
+      "startTime": 148.48,
+      "endTime": 164.56
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host 2",
+      "text": "And finally, atomic level crystallographic structures mapping the human emzyme down to the hundreds of an onstrum. Okay. Let's unpack this because the history is wild. It really is to really appreciate the atomic precision of what the drug does. We have to understand the messy trial and error human history that found it in the first place.",
+      "startTime": 164.96,
+      "endTime": 184.36
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host 1",
+      "text": "You know, the story of this molecule doesn't begin in a sterile laboratory. It begins out in the natural world. Right. Specifically with the bark of the willow trait. Exactly. The willow tree shows up everywhere in ancient medical texts. If you look at the eberspapyrus from ancient Egypt dating back to",
+      "startTime": 184.88,
+      "endTime": 199.92
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host 2",
+      "text": "around 1500 BCE, they are already writing about using dried willow leaves for aches and pains. The Sumerians used it too. Yeah. And Hippocrates told women to chew on it during childbirth. But for thousands of years, nobody bothered to standardize it. It was just herbal folklore. If you had a fever, you found a willow tree, stripped some bark off,",
+      "startTime": 201.12,
+      "endTime": 219.92
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host 1",
+      "text": "boil it in water and just kind of hope for the best. Which brings us to a damp meadow ditch in Oxfordshire, England. This is the autumn of 1758. And we need to look at the work of Reverend Edward Stone, who was a country person and a fellow of Wautom College, Oxford.",
+      "startTime": 219.96,
+      "endTime": 235.52
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host 2",
+      "text": "I find Stone so compelling because I mean, he wasn't a physician. Not at all. He was just a clergyman who was suffering terribly from what the medical texts of the time called federal aid use. Right. And ag use was essentially the 18th century catch all term for recurrent shivering fevers. In the marshy areas of England at the time, much of this was actually",
+      "startTime": 236.28,
+      "endTime": 255.64
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host 1",
+      "text": "endemic malaria. Wow. Malaria in England. Yeah. Caused by parasites carried by mosquitoes in the swamps mixed with various severe viral fevers. The chills and the shivering were incredibly violent. So Stone is out walking near a stream one afternoon, suffering from these fevers.",
+      "startTime": 255.68,
+      "endTime": 272.36
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host 2",
+      "text": "He reaches up, peels a strip of bark off a common English white willow, Salix Alba.",
+      "startTime": 272.36,
+      "endTime": 277.8
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host 1",
+      "text": "He puts a sliver on his tongue and just winces. Because it's intensely, painfully bitter, super bitter. But instead of spitting it out and moving on, he decides this extreme bitterness is actually a medical clue. Right. He was relying on a very old, deeply entrenched philosophy called the",
+      "startTime": 278.57,
+      "endTime": 297.06
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host 2",
+      "text": "doctrine of signatures, which sounds completely wild today. It does. It was this theological belief that nature or the creator provides remedies in the exact same geographic neighborhoods where the maladies occur. It was a geographic medical theory. So the disease lives in the swamp. Therefore the cure must live in the swamp. Precisely. Yeah.",
+      "startTime": 297.18,
+      "endTime": 315.86
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host 1",
+      "text": "The agues, the malarial fevers were striking hardest in these damp marshy hollows and riverbanks. Well, what thrives in damp marshy hollows? The willow tree. It sounds like absolute magical thinking. It's folklore, but Stone didn't just chew the bark and pray.",
+      "startTime": 316.14,
+      "endTime": 331.98
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host 2",
+      "text": "He took this magical premise and applied a remarkably rigorous, almost modern empirical methodology to it.",
+      "startTime": 332.66,
+      "endTime": 340.66
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host 1",
+      "text": "He did. He recognized a fundamental problem with herbal medicine, which is biological variants. You know, a piece of bark in the spring is full of sap and moisture, but a piece of bark in the winter is dry and brittle. If you just tell someone to eat a handful of bark, you have no idea how much active ingredient they are actually getting.",
+      "startTime": 341.41,
+      "endTime": 358.85
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host 2",
+      "text": "So he invents pharmaceutical quality control. He gathers a full pound of this willa bark right in the middle of summer. He puts it in a baker sack and leaves it on top of a warm bread oven for three solid months to completely dry it out. He removes all the unpredictable water weight. Exactly.",
+      "startTime": 358.93,
+      "endTime": 376.7
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host 1",
+      "text": "Then he pounds it and sifts it into a uniform fine powder. And once he had that standardized formulation, he initiated a safe dose escalation trial on himself. Wait, on himself. Yeah. He didn't just swallow a massive spoonful. He started with 20 grain doses, which is roughly 1.3 grams of powder.",
+      "startTime": 377.14,
+      "endTime": 395.78
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host 2",
+      "text": "And he carefully monitored his own neurological and gastric response. You know, was there stupor? Was there internal bleeding? That is so brave. When he saw it was safe, he slowly worked his way up to one draw come about 3.9 grams, taking it every four hours. And the fever broke. He proved it on himself and then he spent the next five years",
+      "startTime": 396.26,
+      "endTime": 414.74
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host 1",
+      "text": "treating 50 different patients across Oxfordshire. In 1763, he writes this famous letter to the Royal Society of London, detailing his findings. And in almost every single patient, the recurrent shivering fevers were suppressed. He had clinically proven the efficacy of the willow bark, even if he had no",
+      "startTime": 414.74,
+      "endTime": 433.46
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host 2",
+      "text": "idea what the act of chemical was, which is amazing. It is. And that 1763 letter acts as the starting gun for a massive multinational chemical relay race. As we move into the 19th century, organic chemistry is emerging as a rigorous science in Europe. Right.",
+      "startTime": 433.46,
+      "endTime": 450.14
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host 1",
+      "text": "Chemists begin tearing this willow bark apart, trying to isolate whatever molecule was dropping the fevers.",
+      "startTime": 450.14,
+      "endTime": 455.98
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host 2",
+      "text": "And it happens in stages in 1828, a German pharmacologist named Johann Andreas Buchner manages to isolate these tiny bitter yellow crystals from the bark. And he names the extract Salison. Salison. OK. Then 10 years later, in 1838, an Italian chemist named Raphael",
+      "startTime": 456.9,
+      "endTime": 475.86
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host 1",
+      "text": "Peria figures out how to split that Salison and oxidize it into a stronger, pure compound called salicylic acid. And salicylic acid was highly effective, right? I mean, by 1859, chemist that develops something called the Colby Schmitt process. This allowed chemical plants to industrially mass produce synthetic",
+      "startTime": 475.86,
+      "endTime": 495.54
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host 2",
+      "text": "salicylic acid by the literal ton. Yes, bypassing the need to harvest willow trees entirely. So by the 1870s, doctors in Berlin and Scotland are prescribing massive doses of this manufactured sodium salicylate to patients suffering from the agonizing joint pain of acute rheumatic fever. And it works.",
+      "startTime": 495.54,
+      "endTime": 514.9
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host 1",
+      "text": "The pain goes away. The joint pain went away. Yes. But the clinical price they paid was horrifying. Right. Walk me through what was actually happening to these patients. Because if they had a working drug in the 1870s for a rheumatic fever, why do we need the famous burial laboratory to invent aspirin in 1897? What was wrong with it?",
+      "startTime": 515.26,
+      "endTime": 533.94
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host 2",
+      "text": "Well, to treat acute rheumatic arthritis, physicians had to administer six to eight grams of sodium salicylate a day. Grams. Yes. Wow. Yes. And at those extreme doses, the pure salicylic acid proved to be severely caustic. Patients described this nauseating, sweetish burning taste that caused",
+      "startTime": 534.46,
+      "endTime": 553.38
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host 1",
+      "text": "violent uncontrollable retching. That sounds awful. It triggered a roaring to night is a deafening ringing in the ears. But the most dangerous side effect was corrosive gastric mucosal hemorrhage. It was literally eating through the line together stomach. Precisely. A salicylic acid is a strong irritant.",
+      "startTime": 553.66,
+      "endTime": 572.5
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host 2",
+      "text": "When six grams of it sat in the acidic environment of the human stomach, it degraded the protective mucus layer. It caused the capillaries in the stomach wall to burst and bleed. So they were essentially trading debilitating joint pain for internal bleeding. Exactly. Every household with a rheumatic elder was begging the chemical industry",
+      "startTime": 572.82,
+      "endTime": 590.54
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host 1",
+      "text": "for a palatable version of the drug, something that would pass safely through the stomach without burning it, but still deliver the pain relief. And that desperation leads us to a sweltering laboratory in Elbafel, Germany, in the first two weeks of August, 1897, the laboratories of Farben,",
+      "startTime": 590.54,
+      "endTime": 607.94
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host 2",
+      "text": "Frobricken, Vormals, Friedrich Byer and Company. And the origin story of what happened in that Bayer laboratory in August, 1897, was manipulated into one of the most successful corporate myths of the 20th century. Oh, yeah. For nearly a hundred years, textbooks printed a very neat, very heartwarming fairy tale. I know this one.",
+      "startTime": 608.14,
+      "endTime": 628.02
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host 1",
+      "text": "The fairy tale goes like this. There was a young brilliant chemist named Felix Hoffman.",
+      "startTime": 628.42,
+      "endTime": 632.98
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host 2",
+      "text": "His poor father was suffering from terrible rheumatism and the standard sodium salicylate was destroying his father's stomach. Right. So heartbroken. Hoffman works late into the night completely on his own to find a gentler version. He brilliantly synthesizes pure acetylial salicylic acid.",
+      "startTime": 633.76,
+      "endTime": 650.99
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host 1",
+      "text": "His boss, a man named Heinrich Drieser, sees the genius of the invention, champions it through the company and aspirin is born to save the father's life. It is a beautiful story of filial piety and solo genius. It is also morally searing in its inaccuracy. Yeah, the real story is much darker.",
+      "startTime": 651.71,
+      "endTime": 671.38
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host 2",
+      "text": "The true history only came to light when a medical historian from Glasgow, named Walter Sneeter, finally got access to the original handwritten Elberefeld lab notebooks and internal corporate memos. Now, when you look at Hoffman's actual lab notebook, which is August 10, 1897 page 103, you see the chemistry.",
+      "startTime": 671.94,
+      "endTime": 689.26
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host 1",
+      "text": "Hoffman did indeed reflux salicylic acid with acetic anhydride. He successfully synthesized a 98 to 99% pure acetyl salicylic acid. Right. And we know it was pure because he noted it tested negative with ferric chloride, meaning there was no unreacted free salicylic acid left to burn a patient's stomach.",
+      "startTime": 689.82,
+      "endTime": 709.02
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host 2",
+      "text": "But the context surrounding that bench work completely shatters the myth, right? Felix Hoffman was not acting as an independent rogue genius. And he certainly wasn't acting purely out of love for his father. No, we know this because just 11 days later, on August 21st,",
+      "startTime": 709.26,
+      "endTime": 724.26
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host 1",
+      "text": "1897, Hoffman used the exact same chemical acetylation process on morphine. Wait, he is settled. Lated morphine.",
+      "startTime": 724.26,
+      "endTime": 732.54
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host 2",
+      "text": "He invented diacetyl morphine. Yes. Which bear immediately patented and marketed globally as a non-addictive cough suppressant for children under the brand name heroin. I'm non-addictive cough suppressant for children. Heroin. It's horrifying in retrospect. That's horrifying.",
+      "startTime": 733.81,
+      "endTime": 753.05
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host 1",
+      "text": "So within a two week window, this guy's lab notebook charts the creation of aspirin and heroin. I mean, that alone proves he was following a systematic company directive to acetylate known toxic drugs to try and make them more tolerable rather than just trying to help his dad. What's fascinating here is the deeper injustice about who was actually giving",
+      "startTime": 754.1,
+      "endTime": 773.37
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host 2",
+      "text": "that directive. Felix Hoffman was a bench chemist. He did not run the drug discovery section. Okay, who did? He worked directly under a brilliant 30 year old Jewish pharmaceutical chemist named Dr. Arthur Eichengruhn. Eichengruhn was the group leader. He was hired specifically by Bayer to build their entire pharmaceutical",
+      "startTime": 773.37,
+      "endTime": 792.69
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host 1",
+      "text": "research division from scratch. Wow. Eichengruhn conceived the strategy to acetylate salicylic acid and he directed Hoffman to execute it. So Eichengruhn is the architect designing the blueprint and Hoffman is the highly skilled engineer building it at the bench. Yes. They finally get this pure stable acetyl salicylic acid.",
+      "startTime": 792.69,
+      "endTime": 812.01
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host 2",
+      "text": "They have the holy grail, but they hit a massive bureaucratic wall inside Bayer. And that wall is named Heinrich Draser. Right. Heinrich Draser was the head of pharmacology and the internal corporate friction here almost strangled aspirin in the crib. Not so. Obeyer had a very rigid siloed structure.",
+      "startTime": 812.53,
+      "endTime": 831.21
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host 1",
+      "text": "Draser held absolute veto power over what compounds went to human trials. More importantly, their royalty structures were in conflict. Always the money. Always. Draser received personal royalties only on compounds that were introduced through his pharmacology department. Eichengruhn and Hoffman received royalties on patented chemical processes.",
+      "startTime": 831.89,
+      "endTime": 851.45
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host 2",
+      "text": "So Draser has a financial disincentive to champion Eichengruhn's projects unless he can claim full credit. Exactly. Beyond the finances, Draser held a completely unverified dogmatic prejudice against salicylic acid derivatives. He firmly believed that they in feebled the mammalian heart, which is wild,",
+      "startTime": 851.65,
+      "endTime": 871.01
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host 1",
+      "text": "given what we know now. Exactly. When Eichengruhn proudly handed him this newly synthesized acetyl salicylic acid, Draser vetoed it flat out. He refused to test it. He told the team to discard it and pour all of their resources into manufacturing heroin instead. It's just staggering to think about it. It's it. It really is.",
+      "startTime": 871.01,
+      "endTime": 890.17
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host 2",
+      "text": "The head of pharmacology kills aspirin because he thinks it damages the heart, which we know and know is the exact opposite of the truth. It actually protects the heart. And instead he demands they mass produce heroin. Yes.",
+      "startTime": 890.33,
+      "endTime": 902.45
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host 1",
+      "text": "But Eichengruhn refuses to let aspirin die. Eichengruhn exhibited immense clinical courage. Since Dresser refused to test it on animals, Eichengruhn tested it on himself. Not like I tested on himself. Right. He started taking massive gram level doses of the new white powder to prove that",
+      "startTime": 903.49,
+      "endTime": 922.33
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host 2",
+      "text": "it didn't cause gastric hemorrhage and didn't cause heart palpitations. When he survived without injury, he took an incredible risk. He bypassed his boss entirely. He starts smuggling it out of the lab. He quietly packed it up the powder and smuggled it out of Elberfeld to Bayer's representative in Berlin, a man named Felix Goldman.",
+      "startTime": 922.33,
+      "endTime": 941.29
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host 1",
+      "text": "Goldman then set up clandestine unauthorized bedside trials with physicians in Berlin and Hall. And the turning point is almost comical.",
+      "startTime": 941.85,
+      "endTime": 949.17
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host 2",
+      "text": "They are giving it to patients with fevers and it's working.",
+      "startTime": 950.02,
+      "endTime": 953.3
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host 1",
+      "text": "But then a dentist in Berlin gives it to a patient who has a fever, but who also happens to have a raging agonizing toothache. Right. The fever breaks. But more shockingly, the toothache completely disappears. The dentist is astounded.",
+      "startTime": 954.07,
+      "endTime": 971.51
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host 2",
+      "text": "The pain relief is undeniable. Goldman types of an enthusiastic report on this miracle pain killer and sends it straight over Dresser's head to the Bayer Board of Directors. Faced with undeniable clinical data and pressure from the board, Dresser was publicly humiliated.",
+      "startTime": 972.37,
+      "endTime": 988.01
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host 1",
+      "text": "He was forced to back down, officially test the compound and eventually write the paper introducing aspirin to the world. But he never forgave Eichengruen for the insubordination. And the tragedy here is how history rewarded Arthur Eichengruen. The history is incredibly dark.",
+      "startTime": 988.65,
+      "endTime": 1005.45
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host 2",
+      "text": "By the early 1930s, the Nazi party was rising to power in Germany. Under the Arianization laws, Eichengruen's own independent chemical company in Berlin was confiscated. Oh, man. It was during this exact period in 1934 that a German footnote first printed the",
+      "startTime": 1005.73,
+      "endTime": 1020.93
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host 1",
+      "text": "fabricated story that Felix Hoffman alone, an Arian chemist, had invented aspirin for his father. Eichengruen, being Jewish, was methodically erased from the corporate record. It wasn't just corporate erasure, though. Right. In 1944, at the age of 76, Arthur Eichengruen was arrested and deported to the Theresienstadt concentration camp at Czechoslovakia.",
+      "startTime": 1020.93,
+      "endTime": 1040.69
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host 2",
+      "text": "He spent 14 months in that camp facing starvation and disease. I mean, imagine the psychological torment. He is sitting in a concentration camp, starving while IG Farben and Bayer are globally celebrating aspirin as a triumph of pure Arian science, completely stripping him of his life's greatest achievement.",
+      "startTime": 1040.85,
+      "endTime": 1059.89
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host 1",
+      "text": "Miraculously, he survives. The Red Army liberates the camp in 1945. And just before his death in 1949, Eichengruen publishes a landmark 50-page testimony called 50-yar-aspirin, detailing the real history, the smuggling, the clinical trials, and Drazier's veto.",
+      "startTime": 1060.01,
+      "endTime": 1079.01
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host 2",
+      "text": "Today, rigorous historians credit them both.",
+      "startTime": 1079.75,
+      "endTime": 1082.19
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host 1",
+      "text": "Eichengruen for the conception, the clinical bravery, and the insubordination that saved the drug, and Hoffman for the brilliant bench synthesis that actually yielded the staple crystals. The history of science is rarely a clean, linear progression of genius. It is messy, political, and often unjust.",
+      "startTime": 1083.12,
+      "endTime": 1101.64
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host 2",
+      "text": "But even after the drug became a global behemoth in the early 20th century, the scientific community was left with a glaring, embarrassing void. Yes, we have to jump forward 74 years. It's the spring of 1971. Aspirin is the most profitable, best-selling drug on the planet. Millions of people are taking it daily.",
+      "startTime": 1102.24,
+      "endTime": 1119.04
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host 1",
+      "text": "And yet, if you opened a standard medical school pharmacology textbook in 1970, the authors explicitly admit that nobody has any idea how it works. It reduces swelling, it stops pain, it drops fevers, but chemically, it's a black box. Biochemists had spent the 50s and 60s dropping aspirin into every fashionable",
+      "startTime": 1119.6,
+      "endTime": 1138.4
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host 2",
+      "text": "enzyme assay they could find, trying to see what it disrupted. The problem was their methodology. They were testing the drug at millimolar concentrations. They were drowning the enzymes in massive toxic overdose levels of the drug. It's like trying to figure out how a delicate engine works by flooding the entire factory with a fire hose.",
+      "startTime": 1138.4,
+      "endTime": 1156.04
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host 1",
+      "text": "If you drop a massive amount of salicylate into a test tube, it perturbs every single protein it touches. Exactly. But at the actual therapeutic concentrations, like the amount of aspirin actually floating in your blood to have your take two pills, it seemed to do nothing at all to any known enzyme. The breakthrough required a completely different way of observing biology in",
+      "startTime": 1156.64,
+      "endTime": 1175.8
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host 2",
+      "text": "real time entered John Vane, a pharmacologist at the Royal College of Surgeons in London. Vane was frustrated by standard chemical analysis because many of the body's emergency messenger molecules, what we call autocoids, are fiercely unstable, right? Yes, they have half lives of 30 seconds or a minute.",
+      "startTime": 1175.8,
+      "endTime": 1192.84
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host 1",
+      "text": "By the time you draw the blood, put it in a centrifuge and run it through a 1970s mass spectrometer, the messenger molecule you are looking for has completely degraded, it's vanished. Yeah. So to catch these ghostly molecules before they disappeared, Vane perfected a physical apparatus called the dynamic blood bathed cascade",
+      "startTime": 1192.84,
+      "endTime": 1211.44
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host 2",
+      "text": "super fusion bioassay. Quite the name. Right. This machine sounds like it was built by a mad scientist, but it is deeply elegant.",
+      "startTime": 1211.44,
+      "endTime": 1218.56
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host 1",
+      "text": "Walk me through the physical setup. What are we actually looking at in Vane's lab? Okay. Picture a vertical setup like a small ladder. At the top of the ladder, Vane suspends a living donor organ, typically an isolated guinea pig lung. A lung just hanging there. Yes. And he continuously drips a warm oxygenated saline solution, crub",
+      "startTime": 1219.36,
+      "endTime": 1239.2
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host 2",
+      "text": "solution, over this lung. The fluid washes over the lung, picks up whatever chemicals the lung is secreting and drips off the bottom, creating a tiny continuous waterfall. And what's catching the waterfall beneath the lung? He hangs three to six different strips of smooth muscle positioned one below",
+      "startTime": 1239.2,
+      "endTime": 1256.16
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host 1",
+      "text": "the other directly in the path of the dripping fluid, a strip of rabbit, a a rathstomic strip, a chick rectum. Very strange tissues to collect. He chemically defens these lower tissues by treating them with antagonist that block all the known transmitters, histamine, serotonin, adrenaline. So they won't twitch for just anything. Correct.",
+      "startTime": 1256.16,
+      "endTime": 1275.96
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host 2",
+      "text": "Each strip is hooked up to a mechanical lever equipped with a pen that writes on a slowly rotating drum of paper, a chymograph. Got it. Because the fluid takes only two to five seconds to drip from the guinea pig lung down the cascade, the moment the lung releases a new chemical, the",
+      "startTime": 1276.48,
+      "endTime": 1292.8
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host 1",
+      "text": "fluid hits the rabbit aorta and the pen violently twitches on the paper. So he could watch biological messengers acting in real time, seconds after they were born. Exactly. And in 1969, Vayne and his colleague Priscilla Piper are using this setup. They artificially disturb the guinea pig lung at the top of the waterfall.",
+      "startTime": 1292.8,
+      "endTime": 1310.6
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host 2",
+      "text": "Immediately, they see the pen attached to the rabbit aorta violently spike on the paper. The lung had released a fierce unknown substance that caused the blood vessel to powerfully constrict. They have no idea what it is. So they literally name it rabbit aorta contracting substance or RCS.",
+      "startTime": 1310.8,
+      "endTime": 1327.0
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host 1",
+      "text": "They noted that this RCS had a half life of less than two minutes. It disappeared almost instantly. But here was the monumental clue. When they profused a low therapeutic dose of aspirin over the guinea pig lung, the lung completely stopped releasing RCS. The pen on the rabbit aorta flat line. Yes.",
+      "startTime": 1327.64,
+      "endTime": 1345.84
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host 2",
+      "text": "And this leads to Vayne's ultimate aha moment over an April weekend in 1971. Vayne knew from previous research that when you disturb a cell membrane, it releases known molecules called prostaglandins, which are synthesized from fatty acids in the cell wall, specifically arachidonic acid.",
+      "startTime": 1346.56,
+      "endTime": 1362.72
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host 1",
+      "text": "Okay. So if aspirin stopped the mysterious RCS and RCS was always released alongside these prostaglandins, Vayne hypothesized that aspirin wasn't blocking a receptor on the outside of the cell at all. He realized aspirin must be penetrating the cell and physically shutting down",
+      "startTime": 1363.71,
+      "endTime": 1381.11
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host 2",
+      "text": "the internal enzymatic factory that makes prostaglandins from arachidonic acid. So on Monday morning, he walks into his lab, looks at his team and says, I think I know how aspirin works. He immediately runs a cell-free experiment. Right. He takes an extract of guinea pig lung, drops in some raw arachidonic acid and tests it against ascending doses of aspirin and he proves it.",
+      "startTime": 1381.11,
+      "endTime": 1400.83
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host 1",
+      "text": "He finds that the concentration of aspirin needed to cut the enzymes activity in half. What chemists call the IC50 is exactly 35 micromolar, which is huge because to translate that into clinical reality, 35 micromolar is exactly the concentration of aspirin floating in your",
+      "startTime": 1401.55,
+      "endTime": 1419.03
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host 2",
+      "text": "bloodstream when you swallow a standard therapeutic dose. It wasn't toxic millimolar sledgehammers. Yeah. It was a perfect precise enzymatic blockade at normal human doses. Vane published this in Nature, New Biology in 1971 and it completely revolutionized pharmacology.",
+      "startTime": 1419.03,
+      "endTime": 1434.51
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host 1",
+      "text": "But answering one question just cracked open a much darker, much more urgent mystery. Yeah, Vane proved aspirin stops prostaglandins synthesis. But what exactly was that mysterious rabbit aortic contracting substance and why did stopping it has such a profound effect on human blood cli?",
+      "startTime": 1435.19,
+      "endTime": 1450.31
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host 2",
+      "text": "Well, between 1973 and 1976, working between laboratories in Stockholm and London, scientists like banked Samuelson and Salvador Moncada uncovered a high stakes microscopic tug of war happening inside all of our blood vessels right now. I want to visualize this.",
+      "startTime": 1450.47,
+      "endTime": 1467.31
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host 1",
+      "text": "For you listening, your bloodstream isn't just a passive pipe carrying cells. It is a knife edge dynamic equilibrium between two opposing forces. On one side of the battlefield, you have your blood platelets. Samuelson unmasked Vane's mysterious RCS and revealed its true identity through",
+      "startTime": 1468.74,
+      "endTime": 1485.42
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host 2",
+      "text": "unboxing a two or TX a two TX a two. This molecule is synthesized inside your platelets. It has a half life of just 32 seconds. But in that brief window, it is a ferocious trigger. It commands platelets to violently stick together and causes blood vessels to aggressively constrict.",
+      "startTime": 1485.42,
+      "endTime": 1504.22
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host 1",
+      "text": "It is the molecular sword of blood clotting. If you get cut, you want TX a two to plug the whole. Yes. But on the exact opposite side of the seesaw, lining the inner walls of your blood vessels, you have the endothelial cells.",
+      "startTime": 1504.78,
+      "endTime": 1519.14
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host 2",
+      "text": "Moncada and Vane discovered that these wall cells synthesize a completely different molecule called prostocyclin or PGI2. Prostocyclin has a half life of two to three minutes and it is a potent anti aggregator. It actively commands platelets not to stick together and it dilates the blood",
+      "startTime": 1519.9,
+      "endTime": 1537.94
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host 1",
+      "text": "vessels, keeping traffic flowing smoothly. It is the molecular shield, sword and shield TX a two for the platelets trying to clot PGI2 from the vessel walls trying to keep the blood liquid. Aspirin clearly interacts with this system, but that brings us to the ultimate 74 year old contradiction. Right.",
+      "startTime": 1537.94,
+      "endTime": 1556.67
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host 2",
+      "text": "The half life of aspirin near blood is barely 20 minutes, yet one single dose of aspirin paralyzes your platelets, stopping them from clotting for up to seven days. How does a 20 minute drug cause a seven day effect? To solve that timing paradox, we have to travel to St.",
+      "startTime": 1557.52,
+      "endTime": 1575.32
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host 1",
+      "text": "Louis in 1975 to the laboratory of hematologists, Philip Majus and Gerald Roth.",
+      "startTime": 1575.32,
+      "endTime": 1581.4
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host 2",
+      "text": "They had observed in their blood agregometers that if you gave a patient a reversible and said like the old sodium salicylate, the clotting returned to normal as soon as the drug left the blood. But a single oral dose of true aspirin abolished secondary platelet aggregation for a week, which perfectly matches the entire eight to 10 day",
+      "startTime": 1582.25,
+      "endTime": 1601.77
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host 1",
+      "text": "natural lifespan of a human blood platelet. Meaning the drug wasn't just temporarily bothering the platelet. It was permanently altering it.",
+      "startTime": 1601.77,
+      "endTime": 1609.53
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host 2",
+      "text": "Majus and Roth set up a profoundly elegant, highly radioactive centrifuge experiment to track exactly where the aspirin was going. Let's look at the chemical structure of aspirin, acetyl salicylic acid.",
+      "startTime": 1610.37,
+      "endTime": 1621.69
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host 1",
+      "text": "It essentially has two main parts attached to each other, a large salicylate ring and a tiny 43 Dalton acetyl group clinging to the edge of that ring. Majus and Roth synthesized two entirely different batches of radioactive aspirin. In batch number one, they put a radioactive carbon 14 tags strictly on",
+      "startTime": 1622.65,
+      "endTime": 1641.61
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host 2",
+      "text": "the large salicylate ring. In batch number two, they put a radioactive tritium three tags strictly on the tiny acetyl group. They incubated intact, washed human platelets with these two different radioactive aspirin's. After giving the drug time to work, they broke the platelets open and ran the internal proteins through a gel electrophoresis",
+      "startTime": 1641.61,
+      "endTime": 1661.6
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host 1",
+      "text": "centrifuge to separate them. The results were visually stark. In the carbon 14 batch, where the large salicylate ring was radioactive, the radioactivity washed completely away. Zero counts stuck to the platelet proteins. The heavy salicylate ring wasn't doing the work. It was just a delivery vehicle.",
+      "startTime": 1661.6,
+      "endTime": 1680.32
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host 2",
+      "text": "But the tritium tag on the tiny acetyl group, it lit up the gel. It stuck permanently out of the thousands of different proteins inside the platelet. That tiny acetyl group covalently bonded to exactly one single polypeptide chain, just one, just one. And out of the 600 amino",
+      "startTime": 1680.8,
+      "endTime": 1699.28
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host 1",
+      "text": "acids making up that specific enzyme, the acetyl group sought out and covalently bolted itself to exactly one target. An amino acid called sarin 530. The 43 Dalton acetyl group physically rips off the aspirin delivery",
+      "startTime": 1699.28,
+      "endTime": 1714.72
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host 2",
+      "text": "vehicle and permanently welds itself to sarin 530 on the cyclooxygenase enzyme. Yes. The aspirin molecule destroys itself in the process of leaving this tiny piece of shrapnel behind. Here's where it gets really interesting, because consider the sheer mechanical precision of this.",
+      "startTime": 1714.72,
+      "endTime": 1731.92
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host 1",
+      "text": "When structural biologists later genetically mutated that specific sarin 530 target into an alanine, which is a very similar amino acid, but missing a single reactive oxygen atom, the enzyme still functioned perfectly normally. Right. It could still manufacture prosic landins, but it became 100%",
+      "startTime": 1732.52,
+      "endTime": 1752.18
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host 2",
+      "text": "completely immune to aspirin, which is wild. It means sarin 530 isn't even required for the enzyme to do its natural job. It's just an innocent bystander lining the tunnel of the enzyme. But when aspirin bolts that acetyl group onto it, that tiny 43 Dalton cap acts as a",
+      "startTime": 1752.18,
+      "endTime": 1769.62
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host 1",
+      "text": "physical roadblock, a deadbolt shutting the door so the raw materials can't get inside. This brings us to the mathematical reality of how this chemical reaction functions inside your body. We have to address the kinetic timing. How could a drug that your liver destroys in 20 minutes, manage to find",
+      "startTime": 1769.66,
+      "endTime": 1787.06
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host 2",
+      "text": "and permanently weld shut all these enzymes? We have to derive the two step covalent inactivation rate law. Well, whoa, hold on. You're throwing differential equations at me. Walk me through with this actual equation, the K-obs math looks like at",
+      "startTime": 1787.06,
+      "endTime": 1802.5
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host 1",
+      "text": "the physical molecular level. Is it like a key randomly bumping into a keyhole? It is much more choreographed than a random bump. The mathematical equation states that the observed rate of enzyme death, K-OBS, depends on a two",
+      "startTime": 1802.5,
+      "endTime": 1817.66
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host 2",
+      "text": "step process, a fast reversible binding, followed by a slow irreversible attack. I want you to visualize this as a molecular handshake and stab. Handshake and stab. Okay, break that down. Step one is the handshake. The whole intact aspirin molecule floats into",
+      "startTime": 1817.66,
+      "endTime": 1834.3
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host 1",
+      "text": "the enzymes channel and encounters an amino acid called arginine 120.",
+      "startTime": 1834.3,
+      "endTime": 1838.26
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host 2",
+      "text": "The aspirin forms a very fast reversible ionic bond right there. Parks itself. It's just an anchor point. Exactly. An introduction. That is the pre equilibrium complex. But it's not locked yet. It could still float away. Okay. Exactly. But step two is the stab.",
+      "startTime": 1839.03,
+      "endTime": 1854.95
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host 1",
+      "text": "By anchoring at arginine 120, the aspirin molecule is held in the perfect geometric alignment so that the oxygen atom on the nearby serine 530 is forced to attack the aspirin.",
+      "startTime": 1855.39,
+      "endTime": 1866.35
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host 2",
+      "text": "The serine chemically steals the acetyl group. Once the acetyl group is transferred, the remaining useless salicylate molecule is expelled back into the blood as waste. Because the intact aspirin is physically destroyed the moment it successfully attacks the enzyme. We can't use a normal half life model to measure its effect.",
+      "startTime": 1867.39,
+      "endTime": 1885.55
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host 1",
+      "text": "We have to look at the area under the curve, the AUC. During that brief 20 minute window, it exists in the blood. And when you plug the human physiological numbers into the differential equation, the math is shocking. A single brief 20 minute pulse of a low dose aspirin tablet",
+      "startTime": 1885.99,
+      "endTime": 1901.91
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host 2",
+      "text": "drives the surviving active platelet enzyme fraction down to 0.0075%. Meaning 99.9% of the clotting enzymes in your platelets are irreversibly bolted shut from just one 20 minute encounter. Yes.",
+      "startTime": 1902.15,
+      "endTime": 1917.91
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host 1",
+      "text": "But if the timing is that precise, what happens if something gets in the way of the handshake? What if a patient takes 400 milligrams of a reversible painkiller like ibuprofen two hours before they take their daily cardio protective aspirin? That is a crucial potentially life threatening clinical scenario.",
+      "startTime": 1918.03,
+      "endTime": 1936.39
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host 2",
+      "text": "Ibuprofen is not a permanent deadbolt. It is a reversible drug, but it goes into the exact same enzyme channel and temporarily parks itself at that exact same Arginine 120 anchor point. Ah, so the ibuprofen is sitting in the parking spot? Yes. The ibuprofen physically occupies the channel.",
+      "startTime": 1936.71,
+      "endTime": 1955.19
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host 1",
+      "text": "Now the patient swallows their daily aspirin. The aspirin enters the blood, finds the platelet and tries to enter the enzyme to find serine 530, but it crashes into the ibuprofen. It cannot get passed. And the clock is ticking. The clock is ticking. The aspirin only survives for 20 minutes before the liver's enzymes shred it.",
+      "startTime": 1955.39,
+      "endTime": 1973.31
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host 2",
+      "text": "So for 20 minutes, the aspirin bounces off the ibuprofen shield, fails to acetylate the serine and is then destroyed by the liver. Oh, well, six or eight hours later, the ibuprofen naturally detaches and floats away harmlessly, leaving this hearing 530 completely unacetylated and fully functional.",
+      "startTime": 1973.59,
+      "endTime": 1988.99
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host 1",
+      "text": "By taking the ibuprofen first, the patient is completely destroyed the cardio protective effect of their daily aspirin. They blocked the deadbolt from installing. Timing is everything at the quantum scale.",
+      "startTime": 1990.44,
+      "endTime": 2001.4
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host 2",
+      "text": "But this brings up an even more massive biological contradiction. What's up? If aspirin is this incredibly efficient permanent assassin of the cyclo auction based enzyme, why doesn't it permanently wipe out the good anti clotting PGI2 in our vessel walls at the exact same time? It wipes out the bad TXA2 in our platelets.",
+      "startTime": 2002.16,
+      "endTime": 2021.0
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host 1",
+      "text": "This is one of my favorite biological loopholes. It comes down to a brilliant anatomical trick called pre systemic portal vein compartmental selectivity. I want you to picture the portal vein in your body like a VIP security checkpoint at an airport. Exactly. When you swallow as standard low dose 81 milligram tablet of aspirin,",
+      "startTime": 2021.8,
+      "endTime": 2040.0
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host 2",
+      "text": "it dissolves and is absorbed through the walls of your intestines. The blood from your intestines doesn't go straight to your heart. It gets fenneled into the portal venous circulation, which carries it directly toward the liver. Now, your platelets are constantly circulating through that portal vein. A huge percentage of your entire blood volume passes through that",
+      "startTime": 2040.0,
+      "endTime": 2059.0
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host 1",
+      "text": "intestinal spelank neck bed every single minute. So your body's platelets are getting cycled through that VIP checkpoint very quickly. They meet the freshly absorbed intact aspirin right there in the portal vein and their serine 530 targets get permanently acetylated and voltage shut.",
+      "startTime": 2059.2,
+      "endTime": 2075.24
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host 2",
+      "text": "But then that blood continues moving from the portal vein directly into the liver itself. And the liver is packed with defensive enzymes called hepatocyte carboxylestrases. They act like molecular scissors. Exactly. These estuases specifically look for estuabons like the one holding the acetyl group to the aspirin and they snip them.",
+      "startTime": 2075.72,
+      "endTime": 2095.28
+    },
+    {
+      "id": "turn-127",
+      "speaker": "Host 1",
+      "text": "On the very first pass through the liver, these estuases destroy 50 to 55% of the aspirin molecules, stripping off their acetyl groups and turning them into harmless, inactive salicylate. By the time that blood physically exits the liver and reaches your systemic arterial circulation, where your delicate endothelial wall cells are",
+      "startTime": 2095.76,
+      "endTime": 2114.8
+    },
+    {
+      "id": "turn-128",
+      "speaker": "Host 2",
+      "text": "waiting to make the good PGI2 shield, the concentration of intact aspirin has plummeted. The liver effectively acts as a filter, sacrificing the platelets in the portal vein, but sparing the systemic vessel walls. But even if a tiny bit of aspirin does sneak past the liver and hits the",
+      "startTime": 2115.0,
+      "endTime": 2131.68
+    },
+    {
+      "id": "turn-129",
+      "speaker": "Host 1",
+      "text": "endothelial cells, we have to look at the ordinary differential equations of cellular recidhesis, because platelets and endothelial cells are fundamentally different life forms. Endothelial cells are complete nucleated cells. They possess a nucleus, DNA, mRNA, and ribosomes.",
+      "startTime": 2131.68,
+      "endTime": 2148.08
+    },
+    {
+      "id": "turn-130",
+      "speaker": "Host 2",
+      "text": "If a stray aspirin molecule manages to permanently acetylate one of their cyclooxygen enzymes, the endothelial cell simply senses the loss, opens its DNA blueprints and prints a brand new enzyme. Wow. Within six to nine hours, the vessel wall has reciditized 88 to 95% of its anti-therumbotic PGI2 capacity.",
+      "startTime": 2148.52,
+      "endTime": 2168.2
+    },
+    {
+      "id": "turn-131",
+      "speaker": "Host 1",
+      "text": "It just rebuilds the shield overnight. But the platelets can't do that. Blood platelets are essentially ghost ships. They are just tiny, a nuclei itself fragments pinched off from mega carrier sites in your bone marrow. They have no nucleus. Right. They have no DNA blueprints. They have no ribosomes to print new proteins.",
+      "startTime": 2168.56,
+      "endTime": 2186.16
+    },
+    {
+      "id": "turn-132",
+      "speaker": "Host 2",
+      "text": "If an aspirin molecule bolts their enzyme shut in the portal vein, they are dead forever. They are permanently chemically castrated. The only way your body can recover its clotting ability is to wait for the bone marrow to manufacture entirely new fresh platelets and release them into",
+      "startTime": 2186.88,
+      "endTime": 2203.32
+    },
+    {
+      "id": "turn-133",
+      "speaker": "Host 1",
+      "text": "the blood, which only happens at a slow rate of about 10 to 12% of air. So if you take a low 81 milligram dose every 24 hours, you are cumulatively beating down the platelet TXA2 sword day after day. While your endothelial cells just shrug off the minor damage and reprint their PGI2 shield every night.",
+      "startTime": 2203.32,
+      "endTime": 2222.4
+    },
+    {
+      "id": "turn-134",
+      "speaker": "Host 2",
+      "text": "You artificially tip the seesaw in favor of liquid flowing blood. And this mechanical reality perfectly explains why an 81 milligram dose is vastly superior to a 1000 milligram dose for preventing heart attacks. Wait, expand on that. Because human intuition says, well, if a little bit protects my heart,",
+      "startTime": 2222.72,
+      "endTime": 2240.96
+    },
+    {
+      "id": "turn-135",
+      "speaker": "Host 1",
+      "text": "a massive dose will protect it more. It is a dangerous intuition. If you swallow 1000 milligrams of aspirin, you completely overwhelm the VIP checkpoint. The scissors can't keep up. Exactly. The liver's S. D. R. Scissors can't snip that much chemical at once. The first past metabolism is saturated and a massive tidal wave of intact aspirin",
+      "startTime": 2241.32,
+      "endTime": 2261.2
+    },
+    {
+      "id": "turn-136",
+      "speaker": "Host 2",
+      "text": "floods out of the liver into the systemic arterial circulation. And it is the endothelial cells so hard they can't print enough new enzymes to keep up. Precisely, you permanently acetylate the platelets, but you also completely wipe out the endothelial PGI2 shield. You ruin the beneficial ratio, leaving the patient vulnerable.",
+      "startTime": 2261.2,
+      "endTime": 2280.2
+    },
+    {
+      "id": "turn-137",
+      "speaker": "Host 1",
+      "text": "It's all about preserving that ratio. And the clinical power of that specific ratio was put to the ultimate test in 1988 and one of the most rigorously designed massive clinical trials in the history of cardiology, the ISIS 2 trial. ISIS 2 was an architectural masterpiece of clinical research directed by",
+      "startTime": 2280.6,
+      "endTime": 2298.92
+    },
+    {
+      "id": "turn-138",
+      "speaker": "Host 2",
+      "text": "Richard Peddow, Peter Slide and Rory Collins at Oxford. They enrolled 17,187 patients who were actively at that very moment, experiencing an acute myocardial infarction, a heart attack. And they randomized them into a 2 by 2 factorial design.",
+      "startTime": 2298.92,
+      "endTime": 2316.36
+    },
+    {
+      "id": "turn-139",
+      "speaker": "Host 1",
+      "text": "A 2 by 2 design means that you are testing two different interventions simultaneously to see how they interact. Correct. Half the patients received a massive 1.5 million unit intravenous infusion of a drug called streptokinase. Striptyclinase is a powerful biological clot buster.",
+      "startTime": 2316.84,
+      "endTime": 2334.2
+    },
+    {
+      "id": "turn-140",
+      "speaker": "Host 2",
+      "text": "It actively dissolves the fibrin mesh of a blood clot. The other half received a placebo IV. OK. Then orthogonally crossing that first split, half the patients were even 162.5 milligrams of oral aspirin. They were explicitly instructed to crush chew or suck the tablet to get the",
+      "startTime": 2334.2,
+      "endTime": 2352.04
+    },
+    {
+      "id": "turn-141",
+      "speaker": "Host 1",
+      "text": "chemical absorbed immediately into the portal vein. The other half received an oral placebo pill. The scale of these findings absolutely shook the medical establishment. Let's look at the survival math. If you just gave a patient experiencing a heart attack, the chewed aspirin alone, compared to the double placebo, it cut their 35 day",
+      "startTime": 2352.04,
+      "endTime": 2371.2
+    },
+    {
+      "id": "turn-142",
+      "speaker": "Host 2",
+      "text": "vascular death rate from 11.8 percent down to 9.4 percent. That is an absolute risk reduction of 2.4 percent. To put that in clinical terms, the number needed to treat the NNT was 42. You give 42 people actively having a heart attack, a cheap chewed aspirin",
+      "startTime": 2371.2,
+      "endTime": 2388.88
+    },
+    {
+      "id": "turn-143",
+      "speaker": "Host 1",
+      "text": "tablet, and you mathematically save one human life that would have otherwise ended. That cheap tablet virtually matched the efficacy of the million unit, highly complex intravenous clot buster. Streptokinase alone had an NNT of 36. But the true genius of the two by two factorial design was discovering what",
+      "startTime": 2388.88,
+      "endTime": 2407.92
+    },
+    {
+      "id": "turn-144",
+      "speaker": "Host 2",
+      "text": "happens when you combine them.",
+      "startTime": 2407.92,
+      "endTime": 2409.48
+    },
+    {
+      "id": "turn-145",
+      "speaker": "Host 1",
+      "text": "When patients received both the Streptokinase IV and the chewed aspirin, the mortality plummeted to 8.0 percent. That is an absolute risk reduction of 5.2 percent. Wow. The NNT dropped to 19. You treat 19 people with the combination, you save a life.",
+      "startTime": 2410.35,
+      "endTime": 2428.19
+    },
+    {
+      "id": "turn-146",
+      "speaker": "Host 2",
+      "text": "The statistical certainty of this was astronomical. The p-value was less than .00001. But the more profound question is, why is there zero negative interaction? Why are these two drugs so beautifully synergistic? Yeah. Think about the physics of a dissolving clot.",
+      "startTime": 2428.75,
+      "endTime": 2444.95
+    },
+    {
+      "id": "turn-147",
+      "speaker": "Host 1",
+      "text": "If Streptokinase is melting the clot away, why do you even need the aspirin? The pipe is clear. Because of the violent biological reaction to clearing the pipe. A blood clot inside a coronary artery isn't just a physical plug, it is highly bioactive. When Streptokinase melts the fibrin mesh of the clot, it physically",
+      "startTime": 2445.71,
+      "endTime": 2464.19
+    },
+    {
+      "id": "turn-148",
+      "speaker": "Host 2",
+      "text": "uncovers and exposes active thrombin enzymes and ruptured collagen from the plaque wall.",
+      "startTime": 2464.19,
+      "endTime": 2469.31
+    },
+    {
+      "id": "turn-149",
+      "speaker": "Host 1",
+      "text": "The body senses the raw damage in panics. The body panics. Exposing that raw collagen and thrombin triggers a massive rebound surge of platelet TXA2 synthesis. I see the platelets interpret the dissolved clot as a fresh catastrophic wound and they aggressively try to clot even harder to plug the whole.",
+      "startTime": 2470.1,
+      "endTime": 2488.26
+    },
+    {
+      "id": "turn-150",
+      "speaker": "Host 2",
+      "text": "If you only administer Streptokinase, you might successfully dissolve the initial clot, but the ferocious TXA2 rebound will cause the platelets to instantly re-aclude the artery, often killing the patient. But if the patient chewed that aspirin tablet 20 minutes earlier, if they chewed the aspirin, every platelet arriving at that newly exposed collagen already",
+      "startTime": 2488.82,
+      "endTime": 2507.94
+    },
+    {
+      "id": "turn-151",
+      "speaker": "Host 1",
+      "text": "has its Sariin 530 covalently bolted shut. The chemical deadbolt is locked. The platelets try to surge, but they physically cannot manufacture TXA2. The aspirin perfectly surgically neutralizes the deadly rebound effect of the clot buster. It is a stunning synchronization of chemistry and anatomy.",
+      "startTime": 2507.94,
+      "endTime": 2526.98
+    },
+    {
+      "id": "turn-152",
+      "speaker": "Host 2",
+      "text": "But before we actually shrink down to look at these atoms frozen in the x-ray crystal structures, I want to pose a thought experiment to you, the listener. Because there is a twist in the story that defies common sense. In the early 1990s, geneticists realized that human beings don't just have one",
+      "startTime": 2527.18,
+      "endTime": 2545.38
+    },
+    {
+      "id": "turn-153",
+      "speaker": "Host 1",
+      "text": "cyclooxygenase enzyme. We actually have two nearly identical twins. We have Cox one, which is the baseline housekeeping enzyme in our platelets and our stomach lining. And we have Cox two, which is an inducible twin that flares up heavily specifically during inflammation, like in a swollen arthritic knee.",
+      "startTime": 2545.54,
+      "endTime": 2564.58
+    },
+    {
+      "id": "turn-154",
+      "speaker": "Host 2",
+      "text": "Now imagine you have two identical locks. Both Cox one and Cox two have that exact same target, Sariin 530, sitting in the exact same spot in their central channel. When you take aspirin, it covalently bolts its 43 Dalton acetyl cap onto Sariin 530 in both of them.",
+      "startTime": 2565.18,
+      "endTime": 2583.14
+    },
+    {
+      "id": "turn-155",
+      "speaker": "Host 1",
+      "text": "You shoved the exact same piece of gum into both locks. But the biological outcomes are drastically different. In Cox one, that acetyl cap acts as a total brick wall. It stops a hundred percent of arachidonic acid from entering the enzyme is dead. Okay.",
+      "startTime": 2583.92,
+      "endTime": 2600.96
+    },
+    {
+      "id": "turn-156",
+      "speaker": "Host 2",
+      "text": "But in Cox two, the acetyl cap stops the normal inflammatory prostaglandins from forming, but it flips a hidden switch. The enzyme doesn't die. Instead, it starts synthesizing an entirely new complex molecule called 15 R head. So put yourself in the chemist's shoes for a second.",
+      "startTime": 2601.48,
+      "endTime": 2619.16
+    },
+    {
+      "id": "turn-157",
+      "speaker": "Host 1",
+      "text": "How can the exact same 43 Dalton acetyl cap act as a permanent impenetrable deadbolt in one enzyme, but act as a stereochemical traffic director in its near identical twin? To solve that puzzle, we have to engage our one angstrom camera. If we connect this to the bigger picture, we need a moment of strict",
+      "startTime": 2619.68,
+      "endTime": 2639.52
+    },
+    {
+      "id": "turn-158",
+      "speaker": "Host 2",
+      "text": "epistemic calibration. We must be very clear about the boundaries of how we know what we know. Right. Up until now, everything we've discussed, John Veins, dripping, guinea pig bio assay, magresses, radioactive centrifuges, the thousands of patients surviving in the ISIS two trial.",
+      "startTime": 2639.52,
+      "endTime": 2656.56
+    },
+    {
+      "id": "turn-159",
+      "speaker": "Host 1",
+      "text": "These are all bulk macroscopic measurements. Exactly. They measure live physiological reactions occurring at 37 degrees Celsius in a messy liquid environment. They tell us that it happens, but they cannot show us the physical geometry of how to see the geometry. We have to abandon live biology and drop down to verifiable x-ray",
+      "startTime": 2657.36,
+      "endTime": 2676.96
+    },
+    {
+      "id": "turn-160",
+      "speaker": "Host 2",
+      "text": "crystallographic coordinates from the worldwide protein data bank. We are going to look at atoms that have been cryogenically frozen in place, blasted with x-rays and mapped to the hundredth of an angstrom. We are finally walking on to the physical crime scene. Our first stop is inside the original housekeeping enzyme, ovine Cox one.",
+      "startTime": 2676.96,
+      "endTime": 2696.28
+    },
+    {
+      "id": "turn-161",
+      "speaker": "Host 1",
+      "text": "When structural biologists finally managed to freeze this enzyme in a crystal and map it at a 3.40 angstrom resolution back in 1995, they found it sitting in the smooth endoplasmic reticulum membrane of a cell. But it sits in the membrane in a completely bizarre way. Most membrane proteins are transmembrane.",
+      "startTime": 2696.76,
+      "endTime": 2716.32
+    },
+    {
+      "id": "turn-162",
+      "speaker": "Host 2",
+      "text": "They punch a hole completely through both layers of the cells lipid by layer, like a tunnel from the outside of the cell to the inside. But Cox one is a monotopic chimney. A chimney. It has a hydrophobic greasy domain that only plunges into one half of the lipid by layer.",
+      "startTime": 2716.32,
+      "endTime": 2732.2
+    },
+    {
+      "id": "turn-163",
+      "speaker": "Host 1",
+      "text": "I picture it like a deep sea oil rig floating half submerged in the ocean, but it never touches the sea floor. Why would evolution build it half submerged like that? Because of the chemical nature of its raw material.",
+      "startTime": 2732.64,
+      "endTime": 2745.04
+    },
+    {
+      "id": "turn-164",
+      "speaker": "Host 2",
+      "text": "Arachidonic acid is a long, highly greasy fatty acid. Fat and water do not mix. If the active side of the enzyme was sticking out into the watery fluid of the cell, the arachidonic acid would never be able to reach it. Oh, by floating half submerged directly inside the lipid membrane, the enzyme",
+      "startTime": 2745.96,
+      "endTime": 2764.24
+    },
+    {
+      "id": "turn-165",
+      "speaker": "Host 1",
+      "text": "allows the greasy arachidonic acid to slither straight out of the membrane's interior and up into the enzyme's vertical chimney without ever having to touch the hostile watery environment outside. That is structural genius. So normally the arachidonic acid snakes its 20 carbon tails straight up this dark greasy",
+      "startTime": 2764.24,
+      "endTime": 2782.84
+    },
+    {
+      "id": "turn-166",
+      "speaker": "Host 2",
+      "text": "chimney. At the very top of the chimney is an amino acid called tyrosine 385. Right. This tyrosine acts as a chemical radical. It reaches down, plucks a specific hydrogen atom off the carbon tail of the fat and triggers the chain reaction that creates clotting prostaglandins.",
+      "startTime": 2782.88,
+      "endTime": 2799.88
+    },
+    {
+      "id": "turn-167",
+      "speaker": "Host 1",
+      "text": "But in this specific x-ray map, we are looking at a Cox one enzyme that has been permanently assassinated by a bromine tagged aspirin molecule. The scientists caught both halves of the chemical reaction trapped at the scene. Look at the bottom of the chimney, the lobby area. The big celicilate bring of the aspirin, the delivery vehicle that got chopped off",
+      "startTime": 2800.16,
+      "endTime": 2819.52
+    },
+    {
+      "id": "turn-168",
+      "speaker": "Host 2",
+      "text": "is still just sitting there. It is physically held in place by a hydrogen bond to tyrosine 355 at a distance of 2.74 angstroms and an ionic salt bridge to arginine 120 at 2.91 angstroms. This visually proves beyond a shadow of a doubt that arginine 120 is the initial",
+      "startTime": 2819.84,
+      "endTime": 2839.76
+    },
+    {
+      "id": "turn-169",
+      "speaker": "Host 1",
+      "text": "parking spots, the handshake. Look five angst from straight up the narrow tunnel from the lobby. There is serene 530 and permanently covalently bonded to its oxygen atom. Is the tiny bromoacetal cap. This acetyl group is projecting directly across the narrowest neck of the",
+      "startTime": 2839.76,
+      "endTime": 2857.2
+    },
+    {
+      "id": "turn-170",
+      "speaker": "Host 2",
+      "text": "channel, hovering right beneath the catalytic tyrosine 385 radical. In fact, the acetyl cap forms a tight 3.06 angstrom hydrogen bond directly with tyrosine 385, stabilizing it, gripping it like a clamp. And backing up this acetyl cap on the opposite wall of the chimney is a massively",
+      "startTime": 2857.2,
+      "endTime": 2876.64
+    },
+    {
+      "id": "turn-171",
+      "speaker": "Host 1",
+      "text": "bulky amino acid called isolucine 523. Yes. Between the acetyl cap sticking out from the serene and the bulky isolucine wall pushing from behind, the channel is completely physically sealed. It is a steel port callus.",
+      "startTime": 2876.64,
+      "endTime": 2893.52
+    },
+    {
+      "id": "turn-172",
+      "speaker": "Host 2",
+      "text": "The long tail of arachidonic acid physically cannot squeeze past the blogage to reach the tyrosine spark plug. Platelet TXA2 synthesis is shut down 100%. The physical blockade is absolute in Cox one. But now let's resolve our listener thought experiment.",
+      "startTime": 2894.27,
+      "endTime": 2911.35
+    },
+    {
+      "id": "turn-173",
+      "speaker": "Host 1",
+      "text": "We are going to teleport into the 2.04 angstrom structural map of the inducible twin human Cox two.",
+      "startTime": 2911.67,
+      "endTime": 2917.75
+    },
+    {
+      "id": "turn-174",
+      "speaker": "Host 2",
+      "text": "We hover beside the exact same serene 530. The aspirin acetyl group is sitting right there covalently bolted on hydrogen bonded to tyrosine 385 at 3.08 angstroms. The lock has the gum in it. So why doesn't it completely kill Cox two like it killed Cox one?",
+      "startTime": 2918.71,
+      "endTime": 2937.47
+    },
+    {
+      "id": "turn-175",
+      "speaker": "Host 1",
+      "text": "The secret lies in the opposite wall of the channel in Cox two that bulky isolucine 523 has undergone a single microscopic evolutionary mutation. It has shrunk into a valene 523. Break down the chemistry of that mutation. What is the actual difference between an isolucine and a valene?",
+      "startTime": 2938.03,
+      "endTime": 2957.59
+    },
+    {
+      "id": "turn-176",
+      "speaker": "Host 2",
+      "text": "The only difference is a single methyl group. Valene is missing one carbon atom and three hydrogen atoms compared to isolucine. That's it. That is an almost unimaginably tiny amount of mass. But the absence of that one tiny methyl group creates a physical void.",
+      "startTime": 2958.07,
+      "endTime": 2974.07
+    },
+    {
+      "id": "turn-177",
+      "speaker": "Host 1",
+      "text": "It increases the total volume of the active site channel by 20 to 25 percent. The tunnel is wider. The acetyl cap is still bolted to the serene, blocking the normal path straight up the middle, which means Cox two can no longer make its normal inflammatory prostaglandids. Exactly. But because of that extra 20 percent space carved out by the",
+      "startTime": 2974.23,
+      "endTime": 2993.91
+    },
+    {
+      "id": "turn-178",
+      "speaker": "Host 2",
+      "text": "valene mutation on the side, while the long flexible arachidonic acid fat can still slither past the acetyl roadblock, it just has to contort itself to fit the new space. Precisely. It snakes into the wider channel upside down. The tyrosine 385 radical still fires and plucks a hydrogen.",
+      "startTime": 2993.91,
+      "endTime": 3011.59
+    },
+    {
+      "id": "turn-179",
+      "speaker": "Host 1",
+      "text": "But because the tail of the fat is flipped 180 degrees, the oxygen attacks the molecule from the completely opposite stereochemical face. Wow. Instead of creating a pro inflammatory prostaglandin, the contorted enzyme synthesizes 15 R. Het. And 15 R. Het is a medical revelation.",
+      "startTime": 3011.99,
+      "endTime": 3030.51
+    },
+    {
+      "id": "turn-180",
+      "speaker": "Host 2",
+      "text": "It is the precursor to what immunologist Charles Sirhan identified as aspirin triggered lipoxins.",
+      "startTime": 3030.59,
+      "endTime": 3036.91
+    },
+    {
+      "id": "turn-181",
+      "speaker": "Host 1",
+      "text": "When the cells fits out this 15 R. H. E. T. E. neighboring white blood cells scoop it up and process it into highly potent signals that actively command the immune system to halt inflammation, clear out dead cells and stimulate tissue healing. Asprin doesn't just put a passive break on inflammation in Cox two.",
+      "startTime": 3037.74,
+      "endTime": 3057.22
+    },
+    {
+      "id": "turn-182",
+      "speaker": "Host 2",
+      "text": "By altering the physical geometry of the channel by a fraction of an onkstrom, aspirin throws the enzyme into reverse and actively accelerates the resolution of inflammation. That's unbelievable. And it is the only known NSAID on earth that triggers the structural switch, all because of a single covalent bond exploiting a slightly wider pocket.",
+      "startTime": 3057.7,
+      "endTime": 3077.38
+    },
+    {
+      "id": "turn-183",
+      "speaker": "Host 1",
+      "text": "To really appreciate how unique aspirin is, let's briefly look at a reversible NSAID in this exact same space. If you look at the 2.34 angstrom map of human Cox two bound to methadamic acid, it doesn't bolt anything to the wall. Right.",
+      "startTime": 3077.86,
+      "endTime": 3094.34
+    },
+    {
+      "id": "turn-184",
+      "speaker": "Host 2",
+      "text": "The methadamic acid molecule just flips upside down and it's carboxylic group hydrogen bonds directly onto serine 530 at 2.77 angstroms. It physically buries the serine. It parks its bulk right on top of the target, which proves visually at",
+      "startTime": 3094.34,
+      "endTime": 3110.86
+    },
+    {
+      "id": "turn-185",
+      "speaker": "Host 1",
+      "text": "the atomic level, while taking a reversible NSAID beforehand acts as an impenetrable shield against aspirin. The serine is physically covered, but that tiny valine 523 mutation in Cox two, that extra 20% of space didn't just explain the magical healing switch of lipoxins.",
+      "startTime": 3110.86,
+      "endTime": 3128.1
+    },
+    {
+      "id": "turn-186",
+      "speaker": "Host 2",
+      "text": "That microscopic void unleashed a multi billion dollar pharmaceutical arms race that ended in one of the darkest clinical tragedies of the 21st century. We have to move to our final crystal structure. The 2.40 angstrom map of Cox two bound to the designer drug, Selococciib.",
+      "startTime": 3128.5,
+      "endTime": 3145.18
+    },
+    {
+      "id": "turn-187",
+      "speaker": "Host 1",
+      "text": "Selococciib, known commercially as celibrax, was part of a massively hyped class of drugs in the late 1990s called Coxibs.",
+      "startTime": 3145.78,
+      "endTime": 3153.18
+    },
+    {
+      "id": "turn-188",
+      "speaker": "Host 2",
+      "text": "Yes. And the pharmaceutical hypothesis was incredibly seductive. They knew Cox one is the good, constant housekeeping enzyme, protecting the stomach lining.",
+      "startTime": 3153.97,
+      "endTime": 3163.45
+    },
+    {
+      "id": "turn-189",
+      "speaker": "Host 1",
+      "text": "And they knew Cox two was the bad, flaring enzyme causing pain in arthritic joints.",
+      "startTime": 3164.21,
+      "endTime": 3169.05
+    },
+    {
+      "id": "turn-190",
+      "speaker": "Host 2",
+      "text": "Classical NSAIDs like ibuprofen block both indiscriminately that cures the joint pain, but causes severe stomach ulcers. The chemists asked a logical question. What if we designed a sniper rifle drug that only blocks Cox two, curing the arthritis, but physically cannot fit inside Cox one, perfectly sparing the stomach.",
+      "startTime": 3169.98,
+      "endTime": 3189.54
+    },
+    {
+      "id": "turn-191",
+      "speaker": "Host 1",
+      "text": "And they looked at the X-ray crystal structures to find a way to do it. They saw that missing methyl group at valine 523 and Cox two, right. That missing atom opens up a tiny 1.5 angstrom gate leading into a hidden watery side pocket inside the Cox two enzyme, a pocket that simply does not exist in Cox one, because the bulky,",
+      "startTime": 3189.82,
+      "endTime": 3209.58
+    },
+    {
+      "id": "turn-192",
+      "speaker": "Host 2",
+      "text": "isolucine wall completely breaks it off. So the medicinal chemists designed cellococciob with a rigid, bulky, sulfonamide prong sticking out of it. When you look at the X-ray map, you can watch this bulky prong slide perfectly through the 1.5 angstrom valine gate and lock deep",
+      "startTime": 3209.62,
+      "endTime": 3227.74
+    },
+    {
+      "id": "turn-193",
+      "speaker": "Host 1",
+      "text": "into that hidden side pocket, bonding securely with lucine 352, histidine 90 and glutamine 192. It fits like a custom key. But if you try to put that celebrates key into the Cox one stomach enzyme, the bulky prong crashes violently into that isolucine wall and bounces completely off and can't enter.",
+      "startTime": 3227.74,
+      "endTime": 3246.46
+    },
+    {
+      "id": "turn-194",
+      "speaker": "Host 2",
+      "text": "The initial clinical results were heralded as a miracle. The selective Coxibs slashed the rates of debilitating stomach ulcers by 50 to 75% compared to older end sets. The FDA approved them and they became instant billion dollar blockbusters. But in January 1999, before the competing drug refecosib known as",
+      "startTime": 3247.02,
+      "endTime": 3266.86
+    },
+    {
+      "id": "turn-195",
+      "speaker": "Host 1",
+      "text": "Vioxx even hit the pharmacy shelves, a clinical pharmacologist named Garrett Fitzgerald published a dire mathematically grounded warning. Fitzgerald looked beyond the stomach and the joints. He looked at the cardiovascular system. Yes. He realized that human arterial endothelial cells, the cells lining your",
+      "startTime": 3266.86,
+      "endTime": 3283.7
+    },
+    {
+      "id": "turn-196",
+      "speaker": "Host 2",
+      "text": "blood vessels are constantly exposed to the mechanical friction and shear stress of blood pumping over them.",
+      "startTime": 3283.7,
+      "endTime": 3289.58
+    },
+    {
+      "id": "turn-197",
+      "speaker": "Host 1",
+      "text": "This constant physical stress actually tonically induces Cox two in the vessel walls all the time. In the blood vessels, Cox two isn't a bad inflammatory enzyme. It is the primary source of the good anti clotting PGI two shield. Fitzgerald mapped out the catastrophic systemic imbalance these drugs would cause.",
+      "startTime": 3290.4,
+      "endTime": 3309.76
+    },
+    {
+      "id": "turn-198",
+      "speaker": "Host 2",
+      "text": "He warned that if you give a patient a highly selective Coxib, you are perfectly sparing their stomach Cox one, but you are also leaving their platelet Cox one completely untouched, meaning their platelets retain their full capacity to produce massive lethal amounts of aggregatory TXA two. The sword is sharp and ready. Yes.",
+      "startTime": 3310.4,
+      "endTime": 3329.32
+    },
+    {
+      "id": "turn-199",
+      "speaker": "Host 1",
+      "text": "Simultaneously, the drug enters the blood vessel walls and completely silences the endothelial Cox two stripping away the protective PGI two shield. You have a patient with fully armed platelets and absolutely zero vascular defense. You are artificially tipping the biochemical seesaw street toward massive spontaneous clotting.",
+      "startTime": 3329.68,
+      "endTime": 3347.76
+    },
+    {
+      "id": "turn-200",
+      "speaker": "Host 2",
+      "text": "He warned the pharmaceutical companies and he was completely ignored until the human trials proved his molecular logic right with devastating lethal precision.",
+      "startTime": 3348.08,
+      "endTime": 3357.84
+    },
+    {
+      "id": "turn-201",
+      "speaker": "Host 1",
+      "text": "The vigor trial studying Vayox showed acute myocardial infarctions, heart attacks, jumping four to five fold in the treatment group. The approved trial in 2005 definitively show that heart attacks and strokes nearly doubled against the placebo. The risk ratio was one point nine two.",
+      "startTime": 3358.73,
+      "endTime": 3376.09
+    },
+    {
+      "id": "turn-202",
+      "speaker": "Host 2",
+      "text": "Vayox was forcefully pulled from the market, one of the most catastrophic pharmaceutical disasters in history, resulting in tens of thousands of excess cardiovascular events. And every single one of those heart attacks is directly traceable back to the downstream hemo dynamic effects of a 1.5 angstrom side pocket.",
+      "startTime": 3376.77,
+      "endTime": 3394.73
+    },
+    {
+      "id": "turn-203",
+      "speaker": "Host 1",
+      "text": "It is a sobering reminder that you cannot outsmart the basic plumbing of the human body without understanding every single valve, which brings us to the bedside balance sheet. We have to reconcile all of this majestic molecular precision with the deeply confusing reality the patients face today.",
+      "startTime": 3395.13,
+      "endTime": 3412.97
+    },
+    {
+      "id": "turn-204",
+      "speaker": "Host 2",
+      "text": "The public messaging around aspirin has been a source of immense frustration. Absolutely. If the massive ISIS to trial in 1988 proved so definitively that aspirin saves lives by blocking platelet TXA2, why did three massive highly publicized clinical",
+      "startTime": 3413.49,
+      "endTime": 3431.21
+    },
+    {
+      "id": "turn-205",
+      "speaker": "Host 1",
+      "text": "trials in 2018 arrive, ascend and aspirin suddenly tell healthy older adults to stop taking daily aspirin. The headlines made it sound like the chemistry of the drug had suddenly stopped working. The chemistry of the Syrian 530 deadbolt never changed by a single picometer aspirin still perfectly blocks platelets.",
+      "startTime": 3431.21,
+      "endTime": 3450.89
+    },
+    {
+      "id": "turn-206",
+      "speaker": "Host 2",
+      "text": "What changed was the mathematics of net clinical benefit, which is the delicate balance between preventing clots and causing bleeds. Because covalent acetylation isn't free. Exactly. When you permanently block platelet TXA2, you successfully reduce the risk of a major adverse cardiovascular event, like a heart attack.",
+      "startTime": 3451.21,
+      "endTime": 3470.45
+    },
+    {
+      "id": "turn-207",
+      "speaker": "Host 1",
+      "text": "But simultaneously you drastically increased the risk of a major hemorrhage because you are blocking the platelets from forming necessary hemostatic plugs if a vessel ruptures and you are stripping away protective prostaglandins in the gut. You are trading a clotting risk for a bleeding risk. Right.",
+      "startTime": 3470.97,
+      "endTime": 3487.89
+    },
+    {
+      "id": "turn-208",
+      "speaker": "Host 2",
+      "text": "And in 1988, the baseline cardiovascular risk of the general population was sky high. People smoked far more. We didn't have universal hypotency statins to lower cholesterol and blood pressure control wasn't nearly as aggressive. So if you had a 1988 patient, their risk of having a massive heart attack was so",
+      "startTime": 3488.37,
+      "endTime": 3507.09
+    },
+    {
+      "id": "turn-209",
+      "speaker": "Host 1",
+      "text": "high that the benefit of the aspirin deadbolt outweighed the risk of a stomach bleed by a massive six to one margin. But by 2018, modern medicine had profoundly altered that baseline risk. The arrive, ascend and a spree trials studied primary prevention, meaning they",
+      "startTime": 3507.09,
+      "endTime": 3524.25
+    },
+    {
+      "id": "turn-210",
+      "speaker": "Host 2",
+      "text": "were looking at tens of thousands of people who had never actually had a heart attack yet. Right. Because these modern patients were already on powerful statins and blood pressure medications, their baseline risk of forming a lethal clot was already remarkably low.",
+      "startTime": 3524.25,
+      "endTime": 3537.85
+    },
+    {
+      "id": "turn-211",
+      "speaker": "Host 1",
+      "text": "Let's look at the specific numbers because they tell the whole story.",
+      "startTime": 3538.65,
+      "endTime": 3541.53
+    },
+    {
+      "id": "turn-212",
+      "speaker": "Host 2",
+      "text": "In the ascend trial, which studied diabetic patients without prior heart disease, the NNT, the number needed to treat to prevent one cardiovascular event was 91. You had to treat 91 people to prevent one heart attack. But the NNH, the number needed to harm, meaning causing a major clinically",
+      "startTime": 3542.29,
+      "endTime": 3561.65
+    },
+    {
+      "id": "turn-213",
+      "speaker": "Host 1",
+      "text": "significant bleed was 111. It was almost a perfect 1.1 wash. The minor cardiovascular benefit was entirely counterbalanced and erased. By the severe bleeding risk. And in the esprit trial, which studied healthy adults over the age of 70, the bleeding hazard actually overtook the benefits.",
+      "startTime": 3561.65,
+      "endTime": 3581.25
+    },
+    {
+      "id": "turn-214",
+      "speaker": "Host 2",
+      "text": "As human beings age, our blood vessels naturally become more fragile and prone to micro ruptures. In that elderly population, the NNH for significant hemorrhage was 100. And there was absolutely zero gain in overall disability free survival.",
+      "startTime": 3581.81,
+      "endTime": 3597.65
+    },
+    {
+      "id": "turn-215",
+      "speaker": "Host 1",
+      "text": "The distinction between primary and secondary prevention is absolute here. If a patient has already had a heart attack or already has a stent placed secondary prevention, their risk of a second clot is astronomically high and aspirin remains unassalably essential. The deadbolt is necessary to keep them alive.",
+      "startTime": 3598.13,
+      "endTime": 3616.45
+    },
+    {
+      "id": "turn-216",
+      "speaker": "Host 2",
+      "text": "But for primary prevention in healthy older adults, the bleeding risk of that irreversible serine 530 deadbolt simply outweighs the shrinking cardiovascular benefit. Exactly. But here's the beautiful twist. Just as the window for routine geriatric primary prevention is narrowing,",
+      "startTime": 3616.81,
+      "endTime": 3634.61
+    },
+    {
+      "id": "turn-217",
+      "speaker": "Host 1",
+      "text": "this exact same ancient willow bark chemistry is conquering breathtaking new frontiers in completely different areas of medicine.",
+      "startTime": 3635.13,
+      "endTime": 3643.25
+    },
+    {
+      "id": "turn-218",
+      "speaker": "Host 2",
+      "text": "Look at obstetrics. Look at preeclampsia. Preoclamcia is a severe runaway hypertensive condition in pregnancy. It is fundamentally driven by a massive catastrophic imbalance in the placenta. What's happening there? The placental tissue begins producing way too much vasoconstricting platelet",
+      "startTime": 3644.25,
+      "endTime": 3661.41
+    },
+    {
+      "id": "turn-219",
+      "speaker": "Host 1",
+      "text": "TXA2 and not nearly enough vasodilating endothelial PGI2. This spasm starves the placenta of blood flow and directly threatens the life of both the mother and the fetus. It's the exact same seesaw we talked about in the heart just happening in the placenta. And in 2017, the aspirin trial tested a brilliant intervention.",
+      "startTime": 3661.41,
+      "endTime": 3680.69
+    },
+    {
+      "id": "turn-220",
+      "speaker": "Host 2",
+      "text": "The identified high risk pregnant women and gave them 150 milligrams of aspirin nightly, starting very early between 11 and 14 weeks gestation. That timing is the critical variable. 11 to 14 weeks is the exact developmental window when the fetal cytotrophoblast cells are actively invading and remodeling the maternal uterine spiral arteries.",
+      "startTime": 3681.09,
+      "endTime": 3700.57
+    },
+    {
+      "id": "turn-221",
+      "speaker": "Host 1",
+      "text": "Okay. So by introducing the aspirin deadbolt during that specific remodeling phase, they artificially fix the TXA2 PGI2 balance before the spasm could take hold. The results are staggering. It's slashed the rate of preterm preeclampsia from 4.3% down to 1.6%. That is an odds ratio of 0.38.",
+      "startTime": 3701.01,
+      "endTime": 3720.33
+    },
+    {
+      "id": "turn-222",
+      "speaker": "Host 2",
+      "text": "The NNT is 37. You give 37 high risk mothers a cheap daily aspirin and you prevent a life threatening preterm preeclampto crisis. And if we move from the beginning of life to the fight against mortality, the new data in precision oncology is perhaps the most astonishing of all.",
+      "startTime": 3720.85,
+      "endTime": 3737.37
+    },
+    {
+      "id": "turn-223",
+      "speaker": "Host 1",
+      "text": "For decades, epidemiologists noticed a weird signal in the data. Long-term aspirin users seemed to get less colorectal cancer. But nobody knew why a blood thinner would stop a tumor. It turns out circulating colorectal tumor cells use activated blood platelets as a biological cloaking device. It is a remarkable evasion tactic.",
+      "startTime": 3738.24,
+      "endTime": 3756.88
+    },
+    {
+      "id": "turn-224",
+      "speaker": "Host 2",
+      "text": "The cancer cell actively recruits platelets to swarm and code its outer surface. The platelets surround the tumor cell and the massive amount of TXA2, those platelets produce acts as a chemical shield, repelling the body's natural killer immune cells.",
+      "startTime": 3757.16,
+      "endTime": 3772.27
+    },
+    {
+      "id": "turn-225",
+      "speaker": "Host 1",
+      "text": "Mckancer uses the platelets to hide from the immune system while it travels through the blood to metastasize.",
+      "startTime": 3773.15,
+      "endTime": 3778.51
+    },
+    {
+      "id": "turn-226",
+      "speaker": "Host 2",
+      "text": "Furthermore, in tumors, harboring specific genetic mutations, like PIK3CA mutations, that platelet cloaking heavily drives the tumor's internal survival signaling.",
+      "startTime": 3779.38,
+      "endTime": 3789.1
+    },
+    {
+      "id": "turn-227",
+      "speaker": "Host 1",
+      "text": "But in the Alaska trial, which is reporting highly anticipated data, on colleges are giving adjuvant low dose aspirin to patients specifically sequence with these PIK3CA mutant colorectal tumors. By permanently acetylating the platelets, the aspirin strips the cloaking device off the cancer cell.",
+      "startTime": 3790.18,
+      "endTime": 3808.06
+    },
+    {
+      "id": "turn-228",
+      "speaker": "Host 2",
+      "text": "The tumor is exposed to the immune system. The early data suggests this simple intervention literally has the three year cancer recurrence rate for these specific patients. We are utilizing a 19th century willow bark extraction process to strip a microscopic platelet cloaking device off a 21st century genetically sequence metastatic tumor.",
+      "startTime": 3808.98,
+      "endTime": 3828.63
+    },
+    {
+      "id": "turn-229",
+      "speaker": "Host 1",
+      "text": "It is just staggering to step back and look at the whole picture. We have taken you from Reverend Edward Stone, chewing bitter marsh bark in an oxford shirt ditch in 1763, trying to cure swamp egg use.",
+      "startTime": 3829.19,
+      "endTime": 3842.43
+    },
+    {
+      "id": "turn-230",
+      "speaker": "Host 2",
+      "text": "We've navigated the fraught, morally complex and tragic lab notebooks of Arthur Eichen Grune and Felix Hoffman in 1897, Elberefeld. We watched John Vain track ghostly molecules on a dripping guinea pig waterfall and Philip Magiara spin radioactive tritium in a St. Louis centrifuge.",
+      "startTime": 3843.34,
+      "endTime": 3861.22
+    },
+    {
+      "id": "turn-231",
+      "speaker": "Host 1",
+      "text": "And we followed it all the way down to a single 43 Dalton molecular deadbolt sitting exactly 3.08 angstroms away from a tyrosine radical.",
+      "startTime": 3861.78,
+      "endTime": 3870.58
+    },
+    {
+      "id": "turn-232",
+      "speaker": "Host 2",
+      "text": "A drug that vanishes from your blood in 15 minutes uses that one microscopic covalent bond to manipulate a multi day biological clock, fundamentally tipping the scales of human immunology and saving millions of lives in the process.",
+      "startTime": 3871.66,
+      "endTime": 3886.64
+    },
+    {
+      "id": "turn-233",
+      "speaker": "Host 1",
+      "text": "It perfectly bridges the macroscopic natural world and the quantum mechanical realm. It really does. This raises an important question though, something we haven't fully hashed out today. And it is a thought I keep returning to tell me what's the lingering thread?",
+      "startTime": 3886.8,
+      "endTime": 3902.48
+    },
+    {
+      "id": "turn-234",
+      "speaker": "Host 2",
+      "text": "Consider the improbability of this entire story, a completely accidental simple chemical reaction, synthesizing an ester from a willow tree to make it easier on the stomach evolve to so flawlessly and profoundly exploit a single one angstroms steric vulnerability in mammalian immunology.",
+      "startTime": 3902.8,
+      "endTime": 3920.96
+    },
+    {
+      "id": "turn-235",
+      "speaker": "Host 1",
+      "text": "It fits the Sarien 530 target with incomprehensible precision. It's like finding a random key on the sidewalk that perfectly opens the vault at Fort Knox. Yes. So the question is how many other ancient folkloric botanical remedies are currently sitting in historical archives dismissed as mere superstition?",
+      "startTime": 3921.12,
+      "endTime": 3940.52
+    },
+    {
+      "id": "turn-236",
+      "speaker": "Host 2",
+      "text": "How many other quantum level enzymatic secrets are out there waiting in the weeds of the natural world simply because our x-ray microscopes haven't pointed at them yet. And that is the thought to leave on. The swamp still has secrets. Thank you so much for joining us on this deep dive. Go look at some trees differently today and we'll catch you next time.",
+      "startTime": 3940.64,
+      "endTime": 3959.6
+    }
+  ]
+}
