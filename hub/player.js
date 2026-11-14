@@ -16,7 +16,7 @@
   window.__crpHubLoaded = true;
 
   var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:120px;overflow-y:auto;background:#050914;border:1px solid #1E293B;border-radius:11px;padding:8px 11px;margin-bottom:8px;font-size:11.5px;line-height:1.45;color:#CBD5E1} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:600} #crp-sources-drawer a:hover{text-decoration:underline} #crp-transcript-drawer{display:none;max-height:330px;overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} }";
-  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:680px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-sources-chip\" type=\"button\" style=\"display:none;background:rgba(148,163,184,0.14);border:1px solid {A}66;color:{A};border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#128218; Sources</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">Open App &#8599;</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" preload=\"metadata\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
+  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:680px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-sources-chip\" type=\"button\" style=\"display:none;background:rgba(148,163,184,0.14);border:1px solid {A}66;color:{A};border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#128218; Sources</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open standalone Pocket App with offline downloads &amp; transcripts (iPhone &amp; Android)\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">&#128241; Pocket App</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" playsinline webkit-playsinline=\"true\" preload=\"auto\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
   var PLAYER_VERSION = "1.7.0";
 
   var pendingSyncToken = '';
@@ -399,7 +399,9 @@
     var currentDriveId = null;
     var currentCleanTitle = '';
     var currentGhUrl = '';
-    var triedGhFallback = false;
+    var currentStreamStage = 'gh'; // 'gh' | 'proxy'
+    var streamAttemptSeq = 0;
+    var lastCascadedSeq = 0;
     var usingFallback = false;
     var isScrubbing = false;
     var lastSavedSec = 0;
@@ -644,6 +646,8 @@
     function switchToFallback(reason) {
       if (!currentDriveId) return;
       usingFallback = true;
+      ++streamAttemptSeq;
+      setMediaPlaybackState('paused');
       if (audioEl) { try { audioEl.pause(); audioEl.removeAttribute('src'); audioEl.load(); } catch (e) {} }
       if (nativeWrap) nativeWrap.style.display = 'none';
       if (fallbackWrap) fallbackWrap.style.display = 'block';
@@ -656,12 +660,11 @@
 
     function switchToNative() {
       usingFallback = false;
-      triedGhFallback = false;
       if (frameEl) frameEl.src = 'about:blank';
       if (fallbackWrap) fallbackWrap.style.display = 'none';
       if (nativeWrap) nativeWrap.style.display = 'block';
       if (modeBtn) modeBtn.textContent = 'Backup Player';
-      if (currentDriveId) loadNativeStream(currentDriveId, currentCleanTitle, false, 0);
+      if (currentDriveId) loadNativeStream(currentDriveId, currentCleanTitle, currentGhUrl ? 'gh' : 'proxy', 0);
     }
 
     function playAdjacentEpisode(delta) {
@@ -680,6 +683,23 @@
       return true;
     }
 
+    function setMediaPlaybackState(state) {
+      if (!('mediaSession' in navigator)) return;
+      try { navigator.mediaSession.playbackState = state; } catch (e) {}
+    }
+
+    function syncMediaPositionState() {
+      if (!audioEl || !('mediaSession' in navigator) || typeof navigator.mediaSession.setPositionState !== 'function') return;
+      if (!isFinite(audioEl.duration) || audioEl.duration <= 0) return;
+      try {
+        navigator.mediaSession.setPositionState({
+          duration: audioEl.duration,
+          playbackRate: audioEl.playbackRate || 1,
+          position: Math.max(0, Math.min(audioEl.currentTime || 0, audioEl.duration))
+        });
+      } catch (e) {}
+    }
+
     function setupMediaSession(title) {
       if (!('mediaSession' in navigator) || !window.MediaMetadata) return;
       try {
@@ -692,11 +712,12 @@
         });
         navigator.mediaSession.setActionHandler('play', function () { if (audioEl) audioEl.play(); });
         navigator.mediaSession.setActionHandler('pause', function () { if (audioEl) audioEl.pause(); });
-        navigator.mediaSession.setActionHandler('seekbackward', function () { if (audioEl) audioEl.currentTime = Math.max(0, audioEl.currentTime - 15); });
-        navigator.mediaSession.setActionHandler('seekforward', function () { if (audioEl && isFinite(audioEl.duration)) audioEl.currentTime = Math.min(audioEl.duration, audioEl.currentTime + 30); });
-        navigator.mediaSession.setActionHandler('seekto', function (d) { if (audioEl && d && typeof d.seekTime === 'number') audioEl.currentTime = d.seekTime; });
+        navigator.mediaSession.setActionHandler('seekbackward', function () { if (audioEl) { audioEl.currentTime = Math.max(0, audioEl.currentTime - 15); updateTimeUI(); syncMediaPositionState(); } });
+        navigator.mediaSession.setActionHandler('seekforward', function () { if (audioEl && isFinite(audioEl.duration)) { audioEl.currentTime = Math.min(audioEl.duration, audioEl.currentTime + 30); updateTimeUI(); syncMediaPositionState(); } });
+        navigator.mediaSession.setActionHandler('seekto', function (d) { if (audioEl && d && typeof d.seekTime === 'number') { audioEl.currentTime = d.seekTime; updateTimeUI(); syncMediaPositionState(); } });
         navigator.mediaSession.setActionHandler('previoustrack', function () { playAdjacentEpisode(-1); });
         navigator.mediaSession.setActionHandler('nexttrack', function () { playAdjacentEpisode(1); });
+        syncMediaPositionState();
       } catch (e) {}
     }
 
@@ -995,10 +1016,30 @@
         });
     }
 
-    function loadNativeStream(driveId, cleanTitle, useGhStream, forcedStartSec) {
+    function cascadeNativeFailure(seq) {
+      if (!currentDriveId || usingFallback || !player || player.style.display !== 'block') return;
+      if (seq !== streamAttemptSeq || lastCascadedSeq === seq) return;
+      lastCascadedSeq = seq;
+      var keepSec = 0;
+      if (audioEl && isFinite(audioEl.currentTime) && audioEl.currentTime > 2) {
+        keepSec = Math.floor(audioEl.currentTime);
+      } else {
+        try { keepSec = parseFloat(localStorage.getItem('crp_pos_' + currentDriveId) || '0') || 0; } catch (e) {}
+      }
+      if (currentStreamStage === 'gh') {
+        track('stream_fallback', { fallback_to: 'cloud_proxy', episode_title: currentCleanTitle });
+        loadNativeStream(currentDriveId, currentCleanTitle, 'proxy', keepSec);
+      } else {
+        switchToFallback('Switched to Drive backup stream');
+      }
+    }
+
+    function loadNativeStream(driveId, cleanTitle, stage, forcedStartSec) {
       if (!audioEl) return;
-      var streamUrl = (useGhStream && currentGhUrl) ? currentGhUrl : (STREAM_BASE + encodeURIComponent(driveId));
-      if (useGhStream) track('stream_fallback', { fallback_to: 'github', episode_title: cleanTitle });
+      var useStage = (stage === 'proxy' || !currentGhUrl) ? 'proxy' : 'gh';
+      currentStreamStage = useStage;
+      var seq = ++streamAttemptSeq;
+      var streamUrl = (useStage === 'gh') ? currentGhUrl : (STREAM_BASE + encodeURIComponent(driveId));
       if (statusEl) statusEl.textContent = 'Connecting stream...';
       if (playBtn) playBtn.innerHTML = '&#8987;';
       if (restartChip) restartChip.style.display = 'none';
@@ -1016,6 +1057,7 @@
 
       var onLoaded = function () {
         audioEl.removeEventListener('loadedmetadata', onLoaded);
+        if (seq !== streamAttemptSeq) return;
         applySpeed(savedRate);
         if (forcedStartSec && forcedStartSec > 0 && isFinite(audioEl.duration) && forcedStartSec < audioEl.duration - 2) {
           audioEl.currentTime = forcedStartSec;
@@ -1029,19 +1071,16 @@
           statusEl.textContent = 'Playing at ' + savedRate + '\u00d7 speed';
         }
         updateTimeUI();
+        syncMediaPositionState();
       };
       audioEl.addEventListener('loadedmetadata', onLoaded);
 
       var p = audioEl.play();
       if (p && typeof p.catch === 'function') {
         p.catch(function () {
+          if (seq !== streamAttemptSeq) return;
           if (audioEl.error) {
-            if (!triedGhFallback && currentGhUrl) {
-              triedGhFallback = true;
-              loadNativeStream(driveId, cleanTitle, true, forcedStartSec);
-            } else {
-              switchToFallback('Switched to Drive backup stream');
-            }
+            cascadeNativeFailure(seq);
           } else {
             if (playBtn) playBtn.innerHTML = '&#9654;';
             if (statusEl) statusEl.textContent = (forcedStartSec ? 'Queued at ' + fmtTime(forcedStartSec) + ' \u2022 ' : 'Ready \u2022 ') + 'Tap Play (' + savedRate + '\u00d7)';
@@ -1065,13 +1104,15 @@
         .trim();
       currentDriveId = driveId;
       currentCleanTitle = cleanTitle;
-      currentGhUrl = ghUrl || '';
-      triedGhFallback = false;
+      currentGhUrl = ghUrl || (epMetaById[driveId] && epMetaById[driveId].ep && epMetaById[driveId].ep.gh) || '';
       milestonesSent = {};
       if (titleEl) titleEl.textContent = cleanTitle;
-      if (studioLink) studioLink.href = STUDIO_BASE + '/?view=listen&driveId=' + encodeURIComponent(driveId) + '&hub=' + encodeURIComponent(HUB) + '&title=' + encodeURIComponent(cleanTitle) + '&autoplay=1';
+      if (studioLink) {
+        studioLink.href = STUDIO_BASE + '/?view=listen&driveId=' + encodeURIComponent(driveId) + '&hub=' + encodeURIComponent(HUB) + '&title=' + encodeURIComponent(cleanTitle) + '&autoplay=1';
+        studioLink.title = 'Open standalone Pocket App with offline downloads & transcripts (iPhone & Android)';
+      }
       loadTranscriptForEpisode(driveId, cleanTitle);
-      if (dlLink) dlLink.href = 'https://drive.google.com/uc?export=download&id=' + driveId;
+      if (dlLink) dlLink.href = currentGhUrl || ('https://drive.google.com/uc?export=download&id=' + driveId);
       updateSourcesUI(driveId);
       syncDoneChipUI();
       player.style.display = 'block';
@@ -1083,14 +1124,19 @@
       if (nativeWrap) nativeWrap.style.display = 'block';
       if (modeBtn) modeBtn.textContent = 'Backup Player';
       track('episode_play', { episode_title: cleanTitle, episode_id: driveId, section: section || '' });
-      loadNativeStream(driveId, cleanTitle, false, forcedStartSec || 0);
+      loadNativeStream(driveId, cleanTitle, currentGhUrl ? 'gh' : 'proxy', forcedStartSec || 0);
     }
 
     if (audioEl) {
+      audioEl.addEventListener('loadedmetadata', function () {
+        syncMediaPositionState();
+      });
       audioEl.addEventListener('play', function () {
         if (playBtn) playBtn.innerHTML = '&#10074;&#10074;';
         if (pulseEl) { pulseEl.style.background = A; pulseEl.style.boxShadow = '0 0 10px ' + A; }
         applySpeed(savedRate);
+        setMediaPlaybackState('playing');
+        syncMediaPositionState();
         if (statusEl && (!statusEl.textContent || (statusEl.textContent.indexOf('Resumed') === -1 && statusEl.textContent.indexOf('Jumped') === -1))) {
           statusEl.textContent = 'Variable-Speed Stream \u2022 ' + savedRate + '\u00d7';
         }
@@ -1098,14 +1144,24 @@
       audioEl.addEventListener('waiting', function () { if (statusEl) statusEl.textContent = 'Buffering audio...'; });
       audioEl.addEventListener('playing', function () {
         if (playBtn) playBtn.innerHTML = '&#10074;&#10074;';
+        setMediaPlaybackState('playing');
+        syncMediaPositionState();
         if (statusEl && statusEl.textContent === 'Buffering audio...') statusEl.textContent = 'Variable-Speed Stream \u2022 ' + savedRate + '\u00d7';
       });
       audioEl.addEventListener('pause', function () {
         if (playBtn) playBtn.innerHTML = '&#9654;';
         if (pulseEl) { pulseEl.style.background = '#F59E0B'; pulseEl.style.boxShadow = '0 0 8px #F59E0B'; }
+        setMediaPlaybackState('paused');
+        syncMediaPositionState();
         if (statusEl && !audioEl.ended && statusEl.textContent !== 'Paused by sleep timer') {
           statusEl.textContent = 'Paused \u2022 ' + savedRate + '\u00d7';
         }
+      });
+      audioEl.addEventListener('ratechange', function () {
+        syncMediaPositionState();
+      });
+      audioEl.addEventListener('seeked', function () {
+        syncMediaPositionState();
       });
       audioEl.addEventListener('timeupdate', function () {
         updateTimeUI();
@@ -1133,6 +1189,7 @@
       });
       audioEl.addEventListener('ended', function () {
         if (playBtn) playBtn.innerHTML = '&#9654;';
+        setMediaPlaybackState('paused');
         if (statusEl) statusEl.textContent = 'Episode finished';
         if (currentDriveId) {
           try {
@@ -1154,13 +1211,8 @@
         }
       });
       audioEl.addEventListener('error', function () {
-        if (currentDriveId && !usingFallback) {
-          if (!triedGhFallback && currentGhUrl) {
-            triedGhFallback = true;
-            loadNativeStream(currentDriveId, currentCleanTitle, true, 0);
-          } else {
-            switchToFallback('Switched to Drive backup stream');
-          }
+        if (audioEl && audioEl.error) {
+          cascadeNativeFailure(streamAttemptSeq);
         }
       });
     }
@@ -1297,6 +1349,8 @@
     }
     if (modeBtn) modeBtn.addEventListener('click', function () { if (usingFallback) switchToNative(); else switchToFallback('Google Drive Backup Stream'); });
     if (closeBtn) closeBtn.addEventListener('click', function () {
+      ++streamAttemptSeq;
+      setMediaPlaybackState('paused');
       if (audioEl) { try { audioEl.pause(); audioEl.removeAttribute('src'); audioEl.load(); } catch (e) {} }
       if (frameEl) frameEl.src = 'about:blank';
       if (player) player.style.display = 'none';
@@ -1493,18 +1547,38 @@
       var s = String(raw || '').trim();
       var m = s.match(/^(.+?)\s+(?:\u2014|\u2013|--)\s+(.+)$/);
       if (m) return { head: m[1], sub: m[2] };
-      if (s.length > 68) {
-        var c = s.indexOf(': ');
-        if (c > 8 && c < 72) return { head: s.slice(0, c), sub: s.slice(c + 2) };
+      var c = s.indexOf(': ');
+      if (c >= 8 && c < 76 && (s.length - (c + 2)) >= 12) {
+        return { head: s.slice(0, c), sub: s.slice(c + 2) };
       }
       return { head: s, sub: '' };
+    }
+
+    function excerptFromNotes(rawNotes, maxLen) {
+      var txt = String(rawNotes || '').replace(/\s+/g, ' ').trim();
+      if (!txt) return '';
+      var lim = maxLen || 155;
+      if (txt.length <= lim) return txt;
+      var cut = txt.slice(0, lim);
+      var pIdx = Math.max(cut.lastIndexOf('; '), cut.lastIndexOf('. '), cut.lastIndexOf(', '));
+      if (pIdx >= Math.floor(lim * 0.62)) {
+        cut = cut.slice(0, pIdx);
+      } else {
+        var sp = cut.lastIndexOf(' ');
+        if (sp >= 40) cut = cut.slice(0, sp);
+      }
+      cut = cut.replace(/[\s,;:\u2014\u2013-]+$/, '');
+      return cut + '\u2026';
     }
 
     function epButtonHTML(ep, secIdx, badgeLabel) {
       var kt = epKindAndTag(ep);
       var tagTxt = badgeLabel ? (badgeLabel + (kt.tag ? ' \u00b7 ' + kt.tag : '')) : kt.tag;
       var tag = tagTxt ? '<span class="crp-ep-tag" data-kind="' + esc(kt.kind) + '">' + esc(tagTxt) + '</span>' : '';
-      var parts = splitEpLabel(ep.label);
+      var parts = splitEpLabel(ep && ep.label);
+      if (!parts.sub && ep && ep.notes) {
+        parts.sub = excerptFromNotes(ep.notes, 155);
+      }
       var subHtml = parts.sub ? '<span class="crp-ep-sub">' + esc(parts.sub) + '</span>' : '';
       return '<a href="https://drive.google.com/uc?export=download&amp;id=' + esc(ep.id) + '"' +
         (ep.gh ? ' data-gh-url="' + esc(ep.gh) + '"' : '') +
@@ -1536,6 +1610,7 @@
         html += '<button type="button" class="crp-sec-pill" data-sec-idx="' + i + '">' + esc(s.pill || s.heading) + ' (' + (s.episodes || []).length + ')</button>';
       });
       html += '<button type="button" id="crp-done-filter-pill" class="crp-done-pill" title="Click to toggle hiding episodes you have already listened to">&#10003; 0 / ' + total + ' Listened</button>';
+      html += '<a href="' + STUDIO_BASE + '/?view=listen&amp;hub=' + encodeURIComponent(HUB) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-sec-pill" style="text-decoration:none;border-color:' + A + '88;color:' + A + ';font-weight:800;" title="Open standalone iPhone &amp; Android Pocket App (offline downloads, lock-screen playback &amp; full transcripts)">&#128241; Get Pocket App</a>';
       html += '</div><div style="position:relative;flex:1;min-width:190px;max-width:280px;"><input id="crp-ep-search" type="search" placeholder="Search ' + total +
         ' episodes..." aria-label="Search episodes" style="width:100%;padding:5px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.18);background:rgba(15,23,42,0.92);color:#F8FAFC;font-size:12px;outline:none;box-sizing:border-box;font-family:inherit;" /></div>';
       html += '<div class="crp-fmt-bar"><span style="font-size:9.8px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;">Format Legend &amp; Filter:</span>';
@@ -1752,7 +1827,7 @@
           });
         }
         var activate = function (idx, fromUser) {
-          hubEl.querySelectorAll('.crp-sec-pill').forEach(function (x) {
+          hubEl.querySelectorAll('.crp-sec-pill[data-sec-idx]').forEach(function (x) {
             if (x.getAttribute('data-sec-idx') === String(idx)) x.classList.add('active'); else x.classList.remove('active');
           });
           activeSec = String(idx);
@@ -1762,7 +1837,7 @@
             track('section_filter', { section: s ? (s.pill || s.heading) : idx });
           }
         };
-        hubEl.querySelectorAll('.crp-sec-pill').forEach(function (p) {
+        hubEl.querySelectorAll('.crp-sec-pill[data-sec-idx]').forEach(function (p) {
           p.addEventListener('click', function () { activate(p.getAttribute('data-sec-idx') || 'all', true); });
         });
         hubEl.querySelectorAll('.crp-fmt-pill').forEach(function (fp) {
