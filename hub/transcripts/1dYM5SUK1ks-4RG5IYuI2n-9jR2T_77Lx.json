@@ -1,0 +1,545 @@
+{
+  "episodeId": "carrd-1dYM5SUK1ks-4RG5IYuI2n-9jR2T_77Lx",
+  "driveId": "1dYM5SUK1ks-4RG5IYuI2n-9jR2T_77Lx",
+  "hub": "medical-testing",
+  "title": "When the Same Probability Leads to a Different Decision — Abraham Wald's 1939 Loss Functions, Pauker & Kassirer's 1975 Treatment Threshold & Eckman Anticoagulation Utility Trade-Offs",
+  "duration": 2413.37,
+  "isWordLevelTranscript": true,
+  "teenKit": {
+    "tldr": "When the Same Probability Leads to a Different Decision (Abraham Wald's 1939 Loss Functions, Pauker & Kassirer's 1975 Treatment Threshold & Eckman Anticoagulation Utility Trade-Offs): On the Shoulders of Giants Teaching Pilot 89: Abraham Wald's 1939 Loss Functions, Pauker & Kassirer's 1975 Treatment Threshold & Eckman Anticoagulation Utility Trade-Offs. ## Act I · Give the decision.",
+    "whyItMatters": "Tracing the primary evidence behind When the Same Probability Leads to a Different Decision connects medical testing breakthroughs directly to how we diagnose, test, and understand the real world.",
+    "keyTakeaways": [
+      "On the Shoulders of Giants Teaching Pilot 89: Abraham Wald's 1939 Loss Functions, Pauker & Kassirer's 1975 Treatment Threshold & Eckman Anticoagulation Utility Trade-Offs.",
+      "Okay, eight units.",
+      "the dark about the biology, how do we responsibly assign the loss units for consequences we haven't even discovered yet?"
+    ],
+    "vocab": [
+      {
+        "term": "Abraham",
+        "meaning": "A key concept in Medical Testing explored in \"When the Same Probability Leads to a Different Decision\" to test how the underlying mechanism works."
+      },
+      {
+        "term": "Functions",
+        "meaning": "A key concept in Medical Testing explored in \"When the Same Probability Leads to a Different Decision\" to test how the underlying mechanism works."
+      },
+      {
+        "term": "Pauker",
+        "meaning": "A key concept in Medical Testing explored in \"When the Same Probability Leads to a Different Decision\" to test how the underlying mechanism works."
+      },
+      {
+        "term": "Kassirer",
+        "meaning": "A key concept in Medical Testing explored in \"When the Same Probability Leads to a Different Decision\" to test how the underlying mechanism works."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What central question drives \"When the Same Probability Leads to a Different Decision\"?",
+        "options": [
+          "Abraham Wald's 1939 Loss Functions, Pauker & Kassirer's 1975 Treatment Threshold & Eckman Anticoagulation Utility Trade-Offs",
+          "Relying on unverified assumptions without experimental or archival controls",
+          "Ignoring quantitative measurements in favor of guesswork",
+          "Treating unrelated coincidences as proven causation"
+        ],
+        "correctIndex": 0,
+        "explanation": "This episode examines Abraham Wald's 1939 Loss Functions, Pauker & Kassirer's 1975 Treatment Threshold & Eckman Anticoagulation Utility Trade-Offs using primary evidence and step-by-step mechanistic reasoning."
+      },
+      {
+        "question": "Why is primary source evidence crucial in this Medical Testing investigation?",
+        "options": [
+          "It replaces experiments with speculation",
+          "It lets researchers test competing hypotheses against direct measurements and controls",
+          "It avoids checking edge cases or failure modes",
+          "It only applies outside of real-world biology or history"
+        ],
+        "correctIndex": 1,
+        "explanation": "Direct measurements and controls separate genuine mechanisms from plausible-sounding artifacts."
+      },
+      {
+        "question": "How can you jump directly to any moment discussed in this episode?",
+        "options": [
+          "Reload the entire site",
+          "Mute the audio player",
+          "Click any timestamped Host A / Host B turn in the Full Transcript tab",
+          "Close the transcript drawer"
+        ],
+        "correctIndex": 2,
+        "explanation": "Every timestamped turn in this Whisper word-level transcript jumps straight to that second in the audio."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host A",
+      "startTime": 0.0,
+      "endTime": 39.0,
+      "text": "Imagine a robot in a totally dark climate controlled room. Just completely isolated. Right, isolated and it has exactly one millisecond to make a decision that literally dictates life or death. Which is virtually no time at all. Exactly. And the robot is tasked with pushing a living human brain cell to the absolute brink. Just to extract its electrical secrets. But if it pushes just a fraction too hard, just a tiny bit, the cell membrane ruptures. and then the cell dies. Yeah, the cell dies and the whole experiment is completely ruined. But on the flip side, if it backs off too early, the data is useless."
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host B",
+      "startTime": 39.72,
+      "endTime": 78.84,
+      "text": "And here is the real twist for this setup. This machine has no historical data. None at all. None. It has absolutely no past precedent to rely on. So the question is, how does a machine mathematically calculate the cost of a life when it has no idea what's supposed to happen next? It's honestly a phenomenal puzzle. I mean, we're still accustomed to thinking of scientific measurements or, you know, medical diagnoses as these perfectly clean binary facts. Right. Like an X-ray, you look at it, it shows a broken bone and beam the truth is just handed to you. Exactly. But when you completely remove human intuition from the equation and you force a system"
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host A",
+      "startTime": 78.84,
+      "endTime": 115.6,
+      "text": "to operate purely on a mathematical logic, you start to realize that data alone is actually incredibly vulnerable. how? Because data doesn't tell you what to do. It only tells you what is. Wow. Okay, in bridging that exact gap, the space between knowing what is and deciding what to do, that is our mission for this deep dive today. It's a big one. It is. We are calling this deep dive. When the same probability leads to a different decision, we are going to explore this fascinating paradox sitting right at the intersection of statistics and medicine. And it really is a paradox. Yeah.",
+      "highlightType": "key_point",
+      "highlightSummary": "to operate purely on a mathematical logic, you..."
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host B",
+      "startTime": 115.6,
+      "endTime": 152.84,
+      "text": "We're going to see how changing just the consequences of a decision can completely flip your choice. Even when the factual evidence, the exact probability of a thing happening remains completely frozen in place. Which if you think about it completely shatters the fundamental assumption most of us carry around every day. Which is what? The assumption that if the probability of a risk stays exactly the same, our decision about that risk should also stay the same. Right. is the same, I should act the same, but that's not true. And to guide you through this, we are pulling from a really fascinating stack of original research today. We have some heavy hitters. We do. We've got James O. Berger's foundational work on"
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host A",
+      "startTime": 152.84,
+      "endTime": 187.16,
+      "text": "Bayesian statistics in neuroscience. We're looking at Abraham Wald's revolutionary 1939 paper, the one that essentially created statistical decision theory. A classic. Then we have Stephen Parker and Jerome Cassier's 1975 paper that actually brought that theory directly to the medical bedside. And finally, a 2011 stroke prevention study by Mark Ekman and his colleagues. But before we get into human patients and hospital beds, I think we have to start back with that robot in the dark room. Yes, let's go back to the lab. We need to really understand the physical reality of what this machine is doing, right?"
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host B",
+      "startTime": 187.16,
+      "endTime": 226.72,
+      "text": "Definitely. So the instrument we're talking about here is called a highly automated patch clamp recording rig. Okay, let's break that down into plain language for you listening. When you say a patch clamp recording rig, what are we actually looking at physically? Right. So picture of microscopic last tube. Okay. It's thinner than a human hair and it's called a pipette. The robotic rig very, very carefully lowers its glass pipette down onto the surface of a single living cell. Just one cell. Just one. And then it applies a tiny bit of suction. This creates what the field calls a giga ohm seal. Giga ohm, that sounds intense."
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host A",
+      "startTime": 226.72,
+      "endTime": 264.72,
+      "text": "It's just an incredibly tight electrical bond between the glass and the fragile cell membrane. Once it's sealed, the machine essentially breaks the membrane just inside the tube, making the inside of the pipette completely continuous with the inside of the cell. Oh wow. So it's basically tapping directly into the cells plumbing. Exactly. And this allows the machine to measure the incredibly faint electrical currents that flow across the cells' membrane. And the cells being measured here aren't just random cheek swabs. The researchers in these setups are using a preparation of IPSC derived neurons, right? Yeah, and that is a really critical detail to understand."
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host B",
+      "startTime": 264.72,
+      "endTime": 303.96,
+      "text": "So IPSC that stands for induced pluripotent stem cells. These are actually human cells, often just regular everyday skin cells or blood cells that scientists have chemically coaxed backward in time. Which is basically science fiction. I know, it's wild. They turn them back into a stem cell state, and then push them forward again to develop into functioning human brain cells. Brain cells grown from skin cells. But because they are lab grown and so heavily manipulated, I have to imagine they are just incredibly delicate. Exceptionally delicate. And beyond that, they are so expensive. And incredibly time-consuming to grow."
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host A",
+      "startTime": 303.96,
+      "endTime": 340.68,
+      "text": "You really can't afford to just go around bursting them left and right. So okay, the robot has this tiny glass tube perfectly sealed to a delicate lab-grown human brain cell. What is the actual physical measurement it is trying to capture? It is measuring single channel conductance. Okay, let's unpack this for a second. Conductance, meaning like electricity passing through. Precisely, it's the flow of ions. If you picture the surface of a neuron, it's studded with these microscopic proteins called voltage gated ion channels. You can think of them as tiny electrically sensitive gates."
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host B",
+      "startTime": 340.68,
+      "endTime": 379.0,
+      "text": "When the voltage across the cell membrane changes, these little gates actually physically change their shape. They pop open or they snap shut. And the specific gates being studied in burgers, neuro statistical applications, those are usually channels like nav 1.6, right? Yes, exactly. Nav 1.6 are sodium channels. They're absolutely critical for initiating action potentials. Action potentials. That's the electrical sparks that let our brain cells communicate with each other. So this machine is literally measuring the raw electricity of a single microscopic gate opening and closing. Yeah, and it looks like these tiny, highly variable electrical blips on a screen.",
+      "highlightType": "insight",
+      "highlightSummary": "When the voltage across the cell membrane changes..."
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host A",
+      "startTime": 379.0,
+      "endTime": 417.08,
+      "text": "We are talking picot amperes of current, just unimaginably small. Wow. The machine dynamically changes the voltage, it steps it up and down, to force these little gates to react. It's trying to map out exactly how they behave. Every single time the machine changes the voltage to get more of that data, it stresses the cell out. It does. Which brings us right back to that opening puzzle. The machine has to choose. Do I step the voltage again and risk completely killing this valuable cell? Or do I stop the experiment right now? Save the cell. But maybe miss out on the crucial data I need. And remember, it has to do this without any historical baseline data for this specific batch of novel cells. Right, because they are totally new."
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host B",
+      "startTime": 417.08,
+      "endTime": 453.28,
+      "text": "So how does it mathematically make that call in a millisecond? the answer requires a really vital distinction between two concepts. We have to separate the measurement from the inference. Okay, the measurement is just the raw blip, right? The physical current? Exactly. It's the physical reality. The, uh, the pico amps of electricity flowing through that, any V1.6 channel. The measurement itself is blind. But the inference, the inference is what we actually do with our raw data. It is the exact calculation of the strength of evidence favoring a specific kinetic model. Meaning a mathematical description of how fast and under what"
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host A",
+      "startTime": 453.28,
+      "endTime": 486.8,
+      "text": "conditions that little gate opens and closes. Yes. And even more deeply, the inference is the optimal decision of whether the evidence we currently have is strong enough to justify stopping the experiment to keep this all alive. Okay, so the measurement is just the current is five picoampers. But the inference is this current means the gate opens into milliseconds and therefore we have enough data so stop shocking the cell. Exactly. You nailed it. And traditionally, to bridge that huge gap between measurement and inference, science has relied heavily on a statistical"
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host B",
+      "startTime": 486.8,
+      "endTime": 526.04,
+      "text": "tool called the frequentist P-value. Right, the infamous P-value. I mean, anyone who has taken a high school science class has probably heard that if the P-value is less than 0.05, your results are statistically significant. We all learn that rule. We do. But James O'Bergar in in his work on Bayesian statistics, he heavily critiques the approach, right? Especially for this kind of automated neuroscience. He absolutely tears it apart. And the reason comes down to how P values mathematically function compared to Bayes factors. How so? Well, a P value is essentially asking us somewhat backward question. It starts by assuming the no hypothesis is true,"
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host A",
+      "startTime": 526.18,
+      "endTime": 565.66,
+      "text": "meaning it assumes there is no effect, no unique kinetic behavior at all in this cell. Okay. And then it asks, if there is no effect, how likely was I to see this raw data just by random chance? So it's basically measuring the weirdness of the data, assuming nothing interesting is actually happening. Right. And as Berger points out, this systematic approach actually tends to overstate the evidence against the null hypothesis. It's too eager to yell, you're Rika. Yes, exactly. It's too eager. I want to make sure we really grasp this for you listening because statistical mechanics can get a pit slippery. If a P value is overstating the evidence,"
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host B",
+      "startTime": 565.66,
+      "endTime": 604.62,
+      "text": "it means the machine might think it has mapped out the kinetic model perfectly when it actually hasn't. Yes. And in a resource intensive environment like a patch clamp recording lab where your sample sizes are tiny, overstating your evidence is just disastrous. Because the machine will stop the experiment prematurely, it'll think it has the answer, but the data will actually be way too weak to use. you've saved the cell sure, but the experiment is a total failure. Or, conversely, it doesn't trust the data enough and just keeps shocking the cell into lip bursts. So, Berger suggests replacing p-values entirely with Bayes factors. What changes mechanically when the machine"
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host A",
+      "startTime": 604.62,
+      "endTime": 644.34,
+      "text": "uses a Bayes factor instead? Objective Bayesian analysis fundamentally changes the question we were asking. Instead of assuming the null hypothesis and looking at the probability of the data, a base factor looks at the actual data we just collected. The real physical blip. Yes. And it asks, given this specific electrical blip, what is the probability that our kinetic model is true compared to the probability that it's false? Oh, wow. So it assigns a direct, quantifiable weight to the evidence itself. It does. And Berger's framework uses something called reference priors to do this objectively, right? Letting the data basically speak for itself,",
+      "highlightType": "action_item",
+      "highlightSummary": "uses a Bayes factor instead? Objective Bayesian analysis..."
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host B",
+      "startTime": 644.34,
+      "endTime": 680.71,
+      "text": "even when we don't have historical baseline data to feed the machine in advance. That's the sheer brilliance of it. The machine can enter the dark room, start taking these measurements, and use the base factor to continually update its belief about the cell's kinetic model with incredible precision. And it does this without systematically overstating the findings like a p-value would. But wait a second. We have solved the measurement problem here. The machine now has a perfect, objective measure of the evidence. It knows exactly how strong the data is, but we still haven't actually solved the decision problem. Ah, and that's the crux of the matter."
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host A",
+      "startTime": 680.71,
+      "endTime": 718.97,
+      "text": "Because just knowing that the evidence is strong, doesn't inherently tell a robot to stop. We still need a framework to weigh the cost of being wrong. We need to tell the machine how bad it is to kill the cell versus how good it is to get a perfect model. Right, the data alone isn't enough. We need a calculation for the consequences. And to understand how we give a decision a calculation of its own, we really have to leave the modern automated lab for a minute and travel back to the year 1939. 1939 was an absolute watershed moment for statistics. A mathematician named Abraham Wald published a paper that completely formalized statistical decision theory."
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host B",
+      "startTime": 718.97,
+      "endTime": 757.29,
+      "text": "Let's set the stage here for you listening. Before Wald came along, what was the prevailing philosophy of statistics? Well, before Wald, statistical inference was largely seen as this pure pursuit of truth. The goal was to look at a sample of data and deduce the true state of the universe. Like, is this drug effective? Exactly. Does the sagricultural fertilizer work? Exactly. The statistician's job was just to answer yes or no, based entirely on the data. The statistician was essentially a judge of reality. Right. But Wald shifted the paradigm entirely. He argued that in the real world,"
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host A",
+      "startTime": 757.29,
+      "endTime": 795.32,
+      "text": "We aren't just trying to figure out what is true. We're trying to figure out what actions to take. Exactly. We are figuring out what to do based on what might be true. Knowing full well that we will often have to act under conditions of deep uncertainty. He shifted statistics from the pursuit of pure truth to the optimization of behavior. So he broke this down into a formal mathematical framework. He said that any decision involves a few key components, right? First, you have the state of the world, which is the underlying truth that you might not fully know yet. Second, you have the actions available to you."
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host B",
+      "startTime": 795.32,
+      "endTime": 830.46,
+      "text": "And third, and I think this was the revolutionary part, you assign a loss function. Yes. The loss function is the mathematical penalty you assign to the consequence of taking a specific action in a specific state of the world. Okay, let's unpack this. I think we need a concrete analogy to really ground this for you. Let's imagine you are deciding whether or not to carry an umbrella when you leave your house a classic decision problem Exactly the state of the world is a truth. You don't fully know yet It is either going to rain today or it is going to be sunny. Those are two possible states of nature"
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host A",
+      "startTime": 830.52,
+      "endTime": 866.68,
+      "text": "Right and your actions are really simple action A is you carry the umbrella action B is you leave it at home Now under the old paradigm you might just look at the weatherman's data right the raw probability He says there is a 30% chance of rain. So you try to deduce the truth. Well, it probably won't rain. But Waltz is the probability of rain is only half the equation. You literally cannot make a rational decision until you define that loss function. You have to ask yourself about the consequences. What is the loss or the penalty of getting absolutely soaked in a downpour because you didn't bring the umbrella?"
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host B",
+      "startTime": 866.68,
+      "endTime": 905.52,
+      "text": "And then you have to weigh that against the loss of lugging around a useless, annoying piece of luggage all day in the bright sunshine. Now those consequences change wildly depending on the context of your day, even if the weather report stays exactly the same. Yes. Let's say you're wearing a very expensive, dry clean only suit and you are walking to the most important job interview of your entire life. High stakes. Very high stakes. The state of the world that 30% chance of rain hasn't changed at all, but the consequence of taking action B, leaving the umbrella, if the state of the world turns out to be rain, that consequence is catastrophic.",
+      "highlightType": "key_point",
+      "highlightSummary": "And then you have to weigh that against..."
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host A",
+      "startTime": 905.52,
+      "endTime": 944.6,
+      "text": "Loss is massive. You'll lose the job. So you calculate the expected loss, and you bring the umbrella. Honestly, you might even bring the umbrella if the chance of rain was only 5%, simply because the penalty of being wrong is so incredibly severe. Exactly. But now consider a totally different context. Same exact day, same 30% chance of rain. But this time you are in your old gym clothes and you are just walking a few blocks to go swimming anyway. Getting what literally doesn't matter at all. The penalty for leaving the umbrella in the rain is practically zero, right? But the penalty for carrying the umbrella like trying to shove it into a tiny gym locker is highly annoying."
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host B",
+      "startTime": 944.6,
+      "endTime": 980.4,
+      "text": "So in this context, you leave the umbrella at home. And that is walled statistical decision theory in its absolute purest form. But choosing a prior probability, you know, you're starting belief about the state of the world based on the evidence and then evaluating the loss function. You compare your available actions by their probability weighted losses. And your decision didn't change because the data changed. It changed entirely because the consequences changed. For a size. Now it makes perfect intuitive sense with umbrellas and gym lockers. I mean, we all do this kind of mental math implicitly every single day."
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host A",
+      "startTime": 980.4,
+      "endTime": 1019.22,
+      "text": "But here is where I struggle and where I think a lot of people listening might struggle. How do you apply abstract mathematical loss units to human lives? It's tough. Because when we move from a rain shower to a medical diagnosis, we are talking about life, death, suffering, and terrible side effects. It feels incredibly cold to just assign a number to that. It does feel cold. I agree. But it is actually an ethical necessity. Really? How so? Because when a physician makes a choice, they are inherently weighing those consequences anyway. Whether they put a strict number on it or not."
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host B",
+      "startTime": 1019.22,
+      "endTime": 1053.84,
+      "text": "If they don't formalize it, they're incredibly vulnerable to invisible biases. Oh, I see. And that hurdle, bringing the abstract math of decision theory into the messy reality of human biology, is exactly what Stephen Palker and Jerome Casperir accomplished in 1975. They basically took Walds abstract framework from the mathematician's bench and brought it straight to the patient's bedside. Yes. They wrote a truly landmark paper analyzing the most critical choice every doctor faces on a daily basis. The decision to treat a patient versus the decision to withhold treatment."
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host A",
+      "startTime": 1053.84,
+      "endTime": 1092.17,
+      "text": "So in this medical framework, the state of the world is whether the patient actually has the disease or not. And the actions are treating or withholding. Right. Palkyr and Casper realize that clinical decision making relies on a very delicate three-way balance. First, you need the probability that the disease is actually present, which, you know, you get from prevalence data, symptoms and diagnostic tests. Okay, the evidence. Second, you must quantify the benefit of treating someone who actually has the disease. And third, you have to quantify the harm of treating someone who does not have the disease."
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host B",
+      "startTime": 1092.17,
+      "endTime": 1132.16,
+      "text": "Because no medical treatment is perfectly safe. Every intervention from popping a simple aspirin to a major surgery has a side effect profile. Exactly. Treating a healthy person carries a loss. It might be a mild side effect or it could be severe toxicity. And conversely, withholding treatment from a person who is truly sick also carries a massive loss. You're allowing the disease to progress completely unchecked. like the umbrella, the doctor has to weigh those competing losses against the exact probability of the disease to find the mathematically optimal decision. So let's lock down the evidence and actually specify those losses."
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host A",
+      "startTime": 1132.16,
+      "endTime": 1170.24,
+      "text": "We are going to walk through a calculation together to see exactly how Parker and Cossaroo's machinery works. OK, yes. But before we dive into the numbers, I want to be extremely clear with you, the listener. We are about to set up a fictional thought experiment. The inputs we are going to use here are abstract loss units, designed purely to explain the mathematical mechanics. Right. These aren't real medical guidelines. No. Please distinguish these fictional numbers from the published clinical trial data and real world medical thresholds. We will discuss a bit later in the deep dive. This is just a simplified conceptual model to reveal the underlying logic of decision theory.",
+      "highlightType": "insight",
+      "highlightSummary": "We are going to walk through a calculation..."
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host B",
+      "startTime": 1170.24,
+      "endTime": 1209.48,
+      "text": "Okay. So here is the scenario. The diagnostic tests come back and the clinical evidence puts the probability of our patient having the disease at exactly 25 percent. One quarter. This is our fixed evidence. It will not change. So state one is that the disease is present. That's a 25 percent probability. State two is that the disease is absent. That's a 75 percent probability. Now we have to assign our loss function. If state one is true, the patient actually has the disease and we take the action of with holding treatment, that is a terrible mistake. Let's say with holding treatment from this sick patient costs eight abstract loss units."
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host A",
+      "startTime": 1209.48,
+      "endTime": 1247.64,
+      "text": "Okay, eight units. That is the penalty for missing the diagnosis and letting the disease run rampant. Right. Now consider the flip side. If state two is true, the disease is absent, the patient is totally healthy, and we take the action of treating them anyway, they suffer the side effects of an unnecessary drug. Let's say treating a healthy person costs two loss units. Okay, I'm following the penalties. Eight units of harm for missing the disease. Two units of harm for unnecessary side effects. But wait, what about the good outcomes? What is the numerical value for successfully treating a sick person or successfully leaving a healthy person alone?"
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host B",
+      "startTime": 1247.64,
+      "endTime": 1286.02,
+      "text": "This brings us to a crucial mathematical assumption that links this into higher calculation directly to pauker and casters' final conclusion. To make this decision model work cleanly, We use zero as the reference point for the better action within each state of the world. I think we need to explain that because my instinct and probably yours listening is that saving a sick person's life should be a positive number, like plus 10, not zero. It is a really common intuition. But remember that Wald's framework operates on a loss function. We are measuring regrets. We are measuring the penalty of making the wrong choice compared to the absolute best possible choice in that specific reality."
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host A",
+      "startTime": 1286.02,
+      "endTime": 1321.92,
+      "text": "OK, I see. If the patient is sick, the absolute best thing you can do is treat them. So, the loss, the penalty of treating a sick person, is zero. You did the right thing. There's no regret. Therefore, the loss of withholding treatment is measured relative to that zero. It is eight units worse than doing the right thing. I see. It's a purely relative scale. And if the patient is healthy, the absolute best thing you can do is leave them alone. With hold treatment. Exactly. So, the penalty for withholding from a healthy person is zero. And the penalty for treating them is measured relative to that. It's too units worse. Exactly."
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host B",
+      "startTime": 1321.92,
+      "endTime": 1361.28,
+      "text": "Setting the best action in each state to zero, mathematically simplifies the entire landscape, allowing us to purely compare the expected penalties of our potential errors. That makes total sense. We are just calculating the expected weight of our mistakes. Okay. Let's walk through the main calculation step by step. We have two possible actions to evaluate. Action A is withholding treatment. Action B is treating. We need to find the expected loss for both. Let's start with action A, with holding treatment. When does withholding carry a penalty? It only carries a penalty if the patient is actually sick. And what is the probability they are sick? Twenty-five percent, or one-quarter."
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host A",
+      "startTime": 1361.28,
+      "endTime": 1399.0,
+      "text": "And what is the penalty if we withhold while they are sick? Eight loss units. So the math is one-quarter multiplied by eight. Right. One-quarter of eight is two. So the total expected loss for action A with holding is 2. Simple enough. Now we calculate action B, treating. When does treating carry a penalty? Only when the patient is healthy. If the probability of disease is one quarter, then the probability of no disease must be three quarters. The patient has a 75% chance of being perfectly healthy. And the penalty for treating a healthy person with this drug is two loss units."
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host B",
+      "startTime": 1399.0,
+      "endTime": 1438.03,
+      "text": "So we multiply the probability by the penalty. Three quarters multiplied by two. Three quarters of two, that's 1.5. So the expected loss for action be treating as 1.5. Finally we compare the two expected losses. With holding as an expected loss of two, treating has an expected loss of 1.5. Because 1.5 is lower than two, the mathematical models strictly prefer treating. And look at which has happened here. There's only a 25% chance this patient actually has the disease. It is highly likely they are perfectly fine, yet the math dictates intervention.",
+      "highlightType": "action_item",
+      "highlightSummary": "So we multiply the probability by the penalty..."
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host A",
+      "startTime": 1438.03,
+      "endTime": 1474.15,
+      "text": "Why? Because the severe 8 unit penalty of missing a sick patient heavily outweighs the 2 unit penalty of treating a healthy one. The consequences drag the decision toward treatment despite the relatively low probability of disease. That is the primary quantitative result of this entire framework. I want you to hold onto this outcome because we are about to push this model to its absolute breaking point. We are. And a quick note, for those of you listening who love to see the deep algebraic proofs and the generalized formulas, we are going to place the extended mathematics for these steps in the show notes."
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host B",
+      "startTime": 1474.15,
+      "endTime": 1514.11,
+      "text": "We want to keep the audio focused right now on the mechanics of the logic because here's where it gets really interesting. This is where we truly test the boundaries of Wald's theory and see the paradox in action. We are going to keep the evidence completely fixed. The diagnostic tests haven't changed. The patient hasn't changed. The probability of the disease remains frozen at exactly 1.25%. But we are going to change one single consequence. OK, what's changing? Let's imagine a new peer-reviewed paper is published revealing a newly discovered side effect of our treatment. It's worse than we thought. So the penalty for treating someone without the disease"
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host A",
+      "startTime": 1514.11,
+      "endTime": 1552.11,
+      "text": "now costs four loss units instead of two. And wow. So the harm of unnecessary treatment has doubled. But crucially, everything else in the universe stays exactly the same. The penalty for withholding treatment from a sick person is still eight units. The probability of disease is still 25%. I want you to do the math with us right now. Calculate the new expected loss for treating. You are going to compare it with the expected loss of withholding, which hasn't changed. It's still two units. which action has the lower expected loss now? Take a few seconds to just run those numbers in your head. Just think about the new multiplier."
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host B",
+      "startTime": 1552.11,
+      "endTime": 1592.07,
+      "text": "All right, let's break down the answer together. We are looking for the new expected loss of treating. The penalty only happens if they don't have the disease. Right, and the probability of no disease is still three quarters. But the new loss penalty is four. Three quarters times four is three. And as we established action A with holding, still has an expected loss of two. So let's compare them. Treating is three with holding is two. Therefore, with holding, now has the lower expected loss. It went from being the worse option to the better option. The exact same probability, a 25% chance of disease, led to a completely different medical decision,"
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host A",
+      "startTime": 1592.07,
+      "endTime": 1630.44,
+      "text": "simply because one single consequence changed. It's incredible, honestly. The data didn't change at all. The physical reality of the patient didn't change, but the optimal decision completely flipped. What this reveals is the hidden mechanism of a crossover point. In any decision model like this, there is a specific mathematical threshold where the expected loss of treating perfectly equals the expected loss of withholding. Like a seesaw. Exactly. They balance perfectly on a knife's edge. And once your patient's probability of disease crosses that threshold, your clinical decision flips. But how do we actually find that crossover"
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host B",
+      "startTime": 1630.44,
+      "endTime": 1669.88,
+      "text": "point conceptually because right now it feels like we just randomly stumbled across it by testing 25%. We can actually derive it. It requires a tiny bit of algebra, which will overview conceptually so you can see the entered working into the hood. Let's set up an equation together. Okay, let's do it. Let's call the probability of disease P. Simple enough, P. And let's use H to represent the harm, which is the loss from treating in the absence of disease. The loss of missing the disease remains fixed at eight. So we want to find the exact probability P where the loss of withholding equals the loss of treating. We are just setting them equal to each other."
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host A",
+      "startTime": 1669.88,
+      "endTime": 1704.04,
+      "text": "Right. We equate withholding, which is eight multiplied by P, to treating, which is H multiplied by the probability of no disease. And the probability of no disease is just one minus P. So the equation is eight P equals H times one minus P. Exactly. Now we distribute the H on the right side. That gives us 8p equals H minus HP. Okay, I'm following and we want to solve for p. So we need to get all the p's on one side.",
+      "highlightType": "key_point",
+      "highlightSummary": "Right. We equate withholding, which is eight multiplied..."
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host B",
+      "startTime": 1704.04,
+      "endTime": 1734.76,
+      "text": "We add HP to both sides. That gives us 8p plus HP equals H. Perfect. Now pull the P out. P times the sum of 8 plus H equals H. Finally, divide both sides by 8 plus H. So P equals H divided by the sum of 8 and H. That is our universal threshold formula. Yes. And let's actually plug our fictional numbers back into that formula to prove it works."
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host A",
+      "startTime": 1735.56,
+      "endTime": 1774.0,
+      "text": "In our first scenario, H, the harm of unnecessary treatment was 2. So the crossover point is 2 divided by 8 plus 2. 2 divided by 10. That's 0.2 or 20%. And what does that 20% mean in plain language? It means that if this patient's probability of disease is over 20%, the math says we must treat them. In our first scenario, the patient's probability was 25%. Since 25% is higher than the 20% threshold, the model told us to treat. to treat. But then we change the consequence. The newly discovered side effect increased"
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host B",
+      "startTime": 1774.0,
+      "endTime": 1812.76,
+      "text": "age from 2 up to 4. Let's run the formula again. The crossover point is now 4 divided by 8 plus 4. 4 divided by 12. That's 1 third or roughly 33.3 percent. The threshold for action literally shifted upward. And since our patients fixed probability of 25 percent is now lower than the new 33% threshold, the math says we must withhold treatment. The threshold moved right past our patient. The patient stood completely still. The disease stood completely still. But the goalposts for medical intervention were entirely relocated based purely on our understanding"
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host A",
+      "startTime": 1812.76,
+      "endTime": 1848.84,
+      "text": "of the consequences. And this is such a profound realization when you step back and look at how science and medicine are debated in the public sphere. We constantly see these endless furious debates over what the data says. Oh, all the time. People argue endlessly about the raw probabilities. But this mathematical proof shows us that sometimes arguing over the data is completely missing the point. The data might actually be perfectly clear. The disagreement might just be driven by the invisible loss units that different people or different doctors are privately assigning to the outcomes. Exactly."
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host B",
+      "startTime": 1848.84,
+      "endTime": 1885.34,
+      "text": "Someone who places a massive, terrifying weight on the side effects of a drug, they will demand a much higher probability of disease before they agree to treat. Right, their threshold is sky high. But someone who is terrified of the disease itself, they will demand action. Even if the probability is incredibly low, they are looking at the exact same data, but their thresholds are miles apart because their loss functions are entirely different. And this isn't just an abstract philosophical debate. This dynamic is exactly why medical guidelines change at the national level, even when they're underlying biology of a disease hasn't changed at all."
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host A",
+      "startTime": 1885.34,
+      "endTime": 1922.82,
+      "text": "Which brings us out of the realm of abstract loss units and into the real world. Let's look at historical stroke prevention strategies. Yes, we are turning to our final source, a 2011 study published by Mark Ekman and his colleagues. They built a complex decision model for a hypothetical older man diagnosed with atrial fibrillation. To understand the stakes here, we really need to understand atrial fibrillation, often just called a-fib. It is a very common condition where the upper chambers of the heart beat irregularly. And because the pumping is chaotic, blood can pool in the heart. Right. And when blood pools, it tends to clot."
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host B",
+      "startTime": 1922.82,
+      "endTime": 1960.78,
+      "text": "If one of those clots breaks loose, travels up to the brain and blocks an artery, it causes an ischemic stroke, which is devastating. Yeah. So the standard medical intervention is to put the patient on a blood thinner to basically prevent the cloths from forming. But this is exactly pauker and Caesars dilemma played out with the highest possible stakes. Because blood thinners introduce an entirely new massive risk of your bleeding. If you thin the blood too much. A minor bump can cause internal hemorrhage or a blood vessel in the brain could leak, causing a hemorrhagic stroke. You are balancing the benefit of preventing a clot against",
+      "highlightType": "insight",
+      "highlightSummary": "If one of those clots breaks loose, travels..."
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host A",
+      "startTime": 1960.78,
+      "endTime": 1996.76,
+      "text": "the harm of causing a bleed. To mathematically measure the expected loss and benefit here, ECMAN's team obviously couldn't use abstract numbers like two and eight. They needed a real-world unit. So they protected something called quality-adjusted life expectancy or qualities. A quality is a fascinating, if somewhat controversial metric used heavily in health economics. It combines both the length of a person's life and the quality of that life into a single number. Right, one quality equals one year in perfect health. But if you suffer a severe stroke that survived for 10 years, those 10 years are heavily penalized in the math. They might"
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host B",
+      "startTime": 1996.76,
+      "endTime": 2034.0,
+      "text": "only count as four or five qualities because the quality of life has been severely diminished by paralysis or cognitive decline. So Ekman's team used qualities to define the loss function of strokes versus major bleeds. And they looked at two different historical strategies. Let's look at scenario A. They were comparing aspirin against warfarin. Well, aspirin is a relatively mild blood thinner. Warfarin though is a much older, much stronger medication. Interestingly, warfarin was originally developed as a rat poison. Wait, really? Rat poison? Yeah. it was so effective at causing internal bleeding and rodents before doctors eventually"
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host A",
+      "startTime": 2034.0,
+      "endTime": 2073.44,
+      "text": "learned how to dose it carefully for human cardiovascular patients. Wow, though it is highly effective at preventing clots, but the bleeding risk is significant and it requires constant blood tests and pretty strict dietary restrictions. So in Ekman's mathematical model, comparing aspirin to warfarin, they found the crossover point. Warfarin became the preferable, mathematically optimal action only when the patient's annual ischemic stroke risk rose above approximately 1.7%. Okay, so if the patient's biological risk of stroke was below 1.7%, the severe bleeding risk of the heavy duty warfarin actually outweighed the stroke prevention benefit."
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host B",
+      "startTime": 2073.44,
+      "endTime": 2097.88,
+      "text": "In that state of the world, aspirin yielded a higher quality adjusted life expectancy. Okay, so 1.7% is our historical threshold in scenario A. But then, ECMAN introduced scenario B. The medical landscape changed. The authors added a newer medical option into the mathematical model based on massive clinical trial data from a drug called De Bigitran."
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host A",
+      "startTime": 2098.86,
+      "endTime": 2137.42,
+      "text": "Specifically, they used data from a famous trial known as the RE-LY trial. De Bigitran belonged to a newer class of drugs. It offered a completely different biological balance of stroke prevention efficacy versus bleeding risk compared to the old standard war friend. And when Ekman's team fed this new drugs profile into the quality mathematical model, the crossover point plummeted. With the new option on the table, it became preferable to aspirin at a much lower threshold. The model suggested intervening with the stronger drug when the stroke risk was above approximately 0.9% per year. The threshold dropped from 1.7% all the way down to"
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host B",
+      "startTime": 2137.42,
+      "endTime": 2173.58,
+      "text": "0.9%. Now before we look at what that means for a patient, we have to responsibly point out what the sources leave uncertain here. These plotted thresholds, the exact lines of 1.7% and 0.9% are not laws of physics. No, not at all. They depend entirely on the modeled strategies and the highly specific assumptions derived from that REL-Y trial data. That is a critical caveat. Models are inherently simplifications of reality. The REL-Y trial studied a very specific demographic of patients under controlled clinical conditions. Real-world, un-model variables could easily"
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host A",
+      "startTime": 2173.58,
+      "endTime": 2211.3,
+      "text": "shift these exact crossover points in a real clinical setting. Things like a specific patient's declining kidney function, their age, how consistently they remember to take their pills, or complex interactions with other medications they might be taking. The map is definitely not the territory. But assuming the model's parameters hold roughly true for our hypothetical patient, Let's look at the final stunning scenario. I want you, the listener, to imagine an illustrative stroke risk for our hypothetical older man. Let's say his physical biological risk of having a stroke is exactly 1.2% per year. So we have fixed the evidence.",
+      "highlightType": "action_item",
+      "highlightSummary": "shift these exact crossover points in a real..."
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host B",
+      "startTime": 2211.3,
+      "endTime": 2249.78,
+      "text": "The probability of stroke is locked at 1.2%. Now what would happen at this fixed risk when the newer medication was introduced? Think about where 1.2% sits between our two historical thresholds. Take just a beat to place that number. Between 0.9 and 1.7. Let's reveal the outcome. At a 1.2% risk in scenario A, the original comparison favored aspirin. Why? Because 1.2% is below the 1.7% warfarin threshold. Right, it hadn't crossed the line yet. So the doctor looks at the patient, looks at the math, and prescribes aspirin."
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host A",
+      "startTime": 2249.78,
+      "endTime": 2288.62,
+      "text": "But when the newer option to Bigitran is included in Scenario B, the threshold for intervention drops to 0.9% since our patients 1.2% risk is higher than 0.9%. The mathematical model now strictly favors the new stronger option. The patient's physical heart didn't change one bit. His risk of having a stroke stayed totally fixed at 1.2%. But simply because the available actions in the world changed because a new drug altered the landscape of potential consequences, benefits, and harms, the optimal decision flipped entirely. It is entirely counterintuitive until you walk through the math."
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host B",
+      "startTime": 2288.62,
+      "endTime": 2327.3,
+      "text": "The exact same probability leads to a totally different decision. It's brilliant. So what does this all mean for us? I've covered a massive amount of ground today. As we wrap up this deep dive, I want to ask you the listener a direct question. Little homework. Exactly. Looking back at the automated patch clamp rig dynamically choosing its voltage steps in the darkroom and then our fictional math problem about withholding treatment. And finally, the real world stroke prevention quality model, which observation changed the explanation for you. Which of those examples made the paradox of the shifting threshold finally click in your mind? It is a question really worth pondering as you can seem scientific news and medical"
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host A",
+      "startTime": 2327.3,
+      "endTime": 2364.7,
+      "text": "advice moving forward. And I want to leave you with one final slightly provocative thought that ties us all together. Oh, I like a provocative thought. here. It combines James O. Berger's objective Bayesian analysis with Abraham Wald's decision theory. We talked extensively about how the automated patch clamp rig uses reference priors to let the data speak for itself when exploring entirely novel frontiers. Like those uncharted lab-grown IPSC-derived cells where we have absolutely zero historical baseline. Right, situations where we are totally in the dark about the biological reality. But here is the provocation. If we are truly in"
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host B",
+      "startTime": 2364.7,
+      "endTime": 2403.28,
+      "text": "the dark about the biology, how do we responsibly assign the loss units for consequences we haven't even discovered yet? Oh wow. If Wald's theory proves that the optimal decision is entirely dependent on weighing the exact costs of our actions, but we are exploring a scientific frontier so new that we don't even know what the catastrophic costs are, are we always flying slightly blind until we assign a numerical cost to our own ignorance? That is a phenomenal point. We can invent a machine to calculate the exact probability of an outcome perfectly, but until we inherently know how much that outcome hurts, we still don't actually know what to do."
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host A",
+      "startTime": 2403.28,
+      "endTime": 2413.1,
+      "text": "The diagnostic landscape is murky indeed, and sometimes the data alone just isn't enough. Thank you for taking this deep dive with us today. Keep questioning the thresholds, and we'll see you next time."
+    }
+  ]
+}
