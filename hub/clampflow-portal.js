@@ -87,6 +87,7 @@
     html += '<div id="crp-top-hub-nav" style="width:100%;max-width:1510px;margin:0 auto 14px auto;padding:9px 12px;background:rgba(9,14,26,0.88);border:1px solid rgba(245,158,11,0.38);border-radius:15px;box-shadow:0 10px 28px rgba(0,0,0,0.45);backdrop-filter:blur(14px);box-sizing:border-box;">' +
       '<div style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;">' +
         '<a href="https://my-clampflow.carrd.co" class="crp-hub-pill" style="display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:800;text-decoration:none;color:#090E1A;background:#F59E0B;box-shadow:0 0 14px rgba(245,158,11,0.55);border:1px solid #F59E0B;white-space:nowrap;">&#128200; ClampFlow ABF</a>' +
+        '<a href="https://yorekms.github.io/deep-dive-podcasts/statweave/portal.html" class="crp-hub-pill" style="display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:700;text-decoration:none;color:#A7F3D0;background:rgba(6,78,59,0.52);border:1px solid rgba(16,185,129,0.55);white-space:nowrap;">&#128202; StatWeave Stats</a>' +
       '</div>' +
       '<div style="margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;">' +
         '<span style="font-size:10px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;">Research Portals &amp; Feeds:</span>' +
@@ -115,6 +116,9 @@
           '<div style="display:flex;flex-wrap:wrap;gap:9px;align-items:center;">' +
             '<a href="' + clampflowFullUrl + '" target="_blank" rel="noopener" class="cf-btn-primary">' +
               '&#128640; Open Full-Screen Workbench &#8599;' +
+            '</a>' +
+            '<a href="https://yorekms.github.io/deep-dive-podcasts/statweave/portal.html" class="cf-btn-sec" style="border-color:rgba(16,185,129,0.65);color:#A7F3D0;">' +
+              '&#128202; Analyze Compiled .xlsx in StatWeave &#8594;' +
             '</a>' +
             '<button id="cf-reload-frame-btn" type="button" class="cf-btn-sec">' +
               '&#8635; Reset / Reload Embedded App' +
@@ -366,7 +370,7 @@
     if (!document.getElementById('crp-homogeneous-layout')) {
       var st = document.createElement('style');
       st.id = 'crp-homogeneous-layout';
-      st.textContent = 'html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:24px 22px 145px 22px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper,#crp-standalone-clampflow-wrapper,#crp-top-hub-nav,#crp-author-cred-box{width:100% !important;max-width:1510px !important} .crp-grid,.crp-ep-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px 14px !important} .crp-ep-lbl{white-space:normal !important;overflow:visible !important;display:block !important;-webkit-line-clamp:unset !important;line-height:1.35 !important;word-break:break-word !important} .crp-ep-chk{width:16px;height:16px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22) !important;border-color:#10B981 !important;color:#34D399 !important;font-weight:900} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} #crp-title{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.3 !important} @media (max-width:780px){.crp-grid,.crp-ep-grid{grid-template-columns:1fr !important} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important}}';
+      st.textContent = 'html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:24px 22px 145px 22px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper,#crp-standalone-clampflow-wrapper,#crp-standalone-statweave-wrapper,#crp-top-hub-nav,#crp-author-cred-box{width:100% !important;max-width:1510px !important} .crp-grid,.crp-ep-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px 14px !important} .crp-ep-lbl{white-space:normal !important;overflow:visible !important;display:block !important;-webkit-line-clamp:unset !important;line-height:1.35 !important;word-break:break-word !important} .crp-ep-chk{width:16px;height:16px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22) !important;border-color:#10B981 !important;color:#34D399 !important;font-weight:900} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} #crp-title{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.3 !important} @media (max-width:780px){.crp-grid,.crp-ep-grid{grid-template-columns:1fr !important} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important}}';
       (document.head || document.documentElement).appendChild(st);
     }
   } catch (e) {}
@@ -413,6 +417,7 @@
   function defaultAccent() {
     if (HUB === 'scientific-software') return '#C084FC';
     if (HUB === 'clampflow') return '#F59E0B';
+    if (HUB === 'statweave') return '#10B981';
     return '#38BDF8';
   }
 
@@ -492,12 +497,14 @@
           var base = 'display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;text-decoration:none;white-space:nowrap;';
           var html = '';
           net.sites.forEach(function (s) {
-            var isAct = (s.slug === HUB) || (location.hostname && s.url && s.url.indexOf(location.hostname) !== -1);
+            var isAct = (s.slug === HUB) || (location.hostname && location.hostname.indexOf('github.io') === -1 && s.url && s.url.indexOf(location.hostname) !== -1);
             var st = isAct
               ? ('font-weight:800;color:#090E1A;background:' + accent + ';box-shadow:0 0 14px ' + accent + '66;border:1px solid ' + accent + ';')
               : (s.slug === 'clampflow'
                 ? 'font-weight:700;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);'
-                : 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);');
+                : (s.slug === 'statweave'
+                  ? 'font-weight:700;color:#A7F3D0;background:rgba(6,78,59,0.52);border:1px solid rgba(16,185,129,0.55);'
+                  : 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);'));
             html += '<a href="' + esc(s.url) + '" class="crp-hub-pill" style="' + base + st + '">' + esc(s.label) + '</a>';
           });
           rows[0].innerHTML = html;

@@ -4,6 +4,12 @@
   if (window.__crpStandaloneAppLoaded_statweave) return;
   window.__crpStandaloneAppLoaded_statweave = true;
 
+  var DEFAULT_WASM_WORKBENCH = "https://yorekms.github.io/deep-dive-podcasts/statweave";
+  var R_ATLAS_URL = "https://yorekms.github.io/deep-dive-podcasts/statweave/atlas.html";
+  var COLAB_URL = "https://colab.research.google.com/drive/19gFnTy4zesPY3NOrYTSh1tvkCydejJIA";
+  var SUITE_ZIP_URL = "https://yorekms.github.io/deep-dive-podcasts/statweave/StatWeave_Python_Web_Suite_v0.9.5.zip";
+  var PORTAL_MIRROR_URL = "https://yorekms.github.io/deep-dive-podcasts/statweave/portal.html";
+
   var rawInjectedBase = "__STATWEAVE_PUBLIC_BASE_URL__";
   var rawCarrdUrl = "__STATWEAVE_CARRD_URL__";
   var rawClampflowUrl = "__CLAMPFLOW_CARRD_URL__";
@@ -18,9 +24,22 @@
   function sanitizeBackendUrl(val) {
     var s = String(val || "").trim().replace(/\/+$/, "");
     if (!s || s.charAt(0) === "_") return "";
-    if (/^https:\/\/[a-zA-Z0-9.-]+(?::\d+)?(?:\/.*)?$/.test(s)) return s.replace(/\/app.*$/, "");
-    if (/^http:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?(?:\/.*)?$/.test(s)) return s.replace(/\/app.*$/, "");
+    if (/^https:\/\/[a-zA-Z0-9.-]+(?::\d+)?(?:\/.*)?$/.test(s)) return s.replace(/\/app(?:\?.*)?$/, "");
+    if (/^http:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?(?:\/.*)?$/.test(s)) return s.replace(/\/app(?:\?.*)?$/, "");
     return "";
+  }
+
+  function isWasmWorkbenchUrl(cleanUrl) {
+    return cleanUrl.indexOf("yorekms.github.io/deep-dive-podcasts/statweave") !== -1;
+  }
+
+  function resolveSharePortalUrl() {
+    try {
+      if (window.location.hostname && window.location.hostname.indexOf("carrd.co") !== -1) {
+        return statweaveCarrdUrl;
+      }
+    } catch (e) {}
+    return PORTAL_MIRROR_URL;
   }
 
   function detectInitialBackendUrl() {
@@ -41,7 +60,8 @@
       var fromAttr = sanitizeBackendUrl(rootEl.getAttribute("data-workbench-url"));
       if (fromAttr) return fromAttr;
     }
-    return sanitizeBackendUrl(rawInjectedBase);
+    var injected = sanitizeBackendUrl(rawInjectedBase);
+    return injected || DEFAULT_WASM_WORKBENCH;
   }
 
   var statweaveBaseUrl = detectInitialBackendUrl();
@@ -93,9 +113,9 @@
               '<input type="text" readonly value="https://yorekms.github.io/deep-dive-podcasts/feed-philosophy-science.xml" onclick="this.select()" style="width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;" />' +
             '</div>' +
             '<div style="background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;">' +
-              '<div style="font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;">Master Network Feed (All 746 Deep Dive Episodes)</div>' +
+              '<div style="font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;">Master Network Feed (All Deep Dive Episodes)</div>' +
               '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;">' +
-                '<a href="podcast://yorekms.github.io/deep-dive-podcasts/feed.xml" class="crp-ctrl-btn" style="background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;">Apple Podcasts (All 746)</a>' +
+                '<a href="podcast://yorekms.github.io/deep-dive-podcasts/feed.xml" class="crp-ctrl-btn" style="background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;">Apple Podcasts (Master)</a>' +
                 '<button type="button" class="crp-ctrl-btn crp-copy-rss" data-rss="https://yorekms.github.io/deep-dive-podcasts/feed.xml">Copy Master RSS URL</button>' +
                 '<a href="https://yorekms.github.io/deep-dive-podcasts/" target="_blank" rel="noopener" class="crp-ctrl-btn" style="text-decoration:none;">All 12 Feeds Directory &#8599;</a>' +
               '</div>' +
@@ -107,72 +127,58 @@
     }
   }
 
+  function buildEmbedUrls(clean) {
+    if (isWasmWorkbenchUrl(clean)) {
+      return {
+        appUrl: clean + '/?embedded=1',
+        fullUrl: clean + '/'
+      };
+    }
+    return {
+      appUrl: clean + '/app?embedded=1',
+      fullUrl: clean + '/app'
+    };
+  }
+
   function applyBackendUrl(baseUrl) {
-    var clean = sanitizeBackendUrl(baseUrl);
+    var clean = sanitizeBackendUrl(baseUrl) || DEFAULT_WASM_WORKBENCH;
     statweaveBaseUrl = clean;
+    var urls = buildEmbedUrls(clean);
     var fullLink = document.getElementById('sw-open-full-btn');
     var popLink = document.getElementById('sw-popout-link');
     var statusBadge = document.getElementById('sw-engine-status-badge');
     var bodyHost = document.getElementById('statweave-frame-body');
     if (!bodyHost) return;
 
-    if (!clean) {
-      if (fullLink) fullLink.href = '#statweave-frame-container';
-      if (popLink) popLink.style.display = 'none';
-      if (statusBadge) {
-        statusBadge.style.color = '#FBBF24';
-        statusBadge.innerHTML = '&#9679; Cloud Backend Ready to Link';
-      }
-      bodyHost.innerHTML =
-        '<div style="padding:44px 24px;max-width:760px;margin:0 auto;text-align:left;color:#E2E8F0;">' +
-          '<div style="display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.45);color:#7DD3FC;font-size:11px;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Cloud Workbench Endpoint Setup</div>' +
-          '<h2 style="margin:0 0 10px 0;font-size:22px;font-weight:800;color:#FFFFFF;">Connect Your Live StatWeave Cloud Container</h2>' +
-          '<p style="margin:0 0 16px 0;font-size:13.5px;line-height:1.6;color:#CBD5E1;">Paste your deployed HTTPS backend URL (Render, Railway, Fly.io, or Cloud Run) below to launch the interactive workbench immediately in this browser, or set <code style="color:#6EE7B7;">"workbenchUrl"</code> in <code style="color:#FDE68A;">hub/statweave-config.json</code> so every visitor connects automatically.</p>' +
-          '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">' +
-            '<input id="sw-custom-backend-input" type="url" placeholder="https://statweave-workbench.onrender.com" style="flex:1;min-width:260px;padding:10px 12px;border-radius:10px;border:1px solid #334155;background:#050914;color:#F8FAFC;font-size:13px;font-family:monospace;" />' +
-            '<button id="sw-connect-backend-btn" type="button" class="sw-btn-primary">Connect &amp; Launch Workbench &#8594;</button>' +
-          '</div>' +
-          '<div style="font-size:12px;color:#94A3B8;line-height:1.5;">Tip: You can also test any URL directly via <code style="color:#CBD5E1;">?backend=https://your-service-url</code> or launch zero-install from Google Drive using <code style="color:#6EE7B7;">StatWeave_Cloud_Workbench_Colab.ipynb</code>.</div>' +
-        '</div>';
-      var btn = document.getElementById('sw-connect-backend-btn');
-      var inp = document.getElementById('sw-custom-backend-input');
-      if (btn && inp) {
-        btn.addEventListener('click', function () {
-          var chosen = sanitizeBackendUrl(inp.value);
-          if (!chosen) {
-            inp.style.borderColor = '#EF4444';
-            return;
-          }
-          try { localStorage.setItem('statweave_backend_url', chosen); } catch (e) {}
-          applyBackendUrl(chosen);
-        });
-      }
-      return;
-    }
-
-    var appUrl = clean + '/app?embedded=1';
-    var fullUrl = clean + '/app';
-    if (fullLink) fullLink.href = fullUrl;
+    if (fullLink) fullLink.href = urls.fullUrl;
     if (popLink) {
-      popLink.href = fullUrl;
+      popLink.href = urls.fullUrl;
       popLink.style.display = 'inline';
     }
-    if (statusBadge) {
-      statusBadge.style.color = '#FBBF24';
-      statusBadge.innerHTML = '&#9679; Waking Cloud Statistical Engine&hellip;';
-    }
-    bodyHost.innerHTML =
-      '<iframe id="statweave-live-iframe" src="' + appUrl + '" title="StatWeave Contributor Workbench" style="width:100%;height:960px;min-height:84vh;border:none;display:block;background:#F4F6F2;" allow="clipboard-read; clipboard-write; fullscreen"></iframe>';
 
-    fetch(clean + '/healthz', { mode: 'cors', cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) {
-        if (d && statusBadge) {
-          statusBadge.style.color = '#34D399';
-          statusBadge.innerHTML = '&#9679; Server-Protected OpenAI Key + SHA-256 Provenance';
-        }
-      })
-      .catch(function () {});
+    bodyHost.innerHTML =
+      '<iframe id="statweave-live-iframe" src="' + urls.appUrl + '" title="StatWeave Interactive Statistics & Figure Workbench" style="width:100%;height:960px;min-height:84vh;border:none;display:block;background:#F4F6F2;" allow="clipboard-read; clipboard-write; fullscreen"></iframe>';
+
+    if (isWasmWorkbenchUrl(clean)) {
+      if (statusBadge) {
+        statusBadge.style.color = '#34D399';
+        statusBadge.innerHTML = '&#9679; Live Browser Python 3.12 (SciPy / Statsmodels) &bull; 100% Client-Side Private';
+      }
+    } else {
+      if (statusBadge) {
+        statusBadge.style.color = '#FBBF24';
+        statusBadge.innerHTML = '&#9679; Connecting Cloud Statistical Server&hellip;';
+      }
+      fetch(clean + '/healthz', { mode: 'cors', cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (d && statusBadge) {
+            statusBadge.style.color = '#34D399';
+            statusBadge.innerHTML = '&#9679; Connected Cloud Server + SHA-256 Provenance';
+          }
+        })
+        .catch(function () {});
+    }
   }
 
   function injectStatWeavePortal() {
@@ -187,14 +193,15 @@
     wrap.id = 'crp-standalone-statweave-wrapper';
     wrap.style.cssText = 'width:100%;max-width:1510px;margin:0 auto;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#F1F5F9;text-align:left;';
 
-    var qrData = encodeURIComponent(statweaveCarrdUrl);
-    var initFullUrl = statweaveBaseUrl ? (statweaveBaseUrl + '/app') : '#statweave-frame-container';
+    var sharePortalUrl = resolveSharePortalUrl();
+    var qrData = encodeURIComponent(sharePortalUrl);
+    var initUrls = buildEmbedUrls(statweaveBaseUrl || DEFAULT_WASM_WORKBENCH);
     var html = '';
 
-    /* 1. TOP NETWORK HUB NAVIGATION BAR (2-row layout matching clampflow-portal.js & portal-analytics.js) */
+    /* 1. TOP NETWORK HUB NAVIGATION BAR (2-row layout matching clampflow-portal.js & hub-nav.js) */
     html += '<div id="crp-top-hub-nav" style="width:100%;max-width:1510px;margin:0 auto 14px auto;padding:9px 12px;background:rgba(9,14,26,0.88);border:1px solid rgba(16,185,129,0.42);border-radius:15px;box-shadow:0 10px 28px rgba(0,0,0,0.45);backdrop-filter:blur(14px);box-sizing:border-box;">' +
       '<div id="crp-hub-pills-row" style="display:flex;flex-wrap:wrap;gap:5px;justify-content:center;align-items:center;">' +
-        '<a href="' + statweaveCarrdUrl + '" class="crp-hub-pill" style="display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:800;text-decoration:none;color:#090E1A;background:#10B981;box-shadow:0 0 14px rgba(16,185,129,0.55);border:1px solid #10B981;white-space:nowrap;">&#128202; StatWeave Stats</a>' +
+        '<a href="' + sharePortalUrl + '" class="crp-hub-pill" style="display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:800;text-decoration:none;color:#090E1A;background:#10B981;box-shadow:0 0 14px rgba(16,185,129,0.55);border:1px solid #10B981;white-space:nowrap;">&#128202; StatWeave Stats</a>' +
         '<a href="' + clampflowCarrdUrl + '" class="crp-hub-pill" style="display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;font-size:11px;font-weight:700;text-decoration:none;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);white-space:nowrap;">&#128200; ClampFlow ABF</a>' +
       '</div>' +
       '<div style="margin-top:8px;padding-top:7px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;">' +
@@ -208,33 +215,44 @@
       '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">' +
         '<div style="flex:1;min-width:290px;">' +
           '<div style="display:inline-flex;align-items:center;gap:6px;padding:4px 11px;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);border-radius:999px;font-size:10.5px;font-weight:800;color:#6EE7B7;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">' +
-            '&#128202; Conversational Lab Statistics &bull; ClampFlow 6-Tab Ready &bull; Any Computer' +
+            '&#128202; Live Browser Python 3.12 Engine &bull; ClampFlow 6-Tab Ready &bull; 28 R Benchmarks' +
           '</div>' +
           '<h1 style="margin:0 0 7px 0;font-size:27px;font-weight:900;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.18;">' +
             'StatWeave — Talk Through Your Experiment, Get Publication Figures' +
           '</h1>' +
           '<p style="margin:0 0 13px 0;font-size:13.5px;color:#CBD5E1;line-height:1.55;max-width:920px;">' +
-            'Paste any <strong>2-column spreadsheet table</strong> or drop your compiled <strong>ClampFlow 6-tab Excel (<code style="color:#6EE7B7;">.xlsx</code>)</strong> workbook. Discuss experimental units, animal/cell pooling, and reversible technical masks in plain English while verified deterministic engines compute exact statistics, Superplots, multi-panel figures, and reproducible <code style="color:#FDE68A;">.zip</code> bundles.' +
+            'Paste any <strong>2-column spreadsheet table</strong>, load one of <strong>28 R-verified benchmark datasets</strong>, or drop your compiled <strong>ClampFlow 6-tab Excel (<code style="color:#6EE7B7;">.xlsx</code>)</strong> workbook. Build intermediate working sheets, inspect multi-angle exploratory SVG plots, compute exact SciPy/Statsmodels tests, and export vector <code style="color:#FDE68A;">.svg/.pdf/.png</code> figures &amp; reproducible <code style="color:#FDE68A;">.zip</code> archives right in your browser.' +
           '</p>' +
           '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">' +
-            '<span class="sw-step-chip"><strong style="color:#34D399;">Step 1:</strong> Sign in (ORCID / GitHub / Lab Invite) &amp; Accept Contributor Terms</span>' +
-            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step 2:</strong> Paste 2+ Columns or Drop <code style="color:#E2E8F0;">*_ClampFlow_Compiled.xlsx</code></span>' +
-            '<span class="sw-step-chip"><strong style="color:#F59E0B;">Step 3:</strong> Refine Stats &amp; Figures &#8594; Export SVG, PDF, PNG &amp; Methods</span>' +
+            '<span class="sw-step-chip"><strong style="color:#34D399;">Step &#9312;:</strong> Paste Table, Drop <code style="color:#E2E8F0;">.xlsx/.csv</code>, or Pick an R Dataset</span>' +
+            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step &#9313;:</strong> Browse Exploratory SVG Cards &amp; Working Sheets</span>' +
+            '<span class="sw-step-chip"><strong style="color:#F59E0B;">Step &#9314;:</strong> Run Verified Stats &#8594; Export SVG, PDF, PNG, XLSX &amp; ZIP</span>' +
           '</div>' +
           '<div style="display:flex;flex-wrap:wrap;gap:9px;align-items:center;">' +
-            '<a id="sw-open-full-btn" href="' + initFullUrl + '" target="_blank" rel="noopener" class="sw-btn-primary">&#128640; Open Full-Screen Workbench &#8599;</a>' +
-            '<button id="sw-reload-frame-btn" type="button" class="sw-btn-sec">&#8635; Reload Embedded App</button>' +
-            '<button id="sw-copy-link-btn" type="button" class="sw-btn-sec">&#128203; Copy Portal Link</button>' +
+            '<a id="sw-open-full-btn" href="' + initUrls.fullUrl + '" target="_blank" rel="noopener" class="sw-btn-primary">&#128640; Open Full-Screen Workbench &#8599;</a>' +
+            '<a href="' + R_ATLAS_URL + '" target="_blank" rel="noopener" class="sw-btn-sec">&#128218; 28-Dataset R Visual Atlas &#8599;</a>' +
+            '<a href="' + SUITE_ZIP_URL + '" download="StatWeave_Python_Web_Suite_v0.9.5.zip" class="sw-btn-sec">&#11015; Download Python Suite (.zip)</a>' +
+            '<a href="' + COLAB_URL + '" target="_blank" rel="noopener" class="sw-btn-sec">&#9729;&#65039; Cloud AI Notebook (Colab) &#8599;</a>' +
             '<a href="' + clampflowCarrdUrl + '" class="sw-btn-sec">&#128200; Compile Raw .abf in ClampFlow &#8594;</a>' +
-            '<a href="https://my-scientific-software.carrd.co" class="sw-btn-sec">&#128187; All Scientific Software Suites &#8594;</a>' +
+            '<button id="sw-reload-frame-btn" type="button" class="sw-btn-sec">&#8635; Reload App</button>' +
+            '<button id="sw-toggle-backend-btn" type="button" class="sw-btn-sec">&#128268; Cloud Server</button>' +
+            '<button id="sw-copy-link-btn" type="button" class="sw-btn-sec">&#128203; Copy Link</button>' +
+          '</div>' +
+          '<div id="sw-backend-drawer" style="display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:rgba(9,14,26,0.92);border:1px solid rgba(56,189,248,0.42);">' +
+            '<div style="font-size:11.5px;color:#CBD5E1;margin-bottom:8px;"><strong>Optional Dedicated Cloud Backend:</strong> Connect a hosted FastAPI container (Render, Railway, Fly.io, or Colab tunnel) or click <em>Use Built-In Browser Engine</em> for zero-install WebAssembly execution.</div>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:8px;">' +
+              '<input id="sw-custom-backend-input" type="url" placeholder="https://statweave-workbench.onrender.com" style="flex:1;min-width:240px;padding:8px 11px;border-radius:9px;border:1px solid #334155;background:#050914;color:#F8FAFC;font-size:12.5px;font-family:monospace;" />' +
+              '<button id="sw-connect-backend-btn" type="button" class="sw-btn-primary">Connect Server &#8594;</button>' +
+              '<button id="sw-reset-wasm-btn" type="button" class="sw-btn-sec">Use Built-In Browser Engine</button>' +
+            '</div>' +
           '</div>' +
         '</div>' +
         '<div style="background:rgba(9,14,26,0.92);border:1px solid rgba(16,185,129,0.42);border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 25px rgba(0,0,0,0.45);flex-shrink:0;">' +
-          '<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=' + qrData + '" alt="QR Code for my-statweave.carrd.co" width="96" height="96" style="border-radius:10px;background:#FFFFFF;padding:4px;flex-shrink:0;" />' +
+          '<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=' + qrData + '" alt="QR Code for StatWeave Portal" width="96" height="96" style="border-radius:10px;background:#FFFFFF;padding:4px;flex-shrink:0;" />' +
           '<div style="max-width:175px;">' +
-            '<div style="font-size:10.5px;font-weight:800;color:#34D399;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;">Contributor Beta QR</div>' +
-            '<div style="font-size:11.5px;color:#CBD5E1;line-height:1.4;margin-bottom:5px;">Open <strong>my-statweave.carrd.co</strong> on any lab rig or laptop.</div>' +
-            '<div style="font-size:10.5px;color:#FBBF24;font-weight:700;">&#128274; Unpublished Raw Data Stays Private</div>' +
+            '<div style="font-size:10.5px;font-weight:800;color:#34D399;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;">Lab Bench Share QR</div>' +
+            '<div style="font-size:11.5px;color:#CBD5E1;line-height:1.4;margin-bottom:5px;">Open <strong>StatWeave</strong> on any lab rig, MacBook, or workstation.</div>' +
+            '<div style="font-size:10.5px;color:#34D399;font-weight:700;">&#128274; No Login Required &bull; Private</div>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -247,11 +265,11 @@
           '<span style="width:10px;height:10px;border-radius:50%;background:#EF4444;display:inline-block;"></span>' +
           '<span style="width:10px;height:10px;border-radius:50%;background:#F59E0B;display:inline-block;"></span>' +
           '<span style="width:10px;height:10px;border-radius:50%;background:#10B981;display:inline-block;"></span>' +
-          '<span style="font-size:12px;color:#E2E8F0;font-weight:700;margin-left:6px;">Live StatWeave Contributor Workbench &mdash; Verified SciPy / Statsmodels Engine</span>' +
+          '<span style="font-size:12px;color:#E2E8F0;font-weight:700;margin-left:6px;">Live StatWeave Visual Workbench &mdash; SciPy / Statsmodels / 28 R Benchmarks</span>' +
         '</div>' +
         '<div style="display:flex;align-items:center;gap:12px;">' +
-          '<span id="sw-engine-status-badge" style="font-size:11px;color:#34D399;font-weight:700;">&#9679; Server-Protected OpenAI Key + SHA-256 Provenance</span>' +
-          '<a id="sw-popout-link" href="' + initFullUrl + '" target="_blank" rel="noopener" style="font-size:11.5px;color:#6EE7B7;text-decoration:none;font-weight:800;">Pop Out Full Screen &#8599;</a>' +
+          '<span id="sw-engine-status-badge" style="font-size:11px;color:#34D399;font-weight:700;">&#9679; Live Browser Python 3.12 (SciPy / Statsmodels) &bull; 100% Client-Side Private</span>' +
+          '<a id="sw-popout-link" href="' + initUrls.fullUrl + '" target="_blank" rel="noopener" style="font-size:11.5px;color:#6EE7B7;text-decoration:none;font-weight:800;">Pop Out Full Screen &#8599;</a>' +
         '</div>' +
       '</div>' +
       '<div id="statweave-frame-body" style="min-height:420px;background:#0B0F17;"></div>' +
@@ -262,28 +280,60 @@
 
     applyBackendUrl(statweaveBaseUrl);
 
-    /* If no backend URL was hardcoded, fetch hub/statweave-config.json from GitHub Pages */
-    if (!statweaveBaseUrl) {
-      var cfgBust = 'v=' + Math.floor(Date.now() / 60000);
-      fetch('https://yorekms.github.io/deep-dive-podcasts/hub/statweave-config.json?' + cfgBust, { cache: 'no-store' })
-        .then(function (r) { return r.ok ? r.json() : null; })
-        .then(function (cfg) {
-          if (cfg && cfg.workbenchUrl) {
-            var resolved = sanitizeBackendUrl(cfg.workbenchUrl);
-            if (resolved) applyBackendUrl(resolved);
-          }
-        })
-        .catch(function () {});
+    /* Check statweave-config.json for optional cloud override */
+    var cfgBust = 'v=' + Math.floor(Date.now() / 60000);
+    fetch('https://yorekms.github.io/deep-dive-podcasts/hub/statweave-config.json?' + cfgBust, { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (cfg) {
+        if (cfg && cfg.workbenchUrl && statweaveBaseUrl === DEFAULT_WASM_WORKBENCH) {
+          var resolved = sanitizeBackendUrl(cfg.workbenchUrl);
+          if (resolved && resolved !== statweaveBaseUrl) applyBackendUrl(resolved);
+        }
+      })
+      .catch(function () {});
+
+    var toggleBtn = document.getElementById('sw-toggle-backend-btn');
+    var drawer = document.getElementById('sw-backend-drawer');
+    var inp = document.getElementById('sw-custom-backend-input');
+    var connBtn = document.getElementById('sw-connect-backend-btn');
+    var resetBtn = document.getElementById('sw-reset-wasm-btn');
+    if (toggleBtn && drawer) {
+      toggleBtn.addEventListener('click', function () {
+        drawer.style.display = drawer.style.display === 'none' ? 'block' : 'none';
+      });
+    }
+    if (connBtn && inp) {
+      connBtn.addEventListener('click', function () {
+        var chosen = sanitizeBackendUrl(inp.value);
+        if (!chosen) {
+          inp.style.borderColor = '#EF4444';
+          return;
+        }
+        try { localStorage.setItem('statweave_backend_url', chosen); } catch (e) {}
+        applyBackendUrl(chosen);
+        if (drawer) drawer.style.display = 'none';
+      });
+    }
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        try {
+          localStorage.removeItem('statweave_backend_url');
+          sessionStorage.removeItem('statweave_backend_override');
+        } catch (e) {}
+        applyBackendUrl(DEFAULT_WASM_WORKBENCH);
+        if (drawer) drawer.style.display = 'none';
+      });
     }
 
     var copyBtn = document.getElementById('sw-copy-link-btn');
     if (copyBtn) {
       copyBtn.addEventListener('click', function () {
+        var targetLink = resolveSharePortalUrl();
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(statweaveCarrdUrl);
+          navigator.clipboard.writeText(targetLink);
         }
         var orig = copyBtn.innerHTML;
-        copyBtn.innerHTML = '&#9989; Copied my-statweave.carrd.co!';
+        copyBtn.innerHTML = '&#9989; Copied Portal Link!';
         setTimeout(function () { copyBtn.innerHTML = orig; }, 2200);
       });
     }
@@ -291,14 +341,15 @@
     var reloadBtn = document.getElementById('sw-reload-frame-btn');
     if (reloadBtn) {
       reloadBtn.addEventListener('click', function () {
-        if (statweaveBaseUrl) {
-          var iframeEl = document.getElementById('statweave-live-iframe');
-          if (iframeEl) iframeEl.src = statweaveBaseUrl + '/app?embedded=1&t=' + Date.now();
+        var iframeEl = document.getElementById('statweave-live-iframe');
+        if (iframeEl && statweaveBaseUrl) {
+          var u = buildEmbedUrls(statweaveBaseUrl).appUrl;
+          iframeEl.src = u + (u.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now();
         }
       });
     }
 
-    /* Load shared hub-nav / portal-analytics.js for Author Credentials Box, GA4, and 17-site pills */
+    /* Load shared hub-nav.js for Author Credentials Box, GA4, and all 17 network pills */
     if (!window.__crpPortalAnalyticsLoaded && !document.getElementById('crp-shared-hub-nav-loader')) {
       var navScript = document.createElement('script');
       navScript.id = 'crp-shared-hub-nav-loader';
@@ -306,21 +357,6 @@
       navScript.setAttribute('data-hub', 'statweave');
       (document.head || document.documentElement).appendChild(navScript);
     }
-
-    /* Ensure StatWeave active pill stays present even before network.json PR merges */
-    setTimeout(function () {
-      var curNav = document.getElementById('crp-top-hub-nav');
-      if (!curNav || !curNav.children || !curNav.children[0]) return;
-      var row0 = curNav.children[0];
-      if (row0.innerHTML.indexOf('my-statweave.carrd.co') === -1) {
-        var pill = document.createElement('a');
-        pill.href = statweaveCarrdUrl;
-        pill.className = 'crp-hub-pill';
-        pill.style.cssText = 'display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:999px;font-size:11px;text-decoration:none;white-space:nowrap;font-weight:800;color:#090E1A;background:#10B981;box-shadow:0 0 14px rgba(16,185,129,0.55);border:1px solid #10B981;';
-        pill.innerHTML = '&#128202; StatWeave Stats';
-        row0.appendChild(pill);
-      }
-    }, 1200);
   }
 
   function wireRssModal() {

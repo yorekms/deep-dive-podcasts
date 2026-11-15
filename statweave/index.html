@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StatWeave — Conversational Scientific Statistics &amp; Publication Figures</title>
+  <link rel="stylesheet" href="./static/app.css?v=095" />
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <strong>StatWeave</strong>
+      <span class="badge badge-teal">Contributor Workbench</span>
+      <a id="clampflow-nav-link" href="https://my-clampflow.carrd.co" target="_blank" rel="noopener" class="nav-pill">
+        &#9889; ClampFlow ABF Compiler &#8599;
+      </a>
+    </div>
+    <div class="topbar-right">
+      <span id="mode-indicator" class="badge badge-muted">Checking server&hellip;</span>
+      <span id="quota-indicator" class="badge badge-outline hidden"></span>
+      <select id="project-switcher" class="select-compact hidden" aria-label="Saved projects"></select>
+      <button id="account-btn" type="button" class="btn btn-ghost btn-sm hidden">Account &amp; Privacy</button>
+      <button id="logout-btn" type="button" class="btn btn-ghost btn-sm hidden">Sign out</button>
+    </div>
+  </header>
+
+  <!-- Gate 1: Sign-In View -->
+  <main id="auth-gate" class="gate-container hidden">
+    <div class="gate-card">
+      <div class="eyebrow">Contributor-Only Research Beta</div>
+      <h1>Paste a table or drop your ClampFlow workbook. Talk through publication stats &amp; figures.</h1>
+      <p class="lead">
+        Hosted OpenAI conversations run on our lab API for researchers and students willing to contribute
+        <strong>deidentified spreadsheets, experimental design clarifications, and figure-refinement dialogues</strong>
+        to evaluate and improve StatWeave. Raw data stays strictly private unless you separately opt in to public showcase.
+      </p>
+
+      <div id="oauth-buttons-row" class="oauth-row hidden">
+        <button id="orcid-login-btn" type="button" class="btn btn-orcid hidden">
+          <span>iD</span> Continue with ORCID
+        </button>
+        <button id="github-login-btn" type="button" class="btn btn-github hidden">
+          Continue with GitHub
+        </button>
+      </div>
+
+      <div id="invite-login-panel" class="invite-panel hidden">
+        <h3 id="invite-panel-title">Researcher &amp; Student Contributor Sign-In</h3>
+        <form id="invite-login-form">
+          <div class="form-grid">
+            <label>
+              <span>Your Name or Handle *</span>
+              <input id="inv-name" type="text" required minlength="2" maxlength="120" placeholder="e.g., Alex Rivera" />
+            </label>
+            <label>
+              <span>ORCID iD or GitHub Handle (optional)</span>
+              <input id="inv-handle" type="text" maxlength="120" placeholder="0000-0002-1825-0097 or @handle" />
+            </label>
+            <label>
+              <span>Lab / Institution (optional)</span>
+              <input id="inv-affil" type="text" maxlength="200" placeholder="e.g., Ion Channel Lab" />
+            </label>
+            <label id="inv-code-wrap">
+              <span>Lab Invite Code *</span>
+              <input id="inv-code" type="password" maxlength="128" placeholder="Enter lab invite code" />
+            </label>
+          </div>
+
+          <div class="consent-box">
+            <label class="checkbox-row">
+              <input id="inv-consent-train" type="checkbox" required />
+              <span>
+                <strong>Required — Private Evaluation &amp; Model-Training Contribution:</strong>
+                I have authority to analyze these files, confirm they contain no regulated HIPAA/PHI identifiers,
+                and agree that deidentified spreadsheets (with stripped metadata) and session trajectories are retained
+                to evaluate and train StatWeave.
+              </span>
+            </label>
+            <label class="checkbox-row">
+              <input id="inv-consent-public" type="checkbox" />
+              <span>
+                <strong>Optional — Public Example Library Showcase:</strong>
+                Only check if your dataset is already published or synthetic and may be considered for the public gallery after review.
+                <em>Leave unchecked for unpublished student or thesis data.</em>
+              </span>
+            </label>
+          </div>
+
+          <div id="auth-error" class="alert alert-error hidden"></div>
+          <button type="submit" class="btn btn-primary btn-lg">Enter StatWeave Workbench &#8594;</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Gate 2: Post-OAuth Consent Step (shown if signed in via ORCID/GitHub before consenting) -->
+  <section id="consent-gate" class="gate-container hidden">
+    <div class="gate-card">
+      <div class="eyebrow">One-Time Contributor Agreement</div>
+      <h2>Welcome, <span id="consent-user-name">Researcher</span></h2>
+      <p class="lead">
+        Confirm your contributor permissions below to unlock hosted OpenAI conversations, deterministic statistical recipes,
+        and vector figure exports.
+      </p>
+      <form id="consent-form">
+        <label style="display:block;margin-bottom:12px;">
+          <span style="display:block;font-size:12px;font-weight:600;margin-bottom:4px;">Lab / Affiliation (optional)</span>
+          <input id="consent-affil" type="text" maxlength="200" placeholder="Department or Lab" style="width:100%;" />
+        </label>
+        <div class="consent-box">
+          <label class="checkbox-row">
+            <input id="oauth-consent-train" type="checkbox" required />
+            <span>
+              <strong>Required — Private Evaluation &amp; Model Training:</strong>
+              Retain deidentified spreadsheets and analysis/figure trajectories to benchmark and train StatWeave.
+              Unpublished raw data is never made public by default.
+            </span>
+          </label>
+          <label class="checkbox-row">
+            <input id="oauth-consent-public" type="checkbox" />
+            <span>
+              <strong>Optional — Public Showcase Opt-In:</strong>
+              Allow consideration for the curated public example gallery (check only for synthetic or published datasets).
+            </span>
+          </label>
+        </div>
+        <div id="consent-error" class="alert alert-error hidden"></div>
+        <button type="submit" class="btn btn-primary btn-lg">Confirm &amp; Open Workbench</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Main Workbench -->
+  <div id="workbench" class="workbench hidden">
+    <!-- Left Column: Intake + Conversation -->
+    <section class="panel chat-panel">
+      <div class="intake-bar">
+        <label class="btn btn-secondary btn-sm file-btn">
+          &#128194; Upload .xlsx / .csv
+          <input id="file-upload-input" type="file" accept=".xlsx,.xls,.csv,.tsv,.txt,.ods" hidden />
+        </label>
+        <button id="open-paste-btn" type="button" class="btn btn-secondary btn-sm">&#128203; Paste 2+ Columns</button>
+        <button id="open-gsheet-btn" type="button" class="btn btn-secondary btn-sm">&#128279; Google Sheet</button>
+        <div class="demo-group">
+          <span class="muted-tiny">Demos:</span>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="timecourse">WT vs KO Timecourse</button>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="clampflow">ClampFlow 6-Tab</button>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="two_group">2-Column t-Test</button>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="paired">Paired Before/After</button>
+        </div>
+        <div id="r-learning-wrap" class="demo-group hidden" style="margin-top:4px;">
+          <span class="muted-tiny" title="28 canonical R repository datasets numerically verified against Rscript">&#128218; R Set:</span>
+          <select id="r-dataset-select" class="select-compact" style="max-width:235px;"></select>
+          <button id="load-r-dataset-btn" type="button" class="btn btn-chip">Load R Data</button>
+        </div>
+      </div>
+
+      <div id="source-banner" class="source-banner hidden">
+        <div class="source-meta">
+          <strong id="source-title">No file loaded</strong>
+          <span id="clampflow-badge" class="badge badge-amber hidden">ClampFlow 6-Tab</span>
+          <span id="working-sheet-badge" class="badge badge-teal hidden" style="background:#dff3ea;color:#115e49;">Working Sheet</span>
+          <span id="source-dims" class="muted-tiny"></span>
+        </div>
+        <div class="sheet-row">
+          <label id="sheet-select-wrap" class="hidden">
+            <span class="muted-tiny">Sheet:</span>
+            <select id="sheet-select" class="select-compact"></select>
+          </label>
+          <span id="source-hash" class="hash-pill" title="Immutable source SHA-256"></span>
+        </div>
+      </div>
+
+      <div id="chat-log" class="chat-log">
+        <div class="empty-chat">
+          <h3>Start in 5 seconds — even from raw numbers</h3>
+          <p>Type raw numbers directly below (e.g. <code>Control: 12, 14, 15 vs Drug: 22, 25, 24</code>), link a <strong>Google Sheet</strong>, paste columns, or upload a <strong>ClampFlow .xlsx</strong> workbook. StatWeave builds clean intermediate working sheets and generates your figure automatically.</p>
+        </div>
+      </div>
+
+      <!-- 1-Click Proposal Bar -->
+      <div id="proposal-bar" class="proposal-bar hidden">
+        <div class="proposal-info">
+          <strong>Pending Proposal Ready</strong>
+          <span id="proposal-kind-text">Review the statistical plan above before running.</span>
+        </div>
+        <div class="proposal-actions">
+          <button id="approve-proposal-btn" type="button" class="btn btn-primary btn-sm">&#10003; Approve &amp; Run</button>
+          <button id="dismiss-proposal-btn" type="button" class="btn btn-ghost btn-sm">Dismiss</button>
+        </div>
+      </div>
+
+      <!-- Quick Prompt Chips -->
+      <div id="prompt-chips" class="prompt-chips"></div>
+
+      <!-- Composer -->
+      <form id="chat-form" class="composer">
+        <textarea id="chat-input" rows="2" placeholder="Paste raw numbers right here (e.g. Control: 12, 14, 15 vs Drug: 22, 25, 24) or ask for an intermediate sheet, test, or figure tweak&hellip;"></textarea>
+        <div class="composer-footer">
+          <div class="feedback-inline">
+            <button id="thumb-up-btn" type="button" class="btn btn-ghost btn-xs" title="Mark this session helpful for training">&#128077; Helpful</button>
+            <button id="thumb-down-btn" type="button" class="btn btn-ghost btn-xs" title="Flag an issue in this session">&#128078; Flag issue</button>
+            <button id="contribute-case-btn" type="button" class="btn btn-ghost btn-xs hidden">&#128230; Save Reviewed Case</button>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <label style="display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:#185c4b;cursor:pointer;" title="When checked, StatWeave builds intermediate working sheets and executes your analysis &amp; figure immediately on Turn 1 without waiting for a separate Approve click.">
+              <input id="draft-first-toggle" type="checkbox" checked />
+              <span>Draft-first (instant sheet &amp; figure)</span>
+            </label>
+            <select id="chat-mode-select" class="select-compact" title="Conversation interpreter mode">
+              <option value="auto">Auto (AI / Local)</option>
+              <option value="offline">Deterministic Offline Commands</option>
+            </select>
+            <button id="send-btn" type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Right Column: 3-Step Visual-First Studio -->
+    <section class="panel studio-panel">
+      <div class="studio-header">
+        <div class="tabs">
+          <button type="button" class="tab" data-tab="data">&#9312; Describe &amp; Sheets</button>
+          <button type="button" class="tab active" data-tab="explore">&#9313; Explore All Figures</button>
+          <button type="button" class="tab" data-tab="figure">&#9314; Figure Studio &amp; Stars</button>
+          <button type="button" class="tab" data-tab="results">Results &amp; Accounting</button>
+          <button type="button" class="tab" data-tab="audit">Audit</button>
+        </div>
+        <div class="export-bar">
+          <button id="dl-xlsx-btn" type="button" class="btn btn-secondary btn-xs" disabled title="Download multi-tab .xlsx workbook (Raw + Intermediate Working Sheets + Results) to open in Google Sheets or Excel">&#128202; Working .xlsx</button>
+          <button id="dl-svg-btn" type="button" class="btn btn-secondary btn-xs" disabled>SVG</button>
+          <button id="dl-pdf-btn" type="button" class="btn btn-secondary btn-xs" disabled>PDF</button>
+          <button id="dl-png-btn" type="button" class="btn btn-secondary btn-xs" disabled>600 DPI PNG</button>
+          <button id="dl-zip-btn" type="button" class="btn btn-primary btn-xs" disabled>&#11015; Reproducible .ZIP</button>
+        </div>
+      </div>
+
+      <!-- Instant Zero-Token Style Bar (shown when Figure Studio has an active figure) -->
+      <div id="style-toolbar" class="style-toolbar hidden">
+        <label>
+          <span>Preset</span>
+          <select id="st-preset">
+            <option value="">Custom / Default</option>
+            <option value="journal_single">Journal 1-Col (85 mm)</option>
+            <option value="journal_double">Journal 2-Col (178 mm)</option>
+            <option value="slide_16_9">Lab Slide (16:9)</option>
+            <option value="poster">Conference Poster</option>
+          </select>
+        </label>
+        <label>
+          <span>Plot</span>
+          <select id="st-plot">
+            <option value="timecourse">Timecourse Line</option>
+            <option value="spaghetti">Spaghetti Trajectories</option>
+            <option value="grouped_bar">Grouped Bars (2-Way)</option>
+            <option value="grouped_box">Grouped Boxes (2-Way)</option>
+            <option value="distribution">Dots + Summary</option>
+            <option value="superplot">Superplot (Pooled)</option>
+            <option value="box">Box + Dots</option>
+            <option value="violin">Violin + Dots</option>
+            <option value="bar">Bar + Dots</option>
+            <option value="paired">Paired Lines</option>
+            <option value="scatter">Scatter / Fit</option>
+            <option value="line">Connected Line</option>
+            <option value="histogram">Histogram</option>
+            <option value="ecdf">ECDF</option>
+            <option value="heatmap">Heatmap</option>
+          </select>
+        </label>
+        <label>
+          <span>Palette</span>
+          <select id="st-palette">
+            <option value="teal">StatWeave Teal</option>
+            <option value="okabe_ito">Okabe-Ito (Colorblind-Safe)</option>
+            <option value="slate_coral">Slate &amp; Coral</option>
+            <option value="viridis_cat">Viridis</option>
+            <option value="blue">Journal Blue</option>
+            <option value="mono">Monochrome Print</option>
+          </select>
+        </label>
+        <label>
+          <span>Error Bar</span>
+          <select id="st-errorbar">
+            <option value="ci">95% CI</option>
+            <option value="sd">Mean &plusmn; SD</option>
+            <option value="sem">Mean &plusmn; SEM</option>
+            <option value="iqr">Median / IQR</option>
+            <option value="none">None</option>
+          </select>
+        </label>
+        <label>
+          <span>P-Bracket</span>
+          <select id="st-pdisplay">
+            <option value="none">In Caption Only</option>
+            <option value="exact">Exact p-value</option>
+            <option value="stars_and_p">Stars + Exact p</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Step 3 Quick Statistical Test & Stars Bar inside Figure Studio -->
+      <div id="studio-stats-bar" class="studio-stats-bar hidden"></div>
+
+      <!-- Tab: Step 2 Explore All Figures -->
+      <div id="tab-explore" class="tab-pane active">
+        <div id="explore-container" class="results-container">
+          <div class="figure-placeholder">
+            <h3>&#9312; Describe Sheet &#8594; &#9313; Explore All Figures &#8594; &#9314; Analysis &amp; Stars</h3>
+            <p>Upload, paste, or link a spreadsheet on the left. StatWeave automatically describes your columns/replicates and generates all candidate figures here so you can inspect the data visually before choosing statistical tests or stars.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Step 3 Figure Studio -->
+      <div id="tab-figure" class="tab-pane hidden">
+        <div id="figure-canvas" class="figure-canvas">
+          <div class="figure-placeholder">
+            <h3>Select any figure in &#9313; Explore All Figures or ask in chat</h3>
+            <p>Every calculation runs locally in verified SciPy / statsmodels routines. Customize colors, layouts, error bars, and significance stars in one click.</p>
+          </div>
+        </div>
+        <div id="figure-caption" class="figure-caption hidden"></div>
+      </div>
+
+      <!-- Tab: Results & Accounting -->
+      <div id="tab-results" class="tab-pane hidden">
+        <div id="results-container" class="results-container">
+          <p class="muted">Run an analysis to inspect statistical tables, method assumptions, and row/biological-unit accounting.</p>
+        </div>
+      </div>
+
+      <!-- Tab: Step 1 Describe & Working Sheets -->
+      <div id="tab-data" class="tab-pane hidden">
+        <div id="sheet-overview-box"></div>
+        <div id="data-warnings" class="warnings-list"></div>
+        <div id="data-table-wrap" class="table-wrap">
+          <p class="muted">Open or paste a table to inspect read-only source cells and original row numbers.</p>
+        </div>
+      </div>
+
+      <!-- Tab: Audit & Provenance -->
+      <div id="tab-audit" class="tab-pane hidden">
+        <div id="audit-container" class="audit-container">
+          <p class="muted">Every source file is frozen read-only with SHA-256 provenance and an append-only audit chain.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Paste Table Modal -->
+  <div id="paste-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Paste Spreadsheet Columns (TSV / CSV)</h3>
+        <button id="close-paste-btn" type="button" class="btn btn-ghost btn-xs">&times;</button>
+      </div>
+      <p class="muted-small">
+        Copy two or more columns directly from Excel, Google Sheets, GraphPad Prism, or ClampFlow and paste below.
+        Purely numeric columns without headers automatically become <code>Group 1</code>, <code>Group 2</code>, &hellip;
+      </p>
+      <input id="paste-title-input" type="text" maxlength="120" placeholder="Dataset title (e.g., Wash-in AP Peak mV)" style="width:100%;margin-bottom:8px;" />
+      <textarea id="paste-textarea" rows="9" placeholder="Control&#9;Drug_X&#10;82.4&#9;93.1&#10;80.9&#9;95.0&#10;84.1&#9;91.8&#10;81.5&#9;94.4"></textarea>
+      <div class="modal-actions">
+        <button id="fill-sample-paste-btn" type="button" class="btn btn-ghost btn-sm">Fill 2-Column Sample</button>
+        <button id="submit-paste-btn" type="button" class="btn btn-primary">Import Pasted Table</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Google Sheets URL Import Modal -->
+  <div id="gsheet-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>&#128279; Import Shared Google Sheet</h3>
+        <button id="close-gsheet-btn" type="button" class="btn btn-ghost btn-xs">&times;</button>
+      </div>
+      <p class="muted-small">
+        In Google Sheets, click <strong>Share &rarr; Anyone with the link (Viewer)</strong>, then paste the URL below.
+        When StatWeave builds intermediate working sheets, click <strong>&#128202; Working .xlsx</strong> anytime to re-open all tabs in Google Sheets or Excel.
+      </p>
+      <input id="gsheet-title-input" type="text" maxlength="120" placeholder="Optional title (e.g., Patch-Clamp Cohort 2)" style="width:100%;margin-bottom:8px;" />
+      <input id="gsheet-url-input" type="text" maxlength="2000" placeholder="https://docs.google.com/spreadsheets/d/..." style="width:100%;margin-bottom:8px;" />
+      <div class="modal-actions">
+        <span class="muted-tiny">Raw sheet is frozen read-only; intermediate steps go into new working tabs.</span>
+        <button id="submit-gsheet-btn" type="button" class="btn btn-primary">Import Google Sheet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Account, Contributions & Privacy Modal -->
+  <div id="account-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Contributor Account &amp; Data Rights</h3>
+        <button id="close-account-btn" type="button" class="btn btn-ghost btn-xs">&times;</button>
+      </div>
+      <div id="account-details" class="muted-small" style="margin-bottom:14px;"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+        <a id="self-export-link" href="/api/me/export.zip" class="btn btn-secondary btn-sm">&#11015; Export My Submitted Cases (.zip)</a>
+        <button id="anonymize-account-btn" type="button" class="btn btn-danger btn-sm">Unlink Identity &amp; Anonymize Account</button>
+      </div>
+      <p class="muted-tiny">
+        <strong>Retention Policy:</strong> Unlinking your account removes your OAuth identity, name, and handle and delists any optional public showcase immediately, while already-contributed anonymized training/evaluation trajectories remain retained for StatWeave R&amp;D.
+      </p>
+    </div>
+  </div>
+
+  <script src="./browser-client.js?v=095"></script>
+  <script src="./static/app.js?v=095"></script>
+</body>
+</html>

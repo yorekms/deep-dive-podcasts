@@ -1427,7 +1427,7 @@
     function loadAllNetworkEpisodes() {
       if (networkEpCache) return Promise.resolve(networkEpCache);
       if (networkEpPromise) return networkEpPromise;
-      var nonAudioSlugs = { 'study-apps': 1, 'scientific-software': 1, 'clampflow': 1, 'scientist': 1 };
+      var nonAudioSlugs = { 'study-apps': 1, 'scientific-software': 1, 'clampflow': 1, 'statweave': 1, 'scientist': 1 };
       var audioHubs = (net.sites && net.sites.length)
         ? net.sites.map(function (s) { return s.slug; }).filter(function (sl) { return sl && !nonAudioSlugs[sl]; })
         : ['consciousness', 'cell-death', 'biophysics', 'nutrition-metabolism', 'pharmacology', 'oncology',
@@ -1478,6 +1478,9 @@
       }
       if (slug === 'clampflow') {
         return 'font-weight:700;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);';
+      }
+      if (slug === 'statweave') {
+        return 'font-weight:700;color:#A7F3D0;background:rgba(6,78,59,0.52);border:1px solid rgba(16,185,129,0.55);';
       }
       return 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);';
     }

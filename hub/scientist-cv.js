@@ -214,6 +214,14 @@
 
   var FLAGSHIP_PORTALS = [
     {
+      badge: 'Conversational Stats & SVG Figures',
+      accent: '#10B981',
+      title: 'StatWeave Statistics & Figure Workbench',
+      domainPrefix: 'MY', domainRest: '-statweave • Browser WASM',
+      url: 'https://yorekms.github.io/deep-dive-podcasts/statweave/portal.html',
+      desc: 'In-browser Python 3.12 (SciPy / Statsmodels) workbench with ClampFlow 6-tab Excel intake, intermediate working sheets, 28 R-verified benchmarks, and vector SVG/PDF/PNG export.'
+    },
+    {
       badge: 'Electrophysiology Web App',
       accent: '#F59E0B',
       title: 'ClampFlow ABF Pipeline & Compiler',
