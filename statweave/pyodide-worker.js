@@ -14,39 +14,44 @@ function postBootStatus(stage, detail) {
 async function initEngine() {
   if (pyodideReadyPromise) return pyodideReadyPromise;
   pyodideReadyPromise = (async () => {
-    postBootStatus('runtime', '1/3 Loading Python 3.12 WebAssembly runtime…');
-    const pyodide = await loadPyodide({ indexURL: PYODIDE_INDEX_URL });
+    try {
+      postBootStatus('runtime', '1/3 Loading Python 3.12 WebAssembly runtime…');
+      const pyodide = await loadPyodide({ indexURL: PYODIDE_INDEX_URL });
 
-    postBootStatus('packages', '2/3 Loading NumPy, Pandas, SciPy, Statsmodels, Matplotlib & OpenPyXL…');
-    await pyodide.loadPackage([
-      'numpy',
-      'pandas',
-      'scipy',
-      'statsmodels',
-      'matplotlib',
-      'openpyxl',
-      'sqlite3'
-    ]);
+      postBootStatus('packages', '2/3 Loading NumPy, Pandas, SciPy, Statsmodels & Matplotlib…');
+      await pyodide.loadPackage([
+        'numpy',
+        'pandas',
+        'scipy',
+        'statsmodels',
+        'matplotlib',
+        'sqlite3',
+        'lzma'
+      ]);
 
-    postBootStatus('bundle', '3/3 Mounting StatWeave engine & 28 R benchmark datasets…');
-    const bundleResp = await fetch('./statweave_py_bundle.zip?v=095', { cache: 'no-cache' });
-    if (!bundleResp.ok) {
-      throw new Error('Failed to fetch statweave_py_bundle.zip (' + bundleResp.status + ')');
-    }
-    const bundleBuf = await bundleResp.arrayBuffer();
-    pyodide.FS.mkdirTree('/opt/statweave_pkg');
-    pyodide.unpackArchive(bundleBuf, 'zip', { extractDir: '/opt/statweave_pkg' });
+      postBootStatus('bundle', '3/3 Mounting StatWeave, OpenPyXL & 28 R benchmark datasets…');
+      const bundleResp = await fetch('./statweave_py_bundle.zip?v=096', { cache: 'no-cache' });
+      if (!bundleResp.ok) {
+        throw new Error('Failed to fetch statweave_py_bundle.zip (' + bundleResp.status + ')');
+      }
+      const bundleBuf = await bundleResp.arrayBuffer();
+      pyodide.FS.mkdirTree('/opt/statweave_pkg');
+      pyodide.unpackArchive(bundleBuf, 'zip', { extractDir: '/opt/statweave_pkg' });
 
-    await pyodide.runPythonAsync(`
+      await pyodide.runPythonAsync(`
 import sys
 if '/opt/statweave_pkg' not in sys.path:
     sys.path.insert(0, '/opt/statweave_pkg')
 from statweave.web.browser_runtime import dispatch_browser_json, get_browser_runtime
 get_browser_runtime()
 `);
-    dispatchFn = pyodide.globals.get('dispatch_browser_json');
-    postBootStatus('ready', 'Python 3.12 Scientific Engine Ready (100% Client-Side)');
-    return pyodide;
+      dispatchFn = pyodide.globals.get('dispatch_browser_json');
+      postBootStatus('ready', 'Python 3.12 Scientific Engine Ready (100% Client-Side)');
+      return pyodide;
+    } catch (err) {
+      pyodideReadyPromise = null;
+      throw err;
+    }
   })();
   return pyodideReadyPromise;
 }

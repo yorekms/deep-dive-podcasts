@@ -6,10 +6,11 @@
   var MODEL_STORAGE = 'statweave_browser_api_model';
   var origFetch = window.fetch.bind(window);
 
-  var worker = new Worker('./pyodide-worker.js?v=095');
+  var worker = new Worker('./pyodide-worker.js?v=096');
   var seq = 1;
   var pending = new Map();
   var engineReady = false;
+  var engineError = '';
 
   function getSavedKey() {
     try { return sessionStorage.getItem(KEY_STORAGE) || ''; } catch (e) { return ''; }
@@ -24,6 +25,29 @@
       if (m && m.trim()) sessionStorage.setItem(MODEL_STORAGE, m.trim());
       else sessionStorage.removeItem(MODEL_STORAGE);
     } catch (e) {}
+  }
+
+  function buildInstantAuthConfig() {
+    var k = getSavedKey();
+    var hasKey = k.length >= 16;
+    var isGem = k.indexOf('AIza') === 0;
+    var m = getSavedModel();
+    if (!m) m = isGem ? 'gemini-3.8-flash' : 'gpt-5.4-mini';
+    return {
+      version: '0.9.5',
+      browser_wasm_mode: true,
+      openai_configured: hasKey,
+      llm_provider: hasKey ? (isGem ? 'gemini' : 'openai') : 'offline',
+      openai_model: hasKey ? m : null,
+      github_oauth_enabled: false,
+      orcid_oauth_enabled: false,
+      invite_login_enabled: true,
+      require_invite_code: false,
+      carrd_portal_url: 'https://my-statweave.carrd.co',
+      clampflow_portal_url: 'https://my-clampflow.carrd.co',
+      daily_turn_limit: 500,
+      monthly_turn_limit: 5000
+    };
   }
 
   function ensureBootBanner() {
@@ -41,9 +65,15 @@
   function updateModeBadge() {
     var modeEl = document.getElementById('mode-indicator');
     if (!modeEl) return;
+    if (engineError) {
+      modeEl.textContent = 'WASM Engine Retry Needed';
+      modeEl.title = engineError;
+      modeEl.className = 'badge badge-amber';
+      return;
+    }
     var k = getSavedKey();
     if (!engineReady) {
-      modeEl.textContent = 'Loading Python 3.12 WASM…';
+      modeEl.textContent = 'Warming Python 3.12 WASM…';
       modeEl.className = 'badge badge-muted';
       return;
     }
@@ -65,12 +95,18 @@
       if (txt) txt.textContent = msg.detail || '';
       if (msg.stage === 'ready') {
         engineReady = true;
+        engineError = '';
         updateModeBadge();
         if (banner) {
-          setTimeout(function () { banner.style.display = 'none'; }, 1800);
+          banner.style.borderColor = '#10b981';
+          setTimeout(function () { banner.style.display = 'none'; }, 1600);
         }
       } else if (msg.stage === 'error') {
+        engineError = msg.detail || 'Failed to initialize WebAssembly engine';
+        updateModeBadge();
         if (banner) banner.style.borderColor = '#ef4444';
+      } else {
+        updateModeBadge();
       }
       return;
     }
@@ -88,6 +124,13 @@
       var id = seq++;
       pending.set(id, { resolve: resolve, reject: reject });
       worker.postMessage({ type: 'api_request', id: id, payload: payload });
+    });
+  }
+
+  function jsonResponse(obj, status) {
+    return new Response(JSON.stringify(obj), {
+      status: status || 200,
+      headers: { 'Content-Type': 'application/json' }
     });
   }
 
@@ -128,6 +171,48 @@
     }
     init = init || {};
     var method = (init.method || 'GET').toUpperCase();
+    var cleanPath = apiPath.split('?')[0].replace(/\/+$/, '') || '/';
+
+    // Zero-latency instant boot paths so the Workbench UI renders in 0 ms while Pyodide warms up
+    if (method === 'GET' && cleanPath === '/healthz') {
+      return jsonResponse({ status: 'ok', version: '0.9.5', browser_wasm_mode: true, engine_ready: engineReady });
+    }
+    if (method === 'GET' && cleanPath === '/api/auth/config') {
+      setTimeout(updateModeBadge, 0);
+      return jsonResponse(buildInstantAuthConfig());
+    }
+    if (method === 'GET' && cleanPath === '/api/auth/me') {
+      setTimeout(updateModeBadge, 0);
+      return jsonResponse({
+        user: {
+          user_id: 'browser_local_researcher',
+          display_name: 'Local Browser Researcher',
+          auth_provider: 'browser_wasm',
+          affiliation: 'In-Browser WebAssembly Engine (100% Client-Side)',
+          permissions: {
+            contributor_ready: true,
+            allow_private_evaluation: true,
+            allow_model_training: true,
+            allow_public_example_library: false
+          }
+        },
+        quota: { daily_turn_limit: 500, daily_turns_used: 0, daily_turns_remaining: 500 },
+        config: buildInstantAuthConfig()
+      });
+    }
+    if (method === 'GET' && cleanPath === '/api/projects' && !engineReady) {
+      return jsonResponse({
+        projects: [],
+        quota: { daily_turn_limit: 500, daily_turns_used: 0, daily_turns_remaining: 500 }
+      });
+    }
+    if (method === 'GET' && cleanPath === '/api/r_datasets' && !engineReady) {
+      try {
+        var idxResp = await origFetch('./r_datasets_index.json?v=096');
+        if (idxResp.ok) return idxResp;
+      } catch (e) {}
+    }
+
     var bodyObj = null;
     var fileObj = null;
 
@@ -144,6 +229,11 @@
       }
     } else if (typeof init.body === 'string' && init.body.length > 0) {
       try { bodyObj = JSON.parse(init.body); } catch (e) { bodyObj = {}; }
+    }
+
+    var banner = ensureBootBanner();
+    if (!engineReady && banner) {
+      banner.style.display = 'flex';
     }
 
     var res = await callWorker({
@@ -166,19 +256,21 @@
       });
     }
     if (res.kind === 'error') {
-      return new Response(JSON.stringify({ detail: res.detail || 'Request failed' }), {
-        status: res.status || 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return jsonResponse({ detail: res.detail || 'Request failed' }, res.status || 400);
     }
-    return new Response(JSON.stringify(res.data !== undefined ? res.data : {}), {
-      status: res.status || 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return jsonResponse(res.data !== undefined ? res.data : {}, res.status || 200);
   };
 
   function injectBrowserControls() {
     ensureBootBanner();
+    // Reveal workbench immediately at 0ms — no auth/server gate in client-side WASM mode
+    var wb = document.getElementById('workbench');
+    if (wb) wb.classList.remove('hidden');
+    var ag = document.getElementById('auth-gate');
+    if (ag) ag.classList.add('hidden');
+    var cg = document.getElementById('consent-gate');
+    if (cg) cg.classList.add('hidden');
+
     var topRight = document.querySelector('.topbar-right');
     var brand = document.querySelector('.brand');
 

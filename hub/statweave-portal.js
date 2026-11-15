@@ -130,8 +130,8 @@
   function buildEmbedUrls(clean) {
     if (isWasmWorkbenchUrl(clean)) {
       return {
-        appUrl: clean + '/?embedded=1',
-        fullUrl: clean + '/'
+        appUrl: clean + '/?embedded=1&v=096',
+        fullUrl: clean + '/?v=096'
       };
     }
     return {
