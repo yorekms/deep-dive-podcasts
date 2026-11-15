@@ -461,6 +461,15 @@
           chips.push('Build a working sheet normalizing AP_Peak_mV to % of Vehicle mean, then plot');
           chips.push('Batch compare RMP_mV, Rin_MOhms, AP_Peak_mV, APD50_ms by Group, independent observations');
         }
+      } else if (ov.detected_layout === 'survival_time_to_event' && ov.survival_structure && ov.survival_structure.detected) {
+        var st = ov.survival_structure;
+        var g0 = (st.group_cols && st.group_cols[0]) || '';
+        if (g0) {
+          chips.push('Kaplan-Meier survival of "' + st.time_col + '" and "' + st.event_col + '" by "' + g0 + '", independent observations');
+          chips.push('Show exact log-rank p-value and stars with Okabe-Ito palette');
+        } else {
+          chips.push('Kaplan-Meier survival of "' + st.time_col + '" and "' + st.event_col + '", independent observations');
+        }
       } else if (ov.detected_layout === 'long_two_factor') {
         chips.push('Compare Group at each Timepoint with Holm-adjusted Welch t-test stars on a timecourse plot');
         chips.push('Run a Two-Way ANOVA testing Group, Timepoint, and interaction with grouped boxes');

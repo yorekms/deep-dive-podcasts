@@ -29,8 +29,8 @@ async function initEngine() {
         'lzma'
       ]);
 
-      postBootStatus('bundle', '3/3 Mounting StatWeave, OpenPyXL & 28 R benchmark datasets…');
-      const bundleResp = await fetch('./statweave_py_bundle.zip?v=096', { cache: 'no-cache' });
+      postBootStatus('bundle', '3/3 Mounting StatWeave, OpenPyXL & 32 R benchmark datasets…');
+      const bundleResp = await fetch('./statweave_py_bundle.zip?v=097', { cache: 'no-cache' });
       if (!bundleResp.ok) {
         throw new Error('Failed to fetch statweave_py_bundle.zip (' + bundleResp.status + ')');
       }

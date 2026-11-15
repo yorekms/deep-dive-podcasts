@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StatWeave — Conversational Scientific Statistics &amp; Publication Figures</title>
-  <link rel="stylesheet" href="./static/app.css?v=096" />
+  <link rel="stylesheet" href="./static/app.css?v=097" />
 </head>
 <body>
   <!-- Top Bar -->
@@ -146,12 +146,13 @@
         <div class="demo-group">
           <span class="muted-tiny">Demos:</span>
           <button type="button" class="btn btn-chip demo-btn" data-demo="timecourse">WT vs KO Timecourse</button>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="survival">Survival KM Curve</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="clampflow">ClampFlow 6-Tab</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="two_group">2-Column t-Test</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="paired">Paired Before/After</button>
         </div>
         <div id="r-learning-wrap" class="demo-group hidden" style="margin-top:4px;">
-          <span class="muted-tiny" title="28 canonical R repository datasets numerically verified against Rscript">&#128218; R Set:</span>
+          <span class="muted-tiny" title="32 canonical R repository datasets numerically verified against Rscript">&#128218; R Set:</span>
           <select id="r-dataset-select" class="select-compact" style="max-width:235px;"></select>
           <button id="load-r-dataset-btn" type="button" class="btn btn-chip">Load R Data</button>
         </div>
@@ -253,6 +254,7 @@
         <label>
           <span>Plot</span>
           <select id="st-plot">
+            <option value="survival">Kaplan&ndash;Meier Survival</option>
             <option value="timecourse">Timecourse Line</option>
             <option value="spaghetti">Spaghetti Trajectories</option>
             <option value="grouped_bar">Grouped Bars (2-Way)</option>
@@ -408,7 +410,7 @@
     </div>
   </div>
 
-  <script src="./browser-client.js?v=096"></script>
-  <script src="./static/app.js?v=096"></script>
+  <script src="./browser-client.js?v=097"></script>
+  <script src="./static/app.js?v=097"></script>
 </body>
 </html>

@@ -4,9 +4,10 @@
 
   var KEY_STORAGE = 'statweave_browser_api_key';
   var MODEL_STORAGE = 'statweave_browser_api_model';
+  var VERIFIED_MODEL_STORAGE = 'statweave_browser_verified_model';
   var origFetch = window.fetch.bind(window);
 
-  var worker = new Worker('./pyodide-worker.js?v=096');
+  var worker = new Worker('./pyodide-worker.js?v=097');
   var seq = 1;
   var pending = new Map();
   var engineReady = false;
@@ -18,12 +19,26 @@
   function getSavedModel() {
     try { return sessionStorage.getItem(MODEL_STORAGE) || ''; } catch (e) { return ''; }
   }
+  function getVerifiedModel() {
+    try { return sessionStorage.getItem(VERIFIED_MODEL_STORAGE) || ''; } catch (e) { return ''; }
+  }
+  function setVerifiedModel(vm) {
+    try {
+      if (vm && vm.trim()) sessionStorage.setItem(VERIFIED_MODEL_STORAGE, vm.trim());
+      else sessionStorage.removeItem(VERIFIED_MODEL_STORAGE);
+    } catch (e) {}
+  }
   function setSavedKey(k, m) {
     try {
+      var prevK = getSavedKey();
+      var prevM = getSavedModel();
       if (k && k.trim()) sessionStorage.setItem(KEY_STORAGE, k.trim());
       else sessionStorage.removeItem(KEY_STORAGE);
       if (m && m.trim()) sessionStorage.setItem(MODEL_STORAGE, m.trim());
       else sessionStorage.removeItem(MODEL_STORAGE);
+      if ((k || '').trim() !== prevK || (m || '').trim() !== prevM) {
+        setVerifiedModel('');
+      }
     } catch (e) {}
   }
 
@@ -31,8 +46,8 @@
     var k = getSavedKey();
     var hasKey = k.length >= 16;
     var isGem = k.indexOf('AIza') === 0;
-    var m = getSavedModel();
-    if (!m) m = isGem ? 'gemini-3.8-flash' : 'gpt-5.4-mini';
+    var m = getSavedModel() || getVerifiedModel();
+    if (!m) m = isGem ? 'gemini-3.8-flash' : 'gpt-4.1-mini';
     return {
       version: '0.9.5',
       browser_wasm_mode: true,
@@ -79,7 +94,8 @@
     }
     if (k.length >= 16) {
       var isGem = k.indexOf('AIza') === 0;
-      modeEl.textContent = (isGem ? 'Gemini AI' : 'OpenAI') + ' + Local Python WASM';
+      var vm = getVerifiedModel() || getSavedModel();
+      modeEl.textContent = (isGem ? 'Gemini AI' : 'OpenAI') + (vm ? ' (' + vm + ')' : '') + ' + Local Python WASM';
       modeEl.className = 'badge badge-teal';
     } else {
       modeEl.textContent = 'Python 3.12 WASM · 100% Private In-Browser';
@@ -208,7 +224,7 @@
     }
     if (method === 'GET' && cleanPath === '/api/r_datasets' && !engineReady) {
       try {
-        var idxResp = await origFetch('./r_datasets_index.json?v=096');
+        var idxResp = await origFetch('./r_datasets_index.json?v=097');
         if (idxResp.ok) return idxResp;
       } catch (e) {}
     }
@@ -288,7 +304,7 @@
       atlasLink.target = '_blank';
       atlasLink.rel = 'noopener';
       atlasLink.className = 'nav-pill';
-      atlasLink.innerHTML = '&#128218; 28-Dataset R Visual Atlas &#8599;';
+      atlasLink.innerHTML = '&#128218; 32-Dataset R Visual Atlas &#8599;';
       brand.appendChild(atlasLink);
 
       var isEmbedded = false;
@@ -309,7 +325,11 @@
       keyBtn.className = 'btn btn-secondary btn-sm';
       function syncKeyLabel() {
         var k = getSavedKey();
-        keyBtn.innerHTML = k.length >= 16 ? '&#128273; AI Key Active' : '&#128273; Optional AI Key';
+        if (k.length >= 16) {
+          keyBtn.innerHTML = getVerifiedModel() ? '&#128273; AI Key Verified' : '&#128273; AI Key Active';
+        } else {
+          keyBtn.innerHTML = '&#128273; Optional AI Key';
+        }
       }
       syncKeyLabel();
       topRight.insertBefore(keyBtn, topRight.firstChild);
@@ -321,49 +341,139 @@
         '<div class="modal-card">' +
           '<h3>Optional Browser AI Key (OpenAI or Google Gemini)</h3>' +
           '<p class="muted-small" style="line-height:1.5;margin-bottom:10px;">' +
-            'All statistical tests, working sheets, exploratory galleries, and the 28 R datasets run <strong>100% locally in your browser without any API key</strong>. ' +
+            'All statistical tests (including Kaplan&ndash;Meier survival, Log-Rank &amp; Cox HR), working sheets, exploratory galleries, and the 32 R datasets run <strong>100% locally in your browser without any API key</strong>. ' +
             'To enable open-ended LLM chat planning, paste an OpenAI (<code>sk-...</code>) or Google AI Studio Gemini (<code>AIza...</code>) key below. ' +
             'Your key is kept strictly in this browser tab (<code>sessionStorage</code>) and raw spreadsheet rows never enter prompts.' +
           '</p>' +
           '<label style="display:block;font-size:12px;font-weight:600;margin-bottom:8px;">API Key (OpenAI <code>sk-...</code> or Gemini <code>AIza...</code>)' +
             '<input id="sw-byok-input" type="password" placeholder="sk-... or AIza..." style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-family:monospace;" />' +
           '</label>' +
-          '<label style="display:block;font-size:12px;font-weight:600;margin-bottom:12px;">Model Override (optional — defaults to <code>gpt-5.4-mini</code> or <code>gemini-3.8-flash</code>)' +
-            '<input id="sw-byok-model" type="text" placeholder="Leave blank for automatic default" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-family:monospace;" />' +
+          '<label style="display:block;font-size:12px;font-weight:600;margin-bottom:12px;">Model Override (optional — auto-resolves <code>gpt-4.1-mini</code> / <code>gpt-4o-mini</code> or <code>gemini-3.8-flash</code>)' +
+            '<input id="sw-byok-model" type="text" placeholder="Leave blank for automatic model selection" style="width:100%;margin-top:4px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:8px;font-family:monospace;" />' +
           '</label>' +
+          '<div id="sw-byok-status" style="display:none;margin-bottom:12px;padding:9px 11px;border-radius:8px;font-size:12px;line-height:1.45;"></div>' +
           '<div class="modal-actions">' +
             '<button id="sw-byok-clear" type="button" class="btn btn-ghost">Clear Key</button>' +
-            '<div style="display:flex;gap:8px;">' +
+            '<div style="display:flex;gap:8px;flex-wrap:wrap;">' +
               '<button id="sw-byok-cancel" type="button" class="btn btn-secondary">Close</button>' +
-              '<button id="sw-byok-save" type="button" class="btn btn-primary">Save in Browser Tab</button>' +
+              '<button id="sw-byok-save-only" type="button" class="btn btn-secondary">Save Only</button>' +
+              '<button id="sw-byok-save" type="button" class="btn btn-primary">&#10003; Verify &amp; Save Key</button>' +
             '</div>' +
           '</div>' +
         '</div>';
       document.body.appendChild(modal);
 
-      keyBtn.addEventListener('click', function () {
+      function showKeyStatus(kind, msgText) {
+        var stEl = document.getElementById('sw-byok-status');
+        if (!stEl) return;
+        stEl.style.display = 'block';
+        if (kind === 'ok') {
+          stEl.style.background = '#ecfdf5';
+          stEl.style.border = '1px solid #6ee7b7';
+          stEl.style.color = '#065f46';
+        } else if (kind === 'err') {
+          stEl.style.background = '#fef2f2';
+          stEl.style.border = '1px solid #fca5a5';
+          stEl.style.color = '#991b1b';
+        } else {
+          stEl.style.background = '#f1f5f9';
+          stEl.style.border = '1px solid #cbd5e1';
+          stEl.style.color = '#334155';
+        }
+        stEl.textContent = msgText;
+      }
+
+      function openKeyModal() {
         document.getElementById('sw-byok-input').value = getSavedKey();
         document.getElementById('sw-byok-model').value = getSavedModel();
+        var vm = getVerifiedModel();
+        if (getSavedKey().length >= 16 && vm) {
+          showKeyStatus('ok', '✓ Verified active key (' + vm + ').');
+        } else {
+          var stEl = document.getElementById('sw-byok-status');
+          if (stEl) stEl.style.display = 'none';
+        }
         modal.classList.remove('hidden');
+        setTimeout(function () {
+          var inp = document.getElementById('sw-byok-input');
+          if (inp) inp.focus();
+        }, 40);
+      }
+
+      keyBtn.addEventListener('click', openKeyModal);
+      window.addEventListener('message', function (ev) {
+        if (ev && ev.data && ev.data.type === 'statweave_open_byok_modal') {
+          openKeyModal();
+        }
       });
+      if (window.location.search && window.location.search.indexOf('open_key=1') !== -1) {
+        setTimeout(openKeyModal, 120);
+      }
+
       document.getElementById('sw-byok-cancel').addEventListener('click', function () {
         modal.classList.add('hidden');
       });
       document.getElementById('sw-byok-clear').addEventListener('click', function () {
         setSavedKey('', '');
+        setVerifiedModel('');
         document.getElementById('sw-byok-input').value = '';
         document.getElementById('sw-byok-model').value = '';
         syncKeyLabel();
         updateModeBadge();
         modal.classList.add('hidden');
       });
-      document.getElementById('sw-byok-save').addEventListener('click', function () {
+      document.getElementById('sw-byok-save-only').addEventListener('click', function () {
         var k = document.getElementById('sw-byok-input').value.trim();
         var m = document.getElementById('sw-byok-model').value.trim();
         setSavedKey(k, m);
         syncKeyLabel();
         updateModeBadge();
         modal.classList.add('hidden');
+      });
+      document.getElementById('sw-byok-save').addEventListener('click', async function () {
+        var k = document.getElementById('sw-byok-input').value.trim();
+        var m = document.getElementById('sw-byok-model').value.trim();
+        if (!k) {
+          setSavedKey('', '');
+          setVerifiedModel('');
+          syncKeyLabel();
+          updateModeBadge();
+          showKeyStatus('info', 'Key cleared — running 100% locally in your browser.');
+          return;
+        }
+        setSavedKey(k, m);
+        syncKeyLabel();
+        updateModeBadge();
+        var saveBtn = document.getElementById('sw-byok-save');
+        saveBtn.disabled = true;
+        saveBtn.textContent = 'Verifying…';
+        showKeyStatus('info', engineReady
+          ? 'Testing live connection from your browser…'
+          : 'Finishing Python WASM warmup (~2–4 s), then verifying your API key…');
+        try {
+          var resp = await window.fetch('/api/auth/test_key', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ api_key: k, api_model: m })
+          });
+          var payload = await resp.json();
+          if (!resp.ok || !payload.ok) {
+            throw new Error((payload && payload.detail) ? payload.detail : ('Verification failed (' + resp.status + ')'));
+          }
+          setVerifiedModel(payload.model || '');
+          syncKeyLabel();
+          updateModeBadge();
+          var provName = payload.provider === 'gemini' ? 'Google Gemini' : 'OpenAI';
+          showKeyStatus('ok', '✓ Connected to ' + provName + ' (' + (payload.model || 'verified') + ')! Close this dialog and ask anything in chat.');
+        } catch (err) {
+          setVerifiedModel('');
+          syncKeyLabel();
+          updateModeBadge();
+          showKeyStatus('err', String(err && err.message ? err.message : err));
+        } finally {
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = '&#10003; Verify &amp; Save Key';
+        }
       });
     }
     updateModeBadge();
