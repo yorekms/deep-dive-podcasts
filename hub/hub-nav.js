@@ -145,7 +145,7 @@
     if (!document.getElementById('crp-homogeneous-layout')) {
       var st = document.createElement('style');
       st.id = 'crp-homogeneous-layout';
-      st.textContent = 'html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:24px 22px 145px 22px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper,#crp-standalone-clampflow-wrapper,#crp-top-hub-nav,#crp-author-cred-box{width:100% !important;max-width:1510px !important} .crp-grid,.crp-ep-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px 14px !important} .crp-ep-lbl{white-space:normal !important;overflow:visible !important;display:block !important;-webkit-line-clamp:unset !important;line-height:1.35 !important;word-break:break-word !important} .crp-ep-chk{width:16px;height:16px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22) !important;border-color:#10B981 !important;color:#34D399 !important;font-weight:900} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} #crp-title{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.3 !important} @media (max-width:780px){.crp-grid,.crp-ep-grid{grid-template-columns:1fr !important} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important}}';
+      st.textContent = 'html{font-size:16px !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:24px 22px 145px 22px !important} #crp-standalone-estudia-wrapper,#crp-standalone-phys-wrapper,#crp-standalone-clampflow-wrapper,#crp-standalone-statweave-wrapper,#crp-top-hub-nav,#crp-author-cred-box{width:100% !important;max-width:1510px !important} .crp-grid,.crp-ep-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px 14px !important} .crp-ep-lbl{white-space:normal !important;overflow:visible !important;display:block !important;-webkit-line-clamp:unset !important;line-height:1.35 !important;word-break:break-word !important} .crp-ep-chk{width:16px;height:16px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22) !important;border-color:#10B981 !important;color:#34D399 !important;font-weight:900} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} #crp-title{white-space:normal !important;overflow:visible !important;text-overflow:clip !important;line-height:1.3 !important} @media (max-width:780px){.crp-grid,.crp-ep-grid{grid-template-columns:1fr !important} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important}}';
       (document.head || document.documentElement).appendChild(st);
     }
   } catch (e) {}
@@ -192,6 +192,7 @@
   function defaultAccent() {
     if (HUB === 'scientific-software') return '#C084FC';
     if (HUB === 'clampflow') return '#F59E0B';
+    if (HUB === 'statweave') return '#10B981';
     return '#38BDF8';
   }
 
@@ -276,7 +277,9 @@
               ? ('font-weight:800;color:#090E1A;background:' + accent + ';box-shadow:0 0 14px ' + accent + '66;border:1px solid ' + accent + ';')
               : (s.slug === 'clampflow'
                 ? 'font-weight:700;color:#FDE68A;background:rgba(120,53,15,0.48);border:1px solid rgba(245,158,11,0.55);'
-                : 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);');
+                : (s.slug === 'statweave'
+                  ? 'font-weight:700;color:#A7F3D0;background:rgba(6,78,59,0.52);border:1px solid rgba(16,185,129,0.55);'
+                  : 'font-weight:600;color:#E2E8F0;background:rgba(15,23,42,0.72);border:1px solid rgba(255,255,255,0.14);'));
             html += '<a href="' + esc(s.url) + '" class="crp-hub-pill" style="' + base + st + '">' + esc(s.label) + '</a>';
           });
           rows[0].innerHTML = html;
