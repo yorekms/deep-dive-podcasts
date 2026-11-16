@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#060B16" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Deep Dive" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../resonance/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="../resonance/icon.svg" />
+  <link rel="manifest" href="../resonance/manifest.webmanifest" />
+  <title>Download Deep Dive Player — iPhone &amp; Android</title>
+  <script>
+    // If launched from an iPhone Home Screen icon, jump straight into the full-screen standalone player!
+    try {
+      if (window.navigator.standalone === true || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)) {
+        window.location.replace('/deep-dive-podcasts/resonance/?view=listen');
+      }
+    } catch (e) {}
+  </script>
+  <style>
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0;
+      padding: calc(env(safe-area-inset-top) + 18px) 16px calc(env(safe-area-inset-bottom) + 96px) 16px;
+      background: radial-gradient(circle at 20% 0%, rgba(56,189,248,0.18), transparent 48%),
+                  radial-gradient(circle at 80% 90%, rgba(168,85,247,0.15), transparent 50%),
+                  #060B16;
+      color: #F8FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+    }
+    .shell { max-width: 560px; margin: 0 auto; }
+    .brand {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .dd-icon {
+      width: 48px; height: 48px; border-radius: 14px;
+      background: linear-gradient(135deg, #22D3EE, #2563EB);
+      color: #060B16; font-weight: 900; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(34,211,238,0.32); flex-shrink: 0;
+    }
+    .tabs {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+      background: #0B1222; border: 1px solid #1E293B; border-radius: 16px;
+      padding: 6px; margin-bottom: 18px;
+    }
+    .tab-btn {
+      min-height: 46px; border-radius: 12px; border: none; cursor: pointer;
+      font-size: 14px; font-weight: 800; font-family: inherit;
+      background: transparent; color: #94A3B8; transition: all 0.16s ease;
+    }
+    .tab-btn.active-ios { background: #38BDF8; color: #060B16; box-shadow: 0 4px 16px rgba(56,189,248,0.35); }
+    .tab-btn.active-and { background: #34D399; color: #060B16; box-shadow: 0 4px 16px rgba(52,211,153,0.35); }
+    .card {
+      background: rgba(15,23,42,0.92); border: 1px solid rgba(148,163,184,0.22);
+      border-radius: 22px; padding: 20px; margin-bottom: 16px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.5);
+    }
+    .card-primary-ios {
+      border: 2px solid rgba(168,85,247,0.65);
+      background: linear-gradient(145deg, rgba(88,28,135,0.34), rgba(15,23,42,0.96));
+    }
+    .card-player {
+      border: 2px solid rgba(56,189,248,0.65);
+      background: linear-gradient(145deg, rgba(14,116,144,0.28), rgba(15,23,42,0.96));
+    }
+    .card-android {
+      border: 2px solid rgba(52,211,153,0.7);
+      background: linear-gradient(145deg, rgba(6,78,59,0.38), rgba(15,23,42,0.96));
+    }
+    .badge {
+      display: inline-block; padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .cta-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; min-height: 60px; padding: 14px 18px; border-radius: 16px;
+      font-size: 16px; font-weight: 900; text-decoration: none; border: none;
+      cursor: pointer; text-align: center; line-height: 1.25;
+      transition: transform 0.12s ease, opacity 0.15s ease;
+    }
+    .cta-btn:active { transform: scale(0.98); }
+    .btn-apple { background: #A855F7; color: #FFFFFF; box-shadow: 0 10px 28px rgba(168,85,247,0.42); }
+    .btn-cyan { background: #38BDF8; color: #060B16; box-shadow: 0 10px 28px rgba(56,189,248,0.38); }
+    .btn-green { background: #34D399; color: #060B16; box-shadow: 0 10px 28px rgba(52,211,153,0.38); }
+    .sub-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .sub-pill {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 42px; padding: 8px 12px; border-radius: 12px;
+      font-size: 12.5px; font-weight: 800; text-decoration: none;
+      background: #0B1222; border: 1px solid #334155; color: #E2E8F0;
+    }
+    .step-box {
+      background: #080E1C; border: 1px solid #1E293B; border-radius: 14px;
+      padding: 12px 14px; margin-top: 8px; font-size: 13px; line-height: 1.48; color: #CBD5E1;
+    }
+    .warn-box {
+      background: rgba(245,158,11,0.14); border: 1px solid rgba(251,191,36,0.55);
+      border-radius: 14px; padding: 12px 14px; margin-bottom: 12px;
+      font-size: 12.5px; line-height: 1.48; color: #FEF3C7;
+    }
+    .safari-bar-hint {
+      display: none; position: fixed; bottom: calc(env(safe-area-inset-bottom) + 10px);
+      left: 12px; right: 12px; max-width: 520px; margin: 0 auto;
+      background: rgba(8,14,28,0.96); border: 1.5px solid #38BDF8;
+      border-radius: 16px; padding: 10px 14px; z-index: 999;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.85); text-align: center;
+      font-size: 12px; font-weight: 700; color: #E0F2FE;
+    }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+    .bob { display: inline-block; animation: bob 1.3s infinite ease-in-out; }
+    .feed-grid { display: none; grid-template-columns: 1fr; gap: 6px; margin-top: 10px; }
+    .feed-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 9px 12px; border-radius: 11px; background: #080E1C;
+      border: 1px solid #1E293B; text-decoration: none; color: #F1F5F9; font-size: 12.5px; font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="brand">
+      <div class="dd-icon">DD</div>
+      <div>
+        <div style="font-size:19px;font-weight:900;letter-spacing:-0.02em;">Deep Dive Audio Player</div>
+        <div style="font-size:12.5px;color:#94A3B8;font-weight:600;">Long-Form Deep Dives &bull; 1.5&times; Run Mode &bull; Offline Downloads</div>
+      </div>
+    </div>
+
+    <!-- Desktop QR Banner (hidden automatically on phones!) -->
+    <div id="desktop-qr-card" class="card" style="display:none;align-items:center;gap:18px;border-color:rgba(56,189,248,0.5);">
+      <div style="background:#FFFFFF;padding:8px;border-radius:16px;flex-shrink:0;line-height:0;">
+        <svg height="136" width="136" viewBox="0 0 39 39" role="img"><path fill="#FFFFFF" d="M0,0 h39v39H0z" shape-rendering="crispEdges"></path><path fill="#060B16" d="M3 3h7v1H3zM11 3h1v1H11zM13 3h2v1H13zM16 3h1v1H16zM20 3h2v1H20zM25 3h1v1H25zM29,3 h7v1H29zM3 4h1v1H3zM9 4h1v1H9zM11 4h3v1H11zM15 4h3v1H15zM19 4h1v1H19zM21 4h2v1H21zM24 4h2v1H24zM29 4h1v1H29zM35,4 h1v1H35zM3 5h1v1H3zM5 5h3v1H5zM9 5h1v1H9zM11 5h1v1H11zM15 5h4v1H15zM22 5h3v1H22zM26 5h2v1H26zM29 5h1v1H29zM31 5h3v1H31zM35,5 h1v1H35zM3 6h1v1H3zM5 6h3v1H5zM9 6h1v1H9zM13 6h1v1H13zM15 6h1v1H15zM17 6h1v1H17zM19 6h1v1H19zM21 6h1v1H21zM23 6h2v1H23zM26 6h2v1H26zM29 6h1v1H29zM31 6h3v1H31zM35,6 h1v1H35zM3 7h1v1H3zM5 7h3v1H5zM9 7h1v1H9zM11 7h1v1H11zM15 7h1v1H15zM18 7h3v1H18zM27 7h1v1H27zM29 7h1v1H29zM31 7h3v1H31zM35,7 h1v1H35zM3 8h1v1H3zM9 8h1v1H9zM12 8h2v1H12zM15 8h1v1H15zM18 8h2v1H18zM21 8h2v1H21zM26 8h1v1H26zM29 8h1v1H29zM35,8 h1v1H35zM3 9h7v1H3zM11 9h1v1H11zM13 9h1v1H13zM15 9h1v1H15zM17 9h1v1H17zM19 9h1v1H19zM21 9h1v1H21zM23 9h1v1H23zM25 9h1v1H25zM27 9h1v1H27zM29,9 h7v1H29zM15 10h5v1H15zM21 10h1v1H21zM25 10h3v1H25zM3 11h1v1H3zM6 11h6v1H6zM19 11h3v1H19zM23 11h1v1H23zM27 11h2v1H27zM31 11h1v1H31zM33,11 h3v1H33zM3 12h5v1H3zM12 12h3v1H12zM16 12h3v1H16zM20 12h3v1H20zM26 12h1v1H26zM31 12h4v1H31zM5 13h1v1H5zM8 13h2v1H8zM12 13h1v1H12zM16 13h1v1H16zM18 13h2v1H18zM23 13h2v1H23zM26 13h1v1H26zM28 13h2v1H28zM31,13 h5v1H31zM8 14h1v1H8zM13 14h4v1H13zM21 14h1v1H21zM26 14h1v1H26zM30 14h1v1H30zM33 14h2v1H33zM4 15h1v1H4zM6 15h1v1H6zM9 15h2v1H9zM12 15h2v1H12zM16 15h1v1H16zM18 15h1v1H18zM20 15h1v1H20zM26 15h1v1H26zM29 15h2v1H29zM34 15h1v1H34zM3 16h2v1H3zM6 16h2v1H6zM12 16h3v1H12zM16 16h2v1H16zM20 16h4v1H20zM25 16h2v1H25zM28 16h1v1H28zM30 16h1v1H30zM32 16h2v1H32zM3 17h1v1H3zM6 17h4v1H6zM12 17h1v1H12zM14 17h1v1H14zM16 17h3v1H16zM20 17h1v1H20zM22 17h2v1H22zM25 17h1v1H25zM27 17h1v1H27zM29 17h1v1H29zM3 18h1v1H3zM5 18h2v1H5zM10 18h5v1H10zM16 18h1v1H16zM19 18h1v1H19zM21 18h1v1H21zM23 18h1v1H23zM28 18h1v1H28zM30 18h1v1H30zM32 18h2v1H32zM35,18 h1v1H35zM3 19h1v1H3zM7 19h3v1H7zM11 19h2v1H11zM14 19h2v1H14zM18 19h1v1H18zM23 19h1v1H23zM26 19h7v1H26zM3 20h3v1H3zM7 20h2v1H7zM12 20h2v1H12zM15 20h1v1H15zM17 20h2v1H17zM20 20h4v1H20zM25 20h1v1H25zM28 20h2v1H28zM31 20h1v1H31zM33 20h1v1H33zM35,20 h1v1H35zM3 21h2v1H3zM6 21h1v1H6zM8 21h4v1H8zM13 21h1v1H13zM15 21h1v1H15zM17 21h14v1H17zM32 21h2v1H32zM35,21 h1v1H35zM3 22h2v1H3zM8 22h1v1H8zM10 22h6v1H10zM17 22h1v1H17zM19 22h1v1H19zM22 22h1v1H22zM26 22h2v1H26zM31,22 h5v1H31zM3 23h2v1H3zM6 23h7v1H6zM15 23h5v1H15zM21 23h2v1H21zM30 23h1v1H30zM32 23h1v1H32zM3 24h1v1H3zM6 24h3v1H6zM10 24h1v1H10zM12 24h2v1H12zM17 24h1v1H17zM20 24h1v1H20zM24 24h1v1H24zM26 24h1v1H26zM30 24h4v1H30zM3 25h1v1H3zM6 25h1v1H6zM8 25h2v1H8zM12 25h3v1H12zM20 25h4v1H20zM25 25h2v1H25zM30 25h1v1H30zM33,25 h3v1H33zM3 26h1v1H3zM6 26h2v1H6zM12 26h3v1H12zM18 26h1v1H18zM20 26h1v1H20zM22 26h2v1H22zM25 26h1v1H25zM27 26h2v1H27zM31 26h4v1H31zM3 27h2v1H3zM6 27h2v1H6zM9 27h2v1H9zM12 27h1v1H12zM14 27h1v1H14zM16 27h1v1H16zM19 27h1v1H19zM26 27h7v1H26zM34,27 h2v1H34zM11 28h1v1H11zM13 28h1v1H13zM16 28h6v1H16zM26 28h2v1H26zM31 28h1v1H31zM33 28h2v1H33zM3 29h7v1H3zM11 29h6v1H11zM18 29h1v1H18zM20 29h1v1H20zM22 29h6v1H22zM29 29h1v1H29zM31 29h1v1H31zM33 29h1v1H33zM3 30h1v1H3zM9 30h1v1H9zM11 30h2v1H11zM14 30h2v1H14zM17 30h2v1H17zM20 30h2v1H20zM23 30h1v1H23zM25 30h3v1H25zM31,30 h5v1H31zM3 31h1v1H3zM5 31h3v1H5zM9 31h1v1H9zM11 31h1v1H11zM13 31h2v1H13zM17 31h1v1H17zM19 31h2v1H19zM22 31h2v1H22zM26 31h6v1H26zM34 31h1v1H34zM3 32h1v1H3zM5 32h3v1H5zM9 32h1v1H9zM11 32h2v1H11zM19 32h1v1H19zM21 32h1v1H21zM25 32h1v1H25zM28 32h1v1H28zM30 32h1v1H30zM34,32 h2v1H34zM3 33h1v1H3zM5 33h3v1H5zM9 33h1v1H9zM13 33h1v1H13zM17 33h2v1H17zM22 33h1v1H22zM28 33h1v1H28zM30 33h2v1H30zM33,33 h3v1H33zM3 34h1v1H3zM9 34h1v1H9zM14 34h3v1H14zM25 34h2v1H25zM28,34 h8v1H28zM3 35h7v1H3zM11 35h1v1H11zM13 35h1v1H13zM15 35h2v1H15zM18 35h4v1H18zM26 35h2v1H26zM30 35h3v1H30z" shape-rendering="crispEdges"></path></svg>
+      </div>
+      <div>
+        <div class="badge" style="background:rgba(56,189,248,0.16);color:#38BDF8;margin-bottom:5px;">Scan With iPhone Camera</div>
+        <div style="font-size:16px;font-weight:800;margin-bottom:5px;">Open Directly on Your iPhone</div>
+        <div style="font-size:12.5px;color:#CBD5E1;line-height:1.45;">
+          Point your iPhone camera at this QR code to open this simple download page with prominent 1-tap buttons.
+        </div>
+      </div>
+    </div>
+
+    <!-- Device Toggle Tabs -->
+    <div class="tabs">
+      <button id="tab-ios" type="button" class="tab-btn active-ios" onclick="selectDevice('ios')">&#63743; iPhone &amp; iPad</button>
+      <button id="tab-and" type="button" class="tab-btn" onclick="selectDevice('and')">&#129302; Android (.apk)</button>
+    </div>
+
+    <!-- IPHONE / IPAD VIEW -->
+    <div id="panel-ios">
+      <!-- Non-Safari Warning (only shown on iOS Chrome/Gmail/in-app browsers) -->
+      <div id="non-safari-warn" class="warn-box" style="display:none;">
+        <div style="font-weight:900;color:#FBBF24;margin-bottom:4px;">&#9888;&#65039; Opened Inside an In-App / Non-Safari Browser</div>
+        Apple Podcasts button #1 works right here! If you want the Home-Screen icon (#2), tap below and paste into <strong>Apple Safari</strong>:
+        <button type="button" onclick="copyPageUrl(this)" style="margin-top:8px;width:100%;min-height:40px;border-radius:10px;border:none;background:#FBBF24;color:#060B16;font-weight:900;font-size:12.5px;cursor:pointer;">
+          &#128203; Copy Link for Safari
+        </button>
+      </div>
+
+      <!-- BIG PROMINENT BUTTON #1: 1-TAP APPLE PODCASTS NATIVE IPHONE APP -->
+      <div class="card card-primary-ios">
+        <span class="badge" style="background:rgba(168,85,247,0.22);color:#E9D5FF;">Option 1 &bull; Instant Native iPhone App</span>
+        <h2 style="margin:0 0 6px 0;font-size:20px;font-weight:900;">1-Tap Download in Apple Podcasts</h2>
+        <p style="margin:0 0 14px 0;font-size:13px;color:#CBD5E1;line-height:1.5;">
+          Opens Apple&rsquo;s built-in iPhone Podcasts app immediately &mdash; 1-tap offline downloads for 60-minute runs, 1.5&times; speed, Lock Screen, AirPods &amp; CarPlay.
+        </p>
+        <a href="podcast://yorekms.github.io/deep-dive-podcasts/feed.xml" class="cta-btn btn-apple">
+          <span>&#127911; Open in Apple Podcasts (1-Tap)</span>
+        </a>
+        <div class="sub-row">
+          <a href="overcast://x-callback-url/add?url=https%3A%2F%2Fyorekms.github.io%2Fdeep-dive-podcasts%2Ffeed.xml" class="sub-pill">Open in Overcast</a>
+          <a href="pktc://subscribe/yorekms.github.io/deep-dive-podcasts/feed.xml" class="sub-pill">Open in Pocket Casts</a>
+        </div>
+        <button type="button" onclick="toggleFeeds()" style="margin-top:8px;width:100%;min-height:38px;border-radius:11px;border:1px solid #334155;background:transparent;color:#CBD5E1;font-size:12px;font-weight:700;cursor:pointer;">
+          &#9662; Or Pick Any of the 12 Individual Subject Feeds
+        </button>
+        <div id="subject-feeds" class="feed-grid">
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-biophysics.xml"><span>&#9889; Biophysics &amp; 1-&Aring;ngstr&ouml;m Machines</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-pharmacology-oncology.xml"><span>&#128138; Clinical Pharmacology &amp; Toxicology</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-medical-testing.xml"><span>&#129658; Medical Testing &amp; One Medicine</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-oncology.xml"><span>&#127895;&#65039; Precision Oncology</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-forensic-medicine.xml"><span>&#128373;&#65039; Forensic Medicine</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-consciousness.xml"><span>&#129504; Embodied Consciousness</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-cell-death-physiology.xml"><span>&#128293; Cell Death &amp; Immunity</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-nutrition-metabolism.xml"><span>&#129367; Nutrition &amp; Metabolism</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-ancient-medicine.xml"><span>&#9877;&#65039; Ancient Medicine &amp; Plagues</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-human-origins.xml"><span>&#127994; Human Origins &amp; Language</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-philosophy-science.xml"><span>&#128300; Philosophy &amp; Bayesian Statistics</span><span style="color:#C084FC;">+ Apple</span></a>
+          <a class="feed-item" href="podcast://yorekms.github.io/deep-dive-podcasts/feed-religion-cooperation.xml"><span>&#127963;&#65039; Religion &amp; Human Cooperation</span><span style="color:#C084FC;">+ Apple</span></a>
+        </div>
+      </div>
+
+      <!-- BIG PROMINENT BUTTON #2: DEEP DIVE PLAYER APP (AUDIO + OFFLINE DOWNLOADS + TRANSCRIPTS) -->
+      <div class="card card-player">
+        <span class="badge" style="background:rgba(56,189,248,0.2);color:#7DD3FC;">Option 2 &bull; Deep Dive Player + Transcripts</span>
+        <h2 style="margin:0 0 6px 0;font-size:20px;font-weight:900;">Open Deep Dive Player &amp; Pin to Home Screen</h2>
+        <p style="margin:0 0 14px 0;font-size:13px;color:#CBD5E1;line-height:1.5;">
+          Full-screen iPhone player with prominent <strong>Download Offline</strong> buttons, 1.5&times; speed memory, word-level transcripts &amp; Study Kits.
+        </p>
+        <a href="../resonance/?view=listen" class="cta-btn btn-cyan">
+          <span>&#9654; Launch Deep Dive Player Now</span>
+        </a>
+
+        <div class="step-box" style="margin-top:14px;border-color:rgba(56,189,248,0.4);">
+          <div style="font-weight:900;color:#38BDF8;margin-bottom:6px;font-size:13.5px;">
+            &#128242; How to Put the &ldquo;DD&rdquo; App Icon on Your iPhone Home Screen:
+          </div>
+          <div style="margin-bottom:6px;">
+            <strong>1.</strong> Tap Safari&rsquo;s <strong>Share icon (&#11014;&#65039; square with up-arrow)</strong> at the bottom bar (or tap <strong>&bull;&bull;&bull; &rarr; Share</strong>).
+          </div>
+          <div style="margin-bottom:6px;color:#FDE68A;">
+            <strong>2.</strong> <strong>Scroll DOWN past &ldquo;Add Bookmark&rdquo;</strong> (Add Bookmark will NOT create an icon!) and tap <strong>&#10133; Add to Home Screen</strong>.
+          </div>
+          <div>
+            <strong>3.</strong> Tap <strong>Add</strong> in the <strong>top-right corner</strong> &mdash; the <strong>DD</strong> app icon appears right on your Home Screen and opens full-screen!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANDROID (.APK) VIEW -->
+    <div id="panel-and" style="display:none;">
+      <div class="card card-android">
+        <span class="badge" style="background:rgba(52,211,153,0.2);color:#A7F3D0;">Native Android App (.apk &bull; 14 MB)</span>
+        <h2 style="margin:0 0 6px 0;font-size:21px;font-weight:900;">1-Tap Download Android App</h2>
+        <p style="margin:0 0 15px 0;font-size:13.5px;color:#CBD5E1;line-height:1.5;">
+          Signed native AndroidX Media3 app (<code>DeepDivePodcasts.apk</code>) with OS lock-screen audio service, 1.5&times; running speed &amp; 1-tap offline episode downloads.
+        </p>
+        <a href="https://github.com/yorekms/deep-dive-podcasts/releases/download/v2026.11-one-medicine/DeepDivePodcasts.apk" download="DeepDivePodcasts.apk" class="cta-btn btn-green">
+          <span>&#11015; Download Android App (.apk)</span>
+        </a>
+        <div style="margin-top:12px;">
+          <a href="../resonance/?view=listen" class="sub-pill" style="width:100%;min-height:48px;font-size:13.5px;border-color:#38BDF8;color:#7DD3FC;">
+            &#9654; Or Open Web Player App Directly
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Floating Safari Share Pointer on iPhone Safari -->
+  <div id="ios-safari-hint" class="safari-bar-hint">
+    To pin the <strong>DD</strong> icon: tap Safari&rsquo;s <strong>Share &#11014;&#65039;</strong> below &rarr; scroll down to <strong>&#10133; Add to Home Screen</strong> <span class="bob">&#11015;&#65039;</span>
+  </div>
+
+  <script>
+    function selectDevice(which) {
+      var pIos = document.getElementById('panel-ios');
+      var pAnd = document.getElementById('panel-and');
+      var tIos = document.getElementById('tab-ios');
+      var tAnd = document.getElementById('tab-and');
+      if (which === 'and') {
+        pIos.style.display = 'none';
+        pAnd.style.display = 'block';
+        tIos.className = 'tab-btn';
+        tAnd.className = 'tab-btn active-and';
+      } else {
+        pIos.style.display = 'block';
+        pAnd.style.display = 'none';
+        tIos.className = 'tab-btn active-ios';
+        tAnd.className = 'tab-btn';
+      }
+    }
+    function toggleFeeds() {
+      var el = document.getElementById('subject-feeds');
+      el.style.display = (el.style.display === 'grid') ? 'none' : 'grid';
+    }
+    function copyPageUrl(btn) {
+      var u = 'https://yorekms.github.io/deep-dive-podcasts/app/';
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u);
+      btn.textContent = 'Copied! Now Open Safari & Paste';
+    }
+    (function initPlatform() {
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var isAndroid = /Android/i.test(ua);
+      var isSafari = isIOS && /Safari/i.test(ua) && !/CriOS|FxiOS|OPiOS|EdgiOS|GSA|FBAN|FBAV|Instagram/i.test(ua);
+      if (isAndroid) {
+        selectDevice('and');
+      } else {
+        selectDevice('ios');
+      }
+      if (!isIOS && !isAndroid) {
+        document.getElementById('desktop-qr-card').style.display = 'flex';
+      }
+      if (isIOS && !isSafari) {
+        document.getElementById('non-safari-warn').style.display = 'block';
+      }
+      if (isSafari) {
+        document.getElementById('ios-safari-hint').style.display = 'block';
+      }
+    })();
+  </script>
+</body>
+</html>
