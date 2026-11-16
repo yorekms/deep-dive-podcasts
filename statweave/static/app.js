@@ -763,9 +763,10 @@
         track_1_ephys_pharma: 'Track 1 · Electrophysiology & Pharmacology',
         track_2_biomedical_clinical: 'Track 2 · Biomedical & Clinical Trials',
         track_3_messy_student: 'Track 3 · Messy Student Spreadsheets',
+        track_4_classroom_open: 'Track 4 · Open Classroom Labs (HarvardX / OpenIntro)',
         r_core_32: 'Core R Repository Benchmarks'
       };
-      var trackOrder = ['track_1_ephys_pharma', 'track_2_biomedical_clinical', 'track_3_messy_student', 'r_core_32'];
+      var trackOrder = ['track_4_classroom_open', 'track_1_ephys_pharma', 'track_2_biomedical_clinical', 'track_3_messy_student', 'r_core_32'];
       var buckets = {};
       items.forEach(function (d) {
         var tr = d.track || 'r_core_32';

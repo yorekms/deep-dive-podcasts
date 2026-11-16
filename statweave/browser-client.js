@@ -313,7 +313,7 @@
       atlasLink.target = '_blank';
       atlasLink.rel = 'noopener';
       atlasLink.className = 'nav-pill';
-      atlasLink.innerHTML = '&#128218; 80-Dataset Visual Atlas &#8599;';
+      atlasLink.innerHTML = '&#128218; 104-Dataset Visual Atlas &#8599;';
       brand.appendChild(atlasLink);
 
       var isEmbedded = false;
