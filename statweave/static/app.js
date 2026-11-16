@@ -580,25 +580,69 @@
     });
     $('contribute-case-btn').classList.toggle('hidden', !hasResult);
     $('style-toolbar').classList.toggle('hidden', !hasResult);
+    if (!hasResult && $('style-drawer')) {
+      $('style-drawer').classList.add('hidden');
+    }
 
     if (hasResult) {
       var plan = ws.plan || {};
-      var style = ws.style || {};
-      $('st-preset').value = style.preset || '';
+      var rawStyle = ws.style || {};
+      var eff = ws.effective_style || rawStyle;
+      $('st-preset').value = rawStyle.preset || '';
       if (plan.plot) $('st-plot').value = plan.plot;
-      $('st-palette').value = style.palette || 'teal';
-      $('st-errorbar').value = style.error_bar || 'ci';
-      $('st-pdisplay').value = style.p_display || 'none';
+      $('st-palette').value = eff.palette || 'teal';
+      $('st-errorbar').value = eff.error_bar || 'ci';
+      $('st-pdisplay').value = eff.p_display || 'none';
+      if ($('st-fill')) $('st-fill').value = eff.fill_style || 'tinted';
+      if ($('st-points')) {
+        $('st-points').value = (eff.show_points === false) ? 'hidden' : (eff.point_style || 'circle');
+      }
+      if ($('st-ptsize')) {
+        var ps = Number(eff.point_size || 4);
+        $('st-ptsize').value = ps <= 3.3 ? '3' : (ps <= 4.6 ? '4' : (ps <= 6.2 ? '5.5' : '7.2'));
+      }
+      if ($('st-jitter')) {
+        var jw = Number(eff.jitter_width !== undefined ? eff.jitter_width : 0.16);
+        $('st-jitter').value = jw <= 0.01 ? '0' : (jw <= 0.11 ? '0.08' : (jw <= 0.2 ? '0.16' : '0.25'));
+      }
+      if ($('st-capsize')) {
+        var cs = Number(eff.cap_size !== undefined ? eff.cap_size : 3);
+        $('st-capsize').value = cs <= 0.1 ? '0' : (cs <= 3.8 ? '3' : '5');
+      }
+      if ($('st-linewidth')) {
+        var lw = Number(eff.line_width || 1.5);
+        $('st-linewidth').value = lw <= 1.2 ? '1' : (lw <= 1.75 ? '1.5' : (lw <= 2.3 ? '2' : '2.6'));
+      }
+      if ($('st-frame')) $('st-frame').value = eff.frame_style || 'open_l';
+      if ($('st-grid')) $('st-grid').value = eff.grid || 'none';
+      if ($('st-font')) $('st-font').value = eff.font_family || 'sans';
+      if ($('st-bg')) $('st-bg').value = eff.theme_bg || 'white';
+      if ($('st-legend')) $('st-legend').value = eff.legend_loc || 'auto';
+      if ($('st-yscale')) $('st-yscale').value = eff.yscale || 'linear';
+      if ($('st-yzero')) $('st-yzero').checked = Boolean(eff.y_zero);
+      if ($('st-hline')) $('st-hline').value = (rawStyle.hline !== undefined && rawStyle.hline !== null) ? String(rawStyle.hline) : '';
+      if ($('st-title')) $('st-title').value = rawStyle.title || '';
+      if ($('st-xlabel')) $('st-xlabel').value = rawStyle.xlabel || '';
+      if ($('st-ylabel')) $('st-ylabel').value = rawStyle.ylabel || '';
     }
 
     // Figure SVG
     var figCanvas = $('figure-canvas');
     var figCap = $('figure-caption');
     if (ws.figure_svg) {
+      var activeBg = ((ws.effective_style || ws.style || {}).theme_bg) || 'white';
+      figCanvas.style.background = activeBg === 'dark'
+        ? '#0f172a'
+        : (activeBg === 'paper'
+          ? '#faf8f5'
+          : (activeBg === 'transparent'
+            ? 'repeating-conic-gradient(#f1f5f9 0% 25%, #ffffff 0% 50%) 50% / 18px 18px'
+            : '#ffffff'));
       figCanvas.innerHTML = ws.figure_svg;
       figCap.textContent = ws.figure_caption || '';
       figCap.classList.toggle('hidden', !ws.figure_caption);
     } else {
+      figCanvas.style.background = '#ffffff';
       figCanvas.innerHTML =
         '<div class="figure-placeholder">' +
           '<h3>Ready for your analysis</h3>' +
@@ -1093,24 +1137,95 @@
       }
     });
 
-    // Instant zero-token style toolbar
-    function pushStyleChange() {
+    // Instant zero-token style toolbar + expandable Appearance Studio drawer
+    if ($('toggle-appearance-btn') && $('style-drawer')) {
+      $('toggle-appearance-btn').addEventListener('click', function () {
+        var hidden = $('style-drawer').classList.toggle('hidden');
+        $('toggle-appearance-btn').innerHTML = hidden ? '&#127912; Appearance &#9662;' : '&#127912; Appearance &#9652;';
+      });
+    }
+
+    function sendStylePatch(stylePatch, plotOverride) {
       if (!state.activeProjectId || !state.workspace || !state.workspace.result) return;
-      var style = {
-        palette: $('st-palette').value,
-        error_bar: $('st-errorbar').value,
-        p_display: $('st-pdisplay').value
-      };
-      var preset = $('st-preset').value;
-      if (preset) style.preset = preset;
       api('/api/projects/' + state.activeProjectId + '/style', {
         method: 'POST',
-        json: { plot: $('st-plot').value, style: style }
-      }).then(function (ws) { renderWorkspace(ws, { targetTab: 'figure' }); }).catch(function (err) { alert(err.message); });
+        json: {
+          plot: plotOverride !== undefined ? plotOverride : $('st-plot').value,
+          style: stylePatch
+        }
+      }).then(function (ws) {
+        renderWorkspace(ws, { targetTab: 'figure' });
+      }).catch(function (err) {
+        alert(err.message);
+        if (state.workspace) renderWorkspace(state.workspace, { targetTab: 'figure' });
+      });
     }
-    ['st-preset', 'st-plot', 'st-palette', 'st-errorbar', 'st-pdisplay'].forEach(function (id) {
-      $(id).addEventListener('change', pushStyleChange);
+
+    $('st-preset').addEventListener('change', function () {
+      var p = $('st-preset').value;
+      sendStylePatch({ preset: p || null });
     });
+    $('st-plot').addEventListener('change', function () {
+      sendStylePatch({}, $('st-plot').value);
+    });
+    $('st-palette').addEventListener('change', function () {
+      sendStylePatch({ palette: $('st-palette').value });
+    });
+    $('st-errorbar').addEventListener('change', function () {
+      sendStylePatch({ error_bar: $('st-errorbar').value });
+    });
+    $('st-pdisplay').addEventListener('change', function () {
+      sendStylePatch({ p_display: $('st-pdisplay').value });
+    });
+
+    if ($('st-fill')) $('st-fill').addEventListener('change', function () { sendStylePatch({ fill_style: $('st-fill').value }); });
+    if ($('st-points')) $('st-points').addEventListener('change', function () {
+      var v = $('st-points').value;
+      if (v === 'hidden') sendStylePatch({ show_points: false });
+      else sendStylePatch({ show_points: true, point_style: v });
+    });
+    if ($('st-ptsize')) $('st-ptsize').addEventListener('change', function () { sendStylePatch({ point_size: Number($('st-ptsize').value) }); });
+    if ($('st-jitter')) $('st-jitter').addEventListener('change', function () { sendStylePatch({ jitter_width: Number($('st-jitter').value) }); });
+    if ($('st-capsize')) $('st-capsize').addEventListener('change', function () { sendStylePatch({ cap_size: Number($('st-capsize').value) }); });
+    if ($('st-linewidth')) $('st-linewidth').addEventListener('change', function () { sendStylePatch({ line_width: Number($('st-linewidth').value) }); });
+    if ($('st-frame')) $('st-frame').addEventListener('change', function () { sendStylePatch({ frame_style: $('st-frame').value }); });
+    if ($('st-grid')) $('st-grid').addEventListener('change', function () { sendStylePatch({ grid: $('st-grid').value }); });
+    if ($('st-font')) $('st-font').addEventListener('change', function () { sendStylePatch({ font_family: $('st-font').value }); });
+    if ($('st-bg')) $('st-bg').addEventListener('change', function () { sendStylePatch({ theme_bg: $('st-bg').value }); });
+    if ($('st-legend')) $('st-legend').addEventListener('change', function () { sendStylePatch({ legend_loc: $('st-legend').value }); });
+    if ($('st-yscale')) $('st-yscale').addEventListener('change', function () { sendStylePatch({ yscale: $('st-yscale').value }); });
+    if ($('st-yzero')) $('st-yzero').addEventListener('change', function () { sendStylePatch({ y_zero: Boolean($('st-yzero').checked) }); });
+
+    function applyCustomLabelsAndRefLine() {
+      var hlRaw = $('st-hline') ? $('st-hline').value.trim() : '';
+      var tRaw = $('st-title') ? $('st-title').value.trim() : '';
+      var xlRaw = $('st-xlabel') ? $('st-xlabel').value.trim() : '';
+      var ylRaw = $('st-ylabel') ? $('st-ylabel').value.trim() : '';
+      sendStylePatch({
+        hline: hlRaw !== '' ? Number(hlRaw) : null,
+        title: tRaw || null,
+        xlabel: xlRaw || null,
+        ylabel: ylRaw || null
+      });
+    }
+    if ($('st-apply-labels-btn')) {
+      $('st-apply-labels-btn').addEventListener('click', applyCustomLabelsAndRefLine);
+    }
+    ['st-hline', 'st-title', 'st-xlabel', 'st-ylabel'].forEach(function (id) {
+      if ($(id)) {
+        $(id).addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter') {
+            ev.preventDefault();
+            applyCustomLabelsAndRefLine();
+          }
+        });
+      }
+    });
+    if ($('st-reset-btn')) {
+      $('st-reset-btn').addEventListener('click', function () {
+        sendStylePatch({ __reset__: true });
+      });
+    }
 
     // Tabs
     document.querySelectorAll('.tab').forEach(function (btn) {

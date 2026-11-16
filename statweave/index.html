@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StatWeave — Conversational Scientific Statistics &amp; Publication Figures</title>
-  <link rel="stylesheet" href="./static/app.css?v=098" />
+  <link rel="stylesheet" href="./static/app.css?v=099" />
 </head>
 <body>
   <!-- Top Bar -->
@@ -244,10 +244,15 @@
         <label>
           <span>Preset</span>
           <select id="st-preset">
-            <option value="">Custom / Default</option>
-            <option value="journal_single">Journal 1-Col (85 mm)</option>
+            <option value="">Custom / Active</option>
+            <option value="journal_single">Journal 1-Col (89 mm)</option>
             <option value="journal_double">Journal 2-Col (178 mm)</option>
-            <option value="slide_16_9">Lab Slide (16:9)</option>
+            <option value="nature_1col">Nature 1-Col (NPG)</option>
+            <option value="nejm_clinical">NEJM Clinical (Boxed Serif)</option>
+            <option value="prism_classic">GraphPad Prism Classic</option>
+            <option value="square_panel">Square Subfigure (108 mm)</option>
+            <option value="slide_16_9">Lab Slide (16:9 Light)</option>
+            <option value="slide_dark">Seminar Slide (16:9 Dark)</option>
             <option value="poster">Conference Poster</option>
           </select>
         </label>
@@ -259,8 +264,10 @@
             <option value="spaghetti">Spaghetti Trajectories</option>
             <option value="grouped_bar">Grouped Bars (2-Way)</option>
             <option value="grouped_box">Grouped Boxes (2-Way)</option>
+            <option value="grouped_violin">Grouped Violins (2-Way)</option>
             <option value="distribution">Dots + Summary</option>
-            <option value="superplot">Superplot (Pooled)</option>
+            <option value="superplot">Superplot (Pooled N)</option>
+            <option value="raincloud">Raincloud (Half-Violin + Box + Dots)</option>
             <option value="box">Box + Dots</option>
             <option value="violin">Violin + Dots</option>
             <option value="bar">Bar + Dots</option>
@@ -275,12 +282,26 @@
         <label>
           <span>Palette</span>
           <select id="st-palette">
-            <option value="teal">StatWeave Teal</option>
-            <option value="okabe_ito">Okabe-Ito (Colorblind-Safe)</option>
-            <option value="slate_coral">Slate &amp; Coral</option>
-            <option value="viridis_cat">Viridis</option>
-            <option value="blue">Journal Blue</option>
-            <option value="mono">Monochrome Print</option>
+            <optgroup label="Journal &amp; Publisher">
+              <option value="npg">Nature (NPG)</option>
+              <option value="nejm">NEJM Clinical</option>
+              <option value="lancet">The Lancet</option>
+              <option value="jama">JAMA</option>
+              <option value="aaas">Science (AAAS)</option>
+            </optgroup>
+            <optgroup label="Scientific &amp; Colorblind-Safe">
+              <option value="teal">StatWeave Teal</option>
+              <option value="okabe_ito">Okabe-Ito (Colorblind-Safe)</option>
+              <option value="tol_muted">Paul Tol Muted (Colorblind-Safe)</option>
+              <option value="slate_coral">Slate &amp; Coral</option>
+              <option value="viridis_cat">Viridis</option>
+              <option value="pastel_soft">Soft Pastel</option>
+              <option value="blue">Journal Blue</option>
+            </optgroup>
+            <optgroup label="Lab &amp; Print">
+              <option value="prism_bold">GraphPad Prism Bold</option>
+              <option value="mono">Monochrome Print</option>
+            </optgroup>
           </select>
         </label>
         <label>
@@ -297,10 +318,138 @@
           <span>P-Bracket</span>
           <select id="st-pdisplay">
             <option value="none">In Caption Only</option>
+            <option value="stars_only">Stars Only (***)</option>
             <option value="exact">Exact p-value</option>
             <option value="stars_and_p">Stars + Exact p</option>
           </select>
         </label>
+        <button id="toggle-appearance-btn" type="button" class="btn btn-secondary btn-xs" style="margin-left:auto;">&#127912; Appearance &#9662;</button>
+      </div>
+
+      <!-- Expandable Fine-Grained Figure Appearance Drawer -->
+      <div id="style-drawer" class="style-drawer hidden">
+        <div class="style-drawer-grid">
+          <label>
+            <span>Fill</span>
+            <select id="st-fill">
+              <option value="tinted">Tinted (Default)</option>
+              <option value="solid">Solid Saturated</option>
+              <option value="hollow">Hollow / Open (Prism)</option>
+              <option value="hatched">Hatched (B&amp;W Print)</option>
+            </select>
+          </label>
+          <label>
+            <span>Points</span>
+            <select id="st-points">
+              <option value="circle">Filled Circles</option>
+              <option value="open_circle">Open Circles</option>
+              <option value="by_group_shape">Shapes by Group</option>
+              <option value="diamond">Diamonds</option>
+              <option value="square">Squares</option>
+              <option value="triangle">Triangles</option>
+              <option value="hidden">Hide Points</option>
+            </select>
+          </label>
+          <label>
+            <span>Dot Size</span>
+            <select id="st-ptsize">
+              <option value="3">Small</option>
+              <option value="4">Medium</option>
+              <option value="5.5">Large</option>
+              <option value="7.2">Extra Large</option>
+            </select>
+          </label>
+          <label>
+            <span>Jitter</span>
+            <select id="st-jitter">
+              <option value="0.16">Standard</option>
+              <option value="0.08">Tight</option>
+              <option value="0">Aligned Center (0)</option>
+              <option value="0.25">Wide Spread</option>
+            </select>
+          </label>
+          <label>
+            <span>Caps</span>
+            <select id="st-capsize">
+              <option value="3">Standard Caps</option>
+              <option value="0">Capless (Clean)</option>
+              <option value="5">Wide T-Caps</option>
+            </select>
+          </label>
+          <label>
+            <span>Lines</span>
+            <select id="st-linewidth">
+              <option value="1">Fine</option>
+              <option value="1.5">Standard</option>
+              <option value="2">Bold (Prism/Slide)</option>
+              <option value="2.6">Heavy</option>
+            </select>
+          </label>
+          <label>
+            <span>Frame</span>
+            <select id="st-frame">
+              <option value="open_l">Open L-Axes</option>
+              <option value="box">Closed Box</option>
+              <option value="minimal">Minimal</option>
+            </select>
+          </label>
+          <label>
+            <span>Grid</span>
+            <select id="st-grid">
+              <option value="none">No Grid</option>
+              <option value="y">Horizontal Y</option>
+              <option value="xy">XY Grid</option>
+            </select>
+          </label>
+          <label>
+            <span>Font</span>
+            <select id="st-font">
+              <option value="sans">Sans-Serif</option>
+              <option value="serif">Serif (Times)</option>
+              <option value="mono">Monospace</option>
+            </select>
+          </label>
+          <label>
+            <span>Canvas</span>
+            <select id="st-bg">
+              <option value="white">White</option>
+              <option value="paper">Warm Paper</option>
+              <option value="dark">Dark Slide</option>
+              <option value="transparent">Transparent</option>
+            </select>
+          </label>
+          <label>
+            <span>Legend</span>
+            <select id="st-legend">
+              <option value="auto">Auto</option>
+              <option value="upper right">Upper Right</option>
+              <option value="upper left">Upper Left</option>
+              <option value="lower right">Lower Right</option>
+              <option value="lower left">Lower Left</option>
+              <option value="outside_top">Outside Top</option>
+              <option value="none">Hide Legend</option>
+            </select>
+          </label>
+          <label>
+            <span>Y-Scale</span>
+            <select id="st-yscale">
+              <option value="linear">Linear</option>
+              <option value="log10">Log10</option>
+            </select>
+          </label>
+          <label style="cursor:pointer;">
+            <input id="st-yzero" type="checkbox" />
+            <span>Zero Y-Base</span>
+          </label>
+        </div>
+        <div class="style-drawer-labels">
+          <input id="st-hline" type="number" step="any" placeholder="Ref line y= (e.g. 100)" title="Optional dashed horizontal reference line" style="width:138px;" />
+          <input id="st-title" type="text" placeholder="Custom figure title…" style="flex:1.3;min-width:140px;" />
+          <input id="st-xlabel" type="text" placeholder="X-axis label…" style="flex:1;min-width:110px;" />
+          <input id="st-ylabel" type="text" placeholder="Y-axis label…" style="flex:1;min-width:110px;" />
+          <button id="st-apply-labels-btn" type="button" class="btn btn-secondary btn-xs">Apply Labels</button>
+          <button id="st-reset-btn" type="button" class="btn btn-ghost btn-xs" title="Reset figure appearance to clean defaults">Reset Style</button>
+        </div>
       </div>
 
       <!-- Step 3 Quick Statistical Test & Stars Bar inside Figure Studio -->
@@ -410,7 +559,7 @@
     </div>
   </div>
 
-  <script src="./browser-client.js?v=098"></script>
-  <script src="./static/app.js?v=098"></script>
+  <script src="./browser-client.js?v=099"></script>
+  <script src="./static/app.js?v=099"></script>
 </body>
 </html>
