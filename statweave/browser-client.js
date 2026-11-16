@@ -343,6 +343,14 @@
       syncKeyLabel();
       topRight.insertBefore(keyBtn, topRight.firstChild);
 
+      var hostedBtn = document.createElement('a');
+      hostedBtn.id = 'sw-hosted-login-btn';
+      hostedBtn.href = 'https://statweave-api-production.up.railway.app/app';
+      hostedBtn.className = 'btn btn-primary btn-sm';
+      hostedBtn.style.textDecoration = 'none';
+      hostedBtn.innerHTML = '&#128272; Sign In for Hosted Lab AI (40/day) &#8594;';
+      topRight.insertBefore(hostedBtn, keyBtn);
+
       var modal = document.createElement('div');
       modal.id = 'sw-byok-modal';
       modal.className = 'modal-backdrop hidden';

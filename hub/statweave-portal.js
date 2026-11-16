@@ -4,6 +4,7 @@
   if (window.__crpStandaloneAppLoaded_statweave) return;
   window.__crpStandaloneAppLoaded_statweave = true;
 
+  var DEFAULT_CLOUD_WORKBENCH = "https://statweave-api-production.up.railway.app";
   var DEFAULT_WASM_WORKBENCH = "https://yorekms.github.io/deep-dive-podcasts/statweave";
   var R_ATLAS_URL = "https://yorekms.github.io/deep-dive-podcasts/statweave/atlas.html";
   var COLAB_URL = "https://colab.research.google.com/drive/19gFnTy4zesPY3NOrYTSh1tvkCydejJIA";
@@ -45,14 +46,17 @@
   function detectInitialBackendUrl() {
     try {
       var params = new URLSearchParams(window.location.search || "");
+      if (params.get("mode") === "wasm") return DEFAULT_WASM_WORKBENCH;
       var fromQuery = sanitizeBackendUrl(params.get("backend") || params.get("workbench"));
       if (fromQuery) {
         try { sessionStorage.setItem("statweave_backend_override", fromQuery); } catch (e) {}
         return fromQuery;
       }
       try {
-        var saved = sanitizeBackendUrl(sessionStorage.getItem("statweave_backend_override") || localStorage.getItem("statweave_backend_url") || "");
-        if (saved) return saved;
+        var sessOverride = sanitizeBackendUrl(sessionStorage.getItem("statweave_backend_override") || "");
+        if (sessOverride) return sessOverride;
+        var saved = sanitizeBackendUrl(localStorage.getItem("statweave_backend_url") || "");
+        if (saved && !isWasmWorkbenchUrl(saved)) return saved;
       } catch (e2) {}
     } catch (e3) {}
     var rootEl = document.getElementById("crp-hub-root");
@@ -61,7 +65,7 @@
       if (fromAttr) return fromAttr;
     }
     var injected = sanitizeBackendUrl(rawInjectedBase);
-    return injected || DEFAULT_WASM_WORKBENCH;
+    return injected || DEFAULT_CLOUD_WORKBENCH;
   }
 
   var statweaveBaseUrl = detectInitialBackendUrl();
@@ -229,9 +233,9 @@
             'Paste any <strong>2-column spreadsheet table</strong>, load one of <strong>32 R-verified benchmark datasets</strong> (including Kaplan&ndash;Meier survival &amp; Cox HR), or drop your compiled <strong>ClampFlow 6-tab Excel (<code style="color:#6EE7B7;">.xlsx</code>)</strong> workbook. Build intermediate working sheets, inspect multi-angle exploratory SVG plots, compute exact SciPy/Statsmodels tests, and export vector <code style="color:#FDE68A;">.svg/.pdf/.png</code> figures &amp; reproducible <code style="color:#FDE68A;">.zip</code> archives right in your browser.' +
           '</p>' +
           '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">' +
-            '<span class="sw-step-chip"><strong style="color:#34D399;">Step &#9312;:</strong> Paste Table, Drop <code style="color:#E2E8F0;">.xlsx/.csv</code>, or Pick an R Dataset</span>' +
-            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step &#9313;:</strong> Browse Exploratory SVG Cards &amp; Working Sheets</span>' +
-            '<span class="sw-step-chip"><strong style="color:#F59E0B;">Step &#9314;:</strong> Run Verified Stats &#8594; Export SVG, PDF, PNG, XLSX &amp; ZIP</span>' +
+            '<span class="sw-step-chip"><strong style="color:#34D399;">Step &#9312;:</strong> Sign In &amp; Consent (Unlocks 40 Hosted AI Questions/Day)</span>' +
+            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step &#9313;:</strong> Paste Table, Drop <code style="color:#E2E8F0;">.xlsx/.csv</code>, or Pick an R Dataset</span>' +
+            '<span class="sw-step-chip"><strong style="color:#F59E0B;">Step &#9314;:</strong> Chat with AI + Run Verified Stats &#8594; Export SVG/PDF/ZIP</span>' +
           '</div>' +
           '<div style="display:flex;flex-wrap:wrap;gap:9px;align-items:center;">' +
             '<a id="sw-open-full-btn" href="' + initUrls.fullUrl + '" target="_blank" rel="noopener" class="sw-btn-primary">&#128640; Open Full-Screen Workbench &#8599;</a>' +
@@ -258,7 +262,7 @@
           '<div style="max-width:175px;">' +
             '<div style="font-size:10.5px;font-weight:800;color:#34D399;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;">Lab Bench Share QR</div>' +
             '<div style="font-size:11.5px;color:#CBD5E1;line-height:1.4;margin-bottom:5px;">Open <strong>StatWeave</strong> on any lab rig, MacBook, or workstation.</div>' +
-            '<div style="font-size:10.5px;color:#34D399;font-weight:700;">&#128274; No Login Required &bull; Private</div>' +
+            '<div style="font-size:10.5px;color:#34D399;font-weight:700;">&#128272; Sign In &#8594; 40 AI Turns/Day Included</div>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -271,10 +275,10 @@
           '<span style="width:10px;height:10px;border-radius:50%;background:#EF4444;display:inline-block;"></span>' +
           '<span style="width:10px;height:10px;border-radius:50%;background:#F59E0B;display:inline-block;"></span>' +
           '<span style="width:10px;height:10px;border-radius:50%;background:#10B981;display:inline-block;"></span>' +
-          '<span style="font-size:12px;color:#E2E8F0;font-weight:700;margin-left:6px;">Live StatWeave Visual Workbench &mdash; SciPy / Statsmodels / 32 R Benchmarks</span>' +
+          '<span style="font-size:12px;color:#E2E8F0;font-weight:700;margin-left:6px;">Live StatWeave Hosted AI Workbench &mdash; SciPy / Statsmodels / 32 R Benchmarks</span>' +
         '</div>' +
         '<div style="display:flex;align-items:center;gap:12px;">' +
-          '<span id="sw-engine-status-badge" style="font-size:11px;color:#34D399;font-weight:700;">&#9679; Live Browser Python 3.12 (SciPy / Statsmodels) &bull; 100% Client-Side Private</span>' +
+          '<span id="sw-engine-status-badge" style="font-size:11px;color:#34D399;font-weight:700;">&#9679; Connecting Hosted AI Server&hellip;</span>' +
           '<a id="sw-popout-link" href="' + initUrls.fullUrl + '" target="_blank" rel="noopener" style="font-size:11.5px;color:#6EE7B7;text-decoration:none;font-weight:800;">Pop Out Full Screen &#8599;</a>' +
         '</div>' +
       '</div>' +
@@ -286,12 +290,12 @@
 
     applyBackendUrl(statweaveBaseUrl);
 
-    /* Check statweave-config.json for optional cloud override */
+    /* Check statweave-config.json for backend URL updates */
     var cfgBust = 'v=' + Math.floor(Date.now() / 60000);
     fetch('https://yorekms.github.io/deep-dive-podcasts/hub/statweave-config.json?' + cfgBust, { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (cfg) {
-        if (cfg && cfg.workbenchUrl && statweaveBaseUrl === DEFAULT_WASM_WORKBENCH) {
+        if (cfg && cfg.workbenchUrl && (statweaveBaseUrl === DEFAULT_CLOUD_WORKBENCH || statweaveBaseUrl === DEFAULT_WASM_WORKBENCH)) {
           var resolved = sanitizeBackendUrl(cfg.workbenchUrl);
           if (resolved && resolved !== statweaveBaseUrl) applyBackendUrl(resolved);
         }
