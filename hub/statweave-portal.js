@@ -224,23 +224,23 @@
       '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">' +
         '<div style="flex:1;min-width:290px;">' +
           '<div style="display:inline-flex;align-items:center;gap:6px;padding:4px 11px;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);border-radius:999px;font-size:10.5px;font-weight:800;color:#6EE7B7;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">' +
-            '&#128202; Live Browser Python 3.12 Engine &bull; Kaplan&ndash;Meier Survival &bull; ClampFlow 6-Tab Ready &bull; 32 R Benchmarks' +
+            '&#128202; Live Browser Python 3.12 Engine &bull; Kaplan&ndash;Meier Survival &bull; ClampFlow 6-Tab Ready &bull; 80 Verified Benchmarks' +
           '</div>' +
           '<h1 style="margin:0 0 7px 0;font-size:27px;font-weight:900;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.18;">' +
             'StatWeave — Talk Through Your Experiment, Get Publication Figures' +
           '</h1>' +
           '<p style="margin:0 0 13px 0;font-size:13.5px;color:#CBD5E1;line-height:1.55;max-width:920px;">' +
-            'Paste any <strong>2-column spreadsheet table</strong>, load one of <strong>32 R-verified benchmark datasets</strong> (including Kaplan&ndash;Meier survival &amp; Cox HR), or drop your compiled <strong>ClampFlow 6-tab Excel (<code style="color:#6EE7B7;">.xlsx</code>)</strong> workbook. Build intermediate working sheets, inspect multi-angle exploratory SVG plots, compute exact SciPy/Statsmodels tests, and export vector <code style="color:#FDE68A;">.svg/.pdf/.png</code> figures &amp; reproducible <code style="color:#FDE68A;">.zip</code> archives right in your browser.' +
+            'Paste any <strong>2-column spreadsheet table</strong>, load one of <strong>80 verified scientific benchmark datasets</strong> (electrophysiology, ChEMBL ion channels, clinical RCTs, survival &amp; messy student sheets), or drop your compiled <strong>ClampFlow 6-tab Excel (<code style="color:#6EE7B7;">.xlsx</code>)</strong> workbook. Build intermediate working sheets, inspect multi-angle exploratory SVG plots, compute exact SciPy/Statsmodels tests, and export vector <code style="color:#FDE68A;">.svg/.pdf/.png</code> figures &amp; reproducible <code style="color:#FDE68A;">.zip</code> archives right in your browser.' +
           '</p>' +
           '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">' +
             '<span class="sw-step-chip"><strong style="color:#34D399;">Step &#9312;:</strong> Sign In &amp; Consent (Unlocks 40 Hosted AI Questions/Day)</span>' +
-            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step &#9313;:</strong> Paste Table, Drop <code style="color:#E2E8F0;">.xlsx/.csv</code>, or Pick an R Dataset</span>' +
+            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step &#9313;:</strong> Paste Table, Drop <code style="color:#E2E8F0;">.xlsx/.csv</code>, or Pick a Benchmark</span>' +
             '<span class="sw-step-chip"><strong style="color:#F59E0B;">Step &#9314;:</strong> Chat with AI + Run Verified Stats &#8594; Export SVG/PDF/ZIP</span>' +
           '</div>' +
           '<div style="display:flex;flex-wrap:wrap;gap:9px;align-items:center;">' +
             '<a id="sw-open-full-btn" href="' + initUrls.fullUrl + '" target="_blank" rel="noopener" class="sw-btn-primary">&#128640; Open Full-Screen Workbench &#8599;</a>' +
             '<button id="sw-open-ai-key-btn" type="button" class="sw-btn-sec" style="border-color:#10B981;color:#6EE7B7 !important;">&#128273; Connect OpenAI / Gemini Key</button>' +
-            '<a href="' + R_ATLAS_URL + '" target="_blank" rel="noopener" class="sw-btn-sec">&#128218; 32-Dataset R Visual Atlas &#8599;</a>' +
+            '<a href="' + R_ATLAS_URL + '" target="_blank" rel="noopener" class="sw-btn-sec">&#128218; 80-Dataset Visual Atlas &#8599;</a>' +
             '<a href="' + SUITE_ZIP_URL + '" download="StatWeave_Python_Web_Suite_v0.9.5.zip" class="sw-btn-sec">&#11015; Download Python Suite (.zip)</a>' +
             '<a href="' + COLAB_URL + '" target="_blank" rel="noopener" class="sw-btn-sec">&#9729;&#65039; Cloud AI Notebook (Colab) &#8599;</a>' +
             '<a href="' + clampflowCarrdUrl + '" class="sw-btn-sec">&#128200; Compile Raw .abf in ClampFlow &#8594;</a>' +
@@ -275,7 +275,7 @@
           '<span style="width:10px;height:10px;border-radius:50%;background:#EF4444;display:inline-block;"></span>' +
           '<span style="width:10px;height:10px;border-radius:50%;background:#F59E0B;display:inline-block;"></span>' +
           '<span style="width:10px;height:10px;border-radius:50%;background:#10B981;display:inline-block;"></span>' +
-          '<span style="font-size:12px;color:#E2E8F0;font-weight:700;margin-left:6px;">Live StatWeave Hosted AI Workbench &mdash; SciPy / Statsmodels / 32 R Benchmarks</span>' +
+          '<span style="font-size:12px;color:#E2E8F0;font-weight:700;margin-left:6px;">Live StatWeave Hosted AI Workbench &mdash; SciPy / Statsmodels / 80 Benchmarks</span>' +
         '</div>' +
         '<div style="display:flex;align-items:center;gap:12px;">' +
           '<span id="sw-engine-status-badge" style="font-size:11px;color:#34D399;font-weight:700;">&#9679; Connecting Hosted AI Server&hellip;</span>' +

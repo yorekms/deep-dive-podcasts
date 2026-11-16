@@ -10,7 +10,7 @@
   var memVerifiedModel = '';
   var origFetch = window.fetch.bind(window);
 
-  var worker = new Worker('./pyodide-worker.js?v=097');
+  var worker = new Worker('./pyodide-worker.js?v=098');
   var seq = 1;
   var pending = new Map();
   var engineReady = false;
@@ -26,7 +26,7 @@
   }
   function getVerifiedModel() {
     if (memVerifiedModel) return memVerifiedModel;
-    try { return sessionStorage.getItem(VERIFIED_MODEL_STORAGE) || ''; } catch (e) { return memVerifiedModel || ''; }
+    try { return sessionStorage.getItem(VERIFIED_MODEL_STORAGE) || localStorage.getItem(VERIFIED_MODEL_STORAGE) || ''; } catch (e) { return memVerifiedModel || ''; }
   }
   function setVerifiedModel(vm) {
     memVerifiedModel = (vm && vm.trim()) ? vm.trim() : '';
@@ -233,7 +233,7 @@
     }
     if (method === 'GET' && cleanPath === '/api/r_datasets' && !engineReady) {
       try {
-        var idxResp = await origFetch('./r_datasets_index.json?v=097');
+        var idxResp = await origFetch('./r_datasets_index.json?v=098');
         if (idxResp.ok) return idxResp;
       } catch (e) {}
     }
@@ -313,7 +313,7 @@
       atlasLink.target = '_blank';
       atlasLink.rel = 'noopener';
       atlasLink.className = 'nav-pill';
-      atlasLink.innerHTML = '&#128218; 32-Dataset R Visual Atlas &#8599;';
+      atlasLink.innerHTML = '&#128218; 80-Dataset Visual Atlas &#8599;';
       brand.appendChild(atlasLink);
 
       var isEmbedded = false;
@@ -358,7 +358,7 @@
         '<div class="modal-card">' +
           '<h3>Optional Browser AI Key (OpenAI or Google Gemini)</h3>' +
           '<p class="muted-small" style="line-height:1.5;margin-bottom:10px;">' +
-            'All statistical tests (including Kaplan&ndash;Meier survival, Log-Rank &amp; Cox HR), working sheets, exploratory galleries, and the 32 R datasets run <strong>100% locally in your browser without any API key</strong>. ' +
+            'All statistical tests (including Kaplan&ndash;Meier survival, Log-Rank &amp; Cox HR), working sheets, exploratory galleries, and the 80 verified benchmark datasets run <strong>100% locally in your browser without any API key</strong>. ' +
             'To enable open-ended LLM chat planning, paste an OpenAI (<code>sk-...</code>) or Google AI Studio Gemini (<code>AIza...</code>) key below. ' +
             'Your key is kept strictly in this browser tab (<code>sessionStorage</code>) and raw spreadsheet rows never enter prompts.' +
           '</p>' +

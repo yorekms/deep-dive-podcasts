@@ -715,11 +715,31 @@
       var items = (res && res.datasets) || [];
       if (!items.length) return;
       sel.innerHTML = '';
+      var trackLabels = {
+        track_1_ephys_pharma: 'Track 1 · Electrophysiology & Pharmacology',
+        track_2_biomedical_clinical: 'Track 2 · Biomedical & Clinical Trials',
+        track_3_messy_student: 'Track 3 · Messy Student Spreadsheets',
+        r_core_32: 'Core R Repository Benchmarks'
+      };
+      var trackOrder = ['track_1_ephys_pharma', 'track_2_biomedical_clinical', 'track_3_messy_student', 'r_core_32'];
+      var buckets = {};
       items.forEach(function (d) {
-        var opt = document.createElement('option');
-        opt.value = d.id;
-        opt.textContent = d.r_ref + ' — ' + d.archetype + ' (' + d.rows + '×' + d.cols + ')';
-        sel.appendChild(opt);
+        var tr = d.track || 'r_core_32';
+        if (!buckets[tr]) buckets[tr] = [];
+        buckets[tr].push(d);
+      });
+      trackOrder.forEach(function (tr) {
+        var list = buckets[tr];
+        if (!list || !list.length) return;
+        var grp = document.createElement('optgroup');
+        grp.label = (trackLabels[tr] || tr) + ' (' + list.length + ')';
+        list.forEach(function (d) {
+          var opt = document.createElement('option');
+          opt.value = d.id;
+          opt.textContent = d.r_ref + ' — ' + d.archetype + ' (' + d.rows + '×' + d.cols + ')';
+          grp.appendChild(opt);
+        });
+        sel.appendChild(grp);
       });
       wrap.classList.remove('hidden');
     } catch (e) {
