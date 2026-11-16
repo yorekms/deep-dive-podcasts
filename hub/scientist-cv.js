@@ -254,14 +254,6 @@
       desc: 'Active-recall physiology, receptor pharmacology, clinical diagnostics, and Bayesian reasoning web tools synchronized with the Deep Dive audio library.'
     },
     {
-      badge: 'eLife 2024 & NCI MeDOC Companion',
-      accent: '#FB7185',
-      title: 'Cancer Immunometabolism & AI Primer',
-      domainPrefix: '', domainRest: 'yorek-cancer-ai-primer.chatgpt.site',
-      url: 'https://yorek-cancer-ai-primer.tasty-siren-3221.chatgpt.site/',
-      desc: 'Interactive exploration of FABP4/FABP5 macrophage lipid metabolism in breast cancer metastasis alongside reproducible multi-omics software.'
-    },
-    {
       badge: '13 Feeds • Open Audio Curriculum',
       accent: '#60A5FA',
       title: 'Deep Dive Audio & RSS Command Deck',

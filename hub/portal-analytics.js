@@ -180,7 +180,7 @@
   }
   function portalName(url) {
     var u = String(url || '').toLowerCase();
-    if (u.indexOf('yorek-cancer-ai-primer') !== -1) return 'VCU Cancer AI Primer';
+    if (u.indexOf('yorek-cancer-ai-primer') !== -1) return 'Seizure Transcriptomics Workbench';
     if (u.indexOf('public-evidence-library') !== -1) return 'Public Evidence Library';
     if (u.indexOf('historical-documents-atlas') !== -1) return 'Historical Documents Atlas';
     return url;
