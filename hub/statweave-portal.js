@@ -159,12 +159,15 @@
     bodyHost.innerHTML =
       '<iframe id="statweave-live-iframe" src="' + urls.appUrl + '" title="StatWeave Interactive Statistics & Figure Workbench" style="width:100%;height:960px;min-height:84vh;border:none;display:block;background:#F4F6F2;" allow="clipboard-read; clipboard-write; fullscreen"></iframe>';
 
+    var aiKeyBtn = document.getElementById('sw-open-ai-key-btn');
     if (isWasmWorkbenchUrl(clean)) {
+      if (aiKeyBtn) aiKeyBtn.style.display = '';
       if (statusBadge) {
         statusBadge.style.color = '#34D399';
         statusBadge.innerHTML = '&#9679; Live Browser Python 3.12 (SciPy / Statsmodels) &bull; 100% Client-Side Private';
       }
     } else {
+      if (aiKeyBtn) aiKeyBtn.style.display = 'none';
       if (statusBadge) {
         statusBadge.style.color = '#FBBF24';
         statusBadge.innerHTML = '&#9679; Connecting Cloud Statistical Server&hellip;';
@@ -174,7 +177,9 @@
         .then(function (d) {
           if (d && statusBadge) {
             statusBadge.style.color = '#34D399';
-            statusBadge.innerHTML = '&#9679; Connected Cloud Server + SHA-256 Provenance';
+            statusBadge.innerHTML = d.openai_configured
+              ? '&#9679; Live Cloud AI + SciPy/Statsmodels Server &bull; SHA-256 Provenance'
+              : '&#9679; Connected Cloud Server + SHA-256 Provenance';
           }
         })
         .catch(function () {});

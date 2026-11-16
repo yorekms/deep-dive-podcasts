@@ -5,6 +5,9 @@
   var KEY_STORAGE = 'statweave_browser_api_key';
   var MODEL_STORAGE = 'statweave_browser_api_model';
   var VERIFIED_MODEL_STORAGE = 'statweave_browser_verified_model';
+  var memKey = '';
+  var memModel = '';
+  var memVerifiedModel = '';
   var origFetch = window.fetch.bind(window);
 
   var worker = new Worker('./pyodide-worker.js?v=097');
@@ -14,31 +17,37 @@
   var engineError = '';
 
   function getSavedKey() {
-    try { return sessionStorage.getItem(KEY_STORAGE) || ''; } catch (e) { return ''; }
+    if (memKey) return memKey;
+    try { return sessionStorage.getItem(KEY_STORAGE) || localStorage.getItem(KEY_STORAGE) || ''; } catch (e) { return memKey || ''; }
   }
   function getSavedModel() {
-    try { return sessionStorage.getItem(MODEL_STORAGE) || ''; } catch (e) { return ''; }
+    if (memModel) return memModel;
+    try { return sessionStorage.getItem(MODEL_STORAGE) || localStorage.getItem(MODEL_STORAGE) || ''; } catch (e) { return memModel || ''; }
   }
   function getVerifiedModel() {
-    try { return sessionStorage.getItem(VERIFIED_MODEL_STORAGE) || ''; } catch (e) { return ''; }
+    if (memVerifiedModel) return memVerifiedModel;
+    try { return sessionStorage.getItem(VERIFIED_MODEL_STORAGE) || ''; } catch (e) { return memVerifiedModel || ''; }
   }
   function setVerifiedModel(vm) {
+    memVerifiedModel = (vm && vm.trim()) ? vm.trim() : '';
     try {
-      if (vm && vm.trim()) sessionStorage.setItem(VERIFIED_MODEL_STORAGE, vm.trim());
+      if (memVerifiedModel) sessionStorage.setItem(VERIFIED_MODEL_STORAGE, memVerifiedModel);
       else sessionStorage.removeItem(VERIFIED_MODEL_STORAGE);
     } catch (e) {}
   }
   function setSavedKey(k, m) {
+    var prevK = getSavedKey();
+    var prevM = getSavedModel();
+    memKey = (k && k.trim()) ? k.trim() : '';
+    memModel = (m && m.trim()) ? m.trim() : '';
+    if (memKey !== prevK || memModel !== prevM) {
+      setVerifiedModel('');
+    }
     try {
-      var prevK = getSavedKey();
-      var prevM = getSavedModel();
-      if (k && k.trim()) sessionStorage.setItem(KEY_STORAGE, k.trim());
+      if (memKey) sessionStorage.setItem(KEY_STORAGE, memKey);
       else sessionStorage.removeItem(KEY_STORAGE);
-      if (m && m.trim()) sessionStorage.setItem(MODEL_STORAGE, m.trim());
+      if (memModel) sessionStorage.setItem(MODEL_STORAGE, memModel);
       else sessionStorage.removeItem(MODEL_STORAGE);
-      if ((k || '').trim() !== prevK || (m || '').trim() !== prevM) {
-        setVerifiedModel('');
-      }
     } catch (e) {}
   }
 
