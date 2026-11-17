@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Master Topic, Pharmaceutics &amp; One-Ångström Giants Index — Deep Dive Network</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 20px 14px 90px 14px;
+    background: radial-gradient(circle at 12% 8%, rgba(244,114,182,0.14), transparent 42%),
+                radial-gradient(circle at 88% 18%, rgba(45,212,191,0.14), transparent 44%),
+                #060B16;
+    color: #F8FAFC;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1480px; margin: 0 auto; }
+  .author-box {
+    margin: 0 auto 10px auto; padding: 8px 14px;
+    background: rgba(9,14,26,0.92); border: 1px solid rgba(255,255,255,0.16);
+    border-left: 3px solid #F472B6; border-radius: 13px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px;
+  }
+  .cred-pill {
+    display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+    border-radius: 999px; font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap;
+  }
+  .hub-bar {
+    margin: 0 auto 16px auto; padding: 9px 12px;
+    background: rgba(9,14,26,0.86); border: 1px solid rgba(244,114,182,0.34); border-radius: 15px;
+    display: flex; flex-wrap: wrap; gap: 5px; justify-content: center;
+  }
+  .hub-pill {
+    display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px;
+    border-radius: 999px; font-size: 11px; font-weight: 600; text-decoration: none;
+    color: #E2E8F0; background: rgba(15,23,42,0.78); border: 1px solid rgba(255,255,255,0.14);
+    transition: all 0.15s ease;
+  }
+  .hub-pill:hover { border-color: #F472B6; color: #FFFFFF; transform: translateY(-1px); }
+  .hero {
+    background: linear-gradient(135deg, rgba(15,23,42,0.94), rgba(30,27,46,0.88));
+    border: 1px solid rgba(244,114,182,0.42); border-radius: 20px; padding: 22px 24px;
+    margin-bottom: 16px; box-shadow: 0 18px 50px rgba(0,0,0,0.5);
+  }
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 10px; margin-top: 16px; }
+  .stat-card {
+    background: rgba(9,14,26,0.78); border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 13px; padding: 10px 13px; cursor: pointer; transition: all 0.16s ease;
+  }
+  .stat-card:hover { border-color: #F472B6; transform: translateY(-1px); }
+  .stat-num { font-size: 22px; font-weight: 900; line-height: 1.1; }
+  .stat-lbl { font-size: 11px; color: #94A3B8; font-weight: 700; margin-top: 3px; }
+  .tab-bar {
+    display: flex; flex-wrap: wrap; gap: 7px; align-items: center; justify-content: space-between;
+    background: rgba(9,14,26,0.88); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px; padding: 10px 13px; margin-bottom: 14px; position: sticky; top: 8px; z-index: 50;
+    backdrop-filter: blur(16px);
+  }
+  .tab-btn {
+    appearance: none; border: 1px solid rgba(255,255,255,0.16); background: rgba(15,23,42,0.85);
+    color: #CBD5E1; font-size: 12px; font-weight: 800; padding: 7px 13px; border-radius: 999px;
+    cursor: pointer; font-family: inherit; transition: all 0.15s ease;
+  }
+  .tab-btn:hover { border-color: #38BDF8; color: #FFFFFF; }
+  .tab-btn.active { background: #F472B6; color: #090E1A; border-color: #F472B6; box-shadow: 0 0 14px rgba(244,114,182,0.45); }
+  .sub-pill {
+    appearance: none; border: 1px solid rgba(255,255,255,0.15); background: rgba(15,23,42,0.76);
+    color: #CBD5E1; font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 999px;
+    cursor: pointer; font-family: inherit; transition: all 0.14s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+  }
+  .sub-pill:hover { border-color: #38BDF8; color: #FFFFFF; }
+  .sub-pill.active { background: #38BDF8; color: #090E1A; border-color: #38BDF8; font-weight: 800; }
+  .search-in {
+    width: 280px; max-width: 100%; padding: 7px 12px; border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.22); background: #050914; color: #F8FAFC;
+    font-size: 12.5px; outline: none; font-family: inherit;
+  }
+  .search-in:focus { border-color: #F472B6; }
+  .ep-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px; }
+  .ep-card {
+    display: flex; flex-direction: column; gap: 5px; padding: 11px 14px; border-radius: 11px;
+    background: rgba(15,23,42,0.84); border: 1px solid rgba(255,255,255,0.14);
+    text-decoration: none; color: inherit; transition: all 0.15s ease;
+  }
+  .ep-card:hover { border-color: #38BDF8; background: rgba(30,41,59,0.95); transform: translateY(-1px); }
+  .badge {
+    font-size: 9.8px; font-weight: 800; padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .badge-oag { color: #F9A8D4; background: rgba(244,114,182,0.17); border-color: rgba(244,114,182,0.52); }
+  .badge-sog { color: #FCD34D; background: rgba(245,158,11,0.16); border-color: rgba(245,158,11,0.48); }
+  .badge-oa  { color: #5EEAD4; background: rgba(20,184,166,0.16); border-color: rgba(20,184,166,0.46); }
+  .badge-om  { color: #7DD3FC; background: rgba(56,189,248,0.16); border-color: rgba(56,189,248,0.46); }
+  .badge-enh { color: #FCA5A5; background: rgba(239,68,68,0.16); border-color: rgba(239,68,68,0.46); }
+  .pharma-card, .topic-card {
+    background: rgba(15,23,42,0.86); border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 13px; padding: 13px 15px; margin-bottom: 10px;
+  }
+  .pharma-gap { border-left: 4px solid #F59E0B; background: rgba(30,24,16,0.82); }
+  .pharma-cov { border-left: 4px solid #10B981; }
+  .pdb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+  @media (max-width: 820px) {
+    .ep-grid { grid-template-columns: 1fr; }
+    .search-in { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="author-box">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;">
+      <span style="font-size:13px;font-weight:800;color:#FFFFFF;">Matthew S. Yorek</span>
+      <span style="font-size:11.5px;font-weight:600;color:#94A3B8;">&bull; Cross-Network Master Topic, Pharmaceutics &amp; 1-Ångström PDB Index</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;">
+      <a href="../" class="cred-pill" style="color:#E0F2FE;background:rgba(14,116,144,0.38);border:1px solid rgba(56,189,248,0.52);">&larr; All 12 RSS Feeds</a>
+      <a href="../app/" class="cred-pill" style="color:#060B16;background:#38BDF8;font-weight:800;">&#128241; iPhone &amp; Android App</a>
+      <a href="../resonance/?view=listen" class="cred-pill" style="color:#F9A8D4;background:rgba(131,24,67,0.42);border:1px solid rgba(244,114,182,0.55);">&#9654; Web Transcript Player</a>
+    </div>
+  </div>
+
+  <div class="hub-bar" id="hub-nav-bar"></div>
+
+  <div class="hero">
+    <div style="font-size:10.8px;font-weight:800;color:#F9A8D4;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:5px;">
+      Unified Cross-Hub Discovery &bull; Shoulders of Giants &bull; One-Ångström PDB Coordinates &bull; WHO Pharmaceutics Audit
+    </div>
+    <h1 style="margin:0 0 7px 0;font-size:26px;font-weight:900;letter-spacing:-0.02em;">
+      Master Topic, Drug &amp; One-Ångström Giants Index
+    </h1>
+    <p style="margin:0;font-size:13.5px;color:#CBD5E1;line-height:1.5;max-width:1050px;">
+      Explore every long-form audio treatise across all 12 Carrd subject hubs by <strong>Series Lens</strong> (<em>One-Ångström Giants</em>, <em>Shoulders of Giants</em>, <em>1-Ångström PDB</em>, <em>One Medicine</em>, <em>Human Enhancement</em>), <strong>WHO Pharmaceutical Class</strong>, <strong>376+ Scholarly Topics</strong>, <strong>RCSB PDB Crystal/Cryo-EM Structures</strong>, or <strong>Comparative Species</strong>. Click any episode to launch directly in its Carrd hub player.
+    </p>
+    <div class="stat-row" id="hero-stats"></div>
+  </div>
+
+  <div class="tab-bar">
+    <div style="display:flex;flex-wrap:wrap;gap:6px;" id="main-tabs">
+      <button type="button" class="tab-btn active" data-tab="lenses">&#9883;&#65039; Series &amp; Giants Lenses</button>
+      <button type="button" class="tab-btn" data-tab="pharma">&#128138; Pharmaceutics Audit &amp; Roadmap</button>
+      <button type="button" class="tab-btn" data-tab="topics">&#128450;&#65039; Scholarly Topics &amp; Books</button>
+      <button type="button" class="tab-btn" data-tab="pdbs">&#128300; 1-Ångström PDB Atlas</button>
+      <button type="button" class="tab-btn" data-tab="species">&#128062; Comparative Species</button>
+      <button type="button" class="tab-btn" data-tab="clusters">&#128279; Multi-Episode Arcs</button>
+    </div>
+    <input id="global-search" class="search-in" type="search" placeholder="Search drugs, pioneers, PDB codes, topics..." aria-label="Search index" />
+  </div>
+
+  <div id="sub-controls" style="margin-bottom:14px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;"></div>
+  <div id="view-root"><div style="padding:20px;color:#94A3B8;">Loading cross-network index…</div></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  var DATA = null;
+  var EP_BY_ID = {};
+  var HUB_BY_SLUG = {};
+  var state = {
+    tab: 'lenses',
+    lens: 'oag',
+    hub: '',
+    pharmaFilter: 'all',
+    topicCat: 'all',
+    book: 'all',
+    species: 'Canine (Dog)',
+    q: ''
+  };
+
+  try {
+    var sp = new URLSearchParams(location.search);
+    if (sp.get('tab')) state.tab = sp.get('tab');
+    if (sp.get('lens')) state.lens = sp.get('lens');
+    if (sp.get('hub')) state.hub = sp.get('hub');
+    if (sp.get('q')) state.q = sp.get('q');
+  } catch (e) {}
+
+  fetch('../hub/topic-index.json?v=' + Math.floor(Date.now() / 180000))
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      DATA = d;
+      (d.episodes || []).forEach(function (e) { EP_BY_ID[e.id] = e; });
+      (d.hubs || []).forEach(function (h) { HUB_BY_SLUG[h.slug] = h; });
+      initUI();
+      render();
+    })
+    .catch(function (err) {
+      document.getElementById('view-root').innerHTML = '<div style="padding:16px;border-radius:12px;background:#1E293B;color:#FCA5A5;">Could not load topic-index.json: ' + esc(err) + '</div>';
+    });
+
+  function epCardHTML(ep) {
+    if (!ep) return '';
+    var hInfo = HUB_BY_SLUG[ep.hub] || { label: ep.hub, accent: '#38BDF8' };
+    var badges = '';
+    if (ep.lenses.indexOf('oag') !== -1) badges += '<span class="badge badge-oag">&#9883;&#65039; One-Ångström Giants</span>';
+    else if (ep.lenses.indexOf('sog') !== -1) badges += '<span class="badge badge-sog">&#127963;&#65039; Shoulders of Giants</span>';
+    if (ep.lenses.indexOf('oa') !== -1 && ep.lenses.indexOf('oag') === -1) badges += '<span class="badge badge-oa">&#128300; One Ångström</span>';
+    if (ep.lenses.indexOf('om') !== -1) badges += '<span class="badge badge-om">&#129658; One Medicine</span>';
+    if (ep.lenses.indexOf('enh') !== -1) badges += '<span class="badge badge-enh">&#9889; No Free Lunch</span>';
+    var pdbChips = (ep.pdbs || []).slice(0, 4).map(function (p) {
+      return '<span style="font-family:monospace;font-size:10px;color:#5EEAD4;background:rgba(20,184,166,0.14);border:1px solid rgba(20,184,166,0.4);padding:1px 6px;border-radius:5px;">PDB ' + esc(p) + '</span>';
+    }).join(' ');
+    return '<a class="ep-card" href="' + esc(ep.url) + '" target="_blank" rel="noopener">' +
+      '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;">' +
+        '<div style="font-size:13.2px;font-weight:800;color:#FFFFFF;line-height:1.34;">' + esc(ep.title) + '</div>' +
+        (ep.dur ? '<span style="font-size:10px;font-weight:800;color:#94A3B8;white-space:nowrap;">' + ep.dur + 'm</span>' : '') +
+      '</div>' +
+      (ep.sub ? '<div style="font-size:11.6px;color:#CBD5E1;line-height:1.4;">' + esc(ep.sub) + '</div>' : '') +
+      '<div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:2px;">' +
+        '<span class="badge" style="color:' + esc(hInfo.accent) + ';border-color:' + esc(hInfo.accent) + '66;">' + esc(hInfo.label) + '</span>' +
+        badges + pdbChips +
+      '</div>' +
+    '</a>';
+  }
+
+  function initUI() {
+    var st = DATA.stats || {};
+    var nav = document.getElementById('hub-nav-bar');
+    nav.innerHTML = (DATA.hubs || []).map(function (h) {
+      return '<a class="hub-pill" href="' + esc(h.url) + '?lens=one-angstrom-giants" target="_blank" rel="noopener" title="Open ' + esc(h.label) + ' Carrd Hub">' + esc(h.label) + '</a>';
+    }).join('');
+
+    var hs = document.getElementById('hero-stats');
+    var cards = [
+      { k: 'oag', tab: 'lenses', lens: 'oag', n: st.oag, c: '#F472B6', l: '⚛️ One-Ångström Giants' },
+      { k: 'sog', tab: 'lenses', lens: 'sog', n: st.sog, c: '#FBBF24', l: '🏛️ Shoulders of Giants' },
+      { k: 'oa',  tab: 'lenses', lens: 'oa',  n: st.oa,  c: '#2DD4BF', l: '🔬 One-Ångström · PDB' },
+      { k: 'ph',  tab: 'pharma', lens: '',    n: st.pharma_covered + '/' + st.pharma_total, c: '#34D399', l: '💊 ATC Drug Classes Covered' },
+      { k: 'pdb', tab: 'pdbs',   lens: '',    n: st.pdbs, c: '#38BDF8', l: '🧬 Unique PDB Structures' },
+      { k: 'top', tab: 'topics', lens: '',    n: st.topics, c: '#A78BFA', l: '🗂️ Indexed Scholarly Topics' }
+    ];
+    hs.innerHTML = cards.map(function (x) {
+      return '<div class="stat-card" data-jump-tab="' + x.tab + '" data-jump-lens="' + x.lens + '">' +
+        '<div class="stat-num" style="color:' + x.c + ';">' + x.n + '</div>' +
+        '<div class="stat-lbl">' + esc(x.l) + '</div></div>';
+    }).join('');
+    hs.querySelectorAll('.stat-card').forEach(function (el) {
+      el.addEventListener('click', function () {
+        state.tab = el.getAttribute('data-jump-tab') || 'lenses';
+        if (el.getAttribute('data-jump-lens')) state.lens = el.getAttribute('data-jump-lens');
+        syncTabButtons();
+        render();
+      });
+    });
+
+    var sIn = document.getElementById('global-search');
+    if (state.q) sIn.value = state.q;
+    sIn.addEventListener('input', function () {
+      state.q = (sIn.value || '').trim().toLowerCase();
+      render();
+    });
+
+    document.querySelectorAll('#main-tabs .tab-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        state.tab = btn.getAttribute('data-tab') || 'lenses';
+        syncTabButtons();
+        render();
+      });
+    });
+    syncTabButtons();
+  }
+
+  function syncTabButtons() {
+    document.querySelectorAll('#main-tabs .tab-btn').forEach(function (btn) {
+      if (btn.getAttribute('data-tab') === state.tab) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+
+  function matchesQuery(txt) {
+    if (!state.q) return true;
+    return String(txt || '').toLowerCase().indexOf(state.q) !== -1;
+  }
+
+  function render() {
+    var sub = document.getElementById('sub-controls');
+    var root = document.getElementById('view-root');
+    var st = DATA.stats || {};
+
+    if (state.tab === 'lenses') {
+      var lensDefs = [
+        { id: 'oag', lbl: '⚛️ One-Ångström Giants (' + st.oag + ')', desc: 'Flagship synthesis uniting a scientific pioneer’s historical discovery directly with 1-Ångström X-ray/cryo-EM PDB coordinates.' },
+        { id: 'sog', lbl: '🏛️ Shoulders of Giants (' + st.sog + ')', desc: 'Historical breakthroughs, primary laboratory notebooks, and the investigators who built physiology and pharmacology.' },
+        { id: 'oa',  lbl: '🔬 One Ångström · PDB (' + st.oa + ')',  desc: 'Atomic-resolution receptor pockets, ion-channel selectivity filters, covalent warheads, and cryo-EM machines.' },
+        { id: 'om',  lbl: '🩺 One Medicine Comparative (' + st.om + ')', desc: 'Comparative human & veterinary clinical cases, species-specific metabolic traps, and diagnostic statistics.' },
+        { id: 'enh', lbl: '⚡ Human Enhancement · No Free Lunch (' + st.enh + ')', desc: 'Objective 1-Ångström & physiological trade-off audits of athletic, cognitive, and peptide ergogenics.' },
+        { id: 'all', lbl: 'All Unique Episodes (' + st.total + ')', desc: 'Complete deduplicated Deep Dive audio treatise catalog across all 12 Carrd hubs.' }
+      ];
+      var hHtml = lensDefs.map(function (ld) {
+        return '<button type="button" class="sub-pill' + (state.lens === ld.id ? ' active' : '') + '" data-lens="' + ld.id + '">' + esc(ld.lbl) + '</button>';
+      }).join('');
+      hHtml += '<select id="hub-sel" style="padding:5px 10px;border-radius:999px;background:#0F172A;color:#E2E8F0;border:1px solid rgba(255,255,255,0.2);font-size:11px;font-weight:700;">' +
+        '<option value="">All 12 Carrd Hubs</option>' +
+        (DATA.hubs || []).map(function (h) {
+          return '<option value="' + esc(h.slug) + '"' + (state.hub === h.slug ? ' selected' : '') + '>' + esc(h.label) + '</option>';
+        }).join('') + '</select>';
+      if (state.hub && HUB_BY_SLUG[state.hub] && (state.lens === 'oag' || state.lens === 'sog' || state.lens === 'oa')) {
+        var lensParam = state.lens === 'oag' ? 'one-angstrom-giants' : (state.lens === 'sog' ? 'shoulders-of-giants' : 'one-angstrom');
+        hHtml += '<a class="sub-pill" style="border-color:#F472B6;color:#F9A8D4;" target="_blank" rel="noopener" href="' + esc(HUB_BY_SLUG[state.hub].url) + '/?lens=' + lensParam + '">Open Filtered Tab on Carrd Hub &#8599;</a>';
+      }
+      sub.innerHTML = hHtml;
+      sub.querySelectorAll('button[data-lens]').forEach(function (b) {
+        b.addEventListener('click', function () { state.lens = b.getAttribute('data-lens'); render(); });
+      });
+      document.getElementById('hub-sel').addEventListener('change', function (ev) { state.hub = ev.target.value; render(); });
+
+      var curDesc = (lensDefs.filter(function (x) { return x.id === state.lens; })[0] || lensDefs[0]).desc;
+      var eps = (DATA.episodes || []).filter(function (e) {
+        var lOk = state.lens === 'all' || e.lenses.indexOf(state.lens) !== -1;
+        var hOk = !state.hub || e.hubs.indexOf(state.hub) !== -1;
+        var qOk = matchesQuery(e.title + ' ' + e.sub + ' ' + (e.pdbs || []).join(' ') + ' ' + e.hubs.join(' '));
+        return lOk && hOk && qOk;
+      });
+      root.innerHTML = '<div style="margin-bottom:10px;padding:9px 13px;border-radius:11px;background:rgba(15,23,42,0.75);border:1px solid rgba(255,255,255,0.1);font-size:12.5px;color:#CBD5E1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">' +
+        '<span>' + esc(curDesc) + '</span><strong style="color:#F9A8D4;">Showing ' + eps.length + ' episodes</strong></div>' +
+        '<div class="ep-grid">' + eps.slice(0, 200).map(epCardHTML).join('') + '</div>' +
+        (eps.length > 200 ? '<div style="margin-top:12px;font-size:12px;color:#94A3B8;text-align:center;">Showing top 200 of ' + eps.length + ' episodes — use the search box or hub selector to narrow further.</div>' : '');
+      return;
+    }
+
+    if (state.tab === 'pharma') {
+      sub.innerHTML = [
+        ['all', 'All WHO ATC Classes (' + st.pharma_total + ')'],
+        ['covered', '✅ Live Covered Classes (' + st.pharma_covered + ')'],
+        ['gaps', '🧭 Remaining Completion Roadmap — Pilots 209–229 (' + st.pharma_gaps + ')']
+      ].map(function (p) {
+        return '<button type="button" class="sub-pill' + (state.pharmaFilter === p[0] ? ' active' : '') + '" data-pf="' + p[0] + '">' + esc(p[1]) + '</button>';
+      }).join('');
+      sub.querySelectorAll('button[data-pf]').forEach(function (b) {
+        b.addEventListener('click', function () { state.pharmaFilter = b.getAttribute('data-pf'); render(); });
+      });
+
+      var rows = (DATA.pharma || []).filter(function (r) {
+        if (state.pharmaFilter === 'covered' && r.status !== 'COVERED') return false;
+        if (state.pharmaFilter === 'gaps' && r.status === 'COVERED') return false;
+        var epTitles = (r.episode_ids || []).map(function (id) { return EP_BY_ID[id] ? EP_BY_ID[id].title : ''; }).join(' ');
+        return matchesQuery(r.domain + ' ' + r.name + ' ' + r.roadmap + ' ' + epTitles);
+      });
+      root.innerHTML = rows.map(function (r) {
+        var isCov = r.status === 'COVERED';
+        var cards = (r.episode_ids || []).map(function (id) { return epCardHTML(EP_BY_ID[id]); }).join('');
+        return '<div class="pharma-card ' + (isCov ? 'pharma-cov' : 'pharma-gap') + '">' +
+          '<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:6px;">' +
+            '<div><div style="font-size:10.5px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;">' + esc(r.domain) + '</div>' +
+            '<div style="font-size:15px;font-weight:800;color:#FFFFFF;margin-top:2px;">' + esc(r.name) + '</div></div>' +
+            '<span class="badge" style="' + (isCov ? 'color:#6EE7B7;background:rgba(16,185,129,0.18);border-color:#10B981;' : 'color:#FCD34D;background:rgba(245,158,11,0.18);border-color:#F59E0B;') + '">' +
+              (isCov ? ('✓ LIVE · ' + r.episode_ids.length + ' Ep · ' + r.spoken_mentions + ' spoken mentions') : '🧭 NEXT WAVE · One-Ångström Giants Slot') +
+            '</span>' +
+          '</div>' +
+          (isCov ? ('<div class="ep-grid" style="margin-top:8px;">' + cards + '</div>') :
+            ('<div style="font-size:12.5px;color:#FDE68A;line-height:1.45;margin-top:4px;"><strong>Planned Completion Blueprint:</strong> ' + esc(r.roadmap) + '</div>')) +
+        '</div>';
+      }).join('');
+      return;
+    }
+
+    if (state.tab === 'topics') {
+      var cats = ['all', 'Mechanism / Pathway', 'Molecule / Gene / Channel', 'Disease / Clinical Syndrome', 'Diagnostics & Statistics', 'History of Medicine'];
+      var books = ['all', 'Book I: Why a God', 'Book II: Disease, Immunity, and Care', 'Book III: Consciousness and Consideration'];
+      sub.innerHTML = cats.map(function (c) {
+        return '<button type="button" class="sub-pill' + (state.topicCat === c ? ' active' : '') + '" data-tc="' + esc(c) + '">' + esc(c === 'all' ? 'All Categories' : c) + '</button>';
+      }).join('') + '<select id="book-sel" style="padding:5px 10px;border-radius:999px;background:#0F172A;color:#E2E8F0;border:1px solid rgba(255,255,255,0.2);font-size:11px;font-weight:700;">' +
+        books.map(function (b) { return '<option value="' + esc(b) + '"' + (state.book === b ? ' selected' : '') + '>' + esc(b === 'all' ? 'All 3 Books' : b) + '</option>'; }).join('') + '</select>';
+      sub.querySelectorAll('button[data-tc]').forEach(function (b) {
+        b.addEventListener('click', function () { state.topicCat = b.getAttribute('data-tc'); render(); });
+      });
+      document.getElementById('book-sel').addEventListener('change', function (ev) { state.book = ev.target.value; render(); });
+
+      var tops = (DATA.topics || []).filter(function (t) {
+        var cOk = state.topicCat === 'all' || t.cat === state.topicCat;
+        var bOk = state.book === 'all' || t.book === state.book;
+        return cOk && bOk && matchesQuery(t.name + ' ' + t.desc + ' ' + t.cat);
+      });
+      root.innerHTML = tops.slice(0, 80).map(function (t) {
+        var sample = (t.episode_ids || []).slice(0, 4).map(function (id) { return epCardHTML(EP_BY_ID[id]); }).join('');
+        return '<div class="topic-card">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">' +
+            '<div><span style="font-size:10.5px;font-weight:800;color:#38BDF8;text-transform:uppercase;">' + esc(t.cat) + ' &bull; ' + esc(t.book) + '</span>' +
+            '<h3 style="margin:2px 0 4px 0;font-size:15.5px;color:#FFFFFF;">' + esc(t.name) + '</h3></div>' +
+            '<span class="badge badge-oa">' + t.count + ' Episodes</span>' +
+          '</div>' +
+          '<div style="font-size:12px;color:#94A3B8;margin-bottom:8px;">' + esc(t.desc) + '</div>' +
+          '<div class="ep-grid">' + sample + '</div>' +
+        '</div>';
+      }).join('');
+      return;
+    }
+
+    if (state.tab === 'pdbs') {
+      sub.innerHTML = '<span style="font-size:12px;color:#CBD5E1;">Click any <strong>RCSB PDB</strong> accession to inspect the 3D experimental structure at <a href="https://www.rcsb.org" target="_blank" rel="noopener" style="color:#5EEAD4;">rcsb.org</a> or stream the episode directly.</span>';
+      var pdbs = (DATA.pdbs || []).filter(function (p) {
+        var epNames = (p.episode_ids || []).map(function (id) { return EP_BY_ID[id] ? EP_BY_ID[id].title : ''; }).join(' ');
+        return matchesQuery(p.pdb + ' ' + epNames);
+      });
+      root.innerHTML = '<div class="pdb-grid">' + pdbs.map(function (p) {
+        var links = (p.episode_ids || []).slice(0, 3).map(function (id) {
+          var e = EP_BY_ID[id];
+          return e ? ('<a href="' + esc(e.url) + '" target="_blank" rel="noopener" style="display:block;font-size:11.5px;color:#E2E8F0;text-decoration:none;padding:5px 0;border-top:1px solid rgba(255,255,255,0.08);line-height:1.35;">&#9654; ' + esc(e.title.slice(0, 88)) + (e.title.length > 88 ? '…' : '') + '</a>') : '';
+        }).join('');
+        return '<div class="pharma-card" style="margin:0;">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">' +
+            '<a href="https://www.rcsb.org/structure/' + esc(p.pdb) + '" target="_blank" rel="noopener" style="font-family:monospace;font-size:16px;font-weight:900;color:#5EEAD4;text-decoration:none;">PDB ' + esc(p.pdb) + ' &#8599;</a>' +
+            '<span class="badge badge-oa">' + p.count + ' ep</span>' +
+          '</div>' + links + '</div>';
+      }).join('') + '</div>';
+      return;
+    }
+
+    if (state.tab === 'species') {
+      var spList = DATA.species || [];
+      if (spList.length && !spList.some(function (s) { return s.name === state.species; })) {
+        state.species = spList[0].name;
+      }
+      sub.innerHTML = spList.map(function (s) {
+        return '<button type="button" class="sub-pill' + (state.species === s.name ? ' active' : '') + '" data-sp="' + esc(s.name) + '">' + esc(s.name) + ' (' + s.count + ')</button>';
+      }).join('');
+      sub.querySelectorAll('button[data-sp]').forEach(function (b) {
+        b.addEventListener('click', function () { state.species = b.getAttribute('data-sp'); render(); });
+      });
+      var chosenSp = spList.filter(function (s) { return s.name === state.species; })[0] || { episode_ids: [] };
+      var spEps = (chosenSp.episode_ids || []).map(function (id) { return EP_BY_ID[id]; }).filter(function (e) {
+        return e && matchesQuery(e.title + ' ' + e.sub);
+      });
+      root.innerHTML = '<div class="ep-grid">' + spEps.map(epCardHTML).join('') + '</div>';
+      return;
+    }
+
+    if (state.tab === 'clusters') {
+      sub.innerHTML = '<span style="font-size:12px;color:#CBD5E1;">Multi-angle listening arcs connecting <strong>Shoulders of Giants</strong> historical discoveries, <strong>1-Ångström PDB</strong> pockets, and <strong>One Medicine</strong> clinical cases on the same molecule.</span>';
+      root.innerHTML = (DATA.clusters || []).filter(function (c) {
+        return matchesQuery(c.title + ' ' + c.arc);
+      }).map(function (c) {
+        return '<div class="topic-card">' +
+          '<div style="font-size:10.5px;font-weight:800;color:#F9A8D4;text-transform:uppercase;letter-spacing:0.06em;">' + esc(c.arc) + '</div>' +
+          '<h3 style="margin:3px 0 8px 0;font-size:16px;color:#FFFFFF;">' + esc(c.title) + ' (' + c.episode_ids.length + ' Complementary Episodes)</h3>' +
+          '<div class="ep-grid">' + c.episode_ids.map(function (id) { return epCardHTML(EP_BY_ID[id]); }).join('') + '</div>' +
+        '</div>';
+      }).join('');
+    }
+  }
+})();
+</script>
+</body>
+</html>
