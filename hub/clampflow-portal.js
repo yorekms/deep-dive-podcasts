@@ -100,18 +100,18 @@
       '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;">' +
         '<div style="flex:1;min-width:290px;">' +
           '<div style="display:inline-flex;align-items:center;gap:6px;padding:4px 11px;background:rgba(245,158,11,0.16);border:1px solid rgba(245,158,11,0.45);border-radius:999px;font-size:10.5px;font-weight:800;color:#FDE68A;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">' +
-            '&#9889; Online Electrophysiology Lab Pipeline &bull; Zero Install &bull; Any Computer' +
+            '&#9889; Online Current-Clamp &amp; Voltage-Clamp Pipeline &bull; Zero Install &bull; Any Computer' +
           '</div>' +
           '<h1 style="margin:0 0 7px 0;font-size:27px;font-weight:900;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.18;">' +
             'ClampFlow ABF Pipeline &amp; Spreadsheet Compiler' +
           '</h1>' +
-          '<p style="margin:0 0 13px 0;font-size:13.5px;color:#CBD5E1;line-height:1.55;max-width:920px;">' +
-            'Browser-native Axon Binary (<code style="color:#FDE68A;">.abf</code>) current-clamp analyzer (CCIV, Ramp, Gap-Free &amp; Pulse) with 1:1 MATLAB feature parity. Inspect multi-sweep action potentials, phase-plane loops (<code style="color:#6EE7B7;">dV/dt</code>), I-V / F-I curves, download your compiled <strong>6-tab Excel (.xlsx)</strong> workbook, and submit directly to the instructor cohort drop-box.' +
+          '<p style="margin:0 0 13px 0;font-size:13.5px;color:#CBD5E1;line-height:1.55;max-width:960px;">' +
+            'Browser-native Axon Binary (<code style="color:#FDE68A;">.abf</code>) <strong>Current-Clamp</strong> (CCIV, Ramp, Gap-Free &amp; Pulse) and <strong>Voltage-Clamp</strong> (<code style="color:#38BDF8;">Binding/Unbinding Flexible ROI Groups</code>, <code style="color:#F472B6;">Persistent Na<sup>+</sup> TTX Subtraction</code> &amp; <code style="color:#6EE7B7;">Inward Current / NaV1.6 Boltzmann G/G<sub>max</sub> I-V</code>) workbench with 1:1 MATLAB parity. Download your compiled <strong>6-tab Excel (.xlsx)</strong> workbook and submit directly to the instructor cohort drop-box.' +
           '</p>' +
           '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">' +
-            '<span class="cf-step-chip"><strong style="color:#F59E0B;">Step 1:</strong> Enter Student Name, ID, Project &amp; Rig</span>' +
-            '<span class="cf-step-chip"><strong style="color:#38BDF8;">Step 2:</strong> Drop <code style="color:#E2E8F0;">.abf</code> File &amp; Verify AP Metrics</span>' +
-            '<span class="cf-step-chip"><strong style="color:#34D399;">Step 3:</strong> Click <em>Submit &amp; Export Spreadsheets</em> (Instructor Copy + Your <code style="color:#6EE7B7;">.xlsx</code>)</span>' +
+            '<span class="cf-step-chip"><strong style="color:#F59E0B;">Step 1:</strong> Enter Student Name, ID &amp; Choose Current- or Voltage-Clamp</span>' +
+            '<span class="cf-step-chip"><strong style="color:#38BDF8;">Step 2:</strong> Drop Single or Paired Pre/Post-Drug <code style="color:#E2E8F0;">.abf</code> Files &amp; Verify Traces</span>' +
+            '<span class="cf-step-chip"><strong style="color:#34D399;">Step 3:</strong> Click <em>Submit &amp; Export Spreadsheets</em> (Instructor Copy + Your <code style="color:#6EE7B7;">6-Tab .xlsx</code>)</span>' +
           '</div>' +
           '<div style="display:flex;flex-wrap:wrap;gap:9px;align-items:center;">' +
             '<a href="' + clampflowFullUrl + '" target="_blank" rel="noopener" class="cf-btn-primary">' +
