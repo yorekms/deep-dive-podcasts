@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/deep-dive-podcasts/estudia/sw.js', { scope: '/deep-dive-podcasts/estudia/' })})}

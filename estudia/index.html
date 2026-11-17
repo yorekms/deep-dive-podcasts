@@ -1,32 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#060B16" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Estudia!" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../resonance/apple-touch-icon.png" />
-  <link rel="icon" type="image/svg+xml" href="../resonance/icon.svg" />
-  <link rel="manifest" href="./manifest.webmanifest" />
-  <title>Estudia! — Flashcards, Active Recall &amp; Deep Dive Study Decks</title>
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-<body>
-  <div id="estudia-app"></div>
-  <script src="./starterDecks.js"></script>
-  <script src="./app.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('./sw.js').catch(function () {});
-      });
-    }
-    if (navigator.storage && navigator.storage.persist) {
-      navigator.storage.persist().catch(function () {});
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Estudia! - High School Flashcards &amp; Study Studio</title>
+    <meta name="description" content="Interactive flashcard and study app with Spanish audio pronunciation, multi-subject decks, quiz testing, write &amp; spell practice, and mastery tracking." />
+    <meta property="og:title" content="Estudia! - High School Flashcards &amp; Study Studio" />
+    <meta property="og:description" content="Interactive flashcard and study app with Spanish audio pronunciation, multi-subject decks, quiz testing, write &amp; spell practice, and mastery tracking." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Estudia!" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/deep-dive-podcasts/estudia/assets/index-BiEg9dFf.js"></script>
+    <link rel="stylesheet" crossorigin href="/deep-dive-podcasts/estudia/assets/index-C_NmCG7Y.css">
+  <link rel="manifest" href="/deep-dive-podcasts/estudia/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/deep-dive-podcasts/estudia/registerSW.js"></script></head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
+    <div id="root"></div>
+  </body>
 </html>
