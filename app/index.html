@@ -18,6 +18,9 @@
       if (window.navigator.standalone === true || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches)) {
         window.location.replace('/deep-dive-podcasts/resonance/?view=listen');
       }
+      if (navigator.storage && navigator.storage.persist) {
+        navigator.storage.persist().catch(function () {});
+      }
     } catch (e) {}
   </script>
   <style>
@@ -127,8 +130,8 @@
     <div class="brand">
       <div class="dd-icon">DD</div>
       <div>
-        <div style="font-size:19px;font-weight:900;letter-spacing:-0.02em;">Deep Dive Audio Player</div>
-        <div style="font-size:12.5px;color:#94A3B8;font-weight:600;">Long-Form Deep Dives &bull; 1.5&times; Run Mode &bull; Offline Downloads</div>
+        <div style="font-size:19px;font-weight:900;letter-spacing:-0.02em;">Deep Dive &amp; Estudia! Mobile Apps</div>
+        <div style="font-size:12.5px;color:#94A3B8;font-weight:600;">1.5&times; Run Mode &bull; Offline Audio &bull; 7,612 Transcript Q&amp;A Cards &bull; Zero App Store Fee</div>
       </div>
     </div>
 
@@ -222,6 +225,33 @@
           </div>
         </div>
       </div>
+
+      <!-- BIG PROMINENT BUTTON #3: ESTUDIA! STUDY CARDS & 7,612 TRANSCRIPT Q&A APP -->
+      <div class="card" style="border:2px solid rgba(251,191,36,0.65);background:linear-gradient(145deg,rgba(120,53,15,0.34),rgba(15,23,42,0.96));">
+        <span class="badge" style="background:rgba(251,191,36,0.2);color:#FDE68A;">Option 3 &bull; Estudia! Study Studio (7,612 Q&amp;A Cards)</span>
+        <h2 style="margin:0 0 6px 0;font-size:20px;font-weight:900;">Open Estudia! Flashcards &amp; Pin to Home Screen</h2>
+        <p style="margin:0 0 14px 0;font-size:13px;color:#CBD5E1;line-height:1.5;">
+          Full-screen iPhone study app uniting <strong>7,612 Deep Dive transcript Q&amp;A cards</strong> across all 994 episodes &amp; 12 hubs with 3D Flashcards, 4-Option Quizzes, Write &amp; Spell, Match Grid, and timestamp audio jump-backs.
+        </p>
+        <a href="../estudia/" class="cta-btn" style="background:#FBBF24;color:#060B16;box-shadow:0 10px 28px rgba(251,191,36,0.36);">
+          <span>&#127891; Launch Estudia! Study Cards Now</span>
+        </a>
+        <div style="margin-top:9px;font-size:12px;color:#CBD5E1;text-align:center;">
+          Pin its own icon too: open Estudia! in Safari &rarr; <strong>Share &#11014;&#65039;</strong> &rarr; <strong>Add to Home Screen</strong>.
+        </div>
+      </div>
+
+      <!-- OPTION #4: FREE XCODE / SIDESTORE NATIVE IOS SIDELOAD BUNDLE -->
+      <div class="card" style="border:1.5px solid rgba(148,163,184,0.32);">
+        <span class="badge" style="background:rgba(148,163,184,0.18);color:#E2E8F0;">Option 4 &bull; Mac Xcode / SideStore Native Sideload ($0)</span>
+        <h2 style="margin:0 0 6px 0;font-size:18px;font-weight:900;">Native SwiftUI iOS Project (Free Personal Apple ID)</h2>
+        <p style="margin:0 0 12px 0;font-size:12.5px;color:#CBD5E1;line-height:1.5;">
+          Options 1&ndash;3 above work immediately on <strong>every iPhone with zero Mac and zero 7-day expiration</strong>. If you have a Mac with free Xcode (or use SideStore/AltStore), you can also build &amp; sideload our native 4-tab SwiftUI + <code>AVAudioSession</code> iOS app directly onto your iPhone using a free Personal Team Apple ID:
+        </p>
+        <a href="./DeepDivePodcasts-Xcode-Sideload.zip" download="DeepDivePodcasts-Xcode-Sideload.zip" class="sub-pill" style="width:100%;min-height:46px;font-size:13px;border-color:#38BDF8;color:#E0F2FE;">
+          &#128230; Download Xcode iOS Sideload Project (.zip)
+        </a>
+      </div>
     </div>
 
     <!-- ANDROID (.APK) VIEW -->
@@ -235,9 +265,12 @@
         <a href="https://github.com/yorekms/deep-dive-podcasts/releases/download/v2026.11-one-medicine/DeepDivePodcasts.apk" download="DeepDivePodcasts.apk" class="cta-btn btn-green">
           <span>&#11015; Download Android App (.apk)</span>
         </a>
-        <div style="margin-top:12px;">
+        <div style="margin-top:12px;display:grid;gap:8px;">
           <a href="../resonance/?view=listen" class="sub-pill" style="width:100%;min-height:48px;font-size:13.5px;border-color:#38BDF8;color:#7DD3FC;">
             &#9654; Or Open Web Player App Directly
+          </a>
+          <a href="../estudia/" class="sub-pill" style="width:100%;min-height:48px;font-size:13.5px;border-color:#FBBF24;color:#FDE68A;">
+            &#127891; Open Estudia! Study Cards (7,612 Transcript Q&amp;As)
           </a>
         </div>
       </div>

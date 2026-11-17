@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#060B16" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Estudia!" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../resonance/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="../resonance/icon.svg" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <title>Estudia! — Flashcards, Active Recall &amp; Deep Dive Study Decks</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="estudia-app"></div>
+  <script src="./starterDecks.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js').catch(function () {});
+      });
+    }
+    if (navigator.storage && navigator.storage.persist) {
+      navigator.storage.persist().catch(function () {});
+    }
+  </script>
+</body>
+</html>

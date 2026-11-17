@@ -16,7 +16,7 @@
 })();
 (function() {
  var studioBase = "https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen";
- var estudiaUrl = "https://estudia-high-school-flashcards-study-studio.ai.studio";
+ var estudiaUrl = "https://yorekms.github.io/deep-dive-podcasts/estudia/";
  
  function injectStandaloneEstudia() {
  var target = document.querySelector('#main') || document.querySelector('.inner') || document.body;
@@ -39,10 +39,10 @@
  '&#127891; Featured Learning Studio \u2022 Mobile-Ready Web App' +
  '</div>' +
  '<h1 style="margin:0 0 10px 0;font-size:32px;font-weight:900;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.2;">' +
- 'Estudia! \u2013 High School Flashcards &amp; Study Studio' +
+ 'Estudia! \u2013 Flashcards, Deep Dive Transcript Q&amp;A &amp; Study Studio' +
  '</h1>' +
- '<p style="margin:0 0 16px 0;font-size:14.5px;color:#CBD5E1;line-height:1.6;max-width:720px;">' +
- 'Interactive flashcard, vocabulary, and concept mastery app built for high school and college prep. Practice active recall, spaced repetition, definitions, audio pronunciation, and self-quizzing across AP sciences, literature, history, and languages.' +
+ '<p style="margin:0 0 16px 0;font-size:14.5px;color:#CBD5E1;line-height:1.6;max-width:760px;">' +
+ 'Interactive 3D flashcard, multiple-choice quiz, write-and-spell, and match-grid mastery studio &mdash; uniting High School / AP starter decks with <strong>7,600+ synchronized Deep Dive transcript Q&amp;A cards</strong> across all 994 episodes and 12 hubs (complete with timestamp audio jump-backs).' +
  '</p>' +
  '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">' +
  '<a href="' + estudiaUrl + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:800;color:#090E1A;background:#38BDF8;box-shadow:0 0 16px rgba(56,189,248,0.45);text-decoration:none;">' +
@@ -59,7 +59,7 @@
  
  /* QR Code Block */
  '<div style="background:rgba(15,23,42,0.92);border:1px solid #38BDF866;border-radius:16px;padding:14px;display:flex;align-items:center;gap:14px;box-shadow:0 10px 25px rgba(0,0,0,0.4);flex-shrink:0;">' +
- '<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=https%3A%2F%2Festudia-high-school-flashcards-study-studio.ai.studio" alt="Scan QR Code for Estudia!" width="110" height="110" style="border-radius:12px;background:#FFFFFF;padding:4px;flex-shrink:0;" />' +
+ '<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=https%3A%2F%2Fyorekms.github.io%2Fdeep-dive-podcasts%2Festudia%2F" alt="Scan QR Code for Estudia!" width="110" height="110" style="border-radius:12px;background:#FFFFFF;padding:4px;flex-shrink:0;" />' +
  '<div style="max-width:180px;">' +
  '<div style="font-size:11px;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Instant Phone Access</div>' +
  '<div style="font-size:12px;color:#CBD5E1;line-height:1.45;margin-bottom:6px;">Scan with your iPhone or Android camera to open on mobile.</div>' +
@@ -87,6 +87,7 @@
  html += '<div style="background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:24px;margin-bottom:24px;">' +
  '<h2 style="margin:0 0 14px 0;font-size:20px;font-weight:800;color:#FFFFFF;">Included Subject Decks &amp; Mastery Tools</h2>' +
  '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;">' +
+ '<span class="deck-pill" style="border-color:#FBBF2488;color:#FDE68A;background:rgba(120,53,15,0.42);">&#127911; 994 Deep Dive Podcast Transcript Decks (7,612 Q&amp;A Cards)</span>' +
  '<span class="deck-pill">&#128300; AP Biology &amp; Physiology</span>' +
  '<span class="deck-pill">&#9877;&#65039; General &amp; Organic Chemistry</span>' +
  '<span class="deck-pill">&#127758; World History &amp; Civilization</span>' +
