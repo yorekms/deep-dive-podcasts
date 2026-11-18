@@ -1,5 +1,5 @@
 /*!
- * Deep Dive Podcast Network - shared Carrd hub player (v1.9.0).
+ * Deep Dive Podcast Network - shared Carrd hub player (v1.9.2).
  * Hosted on GitHub Pages: https://yorekms.github.io/deep-dive-podcasts/hub/player.js
  *
  * Each Carrd site only needs a tiny embed:
@@ -15,9 +15,9 @@
   if (window.__crpHubLoaded) return;
   window.__crpHubLoaded = true;
 
-  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} }";
-  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:700px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-sources-chip\" type=\"button\" title=\"View clickable primary journal citations, PubMed/PMC full text &amp; interactive 3D RCSB PDB structures\" style=\"display:none;\">&#128218; Sources &amp; PDB</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Sources &amp; PDB, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;flex-wrap:wrap;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"sources\">&#128218; Sources &amp; PDB</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"estudia\">&#127891; Estudia! Q&amp;A</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-estudia-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/estudia/\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open full 3D Flashcards, Quiz, Write &amp; Match deck in Estudia! Study Studio\" style=\"font-size:10.5px;font-weight:800;color:#FDE68A;text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid rgba(251,191,36,0.55);background:rgba(120,53,15,0.42);\">&#127891; Estudia! &#8599;</a><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open standalone Pocket App with offline downloads &amp; transcripts (iPhone &amp; Android)\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">&#128241; Pocket App</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, primary literature, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" playsinline webkit-playsinline=\"true\" preload=\"auto\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-prev-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Previous episode in list (Shift+P)\" style=\"padding:5px 7px;\">&#9198;</button><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-next-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Next episode in list (Shift+N)\" style=\"padding:5px 7px;\">&#9197;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
-  var PLAYER_VERSION = "1.9.1";
+  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-cnt{font-size:9.5px;font-weight:900;color:#6EE7B7;background:rgba(16,185,129,0.20);border:1px solid rgba(52,211,153,0.52);padding:1px 6px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer;transition:all 0.15s ease} .crp-ep-cnt:hover{background:#10B981;color:#052E16;border-color:#34D399} .crp-paired-debate-card{border-left:3px solid #C084FC !important;background:linear-gradient(135deg,rgba(46,16,101,0.34),rgba(15,23,42,0.88)) !important} .crp-paired-line{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:10.7px;font-weight:800;color:#D8B4FE;line-height:1.32;margin-top:1px} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} }";
+  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:700px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-plus-play-chip\" type=\"button\" title=\"Add +1 listen count for this episode\" style=\"display:none;background:rgba(15,23,42,0.92);border:1px solid rgba(52,211,153,0.52);color:#6EE7B7;border-radius:999px;padding:1px 6px;font-size:10px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums;\">+1&times;</button><button id=\"crp-sources-chip\" type=\"button\" title=\"View clickable primary journal citations, PubMed/PMC full text &amp; interactive 3D RCSB PDB structures\" style=\"display:none;\">&#128218; Sources &amp; PDB</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Sources &amp; PDB, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;flex-wrap:wrap;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"sources\">&#128218; Sources &amp; PDB</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"estudia\">&#127891; Estudia! Q&amp;A</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-estudia-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/estudia/\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open full 3D Flashcards, Quiz, Write &amp; Match deck in Estudia! Study Studio\" style=\"font-size:10.5px;font-weight:800;color:#FDE68A;text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid rgba(251,191,36,0.55);background:rgba(120,53,15,0.42);\">&#127891; Estudia! &#8599;</a><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open standalone Pocket App with offline downloads &amp; transcripts (iPhone &amp; Android)\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">&#128241; Pocket App</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, primary literature, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" playsinline webkit-playsinline=\"true\" preload=\"auto\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-prev-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Previous episode in list (Shift+P)\" style=\"padding:5px 7px;\">&#9198;</button><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-next-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Next episode in list (Shift+N)\" style=\"padding:5px 7px;\">&#9197;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
+  var PLAYER_VERSION = "1.9.2";
 
   var pendingSyncToken = '';
   try {
@@ -252,8 +252,13 @@
           var initMap = {};
           for (var i = 0; i < localStorage.length; i++) {
             var k = localStorage.key(i) || '';
-            if (k.indexOf('crp_done_') === 0 && localStorage.getItem(k) === '1') {
-              initMap[k.slice(9)] = 1;
+            if (k.indexOf('crp_count_') === 0) {
+              var cid = k.slice(10);
+              var cval = parseInt(localStorage.getItem(k) || '0', 10);
+              if (cid && cval > 0) initMap[cid] = cval;
+            } else if (k.indexOf('crp_done_') === 0 && localStorage.getItem(k) === '1') {
+              var did = k.slice(9);
+              if (did && initMap[did] === undefined) initMap[did] = 1;
             } else if (k.indexOf('crp_undone_') === 0 && localStorage.getItem(k) === '1') {
               var uid = k.slice(11);
               if (initMap[uid] === undefined) initMap[uid] = 0;
@@ -368,6 +373,7 @@
     var pulseEl = document.getElementById('crp-pulse');
     var restartChip = document.getElementById('crp-restart-chip');
     var doneChip = document.getElementById('crp-done-chip');
+    var plusPlayChip = document.getElementById('crp-plus-play-chip');
     var sourcesChip = document.getElementById('crp-sources-chip');
     var sourcesDrawer = document.getElementById('crp-sources-drawer');
     var shareBtn = document.getElementById('crp-share-btn');
@@ -477,50 +483,89 @@
     var hideListened = false;
     var applyFilterRef = null;
 
+    function getEpisodePlayCount(id) {
+      if (!id) return 0;
+      try {
+        var raw = parseInt(localStorage.getItem('crp_count_' + id) || '0', 10);
+        if (isFinite(raw) && raw > 0) return raw;
+        if (localStorage.getItem('crp_done_' + id) === '1') return 1;
+      } catch (e) {}
+      return 0;
+    }
+
     function isEpisodeDone(id) {
-      if (!id) return false;
-      try { return localStorage.getItem('crp_done_' + id) === '1'; } catch (e) { return false; }
+      return getEpisodePlayCount(id) > 0;
     }
 
     function syncDoneChipUI() {
       if (!doneChip) return;
       if (!currentDriveId) {
         doneChip.style.display = 'none';
+        if (plusPlayChip) plusPlayChip.style.display = 'none';
         return;
       }
       doneChip.style.display = 'inline-block';
-      var done = isEpisodeDone(currentDriveId);
-      if (done) {
-        doneChip.innerHTML = '&#10003; Listened';
+      var cnt = getEpisodePlayCount(currentDriveId);
+      if (cnt > 0) {
+        doneChip.innerHTML = '&#10003; Listened &middot; ' + cnt + '&times;';
+        doneChip.title = 'Listened ' + cnt + '\u00d7 \u2022 Click to reset to Unplayed (Shift+click or +1\u00d7 to log another listen)';
         doneChip.style.background = '#10B981';
         doneChip.style.borderColor = '#34D399';
         doneChip.style.color = '#052E16';
+        if (plusPlayChip) plusPlayChip.style.display = 'inline-block';
       } else {
         doneChip.innerHTML = '&#9675; Mark Listened';
+        doneChip.title = 'Mark this episode as Listened (1\u00d7)';
         doneChip.style.background = 'rgba(15,23,42,0.9)';
         doneChip.style.borderColor = 'rgba(16,185,129,0.45)';
         doneChip.style.color = '#6EE7B7';
+        if (plusPlayChip) plusPlayChip.style.display = 'none';
       }
     }
 
-    function setEpisodeDoneState(id, next, notifyBridge) {
-      if (!id) return false;
+    function setEpisodePlayCount(id, count, notifyBridge) {
+      if (!id) return 0;
+      var clean = Math.max(0, Math.floor(count || 0));
       try {
-        if (next) {
+        if (clean > 0) {
           localStorage.setItem('crp_done_' + id, '1');
+          localStorage.setItem('crp_count_' + id, String(clean));
           localStorage.removeItem('crp_undone_' + id);
         } else {
           localStorage.removeItem('crp_done_' + id);
+          localStorage.removeItem('crp_count_' + id);
           localStorage.setItem('crp_undone_' + id, '1');
         }
       } catch (e) {}
       buildSyncToken();
       if (notifyBridge !== false && bridgeFrame && bridgeFrame.contentWindow) {
         try {
-          bridgeFrame.contentWindow.postMessage({ type: 'CRPSyncSet', id: id, val: next ? 1 : 0 }, 'https://yorekms.github.io');
+          bridgeFrame.contentWindow.postMessage({ type: 'CRPSyncSet', id: id, val: clean }, 'https://yorekms.github.io');
         } catch (e) {}
       }
-      return next;
+      return clean;
+    }
+
+    function setEpisodeDoneState(id, next, notifyBridge) {
+      if (!id) return false;
+      if (next) {
+        var cur = getEpisodePlayCount(id);
+        setEpisodePlayCount(id, cur > 0 ? cur : 1, notifyBridge);
+        return true;
+      }
+      setEpisodePlayCount(id, 0, notifyBridge);
+      return false;
+    }
+
+    function recordEpisodeCompletedPlay(id) {
+      if (!id) return 0;
+      var nextCnt = getEpisodePlayCount(id) + 1;
+      setEpisodePlayCount(id, nextCnt, true);
+      refreshCardStates();
+      syncDoneChipUI();
+      if (typeof applyFilterRef === 'function') applyFilterRef();
+      track('episode_play_counted', { episode_id: id, play_count: nextCnt });
+      return nextCnt;
     }
 
     window.addEventListener('message', function (ev) {
@@ -529,14 +574,17 @@
       try {
         for (var id in ev.data.map) {
           if (!Object.prototype.hasOwnProperty.call(ev.data.map, id)) continue;
-          var want = !!ev.data.map[id];
-          var curDone = localStorage.getItem('crp_done_' + id) === '1';
+          var rawVal = ev.data.map[id];
+          var wantCnt = (typeof rawVal === 'number' && isFinite(rawVal) && rawVal > 0) ? Math.floor(rawVal) : (rawVal ? 1 : 0);
+          var curCnt = getEpisodePlayCount(id);
           var curUndone = localStorage.getItem('crp_undone_' + id) === '1';
-          if (want && !curDone && !curUndone) {
+          if (wantCnt > 0 && !curUndone && wantCnt > curCnt) {
             localStorage.setItem('crp_done_' + id, '1');
+            localStorage.setItem('crp_count_' + id, String(wantCnt));
             changed = true;
-          } else if (!want && curDone) {
+          } else if (wantCnt === 0 && curCnt > 0) {
             localStorage.removeItem('crp_done_' + id);
+            localStorage.removeItem('crp_count_' + id);
             localStorage.setItem('crp_undone_' + id, '1');
             changed = true;
           }
@@ -550,10 +598,18 @@
       }
     });
 
-    function toggleEpisodeDone(id, forceVal) {
+    function toggleEpisodeDone(id, forceVal, addOnePlay) {
       if (!id) return false;
+      if (addOnePlay) {
+        recordEpisodeCompletedPlay(id);
+        return true;
+      }
       var next = (typeof forceVal === 'boolean') ? forceVal : !isEpisodeDone(id);
-      setEpisodeDoneState(id, next, true);
+      if (next) {
+        setEpisodePlayCount(id, 1, true);
+      } else {
+        setEpisodePlayCount(id, 0, true);
+      }
       refreshCardStates();
       syncDoneChipUI();
       if (typeof applyFilterRef === 'function') applyFilterRef();
@@ -569,30 +625,51 @@
         var id = m[1];
         var ico = a.querySelector('.crp-ep-ico');
         var chk = a.querySelector('.crp-ep-chk');
-        var done = false, pos = 0;
+        var cntEl = a.querySelector('.crp-ep-cnt');
+        var cnt = getEpisodePlayCount(id);
+        var done = cnt > 0;
+        var pos = 0;
         try {
-          done = localStorage.getItem('crp_done_' + id) === '1';
           pos = parseFloat(localStorage.getItem('crp_pos_' + id) || '0') || 0;
         } catch (e) {}
         a.classList.toggle('crp-done-card', done);
         a.classList.toggle('crp-inprog-card', !done && pos > 15);
         if (ico) ico.innerHTML = done ? '&#10003;' : '&#9654;';
+        if (cntEl) {
+          if (done) {
+            cntEl.style.display = 'inline-block';
+            cntEl.textContent = '\u2713 ' + cnt + '\u00d7';
+            cntEl.title = 'Listened ' + cnt + '\u00d7 \u2022 Click badge to log +1 listen';
+          } else {
+            cntEl.style.display = 'none';
+            cntEl.textContent = '';
+          }
+        }
         if (chk) {
           chk.setAttribute('aria-checked', done ? 'true' : 'false');
-          chk.title = done ? 'Listened \u2022 Click check to mark unplayed' : 'Mark as Listened';
+          chk.title = done ? ('Listened ' + cnt + '\u00d7 \u2022 Click check to unmark (Shift+click for +1\u00d7)') : 'Mark as Listened (1\u00d7)';
         }
         if (!done && pos > 15) a.title = 'In progress (' + fmtTime(pos) + ') \u2022 Click to resume';
-        else if (done) a.title = 'Listened \u2022 Click to listen again (or click check on right to unmark)';
+        else if (done) a.title = 'Listened ' + cnt + '\u00d7 \u2022 Click to listen again (or click check on right to unmark)';
         else a.removeAttribute('title');
       });
       var doneFilterBtn = document.getElementById('crp-done-filter-pill');
       if (doneFilterBtn) {
         var totalLocal = Object.keys(localHubIds).length;
         var doneCount = 0;
-        Object.keys(localHubIds).forEach(function (id) { if (isEpisodeDone(id)) doneCount++; });
+        var totalPlays = 0;
+        Object.keys(localHubIds).forEach(function (id) {
+          var c = getEpisodePlayCount(id);
+          if (c > 0) {
+            doneCount++;
+            totalPlays += c;
+          }
+        });
         doneFilterBtn.classList.toggle('active', hideListened);
         if (hideListened) {
           doneFilterBtn.innerHTML = '&#10003; Unplayed Only (' + (totalLocal - doneCount) + ' left)';
+        } else if (totalPlays > doneCount) {
+          doneFilterBtn.innerHTML = '&#10003; ' + doneCount + ' / ' + totalLocal + ' Listened &middot; ' + totalPlays + '&times;';
         } else {
           doneFilterBtn.innerHTML = '&#10003; ' + doneCount + ' / ' + totalLocal + ' Listened';
         }
@@ -1374,7 +1451,7 @@
       currentDriveId = driveId;
       currentCleanTitle = cleanTitle;
       currentGhUrl = ghUrl || (epMetaById[driveId] && epMetaById[driveId].ep && epMetaById[driveId].ep.gh) || '';
-      milestonesSent = {};
+      milestonesSent = { activeId: driveId };
       if (titleEl) titleEl.textContent = cleanTitle;
       if (estudiaLink) {
         estudiaLink.href = ESTUDIA_BASE + '/?hub=' + encodeURIComponent(HUB) + '&ep=' + encodeURIComponent(driveId);
@@ -1451,11 +1528,12 @@
               track('episode_progress', { percent: m, episode_title: currentCleanTitle, episode_id: currentDriveId });
             }
           });
-          if (dur > 60 && pct >= 90 && !milestonesSent.done90) {
-            milestonesSent.done90 = true;
-            setEpisodeDoneState(currentDriveId, true, true);
-            refreshCardStates();
-            syncDoneChipUI();
+          if (dur > 60 && pct < 45 && milestonesSent.countedRun) {
+            milestonesSent.countedRun = false;
+          }
+          if (dur > 60 && audioEl.currentTime > 5 && pct >= 95 && milestonesSent.activeId === currentDriveId && !milestonesSent.countedRun) {
+            milestonesSent.countedRun = true;
+            recordEpisodeCompletedPlay(currentDriveId);
           }
         }
       });
@@ -1463,13 +1541,17 @@
         if (playBtn) playBtn.innerHTML = '&#9654;';
         setMediaPlaybackState('paused');
         if (statusEl) statusEl.textContent = 'Episode finished';
-        if (currentDriveId) {
+        if (currentDriveId && milestonesSent.activeId === currentDriveId && (audioEl.currentTime > 5 || (isFinite(audioEl.duration) && audioEl.duration > 30))) {
           try {
             localStorage.removeItem('crp_pos_' + currentDriveId);
           } catch (e) {}
-          setEpisodeDoneState(currentDriveId, true, true);
-          refreshCardStates();
-          syncDoneChipUI();
+          if (!milestonesSent.countedRun) {
+            milestonesSent.countedRun = true;
+            recordEpisodeCompletedPlay(currentDriveId);
+          } else {
+            refreshCardStates();
+            syncDoneChipUI();
+          }
           track('episode_complete', { episode_title: currentCleanTitle, episode_id: currentDriveId });
         }
         if (sleepMode === 'end') {
@@ -1508,9 +1590,13 @@
       sleepDeadlineMs = (next !== 'off' && next !== 'end') ? (Date.now() + parseInt(next, 10) * 60000) : 0;
       syncSleepUI();
     });
-    if (doneChip) doneChip.addEventListener('click', function () {
+    if (doneChip) doneChip.addEventListener('click', function (ev) {
       if (!currentDriveId) return;
-      toggleEpisodeDone(currentDriveId);
+      toggleEpisodeDone(currentDriveId, undefined, !!(ev && ev.shiftKey));
+    });
+    if (plusPlayChip) plusPlayChip.addEventListener('click', function () {
+      if (!currentDriveId) return;
+      recordEpisodeCompletedPlay(currentDriveId);
     });
     if (sourcesChip && sourcesDrawer) sourcesChip.addEventListener('click', function () {
       var open = sourcesDrawer.style.display !== 'block';
@@ -1591,11 +1677,11 @@
       if (!audioEl) return;
       audioEl.currentTime = 0;
       restartChip.style.display = 'none';
+      milestonesSent.countedRun = false;
       if (currentDriveId) {
         try {
           localStorage.removeItem('crp_pos_' + currentDriveId);
         } catch (e) {}
-        setEpisodeDoneState(currentDriveId, false, true);
         refreshCardStates();
         syncDoneChipUI();
       }
@@ -1922,7 +2008,13 @@
         parts.sub = excerptFromNotes(ep.notes, 155);
       }
       var subHtml = parts.sub ? '<span class="crp-ep-sub">' + esc(parts.sub) + '</span>' : '';
+      var pairedHtml = (ep && ep.pairedTitle)
+        ? '<span class="crp-paired-line">&#9876;&#65039; Paired Debate &middot; Companion to &ldquo;' + esc(ep.pairedTitle) + '&rdquo;</span>'
+        : '';
       var searchParts = [];
+      if (ep && ep.pairedTitle) {
+        searchParts.push(ep.pairedTitle);
+      }
       if (ep && Array.isArray(ep.pdbs)) {
         ep.pdbs.forEach(function (p) { if (p && p.id) searchParts.push('PDB ' + p.id); });
       }
@@ -1933,15 +2025,17 @@
         });
       }
       var searchExtra = searchParts.length ? (' data-search-extra="' + esc(searchParts.join(' ')) + '"') : '';
+      var cardCls = 'crp-ep-btn' + ((ep && ep.pairedTitle) ? ' crp-paired-debate-card' : '');
       return '<a href="https://drive.google.com/uc?export=download&amp;id=' + esc(ep.id) + '"' +
         (ep.gh ? ' data-gh-url="' + esc(ep.gh) + '"' : '') +
         ' data-ep-label="' + esc(ep.label) + '" data-sec="' + secIdx + '" data-kind="' + esc(kt.kind) + '"' +
         searchExtra +
         (ln.sog ? ' data-sog="1"' : '') + (ln.oa ? ' data-oa="1"' : '') + (ln.oag ? ' data-oag="1"' : '') + (ln.enh ? ' data-enh="1"' : '') + (ln.vice ? ' data-vice="1"' : '') +
-        ' class="crp-ep-btn" role="button">' +
+        ' class="' + cardCls + '" role="button">' +
         '<span class="crp-ep-top"><span class="crp-ep-ico">&#9654;</span><span class="crp-ep-lbl">' + esc(parts.head) + '</span>' + tag +
+        '<span class="crp-ep-cnt" style="display:none;"></span>' +
         '<span class="crp-ep-chk" role="checkbox" aria-checked="false" title="Mark as Listened">&#10003;</span></span>' +
-        subHtml + '</a>';
+        pairedHtml + subHtml + '</a>';
     }
 
     function buildHubHTML() {
@@ -2323,8 +2417,12 @@
           if (match && match[1]) {
             e.preventDefault();
             e.stopPropagation();
+            if (e.target && e.target.closest && e.target.closest('.crp-ep-cnt')) {
+              recordEpisodeCompletedPlay(match[1]);
+              return;
+            }
             if (e.target && e.target.closest && e.target.closest('.crp-ep-chk')) {
-              toggleEpisodeDone(match[1]);
+              toggleEpisodeDone(match[1], undefined, !!(e && e.shiftKey));
               return;
             }
             var fullAttr = link.getAttribute('data-ep-label');

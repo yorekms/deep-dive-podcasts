@@ -20,6 +20,10 @@
       localStorage.setItem(KEY, JSON.stringify(map));
     } catch (e) {}
   }
+  function normVal(v) {
+    if (typeof v === 'number' && isFinite(v) && v > 0) return Math.floor(v);
+    return v ? 1 : 0;
+  }
   function sendState(targetWin, origin) {
     if (!targetWin) return;
     try {
@@ -34,9 +38,13 @@
         var cur = loadMap();
         var changed = false;
         for (var k in d.map) {
-          if (Object.prototype.hasOwnProperty.call(d.map, k) && cur[k] === undefined) {
-            cur[k] = d.map[k];
-            changed = true;
+          if (Object.prototype.hasOwnProperty.call(d.map, k)) {
+            var incoming = normVal(d.map[k]);
+            var existing = cur[k];
+            if (existing === undefined || (incoming > 0 && incoming > normVal(existing))) {
+              cur[k] = incoming;
+              changed = true;
+            }
           }
         }
         if (changed) saveMap(cur);
@@ -44,7 +52,7 @@
       sendState(ev.source, ev.origin);
     } else if (d.type === 'CRPSyncSet' && d.id) {
       var cur2 = loadMap();
-      cur2[d.id] = d.val ? 1 : 0;
+      cur2[d.id] = normVal(d.val);
       saveMap(cur2);
       sendState(ev.source, ev.origin);
     }
