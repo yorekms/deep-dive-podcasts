@@ -10,7 +10,7 @@
   var memVerifiedModel = '';
   var origFetch = window.fetch.bind(window);
 
-  var worker = new Worker('./pyodide-worker.js?v=099');
+  var worker = new Worker('./pyodide-worker.js?v=101');
   var seq = 1;
   var pending = new Map();
   var engineReady = false;
@@ -233,7 +233,7 @@
     }
     if (method === 'GET' && cleanPath === '/api/r_datasets' && !engineReady) {
       try {
-        var idxResp = await origFetch('./r_datasets_index.json?v=099');
+        var idxResp = await origFetch('./r_datasets_index.json?v=101');
         if (idxResp.ok) return idxResp;
       } catch (e) {}
     }
@@ -358,7 +358,7 @@
         '<div class="modal-card">' +
           '<h3>Optional Browser AI Key (OpenAI or Google Gemini)</h3>' +
           '<p class="muted-small" style="line-height:1.5;margin-bottom:10px;">' +
-            'All statistical tests (including Kaplan&ndash;Meier survival, Log-Rank &amp; Cox HR), working sheets, exploratory galleries, and the 80 verified benchmark datasets run <strong>100% locally in your browser without any API key</strong>. ' +
+            'All statistical tests (including Tukey/Dunnett post-hocs, RM-ANOVA/Friedman, 4PL EC50/IC50, Boltzmann V1/2, Kaplan&ndash;Meier survival &amp; Cox HR), GraphPad Prism <code>.pzfx</code> / Excel intake, working sheets, exploratory galleries, and the 104 verified benchmark datasets run <strong>100% locally in your browser without any API key</strong>. ' +
             'To enable open-ended LLM chat planning, paste an OpenAI (<code>sk-...</code>) or Google AI Studio Gemini (<code>AIza...</code>) key below. ' +
             'Your key is kept strictly in this browser tab (<code>sessionStorage</code>) and raw spreadsheet rows never enter prompts.' +
           '</p>' +

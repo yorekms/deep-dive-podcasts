@@ -470,12 +470,26 @@
         } else {
           chips.push('Kaplan-Meier survival of "' + st.time_col + '" and "' + st.event_col + '", independent observations');
         }
+      } else if (ov.detected_layout === 'plate_grid') {
+        chips.push('Melt the 96-well plate grid into Row, Column, Well, and Value');
       } else if (ov.detected_layout === 'long_two_factor') {
-        chips.push('Compare Group at each Timepoint with Holm-adjusted Welch t-test stars on a timecourse plot');
-        chips.push('Run a Two-Way ANOVA testing Group, Timepoint, and interaction with grouped boxes');
+        var colLower = cols.map(function (c) { return String(c).toLowerCase(); });
+        var concIdx = colLower.findIndex(function (c) { return /conc|dose|molar|nm|um|log_conc/.test(c); });
+        var voltIdx = colLower.findIndex(function (c) { return /volt|vm|mv|potential/.test(c); });
+        if (concIdx !== -1 && cols.length >= 3) {
+          chips.push('Fit 4PL dose-response curves of "' + cols[cols.length - 1] + '" vs "' + cols[concIdx] + '" by "' + cols[0] + '", independent observations');
+        } else if (voltIdx !== -1 && cols.length >= 3) {
+          chips.push('Fit Boltzmann V1/2 curves of "' + cols[cols.length - 1] + '" vs "' + cols[voltIdx] + '" by "' + cols[0] + '", independent observations');
+        } else {
+          chips.push('Compare Group at each Timepoint with Holm-adjusted Welch t-test stars on a timecourse plot');
+          chips.push('Run a Two-Way ANOVA testing Group, Timepoint, and interaction with grouped boxes');
+        }
       } else if (cols.length >= 2) {
         chips.push('Describe this spreadsheet and show all candidate figures');
         chips.push('Compare "' + cols[0] + '" and "' + cols[1] + '", independent observations');
+        if (ov.detected_layout === 'long_grouped' || cols.length >= 3) {
+          chips.push('Run one-way ANOVA with Tukey HSD post-hoc stars, independent observations');
+        }
         chips.push('Build a tidy working sheet normalized to % of control mean and run a t-test');
         if (ws.result) {
           chips.push('Keep the same analysis, use Okabe-Ito palette and stars + exact p-value');
@@ -1290,6 +1304,91 @@
         alert(err.message);
       }
     });
+
+    // Share Session / Question Packet with PI
+    if ($('share-pi-btn') && $('share-pi-modal')) {
+      $('share-pi-btn').addEventListener('click', function () {
+        if (!state.activeProjectId) {
+          alert('Load, paste, or open a dataset first so StatWeave can package your session.');
+          return;
+        }
+        try {
+          var savedVault = localStorage.getItem('statweave_pi_vault_url') || window.__statweaveFeedbackVaultUrl || '';
+          if ($('share-pi-vault-url') && !$('share-pi-vault-url').value) {
+            $('share-pi-vault-url').value = savedVault;
+          }
+        } catch (e) {}
+        if ($('share-pi-status')) $('share-pi-status').textContent = '';
+        $('share-pi-modal').classList.remove('hidden');
+        if ($('share-pi-note')) $('share-pi-note').focus();
+      });
+      if ($('close-share-pi-btn')) {
+        $('close-share-pi-btn').addEventListener('click', function () {
+          $('share-pi-modal').classList.add('hidden');
+        });
+      }
+      if ($('submit-share-pi-btn')) {
+        $('submit-share-pi-btn').addEventListener('click', async function () {
+          if (!state.activeProjectId) return;
+          var btn = $('submit-share-pi-btn');
+          var statusEl = $('share-pi-status');
+          btn.disabled = true;
+          btn.textContent = 'Packaging…';
+          if (statusEl) statusEl.textContent = 'Building session packet…';
+          try {
+            var res = await api('/api/projects/' + state.activeProjectId + '/student_packet', {
+              method: 'POST',
+              json: {
+                rating: $('share-pi-category') ? $('share-pi-category').value : 'review',
+                student_note: $('share-pi-note') ? $('share-pi-note').value.trim() : '',
+                include_table_values: $('share-pi-include-xlsx') ? $('share-pi-include-xlsx').checked : true
+              }
+            });
+            // Trigger immediate .zip download from base64
+            var bin = atob(res.zip_base64 || '');
+            var bytes = new Uint8Array(bin.length);
+            for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+            var blob = new Blob([bytes], { type: 'application/zip' });
+            var objUrl = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = objUrl;
+            a.download = res.filename || 'StatWeave_Student_Session.zip';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            setTimeout(function () { URL.revokeObjectURL(objUrl); }, 2000);
+
+            var vaultUrl = ($('share-pi-vault-url') ? $('share-pi-vault-url').value.trim() : '');
+            var vaultMsg = '';
+            if (vaultUrl) {
+              try { localStorage.setItem('statweave_pi_vault_url', vaultUrl); } catch (e) {}
+              if (vaultUrl.indexOf('https://script.google.com/macros/s/') === 0 && res.vault_payload) {
+                try {
+                  await fetch(vaultUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(res.vault_payload)
+                  });
+                  vaultMsg = ' + sent deidentified trajectory & SVG to Lab Vault';
+                } catch (vErr) {
+                  vaultMsg = ' (Lab Vault POST skipped/offline; .zip downloaded)';
+                }
+              }
+            }
+            if (statusEl) {
+              statusEl.textContent = '✓ Downloaded ' + (res.filename || 'session packet') + vaultMsg + '.';
+            }
+            setTimeout(function () { $('share-pi-modal').classList.add('hidden'); }, 1200);
+          } catch (err) {
+            alert(err.message);
+            if (statusEl) statusEl.textContent = '';
+          } finally {
+            btn.disabled = false;
+            btn.innerHTML = '&#11015; Download Session Packet (.zip)';
+          }
+        });
+      }
+    }
 
     // Account modal
     $('account-btn').addEventListener('click', async function () {

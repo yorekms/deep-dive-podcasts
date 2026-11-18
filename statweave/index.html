@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StatWeave — Conversational Scientific Statistics &amp; Publication Figures</title>
-  <link rel="stylesheet" href="./static/app.css?v=100" />
+  <link rel="stylesheet" href="./static/app.css?v=101" />
 </head>
 <body>
   <!-- Top Bar -->
@@ -138,21 +138,23 @@
     <section class="panel chat-panel">
       <div class="intake-bar">
         <label class="btn btn-secondary btn-sm file-btn">
-          &#128194; Upload .xlsx / .csv
-          <input id="file-upload-input" type="file" accept=".xlsx,.xls,.csv,.tsv,.txt,.ods" hidden />
+          &#128194; Upload .xlsx / .csv / .pzfx
+          <input id="file-upload-input" type="file" accept=".xlsx,.xls,.csv,.tsv,.txt,.ods,.pzfx" hidden />
         </label>
         <button id="open-paste-btn" type="button" class="btn btn-secondary btn-sm">&#128203; Paste 2+ Columns</button>
         <button id="open-gsheet-btn" type="button" class="btn btn-secondary btn-sm">&#128279; Google Sheet</button>
         <div class="demo-group">
           <span class="muted-tiny">Demos:</span>
           <button type="button" class="btn btn-chip demo-btn" data-demo="timecourse">WT vs KO Timecourse</button>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="dose_response">Dose&ndash;Response EC50</button>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="boltzmann">Boltzmann V1/2</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="survival">Survival KM Curve</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="clampflow">ClampFlow 6-Tab</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="two_group">2-Column t-Test</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="paired">Paired Before/After</button>
         </div>
         <div id="r-learning-wrap" class="demo-group hidden" style="margin-top:4px;">
-          <span class="muted-tiny" title="80 verified scientific &amp; R benchmark datasets across 4 tracks">&#128218; Benchmarks (80):</span>
+          <span class="muted-tiny" title="104 verified scientific, classroom &amp; R benchmark datasets across 5 tracks">&#128218; Benchmarks (104):</span>
           <select id="r-dataset-select" class="select-compact" style="max-width:265px;"></select>
           <button id="load-r-dataset-btn" type="button" class="btn btn-chip">Load Dataset</button>
         </div>
@@ -203,6 +205,7 @@
           <div class="feedback-inline">
             <button id="thumb-up-btn" type="button" class="btn btn-ghost btn-xs" title="Mark this session helpful for training">&#128077; Helpful</button>
             <button id="thumb-down-btn" type="button" class="btn btn-ghost btn-xs" title="Flag an issue in this session">&#128078; Flag issue</button>
+            <button id="share-pi-btn" type="button" class="btn btn-secondary btn-xs" title="Download a complete session &amp; figure packet (.zip) for your PI or send to Lab Vault">&#128228; Share with PI</button>
             <button id="contribute-case-btn" type="button" class="btn btn-ghost btn-xs hidden">&#128230; Save Reviewed Case</button>
           </div>
           <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
@@ -259,6 +262,8 @@
         <label>
           <span>Plot</span>
           <select id="st-plot">
+            <option value="dose_response">4PL Dose&ndash;Response (EC50/IC50)</option>
+            <option value="boltzmann">Boltzmann Curve (V1/2)</option>
             <option value="survival">Kaplan&ndash;Meier Survival</option>
             <option value="timecourse">Timecourse Line</option>
             <option value="spaghetti">Spaghetti Trajectories</option>
@@ -559,7 +564,46 @@
     </div>
   </div>
 
-  <script src="./browser-client.js?v=100"></script>
-  <script src="./static/app.js?v=100"></script>
+  <!-- Share Session / Question Packet with PI Modal -->
+  <div id="share-pi-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>&#128228; Share Session or Question Packet with PI</h3>
+        <button id="close-share-pi-btn" type="button" class="btn btn-ghost btn-xs">&times;</button>
+      </div>
+      <p class="muted-small">
+        Packages your current session (markdown summary, prompt log, vector figure SVG, and working sheets) into a single
+        <code>StatWeave_&lt;Project&gt;_Session.zip</code> you can send to your PI via Slack/Email/Drive — plus optional 1-click upload to a Lab Vault URL.
+      </p>
+      <label style="display:block;margin-bottom:8px;">
+        <span style="display:block;font-size:12px;font-weight:600;margin-bottom:4px;">Category</span>
+        <select id="share-pi-category" style="width:100%;">
+          <option value="review">Ready for PI Review (Stats &amp; Figure Check)</option>
+          <option value="question">Question on Test / Pairing / Experimental Design</option>
+          <option value="issue">Flag a Bug, Layout Issue, or Unexpected Result</option>
+        </select>
+      </label>
+      <label style="display:block;margin-bottom:8px;">
+        <span style="display:block;font-size:12px;font-weight:600;margin-bottom:4px;">Note or Question for PI</span>
+        <textarea id="share-pi-note" rows="3" maxlength="2000" placeholder="e.g., Are WT-1..3 biological replicates across littermates, and should we report Tukey HSD or Dunnett vs Control?"></textarea>
+      </label>
+      <label class="checkbox-row" style="margin-bottom:10px;">
+        <input id="share-pi-include-xlsx" type="checkbox" checked />
+        <span style="font-size:12px;">Include multi-tab <code>working_sheets.xlsx</code> inside the downloaded <code>.zip</code> packet</span>
+      </label>
+      <label style="display:block;margin-bottom:10px;">
+        <span style="display:block;font-size:11.5px;font-weight:600;color:#4a5d56;margin-bottom:3px;">Optional Lab Vault Dropbox URL (Google Apps Script)</span>
+        <input id="share-pi-vault-url" type="url" maxlength="500" placeholder="https://script.google.com/macros/s/.../exec (leave blank for .zip download only)" style="width:100%;" />
+      </label>
+      <div id="share-pi-status" class="muted-tiny" style="margin-bottom:8px;"></div>
+      <div class="modal-actions">
+        <span class="muted-tiny">Downloads immediately in your browser; raw files stay local unless included.</span>
+        <button id="submit-share-pi-btn" type="button" class="btn btn-primary">&#11015; Download Session Packet (.zip)</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./browser-client.js?v=101"></script>
+  <script src="./static/app.js?v=101"></script>
 </body>
 </html>
