@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>StatWeave — Conversational Scientific Statistics &amp; Publication Figures</title>
-  <link rel="stylesheet" href="./static/app.css?v=101" />
+  <link rel="stylesheet" href="./static/app.css?v=102" />
 </head>
 <body>
   <!-- Top Bar -->
@@ -138,13 +138,15 @@
     <section class="panel chat-panel">
       <div class="intake-bar">
         <label class="btn btn-secondary btn-sm file-btn">
-          &#128194; Upload .xlsx / .csv / .pzfx
-          <input id="file-upload-input" type="file" accept=".xlsx,.xls,.csv,.tsv,.txt,.ods,.pzfx" hidden />
+          &#128194; Upload .xlsx / .pzfx / .abf / .zip
+          <input id="file-upload-input" type="file" accept=".xlsx,.xls,.csv,.tsv,.txt,.ods,.pzfx,.abf,.atf,.zip" hidden />
         </label>
         <button id="open-paste-btn" type="button" class="btn btn-secondary btn-sm">&#128203; Paste 2+ Columns</button>
         <button id="open-gsheet-btn" type="button" class="btn btn-secondary btn-sm">&#128279; Google Sheet</button>
         <div class="demo-group">
           <span class="muted-tiny">Demos:</span>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="pleth_hcvr">Pleth HCVR Pre/Post</button>
+          <button type="button" class="btn btn-chip demo-btn" data-demo="ap_ahp">AP&ndash;AHP Waveform</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="timecourse">WT vs KO Timecourse</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="dose_response">Dose&ndash;Response EC50</button>
           <button type="button" class="btn btn-chip demo-btn" data-demo="boltzmann">Boltzmann V1/2</button>
@@ -262,6 +264,8 @@
         <label>
           <span>Plot</span>
           <select id="st-plot">
+            <option value="ap_waveform">AP&ndash;AHP Waveform + Inset</option>
+            <option value="phase_plane">AP Phase-Plane (dV/dt vs Vm)</option>
             <option value="dose_response">4PL Dose&ndash;Response (EC50/IC50)</option>
             <option value="boltzmann">Boltzmann Curve (V1/2)</option>
             <option value="survival">Kaplan&ndash;Meier Survival</option>
@@ -603,7 +607,7 @@
     </div>
   </div>
 
-  <script src="./browser-client.js?v=101"></script>
-  <script src="./static/app.js?v=101"></script>
+  <script src="./browser-client.js?v=102"></script>
+  <script src="./static/app.js?v=102"></script>
 </body>
 </html>

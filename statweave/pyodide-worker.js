@@ -30,7 +30,7 @@ async function initEngine() {
       ]);
 
       postBootStatus('bundle', '3/3 Mounting StatWeave, OpenPyXL, Prism XML & 104 verified benchmark datasets…');
-      const bundleResp = await fetch('./statweave_py_bundle.zip?v=101', { cache: 'no-cache' });
+      const bundleResp = await fetch('./statweave_py_bundle.zip?v=102', { cache: 'no-cache' });
       if (!bundleResp.ok) {
         throw new Error('Failed to fetch statweave_py_bundle.zip (' + bundleResp.status + ')');
       }

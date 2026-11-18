@@ -47,6 +47,7 @@
     try {
       var params = new URLSearchParams(window.location.search || "");
       if (params.get("mode") === "wasm") return DEFAULT_WASM_WORKBENCH;
+      if (params.get("mode") === "cloud") return DEFAULT_CLOUD_WORKBENCH;
       var fromQuery = sanitizeBackendUrl(params.get("backend") || params.get("workbench"));
       if (fromQuery) {
         try { sessionStorage.setItem("statweave_backend_override", fromQuery); } catch (e) {}
@@ -56,7 +57,7 @@
         var sessOverride = sanitizeBackendUrl(sessionStorage.getItem("statweave_backend_override") || "");
         if (sessOverride) return sessOverride;
         var saved = sanitizeBackendUrl(localStorage.getItem("statweave_backend_url") || "");
-        if (saved && !isWasmWorkbenchUrl(saved)) return saved;
+        if (saved) return saved;
       } catch (e2) {}
     } catch (e3) {}
     var rootEl = document.getElementById("crp-hub-root");
@@ -65,7 +66,7 @@
       if (fromAttr) return fromAttr;
     }
     var injected = sanitizeBackendUrl(rawInjectedBase);
-    return injected || DEFAULT_CLOUD_WORKBENCH;
+    return injected || DEFAULT_WASM_WORKBENCH;
   }
 
   var statweaveBaseUrl = detectInitialBackendUrl();
@@ -134,8 +135,8 @@
   function buildEmbedUrls(clean) {
     if (isWasmWorkbenchUrl(clean)) {
       return {
-        appUrl: clean + '/?embedded=1&v=101',
-        fullUrl: clean + '/?v=101'
+        appUrl: clean + '/?embedded=1&v=102',
+        fullUrl: clean + '/?v=102'
       };
     }
     return {
@@ -233,13 +234,14 @@
             'Upload <strong>Excel (<code style="color:#6EE7B7;">.xlsx</code>), GraphPad Prism (<code style="color:#6EE7B7;">.pzfx</code>), or CSV</strong> files, paste columns, load one of <strong>104 verified scientific &amp; classroom benchmark datasets</strong>, or drop your compiled <strong>ClampFlow 6-tab workbook</strong>. Run Tukey/Dunnett post-hocs, RM-ANOVA/Friedman, 4PL dose&ndash;response &amp; Boltzmann curves, Kaplan&ndash;Meier survival, and export vector <code style="color:#FDE68A;">.svg/.pdf/.png</code> figures &amp; student/PI session <code style="color:#FDE68A;">.zip</code> packets.' +
           '</p>' +
           '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">' +
-            '<span class="sw-step-chip"><strong style="color:#34D399;">Step &#9312;:</strong> Sign In &amp; Consent (Unlocks 40 Hosted AI Questions/Day)</span>' +
-            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step &#9313;:</strong> Upload <code style="color:#E2E8F0;">.xlsx/.pzfx/.csv</code>, Paste Table, or Pick a Benchmark</span>' +
-            '<span class="sw-step-chip"><strong style="color:#F59E0B;">Step &#9314;:</strong> Chat with AI + Run Verified Stats &#8594; Export SVG/PDF/ZIP</span>' +
+            '<span class="sw-step-chip"><strong style="color:#34D399;">Step &#9312;:</strong> Drop <code style="color:#E2E8F0;">.xlsx/.pzfx/.abf/.zip</code>, Pleth HCVR, or Pick from 104 Benchmarks</span>' +
+            '<span class="sw-step-chip"><strong style="color:#38BDF8;">Step &#9313;:</strong> Explore Candidate Plots, AP&ndash;AHP Phase-Planes &amp; 4PL/Boltzmann Curves</span>' +
+            '<span class="sw-step-chip"><strong style="color:#F59E0B;">Step &#9314;:</strong> Add Verified Post-Hoc / RM-ANOVA Stars &#8594; Export SVG/PDF/Session ZIP</span>' +
           '</div>' +
           '<div style="display:flex;flex-wrap:wrap;gap:9px;align-items:center;">' +
             '<a id="sw-open-full-btn" href="' + initUrls.fullUrl + '" target="_blank" rel="noopener" class="sw-btn-primary">&#128640; Open Full-Screen Workbench &#8599;</a>' +
             '<button id="sw-open-ai-key-btn" type="button" class="sw-btn-sec" style="border-color:#10B981;color:#6EE7B7 !important;">&#128273; Connect OpenAI / Gemini Key</button>' +
+            '<button id="sw-lab-cloud-btn" type="button" class="sw-btn-sec" style="border-color:#38BDF8;color:#7DD3FC !important;">&#128274; Lab Cloud Sign-In (Invite)</button>' +
             '<a href="' + R_ATLAS_URL + '" target="_blank" rel="noopener" class="sw-btn-sec">&#128218; 104-Dataset Visual Atlas &#8599;</a>' +
             '<a href="' + SUITE_ZIP_URL + '" download="StatWeave_Python_Web_Suite_v0.9.5.zip" class="sw-btn-sec">&#11015; Download Python Suite (.zip)</a>' +
             '<a href="' + COLAB_URL + '" target="_blank" rel="noopener" class="sw-btn-sec">&#9729;&#65039; Cloud AI Notebook (Colab) &#8599;</a>' +
@@ -345,6 +347,18 @@
         var orig = copyBtn.innerHTML;
         copyBtn.innerHTML = '&#9989; Copied Portal Link!';
         setTimeout(function () { copyBtn.innerHTML = orig; }, 2200);
+      });
+    }
+
+    var labCloudBtn = document.getElementById('sw-lab-cloud-btn');
+    if (labCloudBtn) {
+      labCloudBtn.addEventListener('click', function () {
+        try { sessionStorage.setItem('statweave_backend_override', DEFAULT_CLOUD_WORKBENCH); } catch (e) {}
+        applyBackendUrl(DEFAULT_CLOUD_WORKBENCH);
+        var frameBox = document.getElementById('statweave-frame-container');
+        if (frameBox && frameBox.scrollIntoView) {
+          frameBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     }
 

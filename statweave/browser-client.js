@@ -10,7 +10,7 @@
   var memVerifiedModel = '';
   var origFetch = window.fetch.bind(window);
 
-  var worker = new Worker('./pyodide-worker.js?v=101');
+  var worker = new Worker('./pyodide-worker.js?v=102');
   var seq = 1;
   var pending = new Map();
   var engineReady = false;
@@ -233,7 +233,7 @@
     }
     if (method === 'GET' && cleanPath === '/api/r_datasets' && !engineReady) {
       try {
-        var idxResp = await origFetch('./r_datasets_index.json?v=101');
+        var idxResp = await origFetch('./r_datasets_index.json?v=102');
         if (idxResp.ok) return idxResp;
       } catch (e) {}
     }
