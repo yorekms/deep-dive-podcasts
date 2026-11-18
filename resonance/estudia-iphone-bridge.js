@@ -25,39 +25,7 @@
   }
 
   function mountBridge() {
-    if (document.getElementById('dd-estudia-switch-pill')) return;
-
-    // 1. Sleek floating Estudia! Study Cards switcher pill (stays inside standalone scope /deep-dive-podcasts/)
-    var pill = document.createElement('a');
-    pill.id = 'dd-estudia-switch-pill';
-    pill.href = '/deep-dive-podcasts/estudia/' + getActiveEpisodeParams();
-    pill.innerHTML = '&#127891; <span>Estudia! Q&amp;A</span>';
-    pill.title = 'Switch to Estudia! 3D Flashcards & 7,612 Podcast Transcript Q&As';
-    pill.style.cssText = [
-      'position:fixed',
-      'top:calc(env(safe-area-inset-top, 0px) + 10px)',
-      'right:12px',
-      'z-index:9999',
-      'display:inline-flex',
-      'align-items:center',
-      'gap:6px',
-      'padding:7px 12px',
-      'border-radius:999px',
-      'background:linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
-      'color:#060B16',
-      'font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif',
-      'font-size:12px',
-      'font-weight:800',
-      'text-decoration:none',
-      'box-shadow:0 6px 20px rgba(245,158,11,0.42), 0 0 0 1px rgba(255,255,255,0.22)',
-      '-webkit-tap-highlight-color:transparent'
-    ].join(';');
-    pill.addEventListener('click', function () {
-      pill.href = '/deep-dive-podcasts/estudia/' + getActiveEpisodeParams();
-    });
-    document.body.appendChild(pill);
-
-    // 2. Effortless 2-Tap iPhone Safari "Add to Home Screen" Coachmark (only if on iOS Safari & NOT yet standalone)
+    // Effortless 2-Tap iPhone Safari "Add to Home Screen" Coachmark (only if on iOS Safari & NOT yet standalone)
     var ua = navigator.userAgent || '';
     var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     var isStandalone = window.navigator.standalone === true ||
@@ -65,7 +33,7 @@
     var dismissed = false;
     try { dismissed = sessionStorage.getItem('dd_ios_hint_dismissed') === '1'; } catch (e) {}
 
-    if (isIOS && !isStandalone && !dismissed) {
+    if (isIOS && !isStandalone && !dismissed && !document.getElementById('dd-ios-a2hs-coach')) {
       var bar = document.createElement('div');
       bar.id = 'dd-ios-a2hs-coach';
       bar.style.cssText = [
