@@ -1868,7 +1868,7 @@
       var audioHubs = (net.sites && net.sites.length)
         ? net.sites.map(function (s) { return s.slug; }).filter(function (sl) { return sl && !nonAudioSlugs[sl]; })
         : ['consciousness', 'cell-death', 'biophysics', 'nutrition-metabolism', 'pharmacology', 'oncology',
-          'forensic-medicine', 'medical-testing', 'ancient-medicine', 'philosophy-science', 'human-origins', 'religion-cooperation'];
+          'forensic-medicine', 'medical-testing', 'ancient-medicine', 'philosophy-science', 'human-origins', 'religion-cooperation', 'characters'];
       var siteLabelMap = {};
       (net.sites || []).forEach(function (s) { if (s.slug) siteLabelMap[s.slug] = s.label || s.slug; });
       networkEpPromise = Promise.all(audioHubs.filter(function (h) { return h !== HUB; }).map(function (slug) {
