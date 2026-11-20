@@ -1586,10 +1586,10 @@
               track('episode_progress', { percent: m, episode_title: currentCleanTitle, episode_id: currentDriveId });
             }
           });
-          if (dur > 60 && pct < 45 && milestonesSent.countedRun) {
+          if (dur > 60 && pct < 40 && milestonesSent.countedRun) {
             milestonesSent.countedRun = false;
           }
-          if (dur > 60 && audioEl.currentTime > 5 && pct >= 95 && milestonesSent.activeId === currentDriveId && !milestonesSent.countedRun) {
+          if (dur > 30 && audioEl.currentTime > 5 && (pct >= 90 || (dur - audioEl.currentTime) <= 90) && milestonesSent.activeId === currentDriveId && !milestonesSent.countedRun) {
             milestonesSent.countedRun = true;
             recordEpisodeCompletedPlay(currentDriveId);
           }
@@ -1599,7 +1599,7 @@
         if (playBtn) playBtn.innerHTML = '&#9654;';
         setMediaPlaybackState('paused');
         if (statusEl) statusEl.textContent = 'Episode finished';
-        if (currentDriveId && milestonesSent.activeId === currentDriveId && (audioEl.currentTime > 5 || (isFinite(audioEl.duration) && audioEl.duration > 30))) {
+        if (currentDriveId) {
           try {
             localStorage.removeItem('crp_pos_' + currentDriveId);
           } catch (e) {}
@@ -1620,6 +1620,17 @@
         }
         if (autoNextOn) {
           playAdjacentEpisode(1);
+        }
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState !== 'visible' || !audioEl || !currentDriveId) return;
+        var dur = isFinite(audioEl.duration) && audioEl.duration > 30 ? audioEl.duration : 0;
+        var curr = audioEl.currentTime || 0;
+        var nearEnd = dur > 30 && curr > 5 && ((curr / dur) >= 0.90 || (dur - curr) <= 90);
+        if ((audioEl.ended || nearEnd) && !milestonesSent.countedRun) {
+          milestonesSent.countedRun = true;
+          try { localStorage.removeItem('crp_pos_' + currentDriveId); } catch (e) {}
+          recordEpisodeCompletedPlay(currentDriveId);
         }
       });
       audioEl.addEventListener('error', function () {
