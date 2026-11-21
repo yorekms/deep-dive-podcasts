@@ -1,0 +1,972 @@
+{
+  "episodeId": "carrd-1bLgxTzHvkOTOACeiqZ0k3FHQq4D-ypbq",
+  "driveId": "1bLgxTzHvkOTOACeiqZ0k3FHQq4D-ypbq",
+  "hub": "biophysics",
+  "title": "When the Heart Forgets How to Reset: Congenital Long QT Syndrome (LQT1, LQT2, LQT3 & Jervell-Lange-Nielsen) — One-Ångström cryo-EM walks inside human KCNQ1-KCNE1-PIP2 (9VEC/9VEI), hERG (5VA1/7CN1), and NaV1.5 (6UZ3/7DTC), Bazett vs. Fridericia & late-I_NaL physics, nadolol, mexiletine in LQT2, lumacaftor-ivacaftor, and SupRep AAV9 gene therapy",
+  "duration": 4624.1,
+  "isWordLevelTranscript": true,
+  "teenKit": {
+    "tldr": "Congenital Long QT Syndrome is a hidden electrical glitch in the heart where microscopic ion channels fail to reset properly after a beat, creating a dangerous delay that can cause sudden fainting or cardiac arrest.",
+    "whyItMatters": "Understanding this invisible cellular wiring defect transforms how doctors catch a silent killer before a routine dive into a pool turns tragic.",
+    "keyTakeaways": [
+      "A healthy heartbeat relies on a precise electrical choreography where sodium channels flash open for a millisecond and then instantly lock shut.",
+      "Long QT Syndrome is an invisible plumbing-free crisis; the heart muscle looks structurally flawless on scans while its electrical timing is dangerously out of sync.",
+      "Modern medicine is moving past basic symptom management into high-tech solutions like 1-angstrom atomic mapping and emerging AAV9 gene therapies."
+    ],
+    "vocab": [
+      {
+        "term": "Channelopathy",
+        "meaning": "A disease caused by dysfunctional ion channels that disrupt the electrical currents in cells, particularly in the heart or nerves."
+      },
+      {
+        "term": "Voltage-Gated Channel",
+        "meaning": "A microscopic protein gate in a cell membrane that opens or closes in response to shifts in electrical voltage."
+      },
+      {
+        "term": "Cryo-EM",
+        "meaning": "An ultra-high-resolution imaging technique that freezes biological molecules to map their atomic structures down to a single angstrom."
+      },
+      {
+        "term": "Action Potential",
+        "meaning": "The rapid electrical impulse that surges across a cell membrane to trigger a muscle contraction, like a wave of lightning."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What happens during a standard medical imaging scan (like an echocardiogram) of a person with Congenital Long QT Syndrome?",
+        "options": [
+          "The heart walls show massive structural blockages.",
+          "The heart muscle looks completely normal and flawless.",
+          "The heart valves are visibly leaking blood.",
+          "The heart is visibly half its normal size."
+        ],
+        "correctIndex": 1,
+        "explanation": "Long QT is an invisible electrical malfunction, meaning structural scans look totally normal while the timing of the electricity is broken."
+      },
+      {
+        "question": "What is the primary job of the voltage-gated sodium channels (like Nav1.5) right after they trigger the initial spark of a heartbeat?",
+        "options": [
+          "They must immediately slam shut and stay locked for hundreds of milliseconds.",
+          "They must continue pumping sodium indefinitely to keep the voltage high.",
+          "They must dissolve into the cell membrane.",
+          "They must convert into calcium channels."
+        ],
+        "correctIndex": 0,
+        "explanation": "Sodium channels must lock shut almost instantaneously after firing to allow the heart muscle time to coordinate its contraction and reset."
+      },
+      {
+        "question": "Why is Congenital Long QT Syndrome so dangerous for young athletes like competitive swimmers?",
+        "options": [
+          "Sweating rapidly depletes all the water in their bodies.",
+          "Cold water shocks can trigger the flawed electrical system to fail in resetting, causing sudden fainting.",
+          "Swimming causes physical blockages in the coronary arteries.",
+          "Exercise permanently destroys sodium channels."
+        ],
+        "correctIndex": 1,
+        "explanation": "Triggers like cold water shock or adrenaline spikes can expose the delayed electrical reset, causing the heart to stop pumping effectively."
+      }
+    ]
+  },
+  "transcript": [
+    {
+      "id": "turn-1",
+      "speaker": "Host A",
+      "startTime": 0.0,
+      "endTime": 39.04,
+      "text": "Imagine a perfectly healthy 14 year old girl. She's a competitive swimmer up before dawn, you know, standing on the starting block in this freezing echoing indoor pool facility. Right, a totally normal morning routine. Exactly. The whistle blows, she dives in and the cold water hits her face. She takes her first few strokes and then without any warning at all. She just slips beneath the lane line. Oh, wow. She goes completely limp. But here's the crazy part. Her heart hasn't suffered a massive heart attack. There's no blockage. Right. It's not a plumbing issue. No, not at all."
+    },
+    {
+      "id": "turn-2",
+      "speaker": "Host B",
+      "startTime": 39.04,
+      "endTime": 78.05,
+      "text": "Her heart has simply, well, forgotten how to beat. Or more accurately, it's forgotten how to reset. And that is just a terrifying scenario because it happens with absolutely zero structural warning. I mean, to the naked eye or to a standard echocardiogram, her heart is perfectly flawless. is exactly what makes this so haunting, right? We're looking at a diagnostic landscape that is entirely invisible, unless you know exactly how to look at the electricity. Exactly. So today, we are taking a massive journey into Congenital Long QT syndrome. We're going to explore what happens when the incredibly precise microscopic electrical machinery of"
+    },
+    {
+      "id": "turn-3",
+      "speaker": "Host A",
+      "startTime": 78.05,
+      "endTime": 113.81,
+      "text": "the human heart just breaks down. Yeah. And to do this deep dive right, we are pulling from a stack of cutting edge clinical registries, incredibly precise cryo electron microscopy and some really emerging gene therapies looking toward the next decade of precision medicine. It's going to be a wild ride, but to really grasp the malfunction that caused that young swimmer to collapse, you first have to appreciate the baseline perfection of a normal heartbeat. Oh, absolutely. It's a breathtaking cellular choreography. Every single time your heart beats, millions of voltage-gated cardiac sodium channels,",
+      "highlightType": "key_point",
+      "highlightSummary": "the human heart just breaks down. Yeah. And..."
+    },
+    {
+      "id": "turn-4",
+      "speaker": "Host B",
+      "startTime": 113.81,
+      "endTime": 148.93,
+      "text": "channels, specifically the NAV 1.5 channels. They just fly open across the muscle cells of your heart. Oh, like a microscopic lightning strike? Exactly like that. In under two milliseconds, they slam the electrical voltage of the cell membrane from a resting state of negative 85 millivolts all the way up to positive 35 millivolts. Okay, so that's the initial spark. Right. But here is the critical part. Almost instantaneously, those sodium channels must lock themselves completely shut. So they fire and then they have to just immediately shut off?"
+    },
+    {
+      "id": "turn-5",
+      "speaker": "Host A",
+      "startTime": 148.93,
+      "endTime": 187.38,
+      "text": "Yes. They stay locked for about 250 to 350 milliseconds. During that window, calcium channels take over and they sustain the actual physical mechanical squeeze of the heart muscle. Okay, that makes sense. But eventually the heart has to relax, right? It has to reset electrically before the next beat can even happen. So if the sodium channels are like the gas pedal that starts the beat, you need breaks to pull you back to rest. You actually need two distinct sets of breaks. Two different types of potassium channels have to swing open exactly on cue to pull the heart's electrical state back to baseline. Two breaks?"
+    },
+    {
+      "id": "turn-6",
+      "speaker": "Host B",
+      "startTime": 187.38,
+      "endTime": 211.5,
+      "text": "Yeah, you have a rapid break, which flows through a channel called Herg. and you have a slow break, which flows through a channel called KCN-Q1. Okay, so gas pedal, rapid brake, slow brake, that makes intuitive sense. But in long QT syndrome, one of those gears is basically broken. Right. A single inherited genetic mutation breaks one of those channels."
+    },
+    {
+      "id": "turn-7",
+      "speaker": "Host A",
+      "startTime": 212.39,
+      "endTime": 246.39,
+      "text": "The electrical plateau lingers. The cell takes way too long to reset. And on a surface electrocardiogram in ECG, we see this visually as a stretching of the QT interval, right? Exactly. But why is that lingering so dangerous? I mean, if the heart takes an extra tenth of a second to reset, why does that cause a full-blown cardiac arrest? Because if that electrical plateau lingers too long, it falls into a highly unstable, dangerous window. The calcium channels that were supposed to be finishing their job can suddenly reactivate. Wait, they fire again when they shouldn't? Yes."
+    },
+    {
+      "id": "turn-8",
+      "speaker": "Host B",
+      "startTime": 247.19,
+      "endTime": 286.98,
+      "text": "This triggers premature rogue electrical firings. It ignites a terrifying, twisting, lethal arrhythmia known as torschade du pon. Torschade du pon. The twisting of the points. I've seen videos of what that looks like on a heart monitor, and the rhythm line literally spirals out of control. It does. And if that spiraling doesn't stop on its own, it degenerates into ventricular fibrillation. The heart just quivers. It completely stops pumping blood. And within seconds, the brain loses oxygen. Right. And untreated, the highest risk subsets of these patients face a staggering 50% 10-year mortality"
+    },
+    {
+      "id": "turn-9",
+      "speaker": "Host A",
+      "startTime": 286.98,
+      "endTime": 325.04,
+      "text": "rate. It is a profound lethal failure of cellular memory and timing. Man, and we have all these distinct triggers for this disease, which is just wild to me. It's not just one blanket condition. No, not at all. You have people collapsing in pools, people collapsing in their sleep, people collapsing when an alarm clock goes off, how could one disease cause all of these completely different reactions? Well, that's the beauty and the terror of long QT syndrome. It is not one disease. Underneath that shared ECG hallmark of a stretched QT interval, there are three mechanistically distinct channelopathies."
+    },
+    {
+      "id": "turn-10",
+      "speaker": "Host B",
+      "startTime": 325.04,
+      "endTime": 364.54,
+      "text": "Plus a fascinating recessive deafness syndrome, right? Exactly. And they each have very distinct, terrifying bedside triggers. Okay, let's unpack this by looking at four very specific patient archetypes, drawn right from the clinical registries. Let's go back to patient one. The 14-year-old swimmer we talked about. Okay, the LQT1 patient. Right. She's halfway down a cold morning lap when she loses consciousness. She only survives because a lifeguard pulls her out and a poolside defibrillator shocks her heart back into rhythm. A very close call. Yeah. In the ER, her blood work is totally normal, but her resting ECG shows this broad, smooth,"
+    },
+    {
+      "id": "turn-11",
+      "speaker": "Host A",
+      "startTime": 364.54,
+      "endTime": 403.7,
+      "text": "prolonged T-wave. She is diagnosed with LQT1. So LQT1 accounts for roughly 30 to 35% of all long QT cases. It's caused by a loss of function mutation in the KCN-Q1 gene. Meaning her slow break, the IKS potassium current, is broken. Yes. And the reason she collapsed in the pool comes down of this fascinating physiological concept called autonomic conflict. Autonomic conflict. So meaning her nervous system was fighting itself. Exactly. Think about what happens when you engage in sustained intense exercise like swimming. Your body dumps adrenaline into your system. Sure, fight or flight."
+    },
+    {
+      "id": "turn-12",
+      "speaker": "Host B",
+      "startTime": 403.7,
+      "endTime": 442.14,
+      "text": "Normally that adrenaline binds to beta-1 receptors in the heart. It uses a scaffolding protein called yoteo to physically accelerate that slow K-C-N-Q-1 break. That makes sense. If your heart rate is speeding up from the exercise, the brake has to work faster to shorten the electrical cycle and make room for the next rapid beat. Precisely. But in an LQT1 patient, that slow brake is fundamentally broken. So the adrenaline surges, the heart rate spikes. But the electrical cycle fails to shorten. That alone sounds incredibly dangerous. It is. But swimming adds a lethal second variable, cold water striking the facial trigeminal nerves."
+    },
+    {
+      "id": "turn-13",
+      "speaker": "Host A",
+      "startTime": 442.14,
+      "endTime": 478.16,
+      "text": "Oh, the diving reflex. Yes, the mammalian diving reflex. When cold water hits your face, it ignites a massive vagal nerve surge, which is an evolutionary mechanism designed to abruptly slow the heart down to conserve oxygen underwater. Oh, I see it now. You have adrenaline screaming at the heart to go faster and the vagal nerve screaming at the heart to stop. And they crash together in a ventricle that has absolutely zero electrical reserve. It creates violent beat to beat electrical instability. Wow. That autonomic conflict is the perfect, lethal storm for an LQT1 patient, which is why swimming accounts"
+    },
+    {
+      "id": "turn-14",
+      "speaker": "Host B",
+      "startTime": 478.16,
+      "endTime": 517.06,
+      "text": "for over 95% of immersion-triggered long QT cardiac arrests. That is horrifying. It turns a healthy morning workout into a death trap. Okay, completely different scenario, patient two, a 28-year-old mother. The LQT2 archetype. Right, she is six weeks postpartum. It's three in the morning, and she is jolted awake by a piercing, high-pitched baby monitor alarm. A very jarring sound. She sits up, gasps and immediately collapses with her muscle stiffening and involuntary urination. She has LQT2, which is a mutation in the HURG channel."
+    },
+    {
+      "id": "turn-15",
+      "speaker": "Host A",
+      "startTime": 517.42,
+      "endTime": 554.41,
+      "text": "Why on earth does an alarm clock almost kill her? So LQT2 makes up about 25 to 30% of cases. It breaks the rapid break, the IKR current. And these patients have a highly specific, unique vulnerability to sudden auditory startle. Like an alarm clock, a ringing phone, a dog barking, a baby crying. Yes. But why sound? What is the biological link between a loud noise and the heart failing? Well, an abrupt auditory startle triggers a massive, instantaneous spike of catecholamines, essentially a huge dump of adrenaline."
+    },
+    {
+      "id": "turn-16",
+      "speaker": "Host B",
+      "startTime": 554.41,
+      "endTime": 588.61,
+      "text": "This immediate spike amplifies the inward calcium currents in the heart cells. Pouring positive electrical charge into the cell. Exactly. Normally, your rapid herd break would instantly engage, opening up to flush positive potassium out and counteract that spike. But in LQT2, the herd break is depleted. So the calcium floods in, but there's no potassium rushing out to balance it. Right. And by the time the slow K-C-N-Q1 break finally catches up to help, it's just too late. too late. The electrical balance is completely overwhelmed and that twisting torsade arrhythmia"
+    },
+    {
+      "id": "turn-17",
+      "speaker": "Host A",
+      "startTime": 589.44,
+      "endTime": 628.1,
+      "text": "ignites. But you mentioned she was six weeks postpartum. Why is the nine month period after giving birth so uniquely dangerous for her? The postpartum period brings a terrifying three to four fold risk spike for women with LQT2. It is a perfect storm of environmental and biological factors. Like what? Well, you have massive estrogen withdrawal, which alters the expression of the of the ion channels. You have slower resting heart rates, you have profound chronic sleep deprivation. And of course the constant nocturnal auditory startles of a newborn baby crying. Exactly. And there is one more critical factor. If she has any postpartum nausea or vomiting,",
+      "highlightType": "insight",
+      "highlightSummary": "ignites. But you mentioned she was six weeks..."
+    },
+    {
+      "id": "turn-18",
+      "speaker": "Host B",
+      "startTime": 628.1,
+      "endTime": 666.38,
+      "text": "the serum potassium levels in her blood will drop. Hypokalemia. Yes. We will dig deep into the math of this later, but hypokalemia, low blood potassium, is absolute kryptonite for the herd channel. It physically collapses the channel's architecture. We will absolutely get to that math because I really need to understand how low potassium destroys a potassium channel. But let's move to patient three. Okay, patient three. A 23-year-old graduate student, he is incredibly fit, runs marathons effortlessly. But at four in the morning, his roommate finds him in deep sleep experiencing agonal gasping. That terrible, reflexive brainstem breathing that happens during cardiac arrest."
+    },
+    {
+      "id": "turn-19",
+      "speaker": "Host A",
+      "startTime": 666.38,
+      "endTime": 705.96,
+      "text": "Yeah, he has LQT3, a mutation in the NAV 1.5 sodium channel. Why is resting safely in his bed lethal for him? So LQT3 is the biophysical mirror image of LQT1 and LQT2. It's much rare, counting for about five to 10% of cases. Okay. Instead of a broken potassium break, it is a sticky sodium gas pedal. It's a gain of function mutation. Meaning the channel does more than it's supposed to do. Exactly. The sodium channel opens properly to start the heartbeat, but it fails to close completely. The tiny microscopic fraction of the current just leaks continuously."
+    },
+    {
+      "id": "turn-20",
+      "speaker": "Host B",
+      "startTime": 705.96,
+      "endTime": 743.26,
+      "text": "We call it late-INAL. A persistent late-sodium leak. Mm-hmm. And this leak is most dangerous during deep-knuck-ternal sleep because of bradycardia, the very slow-resting heart rate. Oh, because the beats are farther apart. Yes. The long, drawn-out pauses between beats during deep sleep. those mutant sodium channels time to fully recover from the last beat and enter this pathological late leaking mode. So the slower the heart beats, the more time there is for this toxic leak to build up. Furthermore during deep sleep, the vagal nerve is dominant, which naturally switches off the protective slow potassium break we talked about earlier."
+    },
+    {
+      "id": "turn-21",
+      "speaker": "Host A",
+      "startTime": 743.26,
+      "endTime": 780.38,
+      "text": "It's just a window of extreme electrical vulnerability. It really is. Roughly, 65 to 80 percent of all lethal events in LQT3 happen during sleep or quiet rest. It is so counterintuitive. The OQT1 swimmer dies from maximum exertion. The LQT3 runner dies from doing absolutely nothing in his sleep. It's a wild contrast. Which brings us to patient four, the most tragic of all, the silent cradle. An 18-month-old toddler who is profoundly congenitally deaf. Gervelle and Lang Nielsen syndrome, or JLNS. Right."
+    },
+    {
+      "id": "turn-22",
+      "speaker": "Host B",
+      "startTime": 780.38,
+      "endTime": 820.2,
+      "text": "The parents are getting in prepped for cochlear implants. When the anesthesiologist runs a routine pre-oppi CG, it reveals a massive QTC interval of 592 milliseconds. This is a devastating autosomal recessive condition. Both parents are carriers of a single KCN-Q1 or KCN-E1 mutation. And they're usually completely unaware, right? Yes, because their single healthy copy keeps them safe. But the child inherits two broken copies. They have absolutely zero slow potassium break in their heart. Okay, I understand the heart risk from that, but why the profound deafness, what does a potassium channel in the heart have to do with hearing? It's amazing, actually."
+    },
+    {
+      "id": "turn-23",
+      "speaker": "Host A",
+      "startTime": 820.2,
+      "endTime": 854.12,
+      "text": "Deep inside the inner ear is a highly specialized structure called the Stryovascularis. The marginal cells in this structure require those exact same KCN-Q1 and KCN-E1 channels to pump potassium into the inner ear fluid, which is called the endolymph. So the endolymph needs a lot of potassium? absolutely requires a massive concentrated potassium gradient to allow the tiny hair cells to detect sound vibrations. Wow, so the exact same molecular pump that resets the heart muscle is also responsible for pressurizing the inner ear. Precisely. Losing both alleles collapses that"
+    },
+    {
+      "id": "turn-24",
+      "speaker": "Host B",
+      "startTime": 854.12,
+      "endTime": 894.12,
+      "text": "endolymph gradient completely. The hair cells die causing profound congenital deafness. And clinically discovering this deafness is an absolute emergency, isn't it? It is. Because if an anesthesiologist uses standard perioperative drugs like Cebaphylorane or epinephrine on a JLNS toddler without knowing their extreme long QT status, the child will very likely suffer sudden death right there on the operating deal. Okay, so if the ECG is the great unmasker here, why is this so heavily misdiagnosed? I mean, we have automated ECG machines in every clinic in the country. We do, but they are not foolproof. The machine spits out a number for the QTC interval. Why can't a doctor just look at"
+    },
+    {
+      "id": "turn-25",
+      "speaker": "Host A",
+      "startTime": 894.12,
+      "endTime": 931.08,
+      "text": "the printout and say, yep, it says 420 milliseconds, you're good to go. It is one of the most vital lessons in cardiology. Never, ever. Trust the automated ECG computer printout to rule long QT syndrome in or out. Really? Why not? The algorithms in those machines are fundamentally flawed, particularly when dealing with the subtle morphological changes of these specific genetic diseases. Okay, how exactly does the machine fail? Give me an example of what it gets wrong. Let's go back to our postpartum mother with LQT2. Her ECG will often show what we call low amplitude bifid or notched T-ways."
+    },
+    {
+      "id": "turn-26",
+      "speaker": "Host B",
+      "startTime": 931.08,
+      "endTime": 968.7,
+      "text": "For those of us who aren't reading ECGs every day, what does a notched T-wave actually look like on the paper? Normally a T-wave looks like a single smooth asymmetric speed bump on the paper. But in LQ-T2, that speed bump has two distinct humps instead of one. It looks like a camel's back. Okay, so the heart is taking longer to reset in the middle of the muscle, creating a second hump. Exactly. Now the automated machine algorithms are programmed to look for the first deep descent back to the flat baseline. Oh no. Yes, so the machine reads the first hump of the camel's back. Sees the line go down, assumes the T wave is over, and stops"
+    },
+    {
+      "id": "turn-27",
+      "speaker": "Host A",
+      "startTime": 968.7,
+      "endTime": 1008.22,
+      "text": "measuring the interval. Wait, so it completely ignores the entire second half of the root polarization cycle? It completely ignores it. The machine routinely under reads the LQ-T2 QTC by 60 to 100 milliseconds. That's a massive difference. Huge. A machine might print out a totally normal, safe reading of 430 milliseconds. When the true, extremely dangerous interval is actually 510 milliseconds. That is a lethal diagnostic trap. A doctor could look at that printout. Tell the mother she is perfectly healthy and send her home to die. So how should a doctor actually measure it? Electrophysiologist use what is called the tangent method."
+    },
+    {
+      "id": "turn-28",
+      "speaker": "Host B",
+      "startTime": 1008.82,
+      "endTime": 1048.52,
+      "text": "You have to manually measure across three to five different heartbeats, usually the specific leads on the chest like lead two or V5. Manual measurement. Yeah. Like with a ruler. Yeah, you take a straight edge and you draw a literal line down the steepest descending slope with the T wave to where it intersects the flat baseline. Okay. You measure from the earliest onset of the QRS complex, the big spike of a heartbeat all the way to that intersection point. And you have to be trained to know what to exclude, like normal physiological U-waves, and what to include, like those dangerous LQ-T2 notches. And this rigorous manual measurement feeds into the Schwarz score, right?"
+    },
+    {
+      "id": "turn-29",
+      "speaker": "Host A",
+      "startTime": 1048.52,
+      "endTime": 1086.3,
+      "text": "The diagnostic criteria. Yes. The Schwarz score is the gold standard clinical tool. It assigns points based on ECG findings, clinical history, and family history. How do the points break down? For example, if you manually measure a corrected QTC of 480 milliseconds or more, that gets you three points. If the patient has documented TOSOD-de-plon, that's two points. Congenital deafness gets you half a point. And what's the threshold for a diagnosis? If your total score is 3.5 or higher, you have a high probability of lung QT syndrome. But here's where the story gets really tricky. I was reading through the registry data, and it"
+    },
+    {
+      "id": "turn-30",
+      "speaker": "Host B",
+      "startTime": 1086.3,
+      "endTime": 1123.58,
+      "text": "It shows that 25% to 35% of people who definitely carry a lethal long QT genetic mutation walk around with a completely normal resting ECG. It's true. It's called concealed long QT. Even if you measure it perfectly by hand, it looks normal. How do you find a monster that is hiding? You have to stress the system. You cannot let the patient just lie there. You use dynamic provocation maneuvers to force the heart to reveal its weakness. Like what? One brilliant, incredibly simple method is Viscan's Bedside QT Standing Test. How does that work? You just have them stand up. Exactly."
+    },
+    {
+      "id": "turn-31",
+      "speaker": "Host A",
+      "startTime": 1123.58,
+      "endTime": 1158.5,
+      "text": "You record a baseline ECG while the patient is lying flat on their back, completely rested. Then you tell them to stand up briskly while you continuously record the ECG. Think about what happens in a healthy person, right? Standing up drops your blood pressure slightly. Yes. Which causes a reflex sinus tachycardia. heart rate jumps by 20 to 30 beats per minute to compensate. Right. And if the heart is beating faster, the electrical reset has to happen faster. The QT interval should shrink. Precisely. In a healthy heart, the QT interval rapidly shortens to adapt to the faster rate.",
+      "highlightType": "action_item",
+      "highlightSummary": "You record a baseline ECG while the patient..."
+    },
+    {
+      "id": "turn-32",
+      "speaker": "Host B",
+      "startTime": 1158.5,
+      "endTime": 1197.62,
+      "text": "But in a concealed LQT1 or LQT2 patient, the heart exhibits what we call QT stunning or hypo-adaptation. Hypo-adaptation. Yeah, the heart rate jumps, but the raw QT interval fails to shorten. It's stubbornly stuck. So when you mathematically correct for the new faster heart rate, the interval suddenly looks huge. Exactly. The corrected QTC suddenly stretches out to 490 or 500 milliseconds, unmasking the genetic disease right there in the exam room, just from having them stand up. That's incredibly elegant. We also use a four-minute exercise treadmill recovery test. You have them run, then stop."
+    },
+    {
+      "id": "turn-33",
+      "speaker": "Host A",
+      "startTime": 1197.62,
+      "endTime": 1236.93,
+      "text": "At minute four of resting recovery, their heart rate is cooled down, but adrenaline is still washing through their system. And a healthy heart handles that fine. Right. A healthy heart's QTC is dropped back to normal by minute four. But a concealed LQT1 heart stays stuck at a dangerously prolonged level. Okay, so let's say the patient has a concealed mutation, they don't get the standing test, and they have a fainting spell. What is the tragedy you see over and over again in the clinical registries? The devastating tragedy of the vasovagal syncope or epilepsy mastagnosis. My diagnosis, epilepsy. Very often. When torsion at a point hits, the heart stops pumping effectively. The brain loses blood flow within seconds."
+    },
+    {
+      "id": "turn-34",
+      "speaker": "Host B",
+      "startTime": 1236.93,
+      "endTime": 1270.93,
+      "text": "The patient collapses. Right. But because the brain is starving for oxygen, they often experience myoclonic jerking in voluntary muscle spasms, tonic posturing where their limbs go stiff, and urinary incondence. to an untrained eye or a hurried ER doctor looks exactly like a grand mal seizure. It looks identical. And because the arrhythmia often self-terminates in 10 to 15 seconds, by the time the paramedics arrive and hook them up to a monitor, their heart rhythm looks completely normal again. Because it's concealed. So they get sent to a neurologist and set up a cardiologist."
+    },
+    {
+      "id": "turn-35",
+      "speaker": "Host A",
+      "startTime": 1270.93,
+      "endTime": 1295.73,
+      "text": "Exactly. Roughly 20 to 30 percent of long QT patients endure diagnostic delays of two to 12 years because they are slapped with a false epilepsy label. Wow, up to 12 years. Yes. They get put on heavy anti-seizure medications, which do absolutely nothing to protect the heart. And they are sent home without the life-saving beta blockers they actually need. And usually without a manually read ECG. That is heartbreaking."
+    },
+    {
+      "id": "turn-36",
+      "speaker": "Host B",
+      "startTime": 1296.61,
+      "endTime": 1332.45,
+      "text": "The Bidside mandate in cardiology is crystal clear. Any fainting during exertion, any near drowning, any fainting from an auditory startle or a first seizure with a normal EEG absolutely mandates a manually read 12 lead ECG. Because if they have a concealed mutation and get mistaken knows they are walking blindly into a pharmacological minefield. Talk to me about credible meds. Crediblemids.org is an international registry that maintains a list of drugs with a known risk of triggering torsades de pointe. We're talking about a lot of drugs right? Over 60 common everyday"
+    },
+    {
+      "id": "turn-37",
+      "speaker": "Host A",
+      "startTime": 1332.45,
+      "endTime": 1371.73,
+      "text": "medications that have an insidious side effect, they directly physically block the herg potassium channel. So even in a concealed carrier who thinks they are perfectly healthy, these drugs act like an invisible poison, stripping away whatever tiny amount of repolarization reserve they have left. Exactly. What kind of drugs are on this list? We're not just talking about rare chemo therapy agents, right? No. We are talking about routine everyday medicine, common macrolide antibiotics, like erythromycin and azithromycin. You know, the common Z-pack? Wait, a Z-pack can trigger it? Yes. Also, fluoroquinolone antibiotics like levofloxacin, routine anti-nausea medications like undonsitron,"
+    },
+    {
+      "id": "turn-38",
+      "speaker": "Host B",
+      "startTime": 1371.73,
+      "endTime": 1406.13,
+      "text": "which is given in almost every ER. Any histamines, any psychotics like halepidol, any depressants like cetalorpram. So a teenager with a hidden genetic mutation grabs a fluconazol pill for a yeast infection or takes an anti-nausea pill for the stomach flu and they suddenly collapse in cardiac It happens. Even high caffeine and taurine energy drinks have been shown in randomized human testing to prolong the QTC interval and have precipitated sudden cardiac arrests in young concealed long QT patients. It's terrifying. We have all these distinct triggers"
+    },
+    {
+      "id": "turn-39",
+      "speaker": "Host A",
+      "startTime": 1406.13,
+      "endTime": 1445.01,
+      "text": "swimming, sleeping, alarm clocks, antibiotics. How did we ever figure out that all of these completely disparate events were actually the same underlying disease? That takes us out of the modern ER and back into the history of how this was discovered. And the history of this genetic discovery is wild. It took decades of fierce debate to unravel. Where did it start? It started in 1957 in Oslo, Norway. Anton Gerval and Fred Longa-Neilsen published a landmark paper describing four profoundly deaf children in a single consangent as family, meaning the parents were blood relatives. Okay, the deaf kids."
+    },
+    {
+      "id": "turn-40",
+      "speaker": "Host B",
+      "startTime": 1445.01,
+      "endTime": 1483.22,
+      "text": "Right. These children suffered exercise-induced fainting and bizarrely prolonged QT intervals on their primitive ECGs. And the outcome was tragic, right? Incredibly tragic. Three of those four children died suddenly before the age of 10. But the parents and the siblings who could hear were completely fine. This established the autosomal recessive deafness QT syndrome. But meanwhile, a few years later, you had Cesarino Romano in Italy and Owen Connor Ward in Ireland, independently identifying families with prolonged QT and sudden death, but with totally normal hearing. Right. The autosomal dominant form. Ramana Ward-Sidrum."
+    },
+    {
+      "id": "turn-41",
+      "speaker": "Host A",
+      "startTime": 1483.22,
+      "endTime": 1520.26,
+      "text": "And for 30 years, the global medical community argued bitterly. About what was causing it? Yeah. Was this a neurological problem? Was it a structural defect in the heart muscle? Was it sympathetic nerve dominance? So how did they finally solve it? The debate finally ended in a remarkable 14-month sprint between 1995 and 1996, driven by a revolution in positional cloning, led by Mark Keating's laboratory at the University of Utah. Positional cloning? Basically, finding the genetic needle in a genomic haystack by tracing inheritance patterns through huge families. Exactly."
+    },
+    {
+      "id": "turn-42",
+      "speaker": "Host B",
+      "startTime": 1520.26,
+      "endTime": 1560.02,
+      "text": "In just 14 extraordinary months, Keating and his collaborators cloned the big three genes responsible for the vast majority of the disease. It's incredibly fast. It really was. First they mapped LQT2 to chromosome 7 and found the KC-NH2 gene. Interestingly, this gene is famously known as HURG, which stands for human ether-agogo-related gene. Wait, ether-agogo? Yeah, because a related mutation in fruit flies caused their legs to shake under anesthesia, looking like they were dancing at a go-go club. I always love the bizarre names geneticists give things. Michael Sanwanetti and Keating immediately proved that Herg encoded the rapid cardiac"
+    },
+    {
+      "id": "turn-43",
+      "speaker": "Host A",
+      "startTime": 1560.02,
+      "endTime": 1598.66,
+      "text": "potassium current. Months later, they mapped LQT3 to chromosome 3, identifying SCN5A, the sodium channel. And the final one? Finally, they mapped LQT1 to chromosome 11, identifying KCNQ1. But the KCNQ1 discovery had a plot twist, isn't it? When they found the gene, it didn't behave the way they expected it to. It was a massive hit scratcher. When researchers took the newly discovered KCNQ1 gene and expressed it in isolation and frog eggs, it only produced a tiny, fast electrical current. Which isn't right. No, it didn't look at all like the robust slow cardiac break it was supposed to be."
+    },
+    {
+      "id": "turn-44",
+      "speaker": "Host B",
+      "startTime": 1598.66,
+      "endTime": 1637.9,
+      "text": "So what were they missing? The final puzzle piece clicked into place in late 1996 through Back-to-Back Nature papers by Jacques Barranin and Michael Sanguinetti. They proved that KCNQ1 is basically useless on its own. Yeah, it has to physically co-assemble with a tiny single-pass accessory protein called KC-NE1. They form a complex? They have to link up to work. Exactly. They combine into variable stoichiometry, meaning they assemble with up to four KC-N-Q1 subunits and up to four KC-N-E1 subunits, along with calmodulin, lipid molecules, and yoteow. That's a lot of parts."
+    },
+    {
+      "id": "turn-45",
+      "speaker": "Host A",
+      "startTime": 1637.9,
+      "endTime": 1676.26,
+      "text": "Only when all of these pieces are strapped together do they reconstitute the true, massive of cardiac slow-delayed rectifier current. Okay, so we have the genes. We know the parts, but here is my big pushback. If this is a purely genetic disease, why does one sibling who inherits the mutation have a totally normal QT interval and live to be 80 years old, while their sister, with the exact same genetic spelling error, has a massive 520 millisecond QTC and dies suddenly as a teenager? That is the complex mathematics of incomplete penetrance. Right. How does the exact same DNA cause such wildly different outcomes?",
+      "highlightType": "key_point",
+      "highlightSummary": "Only when all of these pieces are strapped..."
+    },
+    {
+      "id": "turn-46",
+      "speaker": "Host B",
+      "startTime": 1676.26,
+      "endTime": 1713.34,
+      "text": "It fundamentally comes down to the difference between haploinsufficiency and dominant negative poisoning. Okay, break that down for me. Let's use an analogy. Okay. Both the KCN Q1 and HIRG channels are homotetramers. That means four identical protein subunits have to link together in a circle to form a single functional pore. Okay, think of it like a factory assembly line where it takes four workers to build a car engine. Got it. Four workers, one engine. If a patient has a genetic mutation that simply stops one allele from producing any protein, a truncation or a nonsense mutation, the body just"
+    },
+    {
+      "id": "turn-47",
+      "speaker": "Host A",
+      "startTime": 1713.34,
+      "endTime": 1749.86,
+      "text": "degrades the faulty genetic instructions. So you're missing some workers. Right. You are left with only the one healthy allele producing workers. So you have 50% of the normal number of workers in in the factory. Okay, so 50% of the brakes are missing, but the ones you do have work perfectly. Exactly. This is called haplo-insufficiency, and it often results in a milder, sometimes entirely concealed phenotype. But what's the other option? If you have a missense mutation, a single spelling error where the mutant protein worker is still produced, but they are slightly misfolded or have a dead tool, that mutant"
+    },
+    {
+      "id": "turn-48",
+      "speaker": "Host B",
+      "startTime": 1749.86,
+      "endTime": 1785.42,
+      "text": "worker will float around the factory and physically insert themselves into the assembly line alongside the healthy workers. Oh, I see where this is going. So it's not just that a factory worker is missing. It's that the mutant worker is actively sabotaging the assembly line so the other three healthy workers can't do their jobs either. Precisely. Because it takes four subunits to make a functional pour, if even one mutant subunit inserts itself into the tetramer, the entire channel is poisoned and fails to work. This is dominant negative poisoning. Yes. So what's the math on that? How badly does one saboteur wreck the factory?"
+    },
+    {
+      "id": "turn-49",
+      "speaker": "Host A",
+      "startTime": 1785.42,
+      "endTime": 1819.62,
+      "text": "Assuming the mutant and wild type subunits are produced equally and assemble randomly, the probability of getting a pure four wild type channel, a clean assembly line with no saboteurs, is one half to the power of four. One half to the fourth power. That is one in 16, or 6.25%. Right. Wow. Nominate negative mutations slashes your functional channels not by 50% but down to 6.25%. And eight fold collapse in your heart's ability to reset. No wonder it's so much deadlier. Exactly."
+    },
+    {
+      "id": "turn-50",
+      "speaker": "Host B",
+      "startTime": 1819.62,
+      "endTime": 1858.92,
+      "text": "Add in modifier genes like variations in the NOS 1AP gene or the influence of sex hormones. Like testosterone actually shortens the QT interval, which is why boys are at higher risk in childhood. But adult women flip too much higher risk postpartum. So all those variables combine. Yes. And you see why penetrance varies so wildly, even within the same family. But wait, you mentioned the deaf JLNS children have two broken KCNQ1 genes. What happens if a child inherits two broken KCNQ1 genes, but they have just enough residual functions, say a mild missense mutation to keep their inner ear working?"
+    },
+    {
+      "id": "turn-51",
+      "speaker": "Host A",
+      "startTime": 1858.92,
+      "endTime": 1897.73,
+      "text": "So they aren't deaf. Are they safe? It's a brilliant question, and the Bambino-Jezura-Gestri data answers it brutally. Oh no. They looked at recessive long QT patients without deafness. Compound heterozygotes who have about 10% residual channel function. So that 10% is enough to preserve the striovascularis endolymph in the ear, so they hear perfectly. Yes, but the heart is fundamentally starved. In that cohort, 66.67% suffered aborted sudden cardiac death. that to 28% in the fully deaf homozygous group."
+    },
+    {
+      "id": "turn-52",
+      "speaker": "Host B",
+      "startTime": 1897.73,
+      "endTime": 1936.44,
+      "text": "That is deeply unsettling. So preserved hearing never confers cardiac safety. It actually masks the severity of the danger because the parents and doctors don't have the glaring red flag of a deaf child to warn them. Precisely. And there's another fascinating genetic wrinkle that was recently solved. For decades, even with our best gene sequencing, about 10-20% of long QT families remain in genetically elusive. Elusive how? We knew it was inherited. We saw the sudden deaths, but we couldn't find the mutation in the big three genes. Enter the ALG10B discovery?"
+    },
+    {
+      "id": "turn-53",
+      "speaker": "Host A",
+      "startTime": 1936.44,
+      "endTime": 1972.88,
+      "text": "Yes, published recently in Circulation, Genomic, and Precision Medicine. Researchers found a multi-generational family with severe LQT2-like symptoms, but completely normal HDRG genes. Totally normal HDRG genes. Yes. Through whole genome sequencing, they found a mutation, specifically P.G6S, in a gene called ALG10B. What does ALG10B do? I've never heard of it. It encodes a glucosyltransferase. This is an enzyme located in the endoplasmic reticulum, which is the cells manufacturing center. Okay."
+    },
+    {
+      "id": "turn-54",
+      "speaker": "Host B",
+      "startTime": 1972.88,
+      "endTime": 2007.56,
+      "text": "This enzyme is responsible for adding specific sugar molecules to newly minted herd channels. Think of it as a quality control shipping tag. Without that exact tag, the wild type, perfectly healthy HURG channels get flagged as defective by the cell security system and are trapped in the endoplasmic reticulum. They never make it to the cell surface. The ALG 10B mutation creates an autosomal dominant phenocopy of LQ-2. Right. So the HURG gene is perfectly fine. The worker is built the engine perfectly, but the shipping department is broken. The engines never leave the warehouse. Exactly."
+    },
+    {
+      "id": "turn-55",
+      "speaker": "Host A",
+      "startTime": 2007.56,
+      "endTime": 2046.66,
+      "text": "Which brings us to the crucial understanding of the four cellular classes of herg mutations. This is critical for resolving what we call the bottleneck of variants of uncertain significance or VUS. VUS, right. Today when we sequence a teenager's genome, we often find a single letter change in herg that we've never seen before in human history. And we don't know if it's lethal, or if it's just a harmless benign variant like having blue eyes instead of brown. And you can't just ban a kid from sports and put a defibrillator in their chest based on the guess. You absolutely cannot. So we have to classify the exact molecular defect in a lab. Class 1 mutations are synthesis defects, truncations causing"
+    },
+    {
+      "id": "turn-56",
+      "speaker": "Host B",
+      "startTime": 2046.66,
+      "endTime": 2085.02,
+      "text": "that 50% haploinsufficiency we discussed. Okay, what about the others? Class 3 are gating defects. The channel reaches the surface but opens or closes too fast. Class 4 are permeation defects, a dominant negative dead pore. But the The vast majority, 84% of all missense LQT2 variants fall into Class 2. Class 2. What's that? Trafficking defects. Miss folding. The channel protein is made but it's slightly misshapen. It fails the quality control checkpoint in the endoplasmic reticulum. So it gets retained and destroyed? It never reaches the cell membrane to do its job. Exactly."
+    },
+    {
+      "id": "turn-57",
+      "speaker": "Host A",
+      "startTime": 2085.02,
+      "endTime": 2123.42,
+      "text": "So how do we solve this VUS crisis? If we find a new variant, how do we know if it's a class 2 trafficking defect without waiting to see if the patient faints? Modern cardiac genetics uses something called multiplexed deep mutational scanning. Researchers literally synthesized hundreds of variants in a lab, like 220 different mutations just in the S5 helix of the channel, and tested them all simultaneously using bar-coded epitope tag flow cytometry. Flow cytometry. So they tag the channel with a glowing marker. Yes. If the channel doesn't reach the cell's surface, the barcode doesn't light up under a laser."
+    },
+    {
+      "id": "turn-58",
+      "speaker": "Host B",
+      "startTime": 2123.42,
+      "endTime": 2162.94,
+      "text": "They couple this with automated 384-well planar patch clamping, using advanced machines like the Synchro Patch 384i to physically measure the electrical current of hundreds of variants at once. It's like industrial-scale electrophysiology. It provides formal clinically-certified functional evidence. So when a clinician sees a new variant on a genetic report, they don't have to guess. They can look up the functional lab data until the family definitively if it's a dangerous saboteur or a harmless quirk. We've talked about the clinical triggers and we've talked about the genetics, but I need to see this broken machinery with my own eyes. Lessoners, I want you to imagine shrink your down."
+    },
+    {
+      "id": "turn-59",
+      "speaker": "Host A",
+      "startTime": 2162.94,
+      "endTime": 2199.82,
+      "text": "We are going to shrink 10 billion fold, 10 to the 10th power. That's a massive shift in scale. You are now exactly one angstrom tall. To give you a visceral sense of scale, at one angstrom tall, a single peptide bond between two amino acids reaches right up to your collarbone. Wow. A single carbon carbon bond is shoulder height. A hydrogen bond is a full three-step stride in front of you. We are walking directly across the lipid bilayer of a human ventricular heart cell. Our first stop is the slow break, the KCN-Q1-KCNE1 calmodulin complex.",
+      "highlightType": "insight",
+      "highlightSummary": "We are going to shrink 10 billion fold..."
+    },
+    {
+      "id": "turn-60",
+      "speaker": "Host B",
+      "startTime": 2199.82,
+      "endTime": 2238.18,
+      "text": "We are walking into the verified cryo EM structure, RCSPPDB9VEC. I will explicitly pronounce that for the structural biologist listening, RCSPPDB9VEC. Got it. This structure was solved at a stunning 2.7 angstrom resolution, capturing nearly 16,000 heavy atoms. This is the human IKS complex, but crucially, it is without PIP2 bound. Okay, looking around inside the structure, it's massive. We are standing inside a domain-swapped assembly. I see four massive KCN-Q1 protein chains"
+    },
+    {
+      "id": "turn-61",
+      "speaker": "Host A",
+      "startTime": 2238.18,
+      "endTime": 2277.51,
+      "text": "wrapping around each other like a spiral staircase. And which between them are four single-pass KCN-1 subunits. And dangling below us, plunging into the cytoplasm of the cell, are four calomodulin chains gripping tightly onto calcium ions. Notice how tightly that calomodulin grips the calcium. In this specific structure, the distances are explicit. The calcium ion, CA201, is locked to KCNQ1's 3-neighths 27 oxygen at exactly 2.26 angstroms, and to aspartate 21 at 2.30 angstroms. That's an incredibly tight grip. They are locked together so tightly"
+    },
+    {
+      "id": "turn-62",
+      "speaker": "Host B",
+      "startTime": 2277.51,
+      "endTime": 2316.65,
+      "text": "that they act as a single mechanical lever. The structural tethering is exactly why mutations in calomodulin genes, CALM 1, 2, or 3, ripple up mechanically and cripple the entire IKS challenge, causing profound long QT. Let's climb vertically up toward the selectivity filter, which is the narrowest part of the pour at the top where the potassium actually passes through. In this PIP2 free state, 9VEC, what are the dimensions? How tight is the squeeze? Look at the glycine 314 carbonyl oxygen. diagonally across the pore, they span 4.35 and 4.38 angstroms. OK, 4.35."
+    },
+    {
+      "id": "turn-63",
+      "speaker": "Host A",
+      "startTime": 2316.65,
+      "endTime": 2355.93,
+      "text": "Tyrosine 315 spans 5.03 and 5.15 angstroms. This is a very snug fit for an ion. Now look over at the S4 voltage sensor. This is the part of the machine that senses the electrical voltage spike of the heartbeat and is supposed to pull the pore open. In 9VEC, the S4 sensor is depolarized. It has moved upward, sensing the beat. Arginine 231 is locked to serine 143 at 2.59 angstroms. And the other arginine? Arginine 228 is touching tyrosine 278 at 2.97 angstroms. The sensor has done its job. It has fired. But look down at the bottom."
+    },
+    {
+      "id": "turn-64",
+      "speaker": "Host B",
+      "startTime": 2355.93,
+      "endTime": 2394.52,
+      "text": "The S6 inner gate. At serine 349. Yes. Arginine 249 on the linker is just idling against glutamine 244 at 3.48 angstroms. It's not pulling on anything. So what happens to the gate? As a result, the CIRIEN 349 intergate is pinched completely shut. The distance between the CIRIEN 349 oxygen across the floor is just 3.70 angstroms. Wait, a hydrated potassium ion is about 6.6 angstroms wide. It physically cannot fit through a 3.7 angstrom hole. The voltage sensor moved, it's since the heartbeat, but the bottom door stayed shut, why?"
+    },
+    {
+      "id": "turn-65",
+      "speaker": "Host A",
+      "startTime": 2394.52,
+      "endTime": 2433.24,
+      "text": "Because the channel is decoupled. The mechanical clutch hasn't been engaged. To see the clutch in action, we have to step across the membrane into the twin structure, RCSB-PDB-9-V-E-I. That's PDB-9-V-E-I. The exact same KCN-Q-1, KCN-E-1 channel, but this time, PIP-2 lipid molecules are bound to it. The 2025 Cell Research paper by Kui and colleagues reveals something staggering here. They found not one, but two distinct PIP-2 binding sites per subunit, eight in total for the tetrauret. Eight PIP-2 sites. They form a dual-site electromechanical clutch."
+    },
+    {
+      "id": "turn-66",
+      "speaker": "Host B",
+      "startTime": 2433.24,
+      "endTime": 2468.16,
+      "text": "Wait, slow down. You're saying there's a literal mechanical clutch inside the cell, like in a manual transmission car. How does the lipid act as a clutch? PIP-2 acts as the molecular glue. Without it, the engine revs, but the wheels don't turn. Let's look at site one. Okay, site one. It is anchored tightly by K cn q ones arginine one 16 pulling at 2.45 angstroms arginine 181 at 2.73 angstroms and arginine 249 at 2.93 angstroms. But you said the real magic is site two?"
+    },
+    {
+      "id": "turn-67",
+      "speaker": "Host A",
+      "startTime": 2468.16,
+      "endTime": 2506.72,
+      "text": "Yes, it's a newly discovered coupling bridge that stitches three completely different domains together. 2.6 angstrom triad. Exactly. You have KCN Q1's Arginine 259 binding at 2.57 Angstroms, KCN E1's Arginine 67 at 2.62 Angstroms, and KCN Q1's post-S6 Arginine 366 at 2.69 Angstroms. So the PIP2 lipid pins the voltage sensor, the pore, and the KCN E1 subunit together into one rigid mechanism. And when both PIP2 clutches engage, what happens? The tension transfers directly to the pore."
+    },
+    {
+      "id": "turn-68",
+      "speaker": "Host B",
+      "startTime": 2506.72,
+      "endTime": 2545.69,
+      "text": "top the glycine 314 filter expands slightly to 4.40 and 4.43 angstroms but down at the bottom that microscopic 3.70 angstrom pinch its serine 349 completely vanishes. The pore swings wide open. This directly explains why LQT1 mutations at Arginine 249, Arginine 259 or Arginine 366 are so devastating. They literally snap the PIP2 clutch. The voltage sensor moves, but the poor is stranded in the close state. That teenage swimmer drowns because her molecular clutch is broken. Unbelievable, isn't it? It really is. Let's"
+    },
+    {
+      "id": "turn-69",
+      "speaker": "Host A",
+      "startTime": 2545.69,
+      "endTime": 2581.73,
+      "text": "walk across the lipid bilayer into the next chamber, the Herg channel, the rapid break. We are entering RCSB-PDB-5VA1, solved at 3.7 angstroms. That's PDB-5VA1, and we will also look at its potassium-bound partner, RCSB-PDB-7C-N1. PDB-7C-N1. HERC is architecturally completely different from KCN-Q1. First it is non-domain swapped. Each voltage sensor hugs its own poor domain directly, rather than wrapping around its neighbor."
+    },
+    {
+      "id": "turn-70",
+      "speaker": "Host B",
+      "startTime": 2581.73,
+      "endTime": 2619.09,
+      "text": "And it has this massive bulky structure hanging way down below it in cytoplasm. The PAS-CN-BHD ring. This intracellular domain slows down the channel's deactivation so it can guard the late phase of the heartbeat. But structurally, it acts as a fragile folding sensor. This is the exact checkpoint in the endoplasmic reticulum where 84% of those LQT2 missense mutations fail, causing that Class 2 trafficking defect we discussed earlier. Right. If this ring doesn't fold perfectly, the cell destroys the whole channel. Let's climb up into the selectivity filter in 7CN1."
+    },
+    {
+      "id": "turn-71",
+      "speaker": "Host A",
+      "startTime": 2619.09,
+      "endTime": 2657.49,
+      "text": "In KCN Q1 it was a tight 4.4 Angstroms. What does Herg look like? Inside 7CN1 you see three single file potassium ions, perfectly coordinated by Valene 625, glycine 626, and serine 624. But look at the outer edge of the filter at phenoline 627. The carbonyl splay violently outward. The diagonal distance is 8.71 and 8.73 Angstroms. 8.73 Angstroms. It's blown wide open compared to the other channel. That extreme swaying is the physical basis for HURG's ultra-fast sea type inactivation, right? It is."
+    },
+    {
+      "id": "turn-72",
+      "speaker": "Host B",
+      "startTime": 2657.49,
+      "endTime": 2696.13,
+      "text": "It distorts so easily that the channel literally shuts itself off within milliseconds of opening, sleeping during the peak of the heartbeat, and only recovering to conduct massive amounts of current as the voltage falls. But the real danger of HURG lies about 10 Angstroms beneath that filter, the notorious drug trap cavity. Let's drop down into it. Most potassium channels have a structural kink that keeps the central cavity small. Herg lacks that kink. As a result, it forms a massive cavernous central chamber surrounded by four deep hydrophobic side pockets. Look at the dimensions in 7C and 1."
+    },
+    {
+      "id": "turn-73",
+      "speaker": "Host A",
+      "startTime": 2696.13,
+      "endTime": 2734.73,
+      "text": "The Tyrazine 652 hydroxyl groups form a collar that spans 10.44 to 10.68 onxtroms across. And right below that collar? The phenylalanine 656 side chains widen the cavity to a massive 20.67 to 20.91 onc trims across. It creates the perfect inescapable electronegative trap. This is where the credible meds trap snapshot, isn't it? Exactly. Every one of those drugs we mentioned earlier, the antibiotics, the anti-nausea meds like aundinstrum, they are lipophilic cationic molecules. They slide right into this massive cavity, clamp their positively charged ends into the",
+      "highlightType": "action_item",
+      "highlightSummary": "The Tyrazine 652 hydroxyl groups form a collar..."
+    },
+    {
+      "id": "turn-74",
+      "speaker": "Host B",
+      "startTime": 2734.73,
+      "endTime": 2773.92,
+      "text": "10.6 Angstrom tyrosine 652 collar and bury their greasy aromatic tails deep inside the 20.9 Angstrom phenyl 656 lateral pockets. They plug the poor like a giant cork instantly stripping away the patient's rapid repolarization break. 20 Angstrom pocket of death. Let's move to our final step, the gas pedal, the cardiac sodium channel, NAB 1.5. We're looking at rat PDB 6UZ3 and human PDB 7DTC. That's PDB 6UZ3 and PDB 7DTC. The first thing you must realize here is the species numbering offset."
+    },
+    {
+      "id": "turn-75",
+      "speaker": "Host A",
+      "startTime": 2774.48,
+      "endTime": 2792.24,
+      "text": "It's a massive trap for geneticists. The rat sequence in 6UZ3 runs plus one higher than the human sequence in domain one and plus two higher in domain four. Oh, I see. If you don't keep that offset straight when reading the literature, you will miss index of fatal mutation. Good to know."
+    },
+    {
+      "id": "turn-76",
+      "speaker": "Host B",
+      "startTime": 2793.02,
+      "endTime": 2832.12,
+      "text": "So looking right next to the selectivity filter, human 70 TC has a cysteine at position 373. Yes. Sistine 373 sits just 3.50 angstroms away from glutamate 901. In your brain, neuronal sodium channels have a bulky aromatic ring there instead. That bulky ring acts as a perfect binding site for teterodoxin, the deadly puffer fish poison. By swapping that out for a small cysteine, the human heart grants itself a 200-fold resistance to teterodoxin. That's an amazing evolutionary quirk. You could be paralyzed by pufferfish venom, but your heart keeps beating."
+    },
+    {
+      "id": "turn-77",
+      "speaker": "Host A",
+      "startTime": 2832.12,
+      "endTime": 2868.7,
+      "text": "But let's find where our Sleeping Graduate students' LQT3 mutation happens. The FAST and Activation Gate. In NAV1.5, the fast inactivation gate isn't a cork that plugs a hole. It acts like a lateral door wedge. It's formed by three specific amino acids. Isolucine 1485, phenylalanine 1486, and methionine 1487. We call it the IFM motif. Let's measure the wedge in the 7DTC. It slides into a hydrophobic corner pocket between domains 3 and 4, squeezing the inner gate shut to stop the sodium flow. Look at phenylalanine 1486."
+    },
+    {
+      "id": "turn-78",
+      "speaker": "Host B",
+      "startTime": 2868.7,
+      "endTime": 2880.7,
+      "text": "It's oxygen anchors to a spare gene 1659 at 2.80 Angstroms. And its side chain compresses against a spare gene 1765 at exactly 3.00 Angstroms."
+    },
+    {
+      "id": "turn-79",
+      "speaker": "Host A",
+      "startTime": 2882.65,
+      "endTime": 2922.21,
+      "text": "Methyline 1487 reaches over to lysine 1492 at 2.71 Angstroms. It's pin tight. The door is wedged shut. It has to be. But 91 different LKT3 point mutations clustered densely right on this door wedge. For example, the E1784 K mutation breaks the electrostatic latch holding this pocket together. As a result, the IFM wedge slips out intermittently. That tiny slip is what unleashes the lethal late sodium leak we saw in our Sleeping Graduates doing it. And just above that slip point is a receptor featuring phenylalanine 1760 and tyrosine 1767."
+    },
+    {
+      "id": "turn-80",
+      "speaker": "Host B",
+      "startTime": 2922.21,
+      "endTime": 2961.57,
+      "text": "That's the exact docking site for a drug called mexiliti, which we use to silence that leak. We will talk about mexiliti shortly. But first we need to pause our physical walk and run some clinical math. We need to prove mathematically why standard automated ECGs betray our sleeping LQT3 patient. Okay, listeners grab a mental notepad or a real one. We are going to calculate QT formulas allowed. We are comparing Bazzitz formula to Fridorich's formula, which are the two ways machines try to correct the QT interval based on heart rate. Let's define the terms. The R-R interval, which is the time between beats and seconds, is 60 divided by the heart"
+    },
+    {
+      "id": "turn-81",
+      "speaker": "Host A",
+      "startTime": 2961.57,
+      "endTime": 3000.38,
+      "text": "rate and beats per minute. Bassett's corrected QT, QTCB, is the raw QT in milliseconds divided by the square root of the R-R interval. For it reaches corrected QT, QTCF, is the raw QT divided by the cube root of the R-R interval. Okay, I've got my calculator. root for bazette, cube root for fritterica. If a patient's heart rate is exactly 60 beats per minute, the R-R interval is 1.0 seconds. The square root of 1 is 1. The cube root of 1 is 1. So, if the raw Q-T is 420 milliseconds, dividing by 1 means both bazette and fritterica equal"
+    },
+    {
+      "id": "turn-82",
+      "speaker": "Host B",
+      "startTime": 3000.38,
+      "endTime": 3036.78,
+      "text": "420. No problem. But watch the dangerous divergence during Brady Cardia, like our LQ-T3 patient in deep sleep. his heart rate drops to 45 beats per minute and his raw QT stretches to 540 milliseconds. Okay, do the math? Denominator. Rr cycle length. 60 divided by 45 equals 1.3333 seconds. Now apply Bazzitz formula. The square root of 1.3333 is 1.1547. Divide the raw QT of 540 by 1.1547 and you get a QT CB of 467.7"
+    },
+    {
+      "id": "turn-83",
+      "speaker": "Host A",
+      "startTime": 3036.78,
+      "endTime": 3071.9,
+      "text": "milliseconds. Let's call it 468. Wait 468 milliseconds. That is falsely below the 480 millisecond high-risk shorts threshold. As it is telling the doctor the patient is fine. Exactly. It completely masks the danger. Now apply for Derekia. The cube root of 1.3333 is 1.1006. Divide 540 by 1.1006 and you get a QTCF of 490.6 milliseconds. 491 milliseconds is a massive red flag. It is 23 milliseconds higher than bazette,"
+    },
+    {
+      "id": "turn-84",
+      "speaker": "Host B",
+      "startTime": 3071.9,
+      "endTime": 3107.3,
+      "text": "and unambiguously pathological. At slow heart rates, bazette undercorrects and completely hides LQT3 danger. And it goes the other way for fast heart rates. Say a healthy person has a fever, their heart rate is 110 and their raw QT is 360. RR is 60 divided by 110, which is 0.545 seconds. Bazzet takes the square root, which is 0.7385. 360 divided by 0.7385 is 487.4 milliseconds. Bazzet triggers a false alarm. Bazzet over corrects tech cardio by almost 47 milliseconds, making a healthy person look sick."
+    },
+    {
+      "id": "turn-85",
+      "speaker": "Host A",
+      "startTime": 3107.3,
+      "endTime": 3142.54,
+      "text": "While FridaRica's cube room gives you a totally normal 440.6 milliseconds. This is exactly why FDA clinical trials mandate free to Ricky and not bazette. Wow math literally saving lives But I want to do one more set of calculations I want to understand why the tiny LQT3 sodium leak is so deadly and I want to understand the hypokalemia paradox you teased earlier Let's step inside an idealized adult ventricular heart cell We'll set the membrane capacitance Cm at 150 picofarads or 1.50 times 10 to the negative 10th"
+    },
+    {
+      "id": "turn-86",
+      "speaker": "Host B",
+      "startTime": 3142.62,
+      "endTime": 3178.64,
+      "text": "ferrets. Let's figure out why a tiny 0.26% door wedge leak dumps more sodium than the massive initial explosion of the heartbeat. Okay, let's calculate the initial phase zero upstroke charge. Assume a lightning fast 0.50 millisecond triangular pulse with a peak sodium current of 40,000 picoamps. That's a mean current of 20,000 picoamps. charge Q is current times time. 20,000 picohamps times 0.0005 seconds equals 10.00 picocooloms."
+    },
+    {
+      "id": "turn-87",
+      "speaker": "Host A",
+      "startTime": 3178.64,
+      "endTime": 3217.46,
+      "text": "Divide by the elementary charge of an ion, and that is 6.24 times 10 to the seventh sodium ions entering the cell. That's the huge lightning strike. Now the tiny LQT3 plateau leak. Let's say the leaky B-late current is a mere 105 picoamps. 105 divided by 40,000 is 0.262%, barely one quarter of 1% of the peak current. But this plateau leak lasts for 300 milliseconds, while the cell is trying to reset. So 105 picoamps times 0.300 seconds equals 31.50 pico coulombs.",
+      "highlightType": "key_point",
+      "highlightSummary": "Divide by the elementary charge of an ion..."
+    },
+    {
+      "id": "turn-88",
+      "speaker": "Host B",
+      "startTime": 3217.46,
+      "endTime": 3255.46,
+      "text": "31.50 pico coulombs. Exactly. 31.50 by the 10.00 pC of the upstroke. The ratio is 3.15. Because the plateau lasts 600 times longer than the upstroke, the tiny 0.26% leak injects 3.15 times more sodium ions into the cell than the entire initial explosion. That completely overwhelms the cell's ability to repolarize. The brakes can't possibly fight against that much leaking gas. Let's prove it with a voltage repolarization equation. dv dt equals negative net current over capacitance."
+    },
+    {
+      "id": "turn-89",
+      "speaker": "Host A",
+      "startTime": 3255.46,
+      "endTime": 3294.1,
+      "text": "If a healthy outward repolarizing potassium current is positive 150 picohamps, dv dt is negative 150 divided by 150 picohfarads, which is negative 1.00 mV per millisecond. It takes exactly 100 milliseconds to fall 100 mV. But if we subtract that 105 picohamps of inward sodium leak… outward current plunges 70% to just 45 picowamps. DVDT slows 3.33 fold to negative 0.30 mV per millisecond. That 100 mV recovery now drags out to 333.3 milliseconds. A massive 233"
+    },
+    {
+      "id": "turn-90",
+      "speaker": "Host B",
+      "startTime": 3294.1,
+      "endTime": 3330.68,
+      "text": "millisecond delay, dropping the voltage right into the reactivation window for calcium channels to trigger torsets. Okay, the math makes it undeniable. Now, explain the Nernst equation paradox. You said earlier that low potassium kills the H-E-R-G channel. But I remember my college physiology. The Nernst equation says if external potassium drops, the electrochemical driving force pushing potassium out of the cell should increase. Your physiology is correct on paper. Let's do the Nernst math at body temperature, 37 degrees Celsius. Equilibrium potential EK equals"
+    },
+    {
+      "id": "turn-91",
+      "speaker": "Host A",
+      "startTime": 3330.68,
+      "endTime": 3363.1,
+      "text": "61.54 times the base 10 log of external potassium over internal potassium, which will fix at 145 millimolar. Okay, let's run into normal blood potassium, 4.5 millimolar. 61.54 times the log of 4.5 over 145 is 61.54 times negative 1.5082. That equals negative 92.8 millivolts. Okay. Now drop the patient into severe hypokalemia at 2.8 millimolar, like our postpartum mother"
+    },
+    {
+      "id": "turn-92",
+      "speaker": "Host B",
+      "startTime": 3363.1,
+      "endTime": 3400.44,
+      "text": "who has been vomiting. 61.54 times the log of 2.8 over 145 is 61.54 times negative 1.7142. That equals negative 105.5 millivolts. So the driving force at 0 millivolts went from positive 92.82 to positive 105.5. That's 13.7% increase in the physical force pushing potassium out of the cell. So, why does hypokalemia prolong the QT interval? It should shorten it. Because you are assuming the channel remains open, the Nernst gain is completely overridden"
+    },
+    {
+      "id": "turn-93",
+      "speaker": "Host A",
+      "startTime": 3400.44,
+      "endTime": 3435.32,
+      "text": "by a catastrophic drop in the Herg channel's physical conductance. The Herg channel's conductance is actually proportional to the square root of external potassium. Drop potassium to 2.8 and conductance instantly drops by 21.1%. But it gets worse structurally doesn't it? Much worse. Remember those outer potassium binding sites in the PDB-7CN1 filter we walk through? When external potassium drops those sites empty out without ions occupying the filter to hold the walls up that delicate spade phenylalanine 627 collapses inward."
+    },
+    {
+      "id": "turn-94",
+      "speaker": "Host B",
+      "startTime": 3435.32,
+      "endTime": 3473.67,
+      "text": "The channel goes into accelerated C-type inactivation and is actually swallowed and internalized by the cell. You lose 35 to 50% of your net her current, completely destroying the Nernstriving Force game. That is why you must keep serum potassium above 4.0 millimolar in LQT2 patients. That is mind-blowing. The physical structure of the poor collapses without the ions there to act as load-bearing pillars. Alright, let's take a breath and emerge from the microscopic world. Let's look at precision therapeutics. 2026 medicine."
+    },
+    {
+      "id": "turn-95",
+      "speaker": "Host A",
+      "startTime": 3473.67,
+      "endTime": 3509.59,
+      "text": "For 50 years beta blockers have been the bedrock of therapy, but you're telling me everything I was taught on the medical ward about beta blockers being a class effect, meaning they all basically do the same thing, is completely wrong. It is a dangerous, persistent clinical myth that all beta blockers provide equal protection. Two pivotal multi-center registry studies from Trocalingum and Avuzeitun, reinforced by Mazzanti's 1700 patient model, proved this definitively. When you compare non-selective beta blockers like Natalol and Propranolol against cardioselective beta-1 blockers like Metoprolol and Atenolol, the difference is stark. How stark?"
+    },
+    {
+      "id": "turn-96",
+      "speaker": "Host B",
+      "startTime": 3509.59,
+      "endTime": 3548.03,
+      "text": "Especially in LQT2, Natalol was the only beta blocker that consistently provided robust hazard reduction against sudden death, recurrent syncope. carried a significantly higher breakthrough occurrence rate. Why? Why is natal also superior? Three molecular reasons. First, dual receptor blockade. When adrenaline surges during an alarm clock startle, it stimulates both beta-1 receptors in the heart and beta-2 receptors in your skeletal muscle. Beta-2 stimulation in muscle drives the sodium-potassium ATPase pump, which rapidly pulls potassium out of the blood and into the muscles. Causing acute hypokalemia."
+    },
+    {
+      "id": "turn-97",
+      "speaker": "Host A",
+      "startTime": 3548.03,
+      "endTime": 3582.59,
+      "text": "which we just proved crashes the HURG channel. Exactly. Metoprolol only blocks beta-1, allowing the muscle pumps to cause sudden hypokalemia. Non-selective Nautylol blocks both, preventing the potassium drop. Second, off-target effects. Propranolol, and to a lesser extent, nautylol, actually penetrate the cell membrane and physically block the DIVS-6 receptor on the NAV 1.5 sodium channel. They directly suppress that late sodium leak we just calculated, adding a built-in repolarization margin. Metoprolol doesn't do that at all. And the third reason? Pharmacokinetics."
+    },
+    {
+      "id": "turn-98",
+      "speaker": "Host B",
+      "startTime": 3583.15,
+      "endTime": 3617.23,
+      "text": "Nautilol has a 14- to 24-hour half-life. It's given once a day and sustains a flat, reliable 24-hour receptor occupancy. Metoprolol is short-acting, creating dangerous trough windows if a teenager takes their pill a few hours late. Furthermore, Nautilol is hydrophilic, it barely crosses the blood-brain barrier. Propranolol is highly lipophilic, crossing into the brain and causing severe nightmares and vivid dreams that drive patients to stop taking their medication entirely. So, not all is the clear, unambiguous winner. Now historically, doctors were terrified to give"
+    },
+    {
+      "id": "turn-99",
+      "speaker": "Host A",
+      "startTime": 3617.23,
+      "endTime": 3653.11,
+      "text": "any beta blocker to LQT3 patients, right? Yes. For a decade after the gene was cloned in 1995, doctors thought beta blockers would worsen the slow resting bradycardia that triggers LQT3 events and sleep. Modern registries prove that fear wrong. Non-selective beta blockers significantly lower cardiac events in LQT3, especially in women, and are now used routinely if the patient's heart rate can tolerate it. But for LQT3, the real magic bullet has always been mexilatin. Mexilatin is a Class 1B sodium channel blocker. It docks perfectly onto that phenylysine 1760"
+    },
+    {
+      "id": "turn-100",
+      "speaker": "Host B",
+      "startTime": 3653.11,
+      "endTime": 3690.59,
+      "text": "entire scene 1767 receptor, we saw in PDB7DTC. It specifically plugs that plateau reopening, silencing the late sodium leak without impacting the massive phase zero upstroke. It routinely shortens the QTC by 60 milliseconds in LQT3. But you have to be careful with the exact mutation, right? Crucially careful. If a patient has the classic Delta KPQ deletion mutation, mexolotene is miraculous. But if they have an overlap mutation like E1784K, which also causes Bruegada syndrome by reducing the peak sodium current, blocking sodium further with mexolotene can provoke"
+    },
+    {
+      "id": "turn-101",
+      "speaker": "Host A",
+      "startTime": 3690.59,
+      "endTime": 3723.83,
+      "text": "Bruegada ST segment elevation on the ECG. You have to monitor them carefully with high pre-chordial leads. Okay, but mexolotene in LQT3 is old news. Talk to me about the 2024 breakthrough. This is one of the most elegant translational leaps in modern cardiology. For 30 years, mexolotene was strictly for sodium channel LQT3. But think back to our math. If a patient has LQT2, they are starving for outward potassium current. Their net outward current is dangerously low. The breaks are weak.",
+      "highlightType": "insight",
+      "highlightSummary": "Bruegada ST segment elevation on the ECG. You..."
+    },
+    {
+      "id": "turn-102",
+      "speaker": "Host B",
+      "startTime": 3723.83,
+      "endTime": 3762.22,
+      "text": "Even in a healthy heart, there is a tiny physiological late sodium leak, maybe 25 to 40 picoamps. It's totally normal. put in an LQT2 patient who is clinging to the edge of the cliff, that normal physiological inward leak is pushing them over. In 2024, a team led by Crote, Schwartz and Ackerman prove that if you give mexelotene to an LQT2 patient, you block that normal physiological sodium leak which hands back just enough decisive repolarization margin to save their life. It's a physiological workaround. You can't fix the brake, so you lighten the car. Did it work in actual patients?"
+    },
+    {
+      "id": "turn-103",
+      "speaker": "Host A",
+      "startTime": 3762.22,
+      "endTime": 3800.46,
+      "text": "We validated it across three completely different scales. First in patient-derived IPSC cardiomyocytes in a dish, it shortened the action potential. Second in transgenic LQT2 rabbits with a class IV dominant negative poor lesion, acute maxillotene shortened the action potential duration by 113 milliseconds. Finally, in 96 human LQT2 patients, 65% achieved a clinically meaningful QTC shortening 40 milliseconds or more with statistically significant anti-arivmic protection. Mexelitine rescuing LQT2. That is a massive paradigm shift."
+    },
+    {
+      "id": "turn-104",
+      "speaker": "Host B",
+      "startTime": 3800.46,
+      "endTime": 3840.14,
+      "text": "And it works for the recessive deaf JLNS kids too. Yes. In a 2023 study from Ben-Bino-Jazoo, among children with autosomal recessive KCN-Q1 who were already on Nautilol, adding Mexelitine abolished macroscopic T-wave alternates in 100% of the highest risk patients tested. Real quick, what exactly is T-Wave alternants? It's when the T-Wave changes its shape or height on every alternate beat. It is a sign of extreme imminent electrical chaos. Abolishing it is a massive victory. Amazing. Okay, but what if pills aren't enough? Or the patient has severe asthma and physically can't take no doll all because it tightens their airways? We have to"
+    },
+    {
+      "id": "turn-105",
+      "speaker": "Host A",
+      "startTime": 3840.14,
+      "endTime": 3875.38,
+      "text": "escalate. We escalate procedurally, but the golden rule in long QT is consider left cardiac sympathetic denervation, LCSD, before you jump to an implantable defibrillator. LCSD, literally cutting the nerves to the heart. Specifically, using minimally invasive vats, video-assisted thoracic copy surgery, surgeons go into the chest cavity and resect the lower half of the left stellate ganglion, T1, preserving the top half to avoid causing drooping eyelids, and they cut thoracic ganglia T2 through T4. Why the left side specifically?"
+    },
+    {
+      "id": "turn-106",
+      "speaker": "Host B",
+      "startTime": 3875.38,
+      "endTime": 3913.3,
+      "text": "The left-sided sympathetic nerves heavily dominate the release of norepinephrine to the ventricles. By cutting them, you remove the sympathetic trigger and reduce the trans-mural repolarization dispersion. It reduces major cardiac events and ICD shocks by 80 to 90%. And crucially, it doesn't cause bradycardia, and it doesn't require placing lifelong intravascular hardware like an ICD wire in a growing child. But if they do need an ICD, if they've already had a breakthrough cardiac arrest, you mentioned in an iatrogenic electrical storm. iatrogenic meaning caused by the doctor. If a patient has a defibrillator, shouldn't it just shock them the second they go into torsods and save their life?"
+    },
+    {
+      "id": "turn-107",
+      "speaker": "Host A",
+      "startTime": 3913.3,
+      "endTime": 3951.43,
+      "text": "That is the instinct of a standard heart failure cardiologist, and it is a fatal mistake in long QT syndrome. Many torsods bursts will self-terminate in 5 to 15 seconds. The patient might just feel dizzy. If you program the ICD to detect an arrhythmia quickly, say, after 2 seconds, and shock at low threshold like 180 beats per minute, the device will blast a conscious teenager with a 40 joule shock for a brief self-limiting arrhythmia. Or just for a fast sinus tech cardio from exercising. Exactly. And that massive agonizing shock releases a tsunami of adrenaline in the patient's body."
+    },
+    {
+      "id": "turn-108",
+      "speaker": "Host B",
+      "startTime": 3952.07,
+      "endTime": 3975.11,
+      "text": "What does adrenaline do to a long QT heart? It stretches the QT even further and ignites another much worse burst of ventricular fibrillation. The device shocks again. More pain, more adrenaline, more fibrillation. It breeds a relentless, inescapable shock begets shock death spiral. Oh my God. You've turned a safety net into a torture device."
+    },
+    {
+      "id": "turn-109",
+      "speaker": "Host A",
+      "startTime": 3975.92,
+      "endTime": 4011.12,
+      "text": "So how do you program it safely? You mandate a single high rate VF only zone, meaning the device ignores anything under 220 or 240 beats per minute. You mandate a long detection duration. It has to wait 30 of 40 intervals or 7 to 10 seconds to give the torsada's a chance to self-terminate before firing. You turn on pause prevention atrial pacing at 70 bpm for LQT2 and LQT3 to eliminate the bradycardia risk. And crucially, you strictly continue the natalol. The device defibrillates. The beta blocker is what actually prevents it."
+    },
+    {
+      "id": "turn-110",
+      "speaker": "Host B",
+      "startTime": 4011.12,
+      "endTime": 4048.24,
+      "text": "Incredible. Speaking prevention, let's touch on comparative biology. We test these drugs on on animals before humans. Why do some animal models fail us completely here? Let's look at mice. An adult mouse heart beats at 600 beats per minute. Its action potential is a tiny 20 millisecond triangle. It repolarizes almost entirely using different potassium channels, ITO and IQR. A mouse has virtually zero functional Herg or K-C-N-Q1 current. So if you knock out K-C-N-Q1 in a mouse, nothing happens. Nothing happens. They don't get long QT and they don't get spontaneous torsades."
+    },
+    {
+      "id": "turn-111",
+      "speaker": "Host A",
+      "startTime": 4048.24,
+      "endTime": 4088.24,
+      "text": "They are useless for LQ-T1 and LQ-T2. However, transgenic rabbits are the gold standard. A rabbit's heart beats at a much closer 200 BPM and it relies on the exact same IK-R and IKS repolarization architecture as humans. That's why the LQ-T2 rabbits prove the mexelitine rescue and LQ-T1 rabbits prove the gene therapy we're about to discuss. And dogs. The FDA requires ICHS-7B safety screens on all new drugs using beagle dogs or primates, specifically because their herd drug cavity mirrors humans perfectly. If a drug gets trapped in a beagle's herd channel, it will get trapped in yours. Interestingly, marine diving mammals like seals and whales"
+    },
+    {
+      "id": "turn-112",
+      "speaker": "Host B",
+      "startTime": 4088.24,
+      "endTime": 4125.82,
+      "text": "can drop their heart rates to four beats per minute during cold water immersion without dying. An evolutionary tuning of sodium inactivation that our human swimmers just don't have. We are moving beyond just managing symptoms to actually fixing the broken channels. Let's look at pharmacological folding chaperones. We established earlier that 84% of pathogenic LQT2 missense mutations cause a class two trafficking defect. The channel is stuck in the endoplasmic reticulum. It's misfolded, but otherwise mechanically sound. If we could just get it past the quality control checkpoint and to the cell surface, it would work. But early herd blockers trap the channel, right? Yes."
+    },
+    {
+      "id": "turn-113",
+      "speaker": "Host A",
+      "startTime": 4125.82,
+      "endTime": 4163.96,
+      "text": "Early drugs like Astamazol rescued the folding, but they rode along inside the cavity and plug the pore they just delivered. It was useless. The breakthrough came from repurposing a cystic fibrosis drug, luma-cafter. Wait, cystic fibrosis. How does a lung drug help the heart? Luma-cafter is a chemical folding corrector. Schwartz and Kratty discovered that luma-cafter promotes ER escape for herg without plugging the conduction pore. In their first inhuman pilot, treating two class two LQT2 patients with oral luma-cafter ivacafter achieved a reproducible 30 to 40 millisecond QTC"
+    },
+    {
+      "id": "turn-114",
+      "speaker": "Host B",
+      "startTime": 4163.96,
+      "endTime": 4201.96,
+      "text": "shortening on their halter monitors. Even for that weird ALG 10B mutation we talked about? Yes. In lab tests, Luma-capture rescued the ER-trapped wild-type Herg in ALG 10B cells, shortening the action potential by 10.6%. This led directly to the Phase II Mass II clinical trial, mutation-specific therapy for the long QT syndrome. But there are caveats, right? It's not a silver bullet yet. on as caveats are essential. Luma guitar is strictly for class two. If you give it to a class four dominant negative, poor mutant, pushing more dead sabotaging channels to the surface could actually worsen the poisoning."
+    },
+    {
+      "id": "turn-115",
+      "speaker": "Host A",
+      "startTime": 4201.96,
+      "endTime": 4240.6,
+      "text": "Furthermore, Luma guitar strongly induces the CYP3A4 liver enzyme causing complex drug interactions, and it's extremely expensive. The future here is medicinal chemists building ERG exclusive, non-blocking oral folding chaperones that don't have those side effects. Okay, chaperones fix the folding. But what if we just replaced the gene entirely? Gene therapy, Michael Ackerman's Subrep AAV9 therapy. This is the Holy Grail. Simple gene addition doesn't work for dominant negative LQT1 or LQT2, because the mutant subunits you are still producing will just poison the new healthy channels.",
+      "highlightType": "action_item",
+      "highlightSummary": "Furthermore, Luma guitar strongly induces the CYP3A4 liver..."
+    },
+    {
+      "id": "turn-116",
+      "speaker": "Host B",
+      "startTime": 4240.6,
+      "endTime": 4279.66,
+      "text": "And with over a thousand unique mutations across these families, you can't build a custom CRISPR editor for every single patient. So Ackerman's team built a single universal cassette, subrep, suppression, and replacement. If it's perfectly inside a 4.7 kilobase AAV9 viral vector, the cassette does two things simultaneously. First, it deploys a custom short hairpin RNA, SH RNA, that knocks down 80% of both the mutant and the endogenous wild-type transcripts. It wipes us like clean. And then... Second, it deploys a synonymously recoded wild-type CDNA. This replacement gene makes perfect KCN-Q1 or HURG proteins,"
+    },
+    {
+      "id": "turn-117",
+      "speaker": "Host A",
+      "startTime": 4279.66,
+      "endTime": 4318.4,
+      "text": "but its sequence is slightly altered so the SHRNA can't destroy it. It's immune. It restores pure, wild-type, homotetramers in a completely mutation agnostic way. One drug treats every single missense mutation. And it actually works. The preclinical proof is staggering. In 2024, Baines and Colleagues published the first in vivo proof in the European Heart Journal, a single intra-aortic injection into transgenic LQT1 rabbits, completely normalize their clinical QTC and their cellular action potential, both at rest and under severe adrenaline stress. That sounds like a cure. What is a catch?"
+    },
+    {
+      "id": "turn-118",
+      "speaker": "Host B",
+      "startTime": 4318.4,
+      "endTime": 4356.68,
+      "text": "Why isn't this in humans tomorrow? For massive translational hurdles. The most terrifying is the patchy transimural transduction dispersion paradox. That is a mouthful. What does it actually mean? In liver gene therapy, if you cure 30% of the cells, the patient is cured. The liver shares the load. The heart doesn't work like that. Imagine we inject a heart and we get mosaic 50% transduction. We have a patch of cured cells with a healthy, short, 300 millisecond action potential sitting directly next to a patch of untreated mutant cells stuck at 500 milliseconds. Oh no. You've created an electrical voltage gradient right in the middle of the heart"
+    },
+    {
+      "id": "turn-119",
+      "speaker": "Host A",
+      "startTime": 4356.68,
+      "endTime": 4394.52,
+      "text": "wall. Exactly. That spatial dispersion of repolarization is the exact substrate that causes re-entrant ventricular fibrillation. By partially curing the heart, you might inadvertently make it exponentially more likely to fibrillate and die. Safe translation requires engineering viral capsids like myo-AAV that guarantee 70 to 80% spatially uniform transduction across the entire 300 gram human heart. That is a razor thin tightrope. What are the other hurdles? The stoichiometric tightrope. If you knock down too much without replacing enough, you worsen long QT."
+    },
+    {
+      "id": "turn-120",
+      "speaker": "Host B",
+      "startTime": 4394.52,
+      "endTime": 4429.56,
+      "text": "If you replace too much, you cause iatrogenic short QT syndrome. Third, systemic AAV9 toxicity. High doses cause liver damage and thrombotic microangiopathy, and you can only give the virus once due to neutralizing antibodies. And finally, the 6.0 kilobase limit. The SCN 5A gene for LQT3 is massive, over 6,000 base pairs. It physically overflows the 4.7 KBAAV9 cargo space. You can't use sub-reap for LQ-T3. Instead, the future for LQ-T3 relies on a legal-specific anti-sense oligonucleotides"
+    },
+    {
+      "id": "turn-121",
+      "speaker": "Host A",
+      "startTime": 4429.56,
+      "endTime": 4464.36,
+      "text": "to silence just the mutant copy or transient lipid nanoparticles delivering adenine-based editors to physically erase the mutation directly in the chromosome, letter by letter without double-strand breaks. Erasing mutation letter by letter. It's science fiction becoming reality. Incredible. So before we wrap up, I want to actively summarize two massive clinical myths we've demolished today based on this source data. Myth number one, a single normal resting 12-lead ECG rules out congenital long QT syndrome. Demolished, 25 to 35 percent of confirmed carriers have a"
+    },
+    {
+      "id": "turn-122",
+      "speaker": "Host B",
+      "startTime": 4464.36,
+      "endTime": 4503.83,
+      "text": "normal resting QTC. They are concealed, hiding behind Repolarization Reserve or bad automated machine algorithms, a single swim, a postpartum startle, or a dose of azithromycin can kill them. You must use Viscan's standing test, exercise recovery, or cascade genetic testing if there is family suspicion. If number two, all beta blockers provide equal protection, so metoprolol is just as good as natalol. Completely demolished by decades of registry data. Natalol and propranolol are vastly superior due to dual beta 1 and beta 2 blockade preventing hypokalemia, off-target sodium channel inhibition, and 24-hour pharmacokinetics."
+    },
+    {
+      "id": "turn-123",
+      "speaker": "Host A",
+      "startTime": 4503.83,
+      "endTime": 4543.01,
+      "text": "Matoprolol allows breakthrough cardiac arrests. Not all is the standard. So, looking ahead to the next decade, what is the single most decisive experiment that needs to happen next? Two experiments. First, the translational safety experiment. We need whole-heart optical mapping of uniform versus mosaic, AAV subrep transduction in adult transgenic rabbits or pigs. We have to find the exact minimum spatial uniformity threshold that guarantees rescue without causing that fatal patchy re-entrant pro-arithmia. And the structural experiment. We need a sub-2.8 angstrom cryo-EM structure of a class 2 mutant"
+    },
+    {
+      "id": "turn-124",
+      "speaker": "Host B",
+      "startTime": 4543.01,
+      "endTime": 4582.84,
+      "text": "Herc channel actively bound to LeMector. If we can pinpoint exactly where that chaperone binds on the outside of the protein away from the deadly TIR-652 drug cavity, medicinal chemists can design the ultimate safe oral cure for 84% of LQT2 patients. We've journeyed from a 14-year-old swimmer collapsing in a cold pool down to the exact 2.57 Angstrom electrostatic clutch, holding a single protein together and back out to the frontiers of viral gene editing. The scale of the biology is humbling. It is. I want to leave you, the listener, with a final, provocative thought."
+    },
+    {
+      "id": "turn-125",
+      "speaker": "Host A",
+      "startTime": 4582.84,
+      "endTime": 4620.28,
+      "text": "Think about your day tomorrow. You might jump into a cold shower. You might get startled by a car horn. You will certainly fall asleep. Your ability to do those massive macroscopic human things, your very existence, hangs entirely on the precise three angstrom geometry of a few atoms in your chest. that must flawlessly beat after beat, remember exactly how and when to reset. And as we've learned today, when the heart forgets, the consequences are profound. But our tools to remind it are becoming more precise every single day."
+    },
+    {
+      "id": "turn-126",
+      "speaker": "Host B",
+      "startTime": 4620.28,
+      "endTime": 4623.88,
+      "text": "Thank you for taking this incredibly deep dive with us. We'll see you next time."
+    }
+  ]
+}
