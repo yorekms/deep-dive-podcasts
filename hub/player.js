@@ -805,23 +805,25 @@
           if (!audioEl) return;
           try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
           var resumeAt = audioEl.currentTime || 0;
-          if ((audioEl.readyState < 2 || audioEl.error) && audioEl.src) {
-            var onReady = function () {
-              audioEl.removeEventListener('loadedmetadata', onReady);
-              audioEl.removeEventListener('canplay', onReady);
-              if (resumeAt > 3 && (!audioEl.duration || resumeAt < audioEl.duration - 10)) {
-                try { audioEl.currentTime = resumeAt; } catch (e) {}
-              }
-              audioEl.play().catch(function () {});
-            };
-            audioEl.addEventListener('loadedmetadata', onReady);
-            audioEl.addEventListener('canplay', onReady);
-            try { audioEl.load(); } catch (e) {}
-            return;
-          }
+          // CRITICAL iOS WebKit Rule: call audioEl.play() SYNCHRONOUSLY inside the MediaSession 'play' callback
+          // to preserve the AirPods / Lock-Screen remote-command activation token; only reload if play() fails with an error.
           var p = audioEl.play();
           if (p && p.catch) {
             p.catch(function () {
+              if ((audioEl.error || audioEl.readyState === 0) && audioEl.src) {
+                var onReady = function () {
+                  audioEl.removeEventListener('loadedmetadata', onReady);
+                  audioEl.removeEventListener('canplay', onReady);
+                  if (resumeAt > 3 && (!audioEl.duration || resumeAt < audioEl.duration - 10)) {
+                    try { audioEl.currentTime = resumeAt; } catch (e) {}
+                  }
+                  audioEl.play().catch(function () {});
+                };
+                audioEl.addEventListener('loadedmetadata', onReady);
+                audioEl.addEventListener('canplay', onReady);
+                try { audioEl.load(); } catch (e) {}
+                return;
+              }
               setTimeout(function () { if (audioEl && audioEl.paused) audioEl.play().catch(function () {}); }, 450);
             });
           }
