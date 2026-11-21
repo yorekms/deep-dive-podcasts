@@ -787,6 +787,11 @@
     }
 
     function setupMediaSession(title) {
+      try {
+        if (navigator.audioSession && navigator.audioSession.type !== 'playback') {
+          navigator.audioSession.type = 'playback';
+        }
+      } catch (e) {}
       if (!('mediaSession' in navigator) || !window.MediaMetadata) return;
       try {
         var coverUrl = cfg.cover || 'https://yorekms.github.io/deep-dive-podcasts/covers/cover-master.png';
@@ -796,7 +801,31 @@
           album: 'Deep Dive Podcast Network',
           artwork: [{ src: coverUrl, sizes: '512x512', type: 'image/png' }]
         });
-        navigator.mediaSession.setActionHandler('play', function () { if (audioEl) audioEl.play(); });
+        navigator.mediaSession.setActionHandler('play', function () {
+          if (!audioEl) return;
+          try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+          var resumeAt = audioEl.currentTime || 0;
+          if ((audioEl.readyState < 2 || audioEl.error) && audioEl.src) {
+            var onReady = function () {
+              audioEl.removeEventListener('loadedmetadata', onReady);
+              audioEl.removeEventListener('canplay', onReady);
+              if (resumeAt > 3 && (!audioEl.duration || resumeAt < audioEl.duration - 10)) {
+                try { audioEl.currentTime = resumeAt; } catch (e) {}
+              }
+              audioEl.play().catch(function () {});
+            };
+            audioEl.addEventListener('loadedmetadata', onReady);
+            audioEl.addEventListener('canplay', onReady);
+            try { audioEl.load(); } catch (e) {}
+            return;
+          }
+          var p = audioEl.play();
+          if (p && p.catch) {
+            p.catch(function () {
+              setTimeout(function () { if (audioEl && audioEl.paused) audioEl.play().catch(function () {}); }, 450);
+            });
+          }
+        });
         navigator.mediaSession.setActionHandler('pause', function () { if (audioEl) audioEl.pause(); });
         navigator.mediaSession.setActionHandler('seekbackward', function () { if (audioEl) { audioEl.currentTime = Math.max(0, audioEl.currentTime - 15); updateTimeUI(); syncMediaPositionState(); } });
         navigator.mediaSession.setActionHandler('seekforward', function () { if (audioEl && isFinite(audioEl.duration)) { audioEl.currentTime = Math.min(audioEl.duration, audioEl.currentTime + 30); updateTimeUI(); syncMediaPositionState(); } });
@@ -1975,6 +2004,16 @@
         '" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:10.8px;font-weight:800;color:#090E1A;background:' + A +
         ';border:1px solid ' + A + ';cursor:pointer;font-family:inherit;white-space:nowrap;">\ud83d\udce1 Podcast App RSS</button>';
       html += '</div></div>';
+      if (HUB === 'forensic-medicine') {
+        html += '<div id="crp-ordinary-tuesday-spotlight" style="width:100%;max-width:1510px;margin:0 auto 14px auto;padding:12px 16px;background:linear-gradient(135deg,rgba(127,29,29,0.55),rgba(15,23,42,0.92));border:1px solid rgba(248,113,113,0.55);border-left:4px solid #EF4444;border-radius:14px;box-shadow:0 10px 26px rgba(0,0,0,0.38);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;box-sizing:border-box;font-family:' + FONT + ';text-align:left;">' +
+          '<div style="min-width:220px;flex:1;">' +
+            '<div style="font-size:10px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#FCA5A5;margin-bottom:2px;">&#128293; Featured Companion Magazine &amp; Survival Book</div>' +
+            '<div style="font-size:15px;font-weight:800;color:#FFFFFF;line-height:1.25;">How Not to Die on an Ordinary Tuesday</div>' +
+            '<div style="font-size:12px;color:#E2E8F0;margin-top:2px;line-height:1.4;">111+ darkly funny, dead-serious 5-minute stories built from peer-reviewed autopsies &amp; ER case reports — with Toe-Tag Verdicts, First-60-Seconds cards &amp; primary DOIs.</div>' +
+          '</div>' +
+          '<a href="https://yorekms.github.io/ordinary-tuesday/" target="_blank" rel="noopener" class="crp-hub-pill" data-nav-target="https://yorekms.github.io/ordinary-tuesday/" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:10px;font-size:12.5px;font-weight:800;text-decoration:none;white-space:nowrap;color:#FFFFFF;background:#DC2626;border:1px solid #F87171;box-shadow:0 6px 16px rgba(220,38,38,0.35);">Open Magazine Reader &#8599;</a>' +
+        '</div>';
+      }
       return html;
     }
 
