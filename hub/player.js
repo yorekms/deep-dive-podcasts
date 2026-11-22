@@ -2013,7 +2013,7 @@
             '<div style="font-size:15px;font-weight:800;color:#FFFFFF;line-height:1.25;">How Not to Die on an Ordinary Tuesday</div>' +
             '<div style="font-size:12px;color:#E2E8F0;margin-top:2px;line-height:1.4;">111+ darkly funny, dead-serious 5-minute stories built from peer-reviewed autopsies &amp; ER case reports — with Toe-Tag Verdicts, First-60-Seconds cards &amp; primary DOIs.</div>' +
           '</div>' +
-          '<a href="https://yorekms.github.io/ordinary-tuesday/" target="_blank" rel="noopener" class="crp-hub-pill" data-nav-target="https://yorekms.github.io/ordinary-tuesday/" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:10px;font-size:12.5px;font-weight:800;text-decoration:none;white-space:nowrap;color:#FFFFFF;background:#DC2626;border:1px solid #F87171;box-shadow:0 6px 16px rgba(220,38,38,0.35);">Open Magazine Reader &#8599;</a>' +
+          '<a href="https://yorekms.github.io/my-ordinary-tuesday/" target="_blank" rel="noopener" class="crp-hub-pill" data-nav-target="https://yorekms.github.io/my-ordinary-tuesday/" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:10px;font-size:12.5px;font-weight:800;text-decoration:none;white-space:nowrap;color:#FFFFFF;background:#DC2626;border:1px solid #F87171;box-shadow:0 6px 16px rgba(220,38,38,0.35);">Open Magazine Reader &#8599;</a>' +
         '</div>';
       }
       return html;
