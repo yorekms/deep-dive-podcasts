@@ -241,9 +241,9 @@
       badge: '44 Contrasts • 15 GEO Accessions',
       accent: '#34D399',
       title: 'Seizure Transcriptomics Workbench',
-      domainPrefix: '', domainRest: 'yorek-cancer-ai-primer • #workbench',
-      url: 'https://yorek-cancer-ai-primer.tasty-siren-3221.chatgpt.site/research-software/',
-      desc: 'Cross-species human, mouse & rat seizure meta-regression (R edgeR/limma, MATLAB & Python Bayesian forecasts across 311 Rab7/endolysosomal & channel genes, tested on 16 human donors).'
+      domainPrefix: '', domainRest: 'yorekms.github.io/seizure-transcriptomics-workbench',
+      url: 'https://yorekms.github.io/seizure-transcriptomics-workbench/',
+      desc: 'Cross-species human, mouse & rat seizure meta-regression paper portal (Figures 1–5, searchable CSV tables, R edgeR/limma, MATLAB & Python Bayesian forecasts across 311 Rab7/endolysosomal & channel genes, validated on 16 human donors).'
     },
     {
       badge: 'Interactive Learning Suite',
@@ -555,6 +555,9 @@
                 '</a>' +
                 '<a href="' + esc(CONFIG.githubUrl) + '" target="_blank" rel="noopener" class="my-action-btn" style="background:rgba(30,41,59,0.92);border:1px solid rgba(148,163,184,0.5);color:#F8FAFC;">' +
                   '&#128187; GitHub @yorekms &#8599;' +
+                '</a>' +
+                '<a href="https://yorekms.github.io/condensate-pharmacology/" target="_blank" rel="noopener" class="my-action-btn" style="background:rgba(136,19,55,0.45);border:1px solid rgba(251,113,133,0.65);color:#FFE4E6;">' +
+                  '&#129514; Preprints Hub (Papers #1&ndash;#2) &#8599;' +
                 '</a>' +
                 '<a href="' + esc(CONFIG.stravaUrl) + '" target="_blank" rel="noopener" id="my-strava-hero-btn" class="my-action-btn" style="background:linear-gradient(135deg, rgba(252,76,2,0.92) 0%, rgba(234,88,12,0.92) 100%);border:1px solid #FDBA74;color:#FFFFFF;box-shadow:0 0 18px rgba(252,76,2,0.32);">' +
                   '&#127939;&#8205;&#9794;&#65039; Strava &bull; YOREK &#8599;' +

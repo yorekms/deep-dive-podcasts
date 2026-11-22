@@ -315,6 +315,9 @@
  '<a href="' + resolveZipHref('suite_seizure_manuscript') + '" target="_blank" rel="noopener" download="' + PHYS_ARCHIVE_FILENAMES['suite_seizure_manuscript'] + '" data-no-player="true" class="phys-btn-dl">' +
  '&#11015; Seizure Manuscript Source (887 KB)' +
  '</a>' +
+ '<a href="https://yorekms.github.io/seizure-transcriptomics-workbench/" target="_blank" rel="noopener" class="phys-btn-dl" style="border-color:#10B981;color:#A7F3D0;background:rgba(6,78,59,0.48);">' +
+ '&#128196; Seizure Bioinformatics Paper Portal &#8599;' +
+ '</a>' +
  '</div>' +
  '</div>';
  
