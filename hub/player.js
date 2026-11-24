@@ -1,5 +1,5 @@
 /*!
- * Deep Dive Podcast Network - shared Carrd hub player (v1.9.3).
+ * Deep Dive Podcast Network - shared Carrd hub player (v2.2.0).
  * Hosted on GitHub Pages: https://yorekms.github.io/deep-dive-podcasts/hub/player.js
  *
  * Each Carrd site only needs a tiny embed:
@@ -15,9 +15,9 @@
   if (window.__crpHubLoaded) return;
   window.__crpHubLoaded = true;
 
-  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-cnt{font-size:9.5px;font-weight:900;color:#6EE7B7;background:rgba(16,185,129,0.20);border:1px solid rgba(52,211,153,0.52);padding:1px 6px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer;transition:all 0.15s ease} .crp-ep-cnt:hover{background:#10B981;color:#052E16;border-color:#34D399} .crp-paired-debate-card{border-left:3px solid #C084FC !important;background:linear-gradient(135deg,rgba(46,16,101,0.34),rgba(15,23,42,0.88)) !important} .crp-paired-line{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:10.7px;font-weight:800;color:#D8B4FE;line-height:1.32;margin-top:1px} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} }";
-  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:700px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-plus-play-chip\" type=\"button\" title=\"Add +1 listen count for this episode\" style=\"display:none;background:rgba(15,23,42,0.92);border:1px solid rgba(52,211,153,0.52);color:#6EE7B7;border-radius:999px;padding:1px 6px;font-size:10px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums;\">+1&times;</button><button id=\"crp-sources-chip\" type=\"button\" title=\"View clickable primary journal citations, PubMed/PMC full text &amp; interactive 3D RCSB PDB structures\" style=\"display:none;\">&#128218; Sources &amp; PDB</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Sources &amp; PDB, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;flex-wrap:wrap;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"sources\">&#128218; Sources &amp; PDB</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"estudia\">&#127891; Estudia! Q&amp;A</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-estudia-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/estudia/\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open full 3D Flashcards, Quiz, Write &amp; Match deck in Estudia! Study Studio\" style=\"font-size:10.5px;font-weight:800;color:#FDE68A;text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid rgba(251,191,36,0.55);background:rgba(120,53,15,0.42);\">&#127891; Estudia! &#8599;</a><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open standalone Pocket App with offline downloads &amp; transcripts (iPhone &amp; Android)\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">&#128241; Pocket App</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, primary literature, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" playsinline webkit-playsinline=\"true\" preload=\"auto\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-prev-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Previous episode in list (Shift+P)\" style=\"padding:5px 7px;\">&#9198;</button><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-next-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Next episode in list (Shift+N)\" style=\"padding:5px 7px;\">&#9197;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div>";
-  var PLAYER_VERSION = "1.9.3";
+  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-cnt{font-size:9.5px;font-weight:900;color:#6EE7B7;background:rgba(16,185,129,0.20);border:1px solid rgba(52,211,153,0.52);padding:1px 6px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer;transition:all 0.15s ease} .crp-ep-cnt:hover{background:#10B981;color:#052E16;border-color:#34D399} .crp-paired-debate-card{border-left:3px solid #C084FC !important;background:linear-gradient(135deg,rgba(46,16,101,0.34),rgba(15,23,42,0.88)) !important} .crp-paired-line{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:10.7px;font-weight:800;color:#D8B4FE;line-height:1.32;margin-top:1px} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} } .crp-stance-badge{display:inline-flex;align-items:center;gap:4px;font-size:9.6px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;letter-spacing:0.01em} .crp-theory-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;padding-left:27px;margin-top:4px;box-sizing:border-box} .crp-theory-meta{display:inline-flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:10.3px;color:#94A3B8;font-weight:600} .crp-theory-open-btn{appearance:none;border:1px solid {A}77;background:rgba(14,116,144,0.22);color:#BAE6FD;font-size:10.3px;font-weight:800;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-theory-open-btn:hover{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} .crp-atlas-only .crp-ep-ico{background:rgba(56,189,248,0.14);border-color:rgba(56,189,248,0.45);color:#7DD3FC;font-size:10.5px} .crp-stance-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:10.4px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit;transition:all 0.15s ease} .crp-stance-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.94)} .crp-stance-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} #crp-theory-modal{display:none;position:fixed;inset:0;background:rgba(3,7,18,0.86);backdrop-filter:blur(10px);z-index:1000002;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left} #crp-theory-modal-box{width:100%;max-width:920px;max-height:90vh;overflow-y:auto;background:#080F1E;border:1px solid {A}77;border-radius:20px;padding:22px 24px;box-shadow:0 28px 80px rgba(0,0,0,0.92),0 0 42px {A}26;color:#F8FAFC;box-sizing:border-box} .crp-tm-sec-title{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin:14px 0 7px 0;display:flex;align-items:center;gap:6px} .crp-tm-box{padding:11px 14px;border-radius:12px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.10);font-size:12.6px;line-height:1.54;color:#E2E8F0} .crp-tm-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:10px} .crp-tm-timeline{position:relative;padding-left:18px;border-left:2px solid rgba(56,189,248,0.35);margin:6px 0 2px 6px} .crp-tm-tl-item{position:relative;margin-bottom:9px;font-size:12.2px;line-height:1.45;color:#CBD5E1} .crp-tm-tl-item:last-child{margin-bottom:0} .crp-tm-tl-dot{position:absolute;left:-24px;top:4px;width:10px;height:10px;border-radius:50%;background:#38BDF8;border:2px solid #080F1E;box-shadow:0 0 8px rgba(56,189,248,0.65)} .crp-tm-tl-yr{font-weight:800;color:#7DD3FC;margin-right:6px;font-variant-numeric:tabular-nums} .crp-rival-pill{appearance:none;border:1px solid rgba(245,158,11,0.45);background:rgba(120,53,15,0.34);color:#FDE68A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-rival-pill:hover{background:#F59E0B;color:#090E1A;border-color:#FBBF24} .crp-paper-card{padding:10px 12px;border-radius:11px;background:rgba(15,23,42,0.88);border:1px solid rgba(255,255,255,0.10);margin-bottom:7px;transition:border-color 0.15s ease} .crp-paper-card.role-supporting{border-left:3px solid #10B981} .crp-paper-card.role-refuting{border-left:3px solid #FB7185} .crp-paper-card.role-foundational{border-left:3px solid #38BDF8} .crp-role-chip{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em} .crp-role-chip.supporting{color:#6EE7B7;background:rgba(16,185,129,0.18);border:1px solid rgba(52,211,153,0.48)} .crp-role-chip.refuting{color:#FDA4AF;background:rgba(244,63,94,0.18);border:1px solid rgba(251,113,133,0.48)} .crp-role-chip.foundational{color:#BAE6FD;background:rgba(56,189,248,0.18);border:1px solid rgba(56,189,248,0.48)} #crp-diag-panel{display:none;width:100%;margin:0 auto 14px auto;padding:14px 16px;background:linear-gradient(145deg,rgba(14,116,144,0.22),rgba(9,14,26,0.94));border:1px solid rgba(56,189,248,0.52);border-radius:14px;box-sizing:border-box;text-align:left} .crp-diag-sample{appearance:none;border:1px solid rgba(56,189,248,0.38);background:rgba(15,23,42,0.85);color:#BAE6FD;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-diag-sample:hover{background:#38BDF8;color:#090E1A;border-color:#38BDF8} .crp-diag-res-card{padding:11px 13px;border-radius:12px;background:rgba(15,23,42,0.92);border:1px solid rgba(255,255,255,0.12);margin-top:8px} .crp-stealth-pill{display:inline-block;font-size:10px;font-weight:700;color:#CBD5E1;background:rgba(30,41,59,0.9);border:1px solid rgba(148,163,184,0.32);padding:2px 7px;border-radius:999px}";
+  var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:700px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-plus-play-chip\" type=\"button\" title=\"Add +1 listen count for this episode\" style=\"display:none;background:rgba(15,23,42,0.92);border:1px solid rgba(52,211,153,0.52);color:#6EE7B7;border-radius:999px;padding:1px 6px;font-size:10px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums;\">+1&times;</button><button id=\"crp-sources-chip\" type=\"button\" title=\"View clickable primary journal citations, PubMed/PMC full text &amp; interactive 3D RCSB PDB structures\" style=\"display:none;\">&#128218; Sources &amp; PDB</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Sources &amp; PDB, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;flex-wrap:wrap;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"sources\">&#128218; Sources &amp; PDB</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"estudia\">&#127891; Estudia! Q&amp;A</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-estudia-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/estudia/\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open full 3D Flashcards, Quiz, Write &amp; Match deck in Estudia! Study Studio\" style=\"font-size:10.5px;font-weight:800;color:#FDE68A;text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid rgba(251,191,36,0.55);background:rgba(120,53,15,0.42);\">&#127891; Estudia! &#8599;</a><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open standalone Pocket App with offline downloads &amp; transcripts (iPhone &amp; Android)\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">&#128241; Pocket App</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, primary literature, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" playsinline webkit-playsinline=\"true\" preload=\"auto\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-prev-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Previous episode in list (Shift+P)\" style=\"padding:5px 7px;\">&#9198;</button><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-next-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Next episode in list (Shift+N)\" style=\"padding:5px 7px;\">&#9197;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div><div id=\"crp-theory-modal\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Scientific Theory Evidence Dossier\"><div id=\"crp-theory-modal-box\"></div></div>";
+  var PLAYER_VERSION = "2.2.0";
 
   var pendingSyncToken = '';
   try {
@@ -107,6 +107,334 @@
   function boot(cfg, net) {
     var A = cfg.accent || '#34D399';
     var masterTotal = net.master_total || '';
+
+    // ---------- Scientific Theories Atlas v2.0.0 Helpers ----------
+    var IS_THEORY_ATLAS = (cfg.atlas_mode === 'scientific-theories' || HUB === 'scientific-theories');
+    var STANCE_META = {
+      'foundational-consensus': {
+        label: 'Foundational Consensus',
+        short: 'Consensus',
+        color: '#10B981',
+        bg: 'rgba(16,185,129,0.16)',
+        border: 'rgba(52,211,153,0.52)',
+        def: 'Deeply corroborated across independent methods and scales; forms structural bedrock of its discipline.'
+      },
+      'dominant-refined': {
+        label: 'Dominant \u00b7 Actively Refined',
+        short: 'Dominant',
+        color: '#38BDF8',
+        bg: 'rgba(56,189,248,0.15)',
+        border: 'rgba(56,189,248,0.50)',
+        def: 'Leading explanatory framework with strong empirical support, actively narrowed or integrated with newer mechanisms.'
+      },
+      'contested-competing': {
+        label: 'Contested \u00b7 Competing Paradigms',
+        short: 'Contested',
+        color: '#F59E0B',
+        bg: 'rgba(245,158,11,0.16)',
+        border: 'rgba(251,191,36,0.52)',
+        def: 'Two or more well-specified rival theories generate conflicting predictions and are locked in active adversarial testing.'
+      },
+      'emerging-frontier': {
+        label: 'Emerging \u00b7 Under-Tested',
+        short: 'Emerging',
+        color: '#A78BFA',
+        bg: 'rgba(167,139,250,0.16)',
+        border: 'rgba(196,181,253,0.52)',
+        def: 'Coherent theoretical framework with intriguing initial results, awaiting decisive falsification or large-scale replication.'
+      },
+      'challenged-revision': {
+        label: 'Challenged \u00b7 Under Revision',
+        short: 'Challenged',
+        color: '#FB7185',
+        bg: 'rgba(251,113,133,0.16)',
+        border: 'rgba(253,164,175,0.52)',
+        def: 'Formerly influential or widely taught hypothesis facing major empirical anomalies, failed replications, or strong counter-evidence.'
+      },
+      'superseded-anchor': {
+        label: 'Superseded \u00b7 Historical Anchor',
+        short: 'Superseded',
+        color: '#94A3B8',
+        bg: 'rgba(148,163,184,0.16)',
+        border: 'rgba(148,163,184,0.45)',
+        def: 'Falsified or subsumed by a superior theory, retained because modern papers still inadvertently echo its assumptions.'
+      }
+    };
+    var STANCE_ORDER = [
+      'foundational-consensus',
+      'dominant-refined',
+      'contested-competing',
+      'emerging-frontier',
+      'challenged-revision',
+      'superseded-anchor'
+    ];
+    function getStanceInfo(key) {
+      return STANCE_META[key] || STANCE_META['contested-competing'];
+    }
+    function stanceBadgeHTML(key, useLong) {
+      var st = getStanceInfo(key);
+      return '<span class="crp-stance-badge" style="color:' + st.color + ';background:' + st.bg + ';border:1px solid ' + st.border + ';" title="' + esc(st.def) + '">' +
+        '<span style="width:6px;height:6px;border-radius:50%;background:' + st.color + ';display:inline-block;"></span>' +
+        esc(useLong ? st.label : st.short) + '</span>';
+    }
+    function theoryByIdOrSlug(idOrSlug) {
+      if (!idOrSlug) return null;
+      if (epMetaById[idOrSlug]) return epMetaById[idOrSlug];
+      var want = String(idOrSlug).toLowerCase();
+      for (var k in epMetaById) {
+        if (!Object.prototype.hasOwnProperty.call(epMetaById, k)) continue;
+        var wrap = epMetaById[k];
+        var th = wrap && wrap.ep && wrap.ep.theory;
+        if (th && (String(th.slug || '').toLowerCase() === want || String(th.code || '').toLowerCase() === want)) {
+          return wrap;
+        }
+      }
+      return null;
+    }
+    function renderPaperCardHTML(item) {
+      var role = String(item.role || 'foundational').toLowerCase();
+      var roleLbl = role === 'supporting' ? '\u2713 Supporting' : (role === 'refuting' ? '\u2717 Challenging / Refuting' : '\ud83c\udfdb\ufe0f Foundational');
+      var url = item.url || item.doiUrl || '';
+      var pmcUrl = item.pmcUrl || '';
+      var doiUrl = item.doiUrl || '';
+      var oaUrl = item.oaUrl || '';
+      var badgeTxt = sourceBadgeLabel(url, item.kind);
+      return '<div class="crp-paper-card role-' + esc(role) + '">' +
+        '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px;">' +
+          '<div style="font-size:12.4px;font-weight:700;line-height:1.38;flex:1;">' +
+            (url
+              ? '<a href="' + esc(url) + '" target="_blank" rel="noopener" data-no-player="true" style="color:#FFFFFF;text-decoration:none;">' + esc(item.title) + ' <span style="color:' + A + ';">&#8599;</span></a>'
+              : '<span style="color:#FFFFFF;">' + esc(item.title) + '</span>') +
+          '</div>' +
+          '<span class="crp-role-chip ' + esc(role) + '">' + esc(roleLbl) + '</span>' +
+        '</div>' +
+        (item.detail ? '<div style="font-size:11px;color:#94A3B8;margin-bottom:5px;">' + esc(item.detail) + '</div>' : '') +
+        (item.takeaway ? '<div style="font-size:11.8px;color:#E2E8F0;line-height:1.45;margin-bottom:7px;padding:5px 8px;border-radius:7px;background:rgba(2,6,23,0.52);">' + esc(item.takeaway) + '</div>' : '') +
+        '<div style="display:flex;flex-wrap:wrap;gap:5px;">' +
+          (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-cite-pill">' + esc(badgeTxt) + ' &#8599;</a>' : '') +
+          (doiUrl && doiUrl !== url ? '<a href="' + esc(doiUrl) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-cite-pill">DOI &#8599;</a>' : '') +
+          (pmcUrl ? '<a href="' + esc(pmcUrl) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-pmc-pill">Free Full Text (PMC) &#8599;</a>' : '') +
+          (oaUrl && !pmcUrl && oaUrl !== url && oaUrl !== doiUrl ? '<a href="' + esc(oaUrl) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-pmc-pill">Open Access &#8599;</a>' : '') +
+        '</div>' +
+      '</div>';
+    }
+    var theorySearchJumpRef = null;
+    function openTheoryModal(driveId) {
+      var modal = document.getElementById('crp-theory-modal');
+      var box = document.getElementById('crp-theory-modal-box');
+      var wrap = theoryByIdOrSlug(driveId);
+      if (!modal || !box || !wrap || !wrap.ep || !wrap.ep.theory) return;
+      var ep = wrap.ep;
+      var th = ep.theory;
+      var st = getStanceInfo(th.stance);
+      var parts = splitEpLabel(ep.label || th.slug);
+      var srcs = Array.isArray(ep.sources) ? ep.sources : [];
+      var foundP = srcs.filter(function (s) { return (s.role || 'foundational') === 'foundational'; });
+      var suppP = srcs.filter(function (s) { return s.role === 'supporting'; });
+      var refP = srcs.filter(function (s) { return s.role === 'refuting'; });
+      var hasAudio = !!(th.has_audio || (ep.gh && ep.gh.length > 5) || (ep.id && ep.id.indexOf('atlas-') !== 0));
+
+      var h = '';
+      h += '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.10);">';
+      h += '<div style="flex:1;min-width:0;">';
+      h += '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:6px;">' +
+        stanceBadgeHTML(th.stance, true) +
+        '<span style="font-size:10.5px;font-weight:700;color:#94A3B8;background:rgba(30,41,59,0.85);border:1px solid rgba(255,255,255,0.12);padding:2px 8px;border-radius:999px;">' + esc(th.domain_pill || wrap.sec) + '</span>' +
+        (th.subdiscipline ? '<span style="font-size:10.5px;color:#94A3B8;">' + esc(th.subdiscipline) + '</span>' : '') +
+        (th.year_span ? '<span style="font-size:10.5px;font-weight:700;color:#7DD3FC;">\u00b7 ' + esc(th.year_span) + '</span>' : '') +
+      '</div>';
+      h += '<h2 style="margin:0 0 4px 0;font-size:20px;font-weight:900;color:#FFFFFF;line-height:1.25;letter-spacing:-0.01em;">' + esc(th.canonical_title || parts.head) + '</h2>';
+      if (th.canonical_title && parts.head && parts.head.toLowerCase() !== th.canonical_title.toLowerCase()) {
+        h += '<div style="font-size:12.2px;font-weight:700;color:#7DD3FC;margin-bottom:8px;">&#127897;&#65039; Deep Dive Episode: ' + esc(parts.head) + '</div>';
+      } else {
+        h += '<div style="height:4px;"></div>';
+      }
+      h += '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:7px;">';
+      if (hasAudio) {
+        h += '<button type="button" id="crp-tm-play-btn" style="appearance:none;border:none;background:' + A + ';color:#090E1A;font-size:12px;font-weight:900;padding:7px 14px;border-radius:999px;cursor:pointer;font-family:inherit;box-shadow:0 0 16px ' + A + '66;">&#9654; Play Deep Dive Podcast</button>';
+      } else if (th.wave === 1) {
+        h += '<span style="font-size:11px;font-weight:800;color:#FDE68A;background:rgba(120,53,15,0.42);border:1px solid rgba(251,191,36,0.52);padding:5px 11px;border-radius:999px;">&#127897;&#65039; Wave 1 Flagship Deep Dive &middot; Blueprint Ready &middot; Podcast Queued</span>';
+      } else {
+        h += '<span style="font-size:11px;font-weight:700;color:#CBD5E1;background:rgba(30,41,59,0.75);border:1px solid rgba(255,255,255,0.14);padding:5px 11px;border-radius:999px;">&#128214; Atlas Reference Dossier &middot; Planned Podcast Wave ' + esc(th.wave || 2) + '</span>';
+      }
+      h += '<button type="button" id="crp-tm-copy-link" style="appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:6px 11px;border-radius:999px;cursor:pointer;font-family:inherit;">&#128279; Copy Theory Link</button>';
+      h += '</div></div>';
+      h += '<button type="button" id="crp-tm-close" aria-label="Close Theory Dossier" style="background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:10px;padding:4px 11px;font-size:18px;cursor:pointer;flex-shrink:0;">&times;</button>';
+      h += '</div>';
+
+      // 2026 Current Stance & Verdict
+      h += '<div class="crp-tm-sec-title" style="color:' + st.color + ';">&#9878;&#65039; Current Scientific Stance (2026 Verdict)</div>';
+      h += '<div class="crp-tm-box" style="border-left:4px solid ' + st.color + ';background:linear-gradient(135deg,' + st.bg + ',rgba(15,23,42,0.92));">' +
+        '<div style="font-size:11.2px;font-weight:800;color:' + st.color + ';margin-bottom:4px;">' + esc(st.label) + ' \u2014 ' + esc(st.def) + '</div>' +
+        '<div>' + esc(th.verdict_2026 || ep.notes || '') + '</div></div>';
+
+      // Core Claim + Common Paper Blindspot + Falsification
+      h += '<div class="crp-tm-grid2">';
+      h += '<div><div class="crp-tm-sec-title" style="color:#7DD3FC;margin-top:4px;">&#127919; Core Testable Proposition</div>' +
+        '<div class="crp-tm-box">' + esc(th.core_claim || '') + '</div></div>';
+      h += '<div><div class="crp-tm-sec-title" style="color:#FDA4AF;margin-top:4px;">&#9888;&#65039; Common Paper Blindspot (What Researchers Miss)</div>' +
+        '<div class="crp-tm-box" style="border-left:3px solid #FB7185;">' + esc(th.common_paper_blindspot || '') + '</div></div>';
+      h += '</div>';
+
+      if (th.falsification_criteria) {
+        h += '<div class="crp-tm-sec-title" style="color:#5EEAD4;">&#128300; Crucial Falsification Test &amp; Discriminating Experiment</div>';
+        h += '<div class="crp-tm-box" style="border-left:3px solid #2DD4BF;">' + esc(th.falsification_criteria) + '</div>';
+      }
+
+      // Head-to-Head Crucial Experiment Blueprint
+      if (th.head_to_head && th.head_to_head.minimum_decisive_protocol) {
+        var h2 = th.head_to_head;
+        h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:14px 0 7px 0;">' +
+          '<div class="crp-tm-sec-title" style="color:#FDE68A;margin:0;">&#9876;&#65039; Head-to-Head Crucial Experiment Design (Adversarial Adjudication)</div>' +
+          '<button type="button" id="crp-tm-copy-h2h" class="crp-theory-open-btn" style="border-color:rgba(251,191,36,0.55);color:#FDE68A;background:rgba(120,53,15,0.40);">&#128203; Export Head-to-Head Spec (JSON + AI Prompt)</button>' +
+        '</div>';
+        h += '<div class="crp-tm-box" style="border-left:3px solid #F59E0B;">' +
+          '<div class="crp-tm-grid2" style="margin-top:0;margin-bottom:8px;">' +
+            '<div style="padding:8px 10px;border-radius:9px;background:rgba(16,185,129,0.10);border:1px solid rgba(52,211,153,0.35);font-size:11.8px;">' +
+              '<div style="font-size:10px;font-weight:800;color:#6EE7B7;text-transform:uppercase;margin-bottom:3px;">Theory A Predicts (' + esc(h2.theory_a || 'Primary') + ')</div>' +
+              esc(h2.theory_a_prediction || '') +
+            '</div>' +
+            '<div style="padding:8px 10px;border-radius:9px;background:rgba(244,63,94,0.10);border:1px solid rgba(251,113,133,0.35);font-size:11.8px;">' +
+              '<div style="font-size:10px;font-weight:800;color:#FDA4AF;text-transform:uppercase;margin-bottom:3px;">Rival B Predicts (' + esc(h2.rival_b || 'Rival') + ')</div>' +
+              esc(h2.rival_b_prediction || '') +
+            '</div>' +
+          '</div>' +
+          (h2.confounder_trap ? '<div style="font-size:11.8px;color:#FDE68A;margin-bottom:5px;"><strong>&#9888;&#65039; #1 Confounder Trap to Eliminate:</strong> ' + esc(h2.confounder_trap) + '</div>' : '') +
+          '<div style="font-size:11.8px;color:#E2E8F0;"><strong>&#129514; Minimum Decisive Protocol:</strong> ' + esc(h2.minimum_decisive_protocol) + '</div>' +
+        '</div>';
+      }
+
+      // Recognizing This Theory in Disguise (When Papers Don't Name It)
+      if ((Array.isArray(th.stealth_terms) && th.stealth_terms.length) || th.stealth_support || th.stealth_refute) {
+        h += '<div class="crp-tm-sec-title" style="color:#C4B5FD;">&#128269; Recognizing This Theory in Disguise (When Papers Never Name It)</div>';
+        h += '<div class="crp-tm-box" style="border-left:3px solid #A78BFA;">';
+        if (Array.isArray(th.stealth_terms) && th.stealth_terms.length) {
+          h += '<div style="font-size:10.5px;font-weight:800;color:#C4B5FD;margin-bottom:5px;">Stealth Assay, Metric &amp; Jargon Fingerprints in Empirical Papers:</div>' +
+            '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;">' +
+            th.stealth_terms.map(function (stTerm) { return '<span class="crp-stealth-pill">' + esc(stTerm) + '</span>'; }).join('') +
+            '</div>';
+        }
+        if (th.stealth_support) {
+          h += '<div style="font-size:11.8px;color:#A7F3D0;margin-bottom:5px;"><strong>&#10003; If a paper observes this &rarr; implicitly SUPPORTS:</strong> ' + esc(th.stealth_support) + '</div>';
+        }
+        if (th.stealth_refute) {
+          h += '<div style="font-size:11.8px;color:#FECDD3;"><strong>&#10007; If a paper observes this &rarr; implicitly CHALLENGES / REFUTES:</strong> ' + esc(th.stealth_refute) + '</div>';
+        }
+        h += '</div>';
+      }
+
+      // Historical Evolution Timeline
+      if (Array.isArray(th.historical_evolution) && th.historical_evolution.length) {
+        h += '<div class="crp-tm-sec-title" style="color:#38BDF8;">&#128220; Historical Evolution Lineage</div>';
+        h += '<div class="crp-tm-box"><div class="crp-tm-timeline">';
+        th.historical_evolution.forEach(function (ev) {
+          h += '<div class="crp-tm-tl-item"><span class="crp-tm-tl-dot"></span><span class="crp-tm-tl-yr">' + esc(ev.year || '') + '</span>' + esc(ev.milestone || '') + '</div>';
+        });
+        h += '</div></div>';
+      }
+
+      // Rival / Competing Theories
+      if (Array.isArray(th.rivals) && th.rivals.length) {
+        h += '<div class="crp-tm-sec-title" style="color:#FBBF24;">&#9876;&#65039; Competing &amp; Alternative Frameworks (Click to Search Atlas)</div>';
+        h += '<div style="display:flex;flex-wrap:wrap;gap:6px;">';
+        th.rivals.forEach(function (rv) {
+          h += '<button type="button" class="crp-rival-pill" data-rival-q="' + esc(rv) + '">' + esc(rv) + ' &#8594;</button>';
+        });
+        h += '</div>';
+      }
+
+      // Peer-Reviewed Literature Ledger
+      h += '<div class="crp-tm-sec-title" style="color:#FFFFFF;margin-top:16px;">&#128218; Verified Peer-Reviewed Literature Ledger (' + srcs.length + ' Live-Verified Citations)</div>';
+      if (srcs.length) {
+        if (foundP.length) {
+          h += '<div style="font-size:10.5px;font-weight:800;color:#7DD3FC;margin:8px 0 5px 0;">&#127963;&#65039; Foundational &amp; Landmark Formulations (' + foundP.length + ')</div>';
+          foundP.forEach(function (p) { h += renderPaperCardHTML(p); });
+        }
+        if (suppP.length) {
+          h += '<div style="font-size:10.5px;font-weight:800;color:#6EE7B7;margin:10px 0 5px 0;">&#10003; Supporting Empirical Papers (' + suppP.length + ')</div>';
+          suppP.forEach(function (p) { h += renderPaperCardHTML(p); });
+        }
+        if (refP.length) {
+          h += '<div style="font-size:10.5px;font-weight:800;color:#FDA4AF;margin:10px 0 5px 0;">&#10007; Challenging, Refuting &amp; Rival-Paradigm Papers (' + refP.length + ')</div>';
+          refP.forEach(function (p) { h += renderPaperCardHTML(p); });
+        }
+      } else {
+        h += '<div class="crp-tm-box" style="color:#94A3B8;">Primary API-verified supporting and refuting paper ledger is scheduled for Wave ' + esc(th.wave || 2) + ' harvesting (zero unverified DOIs are ever displayed in this Atlas).</div>';
+      }
+
+      box.innerHTML = h;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+
+      var closeModal = function () {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      };
+      var cBtn = document.getElementById('crp-tm-close');
+      if (cBtn) cBtn.addEventListener('click', closeModal);
+      modal.onclick = function (ev) { if (ev.target === modal) closeModal(); };
+      var playB = document.getElementById('crp-tm-play-btn');
+      if (playB) {
+        playB.addEventListener('click', function () {
+          closeModal();
+          playEpisode(ep.id, ep.label, ep.gh || '', wrap.sec || th.domain_pill || '', 0);
+        });
+      }
+      var copyB = document.getElementById('crp-tm-copy-link');
+      if (copyB) {
+        copyB.addEventListener('click', function () {
+          var base = (cfg.url || (location.origin + location.pathname)).replace(/\/+$/, '') + '/';
+          var shareUrl = base + '?theory=' + encodeURIComponent(th.slug || ep.id);
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(shareUrl).catch(function () {});
+          copyB.textContent = '\u2713 Link Copied';
+          setTimeout(function () { copyB.innerHTML = '&#128279; Copy Theory Link'; }, 1800);
+        });
+      }
+      var copyH2h = document.getElementById('crp-tm-copy-h2h');
+      if (copyH2h) {
+        copyH2h.addEventListener('click', function () {
+          var specPayload = {
+            theory_code: th.code,
+            theory_title: parts.head,
+            domain: th.domain_heading || th.domain_pill,
+            current_stance_2026: th.stance_label,
+            verdict_2026: th.verdict_2026,
+            rivals: th.rivals || [],
+            head_to_head_design: th.head_to_head || {},
+            falsification_criteria: th.falsification_criteria || '',
+            common_paper_blindspot: th.common_paper_blindspot || '',
+            stealth_assay_fingerprints: th.stealth_terms || [],
+            verified_literature: srcs.map(function (s) { return { role: s.role, title: s.title, detail: s.detail, url: s.url || s.doiUrl || '' }; })
+          };
+          var txtOut = 'HEAD-TO-HEAD ADVERSARIAL EXPERIMENT DESIGN BRIEF\n' +
+            'Use the verified epistemic specification below to design a pre-registered, adequately powered head-to-head study that decisively adjudicates between Theory A and Rival B while eliminating the confounder trap.\n\n' +
+            JSON.stringify(specPayload, null, 2);
+          if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txtOut).catch(function () {});
+          var orig = copyH2h.innerHTML;
+          copyH2h.textContent = '\u2713 Head-to-Head Spec Copied!';
+          setTimeout(function () { copyH2h.innerHTML = orig; }, 2200);
+          track('theory_export_h2h', { theory_code: th.code || '' });
+        });
+      }
+      box.querySelectorAll('.crp-rival-pill').forEach(function (rb) {
+        rb.addEventListener('click', function () {
+          var rq = rb.getAttribute('data-rival-q') || '';
+          closeModal();
+          if (typeof theorySearchJumpRef === 'function') theorySearchJumpRef(rq);
+        });
+      });
+      track('theory_dossier_open', { theory_code: th.code || '', stance: th.stance || '' });
+    }
+    document.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') {
+        var modal = document.getElementById('crp-theory-modal');
+        if (modal && modal.style.display === 'flex') {
+          modal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      }
+    });
+
     var epMetaById = {};
     var localHubIds = {};
     (cfg.sections || []).forEach(function (s) {
@@ -996,9 +1324,23 @@
         html += '</div>';
       }
 
+      if (meta.theory) {
+        var mth = meta.theory;
+        html += '<div style="margin-bottom:8px;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.88);border:1px solid ' + getStanceInfo(mth.stance).border + ';">' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;margin-bottom:4px;">' +
+            stanceBadgeHTML(mth.stance, true) +
+            '<button type="button" onclick="window.__crpOpenTheoryModal && window.__crpOpenTheoryModal(\'' + esc(driveId) + '\')" class="crp-theory-open-btn">&#128214; Full Theory Dossier &#8599;</button>' +
+          '</div>' +
+          (mth.falsification_criteria ? '<div style="font-size:11px;color:#5EEAD4;line-height:1.4;"><strong>Crucial Test:</strong> ' + esc(mth.falsification_criteria) + '</div>' : '') +
+        '</div>';
+      }
       if (sources.length) {
         html += '<div style="font-size:10px;font-weight:800;color:' + A + ';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">&#128196; Primary Literature &amp; Cited Articles (' + sources.length + ')</div>';
         sources.forEach(function (item) {
+          if (item && typeof item === 'object' && item.role) {
+            html += renderPaperCardHTML(item);
+            return;
+          }
           if (typeof item === 'string') {
             html += '<div class="crp-src-card">' + linkifyScientificText(item) + '</div>';
             return;
@@ -2109,6 +2451,53 @@
     }
 
     function epButtonHTML(ep, secIdx, badgeLabel, secText) {
+      if (ep && ep.theory) {
+        var th = ep.theory;
+        var st = getStanceInfo(th.stance);
+        var partsT = splitEpLabel(ep.label || th.slug);
+        var subT = th.verdict_2026 ? excerptFromNotes(th.verdict_2026, 165) : (partsT.sub || '');
+        var srcsT = Array.isArray(ep.sources) ? ep.sources : [];
+        var suppN = srcsT.filter(function (s) { return s.role === 'supporting'; }).length;
+        var refN = srcsT.filter(function (s) { return s.role === 'refuting'; }).length;
+        var hasAud = !!(th.has_audio || (ep.gh && ep.gh.length > 5) || (ep.id && ep.id.indexOf('atlas-') !== 0));
+        var searchBitsT = [
+          th.code || '', th.domain_pill || '', th.subdiscipline || '', th.stance || '', th.stance_label || '',
+          th.core_claim || '', th.verdict_2026 || '', th.common_paper_blindspot || '', th.falsification_criteria || '',
+          (th.rivals || []).join(' '), (th.keywords || []).join(' ')
+        ];
+        srcsT.forEach(function (s) { if (s && s.title) searchBitsT.push(s.title + ' ' + (s.detail || '')); });
+        var footMeta = [];
+        if (th.year_span) footMeta.push('&#127963;&#65039; ' + esc(th.year_span));
+        if (srcsT.length) {
+          var pSummary = '&#128196; ' + srcsT.length + ' Verified';
+          if (suppN || refN) pSummary += ' (<span style="color:#6EE7B7;">' + suppN + ' Pro</span> &middot; <span style="color:#FDA4AF;">' + refN + ' Con</span>)';
+          footMeta.push(pSummary);
+        } else {
+          footMeta.push('&#128218; Wave ' + esc(th.wave || 2) + ' Planned');
+        }
+        if (hasAud) footMeta.push('<span style="color:#38BDF8;font-weight:800;">&#127911; Podcast Live</span>');
+        else if (th.wave === 1) footMeta.push('<span style="color:#FDE68A;font-weight:800;">&#127897;&#65039; Wave 1 Queued</span>');
+        var cardClsT = 'crp-ep-btn' + (hasAud ? '' : ' crp-atlas-only');
+        return '<a href="https://drive.google.com/uc?export=download&amp;id=' + esc(ep.id) + '"' +
+          (ep.gh ? ' data-gh-url="' + esc(ep.gh) + '"' : '') +
+          ' data-ep-label="' + esc(ep.label) + '" data-sec="' + secIdx + '" data-kind="scientific-theory"' +
+          ' data-stance="' + esc(th.stance) + '" data-wave="' + esc(th.wave || 2) + '"' +
+          (hasAud ? ' data-has-audio="1"' : ' data-atlas-only="1"') +
+          ' data-theory-id="' + esc(ep.id) + '" data-search-extra="' + esc(searchBitsT.join(' ')) + '"' +
+          ' class="' + cardClsT + '" style="border-left:3px solid ' + st.color + ';" role="button">' +
+          '<span class="crp-ep-top">' +
+            '<span class="crp-ep-ico" title="' + (hasAud ? 'Play Podcast' : 'Inspect Theory Dossier') + '">' + (hasAud ? '&#9654;' : '&#9878;') + '</span>' +
+            '<span class="crp-ep-lbl">' + esc(th.canonical_title || partsT.head) + '</span>' +
+            stanceBadgeHTML(th.stance, false) +
+            (hasAud ? '<span class="crp-ep-cnt" style="display:none;"></span><span class="crp-ep-chk" role="checkbox" aria-checked="false" title="Mark as Listened">&#10003;</span>' : '') +
+          '</span>' +
+          (subT ? '<span class="crp-ep-sub">' + esc(subT) + '</span>' : '') +
+          '<span class="crp-theory-foot">' +
+            '<span class="crp-theory-meta">' + footMeta.join(' &middot; ') + '</span>' +
+            '<button type="button" class="crp-theory-open-btn" data-open-theory="' + esc(ep.id) + '">&#128214; Dossier &amp; Papers</button>' +
+          '</span>' +
+          '</a>';
+      }
       var kt = epKindAndTag(ep, secText);
       var ln = kt.lenses || { sog: false, oa: false, oag: false, enh: false, vice: false };
       var tagTxt = badgeLabel ? (badgeLabel + (kt.tag ? ' \u00b7 ' + kt.tag : '')) : kt.tag;
@@ -2180,8 +2569,59 @@
       html += '<button type="button" id="crp-done-filter-pill" class="crp-done-pill" title="Click to toggle hiding episodes you have already listened to">&#10003; 0 / ' + total + ' Listened</button>';
       html += '<a href="' + TOPICS_URL + '?hub=' + encodeURIComponent(HUB) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-sec-pill" style="text-decoration:none;border-color:rgba(244,114,182,0.55);color:#F9A8D4;font-weight:800;" title="Browse the Cross-Network Master Topic, Drug, 1-\u00c5ngstr\u00f6m PDB &amp; One-Medicine Index">&#128450;&#65039; Topic &amp; Drug Index</a>';
       html += '<a href="' + STUDIO_BASE + '/?view=listen&amp;hub=' + encodeURIComponent(HUB) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-sec-pill" style="text-decoration:none;border-color:' + A + '88;color:' + A + ';font-weight:800;" title="Open standalone iPhone &amp; Android Pocket App (offline downloads, lock-screen playback &amp; full transcripts)">&#128241; Get Pocket App</a>';
-      html += '</div><div style="position:relative;flex:1;min-width:190px;max-width:280px;"><input id="crp-ep-search" type="search" placeholder="Search ' + total +
-        ' episodes..." aria-label="Search episodes" style="width:100%;padding:5px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.18);background:rgba(15,23,42,0.92);color:#F8FAFC;font-size:12px;outline:none;box-sizing:border-box;font-family:inherit;" /></div>';
+      html += '</div><div style="position:relative;flex:1;min-width:190px;max-width:280px;"><input id="crp-ep-search" type="search" placeholder="Search ' + total + (IS_THEORY_ATLAS ? ' theories, assays, papers...' : ' episodes...') + '" aria-label="Search episodes" style="width:100%;padding:5px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.18);background:rgba(15,23,42,0.92);color:#F8FAFC;font-size:12px;outline:none;box-sizing:border-box;font-family:inherit;" /></div>';
+      if (IS_THEORY_ATLAS) {
+        var stCounts = {};
+        var w1Count = 0;
+        var audCount = 0;
+        secs.forEach(function (s) {
+          (s.episodes || []).forEach(function (ep) {
+            if (ep && ep.theory) {
+              stCounts[ep.theory.stance] = (stCounts[ep.theory.stance] || 0) + 1;
+              if (ep.theory.wave === 1) w1Count++;
+              if (ep.theory.has_audio || (ep.gh && ep.gh.length > 5)) audCount++;
+            }
+          });
+        });
+        html += '<div class="crp-fmt-bar"><span style="font-size:9.8px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;">Epistemic Stance Filter:</span>';
+        html += '<button type="button" class="crp-stance-pill active" data-stance-filter="all">All Theories (' + total + ')</button>';
+        if (audCount > 0) {
+          html += '<button type="button" class="crp-stance-pill" data-stance-filter="audio-live"><span class="crp-fmt-dot" style="background:#38BDF8;"></span>&#127911; Podcast Live (' + audCount + ')</button>';
+        }
+        if (w1Count > 0) {
+          html += '<button type="button" class="crp-stance-pill" data-stance-filter="wave1"><span class="crp-fmt-dot" style="background:#FDE68A;"></span>&#127897;&#65039; Wave 1 Flagships (' + w1Count + ')</button>';
+        }
+        STANCE_ORDER.forEach(function (sk) {
+          var sm = getStanceInfo(sk);
+          var c = stCounts[sk] || 0;
+          if (c > 0) {
+            html += '<button type="button" class="crp-stance-pill" data-stance-filter="' + sk + '" title="' + esc(sm.def) + '"><span class="crp-fmt-dot" style="background:' + sm.color + ';"></span>' + esc(sm.short) + ' (' + c + ')</button>';
+          }
+        });
+        html += '<button type="button" id="crp-diag-toggle-btn" class="crp-stance-pill" style="margin-left:auto;border-color:#38BDF8;color:#BAE6FD;background:rgba(14,116,144,0.32);font-weight:800;" title="Paste any paper abstract or lab finding to uncover which theories it quietly tests">&#129514; Reverse-Diagnose a Paper</button>';
+        html += '</div></div>';
+        html += '<div id="crp-diag-panel">' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px;">' +
+            '<div><div style="font-size:10px;font-weight:800;color:#38BDF8;text-transform:uppercase;letter-spacing:0.07em;">Paper-to-Theory Reverse Diagnostic Engine</div>' +
+            '<div style="font-size:14px;font-weight:800;color:#FFFFFF;">Paste a Paper Abstract, Title, or Study Finding (Even If It Never Names a Theory)</div></div>' +
+            '<button type="button" id="crp-diag-close-btn" style="background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:15px;cursor:pointer;">&times;</button>' +
+          '</div>' +
+          '<div style="font-size:11.6px;color:#CBD5E1;margin-bottom:8px;">Most papers speak in assays, statistical metrics, and outcomes without naming the overarching theory they test. Paste text below to map stealth experimental fingerprints back to the competing theories &amp; rival predictions at stake.</div>' +
+          '<div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:7px;">' +
+            '<span style="font-size:10.3px;font-weight:800;color:#94A3B8;">Try a real stealth abstract:</span>' +
+            '<button type="button" class="crp-diag-sample" data-sample="0">Sterile Liver Injury &amp; HMGB1</button>' +
+            '<button type="button" class="crp-diag-sample" data-sample="1">Metabolic Ward Keto vs Low-Fat</button>' +
+            '<button type="button" class="crp-diag-sample" data-sample="2">Nuclear Foci, FRAP &amp; 1,6-Hexanediol</button>' +
+            '<button type="button" class="crp-diag-sample" data-sample="3">5.4M Height GWAS &amp; Rare Exome Variants</button>' +
+          '</div>' +
+          '<textarea id="crp-diag-input" rows="3" placeholder="Paste an abstract, Methods/Results excerpt, or describe what your lab observed (e.g., We measured P3b and MEG gamma synchrony during a no-report binocular rivalry task...)" style="width:100%;padding:9px 11px;border-radius:10px;border:1px solid rgba(56,189,248,0.45);background:rgba(5,9,20,0.92);color:#F8FAFC;font-size:12.2px;font-family:inherit;box-sizing:border-box;outline:none;resize:vertical;"></textarea>' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-top:8px;">' +
+            '<button type="button" id="crp-diag-run-btn" style="appearance:none;border:none;background:#38BDF8;color:#090E1A;font-size:12px;font-weight:900;padding:7px 15px;border-radius:999px;cursor:pointer;font-family:inherit;">&#128269; Diagnose Underlying Theories</button>' +
+            '<button type="button" id="crp-diag-clear-btn" style="appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:11px;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;font-family:inherit;">Clear</button>' +
+          '</div>' +
+          '<div id="crp-diag-results"></div>' +
+        '</div>';
+      } else {
       html += '<div class="crp-fmt-bar"><span style="font-size:9.8px;font-weight:800;color:#94A3B8;text-transform:uppercase;letter-spacing:0.06em;margin-right:2px;">Format Legend &amp; Filter:</span>';
       html += '<button type="button" class="crp-fmt-pill active" data-fmt-filter="all" title="Show all episode formats">All Formats (' + total + ')</button>';
       if (kindCounts['debate'] > 0) {
@@ -2215,6 +2655,7 @@
         html += '<button type="button" class="crp-fmt-pill" data-fmt-filter="debate" title="Debate: 15\u201325m focused two-position methodological or clinical controversy"><span class="crp-fmt-dot" style="background:#C084FC;"></span>Debate \u2014 15\u201325m Controversy (' + kindCounts['debate'] + ')</button>';
       }
       html += '</div></div>';
+      }
       html += '<div id="crp-net-search-wrap" style="display:none;margin:0 0 14px 0;"></div>';
       secs.forEach(function (s, i) {
         var eps = s.episodes || [];
@@ -2324,6 +2765,7 @@
 
         var activeSec = 'all';
         var activeFmt = 'all';
+        var activeStance = 'all';
         var query = '';
         var netExpanded = false;
         var blocks = hubEl.querySelectorAll('.crp-curated-sec');
@@ -2383,7 +2825,12 @@
                 (activeFmt === 'enhancement' && btn.getAttribute('data-enh') === '1') ||
                 (activeFmt === 'vice' && btn.getAttribute('data-vice') === '1') ||
                 (bKind === activeFmt);
-              var show = secMatch && doneOk && fmtOk && (!q || txt.indexOf(q) !== -1);
+              var bStance = btn.getAttribute('data-stance') || '';
+              var stanceOk = (!IS_THEORY_ATLAS || activeStance === 'all') ||
+                (activeStance === 'audio-live' && btn.getAttribute('data-has-audio') === '1') ||
+                (activeStance === 'wave1' && btn.getAttribute('data-wave') === '1') ||
+                (bStance === activeStance);
+              var show = secMatch && doneOk && fmtOk && stanceOk && (!q || txt.indexOf(q) !== -1);
               btn.style.display = show ? 'flex' : 'none';
               if (show) vis++;
             });
@@ -2445,7 +2892,275 @@
             track('format_filter', { format: nextFmt });
           });
         });
+        hubEl.querySelectorAll('.crp-stance-pill[data-stance-filter]').forEach(function (spBtn) {
+          spBtn.addEventListener('click', function () {
+            var nextSt = spBtn.getAttribute('data-stance-filter') || 'all';
+            activeStance = nextSt;
+            hubEl.querySelectorAll('.crp-stance-pill[data-stance-filter]').forEach(function (x) {
+              x.classList.toggle('active', x.getAttribute('data-stance-filter') === nextSt);
+            });
+            applyFilter();
+            track('stance_filter', { stance: nextSt });
+          });
+        });
+        var diagToggle = document.getElementById('crp-diag-toggle-btn');
+        var diagPanel = document.getElementById('crp-diag-panel');
+        var diagClose = document.getElementById('crp-diag-close-btn');
+        var diagInput = document.getElementById('crp-diag-input');
+        var diagRun = document.getElementById('crp-diag-run-btn');
+        var diagClear = document.getElementById('crp-diag-clear-btn');
+        var diagRes = document.getElementById('crp-diag-results');
+        var DIAG_SAMPLES = [
+          'Following hepatic ischemia-reperfusion in germ-free mice, necrotic hepatocytes released extracellular HMGB1, ATP, and monosodium urate crystals, driving NLRP3 inflammasome activation and CD80/CD86 dendritic cell maturation without any detectable bacterial LPS or pathogen infection.',
+          'In an inpatient metabolic ward crossover study, adults consumed ad libitum either a minimally processed low-fat high-carbohydrate diet or an animal-based ketogenic diet. Despite higher postprandial glucose and insulin levels, participants on the low-fat diet consumed 689 kcal/day less and lost more body fat.',
+          'Live-cell single-molecule tracking of RNA Pol II and transcription factor puncta inside nuclear foci showed rapid FRAP recovery and sensitivity to 1,6-hexanediol, yet dilute-phase concentration failed to buffer above c_sat and binding kinetics matched nonspecific DNA-scaffold recruitment.',
+          'Meta-analysis of 5.4 million individuals identified 12,111 independent GWAS SNPs explaining SNP heritability across 21 percent of the genome, while 454,787 exome sequences pinpointed rare coding variants in skeletal growth-plate genes alongside pervasive trans-eQTL pleiotropy.'
+        ];
+        var DIAG_STOP = { the:1,and:1,for:1,with:1,from:1,that:1,this:1,into:1,were:1,was:1,are:1,have:1,has:1,had:1,not:1,but:1,all:1,can:1,our:1,their:1,they:1,which:1,when:1,where:1,more:1,less:1,than:1,study:1,paper:1,results:1,data:1,found:1,showed:1,shows:1,using:1,used:1,after:1,before:1,between:1,across:1,without:1,during:1,both:1,each:1,also:1,only:1,these:1,those:1,however:1,although:1,whereas:1,while:1 };
+        var REFUTE_CUES = ['failed to','no significant difference','did not differ','vanished','absent','contradict','contrary to','challenges','refutes','mirage','artifact','collapsed','independent of','no decline','failed to replicate','not mediated','no advantage','violates','weak instrument','unlikely','insufficient','overturned'];
+        var SUPPORT_CUES = ['confirmed','replicated','convergent','corroborated','demonstrated','outperformed','consistent with','validated','drove','increased','predicted by','sustained','selective sweep','significantly higher','persisted','buffering'];
+        function stemLite(w) {
+          if (!w || w.length <= 5) return w;
+          var sufs = ['ations','ation','ities','ingly','ments','ment','ness','ings','ing','ied','ies','ed','es','ly'];
+          for (var i = 0; i < sufs.length; i++) {
+            var s = sufs[i];
+            if (w.length - s.length >= 4 && w.slice(-s.length) === s) return w.slice(0, -s.length);
+          }
+          if (w.slice(-1) === 's' && w.slice(-2) !== 'ss' && w.length > 5) return w.slice(0, -1);
+          return w;
+        }
+        var diagFieldCache = null;
+        function buildDiagFieldCache() {
+          if (diagFieldCache) return diagFieldCache;
+          var dcfg = cfg.diag_config || {};
+          var idfMap = dcfg.idf || {};
+          var domStealth = dcfg.domain_stealth || {};
+          diagFieldCache = [];
+          (cfg.sections || []).forEach(function (sec, sIdx) {
+            var dTerms = domStealth[String(sIdx + 1)] || [];
+            (sec.episodes || []).forEach(function (ep) {
+              if (!ep || !ep.theory) return;
+              var th = ep.theory;
+              var mkSet = function (txt) {
+                var set = {};
+                (String(txt || '').toLowerCase().match(/[a-z0-9][a-z0-9_+-]{2,}/g) || []).forEach(function (t) { set[stemLite(t)] = true; });
+                return set;
+              };
+              diagFieldCache.push({
+                ep: ep,
+                th: th,
+                domTerms: dTerms,
+                fFals: mkSet(th.falsification_criteria || ''),
+                fBlind: mkSet((th.common_paper_blindspot || '') + ' ' + (th.rivals || []).join(' ')),
+                fCore: mkSet((ep.label || '') + ' ' + (th.core_claim || '') + ' ' + (th.verdict_2026 || '')),
+                fSrc: mkSet((ep.sources || []).map(function (s) { return s && s.title ? s.title : ''; }).join(' '))
+              });
+            });
+          });
+          diagFieldCache._idf = idfMap;
+          diagFieldCache._syn = dcfg.synonyms || {};
+          return diagFieldCache;
+        }
+        function runReverseDiagnosis() {
+          if (!diagInput || !diagRes) return;
+          var raw = (diagInput.value || '').trim();
+          if (raw.length < 10) {
+            diagRes.innerHTML = '<div style="margin-top:8px;font-size:11.8px;color:#FDE68A;">Paste at least a sentence describing the study, assays, or findings to diagnose matching theories.</div>';
+            return;
+          }
+          var cache = buildDiagFieldCache();
+          var idfMap = cache._idf || {};
+          var synMap = cache._syn || {};
+          var low = raw.toLowerCase();
+          var rawToks = (low.match(/[a-z0-9][a-z0-9_+-]{2,}/g) || []).filter(function (w) { return !DIAG_STOP[w]; });
+          var expPhrases = [];
+          var seenRaw = {};
+          rawToks.forEach(function (w) {
+            if (!seenRaw[w]) {
+              seenRaw[w] = true;
+              if (synMap[w]) expPhrases = expPhrases.concat(synMap[w]);
+            }
+          });
+          Object.keys(synMap).forEach(function (sk) {
+            var vals = synMap[sk] || [];
+            for (var i = 0; i < vals.length; i++) {
+              if (vals[i].length >= 4 && low.indexOf(vals[i]) !== -1) { expPhrases.push(sk); break; }
+            }
+          });
+          var enrichedLow = low + ' ' + expPhrases.join(' ');
+          var allToks = (enrichedLow.match(/[a-z0-9][a-z0-9_+-]{2,}/g) || []).filter(function (w) { return !DIAG_STOP[w]; });
+          var uniqToks = [];
+          var tSeen = {};
+          allToks.forEach(function (w) { if (!tSeen[w]) { tSeen[w] = true; uniqToks.push(w); } });
+          var negHits = REFUTE_CUES.filter(function (c) { return low.indexOf(c) !== -1; });
+          var posHits = SUPPORT_CUES.filter(function (c) { return low.indexOf(c) !== -1; });
+          var scored = [];
+          cache.forEach(function (entry) {
+            var ep = entry.ep;
+            var th = entry.th;
+            var score = 0;
+            var matchedClues = [];
+            var clueSeen = {};
+            var addClue = function (c, pts) {
+              score += pts;
+              var cl = String(c).toLowerCase();
+              if (!clueSeen[cl]) { clueSeen[cl] = true; matchedClues.push(c); }
+            };
+            (th.stealth_terms || []).forEach(function (phrase) {
+              var pl = String(phrase).toLowerCase();
+              if (pl.length >= 3 && enrichedLow.indexOf(pl) !== -1) {
+                var mult = (low.indexOf(pl) !== -1) ? 1.0 : 0.65;
+                var pToks = pl.match(/[a-z0-9][a-z0-9_+-]{2,}/g) || [];
+                var maxIdf = 3.2;
+                pToks.forEach(function (pt) { if (idfMap[pt] && idfMap[pt] > maxIdf) maxIdf = idfMap[pt]; });
+                addClue(phrase, (pl.indexOf(' ') !== -1 ? 5.2 : 3.4) * (0.7 + 0.35 * maxIdf) * mult);
+              }
+            });
+            (th.keywords || []).forEach(function (kw) {
+              var kl = String(kw).toLowerCase();
+              if (kl.length >= 3 && enrichedLow.indexOf(kl) !== -1) {
+                var mult = (low.indexOf(kl) !== -1) ? 1.0 : 0.6;
+                addClue(kw, (kl.indexOf(' ') !== -1 ? 4.2 : 2.6) * mult);
+              }
+            });
+            uniqToks.forEach(function (tok) {
+              var idf = idfMap[tok] !== undefined ? idfMap[tok] : 2.5;
+              if (idf < 1.1) return;
+              var st = stemLite(tok);
+              var wt = entry.fFals[st] ? 2.1 : (entry.fBlind[st] ? 1.8 : (entry.fCore[st] ? 1.4 : (entry.fSrc[st] ? 1.2 : 0)));
+              if (wt > 0) {
+                score += 0.55 * idf * wt;
+                if (matchedClues.length < 9 && tok.length >= 4 && !clueSeen[tok]) { clueSeen[tok] = true; matchedClues.push(tok); }
+              }
+            });
+            if (score >= 6.0 && entry.domTerms.length) {
+              var dBoost = 0;
+              entry.domTerms.forEach(function (dt) { if (low.indexOf(dt) !== -1) dBoost += 1.6; });
+              score += Math.min(4.5, dBoost);
+            }
+            if (score >= 10.0) {
+              var suppM = (th.support_markers || []).filter(function (m) { return low.indexOf(m) !== -1; });
+              var refM = (th.refute_markers || []).filter(function (m) { return low.indexOf(m) !== -1; });
+              var sSc = 2.0 * suppM.length + 0.6 * posHits.length;
+              var rSc = 2.2 * refM.length + 0.8 * negHits.length;
+              var dirLbl = 'Adjudicates Competing Predictions (Inspect Directional Result)';
+              var dirCol = '#FDE68A';
+              if (rSc > sSc + 0.8) { dirLbl = 'Provisional Direction: Likely Challenges / Refutes Theory A (Favors Rival)'; dirCol = '#FDA4AF'; }
+              else if (sSc > rSc + 0.8) { dirLbl = 'Provisional Direction: Likely Supports Primary Theory'; dirCol = '#6EE7B7'; }
+              scored.push({ score: score, ep: ep, th: th, clues: matchedClues.slice(0, 8), dirLbl: dirLbl, dirCol: dirCol });
+            }
+          });
+          scored.sort(function (a, b) { return b.score - a.score; });
+          if (!scored.length) {
+            diagRes.innerHTML = '<div style="margin-top:9px;padding:10px 12px;border-radius:10px;background:rgba(15,23,42,0.85);color:#CBD5E1;font-size:12px;">No high-confidence signature match yet — try including specific experimental assays, biomarkers, interventions, or statistical outcomes from the paper.</div>';
+            return;
+          }
+          var top = scored.slice(0, 4);
+          var maxSc = Math.max(top[0].score, 25);
+          var out = '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:10px;">' +
+            '<span style="font-size:10.5px;font-weight:800;color:#7DD3FC;text-transform:uppercase;letter-spacing:0.06em;">BM25 + Assay-Signature Diagnosis: Top ' + top.length + ' Theories Silently Tested</span>' +
+            '<button type="button" id="crp-diag-export-all" class="crp-theory-open-btn" style="border-color:rgba(251,191,36,0.55);color:#FDE68A;background:rgba(120,53,15,0.40);">&#9876;&#65039; Copy Head-to-Head Study Spec (JSON + AI Prompt)</button>' +
+          '</div>';
+          top.forEach(function (m, idx) {
+            var st = getStanceInfo(m.th.stance);
+            var titleH = m.th.canonical_title || splitEpLabel(m.ep.label).head;
+            var confPct = Math.min(99, Math.round((m.score / maxSc) * 100));
+            var h2 = m.th.head_to_head || {};
+            out += '<div class="crp-diag-res-card" style="border-left:3px solid ' + st.color + ';">' +
+              '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:5px;">' +
+                '<div style="font-size:13.2px;font-weight:800;color:#FFFFFF;flex:1;">#' + (idx + 1) + ' ' + esc(titleH) + ' <span style="font-size:10.5px;font-weight:700;color:#7DD3FC;">(' + confPct + '% fit &middot; BM25 ' + m.score.toFixed(1) + ')</span></div>' +
+                '<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">' +
+                  stanceBadgeHTML(m.th.stance, false) +
+                  '<button type="button" class="crp-theory-open-btn" data-diag-open="' + esc(m.ep.id) + '">&#128214; Full Dossier &amp; Papers</button>' +
+                '</div>' +
+              '</div>' +
+              '<div style="font-size:11px;font-weight:800;color:' + m.dirCol + ';margin-bottom:5px;">&#129517; ' + esc(m.dirLbl) + '</div>' +
+              '<div style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin-bottom:6px;">' +
+                '<span style="font-size:10px;font-weight:800;color:#94A3B8;">Matched signals:</span>' +
+                m.clues.map(function (c) { return '<span class="crp-stealth-pill" style="border-color:#38BDF866;color:#BAE6FD;">' + esc(c) + '</span>'; }).join('') +
+              '</div>' +
+              (m.th.stealth_support ? '<div style="font-size:11.3px;color:#A7F3D0;line-height:1.42;margin-bottom:3px;"><strong>&#10003; Supports if:</strong> ' + esc(m.th.stealth_support) + '</div>' : '') +
+              (m.th.stealth_refute ? '<div style="font-size:11.3px;color:#FECDD3;line-height:1.42;margin-bottom:4px;"><strong>&#10007; Challenges / Refutes if:</strong> ' + esc(m.th.stealth_refute) + '</div>' : '') +
+              (h2.minimum_decisive_protocol ? '<div style="font-size:11.2px;color:#FDE68A;line-height:1.42;padding-top:4px;border-top:1px solid rgba(255,255,255,0.08);"><strong>&#9876;&#65039; Next Head-to-Head Test:</strong> ' + esc(h2.minimum_decisive_protocol) + '</div>' : '') +
+            '</div>';
+          });
+          diagRes.innerHTML = out;
+          diagRes.querySelectorAll('[data-diag-open]').forEach(function (b) {
+            b.addEventListener('click', function () { openTheoryModal(b.getAttribute('data-diag-open')); });
+          });
+          var expAll = document.getElementById('crp-diag-export-all');
+          if (expAll) {
+            expAll.addEventListener('click', function () {
+              var payload = {
+                input_study_excerpt: raw,
+                matched_theories: top.map(function (m) {
+                  return {
+                    code: m.th.code,
+                    title: splitEpLabel(m.ep.label).head,
+                    stance_2026: m.th.stance_label,
+                    bm25_score: Number(m.score.toFixed(2)),
+                    provisional_direction: m.dirLbl,
+                    matched_clues: m.clues,
+                    rivals: m.th.rivals || [],
+                    head_to_head_design: m.th.head_to_head || {},
+                    verified_papers: (m.ep.sources || []).map(function (s) { return { role: s.role, title: s.title, url: s.url || s.doiUrl || '' }; })
+                  };
+                })
+              };
+              var brief = 'ADVERSARIAL HEAD-TO-HEAD EXPERIMENTAL DESIGN PROMPT\n' +
+                'Using the pasted study and the BM25-matched competing scientific theories below, propose a concrete, pre-registered head-to-head study protocol that resolves the conflict between Theory A and Rival B while neutralizing the listed confounder traps.\n\n' +
+                JSON.stringify(payload, null, 2);
+              if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(brief).catch(function () {});
+              expAll.textContent = '✓ Head-to-Head Brief Copied!';
+              setTimeout(function () { expAll.innerHTML = '&#9876;&#65039; Copy Head-to-Head Study Spec (JSON + AI Prompt)'; }, 2200);
+            });
+          }
+          track('theory_reverse_diagnose', { top_code: top[0].th.code || '', match_count: scored.length });
+        }
+        if (diagToggle && diagPanel) {
+          diagToggle.addEventListener('click', function () {
+            var vis = diagPanel.style.display === 'block';
+            diagPanel.style.display = vis ? 'none' : 'block';
+            diagToggle.classList.toggle('active', !vis);
+          });
+        }
+        if (diagClose && diagPanel) {
+          diagClose.addEventListener('click', function () {
+            diagPanel.style.display = 'none';
+            if (diagToggle) diagToggle.classList.remove('active');
+          });
+        }
+        if (diagRun) diagRun.addEventListener('click', runReverseDiagnosis);
+        if (diagClear && diagInput && diagRes) {
+          diagClear.addEventListener('click', function () { diagInput.value = ''; diagRes.innerHTML = ''; });
+        }
+        hubEl.querySelectorAll('.crp-diag-sample').forEach(function (sb) {
+          sb.addEventListener('click', function () {
+            var idx = parseInt(sb.getAttribute('data-sample') || '0', 10);
+            if (diagInput && DIAG_SAMPLES[idx]) {
+              diagInput.value = DIAG_SAMPLES[idx];
+              runReverseDiagnosis();
+            }
+          });
+        });
         var sIn = document.getElementById('crp-ep-search');
+        theorySearchJumpRef = function (rq) {
+          if (!rq) return;
+          activeSec = 'all';
+          activeStance = 'all';
+          hubEl.querySelectorAll('.crp-sec-pill[data-sec-idx]').forEach(function (x) {
+            x.classList.toggle('active', x.getAttribute('data-sec-idx') === 'all');
+          });
+          hubEl.querySelectorAll('.crp-stance-pill').forEach(function (x) {
+            x.classList.toggle('active', x.getAttribute('data-stance-filter') === 'all');
+          });
+          if (sIn) {
+            sIn.value = rq;
+            query = rq;
+            applyFilter();
+            try { sIn.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+          }
+        };
         var searchTimer = null;
         if (sIn) {
           sIn.addEventListener('input', function () {
@@ -2479,8 +3194,20 @@
                 sIn.value = urlQ;
                 query = urlQ;
               }
-              if (urlQ || urlLens) {
+              var urlStance = (sp.get('stance') || '').trim().toLowerCase();
+              if (urlStance && IS_THEORY_ATLAS) {
+                var stPill = hubEl.querySelector('.crp-stance-pill[data-stance-filter="' + urlStance.replace(/[^a-z0-9-]/g, '') + '"]');
+                if (stPill) {
+                  activeStance = stPill.getAttribute('data-stance-filter') || 'all';
+                  hubEl.querySelectorAll('.crp-stance-pill').forEach(function (x) { x.classList.toggle('active', x === stPill); });
+                }
+              }
+              if (urlQ || urlLens || urlStance) {
                 applyFilter();
+              }
+              var urlTheory = (sp.get('theory') || '').trim();
+              if (urlTheory && IS_THEORY_ATLAS) {
+                setTimeout(function () { openTheoryModal(urlTheory); }, 180);
               }
           } catch (e) {}
         }
@@ -2531,6 +3258,14 @@
               recordEpisodeCompletedPlay(match[1]);
               return;
             }
+            if (e.target && e.target.closest && e.target.closest('.crp-theory-open-btn')) {
+              openTheoryModal(match[1]);
+              return;
+            }
+            if (link.getAttribute('data-atlas-only') === '1' || match[1].indexOf('atlas-') === 0) {
+              openTheoryModal(match[1]);
+              return;
+            }
             if (e.target && e.target.closest && e.target.closest('.crp-ep-chk')) {
               toggleEpisodeDone(match[1], undefined, !!(e && e.shiftKey));
               return;
@@ -2549,6 +3284,7 @@
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attachInterceptors);
     else attachInterceptors();
     setInterval(attachInterceptors, 1200);
+    window.__crpOpenTheoryModal = openTheoryModal;
     window.CRP_HUB_INFO = { hub: HUB, version: PLAYER_VERSION, episodes: (cfg.sections || []).reduce(function (n, s) { return n + (s.episodes || []).length; }, 0) };
   }
 })();
