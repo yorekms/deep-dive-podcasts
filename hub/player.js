@@ -1,5 +1,5 @@
 /*!
- * Deep Dive Podcast Network - shared Carrd hub player (v2.2.1).
+ * Deep Dive Podcast Network - shared Carrd hub player (v2.3.0).
  * Hosted on GitHub Pages: https://yorekms.github.io/deep-dive-podcasts/hub/player.js
  *
  * Each Carrd site only needs a tiny embed:
@@ -15,9 +15,9 @@
   if (window.__crpHubLoaded) return;
   window.__crpHubLoaded = true;
 
-  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-cnt{font-size:9.5px;font-weight:900;color:#6EE7B7;background:rgba(16,185,129,0.20);border:1px solid rgba(52,211,153,0.52);padding:1px 6px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer;transition:all 0.15s ease} .crp-ep-cnt:hover{background:#10B981;color:#052E16;border-color:#34D399} .crp-paired-debate-card{border-left:3px solid #C084FC !important;background:linear-gradient(135deg,rgba(46,16,101,0.34),rgba(15,23,42,0.88)) !important} .crp-paired-line{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:10.7px;font-weight:800;color:#D8B4FE;line-height:1.32;margin-top:1px} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} } .crp-stance-badge{display:inline-flex;align-items:center;gap:4px;font-size:9.6px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;letter-spacing:0.01em} .crp-theory-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;padding-left:27px;margin-top:4px;box-sizing:border-box} .crp-theory-meta{display:inline-flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:10.3px;color:#94A3B8;font-weight:600} .crp-theory-open-btn{appearance:none;border:1px solid {A}77;background:rgba(14,116,144,0.22);color:#BAE6FD;font-size:10.3px;font-weight:800;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-theory-open-btn:hover{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} .crp-atlas-only .crp-ep-ico{background:rgba(56,189,248,0.14);border-color:rgba(56,189,248,0.45);color:#7DD3FC;font-size:10.5px} .crp-stance-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:10.4px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit;transition:all 0.15s ease} .crp-stance-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.94)} .crp-stance-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} #crp-theory-modal{display:none;position:fixed;inset:0;background:rgba(3,7,18,0.86);backdrop-filter:blur(10px);z-index:1000002;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left} #crp-theory-modal-box{width:100%;max-width:920px;max-height:90vh;overflow-y:auto;background:#080F1E;border:1px solid {A}77;border-radius:20px;padding:22px 24px;box-shadow:0 28px 80px rgba(0,0,0,0.92),0 0 42px {A}26;color:#F8FAFC;box-sizing:border-box} .crp-tm-sec-title{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin:14px 0 7px 0;display:flex;align-items:center;gap:6px} .crp-tm-box{padding:11px 14px;border-radius:12px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.10);font-size:12.6px;line-height:1.54;color:#E2E8F0} .crp-tm-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:10px} .crp-tm-timeline{position:relative;padding-left:18px;border-left:2px solid rgba(56,189,248,0.35);margin:6px 0 2px 6px} .crp-tm-tl-item{position:relative;margin-bottom:9px;font-size:12.2px;line-height:1.45;color:#CBD5E1} .crp-tm-tl-item:last-child{margin-bottom:0} .crp-tm-tl-dot{position:absolute;left:-24px;top:4px;width:10px;height:10px;border-radius:50%;background:#38BDF8;border:2px solid #080F1E;box-shadow:0 0 8px rgba(56,189,248,0.65)} .crp-tm-tl-yr{font-weight:800;color:#7DD3FC;margin-right:6px;font-variant-numeric:tabular-nums} .crp-rival-pill{appearance:none;border:1px solid rgba(245,158,11,0.45);background:rgba(120,53,15,0.34);color:#FDE68A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-rival-pill:hover{background:#F59E0B;color:#090E1A;border-color:#FBBF24} .crp-paper-card{padding:10px 12px;border-radius:11px;background:rgba(15,23,42,0.88);border:1px solid rgba(255,255,255,0.10);margin-bottom:7px;transition:border-color 0.15s ease} .crp-paper-card.role-supporting{border-left:3px solid #10B981} .crp-paper-card.role-refuting{border-left:3px solid #FB7185} .crp-paper-card.role-foundational{border-left:3px solid #38BDF8} .crp-role-chip{display:inline-flex;align-items:center;font-size:9.5px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em} .crp-role-chip.supporting{color:#6EE7B7;background:rgba(16,185,129,0.18);border:1px solid rgba(52,211,153,0.48)} .crp-role-chip.refuting{color:#FDA4AF;background:rgba(244,63,94,0.18);border:1px solid rgba(251,113,133,0.48)} .crp-role-chip.foundational{color:#BAE6FD;background:rgba(56,189,248,0.18);border:1px solid rgba(56,189,248,0.48)} #crp-diag-panel{display:none;width:100%;margin:0 auto 14px auto;padding:14px 16px;background:linear-gradient(145deg,rgba(14,116,144,0.22),rgba(9,14,26,0.94));border:1px solid rgba(56,189,248,0.52);border-radius:14px;box-sizing:border-box;text-align:left} .crp-diag-sample{appearance:none;border:1px solid rgba(56,189,248,0.38);background:rgba(15,23,42,0.85);color:#BAE6FD;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-diag-sample:hover{background:#38BDF8;color:#090E1A;border-color:#38BDF8} .crp-diag-res-card{padding:11px 13px;border-radius:12px;background:rgba(15,23,42,0.92);border:1px solid rgba(255,255,255,0.12);margin-top:8px} .crp-stealth-pill{display:inline-block;font-size:10px;font-weight:700;color:#CBD5E1;background:rgba(30,41,59,0.9);border:1px solid rgba(148,163,184,0.32);padding:2px 7px;border-radius:999px}";
+  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-cnt{font-size:9.5px;font-weight:900;color:#6EE7B7;background:rgba(16,185,129,0.20);border:1px solid rgba(52,211,153,0.52);padding:1px 6px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer;transition:all 0.15s ease} .crp-ep-cnt:hover{background:#10B981;color:#052E16;border-color:#34D399} .crp-paired-debate-card{border-left:3px solid #C084FC !important;background:linear-gradient(135deg,rgba(46,16,101,0.34),rgba(15,23,42,0.88)) !important} .crp-paired-line{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:10.7px;font-weight:800;color:#D8B4FE;line-height:1.32;margin-top:1px} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} } .crp-stance-badge{display:inline-flex;align-items:center;gap:4px;font-size:9.6px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;letter-spacing:0.01em} .crp-theory-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;padding-left:27px;margin-top:4px;box-sizing:border-box} .crp-theory-meta{display:inline-flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:10.3px;color:#94A3B8;font-weight:600} .crp-theory-open-btn{appearance:none;border:1px solid {A}77;background:rgba(14,116,144,0.22);color:#BAE6FD;font-size:10.3px;font-weight:800;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-theory-open-btn:hover{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} .crp-atlas-only .crp-ep-ico{background:rgba(56,189,248,0.14);border-color:rgba(56,189,248,0.45);color:#7DD3FC;font-size:10.5px} .crp-stance-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:10.4px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit;transition:all 0.15s ease} .crp-stance-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.94)} .crp-stance-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} #crp-theory-modal{display:none;position:fixed;inset:0;background:rgba(3,7,18,0.86);backdrop-filter:blur(10px);z-index:1000002;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left} #crp-theory-modal-box{width:100%;max-width:960px;max-height:90vh;overflow-y:auto;background:#080F1E;border:1px solid {A}77;border-radius:20px;padding:22px 24px;box-shadow:0 28px 80px rgba(0,0,0,0.92),0 0 42px {A}26;color:#F8FAFC;box-sizing:border-box} .crp-tm-sec-title{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin:14px 0 7px 0;display:flex;align-items:center;gap:6px} .crp-tm-box{padding:11px 14px;border-radius:12px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.10);font-size:12.6px;line-height:1.54;color:#E2E8F0} .crp-tm-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:10px} .crp-tm-timeline{position:relative;padding-left:18px;border-left:2px solid rgba(56,189,248,0.35);margin:6px 0 2px 6px} .crp-tm-tl-item{position:relative;margin-bottom:9px;font-size:12.2px;line-height:1.45;color:#CBD5E1} .crp-tm-tl-item:last-child{margin-bottom:0} .crp-tm-tl-dot{position:absolute;left:-24px;top:4px;width:10px;height:10px;border-radius:50%;background:#38BDF8;border:2px solid #080F1E;box-shadow:0 0 8px rgba(56,189,248,0.65)} .crp-tm-tl-yr{font-weight:800;color:#7DD3FC;margin-right:6px;font-variant-numeric:tabular-nums} .crp-rival-pill{appearance:none;border:1px solid rgba(245,158,11,0.45);background:rgba(120,53,15,0.34);color:#FDE68A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-rival-pill:hover{background:#F59E0B;color:#090E1A;border-color:#FBBF24} .crp-paper-card{padding:10px 12px;border-radius:11px;background:rgba(15,23,42,0.88);border:1px solid rgba(255,255,255,0.10);margin-bottom:7px;transition:border-color 0.15s ease} .crp-paper-card.role-supporting{border-left:3px solid #10B981} .crp-paper-card.role-refuting{border-left:3px solid #FB7185} .crp-paper-card.role-foundational{border-left:3px solid #38BDF8} .crp-paper-card.role-null_mixed{border-left:3px solid #F59E0B} .crp-role-chip{display:inline-flex;align-items:center;font-size:9.4px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap} .crp-role-chip.supporting{color:#6EE7B7;background:rgba(16,185,129,0.18);border:1px solid rgba(52,211,153,0.48)} .crp-role-chip.refuting{color:#FDA4AF;background:rgba(244,63,94,0.18);border:1px solid rgba(251,113,133,0.48)} .crp-role-chip.foundational{color:#BAE6FD;background:rgba(56,189,248,0.18);border:1px solid rgba(56,189,248,0.48)} .crp-role-chip.null_mixed{color:#FDE68A;background:rgba(245,158,11,0.18);border:1px solid rgba(251,191,36,0.48)} .crp-link-chip{display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap} .crp-link-chip.direct{color:#7DD3FC;background:rgba(14,116,144,0.24);border:1px solid rgba(56,189,248,0.48)} .crp-link-chip.indirect{color:#DDD6FE;background:rgba(139,92,246,0.24);border:1px solid rgba(167,139,250,0.58)} .crp-tier-chip{display:inline-flex;align-items:center;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;color:#E2E8F0;background:rgba(51,65,85,0.65);border:1px solid rgba(148,163,184,0.42);white-space:nowrap} .crp-tier-chip.tier-high{color:#FDE68A;background:rgba(120,53,15,0.38);border-color:rgba(251,191,36,0.52)} .crp-living-chip{display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;color:#5EEAD4;background:rgba(13,148,136,0.22);border:1px solid rgba(45,212,191,0.52);white-space:nowrap} .crp-escape-note{font-size:11.2px;color:#FDE68A;line-height:1.42;margin-bottom:7px;padding:5px 8px;border-radius:7px;background:rgba(120,53,15,0.24);border-left:2px solid #F59E0B} .crp-eb-bar{display:flex;width:100%;height:10px;border-radius:999px;overflow:hidden;background:rgba(2,6,23,0.78);border:1px solid rgba(255,255,255,0.10);margin:6px 0 9px 0;gap:1px} .crp-eb-seg{height:100%;transition:width 0.25s ease;min-width:4px} .crp-eb-pills{display:flex;flex-wrap:wrap;gap:6px;align-items:center} .crp-eb-pill{display:inline-flex;align-items:center;gap:4px;font-size:10.3px;font-weight:800;padding:2px 9px;border-radius:999px;white-space:nowrap} .crp-mom-pill{display:inline-flex;align-items:center;gap:5px;font-size:10.2px;font-weight:800;padding:2px 10px;border-radius:999px;letter-spacing:0.02em;white-space:nowrap} .crp-lit-tabs{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 10px 0} .crp-lit-tab{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.85);color:#CBD5E1;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-lit-tab:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.95)} .crp-lit-tab.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55;font-weight:800} .crp-h2h-table-wrap{overflow-x:auto;margin:8px 0;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(2,6,23,0.58)} .crp-h2h-table{width:100%;border-collapse:collapse;font-size:11.4px;line-height:1.42;text-align:left} .crp-h2h-table th{padding:7px 9px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.12);background:rgba(15,23,42,0.92)} .crp-h2h-table td{padding:7px 9px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,0.07);color:#E2E8F0} .crp-h2h-table tr:last-child td{border-bottom:none} .crp-h2h-table tbody tr:nth-child(even){background:rgba(15,23,42,0.42)} .crp-hatch-box{margin-top:8px;padding:9px 11px;border-radius:10px;background:rgba(120,53,15,0.18);border:1px solid rgba(251,191,36,0.34)} .crp-hatch-list{margin:5px 0 0 0;padding-left:18px;font-size:11.5px;line-height:1.46;color:#FEF3C7} .crp-hatch-list li{margin-bottom:4px} .crp-hatch-list li:last-child{margin-bottom:0} .crp-h2h-details{margin-top:9px;border-radius:10px;border:1px solid rgba(56,189,248,0.34);background:rgba(2,6,23,0.62);overflow:hidden} .crp-h2h-details summary{cursor:pointer;padding:8px 11px;font-size:11.4px;font-weight:800;color:#7DD3FC;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;user-select:none} .crp-h2h-details summary::-webkit-details-marker{display:none} .crp-h2h-details[open] summary{border-bottom:1px solid rgba(56,189,248,0.22);background:rgba(14,116,144,0.16)} .crp-proto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;padding:10px 11px} .crp-proto-cell{padding:7px 9px;border-radius:8px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.08);font-size:11.4px;line-height:1.44;color:#E2E8F0} .crp-proto-k{font-size:9.8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#7DD3FC;margin-bottom:3px} .crp-proto-yaml{margin:0 11px 11px 11px;padding:8px 10px;border-radius:8px;background:#040812;border:1px solid rgba(255,255,255,0.09);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.6px;line-height:1.42;color:#CBD5E1;max-height:210px;overflow:auto;white-space:pre-wrap;word-break:break-word} #crp-diag-panel{display:none;width:100%;margin:0 auto 14px auto;padding:14px 16px;background:linear-gradient(145deg,rgba(14,116,144,0.22),rgba(9,14,26,0.94));border:1px solid rgba(56,189,248,0.52);border-radius:14px;box-sizing:border-box;text-align:left} .crp-diag-sample{appearance:none;border:1px solid rgba(56,189,248,0.38);background:rgba(15,23,42,0.85);color:#BAE6FD;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-diag-sample:hover{background:#38BDF8;color:#090E1A;border-color:#38BDF8} .crp-diag-res-card{padding:11px 13px;border-radius:12px;background:rgba(15,23,42,0.92);border:1px solid rgba(255,255,255,0.12);margin-top:8px} .crp-stealth-pill{display:inline-block;font-size:10px;font-weight:700;color:#CBD5E1;background:rgba(30,41,59,0.9);border:1px solid rgba(148,163,184,0.32);padding:2px 7px;border-radius:999px}";
   var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:700px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-plus-play-chip\" type=\"button\" title=\"Add +1 listen count for this episode\" style=\"display:none;background:rgba(15,23,42,0.92);border:1px solid rgba(52,211,153,0.52);color:#6EE7B7;border-radius:999px;padding:1px 6px;font-size:10px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums;\">+1&times;</button><button id=\"crp-sources-chip\" type=\"button\" title=\"View clickable primary journal citations, PubMed/PMC full text &amp; interactive 3D RCSB PDB structures\" style=\"display:none;\">&#128218; Sources &amp; PDB</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Sources &amp; PDB, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;flex-wrap:wrap;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"sources\">&#128218; Sources &amp; PDB</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"estudia\">&#127891; Estudia! Q&amp;A</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-estudia-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/estudia/\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open full 3D Flashcards, Quiz, Write &amp; Match deck in Estudia! Study Studio\" style=\"font-size:10.5px;font-weight:800;color:#FDE68A;text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid rgba(251,191,36,0.55);background:rgba(120,53,15,0.42);\">&#127891; Estudia! &#8599;</a><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open standalone Pocket App with offline downloads &amp; transcripts (iPhone &amp; Android)\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">&#128241; Pocket App</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, primary literature, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" playsinline webkit-playsinline=\"true\" preload=\"auto\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-prev-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Previous episode in list (Shift+P)\" style=\"padding:5px 7px;\">&#9198;</button><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-next-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Next episode in list (Shift+N)\" style=\"padding:5px 7px;\">&#9197;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div><div id=\"crp-theory-modal\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Scientific Theory Evidence Dossier\"><div id=\"crp-theory-modal-box\"></div></div>";
-  var PLAYER_VERSION = "2.2.1";
+  var PLAYER_VERSION = "2.3.0";
 
   var pendingSyncToken = '';
   try {
@@ -108,7 +108,7 @@
     var A = cfg.accent || '#34D399';
     var masterTotal = net.master_total || '';
 
-    // ---------- Scientific Theories Atlas v2.0.0 Helpers ----------
+    // ---------- Scientific Theories Atlas v2.3.0 Helpers ----------
     var IS_THEORY_ATLAS = (cfg.atlas_mode === 'scientific-theories' || HUB === 'scientific-theories');
     var STANCE_META = {
       'foundational-consensus': {
@@ -177,6 +177,32 @@
         '<span style="width:6px;height:6px;border-radius:50%;background:' + st.color + ';display:inline-block;"></span>' +
         esc(useLong ? st.label : st.short) + '</span>';
     }
+    function normalizeRoleKey(raw) {
+      var r = String(raw || 'foundational').toLowerCase().replace(/[\s\/-]+/g, '_');
+      if (r === 'supporting' || r === 'support' || r === 'pro') return 'supporting';
+      if (r === 'refuting' || r === 'challenging' || r === 'con' || r.indexOf('refut') !== -1 || r.indexOf('challeng') !== -1) return 'refuting';
+      if (r === 'null_mixed' || r === 'null' || r === 'mixed' || r === 'inconclusive' || r === 'neutral') return 'null_mixed';
+      return 'foundational';
+    }
+    function normalizeLinkType(raw) {
+      var lt = String(raw || 'direct').toLowerCase();
+      if (lt.indexOf('indirect') !== -1 || lt.indexOf('stealth') !== -1 || lt.indexOf('implicit') !== -1) return 'indirect';
+      return 'direct';
+    }
+    function getMomentumMeta(mom) {
+      var s = String(mom || 'Stable');
+      var low = s.toLowerCase();
+      if (low.indexOf('revision') !== -1 || low.indexOf('pressure') !== -1) {
+        return { label: s, color: '#FDA4AF', dot: '#FB7185', bg: 'rgba(159,18,57,0.34)', border: 'rgba(251,113,133,0.55)' };
+      }
+      if (low.indexOf('tension') !== -1 || low.indexOf('emerg') !== -1) {
+        return { label: s, color: '#FDE68A', dot: '#F59E0B', bg: 'rgba(120,53,15,0.36)', border: 'rgba(251,191,36,0.52)' };
+      }
+      if (low.indexOf('strength') !== -1 || low.indexOf('consensus') !== -1) {
+        return { label: s, color: '#6EE7B7', dot: '#10B981', bg: 'rgba(6,78,59,0.42)', border: 'rgba(52,211,153,0.52)' };
+      }
+      return { label: s || 'Stable', color: '#7DD3FC', dot: '#38BDF8', bg: 'rgba(14,116,144,0.24)', border: 'rgba(56,189,248,0.48)' };
+    }
     function theoryByIdOrSlug(idOrSlug) {
       if (!idOrSlug) return null;
       if (epMetaById[idOrSlug]) return epMetaById[idOrSlug];
@@ -191,35 +217,350 @@
       }
       return null;
     }
+    function renderEvidenceBalanceHTML(ebObj, srcs) {
+      var eb = ebObj && typeof ebObj === 'object' ? ebObj : null;
+      var fN = eb && typeof eb.foundational === 'number' ? eb.foundational : srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'foundational'; }).length;
+      var sN = eb && typeof eb.supporting === 'number' ? eb.supporting : srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'supporting'; }).length;
+      var rN = eb && typeof eb.refuting === 'number' ? eb.refuting : srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'refuting'; }).length;
+      var nN = eb && typeof eb.null_mixed === 'number' ? eb.null_mixed : srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'null_mixed'; }).length;
+      var indN = eb && typeof eb.indirect === 'number' ? eb.indirect : srcs.filter(function (s) { return normalizeLinkType(s.link_type) === 'indirect'; }).length;
+      var livN = eb && typeof eb.living_harvest === 'number' ? eb.living_harvest : srcs.filter(function (s) { return s.origin === 'living-harvest'; }).length;
+      var tot = fN + sN + rN + nN;
+      if (!tot && !eb) return '';
+      var denom = Math.max(1, tot);
+      var mom = getMomentumMeta((eb && (eb.momentum || eb.stance_momentum)) || 'Stable');
+      var segs = [
+        { k: 'Foundational', n: fN, col: '#38BDF8' },
+        { k: 'Supporting', n: sN, col: '#10B981' },
+        { k: 'Challenging / Refuting', n: rN, col: '#FB7185' },
+        { k: 'Null / Mixed', n: nN, col: '#F59E0B' }
+      ];
+      var barInner = '';
+      segs.forEach(function (sg) {
+        if (sg.n > 0) {
+          var pct = ((sg.n / denom) * 100).toFixed(1);
+          barInner += '<div class="crp-eb-seg" style="width:' + pct + '%;background:' + sg.col + ';" title="' + esc(sg.k + ': ' + sg.n + ' (' + pct + '%)') + '"></div>';
+        }
+      });
+      var h = '<div id="crp-tm-eb-wrap" style="margin-top:12px;">';
+      h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:0 0 6px 0;">' +
+        '<div class="crp-tm-sec-title" style="color:#7DD3FC;margin:0;">&#128202; Live Evidence Balance &amp; Epistemic Momentum</div>' +
+        '<span class="crp-mom-pill" style="color:' + mom.color + ';background:' + mom.bg + ';border:1px solid ' + mom.border + ';" title="Living stance momentum across verified direct and indirect studies">' +
+          '<span style="width:6px;height:6px;border-radius:50%;background:' + mom.dot + ';display:inline-block;"></span>' +
+          'Stance Momentum: ' + esc(mom.label) +
+        '</span>' +
+      '</div>';
+      h += '<div class="crp-tm-box" style="padding:10px 13px;">';
+      if (tot > 0) {
+        h += '<div class="crp-eb-bar" role="img" aria-label="Evidence distribution bar">' + barInner + '</div>';
+      }
+      h += '<div class="crp-eb-pills">';
+      h += '<span class="crp-eb-pill" style="color:#BAE6FD;background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.44);">&#127963;&#65039; Foundational (' + fN + ')</span>';
+      h += '<span class="crp-eb-pill" style="color:#6EE7B7;background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.46);">&#10003; Supporting (' + sN + ')</span>';
+      h += '<span class="crp-eb-pill" style="color:#FDA4AF;background:rgba(244,63,94,0.16);border:1px solid rgba(251,113,133,0.46);">&#10007; Challenging / Refuting (' + rN + ')</span>';
+      h += '<span class="crp-eb-pill" style="color:#FDE68A;background:rgba(245,158,11,0.16);border:1px solid rgba(251,191,36,0.46);">&asymp; Null / Mixed (' + nN + ')</span>';
+      h += '<span class="crp-eb-pill" style="color:#DDD6FE;background:rgba(139,92,246,0.20);border:1px solid rgba(167,139,250,0.52);">&#128269; Indirect / Stealth Studies (' + indN + ')</span>';
+      if (livN > 0) {
+        h += '<span class="crp-eb-pill" style="color:#5EEAD4;background:rgba(13,148,136,0.20);border:1px solid rgba(45,212,191,0.48);">&#9889; Living Harvest (+' + livN + ')</span>';
+      }
+      h += '</div>';
+      if (eb && eb.last_updated) {
+        h += '<div style="font-size:10px;color:#64748B;margin-top:6px;">Last living harvest sync: ' + esc(eb.last_updated) + (eb.displayed_total && eb.total > eb.displayed_total ? (' \u00b7 Showing top ' + eb.displayed_total + ' of ' + eb.total + ' verified ledger papers') : '') + '</div>';
+      }
+      h += '</div></div>';
+      return h;
+    }
     function renderPaperCardHTML(item) {
-      var role = String(item.role || 'foundational').toLowerCase();
-      var roleLbl = role === 'supporting' ? '\u2713 Supporting' : (role === 'refuting' ? '\u2717 Challenging / Refuting' : '\ud83c\udfdb\ufe0f Foundational');
+      var role = normalizeRoleKey(item.role || 'foundational');
+      var roleLbl = role === 'supporting' ? '\u2713 Supporting' : (role === 'refuting' ? '\u2717 Challenging / Refuting' : (role === 'null_mixed' ? '\u2248 Null / Mixed' : '\ud83c\udfdb\ufe0f Foundational'));
+      var linkType = normalizeLinkType(item.link_type || 'direct');
+      var linkLbl = linkType === 'indirect' ? 'INDIRECT \u00b7 STEALTH' : 'DIRECT';
+      var tier = String(item.study_tier || '').trim();
+      var tierLow = tier.toLowerCase();
+      var isHighTier = tierLow.indexOf('phase 3') !== -1 || tierLow.indexOf('multi-lab') !== -1 || tierLow.indexOf('replication') !== -1 || tierLow.indexOf('meta-analysis') !== -1 || tierLow.indexOf('registered') !== -1;
+      var isLiving = item.origin === 'living-harvest';
+      var srcApi = String(item.source_api || '').trim();
       var url = item.url || item.doiUrl || '';
       var pmcUrl = item.pmcUrl || '';
       var doiUrl = item.doiUrl || '';
       var oaUrl = item.oaUrl || '';
+      var pmidUrl = item.pmid ? ('https://pubmed.ncbi.nlm.nih.gov/' + encodeURIComponent(String(item.pmid)) + '/') : '';
       var badgeTxt = sourceBadgeLabel(url, item.kind);
-      return '<div class="crp-paper-card role-' + esc(role) + '">' +
-        '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px;">' +
-          '<div style="font-size:12.4px;font-weight:700;line-height:1.38;flex:1;">' +
+      return '<div class="crp-paper-card role-' + esc(role) + '" data-role="' + esc(role) + '" data-link-type="' + esc(linkType) + '">' +
+        '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px;flex-wrap:wrap;">' +
+          '<div style="font-size:12.4px;font-weight:700;line-height:1.38;flex:1;min-width:220px;">' +
             (url
               ? '<a href="' + esc(url) + '" target="_blank" rel="noopener" data-no-player="true" style="color:#FFFFFF;text-decoration:none;">' + esc(item.title) + ' <span style="color:' + A + ';">&#8599;</span></a>'
               : '<span style="color:#FFFFFF;">' + esc(item.title) + '</span>') +
           '</div>' +
-          '<span class="crp-role-chip ' + esc(role) + '">' + esc(roleLbl) + '</span>' +
+          '<div style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;justify-content:flex-end;">' +
+            '<span class="crp-link-chip ' + esc(linkType) + '">' + esc(linkLbl) + '</span>' +
+            (tier ? '<span class="crp-tier-chip' + (isHighTier ? ' tier-high' : '') + '">' + esc(tier) + '</span>' : '') +
+            (isLiving ? '<span class="crp-living-chip" title="Newly ingested by Living Epistemic Harvester">&#9889; Living Harvest' + (srcApi ? (' \u00b7 ' + esc(srcApi)) : '') + '</span>' : '') +
+            '<span class="crp-role-chip ' + esc(role) + '">' + esc(roleLbl) + '</span>' +
+          '</div>' +
         '</div>' +
         (item.detail ? '<div style="font-size:11px;color:#94A3B8;margin-bottom:5px;">' + esc(item.detail) + '</div>' : '') +
-        (item.takeaway ? '<div style="font-size:11.8px;color:#E2E8F0;line-height:1.45;margin-bottom:7px;padding:5px 8px;border-radius:7px;background:rgba(2,6,23,0.52);">' + esc(item.takeaway) + '</div>' : '') +
+        (item.takeaway ? '<div style="font-size:11.8px;color:#E2E8F0;line-height:1.45;margin-bottom:6px;padding:5px 8px;border-radius:7px;background:rgba(2,6,23,0.52);">' + esc(item.takeaway) + '</div>' : '') +
+        (item.escape_hatch_note ? '<div class="crp-escape-note"><strong>&#128275; Escape Hatch Note:</strong> ' + esc(item.escape_hatch_note) + '</div>' : '') +
         '<div style="display:flex;flex-wrap:wrap;gap:5px;">' +
           (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-cite-pill">' + esc(badgeTxt) + ' &#8599;</a>' : '') +
           (doiUrl && doiUrl !== url ? '<a href="' + esc(doiUrl) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-cite-pill">DOI &#8599;</a>' : '') +
+          (pmidUrl && pmidUrl !== url ? '<a href="' + esc(pmidUrl) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-cite-pill">PubMed &#8599;</a>' : '') +
           (pmcUrl ? '<a href="' + esc(pmcUrl) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-pmc-pill">Free Full Text (PMC) &#8599;</a>' : '') +
           (oaUrl && !pmcUrl && oaUrl !== url && oaUrl !== doiUrl ? '<a href="' + esc(oaUrl) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-pmc-pill">Open Access &#8599;</a>' : '') +
         '</div>' +
       '</div>';
     }
+    function renderLitLedgerListHTML(srcs, filterKey) {
+      var list = srcs.filter(function (s) {
+        if (!s || !s.title) return false;
+        var rk = normalizeRoleKey(s.role);
+        var lt = normalizeLinkType(s.link_type);
+        if (filterKey === 'direct') return lt === 'direct';
+        if (filterKey === 'indirect') return lt === 'indirect';
+        if (filterKey === 'supporting') return rk === 'supporting';
+        if (filterKey === 'refuting') return rk === 'refuting';
+        if (filterKey === 'null_mixed') return rk === 'null_mixed';
+        return true;
+      });
+      if (!list.length) {
+        return '<div class="crp-tm-box" style="color:#94A3B8;font-size:12px;">No verified papers match this filter yet for this theory. Switch back to <strong>All Papers</strong> or check after the next Living Evidence harvest cycle.</div>';
+      }
+      if (filterKey === 'supporting' || filterKey === 'refuting' || filterKey === 'null_mixed') {
+        return list.map(renderPaperCardHTML).join('');
+      }
+      var fP = list.filter(function (s) { return normalizeRoleKey(s.role) === 'foundational'; });
+      var sP = list.filter(function (s) { return normalizeRoleKey(s.role) === 'supporting'; });
+      var rP = list.filter(function (s) { return normalizeRoleKey(s.role) === 'refuting'; });
+      var nP = list.filter(function (s) { return normalizeRoleKey(s.role) === 'null_mixed'; });
+      var out = '';
+      if (fP.length) {
+        out += '<div style="font-size:10.5px;font-weight:800;color:#7DD3FC;margin:8px 0 5px 0;">&#127963;&#65039; Foundational &amp; Landmark Formulations (' + fP.length + ')</div>';
+        fP.forEach(function (p) { out += renderPaperCardHTML(p); });
+      }
+      if (sP.length) {
+        out += '<div style="font-size:10.5px;font-weight:800;color:#6EE7B7;margin:10px 0 5px 0;">&#10003; Supporting Empirical Papers (' + sP.length + ')</div>';
+        sP.forEach(function (p) { out += renderPaperCardHTML(p); });
+      }
+      if (rP.length) {
+        out += '<div style="font-size:10.5px;font-weight:800;color:#FDA4AF;margin:10px 0 5px 0;">&#10007; Challenging, Refuting &amp; Rival-Paradigm Papers (' + rP.length + ')</div>';
+        rP.forEach(function (p) { out += renderPaperCardHTML(p); });
+      }
+      if (nP.length) {
+        out += '<div style="font-size:10.5px;font-weight:800;color:#FDE68A;margin:10px 0 5px 0;">&asymp; Null, Mixed &amp; Boundary-Condition Papers (' + nP.length + ')</div>';
+        nP.forEach(function (p) { out += renderPaperCardHTML(p); });
+      }
+      return out;
+    }
+    function formatProtoValHTML(v) {
+      if (v === null || v === undefined) return '';
+      if (Array.isArray(v)) {
+        return '<ul style="margin:2px 0 0 0;padding-left:15px;">' + v.map(function (it) {
+          return '<li style="margin-bottom:3px;">' + esc(typeof it === 'object' ? JSON.stringify(it) : String(it)) + '</li>';
+        }).join('') + '</ul>';
+      }
+      if (typeof v === 'object') {
+        var bits = [];
+        Object.keys(v).slice(0, 6).forEach(function (k) {
+          var sub = v[k];
+          var txt = typeof sub === 'object' ? JSON.stringify(sub) : String(sub);
+          bits.push('<div><strong style="color:#CBD5E1;">' + esc(k.replace(/_/g, ' ')) + ':</strong> ' + esc(txt) + '</div>');
+        });
+        return bits.join('');
+      }
+      return esc(String(v));
+    }
+    function renderH2HWorkbenchHTML(th) {
+      var h2 = th.head_to_head && typeof th.head_to_head === 'object' ? th.head_to_head : {};
+      var divRows = Array.isArray(h2.diverging_predictions) ? h2.diverging_predictions : [];
+      var hatches = Array.isArray(th.open_escape_hatches) ? th.open_escape_hatches : [];
+      var psum = h2.protocol_summary && typeof h2.protocol_summary === 'object' ? h2.protocol_summary : null;
+      var hasYaml = !!(h2.yaml_protocol && (typeof h2.yaml_protocol === 'string' ? h2.yaml_protocol.trim() : Object.keys(h2.yaml_protocol).length));
+      if (!h2.minimum_decisive_protocol && !divRows.length && !hatches.length && !psum && !hasYaml) return '';
+
+      var h = '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:14px 0 7px 0;">' +
+        '<div class="crp-tm-sec-title" style="color:#FDE68A;margin:0;">&#9876;&#65039; Head-to-Head Crucial Experiment Workbench (Adversarial Adjudication)</div>' +
+        '<button type="button" id="crp-tm-copy-h2h" class="crp-theory-open-btn" style="border-color:rgba(251,191,36,0.55);color:#FDE68A;background:rgba(120,53,15,0.40);">&#128203; Copy Stage-1 Registered Report Prompt (JSON + Markdown)</button>' +
+      '</div>';
+      h += '<div class="crp-tm-box" style="border-left:3px solid #F59E0B;">';
+      if (h2.theory_a_prediction || h2.rival_b_prediction) {
+        h += '<div class="crp-tm-grid2" style="margin-top:0;margin-bottom:8px;">' +
+          '<div style="padding:8px 10px;border-radius:9px;background:rgba(16,185,129,0.10);border:1px solid rgba(52,211,153,0.35);font-size:11.8px;">' +
+            '<div style="font-size:10px;font-weight:800;color:#6EE7B7;text-transform:uppercase;margin-bottom:3px;">Theory A Predicts (' + esc(h2.theory_a || 'Primary') + ')</div>' +
+            esc(h2.theory_a_prediction || '') +
+          '</div>' +
+          '<div style="padding:8px 10px;border-radius:9px;background:rgba(244,63,94,0.10);border:1px solid rgba(251,113,133,0.35);font-size:11.8px;">' +
+            '<div style="font-size:10px;font-weight:800;color:#FDA4AF;text-transform:uppercase;margin-bottom:3px;">Rival B Predicts (' + esc(h2.rival_b || 'Rival') + ')</div>' +
+            esc(h2.rival_b_prediction || '') +
+          '</div>' +
+        '</div>';
+      }
+      if (divRows.length) {
+        h += '<div style="font-size:10.3px;font-weight:800;color:#7DD3FC;text-transform:uppercase;letter-spacing:0.06em;margin:6px 0 4px 0;">Diverging Prediction Matrix (' + divRows.length + ' Discriminating Observables)</div>';
+        h += '<div class="crp-h2h-table-wrap"><table class="crp-h2h-table"><thead><tr>' +
+          '<th style="color:#7DD3FC;width:24%;">Observable</th>' +
+          '<th style="color:#6EE7B7;width:38%;">Theory A Predicts</th>' +
+          '<th style="color:#FDA4AF;width:38%;">Rival B Predicts</th>' +
+        '</tr></thead><tbody>';
+        divRows.forEach(function (row) {
+          h += '<tr>' +
+            '<td style="font-weight:700;color:#FFFFFF;">' + esc(row.observable || '') + '</td>' +
+            '<td>' + esc(row.theory_a || '') + '</td>' +
+            '<td>' + esc(row.rival_b || '') + '</td>' +
+          '</tr>';
+        });
+        h += '</tbody></table></div>';
+      }
+      if (h2.confounder_trap) {
+        h += '<div style="font-size:11.8px;color:#FDE68A;margin:6px 0 5px 0;"><strong>&#9888;&#65039; #1 Confounder Trap to Eliminate:</strong> ' + esc(h2.confounder_trap) + '</div>';
+      }
+      if (h2.minimum_decisive_protocol) {
+        h += '<div style="font-size:11.8px;color:#E2E8F0;"><strong>&#129514; Minimum Decisive Protocol:</strong> ' + esc(h2.minimum_decisive_protocol) + '</div>';
+      }
+      if (hatches.length) {
+        h += '<div class="crp-hatch-box">' +
+          '<div style="font-size:10.2px;font-weight:800;color:#FDE68A;text-transform:uppercase;letter-spacing:0.06em;">&#128275; Unclosed Escape Hatches &amp; Confounder Traps (' + hatches.length + ')</div>' +
+          '<ul class="crp-hatch-list">' +
+            hatches.map(function (eh) { return '<li>' + esc(eh) + '</li>'; }).join('') +
+          '</ul>' +
+        '</div>';
+      }
+      if (psum || hasYaml) {
+        var pidTag = (psum && psum.protocol_id) ? (' \u00b7 ' + esc(psum.protocol_id)) : '';
+        h += '<details class="crp-h2h-details">' +
+          '<summary><span>&#128203; Pre-Registered Protocol Parameters (Arms, Primary Endpoint, Sample Size / Power &amp; Falsification Criteria)' + pidTag + '</span><span style="font-size:10px;color:#94A3B8;">Click to expand &#9662;</span></summary>';
+        if (psum) {
+          h += '<div class="crp-proto-grid">';
+          if (psum.design || psum.title) {
+            h += '<div class="crp-proto-cell"><div class="crp-proto-k">Design &amp; Registration</div>' + formatProtoValHTML(psum.design || psum.title) + '</div>';
+          }
+          if (psum.arms) {
+            h += '<div class="crp-proto-cell"><div class="crp-proto-k">Experimental Arms</div>' + formatProtoValHTML(psum.arms) + '</div>';
+          }
+          if (psum.primary_endpoint) {
+            h += '<div class="crp-proto-cell"><div class="crp-proto-k">Primary Endpoint</div>' + formatProtoValHTML(psum.primary_endpoint) + '</div>';
+          }
+          if (psum.sample_size_power || psum.sample_size || psum.power) {
+            h += '<div class="crp-proto-cell"><div class="crp-proto-k">Sample Size &amp; Power</div>' + formatProtoValHTML(psum.sample_size_power || psum.sample_size || psum.power) + '</div>';
+          }
+          if (psum.controls) {
+            h += '<div class="crp-proto-cell"><div class="crp-proto-k">Confounder &amp; Bias Controls</div>' + formatProtoValHTML(psum.controls) + '</div>';
+          }
+          if (psum.falsification_criteria || psum.decision_rules) {
+            h += '<div class="crp-proto-cell"><div class="crp-proto-k">Pre-Registered Falsification Criteria</div>' + formatProtoValHTML(psum.falsification_criteria || psum.decision_rules) + '</div>';
+          }
+          h += '</div>';
+        }
+        if (hasYaml) {
+          var yamlText = typeof h2.yaml_protocol === 'string' ? h2.yaml_protocol : JSON.stringify(h2.yaml_protocol, null, 2);
+          h += '<pre class="crp-proto-yaml">' + esc(yamlText) + '</pre>';
+        }
+        h += '</details>';
+      }
+      h += '</div>';
+      return h;
+    }
+    function buildStage1RegisteredReportPrompt(ep, th, parts, srcs) {
+      var h2 = th.head_to_head && typeof th.head_to_head === 'object' ? th.head_to_head : {};
+      var eb = th.evidence_balance && typeof th.evidence_balance === 'object' ? th.evidence_balance : {};
+      var divRows = Array.isArray(h2.diverging_predictions) ? h2.diverging_predictions : [];
+      var hatches = Array.isArray(th.open_escape_hatches) ? th.open_escape_hatches : [];
+      var title = th.canonical_title || parts.head || th.code || 'Scientific Theory';
+      var md = [];
+      md.push('# STAGE-1 REGISTERED REPORT PROMPT — ' + title + ' (' + (th.code || '') + ')');
+      md.push('');
+      md.push('Draft a publication-ready **Stage-1 Registered Report** (PCI Registered Reports / Nature Human Behaviour / eLife format) that decisively adjudicates between **Theory A** and **Rival B** while sealing every unclosed escape hatch listed below.');
+      md.push('');
+      md.push('## 1. Epistemic Context (2026 Living Verdict)');
+      md.push('- **Domain:** ' + (th.domain_heading || th.domain_pill || ''));
+      md.push('- **Current 2026 Stance:** ' + (th.stance_label || th.stance || ''));
+      if (eb.momentum) md.push('- **Living Stance Momentum:** ' + eb.momentum + ' (Foundational: ' + (eb.foundational || 0) + ', Supporting: ' + (eb.supporting || 0) + ', Challenging/Refuting: ' + (eb.refuting || 0) + ', Null/Mixed: ' + (eb.null_mixed || 0) + ', Indirect/Stealth: ' + (eb.indirect || 0) + ')');
+      md.push('- **2026 Verdict:** ' + (th.verdict_2026 || ''));
+      md.push('- **Theory A:** ' + (h2.theory_a || title));
+      md.push('- **Rival B:** ' + (h2.rival_b || (th.rivals || []).join('; ')));
+      md.push('');
+      if (divRows.length) {
+        md.push('## 2. Diverging Prediction Matrix');
+        md.push('| Observable | Theory A Predicts | Rival B Predicts |');
+        md.push('| --- | --- | --- |');
+        divRows.forEach(function (r) {
+          var cleanCell = function (x) { return String(x || '').replace(/\|/g, '/').replace(/\r?\n/g, ' '); };
+          md.push('| ' + cleanCell(r.observable) + ' | ' + cleanCell(r.theory_a) + ' | ' + cleanCell(r.rival_b) + ' |');
+        });
+        md.push('');
+      }
+      if (hatches.length) {
+        md.push('## 3. Unclosed Escape Hatches & Confounder Traps to Seal');
+        hatches.forEach(function (eh, i) { md.push((i + 1) + '. ' + eh); });
+        md.push('');
+      }
+      md.push('## 4. Minimum Decisive & Pre-Registered Protocol');
+      if (h2.minimum_decisive_protocol) md.push('- **Minimum Decisive Protocol:** ' + h2.minimum_decisive_protocol);
+      if (h2.protocol_summary) {
+        Object.keys(h2.protocol_summary).forEach(function (pk) {
+          var pv = h2.protocol_summary[pk];
+          md.push('- **' + pk + ':** ' + (typeof pv === 'object' ? JSON.stringify(pv) : String(pv)));
+        });
+      }
+      md.push('');
+      md.push('## 5. Verified Primary Literature (Supporting, Refuting & Indirect/Stealth DOIs)');
+      srcs.forEach(function (s) {
+        var rTag = normalizeRoleKey(s.role).toUpperCase();
+        var ltTag = normalizeLinkType(s.link_type).toUpperCase();
+        var tierTag = s.study_tier ? (' | ' + s.study_tier) : '';
+        var link = s.doiUrl || s.url || '';
+        md.push('- [' + rTag + ' | ' + ltTag + tierTag + '] ' + (s.title || '') + (s.detail ? (' — ' + s.detail) : '') + (link ? (' (' + link + ')') : ''));
+      });
+      md.push('');
+      var specPayload = {
+        schema: 'scientific-theories-atlas-stage1-rr-v2.3',
+        theory_code: th.code,
+        theory_title: title,
+        domain: th.domain_heading || th.domain_pill,
+        current_stance_2026: th.stance_label,
+        verdict_2026: th.verdict_2026,
+        evidence_balance: eb,
+        rivals: th.rivals || [],
+        head_to_head_design: {
+          theory_a: h2.theory_a || '',
+          rival_b: h2.rival_b || '',
+          theory_a_prediction: h2.theory_a_prediction || '',
+          rival_b_prediction: h2.rival_b_prediction || '',
+          confounder_trap: h2.confounder_trap || '',
+          minimum_decisive_protocol: h2.minimum_decisive_protocol || ''
+        },
+        diverging_predictions: divRows,
+        open_escape_hatches: hatches,
+        pre_registered_protocol: h2.protocol_summary || h2.yaml_protocol || {},
+        yaml_protocol: h2.yaml_protocol || null,
+        falsification_criteria: th.falsification_criteria || '',
+        common_paper_blindspot: th.common_paper_blindspot || '',
+        stealth_assay_fingerprints: th.stealth_terms || [],
+        verified_literature: srcs.map(function (s) {
+          return {
+            role: normalizeRoleKey(s.role),
+            link_type: normalizeLinkType(s.link_type),
+            study_tier: s.study_tier || '',
+            origin: s.origin || 'seed',
+            title: s.title,
+            detail: s.detail,
+            url: s.url || s.doiUrl || '',
+            doiUrl: s.doiUrl || '',
+            pmid: s.pmid || '',
+            escape_hatch_note: s.escape_hatch_note || ''
+          };
+        })
+      };
+      md.push('## 6. Machine-Readable Specification (JSON)');
+      md.push('```json');
+      md.push(JSON.stringify(specPayload, null, 2));
+      md.push('```');
+      return md.join('\n');
+    }
     var theorySearchJumpRef = null;
     function openTheoryModal(driveId) {
+      if (!IS_THEORY_ATLAS) return;
       var modal = document.getElementById('crp-theory-modal');
       var box = document.getElementById('crp-theory-modal-box');
       var wrap = theoryByIdOrSlug(driveId);
@@ -229,9 +570,11 @@
       var st = getStanceInfo(th.stance);
       var parts = splitEpLabel(ep.label || th.slug);
       var srcs = Array.isArray(ep.sources) ? ep.sources : [];
-      var foundP = srcs.filter(function (s) { return (s.role || 'foundational') === 'foundational'; });
-      var suppP = srcs.filter(function (s) { return s.role === 'supporting'; });
-      var refP = srcs.filter(function (s) { return s.role === 'refuting'; });
+      var directN = srcs.filter(function (s) { return normalizeLinkType(s.link_type) === 'direct'; }).length;
+      var indirectN = srcs.filter(function (s) { return normalizeLinkType(s.link_type) === 'indirect'; }).length;
+      var suppN = srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'supporting'; }).length;
+      var refN = srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'refuting'; }).length;
+      var nullN = srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'null_mixed'; }).length;
       var hasAudio = !!(th.has_audio || (ep.gh && ep.gh.length > 5) || (ep.id && ep.id.indexOf('atlas-') !== 0));
 
       var h = '';
@@ -268,6 +611,11 @@
         '<div style="font-size:11.2px;font-weight:800;color:' + st.color + ';margin-bottom:4px;">' + esc(st.label) + ' \u2014 ' + esc(st.def) + '</div>' +
         '<div>' + esc(th.verdict_2026 || ep.notes || '') + '</div></div>';
 
+      // Visual Evidence Balance & Living Momentum Bar (v2.3.0)
+      if (th.evidence_balance || srcs.length) {
+        h += renderEvidenceBalanceHTML(th.evidence_balance, srcs);
+      }
+
       // Core Claim + Common Paper Blindspot + Falsification
       h += '<div class="crp-tm-grid2">';
       h += '<div><div class="crp-tm-sec-title" style="color:#7DD3FC;margin-top:4px;">&#127919; Core Testable Proposition</div>' +
@@ -281,28 +629,8 @@
         h += '<div class="crp-tm-box" style="border-left:3px solid #2DD4BF;">' + esc(th.falsification_criteria) + '</div>';
       }
 
-      // Head-to-Head Crucial Experiment Blueprint
-      if (th.head_to_head && th.head_to_head.minimum_decisive_protocol) {
-        var h2 = th.head_to_head;
-        h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:14px 0 7px 0;">' +
-          '<div class="crp-tm-sec-title" style="color:#FDE68A;margin:0;">&#9876;&#65039; Head-to-Head Crucial Experiment Design (Adversarial Adjudication)</div>' +
-          '<button type="button" id="crp-tm-copy-h2h" class="crp-theory-open-btn" style="border-color:rgba(251,191,36,0.55);color:#FDE68A;background:rgba(120,53,15,0.40);">&#128203; Export Head-to-Head Spec (JSON + AI Prompt)</button>' +
-        '</div>';
-        h += '<div class="crp-tm-box" style="border-left:3px solid #F59E0B;">' +
-          '<div class="crp-tm-grid2" style="margin-top:0;margin-bottom:8px;">' +
-            '<div style="padding:8px 10px;border-radius:9px;background:rgba(16,185,129,0.10);border:1px solid rgba(52,211,153,0.35);font-size:11.8px;">' +
-              '<div style="font-size:10px;font-weight:800;color:#6EE7B7;text-transform:uppercase;margin-bottom:3px;">Theory A Predicts (' + esc(h2.theory_a || 'Primary') + ')</div>' +
-              esc(h2.theory_a_prediction || '') +
-            '</div>' +
-            '<div style="padding:8px 10px;border-radius:9px;background:rgba(244,63,94,0.10);border:1px solid rgba(251,113,133,0.35);font-size:11.8px;">' +
-              '<div style="font-size:10px;font-weight:800;color:#FDA4AF;text-transform:uppercase;margin-bottom:3px;">Rival B Predicts (' + esc(h2.rival_b || 'Rival') + ')</div>' +
-              esc(h2.rival_b_prediction || '') +
-            '</div>' +
-          '</div>' +
-          (h2.confounder_trap ? '<div style="font-size:11.8px;color:#FDE68A;margin-bottom:5px;"><strong>&#9888;&#65039; #1 Confounder Trap to Eliminate:</strong> ' + esc(h2.confounder_trap) + '</div>' : '') +
-          '<div style="font-size:11.8px;color:#E2E8F0;"><strong>&#129514; Minimum Decisive Protocol:</strong> ' + esc(h2.minimum_decisive_protocol) + '</div>' +
-        '</div>';
-      }
+      // Upgraded Head-to-Head Crucial Experiment Workbench Box (v2.3.0)
+      h += renderH2HWorkbenchHTML(th);
 
       // Recognizing This Theory in Disguise (When Papers Don't Name It)
       if ((Array.isArray(th.stealth_terms) && th.stealth_terms.length) || th.stealth_support || th.stealth_refute) {
@@ -343,21 +671,18 @@
         h += '</div>';
       }
 
-      // Peer-Reviewed Literature Ledger
+      // Upgraded Filterable Split Primary Literature Ledger (v2.3.0)
       h += '<div class="crp-tm-sec-title" style="color:#FFFFFF;margin-top:16px;">&#128218; Verified Peer-Reviewed Literature Ledger (' + srcs.length + ' Live-Verified Citations)</div>';
       if (srcs.length) {
-        if (foundP.length) {
-          h += '<div style="font-size:10.5px;font-weight:800;color:#7DD3FC;margin:8px 0 5px 0;">&#127963;&#65039; Foundational &amp; Landmark Formulations (' + foundP.length + ')</div>';
-          foundP.forEach(function (p) { h += renderPaperCardHTML(p); });
-        }
-        if (suppP.length) {
-          h += '<div style="font-size:10.5px;font-weight:800;color:#6EE7B7;margin:10px 0 5px 0;">&#10003; Supporting Empirical Papers (' + suppP.length + ')</div>';
-          suppP.forEach(function (p) { h += renderPaperCardHTML(p); });
-        }
-        if (refP.length) {
-          h += '<div style="font-size:10.5px;font-weight:800;color:#FDA4AF;margin:10px 0 5px 0;">&#10007; Challenging, Refuting &amp; Rival-Paradigm Papers (' + refP.length + ')</div>';
-          refP.forEach(function (p) { h += renderPaperCardHTML(p); });
-        }
+        h += '<div class="crp-lit-tabs" role="tablist" aria-label="Filter primary literature">' +
+          '<button type="button" class="crp-lit-tab active" data-lit-filter="all">All Papers (' + srcs.length + ')</button>' +
+          '<button type="button" class="crp-lit-tab" data-lit-filter="direct">Direct Tests (' + directN + ')</button>' +
+          '<button type="button" class="crp-lit-tab" data-lit-filter="indirect">&#128269; Indirect / Stealth (' + indirectN + ')</button>' +
+          '<button type="button" class="crp-lit-tab" data-lit-filter="supporting">&#10003; Supporting (' + suppN + ')</button>' +
+          '<button type="button" class="crp-lit-tab" data-lit-filter="refuting">&#10007; Challenging / Refuting (' + refN + ')</button>' +
+          (nullN > 0 ? '<button type="button" class="crp-lit-tab" data-lit-filter="null_mixed">&asymp; Null / Mixed (' + nullN + ')</button>' : '') +
+        '</div>';
+        h += '<div id="crp-tm-lit-list">' + renderLitLedgerListHTML(srcs, 'all') + '</div>';
       } else {
         h += '<div class="crp-tm-box" style="color:#94A3B8;">Primary API-verified supporting and refuting paper ledger is scheduled for Wave ' + esc(th.wave || 2) + ' harvesting (zero unverified DOIs are ever displayed in this Atlas).</div>';
       }
@@ -393,29 +718,25 @@
       var copyH2h = document.getElementById('crp-tm-copy-h2h');
       if (copyH2h) {
         copyH2h.addEventListener('click', function () {
-          var specPayload = {
-            theory_code: th.code,
-            theory_title: parts.head,
-            domain: th.domain_heading || th.domain_pill,
-            current_stance_2026: th.stance_label,
-            verdict_2026: th.verdict_2026,
-            rivals: th.rivals || [],
-            head_to_head_design: th.head_to_head || {},
-            falsification_criteria: th.falsification_criteria || '',
-            common_paper_blindspot: th.common_paper_blindspot || '',
-            stealth_assay_fingerprints: th.stealth_terms || [],
-            verified_literature: srcs.map(function (s) { return { role: s.role, title: s.title, detail: s.detail, url: s.url || s.doiUrl || '' }; })
-          };
-          var txtOut = 'HEAD-TO-HEAD ADVERSARIAL EXPERIMENT DESIGN BRIEF\n' +
-            'Use the verified epistemic specification below to design a pre-registered, adequately powered head-to-head study that decisively adjudicates between Theory A and Rival B while eliminating the confounder trap.\n\n' +
-            JSON.stringify(specPayload, null, 2);
+          var txtOut = buildStage1RegisteredReportPrompt(ep, th, parts, srcs);
+          window.__crpLastStage1Prompt = txtOut;
           if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txtOut).catch(function () {});
           var orig = copyH2h.innerHTML;
-          copyH2h.textContent = '\u2713 Head-to-Head Spec Copied!';
+          copyH2h.textContent = '\u2713 Stage-1 Registered Report Copied!';
           setTimeout(function () { copyH2h.innerHTML = orig; }, 2200);
           track('theory_export_h2h', { theory_code: th.code || '' });
         });
       }
+      var litListEl = document.getElementById('crp-tm-lit-list');
+      box.querySelectorAll('.crp-lit-tab[data-lit-filter]').forEach(function (ltBtn) {
+        ltBtn.addEventListener('click', function () {
+          var fk = ltBtn.getAttribute('data-lit-filter') || 'all';
+          box.querySelectorAll('.crp-lit-tab[data-lit-filter]').forEach(function (x) {
+            x.classList.toggle('active', x === ltBtn);
+          });
+          if (litListEl) litListEl.innerHTML = renderLitLedgerListHTML(srcs, fk);
+        });
+      });
       box.querySelectorAll('.crp-rival-pill').forEach(function (rb) {
         rb.addEventListener('click', function () {
           var rq = rb.getAttribute('data-rival-q') || '';
@@ -426,7 +747,7 @@
       track('theory_dossier_open', { theory_code: th.code || '', stance: th.stance || '' });
     }
     document.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Escape') {
+      if (IS_THEORY_ATLAS && ev.key === 'Escape') {
         var modal = document.getElementById('crp-theory-modal');
         if (modal && modal.style.display === 'flex') {
           modal.style.display = 'none';
@@ -1324,7 +1645,7 @@
         html += '</div>';
       }
 
-      if (meta.theory) {
+      if (IS_THEORY_ATLAS && meta.theory) {
         var mth = meta.theory;
         html += '<div style="margin-bottom:8px;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.88);border:1px solid ' + getStanceInfo(mth.stance).border + ';">' +
           '<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;margin-bottom:4px;">' +
@@ -1337,7 +1658,7 @@
       if (sources.length) {
         html += '<div style="font-size:10px;font-weight:800;color:' + A + ';text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">&#128196; Primary Literature &amp; Cited Articles (' + sources.length + ')</div>';
         sources.forEach(function (item) {
-          if (item && typeof item === 'object' && item.role) {
+          if (IS_THEORY_ATLAS && item && typeof item === 'object' && item.role) {
             html += renderPaperCardHTML(item);
             return;
           }
@@ -2451,26 +2772,33 @@
     }
 
     function epButtonHTML(ep, secIdx, badgeLabel, secText) {
-      if (ep && ep.theory) {
+      if (IS_THEORY_ATLAS && ep && ep.theory) {
         var th = ep.theory;
         var st = getStanceInfo(th.stance);
         var partsT = splitEpLabel(ep.label || th.slug);
         var subT = th.verdict_2026 ? excerptFromNotes(th.verdict_2026, 165) : (partsT.sub || '');
         var srcsT = Array.isArray(ep.sources) ? ep.sources : [];
-        var suppN = srcsT.filter(function (s) { return s.role === 'supporting'; }).length;
-        var refN = srcsT.filter(function (s) { return s.role === 'refuting'; }).length;
+        var suppN = srcsT.filter(function (s) { return normalizeRoleKey(s.role) === 'supporting'; }).length;
+        var refN = srcsT.filter(function (s) { return normalizeRoleKey(s.role) === 'refuting'; }).length;
+        var indN = (th.evidence_balance && typeof th.evidence_balance.indirect === 'number')
+          ? th.evidence_balance.indirect
+          : srcsT.filter(function (s) { return normalizeLinkType(s.link_type) === 'indirect'; }).length;
         var hasAud = !!(th.has_audio || (ep.gh && ep.gh.length > 5) || (ep.id && ep.id.indexOf('atlas-') !== 0));
         var searchBitsT = [
           th.code || '', th.domain_pill || '', th.subdiscipline || '', th.stance || '', th.stance_label || '',
           th.core_claim || '', th.verdict_2026 || '', th.common_paper_blindspot || '', th.falsification_criteria || '',
-          (th.rivals || []).join(' '), (th.keywords || []).join(' ')
+          (th.rivals || []).join(' '), (th.keywords || []).join(' '),
+          (th.open_escape_hatches || []).join(' ')
         ];
-        srcsT.forEach(function (s) { if (s && s.title) searchBitsT.push(s.title + ' ' + (s.detail || '')); });
+        srcsT.forEach(function (s) {
+          if (s && s.title) searchBitsT.push(s.title + ' ' + (s.detail || '') + ' ' + (s.study_tier || '') + ' ' + (s.escape_hatch_note || ''));
+        });
         var footMeta = [];
         if (th.year_span) footMeta.push('&#127963;&#65039; ' + esc(th.year_span));
         if (srcsT.length) {
           var pSummary = '&#128196; ' + srcsT.length + ' Verified';
           if (suppN || refN) pSummary += ' (<span style="color:#6EE7B7;">' + suppN + ' Pro</span> &middot; <span style="color:#FDA4AF;">' + refN + ' Con</span>)';
+          if (indN > 0) pSummary += ' &middot; <span style="color:#DDD6FE;">&#128269; ' + indN + ' Stealth</span>';
           footMeta.push(pSummary);
         } else {
           footMeta.push('&#128218; Wave ' + esc(th.wave || 2) + ' Planned');
@@ -3105,7 +3433,7 @@
                     matched_clues: m.clues,
                     rivals: m.th.rivals || [],
                     head_to_head_design: m.th.head_to_head || {},
-                    verified_papers: (m.ep.sources || []).map(function (s) { return { role: s.role, title: s.title, url: s.url || s.doiUrl || '' }; })
+                    verified_papers: (m.ep.sources || []).map(function (s) { return { role: s.role, link_type: s.link_type || 'direct', title: s.title, url: s.url || s.doiUrl || '' }; })
                   };
                 })
               };
@@ -3260,11 +3588,11 @@
               recordEpisodeCompletedPlay(match[1]);
               return;
             }
-            if (e.target && e.target.closest && e.target.closest('.crp-theory-open-btn')) {
+            if (IS_THEORY_ATLAS && e.target && e.target.closest && e.target.closest('.crp-theory-open-btn')) {
               openTheoryModal(match[1]);
               return;
             }
-            if (link.getAttribute('data-atlas-only') === '1' || match[1].indexOf('atlas-') === 0) {
+            if (IS_THEORY_ATLAS && (link.getAttribute('data-atlas-only') === '1' || match[1].indexOf('atlas-') === 0)) {
               openTheoryModal(match[1]);
               return;
             }
