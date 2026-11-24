@@ -9,7 +9,7 @@
     monogram: 'MY',
     role: 'Research Scientist • University of Virginia Health System (Anesthesiology)',
     location: 'Charlottesville, Virginia',
-    tagline: 'Cancer Immunology • Ion-Channel & Epilepsy Neurophysiology • Multi-Species Transcriptomics • Bayesian Modeling & Scientific Software',
+    tagline: 'Biomolecular Condensate Pharmacology • Ion-Channel & Epilepsy Neurophysiology • Cancer Immunology • Multi-Species Transcriptomics • Bayesian Modeling & Scientific Software',
     email: 'yorekms@gmail.com',
     orcid: '0000-0002-4737-9367',
     orcidUrl: 'https://orcid.org/0000-0002-4737-9367',
@@ -214,6 +214,30 @@
 
   var FLAGSHIP_PORTALS = [
     {
+      badge: 'Open Preprints • Papers #1 & #2 + 3D PDBs',
+      accent: '#FB7185',
+      title: 'Condensate Pharmacology & Drug Design Hub',
+      domainPrefix: '', domainRest: 'yorekms.github.io/condensate-pharmacology',
+      url: 'https://yorekms.github.io/condensate-pharmacology/',
+      desc: '5.45 µs CALVADOS-2/3 GPU MD, 1,093-drug FDA screen, 12 experimental PDB WebGL exit-vector viewers, 62-channel AFDB v6 audit, and 1,097-drug human clinical IV V_d,ss validation.'
+    },
+    {
+      badge: 'Zenodo DOI: 10.5281/zenodo.24509495',
+      accent: '#C084FC',
+      title: 'Cross-Species IDR & LLPS Cell Atlas (v3.1 Book)',
+      domainPrefix: '', domainRest: 'doi.org/10.5281/zenodo.24509495',
+      url: 'https://yorekms.github.io/condensate-pharmacology/atlas-book.html',
+      desc: '14-chapter open monograph (62 pp) surveying 93,793 proteins across 16 proteomes × 18 compartment microenvironments × 12 metabolic regimes, Chapter 12 falsification ledger, and live 3D Simularium models.'
+    },
+    {
+      badge: '44 Contrasts • 43 pp Preprint PDF + Portal',
+      accent: '#34D399',
+      title: 'Seizure Transcriptomics Workbench',
+      domainPrefix: '', domainRest: 'yorekms.github.io/seizure-transcriptomics-workbench',
+      url: 'https://yorekms.github.io/seizure-transcriptomics-workbench/',
+      desc: 'Cross-species human, mouse & rat seizure meta-regression portal (43-page open preprint PDF, Figures 1–5, interactive Rab visualizer, searchable CSV tables, and Bayesian forecasts on 16 human donors).'
+    },
+    {
       badge: 'Conversational Stats & SVG Figures',
       accent: '#10B981',
       title: 'StatWeave Statistics & Figure Workbench',
@@ -231,19 +255,19 @@
     },
     {
       badge: '14 Python v14 & MATLAB Suites',
-      accent: '#C084FC',
+      accent: '#A78BFA',
       title: 'Scientific Software & Imaging Portfolio',
       domainPrefix: 'MY', domainRest: '-scientific-software.carrd.co',
       url: 'https://my-scientific-software.carrd.co',
-      desc: 'NaV1.6 voltage-clamp gating, HEK16 drug binding/unbinding, iPSC persistent Na+ TTX subtraction, plethysmography, EEG seizure viewer & v25 microscope GUI.'
+      desc: 'Searchable hub for NaV1.6 voltage-clamp gating, HEK16 binding/unbinding, iPSC persistent Na+ TTX subtraction, plethysmography, EEG seizure viewer, microscopy GUI & open preprint suites.'
     },
     {
-      badge: '44 Contrasts • 15 GEO Accessions',
-      accent: '#34D399',
-      title: 'Seizure Transcriptomics Workbench',
-      domainPrefix: '', domainRest: 'yorekms.github.io/seizure-transcriptomics-workbench',
-      url: 'https://yorekms.github.io/seizure-transcriptomics-workbench/',
-      desc: 'Cross-species human, mouse & rat seizure meta-regression paper portal (Figures 1–5, searchable CSV tables, R edgeR/limma, MATLAB & Python Bayesian forecasts across 311 Rab7/endolysosomal & channel genes, validated on 16 human donors).'
+      badge: '180 Theories • BM25 Reverse-Diagnosis',
+      accent: '#F472B6',
+      title: 'Scientific Theories & Epistemic Atlas',
+      domainPrefix: 'MY', domainRest: '-scientific-theories.carrd.co',
+      url: 'https://my-scientific-theories.carrd.co',
+      desc: 'Interactive epistemic map spanning 180 foundational scientific theories, falsification diagnostics, and cross-disciplinary audio essays linked to primary hypotheses.'
     },
     {
       badge: 'Interactive Learning Suite',
@@ -427,7 +451,23 @@
       '.my-stat-card { background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 15px 16px; box-shadow: 0 10px 24px rgba(0,0,0,0.32); }',
       '.my-jump-bar { position: sticky; top: 8px; z-index: 50; display: flex; flex-wrap: wrap; align-items: center; gap: 7px; padding: 9px 13px; border-radius: 14px; background: rgba(9,14,26,0.92); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(16px); margin-bottom: 22px; box-shadow: 0 12px 30px rgba(0,0,0,0.5); }',
       '.my-jump-link { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; color: #CBD5E1; text-decoration: none !important; background: rgba(30,41,59,0.65); border: 1px solid rgba(148,163,184,0.22); transition: all 0.16s ease; }',
-      '.my-jump-link:hover { color: #FFFFFF; border-color: #38BDF8; background: rgba(14,116,144,0.35); }',
+      '.my-jump-link:hover, .my-jump-link.is-active { color: #FFFFFF; border-color: #38BDF8; background: rgba(14,116,144,0.42); box-shadow: 0 0 12px rgba(56,189,248,0.24); }',
+      '.my-path-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }',
+      '.my-path-card { display: flex; flex-direction: column; gap: 3px; text-align: left; padding: 12px 14px; border-radius: 14px; background: rgba(15,23,42,0.88); border: 1px solid rgba(255,255,255,0.12); color: #E2E8F0; cursor: pointer; font-family: inherit; transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease; }',
+      '.my-path-card:hover { transform: translateY(-2px); border-color: #38BDF8; background: rgba(22,35,61,0.95); }',
+      '.my-preprint-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }',
+      '.my-preprint-card { background: rgba(15,23,42,0.94); border: 1px solid rgba(255,255,255,0.13); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; gap: 12px; transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; }',
+      '.my-preprint-card:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0,0,0,0.52); }',
+      '.my-pp-btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 11px; border-radius: 9px; font-size: 11.6px; font-weight: 700; text-decoration: none !important; color: #E2E8F0 !important; background: rgba(30,41,59,0.88); border: 1px solid #475569; cursor: pointer; font-family: inherit; transition: all 0.15s ease; }',
+      '.my-pp-btn:hover { border-color: #38BDF8; color: #FFFFFF !important; transform: translateY(-1px); }',
+      '.my-cite-btn { appearance: none; border: 1px solid rgba(148,163,184,0.32); background: rgba(30,41,59,0.72); color: #CBD5E1; font-size: 10.8px; font-weight: 700; padding: 2px 8px; border-radius: 999px; cursor: pointer; font-family: inherit; transition: all 0.14s ease; }',
+      '.my-cite-btn:hover { border-color: #38BDF8; color: #FFFFFF; background: rgba(14,116,144,0.45); }',
+      '#my-back-top { position: fixed; bottom: 22px; right: 22px; z-index: 9990; appearance: none; border: 1px solid rgba(56,189,248,0.55); background: rgba(9,14,26,0.92); color: #E0F2FE; font-size: 12px; font-weight: 800; padding: 9px 14px; border-radius: 999px; cursor: pointer; backdrop-filter: blur(12px); box-shadow: 0 10px 26px rgba(0,0,0,0.55); opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity 0.2s ease, transform 0.2s ease; font-family: inherit; }',
+      '#my-back-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }',
+      '#my-cmd-modal { display: none; position: fixed; inset: 0; z-index: 1000010; background: rgba(3,7,18,0.82); backdrop-filter: blur(9px); align-items: flex-start; justify-content: center; padding: 72px 16px 24px; }',
+      '#my-cmd-modal.open { display: flex; }',
+      '.my-cmd-item { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none !important; color: #E2E8F0 !important; border: 1px solid transparent; cursor: pointer; }',
+      '.my-cmd-item:hover, .my-cmd-item.selected { background: rgba(14,116,144,0.32); border-color: rgba(56,189,248,0.5); color: #FFFFFF !important; }',
       '.my-sec-card { background: rgba(11,17,32,0.92); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 24px 26px; margin-bottom: 22px; box-shadow: 0 16px 40px rgba(0,0,0,0.42); }',
       '.my-sec-hdr { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; padding-bottom: 11px; border-bottom: 1px solid rgba(148,163,184,0.16); }',
       '.my-bento-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }',
@@ -444,10 +484,10 @@
       '.my-hub-card { display: flex; flex-direction: column; justify-content: space-between; gap: 8px; background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 13px 14px; text-decoration: none !important; color: inherit !important; transition: all 0.16s ease; }',
       '.my-hub-card:hover { transform: translateY(-2px); border-color: #C084FC; box-shadow: 0 10px 24px rgba(0,0,0,0.45); }',
       '.my-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }',
-      '@media (max-width: 1220px) { .my-hero-grid { grid-template-columns: 444px minmax(0, 1fr); gap: 20px; } .my-hero-media-pair { width: 444px; grid-template-columns: 166px minmax(0, 1fr); gap: 10px; } .my-portrait-static-frame, .my-nav16-anim-frame { height: 208px; } .my-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-hub-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }',
-      '@media (max-width: 860px) { .my-hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; } .my-hero-media-pair { width: 100%; max-width: 520px; grid-template-columns: 172px minmax(0, 1fr); } .my-portrait-static-frame, .my-nav16-anim-frame { height: 215px; } .my-bento-grid, .my-hub-grid, .my-two-col, .my-stat-grid { grid-template-columns: 1fr; } .my-hero-card, .my-sec-card { padding: 18px 16px; } .my-jump-bar { position: static; } }',
+      '@media (max-width: 1220px) { .my-hero-grid { grid-template-columns: 444px minmax(0, 1fr); gap: 20px; } .my-hero-media-pair { width: 444px; grid-template-columns: 166px minmax(0, 1fr); gap: 10px; } .my-portrait-static-frame, .my-nav16-anim-frame { height: 208px; } .my-bento-grid, .my-preprint-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-hub-grid, .my-path-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .my-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }',
+      '@media (max-width: 860px) { .my-hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; } .my-hero-media-pair { width: 100%; max-width: 520px; grid-template-columns: 172px minmax(0, 1fr); } .my-portrait-static-frame, .my-nav16-anim-frame { height: 215px; } .my-bento-grid, .my-preprint-grid, .my-path-grid, .my-hub-grid, .my-two-col, .my-stat-grid { grid-template-columns: 1fr; } .my-hero-card, .my-sec-card { padding: 18px 16px; } .my-jump-bar { position: static; } }',
       '@media (max-width: 520px) { .my-hero-media-pair { grid-template-columns: 1fr; max-width: 340px; } .my-portrait-static-frame { width: 192px; height: 240px; margin: 0 auto; } .my-nav16-anim-frame { height: 220px; } }',
-      '@media print { body { background: #FFFFFF !important; color: #0F172A !important; } #crp-top-hub-nav, #crp-author-cred-box, .my-jump-bar, #crp-rss-modal, #my-cv-video-stage, #my-cv-video-toggle, #my-cv-style-toggle { display: none !important; } .my-hero-media-pair { width: 180px !important; grid-template-columns: 180px !important; } .my-portrait-static-frame { width: 180px !important; height: 225px !important; border: 1px solid #94A3B8 !important; box-shadow: none !important; } .my-hero-grid { grid-template-columns: 192px minmax(0, 1fr) !important; } .my-hero-card, .my-sec-card, .my-tl-item, .my-pub-item, .my-stat-card { background: #FFFFFF !important; color: #0F172A !important; border: 1px solid #CBD5E1 !important; box-shadow: none !important; break-inside: avoid; } h1, h2, h3, strong { color: #0F172A !important; -webkit-text-fill-color: initial !important; } }'
+      '@media print { body { background: #FFFFFF !important; color: #0F172A !important; } #crp-top-hub-nav, #crp-author-cred-box, .my-jump-bar, #my-visitor-paths, #my-cmd-modal, #my-cv-toast, #my-back-top, .my-cite-btn, #crp-rss-modal, #my-cv-video-stage, #my-cv-video-toggle, #my-cv-style-toggle { display: none !important; } .my-hero-media-pair { width: 180px !important; grid-template-columns: 180px !important; } .my-portrait-static-frame { width: 180px !important; height: 225px !important; border: 1px solid #94A3B8 !important; box-shadow: none !important; } .my-hero-grid { grid-template-columns: 192px minmax(0, 1fr) !important; } .my-hero-card, .my-sec-card, .my-tl-item, .my-pub-item, .my-stat-card, .my-preprint-card { background: #FFFFFF !important; color: #0F172A !important; border: 1px solid #CBD5E1 !important; box-shadow: none !important; break-inside: avoid; } h1, h2, h3, strong { color: #0F172A !important; -webkit-text-fill-color: initial !important; } }'
     ].join('\n');
     (document.head || document.documentElement).appendChild(styleEl);
 
@@ -559,6 +599,12 @@
                 '<a href="https://yorekms.github.io/condensate-pharmacology/" target="_blank" rel="noopener" class="my-action-btn" style="background:rgba(136,19,55,0.45);border:1px solid rgba(251,113,133,0.65);color:#FFE4E6;">' +
                   '&#129514; Preprints Hub (Papers #1&ndash;#2) &#8599;' +
                 '</a>' +
+                '<a href="https://doi.org/10.5281/zenodo.24509495" target="_blank" rel="noopener" class="my-action-btn" style="background:rgba(88,28,135,0.52);border:1px solid rgba(192,132,252,0.72);color:#F3E8FF;">' +
+                  '&#128216; Monograph DOI (Zenodo) &#8599;' +
+                '</a>' +
+                '<a href="https://yorekms.github.io/seizure-transcriptomics-workbench/assets/Seizure_Transcriptomics_Workbench_Preprint_Yorek.pdf" target="_blank" rel="noopener" class="my-action-btn" style="background:rgba(6,78,59,0.52);border:1px solid rgba(52,211,153,0.68);color:#D1FAE5;">' +
+                  '&#129516; Seizure Preprint PDF (43 pp) &#8599;' +
+                '</a>' +
                 '<a href="' + esc(CONFIG.stravaUrl) + '" target="_blank" rel="noopener" id="my-strava-hero-btn" class="my-action-btn" style="background:linear-gradient(135deg, rgba(252,76,2,0.92) 0%, rgba(234,88,12,0.92) 100%);border:1px solid #FDBA74;color:#FFFFFF;box-shadow:0 0 18px rgba(252,76,2,0.32);">' +
                   '&#127939;&#8205;&#9794;&#65039; Strava &bull; YOREK &#8599;' +
                 '</a>' +
@@ -597,16 +643,98 @@
           '</div>' +
         '</section>' +
 
+        /* VISITOR QUICK-START PATHS */
+        '<section id="my-visitor-paths" aria-label="Start Here Visitor Paths" class="my-path-grid">' +
+          '<button type="button" class="my-path-card" data-jump-path="preprints" style="border-left:3px solid #C084FC;">' +
+            '<span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#C084FC;">&#129514; Biophysicists &amp; Pharmacologists</span>' +
+            '<span style="font-size:13.2px;font-weight:800;color:#FFFFFF;">Open Preprints &amp; Zenodo Monograph &rarr;</span>' +
+            '<span style="font-size:11.4px;color:#94A3B8;">Papers #1&ndash;#2, 12-PDB 3D viewers &amp; 62-pp Atlas</span>' +
+          '</button>' +
+          '<button type="button" class="my-path-card" data-jump-path="epilepsy" style="border-left:3px solid #34D399;">' +
+            '<span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#34D399;">&#9889; Epilepsy &amp; Ion-Channel Colleagues</span>' +
+            '<span style="font-size:13.2px;font-weight:800;color:#FFFFFF;">Seizure Preprint + SCN8A / Channel Papers &rarr;</span>' +
+            '<span style="font-size:11.4px;color:#94A3B8;">44-contrast Rab workbench + filtered neuro papers</span>' +
+          '</button>' +
+          '<button type="button" class="my-path-card" data-jump-path="software" style="border-left:3px solid #F59E0B;">' +
+            '<span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#FBBF24;">&#128187; Lab Engineers &amp; Students</span>' +
+            '<span style="font-size:13.2px;font-weight:800;color:#FFFFFF;">ClampFlow, StatWeave &amp; 14 Code Suites &rarr;</span>' +
+            '<span style="font-size:11.4px;color:#94A3B8;">Patch-clamp, EEG, microscopy &amp; Python/MATLAB</span>' +
+          '</button>' +
+          '<button type="button" class="my-path-card" data-jump-path="cv" style="border-left:3px solid #38BDF8;">' +
+            '<span style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#38BDF8;">&#128203; Hiring Committees &amp; Collaborators</span>' +
+            '<span style="font-size:13.2px;font-weight:800;color:#FFFFFF;">Bibliometrics, 23 Papers &amp; Appointments &rarr;</span>' +
+            '<span style="font-size:11.4px;color:#94A3B8;">4.73&times; FWCI, 2.13&times; NIH RCR &amp; print-ready CV</span>' +
+          '</button>' +
+        '</section>' +
+
         /* STICKY JUMP BAR */
         '<nav class="my-jump-bar" aria-label="CV Sections">' +
           '<span style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.07em;color:#38BDF8;margin-right:4px;">MY&middot;CV Sections:</span>' +
-          '<a href="#sec-portals" class="my-jump-link">&#128640; Software &amp; Portals</a>' +
+          '<a href="#sec-preprints" class="my-jump-link" style="border-color:rgba(192,132,252,0.48);color:#E9D5FF;">&#128196; Preprints &amp; Monograph (3)</a>' +
+          '<a href="#sec-portals" class="my-jump-link">&#128640; Software &amp; Portals (9)</a>' +
           '<a href="#sec-appointments" class="my-jump-link">&#127963;&#65039; Appointments &amp; GPC</a>' +
           '<a href="#sec-publications" class="my-jump-link">&#128200; Impact &amp; Publications (23)</a>' +
-          '<a href="#sec-methods" class="my-jump-link">&#128736;&#65039; Methods, Education &amp; Talks</a>' +
+          '<a href="#sec-methods" class="my-jump-link">&#128736;&#65039; Methods &amp; Education</a>' +
           '<a href="#sec-audio-hubs" class="my-jump-link">&#127911; 12 MY- Audio Hubs</a>' +
-          '<a href="#sec-strava" class="my-jump-link" style="border-color:rgba(252,76,2,0.45);color:#FED7AA;">&#128692; Off-Bench &amp; Strava</a>' +
+          '<a href="#sec-strava" class="my-jump-link" style="border-color:rgba(252,76,2,0.45);color:#FED7AA;">&#128692; Strava</a>' +
+          '<button type="button" id="my-open-cmd-btn" class="my-jump-link" style="margin-left:auto;cursor:pointer;font-family:inherit;background:rgba(56,189,248,0.16);border-color:rgba(56,189,248,0.52);color:#E0F2FE;">&#128269; Quick Jump <span style="font-family:ui-monospace,monospace;font-size:10px;opacity:0.85;background:rgba(2,6,23,0.6);padding:1px 5px;border-radius:5px;border:1px solid rgba(148,163,184,0.3);">Ctrl+K</span></button>' +
         '</nav>' +
+
+        /* SECTION 0: OPEN PREPRINTS, ZENODO MONOGRAPH & LIVE WORKBENCHES (2026) */
+        '<section id="sec-preprints" class="my-sec-card" style="border-color:rgba(192,132,252,0.34);background:linear-gradient(155deg, rgba(30,27,75,0.38) 0%, rgba(11,17,32,0.95) 45%, rgba(6,78,59,0.20) 100%);">' +
+          '<div class="my-sec-hdr">' +
+            '<div>' +
+              '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#C084FC;margin-bottom:3px;">Open-Access Manuscripts (2026) &bull; Direct PDFs &bull; Permanent Zenodo DOI</div>' +
+              '<h2 style="margin:0;font-size:22px;font-weight:900;color:#FFFFFF;">Open Preprints, Interactive Portals &amp; Archival Monograph</h2>' +
+            '</div>' +
+            '<a href="https://doi.org/10.5281/zenodo.24509495" target="_blank" rel="noopener" style="font-family:ui-monospace,monospace;font-size:11.5px;font-weight:800;color:#EDE9FE;background:rgba(91,33,182,0.42);border:1px solid rgba(192,132,252,0.58);padding:5px 12px;border-radius:999px;text-decoration:none;">DOI: 10.5281/zenodo.24509495 &#8599;</a>' +
+          '</div>' +
+          '<div class="my-preprint-grid">' +
+            /* Card 1: Seizure Transcriptomics Workbench */
+            '<article class="my-preprint-card" style="border-top:3px solid #10B981;">' +
+              '<div>' +
+                '<div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#34D399;margin-bottom:6px;">Seizure Bioinformatics &bull; Open Preprint (43 pp)</div>' +
+                '<h3 style="margin:0 0 7px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.3;">Seizure Transcriptomics Workbench: Traceable Rab-Pathway &amp; Neuronal Effect Forecasting</h3>' +
+                '<p style="margin:0;font-size:12.6px;line-height:1.55;color:#CBD5E1;">Integrates 44 public GEO seizure contrasts, a 311-gene Rab/endolysosomal atlas, and retrospective Bayesian forecasting validated against 16 human Epilepsy19 neuronal donors (96.0% 95% PI coverage; SHA-256 verified MATLAB/Python/R code).</p>' +
+              '</div>' +
+              '<div style="display:flex;flex-wrap:wrap;gap:7px;">' +
+                '<a href="https://yorekms.github.io/seizure-transcriptomics-workbench/" target="_blank" rel="noopener" class="my-pp-btn" style="background:linear-gradient(135deg,#34D399,#10B981);color:#052E16 !important;border-color:#34D399;font-weight:800;">&#127760; Interactive Portal &#8599;</a>' +
+                '<a href="https://yorekms.github.io/seizure-transcriptomics-workbench/assets/Seizure_Transcriptomics_Workbench_Preprint_Yorek.pdf" target="_blank" rel="noopener" class="my-pp-btn" style="border-color:rgba(52,211,153,0.55);color:#A7F3D0 !important;">&#128196; Preprint PDF (43 pp)</a>' +
+                '<a href="https://github.com/yorekms/seizure-transcriptomics-workbench" target="_blank" rel="noopener" class="my-pp-btn">GitHub &#8599;</a>' +
+                '<button type="button" class="my-pp-btn my-copy-action" data-copy-kind="seizure-apa">&#128203; Cite</button>' +
+              '</div>' +
+            '</article>' +
+            /* Card 2: Condensate Pharmacology Papers #1 & #2 */
+            '<article class="my-preprint-card" style="border-top:3px solid #38BDF8;">' +
+              '<div>' +
+                '<div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#7DD3FC;margin-bottom:6px;">Biophysics &amp; Pharmacology &bull; Companion Papers #1 &amp; #2</div>' +
+                '<h3 style="margin:0 0 7px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.3;">Phase-Partitioned Allosteric Pharmacology &amp; Condensate Drug Design</h3>' +
+                '<p style="margin:0;font-size:12.6px;line-height:1.55;color:#CBD5E1;">5.45 &mu;s CALVADOS-2/3 GPU MD of AKAP5 brushes &amp; phase-gated PDE4D around Ca<sub>V</sub>1.2, 1,093-drug FDA screen, 12 experimental PDB exit-vector viewers, 62-channel IDR targetability audit, and 1,097-drug human clinical IV <em>V</em><sub>d,ss</sub> validation.</p>' +
+              '</div>' +
+              '<div style="display:flex;flex-wrap:wrap;gap:7px;">' +
+                '<a href="https://yorekms.github.io/condensate-pharmacology/" target="_blank" rel="noopener" class="my-pp-btn" style="background:linear-gradient(135deg,#38BDF8,#818CF8);color:#082F49 !important;border-color:#38BDF8;font-weight:800;">&#129514; Research Hub &#8599;</a>' +
+                '<a href="https://yorekms.github.io/condensate-pharmacology/assets/paper1/Paper1_Theoretical_Pharmacology_Open_Preprint.pdf" target="_blank" rel="noopener" class="my-pp-btn">&#128196; Paper #1 (23 pp)</a>' +
+                '<a href="https://yorekms.github.io/condensate-pharmacology/assets/paper2/Paper2_Pharmacological_Strategy_Condensate_Design.pdf" target="_blank" rel="noopener" class="my-pp-btn">&#128196; Paper #2 (27 pp)</a>' +
+                '<a href="https://yorekms.github.io/condensate-pharmacology/assets/viewers/multitarget_pdb_exit_vector_viewer.html" target="_blank" rel="noopener" class="my-pp-btn" style="border-color:rgba(251,113,133,0.55);color:#FDA4AF !important;">12-PDB 3D Viewer &#8599;</a>' +
+              '</div>' +
+            '</article>' +
+            /* Card 3: IDR & LLPS Cell Atlas Monograph v3.1 (Zenodo DOI) */
+            '<article class="my-preprint-card" style="border-top:3px solid #C084FC;">' +
+              '<div>' +
+                '<div style="font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;color:#E9D5FF;margin-bottom:6px;">Open Monograph v3.1 &bull; Zenodo Archival DOI</div>' +
+                '<h3 style="margin:0 0 7px 0;font-size:16.5px;font-weight:800;color:#FFFFFF;line-height:1.3;">The Cross-Species IDR &amp; LLPS Cell Atlas (14 Chapters, 62 pp)</h3>' +
+                '<p style="margin:0;font-size:12.6px;line-height:1.55;color:#CBD5E1;">Polymer physics across 93,793 proteins (16 proteomes &times; 18 compartment microenvironments &times; 12 metabolic regimes), AlphaFold v6 valency coupling, Chapter 12 Tier A&ndash;F adversarial falsification ledger, and live 3D Simularium models.</p>' +
+              '</div>' +
+              '<div style="display:flex;flex-wrap:wrap;gap:7px;">' +
+                '<a href="https://yorekms.github.io/condensate-pharmacology/atlas-book.html" target="_blank" rel="noopener" class="my-pp-btn" style="background:linear-gradient(135deg,#E879F9,#C084FC);color:#1E1B4B !important;border-color:#C084FC;font-weight:800;">&#128214; Monograph Portal &#8599;</a>' +
+                '<a href="https://doi.org/10.5281/zenodo.24509495" target="_blank" rel="noopener" class="my-pp-btn" style="border-color:rgba(192,132,252,0.6);color:#EDE9FE !important;">Zenodo DOI &#8599;</a>' +
+                '<a href="https://yorekms.github.io/condensate-pharmacology/assets/atlas_book/pdf/IDR_LLPS_Cell_Atlas_Complete_Book.pdf" target="_blank" rel="noopener" class="my-pp-btn">&#128196; Book PDF</a>' +
+                '<button type="button" class="my-pp-btn my-copy-action" data-copy-kind="zenodo-apa">&#128203; APA</button>' +
+                '<button type="button" class="my-pp-btn my-copy-action" data-copy-kind="zenodo-bib">{ } BibTeX</button>' +
+              '</div>' +
+            '</article>' +
+          '</div>' +
+        '</section>' +
 
         /* SECTION 1: FLAGSHIP PORTALS & SOFTWARE */
         '<section id="sec-portals" class="my-sec-card">' +
@@ -615,7 +743,7 @@
               '<div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#38BDF8;margin-bottom:3px;">Primary Ecosystem Link-Outs</div>' +
               '<h2 style="margin:0;font-size:22px;font-weight:900;color:#FFFFFF;">Flagship Scientific Software, Workbenches &amp; Research Primers</h2>' +
             '</div>' +
-            '<span style="font-size:12px;color:#94A3B8;">6 Active Tools &amp; Portals</span>' +
+            '<span style="font-size:12px;color:#94A3B8;">' + FLAGSHIP_PORTALS.length + ' Active Tools &amp; Portals</span>' +
           '</div>' +
           '<div class="my-bento-grid">' + bentoHtml + '</div>' +
         '</section>' +
@@ -827,7 +955,10 @@
                 (p.firstAuthor ? '<span style="font-size:11px;font-weight:800;color:#FEF08A;background:rgba(161,98,7,0.42);padding:2px 8px;border-radius:999px;border:1px solid rgba(250,204,21,0.5);">&#9733; First Author</span>' : '') +
                 citeBadge + fwciBadge + rcrBadge +
               '</div>' +
-              '<a href="' + esc(linkUrl) + '" target="_blank" rel="noopener" style="font-family:ui-monospace,monospace;font-size:11.5px;font-weight:700;color:#34D399;text-decoration:none;">' + linkLabel + '</a>' +
+              '<div style="display:flex;align-items:center;gap:7px;">' +
+                '<button type="button" class="my-cite-btn" data-pub-num="' + p.num + '" title="Copy formatted citation">&#128203; Cite</button>' +
+                '<a href="' + esc(linkUrl) + '" target="_blank" rel="noopener" style="font-family:ui-monospace,monospace;font-size:11.5px;font-weight:700;color:#34D399;text-decoration:none;">' + linkLabel + '</a>' +
+              '</div>' +
             '</div>' +
             '<div style="font-size:14.5px;font-weight:800;color:#FFFFFF;line-height:1.38;margin-bottom:4px;">' +
               '<a href="' + esc(linkUrl) + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">' + esc(p.title) + '</a>' +
@@ -879,6 +1010,212 @@
     if (printBtn) {
       printBtn.addEventListener('click', function () { window.print(); });
     }
+
+    // Toast + 1-click Copy Citation (Monograph APA/BibTeX, Seizure Preprint, and all 23 peer-reviewed papers)
+    var toastEl = document.createElement('div');
+    toastEl.id = 'my-cv-toast';
+    toastEl.setAttribute('role', 'status');
+    toastEl.setAttribute('aria-live', 'polite');
+    toastEl.style.cssText = 'display:none;position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:1000020;background:#0F172A;border:1px solid #34D399;color:#ECFDF5;padding:10px 18px;border-radius:12px;font-size:12.5px;font-weight:700;box-shadow:0 14px 36px rgba(0,0,0,0.72);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;';
+    document.body.appendChild(toastEl);
+
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.style.display = 'block';
+      clearTimeout(toastEl._tm);
+      toastEl._tm = setTimeout(function () { toastEl.style.display = 'none'; }, 2400);
+    }
+
+    function copyText(text, okMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { showToast(okMsg); }).catch(function () { showToast(text); });
+      } else {
+        showToast(okMsg);
+      }
+    }
+
+    var CITATIONS = {
+      'zenodo-apa': 'Yorek, M. S. (2026). The Cross-Species IDR & LLPS Cell Atlas: Polymer Physics, Cellular Microenvironments, Multicomponent Active Condensates, Out-of-Sample Falsification & Spatiotemporal Signalosomes (v3.1). Zenodo. https://doi.org/10.5281/zenodo.24509495',
+      'zenodo-bib': '@book{yorek2026idr_llps_atlas,\n  author    = {Yorek, Matthew S.},\n  title     = {The Cross-Species IDR \\& LLPS Cell Atlas: Polymer Physics, Cellular Microenvironments, Multicomponent Active Condensates, Out-of-Sample Falsification \\& Spatiotemporal Signalosomes},\n  year      = {2026},\n  version   = {3.1},\n  publisher = {Zenodo},\n  doi       = {10.5281/zenodo.24509495},\n  url       = {https://doi.org/10.5281/zenodo.24509495}\n}',
+      'seizure-apa': 'Yorek, M. S. (2026). Seizure Transcriptomics Workbench: a traceable framework for Rab-associated pathway analysis and neuronal effect forecasting. Preprint & Open Portal: https://yorekms.github.io/seizure-transcriptomics-workbench/'
+    };
+
+    document.addEventListener('click', function (ev) {
+      var copyBtn = ev.target && ev.target.closest ? ev.target.closest('.my-copy-action') : null;
+      if (copyBtn) {
+        var kind = copyBtn.getAttribute('data-copy-kind');
+        if (CITATIONS[kind]) {
+          copyText(CITATIONS[kind], kind === 'zenodo-bib' ? 'Copied Zenodo BibTeX to clipboard!' : 'Copied formatted citation to clipboard!');
+        }
+        return;
+      }
+      var pubCiteBtn = ev.target && ev.target.closest ? ev.target.closest('.my-cite-btn') : null;
+      if (pubCiteBtn) {
+        var num = parseInt(pubCiteBtn.getAttribute('data-pub-num'), 10);
+        var pub = PUBLICATIONS.filter(function (x) { return x.num === num; })[0];
+        if (pub) {
+          var txt = pub.authors + '. ' + pub.title + '. ' + pub.journal + '. ' + pub.cite + '.' + (pub.doi ? (' https://doi.org/' + pub.doi) : (pub.pmid ? (' PMID: ' + pub.pmid) : ''));
+          copyText(txt, 'Copied citation #' + pub.num + ' (' + pub.journal + ' ' + pub.year + ')!');
+        }
+      }
+    });
+
+    // Visitor Quick-Start Path Buttons
+    var pathWrap = document.getElementById('my-visitor-paths');
+    if (pathWrap) {
+      pathWrap.addEventListener('click', function (ev) {
+        var card = ev.target && ev.target.closest ? ev.target.closest('[data-jump-path]') : null;
+        if (!card) return;
+        var mode = card.getAttribute('data-jump-path');
+        if (mode === 'preprints') {
+          var elP = document.getElementById('sec-preprints');
+          if (elP) elP.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (mode === 'epilepsy') {
+          activeFilter = 'neuro';
+          if (filterWrap) {
+            filterWrap.querySelectorAll('.my-pub-filter-btn').forEach(function (b) {
+              b.classList.toggle('active', b.getAttribute('data-filter') === 'neuro');
+            });
+          }
+          renderPubs();
+          var elE = document.getElementById('sec-preprints');
+          if (elE) elE.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          showToast('Filtered publications below to Epilepsy, GBM & Ion Channels (5 papers)');
+        } else if (mode === 'software') {
+          var elS = document.getElementById('sec-portals');
+          if (elS) elS.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (mode === 'cv') {
+          var elC = document.getElementById('sec-publications');
+          if (elC) elC.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+
+    // Floating Back-to-Top Button + Scroll-Spy Active Highlight on Sticky Jump Bar
+    var topBtn = document.createElement('button');
+    topBtn.id = 'my-back-top';
+    topBtn.type = 'button';
+    topBtn.setAttribute('aria-label', 'Back to top');
+    topBtn.innerHTML = '&#8593; Top';
+    document.body.appendChild(topBtn);
+    topBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    var sectionIds = ['sec-preprints', 'sec-portals', 'sec-appointments', 'sec-publications', 'sec-methods', 'sec-audio-hubs', 'sec-strava'];
+    var jumpLinks = Array.prototype.slice.call(document.querySelectorAll('.my-jump-bar a.my-jump-link'));
+    function updateScrollUI() {
+      var y = window.scrollY || document.documentElement.scrollTop || 0;
+      topBtn.classList.toggle('visible', y > 460);
+      var currentId = '';
+      for (var si = 0; si < sectionIds.length; si++) {
+        var sec = document.getElementById(sectionIds[si]);
+        if (sec && sec.getBoundingClientRect().top <= 130) currentId = sectionIds[si];
+      }
+      jumpLinks.forEach(function (a) {
+        a.classList.toggle('is-active', currentId && a.getAttribute('href') === '#' + currentId);
+      });
+    }
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+    updateScrollUI();
+
+    // Quick-Jump Command Palette (Ctrl+K / Cmd+K) across Preprints, Portals, 23 Publications & 12 Audio Hubs
+    var cmdModal = document.createElement('div');
+    cmdModal.id = 'my-cmd-modal';
+    cmdModal.setAttribute('role', 'dialog');
+    cmdModal.setAttribute('aria-modal', 'true');
+    cmdModal.setAttribute('aria-label', 'Quick Jump Search');
+    cmdModal.innerHTML =
+      '<div style="width:100%;max-width:640px;background:#090E1A;border:1px solid rgba(56,189,248,0.55);border-radius:18px;box-shadow:0 28px 70px rgba(0,0,0,0.88);overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;">' +
+        '<div style="display:flex;align-items:center;gap:10px;padding:12px 15px;border-bottom:1px solid rgba(148,163,184,0.18);">' +
+          '<span style="font-size:15px;">&#128269;</span>' +
+          '<input id="my-cmd-input" type="search" placeholder="Jump to any preprint, PDF, Zenodo DOI, tool, paper, or audio hub..." style="flex:1;background:transparent;border:none;color:#FFFFFF;font-size:14px;outline:none;font-family:inherit;" />' +
+          '<button type="button" id="my-cmd-close" style="background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:7px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;">Esc</button>' +
+        '</div>' +
+        '<div id="my-cmd-results" style="max-height:58vh;overflow-y:auto;padding:8px;"></div>' +
+        '<div style="padding:8px 14px;border-top:1px solid rgba(148,163,184,0.14);font-size:11px;color:#94A3B8;display:flex;justify-content:space-between;">' +
+          '<span>Tip: search genes (SCN8A, FABP4, PDE4D, Rab7), tools (ClampFlow, StatWeave), or DOIs</span>' +
+          '<span>&uarr;&darr; navigate &bull; Enter open</span>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(cmdModal);
+
+    var cmdItems = [
+      { cat: 'Preprint PDF', label: 'Seizure Transcriptomics Workbench — Full Preprint PDF (43 pp)', url: 'https://yorekms.github.io/seizure-transcriptomics-workbench/assets/Seizure_Transcriptomics_Workbench_Preprint_Yorek.pdf', kw: 'seizure rab7 bioinformatics epilepsy preprint pdf bayesian geo' },
+      { cat: 'Portal', label: 'Seizure Transcriptomics Workbench — Interactive Portal & CSVs', url: 'https://yorekms.github.io/seizure-transcriptomics-workbench/', kw: 'seizure rab7 transcriptomics workbench portal figures' },
+      { cat: 'Zenodo DOI', label: 'Cross-Species IDR & LLPS Cell Atlas Monograph (DOI: 10.5281/zenodo.24509495)', url: 'https://doi.org/10.5281/zenodo.24509495', kw: 'zenodo doi idr llps monograph book atlas condensate polymer physics' },
+      { cat: 'Monograph PDF', label: 'Cross-Species IDR & LLPS Cell Atlas — Complete Book PDF (62 pp)', url: 'https://yorekms.github.io/condensate-pharmacology/assets/atlas_book/pdf/IDR_LLPS_Cell_Atlas_Complete_Book.pdf', kw: 'book pdf monograph idr llps cell atlas chapter 12 falsification' },
+      { cat: 'Preprint PDF', label: 'Paper #1 — Phase-Partitioned Allosteric Pharmacology (AKAP5/PDE4D/CaV1.2, 23 pp)', url: 'https://yorekms.github.io/condensate-pharmacology/assets/paper1/Paper1_Theoretical_Pharmacology_Open_Preprint.pdf', kw: 'paper 1 pde4d akap5 cav1.2 calvados condensate cromolyn zatolmilast lumacaftor' },
+      { cat: 'Preprint PDF', label: 'Paper #2 — Condensate Drug Design, 62-Channel Audit & Clinical V_d,ss (27 pp)', url: 'https://yorekms.github.io/condensate-pharmacology/assets/paper2/Paper2_Pharmacological_Strategy_Condensate_Design.pdf', kw: 'paper 2 61 drug clinvar gnomad vina 12 pdb vdss cftr hcn2 anesthetics' },
+      { cat: '3D Viewer', label: '12-PDB Multi-Drug Exit-Vector Interactive 3D Explorer', url: 'https://yorekms.github.io/condensate-pharmacology/assets/viewers/multitarget_pdb_exit_vector_viewer.html', kw: '3d pdb viewer imatinib abemaciclib osimertinib venetoclax' }
+    ];
+    FLAGSHIP_PORTALS.forEach(function (fp) {
+      cmdItems.push({ cat: 'Portal', label: fp.title, url: fp.url, kw: (fp.title + ' ' + fp.badge + ' ' + fp.desc).toLowerCase() });
+    });
+    HUB_CARDS.forEach(function (hc) {
+      cmdItems.push({ cat: 'Audio Hub', label: hc.icon + ' ' + hc.name + ' (' + hc.sub + ')', url: hc.url, kw: (hc.name + ' ' + hc.sub + ' podcast audio').toLowerCase() });
+    });
+    PUBLICATIONS.forEach(function (p) {
+      var u = p.doi ? ('https://doi.org/' + p.doi) : (p.pmid ? ('https://pubmed.ncbi.nlm.nih.gov/' + p.pmid + '/') : CONFIG.pubmedUrl);
+      cmdItems.push({ cat: p.journal + ' ' + p.year, label: p.title, url: u, kw: (p.title + ' ' + p.authors + ' ' + p.journal + ' ' + p.year + ' ' + (p.roleNote || '')).toLowerCase() });
+    });
+
+    var cmdInput = document.getElementById('my-cmd-input');
+    var cmdResults = document.getElementById('my-cmd-results');
+    var cmdClose = document.getElementById('my-cmd-close');
+    var openCmdBtn = document.getElementById('my-open-cmd-btn');
+    var cmdSelIdx = 0;
+    var cmdCurrent = [];
+
+    function renderCmd() {
+      var q = (cmdInput ? cmdInput.value : '').trim().toLowerCase();
+      cmdCurrent = cmdItems.filter(function (it) {
+        return !q || it.label.toLowerCase().indexOf(q) !== -1 || it.cat.toLowerCase().indexOf(q) !== -1 || it.kw.indexOf(q) !== -1;
+      }).slice(0, 14);
+      cmdSelIdx = 0;
+      if (!cmdCurrent.length) {
+        cmdResults.innerHTML = '<div style="padding:18px;text-align:center;color:#94A3B8;font-size:13px;">No matching portals, preprints, or papers.</div>';
+        return;
+      }
+      cmdResults.innerHTML = cmdCurrent.map(function (it, idx) {
+        return '<a href="' + esc(it.url) + '" target="_blank" rel="noopener" class="my-cmd-item' + (idx === 0 ? ' selected' : '') + '" data-cmd-idx="' + idx + '">' +
+          '<span style="font-size:13px;font-weight:700;line-height:1.35;">' + esc(it.label) + '</span>' +
+          '<span style="font-size:10.5px;font-weight:800;color:#7DD3FC;background:rgba(14,116,144,0.32);border:1px solid rgba(56,189,248,0.35);padding:2px 8px;border-radius:999px;white-space:nowrap;">' + esc(it.cat) + ' &#8599;</span>' +
+        '</a>';
+      }).join('');
+    }
+    function openCmd() {
+      cmdModal.classList.add('open');
+      if (cmdInput) { cmdInput.value = ''; cmdInput.focus(); }
+      renderCmd();
+    }
+    function closeCmd() { cmdModal.classList.remove('open'); }
+    if (openCmdBtn) openCmdBtn.addEventListener('click', openCmd);
+    if (cmdClose) cmdClose.addEventListener('click', closeCmd);
+    cmdModal.addEventListener('click', function (ev) { if (ev.target === cmdModal) closeCmd(); });
+    if (cmdInput) {
+      cmdInput.addEventListener('input', renderCmd);
+      cmdInput.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape') { closeCmd(); return; }
+        if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') {
+          ev.preventDefault();
+          if (!cmdCurrent.length) return;
+          cmdSelIdx = (cmdSelIdx + (ev.key === 'ArrowDown' ? 1 : -1) + cmdCurrent.length) % cmdCurrent.length;
+          cmdResults.querySelectorAll('.my-cmd-item').forEach(function (el, i) { el.classList.toggle('selected', i === cmdSelIdx); });
+        } else if (ev.key === 'Enter' && cmdCurrent[cmdSelIdx]) {
+          ev.preventDefault();
+          window.open(cmdCurrent[cmdSelIdx].url, '_blank', 'noopener');
+          closeCmd();
+        }
+      });
+    }
+    document.addEventListener('keydown', function (ev) {
+      if ((ev.ctrlKey || ev.metaKey) && String(ev.key || '').toLowerCase() === 'k') {
+        ev.preventDefault();
+        if (cmdModal.classList.contains('open')) closeCmd();
+        else openCmd();
+      } else if (ev.key === 'Escape' && cmdModal.classList.contains('open')) {
+        closeCmd();
+      }
+    });
 
     document.addEventListener('click', function (ev) {
       var rssBtn = ev.target && ev.target.closest ? ev.target.closest('#crp-open-rss-modal-btn') : null;
