@@ -1,5 +1,5 @@
 /*!
- * Deep Dive Podcast Network - shared Carrd hub player (v2.3.0).
+ * Deep Dive Podcast Network - shared Carrd hub player (v2.4.0).
  * Hosted on GitHub Pages: https://yorekms.github.io/deep-dive-podcasts/hub/player.js
  *
  * Each Carrd site only needs a tiny embed:
@@ -15,9 +15,9 @@
   if (window.__crpHubLoaded) return;
   window.__crpHubLoaded = true;
 
-  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-cnt{font-size:9.5px;font-weight:900;color:#6EE7B7;background:rgba(16,185,129,0.20);border:1px solid rgba(52,211,153,0.52);padding:1px 6px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer;transition:all 0.15s ease} .crp-ep-cnt:hover{background:#10B981;color:#052E16;border-color:#34D399} .crp-paired-debate-card{border-left:3px solid #C084FC !important;background:linear-gradient(135deg,rgba(46,16,101,0.34),rgba(15,23,42,0.88)) !important} .crp-paired-line{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:10.7px;font-weight:800;color:#D8B4FE;line-height:1.32;margin-top:1px} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} } .crp-stance-badge{display:inline-flex;align-items:center;gap:4px;font-size:9.6px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;letter-spacing:0.01em} .crp-theory-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;padding-left:27px;margin-top:4px;box-sizing:border-box} .crp-theory-meta{display:inline-flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:10.3px;color:#94A3B8;font-weight:600} .crp-theory-open-btn{appearance:none;border:1px solid {A}77;background:rgba(14,116,144,0.22);color:#BAE6FD;font-size:10.3px;font-weight:800;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-theory-open-btn:hover{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} .crp-atlas-only .crp-ep-ico{background:rgba(56,189,248,0.14);border-color:rgba(56,189,248,0.45);color:#7DD3FC;font-size:10.5px} .crp-stance-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:10.4px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit;transition:all 0.15s ease} .crp-stance-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.94)} .crp-stance-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} #crp-theory-modal{display:none;position:fixed;inset:0;background:rgba(3,7,18,0.86);backdrop-filter:blur(10px);z-index:1000002;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left} #crp-theory-modal-box{width:100%;max-width:960px;max-height:90vh;overflow-y:auto;background:#080F1E;border:1px solid {A}77;border-radius:20px;padding:22px 24px;box-shadow:0 28px 80px rgba(0,0,0,0.92),0 0 42px {A}26;color:#F8FAFC;box-sizing:border-box} .crp-tm-sec-title{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin:14px 0 7px 0;display:flex;align-items:center;gap:6px} .crp-tm-box{padding:11px 14px;border-radius:12px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.10);font-size:12.6px;line-height:1.54;color:#E2E8F0} .crp-tm-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:10px} .crp-tm-timeline{position:relative;padding-left:18px;border-left:2px solid rgba(56,189,248,0.35);margin:6px 0 2px 6px} .crp-tm-tl-item{position:relative;margin-bottom:9px;font-size:12.2px;line-height:1.45;color:#CBD5E1} .crp-tm-tl-item:last-child{margin-bottom:0} .crp-tm-tl-dot{position:absolute;left:-24px;top:4px;width:10px;height:10px;border-radius:50%;background:#38BDF8;border:2px solid #080F1E;box-shadow:0 0 8px rgba(56,189,248,0.65)} .crp-tm-tl-yr{font-weight:800;color:#7DD3FC;margin-right:6px;font-variant-numeric:tabular-nums} .crp-rival-pill{appearance:none;border:1px solid rgba(245,158,11,0.45);background:rgba(120,53,15,0.34);color:#FDE68A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-rival-pill:hover{background:#F59E0B;color:#090E1A;border-color:#FBBF24} .crp-paper-card{padding:10px 12px;border-radius:11px;background:rgba(15,23,42,0.88);border:1px solid rgba(255,255,255,0.10);margin-bottom:7px;transition:border-color 0.15s ease} .crp-paper-card.role-supporting{border-left:3px solid #10B981} .crp-paper-card.role-refuting{border-left:3px solid #FB7185} .crp-paper-card.role-foundational{border-left:3px solid #38BDF8} .crp-paper-card.role-null_mixed{border-left:3px solid #F59E0B} .crp-role-chip{display:inline-flex;align-items:center;font-size:9.4px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap} .crp-role-chip.supporting{color:#6EE7B7;background:rgba(16,185,129,0.18);border:1px solid rgba(52,211,153,0.48)} .crp-role-chip.refuting{color:#FDA4AF;background:rgba(244,63,94,0.18);border:1px solid rgba(251,113,133,0.48)} .crp-role-chip.foundational{color:#BAE6FD;background:rgba(56,189,248,0.18);border:1px solid rgba(56,189,248,0.48)} .crp-role-chip.null_mixed{color:#FDE68A;background:rgba(245,158,11,0.18);border:1px solid rgba(251,191,36,0.48)} .crp-link-chip{display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap} .crp-link-chip.direct{color:#7DD3FC;background:rgba(14,116,144,0.24);border:1px solid rgba(56,189,248,0.48)} .crp-link-chip.indirect{color:#DDD6FE;background:rgba(139,92,246,0.24);border:1px solid rgba(167,139,250,0.58)} .crp-tier-chip{display:inline-flex;align-items:center;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;color:#E2E8F0;background:rgba(51,65,85,0.65);border:1px solid rgba(148,163,184,0.42);white-space:nowrap} .crp-tier-chip.tier-high{color:#FDE68A;background:rgba(120,53,15,0.38);border-color:rgba(251,191,36,0.52)} .crp-living-chip{display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;color:#5EEAD4;background:rgba(13,148,136,0.22);border:1px solid rgba(45,212,191,0.52);white-space:nowrap} .crp-escape-note{font-size:11.2px;color:#FDE68A;line-height:1.42;margin-bottom:7px;padding:5px 8px;border-radius:7px;background:rgba(120,53,15,0.24);border-left:2px solid #F59E0B} .crp-eb-bar{display:flex;width:100%;height:10px;border-radius:999px;overflow:hidden;background:rgba(2,6,23,0.78);border:1px solid rgba(255,255,255,0.10);margin:6px 0 9px 0;gap:1px} .crp-eb-seg{height:100%;transition:width 0.25s ease;min-width:4px} .crp-eb-pills{display:flex;flex-wrap:wrap;gap:6px;align-items:center} .crp-eb-pill{display:inline-flex;align-items:center;gap:4px;font-size:10.3px;font-weight:800;padding:2px 9px;border-radius:999px;white-space:nowrap} .crp-mom-pill{display:inline-flex;align-items:center;gap:5px;font-size:10.2px;font-weight:800;padding:2px 10px;border-radius:999px;letter-spacing:0.02em;white-space:nowrap} .crp-lit-tabs{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 10px 0} .crp-lit-tab{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.85);color:#CBD5E1;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-lit-tab:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.95)} .crp-lit-tab.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55;font-weight:800} .crp-h2h-table-wrap{overflow-x:auto;margin:8px 0;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(2,6,23,0.58)} .crp-h2h-table{width:100%;border-collapse:collapse;font-size:11.4px;line-height:1.42;text-align:left} .crp-h2h-table th{padding:7px 9px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.12);background:rgba(15,23,42,0.92)} .crp-h2h-table td{padding:7px 9px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,0.07);color:#E2E8F0} .crp-h2h-table tr:last-child td{border-bottom:none} .crp-h2h-table tbody tr:nth-child(even){background:rgba(15,23,42,0.42)} .crp-hatch-box{margin-top:8px;padding:9px 11px;border-radius:10px;background:rgba(120,53,15,0.18);border:1px solid rgba(251,191,36,0.34)} .crp-hatch-list{margin:5px 0 0 0;padding-left:18px;font-size:11.5px;line-height:1.46;color:#FEF3C7} .crp-hatch-list li{margin-bottom:4px} .crp-hatch-list li:last-child{margin-bottom:0} .crp-h2h-details{margin-top:9px;border-radius:10px;border:1px solid rgba(56,189,248,0.34);background:rgba(2,6,23,0.62);overflow:hidden} .crp-h2h-details summary{cursor:pointer;padding:8px 11px;font-size:11.4px;font-weight:800;color:#7DD3FC;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;user-select:none} .crp-h2h-details summary::-webkit-details-marker{display:none} .crp-h2h-details[open] summary{border-bottom:1px solid rgba(56,189,248,0.22);background:rgba(14,116,144,0.16)} .crp-proto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;padding:10px 11px} .crp-proto-cell{padding:7px 9px;border-radius:8px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.08);font-size:11.4px;line-height:1.44;color:#E2E8F0} .crp-proto-k{font-size:9.8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#7DD3FC;margin-bottom:3px} .crp-proto-yaml{margin:0 11px 11px 11px;padding:8px 10px;border-radius:8px;background:#040812;border:1px solid rgba(255,255,255,0.09);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.6px;line-height:1.42;color:#CBD5E1;max-height:210px;overflow:auto;white-space:pre-wrap;word-break:break-word} #crp-diag-panel{display:none;width:100%;margin:0 auto 14px auto;padding:14px 16px;background:linear-gradient(145deg,rgba(14,116,144,0.22),rgba(9,14,26,0.94));border:1px solid rgba(56,189,248,0.52);border-radius:14px;box-sizing:border-box;text-align:left} .crp-diag-sample{appearance:none;border:1px solid rgba(56,189,248,0.38);background:rgba(15,23,42,0.85);color:#BAE6FD;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-diag-sample:hover{background:#38BDF8;color:#090E1A;border-color:#38BDF8} .crp-diag-res-card{padding:11px 13px;border-radius:12px;background:rgba(15,23,42,0.92);border:1px solid rgba(255,255,255,0.12);margin-top:8px} .crp-stealth-pill{display:inline-block;font-size:10px;font-weight:700;color:#CBD5E1;background:rgba(30,41,59,0.9);border:1px solid rgba(148,163,184,0.32);padding:2px 7px;border-radius:999px}";
+  var CSS_TPL = "html{font-size:16px !important} #divider04,#divider01,#divider02,#divider03,#divider05,#divider06,#text04,#text06,#text07,#text03,#text01,#buttons03,#buttons04,#buttons05,#buttons02,#buttons01{display:none !important} .site-main>.inner,#main>.inner{width:min(96vw,1560px) !important;max-width:1560px !important;padding:28px 24px 145px 24px !important} #text02{font-size:34px !important;margin-bottom:6px !important;letter-spacing:-0.02em !important;line-height:1.15 !important} #text08{font-size:15px !important;opacity:0.88 !important;margin-bottom:14px !important;line-height:1.48 !important} .crp-hub-pill{transition:all 0.18s cubic-bezier(0.16,1,0.3,1)} .crp-hub-pill:hover{transform:translateY(-1px);border-color:{A} !important;background:rgba(30,41,59,0.94) !important;box-shadow:0 4px 12px rgba(0,0,0,0.35)} .crp-spd-btn,.crp-mini-chip{appearance:none;border:1px solid #334155;background:#131C31;color:#CBD5E1;font-size:10.5px;font-weight:700;padding:3px 7px;border-radius:7px;cursor:pointer;line-height:1.15;font-family:inherit;transition:all 0.15s ease} .crp-spd-btn:hover,.crp-mini-chip:hover{border-color:{A};color:#FFFFFF} .crp-spd-btn.active,.crp-mini-chip.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}66} #crp-sources-chip{appearance:none;background:rgba(15,23,42,0.92);border:1px solid {A}88;color:{A};border-radius:999px;padding:2px 9px;font-size:10.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all 0.16s ease;box-shadow:0 0 10px {A}24} #crp-sources-chip:hover{background:rgba(30,41,59,0.98);border-color:{A};color:#FFFFFF;transform:translateY(-0.5px)} #crp-sources-chip.active{background:{A} !important;color:#090E1A !important;border-color:{A} !important;box-shadow:0 0 12px {A}66} .crp-ctrl-btn{appearance:none;border:1px solid #334155;background:#131C31;color:#E2E8F0;font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-ctrl-btn:hover{border-color:{A};color:#FFFFFF;background:#1E293B} #crp-seek{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#1E293B;outline:none;cursor:pointer;margin:0} #crp-seek::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} #crp-seek::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:{A};border:2px solid #FFFFFF;box-shadow:0 0 9px {A};cursor:pointer} .crp-sec-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-sec-pill:hover{border-color:{A};color:#FFFFFF} .crp-sec-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 11px {A}55} .crp-done-pill{appearance:none;border:1px solid rgba(16,185,129,0.45);background:rgba(6,78,59,0.34);color:#6EE7B7;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;transition:all 0.16s ease;font-family:inherit} .crp-done-pill:hover{border-color:#34D399;color:#ECFDF5;background:rgba(6,95,70,0.52)} .crp-done-pill.active{background:#10B981;color:#052E16;border-color:#34D399;box-shadow:0 0 11px rgba(16,185,129,0.5)} .crp-ep-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;width:100%;margin:6px 0 18px 0} .crp-ep-btn{display:flex;flex-direction:column;justify-content:center;gap:4px;width:100%;min-height:46px;padding:10px 13px;border-radius:10px;text-decoration:none !important;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.15);box-shadow:0 3px 10px rgba(0,0,0,0.24);backdrop-filter:blur(10px);color:#F8FAFC !important;font-size:13px;font-weight:600;line-height:1.34;text-align:left;box-sizing:border-box;transition:all 0.16s ease} .crp-ep-btn:hover{transform:translateY(-1px);background:rgba(30,41,59,0.95);border-color:{A};box-shadow:0 6px 16px rgba(0,0,0,0.4),0 0 12px {A}2B} .crp-ep-top{display:flex;align-items:flex-start;gap:9px;width:100%} .crp-ep-ico{width:18px;height:18px;margin-top:1px;border-radius:50%;background:{A}22;color:{A};display:inline-flex;align-items:center;justify-content:center;font-size:8.5px;flex-shrink:0;border:1px solid {A}55} .crp-ep-lbl{flex:1;min-width:0;white-space:normal;overflow:visible;display:block;font-size:13.3px;font-weight:700;color:#FFFFFF;line-height:1.32;word-break:break-word} .crp-ep-sub{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:11.7px;font-weight:500;color:#CBD5E1;line-height:1.38;word-break:break-word} .crp-ep-tag{font-size:9.5px;font-weight:800;color:{A};background:{A}1A;border:1px solid {A}44;padding:2px 7px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap} .crp-ep-tag[data-kind=\"one-medicine\"]{color:#38BDF8;background:rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)} .crp-ep-tag[data-kind=\"clinical-cluster\"]{color:#FBBF24;background:rgba(251,191,36,0.15);border-color:rgba(251,191,36,0.45)} .crp-ep-tag[data-kind=\"debate\"]{color:#C084FC;background:rgba(192,132,252,0.15);border-color:rgba(192,132,252,0.42)} .crp-ep-tag[data-kind=\"shoulders-of-giants\"]{color:#FCD34D;background:rgba(245,158,11,0.16);border-color:rgba(245,158,11,0.48)} .crp-ep-tag[data-kind=\"one-angstrom\"]{color:#5EEAD4;background:rgba(20,184,166,0.16);border-color:rgba(20,184,166,0.46)} .crp-ep-tag[data-kind=\"one-angstrom-giants\"]{color:#F9A8D4;background:rgba(244,114,182,0.17);border-color:rgba(244,114,182,0.52)} .crp-ep-tag[data-kind=\"enhancement\"]{color:#FCA5A5;background:rgba(239,68,68,0.17);border-color:rgba(239,68,68,0.52)} .crp-ep-tag[data-kind=\"vice\"]{color:#BEF264;background:rgba(132,204,22,0.16);border-color:rgba(163,230,53,0.52)} .crp-fmt-bar{width:100%;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-wrap:wrap;gap:5px;align-items:center;font-size:10.5px;color:#94A3B8} .crp-fmt-pill{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.75);color:#CBD5E1;font-size:10.2px;font-weight:700;padding:3px 8px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-family:inherit;transition:all 0.15s ease} .crp-fmt-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.92)} .crp-fmt-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 9px {A}55} .crp-fmt-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0} .crp-ep-cnt{font-size:9.5px;font-weight:900;color:#6EE7B7;background:rgba(16,185,129,0.20);border:1px solid rgba(52,211,153,0.52);padding:1px 6px;margin-top:1px;border-radius:999px;flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer;transition:all 0.15s ease} .crp-ep-cnt:hover{background:#10B981;color:#052E16;border-color:#34D399} .crp-paired-debate-card{border-left:3px solid #C084FC !important;background:linear-gradient(135deg,rgba(46,16,101,0.34),rgba(15,23,42,0.88)) !important} .crp-paired-line{display:block;width:100%;padding-left:27px;box-sizing:border-box;font-size:10.7px;font-weight:800;color:#D8B4FE;line-height:1.32;margin-top:1px} .crp-ep-chk{width:16px;height:16px;margin-top:1px;border-radius:50%;border:1px solid rgba(148,163,184,0.38);background:rgba(15,23,42,0.55);color:transparent;display:inline-flex;align-items:center;justify-content:center;font-size:9.5px;font-weight:900;flex-shrink:0;cursor:pointer;transition:all 0.15s ease} .crp-ep-chk:hover{border-color:#34D399;color:#6EE7B7;background:rgba(16,185,129,0.20);transform:scale(1.14)} .crp-inprog-card{border-left:3px solid #F59E0B !important;background:rgba(30,27,18,0.80) !important} .crp-inprog-card .crp-ep-ico{border-color:#F59E0B;color:#FBBF24;background:rgba(245,158,11,0.18)} .crp-done-card{background:rgba(6,78,59,0.38) !important;border:1px solid rgba(16,185,129,0.50) !important;border-left:3px solid #10B981 !important} .crp-done-card:hover{background:rgba(6,95,70,0.54) !important;border-color:#34D399 !important} .crp-done-card .crp-ep-ico{background:rgba(16,185,129,0.22);border-color:#10B981;color:#34D399;font-weight:900} .crp-done-card .crp-ep-lbl{color:#CBD5E1 !important} .crp-done-card .crp-ep-sub{color:#94A3B8 !important} .crp-done-card .crp-ep-tag{color:#6EE7B7;background:rgba(16,185,129,0.14);border-color:rgba(16,185,129,0.38)} .crp-done-card .crp-ep-chk{background:#10B981;border-color:#34D399;color:#052E16;box-shadow:0 0 8px rgba(16,185,129,0.45)} .crp-playing-card{border-color:{A} !important;box-shadow:0 0 0 2px {A}66,0 8px 20px rgba(0,0,0,0.5) !important;background:rgba(30,41,59,0.96) !important} #crp-sources-drawer{display:none;max-height:min(52vh,380px);overflow-y:auto;background:#070D1C;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:11.8px;line-height:1.48;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-sources-drawer a{color:{A};text-decoration:none;font-weight:700} #crp-sources-drawer a:hover{text-decoration:underline} .crp-src-card{padding:8px 10px;border-radius:10px;background:rgba(15,23,42,0.86);border:1px solid rgba(255,255,255,0.10);margin-bottom:6px;transition:border-color 0.15s ease,background 0.15s ease} .crp-src-card:hover{border-color:{A}88;background:rgba(30,41,59,0.94)} .crp-pdb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:7px;margin-bottom:10px} .crp-pdb-card{padding:8px 10px;border-radius:10px;background:linear-gradient(145deg,rgba(13,31,45,0.92),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.40);transition:border-color 0.15s ease,transform 0.15s ease} .crp-pdb-card:hover{border-color:#2DD4BF;transform:translateY(-1px)} .crp-ext-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:800;text-decoration:none !important;line-height:1.35;transition:all 0.14s ease;white-space:nowrap} .crp-pdb-pill{background:rgba(20,184,166,0.18);border:1px solid rgba(45,212,191,0.55);color:#5EEAD4 !important} .crp-pdb-pill:hover{background:#2DD4BF;color:#042F2E !important} .crp-mol-pill{background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.52);color:#7DD3FC !important} .crp-mol-pill:hover{background:#38BDF8;color:#082F49 !important} .crp-pmc-pill{background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.50);color:#6EE7B7 !important} .crp-pmc-pill:hover{background:#34D399;color:#052E16 !important} .crp-cite-pill{background:rgba(148,163,184,0.14);border:1px solid rgba(148,163,184,0.40);color:#E2E8F0 !important} .crp-cite-pill:hover{border-color:{A};color:#FFFFFF !important;background:rgba(30,41,59,0.95)} #crp-transcript-drawer{display:none;max-height:min(54vh,380px);overflow-y:auto;background:#080E1E;border:1px solid {A}66;border-radius:13px;padding:10px 12px;margin-bottom:9px;font-size:12px;line-height:1.5;color:#E2E8F0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06)} #crp-transcript-drawer.crp-big-txt{font-size:14px;line-height:1.6} .crp-tr-tab{appearance:none;border:none;background:transparent;color:#94A3B8;font-size:10.8px;font-weight:700;padding:4px 9px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-tr-tab:hover{color:#FFFFFF} .crp-tr-tab.active{background:{A};color:#090E1A;font-weight:800} .crp-tr-turn{padding:7px 10px;border-radius:10px;margin-bottom:6px;background:rgba(15,23,42,0.82);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.14s ease} .crp-tr-turn:hover{border-color:{A}88;background:rgba(30,41,59,0.92)} .crp-tr-turn.active{border-color:{A};background:rgba(15,23,42,0.98);box-shadow:0 0 0 1px {A}66,0 4px 12px rgba(0,0,0,0.4)} .crp-quiz-opt{display:block;width:100%;text-align:left;margin-top:5px;padding:6px 9px;border-radius:8px;border:1px solid #334155;background:#0F172A;color:#E2E8F0;font-size:11.5px;font-family:inherit;cursor:pointer;transition:all 0.14s ease} .crp-quiz-opt:hover{border-color:{A};color:#FFFFFF} @media (max-width:780px){.crp-ep-grid{grid-template-columns:1fr} .site-main>.inner,#main>.inner{padding:20px 14px 145px 14px !important} #text02{font-size:26px !important} } .crp-stance-badge{display:inline-flex;align-items:center;gap:4px;font-size:9.6px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;letter-spacing:0.01em} .crp-theory-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px;padding-left:27px;margin-top:4px;box-sizing:border-box} .crp-theory-meta{display:inline-flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:10.3px;color:#94A3B8;font-weight:600} .crp-theory-open-btn{appearance:none;border:1px solid {A}77;background:rgba(14,116,144,0.22);color:#BAE6FD;font-size:10.3px;font-weight:800;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.15s ease} .crp-theory-open-btn:hover{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} .crp-atlas-only .crp-ep-ico{background:rgba(56,189,248,0.14);border-color:rgba(56,189,248,0.45);color:#7DD3FC;font-size:10.5px} .crp-stance-pill{appearance:none;border:1px solid rgba(255,255,255,0.16);background:rgba(15,23,42,0.82);color:#CBD5E1;font-size:10.4px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit;transition:all 0.15s ease} .crp-stance-pill:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.94)} .crp-stance-pill.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55} #crp-theory-modal{display:none;position:fixed;inset:0;background:rgba(3,7,18,0.86);backdrop-filter:blur(10px);z-index:1000002;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left} #crp-theory-modal-box{width:100%;max-width:980px;max-height:90vh;overflow-y:auto;background:#080F1E;border:1px solid {A}77;border-radius:20px;padding:22px 24px;box-shadow:0 28px 80px rgba(0,0,0,0.92),0 0 42px {A}26;color:#F8FAFC;box-sizing:border-box} .crp-tm-sec-title{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin:14px 0 7px 0;display:flex;align-items:center;gap:6px} .crp-tm-box{padding:11px 14px;border-radius:12px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.10);font-size:12.6px;line-height:1.54;color:#E2E8F0} .crp-tm-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:10px} .crp-tm-timeline{position:relative;padding-left:18px;border-left:2px solid rgba(56,189,248,0.35);margin:6px 0 2px 6px} .crp-tm-tl-item{position:relative;margin-bottom:9px;font-size:12.2px;line-height:1.45;color:#CBD5E1} .crp-tm-tl-item:last-child{margin-bottom:0} .crp-tm-tl-dot{position:absolute;left:-24px;top:4px;width:10px;height:10px;border-radius:50%;background:#38BDF8;border:2px solid #080F1E;box-shadow:0 0 8px rgba(56,189,248,0.65)} .crp-tm-tl-yr{font-weight:800;color:#7DD3FC;margin-right:6px;font-variant-numeric:tabular-nums} .crp-rival-pill{appearance:none;border:1px solid rgba(245,158,11,0.45);background:rgba(120,53,15,0.34);color:#FDE68A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-rival-pill:hover{background:#F59E0B;color:#090E1A;border-color:#FBBF24} .crp-paper-card{padding:10px 12px;border-radius:11px;background:rgba(15,23,42,0.88);border:1px solid rgba(255,255,255,0.10);margin-bottom:7px;transition:border-color 0.15s ease} .crp-paper-card.role-supporting{border-left:3px solid #10B981} .crp-paper-card.role-refuting{border-left:3px solid #FB7185} .crp-paper-card.role-foundational{border-left:3px solid #38BDF8} .crp-paper-card.role-null_mixed{border-left:3px solid #F59E0B} .crp-role-chip{display:inline-flex;align-items:center;font-size:9.4px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap} .crp-role-chip.supporting{color:#6EE7B7;background:rgba(16,185,129,0.18);border:1px solid rgba(52,211,153,0.48)} .crp-role-chip.refuting{color:#FDA4AF;background:rgba(244,63,94,0.18);border:1px solid rgba(251,113,133,0.48)} .crp-role-chip.foundational{color:#BAE6FD;background:rgba(56,189,248,0.18);border:1px solid rgba(56,189,248,0.48)} .crp-role-chip.null_mixed{color:#FDE68A;background:rgba(245,158,11,0.18);border:1px solid rgba(251,191,36,0.48)} .crp-link-chip{display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap} .crp-link-chip.direct{color:#7DD3FC;background:rgba(14,116,144,0.24);border:1px solid rgba(56,189,248,0.48)} .crp-link-chip.indirect{color:#DDD6FE;background:rgba(139,92,246,0.24);border:1px solid rgba(167,139,250,0.58)} .crp-prox-chip{display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;letter-spacing:0.02em;white-space:nowrap} .crp-prox-chip.direct-test{color:#7DD3FC;background:rgba(14,116,144,0.26);border:1px solid rgba(56,189,248,0.52)} .crp-prox-chip.indirect-constraint{color:#DDD6FE;background:rgba(139,92,246,0.24);border:1px solid rgba(167,139,250,0.58)} .crp-prox-chip.adjacent-clue{color:#C7D2FE;background:rgba(79,70,229,0.26);border:1px solid rgba(129,140,248,0.55)} .crp-pillar-chip{appearance:none;display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;color:#BAE6FD;background:rgba(30,58,138,0.44);border:1px solid rgba(96,165,250,0.52);cursor:pointer;font-family:inherit;white-space:nowrap;transition:all 0.14s ease} .crp-pillar-chip:hover{background:#38BDF8;color:#090E1A;border-color:#38BDF8} .crp-tier-chip{display:inline-flex;align-items:center;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;color:#E2E8F0;background:rgba(51,65,85,0.65);border:1px solid rgba(148,163,184,0.42);white-space:nowrap} .crp-tier-chip.tier-high{color:#FDE68A;background:rgba(120,53,15,0.38);border-color:rgba(251,191,36,0.52)} .crp-living-chip{display:inline-flex;align-items:center;gap:3px;font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;color:#5EEAD4;background:rgba(13,148,136,0.22);border:1px solid rgba(45,212,191,0.52);white-space:nowrap} .crp-bridge-note{font-size:11.3px;color:#E0E7FF;line-height:1.44;margin-bottom:6px;padding:6px 9px;border-radius:7px;background:rgba(79,70,229,0.16);border-left:2px solid #818CF8} .crp-escape-note{font-size:11.2px;color:#FDE68A;line-height:1.42;margin-bottom:7px;padding:5px 8px;border-radius:7px;background:rgba(120,53,15,0.24);border-left:2px solid #F59E0B} .crp-eb-bar{display:flex;width:100%;height:10px;border-radius:999px;overflow:hidden;background:rgba(2,6,23,0.78);border:1px solid rgba(255,255,255,0.10);margin:6px 0 9px 0;gap:1px} .crp-eb-seg{height:100%;transition:width 0.25s ease;min-width:4px} .crp-eb-pills{display:flex;flex-wrap:wrap;gap:6px;align-items:center} .crp-eb-pill{display:inline-flex;align-items:center;gap:4px;font-size:10.3px;font-weight:800;padding:2px 9px;border-radius:999px;white-space:nowrap} .crp-mom-pill{display:inline-flex;align-items:center;gap:5px;font-size:10.2px;font-weight:800;padding:2px 10px;border-radius:999px;letter-spacing:0.02em;white-space:nowrap} .crp-pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:8px;margin-top:6px} .crp-pillar-card{appearance:none;text-align:left;width:100%;padding:10px 11px;border-radius:12px;background:linear-gradient(145deg,rgba(15,23,42,0.92),rgba(8,15,30,0.96));border:1px solid rgba(255,255,255,0.12);cursor:pointer;font-family:inherit;color:#E2E8F0;display:flex;flex-direction:column;justify-content:space-between;gap:6px;transition:all 0.16s ease;box-sizing:border-box} .crp-pillar-card:hover{border-color:{A};background:rgba(15,23,42,0.98);transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,0.38)} .crp-pillar-card.active{border-color:{A};background:linear-gradient(145deg,rgba(14,116,144,0.32),rgba(15,23,42,0.96));box-shadow:0 0 0 1px {A},0 0 18px {A}44} .crp-pillar-id{font-size:9.6px;font-weight:900;padding:1px 6px;border-radius:6px;color:#BAE6FD;background:rgba(14,116,144,0.34);border:1px solid rgba(56,189,248,0.48);letter-spacing:0.04em} .crp-pillar-st{font-size:9.2px;font-weight:800;padding:1px 7px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap} .crp-pillar-st.st-intact{color:#6EE7B7;background:rgba(16,185,129,0.18);border:1px solid rgba(52,211,153,0.52)} .crp-pillar-st.st-narrowed{color:#7DD3FC;background:rgba(56,189,248,0.18);border:1px solid rgba(56,189,248,0.52)} .crp-pillar-st.st-cracked{color:#FDE68A;background:rgba(245,158,11,0.18);border:1px solid rgba(251,191,36,0.52)} .crp-pillar-st.st-broken{color:#FDA4AF;background:rgba(244,63,94,0.20);border:1px solid rgba(251,113,133,0.56)} .crp-pillar-st.st-unresolved{color:#DDD6FE;background:rgba(139,92,246,0.20);border:1px solid rgba(167,139,250,0.55)} .crp-pillar-filter-bar{display:none;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:6px 11px;margin:0 0 8px 0;border-radius:10px;background:rgba(14,116,144,0.24);border:1px solid rgba(56,189,248,0.55);font-size:11.2px;color:#BAE6FD;font-weight:700} .crp-pillar-filter-bar.active{display:flex} .crp-pillar-clear-btn{appearance:none;border:1px solid rgba(56,189,248,0.55);background:rgba(8,15,30,0.88);color:#7DD3FC;font-size:10.3px;font-weight:800;padding:2px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-pillar-clear-btn:hover{background:#38BDF8;color:#090E1A} .crp-settled-bar{padding:9px 12px;border-radius:11px;background:linear-gradient(135deg,rgba(13,148,136,0.20),rgba(15,23,42,0.92));border:1px solid rgba(45,212,191,0.45);font-size:12px;line-height:1.48;color:#CCFBF1;margin-bottom:8px} .crp-steel-card{padding:11px 13px;border-radius:12px;background:rgba(15,23,42,0.88);border:1px solid rgba(255,255,255,0.10);display:flex;flex-direction:column;justify-content:space-between;gap:8px} .crp-steel-card.side-a{border-left:3px solid #10B981;background:linear-gradient(160deg,rgba(16,185,129,0.09),rgba(15,23,42,0.92))} .crp-steel-card.side-b{border-left:3px solid #FB7185;background:linear-gradient(160deg,rgba(244,63,94,0.09),rgba(15,23,42,0.92))} .crp-steel-hardest{padding:7px 9px;border-radius:8px;background:rgba(120,53,15,0.22);border:1px solid rgba(251,191,36,0.34);font-size:11.3px;line-height:1.44;color:#FEF3C7} .crp-sim-box{padding:12px 14px;border-radius:13px;background:linear-gradient(145deg,rgba(15,23,42,0.92),rgba(8,15,30,0.96));border:1px solid rgba(167,139,250,0.42)} .crp-compass-labels{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:10.2px;font-weight:800;margin-bottom:5px;flex-wrap:wrap} .crp-compass-track{position:relative;height:14px;border-radius:999px;background:linear-gradient(90deg,rgba(16,185,129,0.58) 0%,rgba(56,189,248,0.36) 28%,rgba(245,158,11,0.42) 50%,rgba(244,63,94,0.58) 100%);border:1px solid rgba(255,255,255,0.18);margin:6px 0 8px 0;box-shadow:inset 0 2px 6px rgba(0,0,0,0.45)} .crp-compass-mid{position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(255,255,255,0.38);transform:translateX(-50%)} .crp-compass-base{position:absolute;top:-3px;bottom:-3px;width:2px;background:rgba(255,255,255,0.58);border-radius:2px;transform:translateX(-50%)} .crp-compass-needle{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:#FFFFFF;border:3px solid #38BDF8;box-shadow:0 0 14px rgba(56,189,248,0.85),0 2px 6px rgba(0,0,0,0.7);transform:translate(-50%,-50%);transition:left 0.36s cubic-bezier(0.22,1,0.36,1),border-color 0.25s ease} .crp-sim-readout{padding:8px 11px;border-radius:9px;background:rgba(2,6,23,0.64);border:1px solid rgba(255,255,255,0.09);font-size:11.6px;line-height:1.46;color:#E2E8F0;margin:8px 0 10px 0} .crp-flip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px} .crp-flip-card{appearance:none;text-align:left;width:100%;padding:9px 11px;border-radius:11px;background:rgba(15,23,42,0.84);border:1px solid rgba(255,255,255,0.12);cursor:pointer;font-family:inherit;color:#E2E8F0;transition:all 0.16s ease;box-sizing:border-box} .crp-flip-card:hover{border-color:#A78BFA;background:rgba(30,41,59,0.92)} .crp-flip-card.active{border-color:#C4B5FD;background:linear-gradient(135deg,rgba(139,92,246,0.24),rgba(15,23,42,0.95));box-shadow:0 0 0 1px rgba(196,181,253,0.65),0 0 14px rgba(139,92,246,0.35)} .crp-flip-shift{display:inline-flex;align-items:center;font-size:9.6px;font-weight:800;padding:1px 7px;border-radius:999px;white-space:nowrap} .crp-flip-shift.to-a{color:#6EE7B7;background:rgba(16,185,129,0.18);border:1px solid rgba(52,211,153,0.48)} .crp-flip-shift.to-b{color:#FDA4AF;background:rgba(244,63,94,0.18);border:1px solid rgba(251,113,133,0.50)} .crp-flip-shift.to-mid{color:#DDD6FE;background:rgba(139,92,246,0.18);border:1px solid rgba(167,139,250,0.48)} .crp-lineage-pills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:7px;margin-bottom:9px} .crp-lineage-pill{appearance:none;text-align:left;width:100%;padding:8px 11px;border-radius:11px;background:rgba(14,116,144,0.18);border:1px solid rgba(56,189,248,0.42);color:#BAE6FD;cursor:pointer;font-family:inherit;transition:all 0.15s ease;box-sizing:border-box} .crp-lineage-pill:hover{background:rgba(14,116,144,0.36);border-color:#38BDF8;color:#FFFFFF;box-shadow:0 0 12px rgba(56,189,248,0.32)} .crp-stakes-list{margin:5px 0 0 0;padding-left:18px;font-size:11.8px;line-height:1.48;color:#E2E8F0} .crp-stakes-list li{margin-bottom:4px} .crp-stakes-list li:last-child{margin-bottom:0} .crp-lit-tabs{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 10px 0} .crp-lit-tab{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(15,23,42,0.85);color:#CBD5E1;font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-lit-tab:hover{border-color:{A};color:#FFFFFF;background:rgba(30,41,59,0.95)} .crp-lit-tab.active{background:{A};color:#090E1A;border-color:{A};box-shadow:0 0 10px {A}55;font-weight:800} .crp-h2h-table-wrap{overflow-x:auto;margin:8px 0;border-radius:10px;border:1px solid rgba(255,255,255,0.12);background:rgba(2,6,23,0.58)} .crp-h2h-table{width:100%;border-collapse:collapse;font-size:11.4px;line-height:1.42;text-align:left} .crp-h2h-table th{padding:7px 9px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid rgba(255,255,255,0.12);background:rgba(15,23,42,0.92)} .crp-h2h-table td{padding:7px 9px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,0.07);color:#E2E8F0} .crp-h2h-table tr:last-child td{border-bottom:none} .crp-h2h-table tbody tr:nth-child(even){background:rgba(15,23,42,0.42)} .crp-hatch-box{margin-top:8px;padding:9px 11px;border-radius:10px;background:rgba(120,53,15,0.18);border:1px solid rgba(251,191,36,0.34)} .crp-hatch-list{margin:5px 0 0 0;padding-left:18px;font-size:11.5px;line-height:1.46;color:#FEF3C7} .crp-hatch-list li{margin-bottom:4px} .crp-hatch-list li:last-child{margin-bottom:0} .crp-h2h-details{margin-top:9px;border-radius:10px;border:1px solid rgba(56,189,248,0.34);background:rgba(2,6,23,0.62);overflow:hidden} .crp-h2h-details summary{cursor:pointer;padding:8px 11px;font-size:11.4px;font-weight:800;color:#7DD3FC;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;user-select:none} .crp-h2h-details summary::-webkit-details-marker{display:none} .crp-h2h-details[open] summary{border-bottom:1px solid rgba(56,189,248,0.22);background:rgba(14,116,144,0.16)} .crp-proto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;padding:10px 11px} .crp-proto-cell{padding:7px 9px;border-radius:8px;background:rgba(15,23,42,0.85);border:1px solid rgba(255,255,255,0.08);font-size:11.4px;line-height:1.44;color:#E2E8F0} .crp-proto-k{font-size:9.8px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#7DD3FC;margin-bottom:3px} .crp-proto-yaml{margin:0 11px 11px 11px;padding:8px 10px;border-radius:8px;background:#040812;border:1px solid rgba(255,255,255,0.09);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.6px;line-height:1.42;color:#CBD5E1;max-height:210px;overflow:auto;white-space:pre-wrap;word-break:break-word} #crp-diag-panel{display:none;width:100%;margin:0 auto 14px auto;padding:14px 16px;background:linear-gradient(145deg,rgba(14,116,144,0.22),rgba(9,14,26,0.94));border:1px solid rgba(56,189,248,0.52);border-radius:14px;box-sizing:border-box;text-align:left} .crp-diag-sample{appearance:none;border:1px solid rgba(56,189,248,0.38);background:rgba(15,23,42,0.85);color:#BAE6FD;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all 0.14s ease} .crp-diag-sample:hover{background:#38BDF8;color:#090E1A;border-color:#38BDF8} .crp-diag-res-card{padding:11px 13px;border-radius:12px;background:rgba(15,23,42,0.92);border:1px solid rgba(255,255,255,0.12);margin-top:8px} .crp-stealth-pill{display:inline-block;font-size:10px;font-weight:700;color:#CBD5E1;background:rgba(30,41,59,0.9);border:1px solid rgba(148,163,184,0.32);padding:2px 7px;border-radius:999px}";
   var MARKUP_TPL = "<div id=\"carrd-resonance-player\" style=\"display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);width:95%;max-width:700px;background:rgba(9,14,26,0.97);border:1px solid {A}99;box-shadow:0 24px 60px rgba(0,0,0,0.92),0 0 38px {A}40;border-radius:18px;padding:12px 15px;z-index:999999;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#F1F5F9;backdrop-filter:blur(22px);box-sizing:border-box;-webkit-font-smoothing:antialiased;\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;\"><div style=\"display:flex;align-items:center;gap:9px;overflow:hidden;flex:1;\"><div id=\"crp-pulse\" style=\"width:9px;height:9px;border-radius:50%;background:#10B981;box-shadow:0 0 10px #10B981;flex-shrink:0;\"></div><div style=\"overflow:hidden;flex:1;\"><div id=\"crp-title\" style=\"font-size:13px;font-weight:800;color:#FFFFFF;white-space:normal;line-height:1.3;word-break:break-word;\">Select an episode</div><div style=\"display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:2px;font-size:10.5px;color:#94A3B8;font-weight:600;\"><span id=\"crp-status-text\">Variable-Speed Stream</span><button id=\"crp-restart-chip\" type=\"button\" style=\"display:none;background:rgba(16,185,129,0.16);border:1px solid rgba(16,185,129,0.45);color:#34D399;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#8634; Start Over</button><button id=\"crp-done-chip\" type=\"button\" title=\"Toggle Listened mark for this episode in your browser\" style=\"display:none;background:rgba(15,23,42,0.9);border:1px solid rgba(16,185,129,0.45);color:#6EE7B7;border-radius:999px;padding:1px 7px;font-size:10px;font-weight:700;cursor:pointer;\">&#9675; Mark Listened</button><button id=\"crp-plus-play-chip\" type=\"button\" title=\"Add +1 listen count for this episode\" style=\"display:none;background:rgba(15,23,42,0.92);border:1px solid rgba(52,211,153,0.52);color:#6EE7B7;border-radius:999px;padding:1px 6px;font-size:10px;font-weight:800;cursor:pointer;font-variant-numeric:tabular-nums;\">+1&times;</button><button id=\"crp-sources-chip\" type=\"button\" title=\"View clickable primary journal citations, PubMed/PMC full text &amp; interactive 3D RCSB PDB structures\" style=\"display:none;\">&#128218; Sources &amp; PDB</button></div></div></div><div style=\"display:flex;align-items:center;gap:5px;flex-shrink:0;\"><button id=\"crp-share-btn\" type=\"button\" title=\"Copy direct link to this episode (Shift+click to include current timestamp)\" style=\"font-size:10px;font-weight:700;color:#E2E8F0;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">&#128279; Share</button><button id=\"crp-mode-btn\" type=\"button\" title=\"Switch between variable-speed player and Google Drive iframe backup player\" style=\"font-size:10px;font-weight:600;color:#94A3B8;background:#131C31;border:1px solid #334155;padding:4px 7px;border-radius:6px;cursor:pointer;\">Backup Player</button><a id=\"crp-dl-link\" href=\"#\" target=\"_blank\" rel=\"noreferrer\" data-no-player=\"true\" title=\"Download original .m4a file\" style=\"font-size:10px;font-weight:600;color:#CBD5E1;text-decoration:none;background:#131C31;border:1px solid #334155;padding:4px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:3px;\">&#10515; Save</a><button id=\"crp-transcript-btn\" type=\"button\" title=\"Read 15s Recap, Vocab, Sources &amp; PDB, Brain Check Quiz &amp; Synchronized Transcript (Shift+Click for full app)\" style=\"font-size:10.5px;font-weight:800;color:#090E1A;background:{A};border:none;padding:4px 10px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;cursor:pointer;box-shadow:0 0 12px {A}55;font-family:inherit;\">&#128196; Transcript</button><button id=\"crp-close-btn\" type=\"button\" aria-label=\"Close Player\" title=\"Close\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:20px;line-height:1;padding:2px 5px;margin-left:1px;\">&times;</button></div></div><div id=\"crp-sources-drawer\"></div><div id=\"crp-transcript-drawer\"><div style=\"display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding-bottom:7px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.10);\"><div style=\"display:inline-flex;align-items:center;gap:3px;flex-wrap:wrap;background:#040812;padding:3px;border-radius:9px;border:1px solid #1E293B;\"><button type=\"button\" class=\"crp-tr-tab active\" data-tr-tab=\"tldr\">&#9889; 15s Recap &amp; Vocab</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"chat\">&#128172; Full Transcript</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"sources\">&#128218; Sources &amp; PDB</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"quiz\">&#129504; Brain Check</button><button type=\"button\" class=\"crp-tr-tab\" data-tr-tab=\"estudia\">&#127891; Estudia! Q&amp;A</button></div><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><input id=\"crp-tr-search\" type=\"search\" placeholder=\"Find word...\" aria-label=\"Search transcript\" style=\"display:none;width:118px;padding:3px 7px;border-radius:6px;border:1px solid #334155;background:#040812;color:#F8FAFC;font-size:11px;outline:none;font-family:inherit;\" /><button id=\"crp-tr-big-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Toggle larger easy-read text\">Aa</button><a id=\"crp-estudia-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/estudia/\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open full 3D Flashcards, Quiz, Write &amp; Match deck in Estudia! Study Studio\" style=\"font-size:10.5px;font-weight:800;color:#FDE68A;text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid rgba(251,191,36,0.55);background:rgba(120,53,15,0.42);\">&#127891; Estudia! &#8599;</a><a id=\"crp-studio-link\" href=\"https://yorekms.github.io/deep-dive-podcasts/resonance/?view=listen\" target=\"_blank\" rel=\"noopener\" data-no-player=\"true\" title=\"Open standalone Pocket App with offline downloads &amp; transcripts (iPhone &amp; Android)\" style=\"font-size:10.5px;font-weight:800;color:{A};text-decoration:none;padding:3px 8px;border-radius:7px;border:1px solid {A}66;background:rgba(15,23,42,0.85);\">&#128241; Pocket App</a><button id=\"crp-tr-close-btn\" type=\"button\" title=\"Hide transcript drawer\" style=\"background:transparent;border:none;color:#94A3B8;cursor:pointer;font-size:16px;line-height:1;padding:1px 4px;\">&times;</button></div></div><div id=\"crp-transcript-body\">Select an episode to view its 15-second recap, vocab decoder, primary literature, quiz, and synchronized transcript.</div></div><div id=\"crp-native-wrap\" style=\"background:#050914;border:1px solid #1E293B;border-radius:13px;padding:10px 12px;\"><audio id=\"crp-audio-el\" playsinline webkit-playsinline=\"true\" preload=\"auto\" style=\"display:none;\"></audio><div style=\"display:flex;align-items:center;gap:10px;margin-bottom:9px;\"><span id=\"crp-time-cur\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#E2E8F0;font-weight:700;min-width:42px;\">0:00</span><input id=\"crp-seek\" type=\"range\" min=\"0\" max=\"1000\" value=\"0\" step=\"1\" aria-label=\"Seek timeline\" /><span id=\"crp-time-tot\" style=\"font-size:11px;font-variant-numeric:tabular-nums;color:#94A3B8;font-weight:600;min-width:42px;text-align:right;\">--:--</span></div><div style=\"display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;\"><div style=\"display:flex;align-items:center;gap:5px;flex-wrap:wrap;\"><button id=\"crp-prev-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Previous episode in list (Shift+P)\" style=\"padding:5px 7px;\">&#9198;</button><button id=\"crp-rew-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Rewind 15 seconds (J or Left Arrow)\">&#8630; 15s</button><button id=\"crp-play-btn\" type=\"button\" aria-label=\"Play or Pause\" title=\"Play / Pause (Space)\" style=\"width:36px;height:36px;border-radius:50%;border:none;background:{A};color:#090E1A;font-size:14px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 0 14px {A}70;\">&#9654;</button><button id=\"crp-fwd-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Skip forward 30 seconds (L or Right Arrow)\">30s &#8631;</button><button id=\"crp-next-btn\" type=\"button\" class=\"crp-ctrl-btn\" title=\"Next episode in list (Shift+N)\" style=\"padding:5px 7px;\">&#9197;</button><button id=\"crp-autonext-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Automatically play next episode when finished\">Auto-Next</button><button id=\"crp-sleep-btn\" type=\"button\" class=\"crp-mini-chip\" title=\"Cycle sleep timer (Off / 15m / 30m / 45m / End of episode)\">Sleep</button><span id=\"crp-rem-badge\" style=\"font-size:10px;color:#64748B;font-weight:600;font-variant-numeric:tabular-nums;margin-left:1px;\"></span></div><div style=\"display:flex;align-items:center;gap:4px;flex-wrap:wrap;\"><span style=\"font-size:9.5px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:0.05em;margin-right:2px;\">Speed</span><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"-0.1\" title=\"Slower (-0.1x or [ key)\">&minus;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1\">1&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.25\">1.25&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.5\">1.5&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"1.75\">1.75&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd=\"2\">2&times;</button><button type=\"button\" class=\"crp-spd-btn\" data-spd-step=\"0.1\" title=\"Faster (+0.1x or ] key)\">+</button><span id=\"crp-spd-readout\" style=\"font-size:11px;font-weight:800;color:{A};min-width:34px;text-align:center;font-variant-numeric:tabular-nums;\">1.0&times;</span></div></div></div><div id=\"crp-fallback-wrap\" style=\"display:none;width:100%;height:132px;border-radius:12px;overflow:hidden;background:#030712;border:1px solid #1E293B;position:relative;\"><iframe id=\"crp-stream-frame\" src=\"about:blank\" style=\"width:100%;height:132px;border:none;display:block;\" allow=\"autoplay\" loading=\"lazy\"></iframe></div></div><div id=\"crp-rss-modal\" style=\"display:none;position:fixed;inset:0;background:rgba(3,7,18,0.84);backdrop-filter:blur(9px);z-index:1000001;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;text-align:left;\"><div style=\"width:100%;max-width:560px;background:#090E1A;border:1px solid {A}88;border-radius:20px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,0.92);color:#F8FAFC;\"><div style=\"display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;\"><div><div style=\"font-size:10.5px;font-weight:800;color:{A};text-transform:uppercase;letter-spacing:0.08em;margin-bottom:3px;\">Subscribe in Any Podcast App</div><h3 style=\"margin:0;font-size:19px;font-weight:800;color:#FFFFFF;\">Deep Dive Podcast RSS Feeds</h3></div><button id=\"crp-rss-modal-close\" type=\"button\" style=\"background:#1E293B;border:1px solid #334155;color:#CBD5E1;border-radius:8px;padding:3px 9px;font-size:16px;cursor:pointer;\">&times;</button></div><p style=\"font-size:12.5px;color:#CBD5E1;line-height:1.5;margin:0 0 14px 0;\"> Listen offline with variable-speed playback in <strong>Apple Podcasts</strong>, <strong>Overcast</strong>, <strong>Pocket Casts</strong>, or any RSS podcast player. </p><div style=\"background:rgba(15,23,42,0.95);border:1px solid {A}55;border-radius:12px;padding:12px;margin-bottom:10px;\"><div style=\"font-size:11px;font-weight:800;color:{A};margin-bottom:6px;\">This Hub's Feed ({HUBT})</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://{RSSNP}\" class=\"crp-ctrl-btn\" style=\"background:{A};color:#090E1A;border-color:{A};text-decoration:none;font-weight:800;\">Apple Podcasts</a><a href=\"overcast://x-callback-url/add?url={RSS}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Overcast</a><a href=\"pktc://subscribe/{RSSNP}\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">Pocket Casts</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"{RSS}\">Copy Feed URL</button></div><input type=\"text\" readonly value=\"{RSS}\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div><div style=\"background:rgba(15,23,42,0.95);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:12px;margin-bottom:12px;\"><div style=\"font-size:11px;font-weight:800;color:#38BDF8;margin-bottom:6px;\">Master Network Feed (All {MT} Deep Dive Episodes)</div><div style=\"display:flex;flex-wrap:wrap;gap:6px;margin-bottom:7px;\"><a href=\"podcast://yorekms.github.io/deep-dive-podcasts/feed.xml\" class=\"crp-ctrl-btn\" style=\"background:#38BDF8;color:#090E1A;border-color:#38BDF8;text-decoration:none;font-weight:800;\">Apple Podcasts (All {MT})</a><button type=\"button\" class=\"crp-ctrl-btn crp-copy-rss\" data-rss=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\">Copy Master RSS URL</button><a href=\"https://yorekms.github.io/deep-dive-podcasts/\" target=\"_blank\" rel=\"noopener\" class=\"crp-ctrl-btn\" style=\"text-decoration:none;\">All {NF} Feeds Directory &#8599;</a></div><input type=\"text\" readonly value=\"https://yorekms.github.io/deep-dive-podcasts/feed.xml\" onclick=\"this.select()\" style=\"width:100%;padding:5px 8px;border-radius:6px;border:1px solid #334155;background:#050914;color:#94A3B8;font-family:monospace;font-size:11px;box-sizing:border-box;\" /></div></div></div><div id=\"crp-theory-modal\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Scientific Theory Evidence Dossier\"><div id=\"crp-theory-modal-box\"></div></div>";
-  var PLAYER_VERSION = "2.3.0";
+  var PLAYER_VERSION = "2.4.0";
 
   var pendingSyncToken = '';
   try {
@@ -108,7 +108,7 @@
     var A = cfg.accent || '#34D399';
     var masterTotal = net.master_total || '';
 
-    // ---------- Scientific Theories Atlas v2.3.0 Helpers ----------
+    // ---------- Scientific Theories Atlas v2.4.0 Helpers ----------
     var IS_THEORY_ATLAS = (cfg.atlas_mode === 'scientific-theories' || HUB === 'scientific-theories');
     var STANCE_META = {
       'foundational-consensus': {
@@ -186,8 +186,58 @@
     }
     function normalizeLinkType(raw) {
       var lt = String(raw || 'direct').toLowerCase();
-      if (lt.indexOf('indirect') !== -1 || lt.indexOf('stealth') !== -1 || lt.indexOf('implicit') !== -1) return 'indirect';
+      if (lt.indexOf('indirect') !== -1 || lt.indexOf('stealth') !== -1 || lt.indexOf('implicit') !== -1 || lt.indexOf('adjacent') !== -1 || lt.indexOf('clue') !== -1) return 'indirect';
       return 'direct';
+    }
+    function normalizeTestProximity(item) {
+      var raw = String((item && (item.test_proximity || item.proximity)) || '').toLowerCase().replace(/[\s_]+/g, '-');
+      if (raw) {
+        if (raw.indexOf('adjacent') !== -1 || raw.indexOf('clue') !== -1 || raw.indexOf('context') !== -1) return 'adjacent-clue';
+        if (raw.indexOf('indirect') !== -1 || raw.indexOf('constraint') !== -1 || raw.indexOf('stealth') !== -1) return 'indirect-constraint';
+        if (raw.indexOf('direct') !== -1) return 'direct-test';
+      }
+      return normalizeLinkType(item && item.link_type) === 'indirect' ? 'indirect-constraint' : 'direct-test';
+    }
+    function testProximityMeta(prox) {
+      if (prox === 'adjacent-clue') {
+        return {
+          cls: 'adjacent-clue',
+          label: '\ud83e\udde9 Adjacent Clue',
+          tip: 'Contextual or neighboring empirical evidence that loosely constrains or complicates the debate'
+        };
+      }
+      if (prox === 'indirect-constraint') {
+        return {
+          cls: 'indirect-constraint',
+          label: '\ud83d\udd17 Indirect Constraint',
+          tip: 'Tests a downstream mechanism, boundary condition, or stealth assumption without naming the theory'
+        };
+      }
+      return {
+        cls: 'direct-test',
+        label: '\ud83c\udfaf Direct Test',
+        tip: 'Directly tests this theory or its primary discriminating prediction'
+      };
+    }
+    function paperMatchesPillar(item, pillarId) {
+      if (!pillarId) return true;
+      if (!item) return false;
+      var want = String(pillarId).toUpperCase();
+      if (String(item.pillar_id || '').toUpperCase() === want) return true;
+      if (Array.isArray(item.pillar_ids)) {
+        for (var i = 0; i < item.pillar_ids.length; i++) {
+          if (String(item.pillar_ids[i] || '').toUpperCase() === want) return true;
+        }
+      }
+      return false;
+    }
+    function pillarStatusMeta(status) {
+      var s = String(status || 'Unresolved').toLowerCase();
+      if (s.indexOf('broken') !== -1 || s.indexOf('falsif') !== -1) return { cls: 'st-broken', label: 'Broken', dot: '#FB7185' };
+      if (s.indexOf('crack') !== -1 || s.indexOf('strain') !== -1) return { cls: 'st-cracked', label: 'Cracked', dot: '#F59E0B' };
+      if (s.indexOf('narrow') !== -1 || s.indexOf('refin') !== -1) return { cls: 'st-narrowed', label: 'Narrowed', dot: '#38BDF8' };
+      if (s.indexOf('intact') !== -1 || s.indexOf('solid') !== -1) return { cls: 'st-intact', label: 'Intact', dot: '#10B981' };
+      return { cls: 'st-unresolved', label: 'Unresolved', dot: '#A78BFA' };
     }
     function getMomentumMeta(mom) {
       var s = String(mom || 'Stable');
@@ -203,15 +253,43 @@
       }
       return { label: s || 'Stable', color: '#7DD3FC', dot: '#38BDF8', bg: 'rgba(14,116,144,0.24)', border: 'rgba(56,189,248,0.48)' };
     }
+    function stanceBaseCompassScore(stance) {
+      if (stance === 'foundational-consensus') return 82;
+      if (stance === 'dominant-refined') return 68;
+      if (stance === 'contested-competing') return 50;
+      if (stance === 'emerging-frontier') return 45;
+      if (stance === 'challenged-revision') return 30;
+      if (stance === 'superseded-anchor') return 12;
+      return 50;
+    }
+    function compassVerdictMeta(score) {
+      if (score >= 78) {
+        return { label: 'Foundational Consensus \u00b7 Theory A Holds', color: '#6EE7B7', dot: '#10B981', bg: 'rgba(16,185,129,0.18)', border: 'rgba(52,211,153,0.52)' };
+      }
+      if (score >= 62) {
+        return { label: 'Dominant \u00b7 Theory A Leads', color: '#7DD3FC', dot: '#38BDF8', bg: 'rgba(56,189,248,0.18)', border: 'rgba(56,189,248,0.52)' };
+      }
+      if (score >= 40) {
+        return { label: 'Hybrid / Contested Zone', color: '#FDE68A', dot: '#F59E0B', bg: 'rgba(245,158,11,0.18)', border: 'rgba(251,191,36,0.52)' };
+      }
+      if (score >= 22) {
+        return { label: 'Challenged \u00b7 Rival B Pulling Ahead', color: '#FDA4AF', dot: '#FB7185', bg: 'rgba(244,63,94,0.18)', border: 'rgba(251,113,133,0.54)' };
+      }
+      return { label: 'Verdict Flipped \u00b7 Rival B Supersedes', color: '#FDA4AF', dot: '#F43F5E', bg: 'rgba(159,18,57,0.36)', border: 'rgba(251,113,133,0.62)' };
+    }
     function theoryByIdOrSlug(idOrSlug) {
       if (!idOrSlug) return null;
       if (epMetaById[idOrSlug]) return epMetaById[idOrSlug];
-      var want = String(idOrSlug).toLowerCase();
+      var want = String(idOrSlug).toLowerCase().trim();
       for (var k in epMetaById) {
         if (!Object.prototype.hasOwnProperty.call(epMetaById, k)) continue;
         var wrap = epMetaById[k];
         var th = wrap && wrap.ep && wrap.ep.theory;
-        if (th && (String(th.slug || '').toLowerCase() === want || String(th.code || '').toLowerCase() === want)) {
+        if (th && (
+          String(th.slug || '').toLowerCase() === want ||
+          String(th.code || '').toLowerCase() === want ||
+          String(th.canonical_title || '').toLowerCase() === want
+        )) {
           return wrap;
         }
       }
@@ -223,7 +301,7 @@
       var sN = eb && typeof eb.supporting === 'number' ? eb.supporting : srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'supporting'; }).length;
       var rN = eb && typeof eb.refuting === 'number' ? eb.refuting : srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'refuting'; }).length;
       var nN = eb && typeof eb.null_mixed === 'number' ? eb.null_mixed : srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'null_mixed'; }).length;
-      var indN = eb && typeof eb.indirect === 'number' ? eb.indirect : srcs.filter(function (s) { return normalizeLinkType(s.link_type) === 'indirect'; }).length;
+      var indN = eb && typeof eb.indirect === 'number' ? eb.indirect : srcs.filter(function (s) { return normalizeTestProximity(s) !== 'direct-test'; }).length;
       var livN = eb && typeof eb.living_harvest === 'number' ? eb.living_harvest : srcs.filter(function (s) { return s.origin === 'living-harvest'; }).length;
       var tot = fN + sN + rN + nN;
       if (!tot && !eb) return '';
@@ -245,7 +323,7 @@
       var h = '<div id="crp-tm-eb-wrap" style="margin-top:12px;">';
       h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:0 0 6px 0;">' +
         '<div class="crp-tm-sec-title" style="color:#7DD3FC;margin:0;">&#128202; Live Evidence Balance &amp; Epistemic Momentum</div>' +
-        '<span class="crp-mom-pill" style="color:' + mom.color + ';background:' + mom.bg + ';border:1px solid ' + mom.border + ';" title="Living stance momentum across verified direct and indirect studies">' +
+        '<span class="crp-mom-pill" style="color:' + mom.color + ';background:' + mom.bg + ';border:1px solid ' + mom.border + ';" title="Living stance momentum across verified direct, indirect, and adjacent studies">' +
           '<span style="width:6px;height:6px;border-radius:50%;background:' + mom.dot + ';display:inline-block;"></span>' +
           'Stance Momentum: ' + esc(mom.label) +
         '</span>' +
@@ -259,7 +337,7 @@
       h += '<span class="crp-eb-pill" style="color:#6EE7B7;background:rgba(16,185,129,0.16);border:1px solid rgba(52,211,153,0.46);">&#10003; Supporting (' + sN + ')</span>';
       h += '<span class="crp-eb-pill" style="color:#FDA4AF;background:rgba(244,63,94,0.16);border:1px solid rgba(251,113,133,0.46);">&#10007; Challenging / Refuting (' + rN + ')</span>';
       h += '<span class="crp-eb-pill" style="color:#FDE68A;background:rgba(245,158,11,0.16);border:1px solid rgba(251,191,36,0.46);">&asymp; Null / Mixed (' + nN + ')</span>';
-      h += '<span class="crp-eb-pill" style="color:#DDD6FE;background:rgba(139,92,246,0.20);border:1px solid rgba(167,139,250,0.52);">&#128269; Indirect / Stealth Studies (' + indN + ')</span>';
+      h += '<span class="crp-eb-pill" style="color:#DDD6FE;background:rgba(139,92,246,0.20);border:1px solid rgba(167,139,250,0.52);">&#129513; Indirect &amp; Adjacent (' + indN + ')</span>';
       if (livN > 0) {
         h += '<span class="crp-eb-pill" style="color:#5EEAD4;background:rgba(13,148,136,0.20);border:1px solid rgba(45,212,191,0.48);">&#9889; Living Harvest (+' + livN + ')</span>';
       }
@@ -270,23 +348,202 @@
       h += '</div></div>';
       return h;
     }
+    function renderPillarsHTML(pillars, srcs) {
+      if (!Array.isArray(pillars) || !pillars.length) return '';
+      var h = '<div id="crp-tm-pillars-wrap" style="margin-top:13px;">';
+      h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:0 0 6px 0;">' +
+        '<div class="crp-tm-sec-title" style="color:#7DD3FC;margin:0;">&#127963;&#65039; Foundational Pillars Under Test (Click Any Pillar to Filter Papers)</div>' +
+        '<span style="font-size:10.3px;color:#94A3B8;font-weight:700;">' + pillars.length + ' Core Axioms</span>' +
+      '</div>';
+      h += '<div class="crp-pillars-grid">';
+      pillars.forEach(function (p, idx) {
+        if (!p) return;
+        var pid = String(p.id || ('P' + (idx + 1))).toUpperCase();
+        var pname = p.name || p.title || ('Pillar ' + (idx + 1));
+        var pclaim = p.claim || p.proposition || p.description || '';
+        var st = pillarStatusMeta(p.status);
+        var matchCnt = srcs.filter(function (s) { return paperMatchesPillar(s, pid); }).length;
+        h += '<button type="button" class="crp-pillar-card" data-pillar-id="' + esc(pid) + '" data-pillar-name="' + esc(pname) + '" aria-pressed="false" title="Click to filter the Primary Literature Ledger to papers testing ' + esc(pid + ': ' + pname) + '">' +
+          '<div>' +
+            '<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:5px;flex-wrap:wrap;">' +
+              '<span class="crp-pillar-id">' + esc(pid) + '</span>' +
+              '<span class="crp-pillar-st ' + esc(st.cls) + '">' + esc(st.label) + '</span>' +
+            '</div>' +
+            '<div style="font-size:12.2px;font-weight:800;color:#FFFFFF;line-height:1.32;margin-bottom:4px;">' + esc(pname) + '</div>' +
+            (pclaim ? '<div style="font-size:11.3px;color:#CBD5E1;line-height:1.42;">' + esc(pclaim) + '</div>' : '') +
+            (p.note ? '<div style="font-size:10.6px;color:#94A3B8;line-height:1.38;margin-top:4px;font-style:italic;">' + esc(p.note) + '</div>' : '') +
+          '</div>' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.08);font-size:10.2px;font-weight:700;">' +
+            '<span style="color:#7DD3FC;">&#128196; ' + matchCnt + ' linked ' + (matchCnt === 1 ? 'paper' : 'papers') + '</span>' +
+            '<span class="crp-pillar-cue" style="color:#94A3B8;">Filter &#8595;</span>' +
+          '</div>' +
+        '</button>';
+      });
+      h += '</div></div>';
+      return h;
+    }
+    function renderSteelmanHTML(th) {
+      var sm = th.steelman && typeof th.steelman === 'object' ? th.steelman : null;
+      if (!sm) return '';
+      var h2 = th.head_to_head && typeof th.head_to_head === 'object' ? th.head_to_head : {};
+      var taObj = sm.theory_a && typeof sm.theory_a === 'object' ? sm.theory_a : {};
+      var rbObj = sm.rival_b && typeof sm.rival_b === 'object' ? sm.rival_b : {};
+      var settled = sm.settled_ground || sm.shared_ground || sm.common_ground || '';
+      var taName = sm.theory_a_name || sm.theory_a_label || taObj.name || taObj.label || h2.theory_a || th.short_title || th.canonical_title || 'Theory A';
+      var taCase = sm.theory_a_case || sm.theory_a_steelman || (typeof sm.theory_a === 'string' ? sm.theory_a : '') || taObj.case || taObj.steelman || '';
+      var taHard = sm.theory_a_hardest || sm.theory_a_hardest_finding || taObj.hardest_finding || taObj.hardest || '';
+      var rbName = sm.rival_b_name || sm.rival_b_label || rbObj.name || rbObj.label || h2.rival_b || ((th.rivals && th.rivals[0]) || 'Rival B');
+      var rbCase = sm.rival_b_case || sm.rival_b_steelman || (typeof sm.rival_b === 'string' ? sm.rival_b : '') || rbObj.case || rbObj.steelman || '';
+      var rbHard = sm.rival_b_hardest || sm.rival_b_hardest_finding || rbObj.hardest_finding || rbObj.hardest || '';
+      if (!settled && !taCase && !rbCase) return '';
+
+      var h = '<div id="crp-tm-steelman-wrap" style="margin-top:14px;">';
+      h += '<div class="crp-tm-sec-title" style="color:#5EEAD4;margin:0 0 7px 0;">&#9878;&#65039; Steelman Both Sides &amp; Settled Ground</div>';
+      if (settled) {
+        h += '<div class="crp-settled-bar"><strong style="color:#5EEAD4;">&#129309; Where Both Sides Agree (Settled Ground):</strong> ' + esc(settled) + '</div>';
+      }
+      if (taCase || rbCase) {
+        h += '<div class="crp-tm-grid2" style="margin-top:0;">';
+        h += '<div class="crp-steel-card side-a">' +
+          '<div>' +
+            '<div style="font-size:10px;font-weight:800;color:#6EE7B7;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Theory A Steelman &middot; ' + esc(taName) + '</div>' +
+            '<div style="font-size:12px;color:#E2E8F0;line-height:1.48;">' + esc(taCase) + '</div>' +
+          '</div>' +
+          (taHard ? '<div class="crp-steel-hardest"><strong style="color:#FDE68A;">&#9888;&#65039; Hardest Finding It Must Explain Away:</strong> ' + esc(taHard) + '</div>' : '') +
+        '</div>';
+        h += '<div class="crp-steel-card side-b">' +
+          '<div>' +
+            '<div style="font-size:10px;font-weight:800;color:#FDA4AF;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;">Rival B Steelman &middot; ' + esc(rbName) + '</div>' +
+            '<div style="font-size:12px;color:#E2E8F0;line-height:1.48;">' + esc(rbCase) + '</div>' +
+          '</div>' +
+          (rbHard ? '<div class="crp-steel-hardest"><strong style="color:#FDE68A;">&#9888;&#65039; Hardest Finding It Must Explain Away:</strong> ' + esc(rbHard) + '</div>' : '') +
+        '</div>';
+        h += '</div>';
+      }
+      h += '</div>';
+      return h;
+    }
+    function renderFlipSimulatorHTML(th) {
+      var flips = Array.isArray(th.flip_scenarios) ? th.flip_scenarios : [];
+      if (!flips.length) return '';
+      var h2 = th.head_to_head && typeof th.head_to_head === 'object' ? th.head_to_head : {};
+      var sm = th.steelman && typeof th.steelman === 'object' ? th.steelman : {};
+      var taShort = sm.theory_a_name || h2.theory_a || th.short_title || 'Theory A';
+      if (taShort.length > 34) taShort = taShort.slice(0, 32) + '\u2026';
+      var rbShort = sm.rival_b_name || h2.rival_b || ((th.rivals && th.rivals[0]) || 'Rival B');
+      if (rbShort.length > 34) rbShort = rbShort.slice(0, 32) + '\u2026';
+      var baseScore = stanceBaseCompassScore(th.stance);
+      var baseLeft = 100 - baseScore;
+      var vm = compassVerdictMeta(baseScore);
+
+      var h = '<div id="crp-tm-sim-wrap" style="margin-top:14px;">';
+      h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:0 0 7px 0;">' +
+        '<div class="crp-tm-sec-title" style="color:#C4B5FD;margin:0;">&#129517; Interactive &ldquo;What Would Flip the Verdict?&rdquo; Outcome Simulator</div>' +
+        '<button type="button" id="crp-sim-reset" class="crp-pillar-clear-btn" style="border-color:rgba(196,181,253,0.48);color:#DDD6FE;">&#8634; Reset to 2026 Baseline</button>' +
+      '</div>';
+      h += '<div class="crp-sim-box">';
+      h += '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:6px;">' +
+        '<span id="crp-sim-verdict-pill" class="crp-mom-pill" style="color:' + vm.color + ';background:' + vm.bg + ';border:1px solid ' + vm.border + ';">' +
+          '<span style="width:6px;height:6px;border-radius:50%;background:' + vm.dot + ';display:inline-block;"></span>' +
+          esc(vm.label) +
+        '</span>' +
+        '<span id="crp-sim-score-txt" style="font-size:11.2px;font-weight:800;color:#CBD5E1;font-variant-numeric:tabular-nums;">Epistemic Compass: ' + baseScore + '% Theory A &middot; ' + (100 - baseScore) + '% Rival B (2026 Baseline)</span>' +
+      '</div>';
+      h += '<div class="crp-compass-labels">' +
+        '<span style="color:#6EE7B7;">&#8592; Theory A (' + esc(taShort) + ')</span>' +
+        '<span style="color:#FDE68A;">Hybrid / Contested</span>' +
+        '<span style="color:#FDA4AF;">(' + esc(rbShort) + ') Rival B &#8594;</span>' +
+      '</div>';
+      h += '<div id="crp-compass-track" class="crp-compass-track" data-base-score="' + baseScore + '" data-compass-score="' + baseScore + '" data-compass-left="' + baseLeft + '" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + baseScore + '" aria-label="Epistemic Compass Meter">' +
+        '<div class="crp-compass-mid" title="50% Hybrid / Contested Midpoint"></div>' +
+        '<div class="crp-compass-base" style="left:' + baseLeft + '%;" title="2026 Baseline (' + baseScore + '% Theory A)"></div>' +
+        '<div id="crp-compass-needle" class="crp-compass-needle" style="left:' + baseLeft + '%;border-color:' + vm.dot + ';"></div>' +
+      '</div>';
+      h += '<div id="crp-sim-readout" class="crp-sim-readout">' +
+        '<span style="color:#94A3B8;">Toggle one or more hypothetical study outcomes below to simulate how the epistemic verdict shifts, which Foundational Pillar breaks, and what decisive experiment becomes next.</span>' +
+      '</div>';
+      h += '<div class="crp-flip-grid">';
+      flips.forEach(function (sc, idx) {
+        if (!sc) return;
+        var sh = typeof sc.shift === 'number' ? sc.shift : parseInt(String(sc.shift || 0), 10) || 0;
+        var shCls = sh > 0 ? 'to-a' : (sh < 0 ? 'to-b' : 'to-mid');
+        var shTxt = sh > 0 ? ('+' + sh + '% \u2190 Theory A') : (sh < 0 ? (sh + '% \u2192 Rival B') : 'Hybrid Shift');
+        h += '<button type="button" class="crp-flip-card" data-flip-idx="' + idx + '" aria-pressed="false">' +
+          '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px;margin-bottom:4px;">' +
+            '<span style="font-size:12px;font-weight:800;color:#FFFFFF;line-height:1.32;"><span class="crp-flip-chk" style="color:#C4B5FD;margin-right:5px;">&#9744;</span>' + esc(sc.label || ('Outcome ' + (idx + 1))) + '</span>' +
+            '<span class="crp-flip-shift ' + shCls + '">' + esc(shTxt) + '</span>' +
+          '</div>' +
+          (sc.detail ? '<div style="font-size:11.3px;color:#CBD5E1;line-height:1.42;">' + esc(sc.detail) + '</div>' : '') +
+          (sc.breaks_pillar ? '<div style="font-size:10.3px;font-weight:700;color:#FDA4AF;margin-top:5px;">&#127963;&#65039; Breaks: ' + esc(sc.breaks_pillar) + '</div>' : '') +
+        '</button>';
+      });
+      h += '</div></div></div>';
+      return h;
+    }
+    function renderLineageHTML(th) {
+      var lin = th.lineage && typeof th.lineage === 'object' ? th.lineage : null;
+      if (!lin) return '';
+      var builtOn = Array.isArray(lin.built_on) ? lin.built_on : [];
+      var stakes = Array.isArray(lin.downstream_stakes) ? lin.downstream_stakes : [];
+      if (!builtOn.length && !stakes.length) return '';
+
+      var h = '<div id="crp-tm-lineage-wrap" style="margin-top:14px;">';
+      h += '<div class="crp-tm-sec-title" style="color:#7DD3FC;margin:0 0 7px 0;">&#127795; Upstream Foundations &amp; Downstream Stakes</div>';
+      h += '<div class="crp-tm-box" style="border-left:3px solid #38BDF8;">';
+      if (builtOn.length) {
+        h += '<div style="font-size:10.3px;font-weight:800;color:#7DD3FC;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">&#129521; Built On (Prerequisite Foundations &mdash; Click Any Pill to Open Its Dossier)</div>';
+        h += '<div class="crp-lineage-pills">';
+        builtOn.forEach(function (up) {
+          if (!up) return;
+          var target = up.slug || up.code || up.title || '';
+          var title = up.title || up.code || up.slug || 'Prerequisite Theory';
+          var why = up.why || '';
+          h += '<button type="button" class="crp-lineage-pill" data-lineage-target="' + esc(target) + '" data-lineage-title="' + esc(title) + '" title="' + esc(why ? (title + ' — ' + why) : ('Open ' + title)) + '">' +
+            '<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:' + (why ? '3px' : '0') + ';">' +
+              '<span style="font-size:11.6px;font-weight:800;color:#FFFFFF;">' + esc(title) + '</span>' +
+              '<span style="font-size:10px;font-weight:800;color:#7DD3FC;white-space:nowrap;">' + (up.code ? (esc(up.code) + ' ') : '') + '&#8599;</span>' +
+            '</div>' +
+            (why ? '<div style="font-size:10.9px;color:#CBD5E1;line-height:1.38;">' + esc(why) + '</div>' : '') +
+          '</button>';
+        });
+        h += '</div>';
+      }
+      if (stakes.length) {
+        h += '<div style="font-size:10.3px;font-weight:800;color:#FDE68A;text-transform:uppercase;letter-spacing:0.06em;' + (builtOn.length ? 'margin-top:6px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.09);' : '') + '">&#127754; Downstream Stakes (What Changes If This Flips)</div>';
+        h += '<ul class="crp-stakes-list">' +
+          stakes.map(function (stTxt) { return '<li>' + esc(stTxt) + '</li>'; }).join('') +
+        '</ul>';
+      }
+      h += '</div></div>';
+      return h;
+    }
     function renderPaperCardHTML(item) {
       var role = normalizeRoleKey(item.role || 'foundational');
       var roleLbl = role === 'supporting' ? '\u2713 Supporting' : (role === 'refuting' ? '\u2717 Challenging / Refuting' : (role === 'null_mixed' ? '\u2248 Null / Mixed' : '\ud83c\udfdb\ufe0f Foundational'));
-      var linkType = normalizeLinkType(item.link_type || 'direct');
-      var linkLbl = linkType === 'indirect' ? 'INDIRECT \u00b7 STEALTH' : 'DIRECT';
+      var prox = normalizeTestProximity(item);
+      var pm = testProximityMeta(prox);
+      var linkType = prox === 'direct-test' ? 'direct' : 'indirect';
       var tier = String(item.study_tier || '').trim();
       var tierLow = tier.toLowerCase();
       var isHighTier = tierLow.indexOf('phase 3') !== -1 || tierLow.indexOf('multi-lab') !== -1 || tierLow.indexOf('replication') !== -1 || tierLow.indexOf('meta-analysis') !== -1 || tierLow.indexOf('registered') !== -1;
       var isLiving = item.origin === 'living-harvest';
       var srcApi = String(item.source_api || '').trim();
+      var pillarId = String(item.pillar_id || '').trim().toUpperCase();
+      var pillarName = String(item.pillar_name || '').trim();
+      var pillarIds = Array.isArray(item.pillar_ids) && item.pillar_ids.length
+        ? item.pillar_ids.map(function (x) { return String(x || '').trim().toUpperCase(); }).filter(Boolean)
+        : (pillarId ? [pillarId] : []);
+      var pillarChipsHTML = pillarIds.map(function (pid, idx) {
+        var tip = (idx === 0 && pillarName) ? ('Filter by ' + pid + ': ' + pillarName) : ('Filter by Pillar ' + pid);
+        return '<button type="button" class="crp-pillar-chip" data-pillar-jump="' + esc(pid) + '" title="' + esc(tip) + '">&#127963;&#65039; ' + esc(pid) + '</button>';
+      }).join('');
       var url = item.url || item.doiUrl || '';
       var pmcUrl = item.pmcUrl || '';
       var doiUrl = item.doiUrl || '';
       var oaUrl = item.oaUrl || '';
       var pmidUrl = item.pmid ? ('https://pubmed.ncbi.nlm.nih.gov/' + encodeURIComponent(String(item.pmid)) + '/') : '';
       var badgeTxt = sourceBadgeLabel(url, item.kind);
-      return '<div class="crp-paper-card role-' + esc(role) + '" data-role="' + esc(role) + '" data-link-type="' + esc(linkType) + '">' +
+      return '<div class="crp-paper-card role-' + esc(role) + '" data-role="' + esc(role) + '" data-link-type="' + esc(linkType) + '" data-test-proximity="' + esc(prox) + '"' + (pillarId ? (' data-pillar-id="' + esc(pillarId) + '"') : '') + (pillarIds.length ? (' data-pillar-ids="' + esc(pillarIds.join(',')) + '"') : '') + '>' +
         '<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:5px;flex-wrap:wrap;">' +
           '<div style="font-size:12.4px;font-weight:700;line-height:1.38;flex:1;min-width:220px;">' +
             (url
@@ -294,7 +551,8 @@
               : '<span style="color:#FFFFFF;">' + esc(item.title) + '</span>') +
           '</div>' +
           '<div style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;justify-content:flex-end;">' +
-            '<span class="crp-link-chip ' + esc(linkType) + '">' + esc(linkLbl) + '</span>' +
+            '<span class="crp-prox-chip ' + esc(pm.cls) + '" title="' + esc(pm.tip) + '">' + esc(pm.label) + '</span>' +
+            pillarChipsHTML +
             (tier ? '<span class="crp-tier-chip' + (isHighTier ? ' tier-high' : '') + '">' + esc(tier) + '</span>' : '') +
             (isLiving ? '<span class="crp-living-chip" title="Newly ingested by Living Epistemic Harvester">&#9889; Living Harvest' + (srcApi ? (' \u00b7 ' + esc(srcApi)) : '') + '</span>' : '') +
             '<span class="crp-role-chip ' + esc(role) + '">' + esc(roleLbl) + '</span>' +
@@ -302,6 +560,7 @@
         '</div>' +
         (item.detail ? '<div style="font-size:11px;color:#94A3B8;margin-bottom:5px;">' + esc(item.detail) + '</div>' : '') +
         (item.takeaway ? '<div style="font-size:11.8px;color:#E2E8F0;line-height:1.45;margin-bottom:6px;padding:5px 8px;border-radius:7px;background:rgba(2,6,23,0.52);">' + esc(item.takeaway) + '</div>' : '') +
+        (item.debate_bridge ? '<div class="crp-bridge-note"><strong style="color:#C7D2FE;">&#128172; Debate Bridge:</strong> ' + esc(item.debate_bridge) + '</div>' : '') +
         (item.escape_hatch_note ? '<div class="crp-escape-note"><strong>&#128275; Escape Hatch Note:</strong> ' + esc(item.escape_hatch_note) + '</div>' : '') +
         '<div style="display:flex;flex-wrap:wrap;gap:5px;">' +
           (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener" data-no-player="true" class="crp-ext-pill crp-cite-pill">' + esc(badgeTxt) + ' &#8599;</a>' : '') +
@@ -312,20 +571,23 @@
         '</div>' +
       '</div>';
     }
-    function renderLitLedgerListHTML(srcs, filterKey) {
+    function renderLitLedgerListHTML(srcs, filterKey, pillarId) {
       var list = srcs.filter(function (s) {
         if (!s || !s.title) return false;
+        if (pillarId && !paperMatchesPillar(s, pillarId)) return false;
         var rk = normalizeRoleKey(s.role);
-        var lt = normalizeLinkType(s.link_type);
-        if (filterKey === 'direct') return lt === 'direct';
-        if (filterKey === 'indirect') return lt === 'indirect';
+        var prox = normalizeTestProximity(s);
+        if (filterKey === 'direct') return prox === 'direct-test';
+        if (filterKey === 'indirect_adjacent' || filterKey === 'indirect') return prox !== 'direct-test';
         if (filterKey === 'supporting') return rk === 'supporting';
         if (filterKey === 'refuting') return rk === 'refuting';
         if (filterKey === 'null_mixed') return rk === 'null_mixed';
         return true;
       });
       if (!list.length) {
-        return '<div class="crp-tm-box" style="color:#94A3B8;font-size:12px;">No verified papers match this filter yet for this theory. Switch back to <strong>All Papers</strong> or check after the next Living Evidence harvest cycle.</div>';
+        return '<div class="crp-tm-box" style="color:#94A3B8;font-size:12px;">No verified papers match this filter combination yet for this theory. ' +
+          (pillarId ? 'Clear the active <strong>Pillar ' + esc(pillarId) + '</strong> filter or switch back to <strong>All Papers</strong>.' : 'Switch back to <strong>All Papers</strong> or check after the next Living Evidence harvest cycle.') +
+        '</div>';
       }
       if (filterKey === 'supporting' || filterKey === 'refuting' || filterKey === 'null_mixed') {
         return list.map(renderPaperCardHTML).join('');
@@ -466,6 +728,7 @@
       var eb = th.evidence_balance && typeof th.evidence_balance === 'object' ? th.evidence_balance : {};
       var divRows = Array.isArray(h2.diverging_predictions) ? h2.diverging_predictions : [];
       var hatches = Array.isArray(th.open_escape_hatches) ? th.open_escape_hatches : [];
+      var pillars = Array.isArray(th.pillars) ? th.pillars : [];
       var title = th.canonical_title || parts.head || th.code || 'Scientific Theory';
       var md = [];
       md.push('# STAGE-1 REGISTERED REPORT PROMPT — ' + title + ' (' + (th.code || '') + ')');
@@ -475,11 +738,18 @@
       md.push('## 1. Epistemic Context (2026 Living Verdict)');
       md.push('- **Domain:** ' + (th.domain_heading || th.domain_pill || ''));
       md.push('- **Current 2026 Stance:** ' + (th.stance_label || th.stance || ''));
-      if (eb.momentum) md.push('- **Living Stance Momentum:** ' + eb.momentum + ' (Foundational: ' + (eb.foundational || 0) + ', Supporting: ' + (eb.supporting || 0) + ', Challenging/Refuting: ' + (eb.refuting || 0) + ', Null/Mixed: ' + (eb.null_mixed || 0) + ', Indirect/Stealth: ' + (eb.indirect || 0) + ')');
+      if (eb.momentum) md.push('- **Living Stance Momentum:** ' + eb.momentum + ' (Foundational: ' + (eb.foundational || 0) + ', Supporting: ' + (eb.supporting || 0) + ', Challenging/Refuting: ' + (eb.refuting || 0) + ', Null/Mixed: ' + (eb.null_mixed || 0) + ', Indirect/Adjacent: ' + (eb.indirect || 0) + ')');
       md.push('- **2026 Verdict:** ' + (th.verdict_2026 || ''));
       md.push('- **Theory A:** ' + (h2.theory_a || title));
       md.push('- **Rival B:** ' + (h2.rival_b || (th.rivals || []).join('; ')));
       md.push('');
+      if (pillars.length) {
+        md.push('## 1b. Foundational Pillars Under Test');
+        pillars.forEach(function (p) {
+          md.push('- **' + (p.id || '') + ' (' + (p.status || 'Unresolved') + ') — ' + (p.name || '') + ':** ' + (p.claim || ''));
+        });
+        md.push('');
+      }
       if (divRows.length) {
         md.push('## 2. Diverging Prediction Matrix');
         md.push('| Observable | Theory A Predicts | Rival B Predicts |');
@@ -504,23 +774,27 @@
         });
       }
       md.push('');
-      md.push('## 5. Verified Primary Literature (Supporting, Refuting & Indirect/Stealth DOIs)');
+      md.push('## 5. Verified Primary Literature (Direct, Indirect & Adjacent DOIs)');
       srcs.forEach(function (s) {
         var rTag = normalizeRoleKey(s.role).toUpperCase();
-        var ltTag = normalizeLinkType(s.link_type).toUpperCase();
+        var pTag = normalizeTestProximity(s).toUpperCase();
+        var pilTag = s.pillar_id ? (' | ' + s.pillar_id) : '';
         var tierTag = s.study_tier ? (' | ' + s.study_tier) : '';
         var link = s.doiUrl || s.url || '';
-        md.push('- [' + rTag + ' | ' + ltTag + tierTag + '] ' + (s.title || '') + (s.detail ? (' — ' + s.detail) : '') + (link ? (' (' + link + ')') : ''));
+        md.push('- [' + rTag + ' | ' + pTag + pilTag + tierTag + '] ' + (s.title || '') + (s.detail ? (' — ' + s.detail) : '') + (link ? (' (' + link + ')') : ''));
       });
       md.push('');
       var specPayload = {
-        schema: 'scientific-theories-atlas-stage1-rr-v2.3',
+        schema: 'scientific-theories-atlas-stage1-rr-v2.4',
         theory_code: th.code,
         theory_title: title,
         domain: th.domain_heading || th.domain_pill,
         current_stance_2026: th.stance_label,
         verdict_2026: th.verdict_2026,
         evidence_balance: eb,
+        pillars: pillars,
+        steelman: th.steelman || {},
+        lineage: th.lineage || {},
         rivals: th.rivals || [],
         head_to_head_design: {
           theory_a: h2.theory_a || '',
@@ -541,6 +815,8 @@
           return {
             role: normalizeRoleKey(s.role),
             link_type: normalizeLinkType(s.link_type),
+            test_proximity: normalizeTestProximity(s),
+            pillar_id: s.pillar_id || '',
             study_tier: s.study_tier || '',
             origin: s.origin || 'seed',
             title: s.title,
@@ -548,6 +824,7 @@
             url: s.url || s.doiUrl || '',
             doiUrl: s.doiUrl || '',
             pmid: s.pmid || '',
+            debate_bridge: s.debate_bridge || '',
             escape_hatch_note: s.escape_hatch_note || ''
           };
         })
@@ -570,8 +847,10 @@
       var st = getStanceInfo(th.stance);
       var parts = splitEpLabel(ep.label || th.slug);
       var srcs = Array.isArray(ep.sources) ? ep.sources : [];
-      var directN = srcs.filter(function (s) { return normalizeLinkType(s.link_type) === 'direct'; }).length;
-      var indirectN = srcs.filter(function (s) { return normalizeLinkType(s.link_type) === 'indirect'; }).length;
+      var pillars = Array.isArray(th.pillars) ? th.pillars : [];
+      var flips = Array.isArray(th.flip_scenarios) ? th.flip_scenarios : [];
+      var directN = srcs.filter(function (s) { return normalizeTestProximity(s) === 'direct-test'; }).length;
+      var indirectAdjN = srcs.filter(function (s) { return normalizeTestProximity(s) !== 'direct-test'; }).length;
       var suppN = srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'supporting'; }).length;
       var refN = srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'refuting'; }).length;
       var nullN = srcs.filter(function (s) { return normalizeRoleKey(s.role) === 'null_mixed'; }).length;
@@ -611,10 +890,19 @@
         '<div style="font-size:11.2px;font-weight:800;color:' + st.color + ';margin-bottom:4px;">' + esc(st.label) + ' \u2014 ' + esc(st.def) + '</div>' +
         '<div>' + esc(th.verdict_2026 || ep.notes || '') + '</div></div>';
 
-      // Visual Evidence Balance & Living Momentum Bar (v2.3.0)
+      // Visual Evidence Balance & Living Momentum Bar
       if (th.evidence_balance || srcs.length) {
         h += renderEvidenceBalanceHTML(th.evidence_balance, srcs);
       }
+
+      // v2.4.0 Module 1: Foundational Pillars Under Test (interactive paper-ledger filter)
+      h += renderPillarsHTML(pillars, srcs);
+
+      // v2.4.0 Module 2: Steelman Both Sides & Settled Ground
+      h += renderSteelmanHTML(th);
+
+      // v2.4.0 Module 3: Interactive "What Would Flip the Verdict?" Outcome Simulator
+      h += renderFlipSimulatorHTML(th);
 
       // Core Claim + Common Paper Blindspot + Falsification
       h += '<div class="crp-tm-grid2">';
@@ -629,7 +917,7 @@
         h += '<div class="crp-tm-box" style="border-left:3px solid #2DD4BF;">' + esc(th.falsification_criteria) + '</div>';
       }
 
-      // Upgraded Head-to-Head Crucial Experiment Workbench Box (v2.3.0)
+      // Upgraded Head-to-Head Crucial Experiment Workbench Box
       h += renderH2HWorkbenchHTML(th);
 
       // Recognizing This Theory in Disguise (When Papers Don't Name It)
@@ -661,6 +949,9 @@
         h += '</div></div>';
       }
 
+      // v2.4.0 Module 4: Upstream Foundations & Downstream Stakes
+      h += renderLineageHTML(th);
+
       // Rival / Competing Theories
       if (Array.isArray(th.rivals) && th.rivals.length) {
         h += '<div class="crp-tm-sec-title" style="color:#FBBF24;">&#9876;&#65039; Competing &amp; Alternative Frameworks (Click to Search Atlas)</div>';
@@ -671,23 +962,28 @@
         h += '</div>';
       }
 
-      // Upgraded Filterable Split Primary Literature Ledger (v2.3.0)
-      h += '<div class="crp-tm-sec-title" style="color:#FFFFFF;margin-top:16px;">&#128218; Verified Peer-Reviewed Literature Ledger (' + srcs.length + ' Live-Verified Citations)</div>';
+      // v2.4.0 Module 5: Upgraded Calibrated Primary Literature Ledger
+      h += '<div id="crp-tm-lit-anchor" class="crp-tm-sec-title" style="color:#FFFFFF;margin-top:16px;">&#128218; Verified Peer-Reviewed Literature Ledger (' + srcs.length + ' Live-Verified Citations)</div>';
       if (srcs.length) {
+        h += '<div id="crp-tm-pillar-chip" class="crp-pillar-filter-bar">' +
+          '<span id="crp-tm-pillar-chip-txt"></span>' +
+          '<button type="button" id="crp-tm-pillar-clear" class="crp-pillar-clear-btn">Clear &#10005;</button>' +
+        '</div>';
         h += '<div class="crp-lit-tabs" role="tablist" aria-label="Filter primary literature">' +
           '<button type="button" class="crp-lit-tab active" data-lit-filter="all">All Papers (' + srcs.length + ')</button>' +
-          '<button type="button" class="crp-lit-tab" data-lit-filter="direct">Direct Tests (' + directN + ')</button>' +
-          '<button type="button" class="crp-lit-tab" data-lit-filter="indirect">&#128269; Indirect / Stealth (' + indirectN + ')</button>' +
+          '<button type="button" class="crp-lit-tab" data-lit-filter="direct">&#127919; Direct Tests (' + directN + ')</button>' +
+          '<button type="button" class="crp-lit-tab" data-lit-filter="indirect_adjacent">&#129513; Indirect &amp; Adjacent (' + indirectAdjN + ')</button>' +
           '<button type="button" class="crp-lit-tab" data-lit-filter="supporting">&#10003; Supporting (' + suppN + ')</button>' +
           '<button type="button" class="crp-lit-tab" data-lit-filter="refuting">&#10007; Challenging / Refuting (' + refN + ')</button>' +
           (nullN > 0 ? '<button type="button" class="crp-lit-tab" data-lit-filter="null_mixed">&asymp; Null / Mixed (' + nullN + ')</button>' : '') +
         '</div>';
-        h += '<div id="crp-tm-lit-list">' + renderLitLedgerListHTML(srcs, 'all') + '</div>';
+        h += '<div id="crp-tm-lit-list">' + renderLitLedgerListHTML(srcs, 'all', null) + '</div>';
       } else {
         h += '<div class="crp-tm-box" style="color:#94A3B8;">Primary API-verified supporting and refuting paper ledger is scheduled for Wave ' + esc(th.wave || 2) + ' harvesting (zero unverified DOIs are ever displayed in this Atlas).</div>';
       }
 
       box.innerHTML = h;
+      box.scrollTop = 0;
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
 
@@ -727,16 +1023,205 @@
           track('theory_export_h2h', { theory_code: th.code || '' });
         });
       }
+
+      // Live Literature Ledger + Foundational Pillar filter coordination
+      var activeLitFilter = 'all';
+      var activePillarId = null;
+      var pillarNameById = {};
+      pillars.forEach(function (p, i) {
+        if (p) {
+          var pid = String(p.id || ('P' + (i + 1))).toUpperCase();
+          pillarNameById[pid] = p.name || p.title || pid;
+        }
+      });
       var litListEl = document.getElementById('crp-tm-lit-list');
+      var pillarChipBar = document.getElementById('crp-tm-pillar-chip');
+      var pillarChipTxt = document.getElementById('crp-tm-pillar-chip-txt');
+      var pillarClearBtn = document.getElementById('crp-tm-pillar-clear');
+
+      function applyLedgerFilter() {
+        box.querySelectorAll('.crp-pillar-card[data-pillar-id]').forEach(function (pc) {
+          var isAct = !!(activePillarId && pc.getAttribute('data-pillar-id') === activePillarId);
+          pc.classList.toggle('active', isAct);
+          pc.setAttribute('aria-pressed', isAct ? 'true' : 'false');
+          var cue = pc.querySelector('.crp-pillar-cue');
+          if (cue) cue.innerHTML = isAct ? '&#10003; Filtering' : 'Filter &#8595;';
+        });
+        if (pillarChipBar && pillarChipTxt) {
+          if (activePillarId) {
+            var pNm = pillarNameById[activePillarId] || '';
+            pillarChipTxt.innerHTML = '&#127963;&#65039; Filtering papers by Pillar ' + esc(activePillarId) + (pNm ? (' &mdash; ' + esc(pNm)) : '');
+            pillarChipBar.classList.add('active');
+          } else {
+            pillarChipBar.classList.remove('active');
+          }
+        }
+        if (litListEl) {
+          litListEl.innerHTML = renderLitLedgerListHTML(srcs, activeLitFilter, activePillarId);
+          litListEl.querySelectorAll('.crp-pillar-chip[data-pillar-jump]').forEach(function (pb) {
+            pb.addEventListener('click', function (ev) {
+              ev.preventDefault();
+              ev.stopPropagation();
+              var pid = (pb.getAttribute('data-pillar-jump') || '').toUpperCase();
+              activePillarId = (activePillarId === pid) ? null : pid;
+              applyLedgerFilter();
+            });
+          });
+        }
+      }
+      if (litListEl) {
+        litListEl.querySelectorAll('.crp-pillar-chip[data-pillar-jump]').forEach(function (pb) {
+          pb.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            ev.stopPropagation();
+            var pid = (pb.getAttribute('data-pillar-jump') || '').toUpperCase();
+            activePillarId = (activePillarId === pid) ? null : pid;
+            applyLedgerFilter();
+          });
+        });
+      }
+      box.querySelectorAll('.crp-pillar-card[data-pillar-id]').forEach(function (pc) {
+        pc.addEventListener('click', function () {
+          var pid = (pc.getAttribute('data-pillar-id') || '').toUpperCase();
+          activePillarId = (activePillarId === pid) ? null : pid;
+          applyLedgerFilter();
+          track('theory_pillar_filter', { theory_code: th.code || '', pillar_id: activePillarId || 'clear' });
+        });
+      });
+      if (pillarClearBtn) {
+        pillarClearBtn.addEventListener('click', function () {
+          activePillarId = null;
+          applyLedgerFilter();
+        });
+      }
       box.querySelectorAll('.crp-lit-tab[data-lit-filter]').forEach(function (ltBtn) {
         ltBtn.addEventListener('click', function () {
-          var fk = ltBtn.getAttribute('data-lit-filter') || 'all';
+          activeLitFilter = ltBtn.getAttribute('data-lit-filter') || 'all';
           box.querySelectorAll('.crp-lit-tab[data-lit-filter]').forEach(function (x) {
             x.classList.toggle('active', x === ltBtn);
           });
-          if (litListEl) litListEl.innerHTML = renderLitLedgerListHTML(srcs, fk);
+          applyLedgerFilter();
         });
       });
+
+      // Interactive "What Would Flip the Verdict?" Outcome Simulator wiring
+      if (flips.length) {
+        var baseScoreSim = stanceBaseCompassScore(th.stance);
+        var activeFlips = {};
+        var simTrack = document.getElementById('crp-compass-track');
+        var simNeedle = document.getElementById('crp-compass-needle');
+        var simVerdictPill = document.getElementById('crp-sim-verdict-pill');
+        var simScoreTxt = document.getElementById('crp-sim-score-txt');
+        var simReadout = document.getElementById('crp-sim-readout');
+        var simReset = document.getElementById('crp-sim-reset');
+
+        function updateFlipSimulator() {
+          var delta = 0;
+          var chosen = [];
+          flips.forEach(function (sc, idx) {
+            if (activeFlips[idx]) {
+              var sh = typeof sc.shift === 'number' ? sc.shift : (parseInt(String(sc.shift || 0), 10) || 0);
+              delta += sh;
+              chosen.push(sc);
+            }
+          });
+          var curScore = Math.max(4, Math.min(96, baseScoreSim + delta));
+          var curLeft = 100 - curScore;
+          var vm = compassVerdictMeta(curScore);
+          if (simTrack) {
+            simTrack.setAttribute('data-compass-score', String(curScore));
+            simTrack.setAttribute('data-compass-left', String(curLeft));
+            simTrack.setAttribute('aria-valuenow', String(curScore));
+          }
+          if (simNeedle) {
+            simNeedle.style.left = curLeft + '%';
+            simNeedle.style.borderColor = vm.dot;
+          }
+          if (simVerdictPill) {
+            simVerdictPill.style.color = vm.color;
+            simVerdictPill.style.background = vm.bg;
+            simVerdictPill.style.borderColor = vm.border;
+            simVerdictPill.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:' + vm.dot + ';display:inline-block;"></span>' + esc(vm.label);
+          }
+          if (simScoreTxt) {
+            var deltaTag = chosen.length
+              ? (' (' + (delta > 0 ? ('+' + delta) : String(delta)) + '% vs 2026)')
+              : ' (2026 Baseline)';
+            simScoreTxt.textContent = 'Epistemic Compass: ' + curScore + '% Theory A \u00b7 ' + (100 - curScore) + '% Rival B' + deltaTag;
+          }
+          if (simReadout) {
+            if (!chosen.length) {
+              simReadout.innerHTML = '<span style="color:#94A3B8;">Toggle one or more hypothetical study outcomes below to simulate how the epistemic verdict shifts, which Foundational Pillar breaks, and what decisive experiment becomes next.</span>';
+            } else {
+              var brokenList = [];
+              var nextExpList = [];
+              chosen.forEach(function (sc) {
+                if (sc.breaks_pillar) {
+                  var bpKey = String(sc.breaks_pillar).trim().toUpperCase();
+                  var resolved = pillarNameById[bpKey] ? (bpKey + ' (' + pillarNameById[bpKey] + ')') : sc.breaks_pillar;
+                  if (brokenList.indexOf(resolved) === -1) brokenList.push(resolved);
+                }
+                if (sc.next_experiment && nextExpList.indexOf(sc.next_experiment) === -1) {
+                  nextExpList.push(sc.next_experiment);
+                }
+              });
+              var rHtml = '<div style="font-size:11.3px;font-weight:800;color:' + vm.color + ';margin-bottom:4px;">' +
+                'Simulated Verdict (' + chosen.length + ' ' + (chosen.length === 1 ? 'outcome' : 'outcomes') + ' active, net shift ' + (delta > 0 ? ('+' + delta) : String(delta)) + '%): ' + esc(vm.label) +
+              '</div>';
+              if (brokenList.length) {
+                rHtml += '<div style="font-size:11.4px;color:#FDA4AF;margin-bottom:4px;"><strong>&#127963;&#65039; Foundational Pillar(s) Broken / Cracked:</strong> ' + esc(brokenList.join(' ; ')) + '</div>';
+              }
+              if (nextExpList.length) {
+                rHtml += '<div style="font-size:11.4px;color:#5EEAD4;"><strong>&#128300; Next Decisive Experiment Unlocked:</strong> ' + esc(nextExpList.join(' | ')) + '</div>';
+              }
+              simReadout.innerHTML = rHtml;
+            }
+          }
+          box.querySelectorAll('.crp-flip-card[data-flip-idx]').forEach(function (fc) {
+            var i = parseInt(fc.getAttribute('data-flip-idx') || '-1', 10);
+            var on = !!activeFlips[i];
+            fc.classList.toggle('active', on);
+            fc.setAttribute('aria-pressed', on ? 'true' : 'false');
+            var chk = fc.querySelector('.crp-flip-chk');
+            if (chk) chk.innerHTML = on ? '&#9745;' : '&#9744;';
+          });
+        }
+
+        box.querySelectorAll('.crp-flip-card[data-flip-idx]').forEach(function (fc) {
+          fc.addEventListener('click', function () {
+            var idx = parseInt(fc.getAttribute('data-flip-idx') || '-1', 10);
+            if (idx < 0) return;
+            activeFlips[idx] = !activeFlips[idx];
+            updateFlipSimulator();
+            track('theory_flip_sim', { theory_code: th.code || '', flip_idx: idx });
+          });
+        });
+        if (simReset) {
+          simReset.addEventListener('click', function () {
+            activeFlips = {};
+            updateFlipSimulator();
+          });
+        }
+      }
+
+      // Upstream Prerequisite Foundation pills -> jump directly to that theory's modal
+      box.querySelectorAll('.crp-lineage-pill[data-lineage-target]').forEach(function (lb) {
+        lb.addEventListener('click', function () {
+          var tgt = lb.getAttribute('data-lineage-target') || '';
+          var ttl = lb.getAttribute('data-lineage-title') || '';
+          if (theoryByIdOrSlug(tgt)) {
+            openTheoryModal(tgt);
+            return;
+          }
+          if (ttl && theoryByIdOrSlug(ttl)) {
+            openTheoryModal(ttl);
+            return;
+          }
+          closeModal();
+          if (typeof theorySearchJumpRef === 'function') theorySearchJumpRef(ttl || tgt);
+        });
+      });
+
       box.querySelectorAll('.crp-rival-pill').forEach(function (rb) {
         rb.addEventListener('click', function () {
           var rq = rb.getAttribute('data-rival-q') || '';
@@ -2778,11 +3263,12 @@
         var partsT = splitEpLabel(ep.label || th.slug);
         var subT = th.verdict_2026 ? excerptFromNotes(th.verdict_2026, 165) : (partsT.sub || '');
         var srcsT = Array.isArray(ep.sources) ? ep.sources : [];
+        var pillarsT = Array.isArray(th.pillars) ? th.pillars : [];
         var suppN = srcsT.filter(function (s) { return normalizeRoleKey(s.role) === 'supporting'; }).length;
         var refN = srcsT.filter(function (s) { return normalizeRoleKey(s.role) === 'refuting'; }).length;
         var indN = (th.evidence_balance && typeof th.evidence_balance.indirect === 'number')
           ? th.evidence_balance.indirect
-          : srcsT.filter(function (s) { return normalizeLinkType(s.link_type) === 'indirect'; }).length;
+          : srcsT.filter(function (s) { return normalizeTestProximity(s) !== 'direct-test'; }).length;
         var hasAud = !!(th.has_audio || (ep.gh && ep.gh.length > 5) || (ep.id && ep.id.indexOf('atlas-') !== 0));
         var searchBitsT = [
           th.code || '', th.domain_pill || '', th.subdiscipline || '', th.stance || '', th.stance_label || '',
@@ -2790,18 +3276,24 @@
           (th.rivals || []).join(' '), (th.keywords || []).join(' '),
           (th.open_escape_hatches || []).join(' ')
         ];
+        pillarsT.forEach(function (p) {
+          if (p) searchBitsT.push((p.name || '') + ' ' + (p.claim || ''));
+        });
         srcsT.forEach(function (s) {
-          if (s && s.title) searchBitsT.push(s.title + ' ' + (s.detail || '') + ' ' + (s.study_tier || '') + ' ' + (s.escape_hatch_note || ''));
+          if (s && s.title) searchBitsT.push(s.title + ' ' + (s.detail || '') + ' ' + (s.study_tier || '') + ' ' + (s.debate_bridge || '') + ' ' + (s.escape_hatch_note || ''));
         });
         var footMeta = [];
         if (th.year_span) footMeta.push('&#127963;&#65039; ' + esc(th.year_span));
         if (srcsT.length) {
           var pSummary = '&#128196; ' + srcsT.length + ' Verified';
           if (suppN || refN) pSummary += ' (<span style="color:#6EE7B7;">' + suppN + ' Pro</span> &middot; <span style="color:#FDA4AF;">' + refN + ' Con</span>)';
-          if (indN > 0) pSummary += ' &middot; <span style="color:#DDD6FE;">&#128269; ' + indN + ' Stealth</span>';
+          if (indN > 0) pSummary += ' &middot; <span style="color:#DDD6FE;">&#129513; ' + indN + ' Indirect/Adj</span>';
           footMeta.push(pSummary);
         } else {
           footMeta.push('&#128218; Wave ' + esc(th.wave || 2) + ' Planned');
+        }
+        if (pillarsT.length) {
+          footMeta.push('<span style="color:#BAE6FD;">&#127963;&#65039; ' + pillarsT.length + ' Pillars</span>');
         }
         var bpReady = (th.podcast_status === 'blueprint-ready' || th.wave === 1);
         if (hasAud) footMeta.push('<span style="color:#38BDF8;font-weight:800;">&#127911; Podcast Live</span>');
@@ -3433,7 +3925,7 @@
                     matched_clues: m.clues,
                     rivals: m.th.rivals || [],
                     head_to_head_design: m.th.head_to_head || {},
-                    verified_papers: (m.ep.sources || []).map(function (s) { return { role: s.role, link_type: s.link_type || 'direct', title: s.title, url: s.url || s.doiUrl || '' }; })
+                    verified_papers: (m.ep.sources || []).map(function (s) { return { role: s.role, link_type: s.link_type || 'direct', test_proximity: normalizeTestProximity(s), title: s.title, url: s.url || s.doiUrl || '' }; })
                   };
                 })
               };
