@@ -34,7 +34,8 @@
  "suite_transcriptomics": "1ppb0PmvpQr1_jkP9_R7TM4q-9OEh1Jel",
  "suite_seizure_manuscript": "1tjoOVatIW09pSgyDYWGAnPHAUf2SbsX1",
  "statweave_suite": "https://yorekms.github.io/deep-dive-podcasts/statweave/StatWeave_Python_Web_Suite_v0.9.5.zip",
- "suite_condensate_atlas": "https://github.com/yorekms/condensate-pharmacology"
+ "suite_condensate_atlas": "https://github.com/yorekms/condensate-pharmacology",
+ "suite_trpm8_oscillator": "https://github.com/yorekms/trpm8-osmo-cold"
  };
  
  var PHYS_ARCHIVE_FILENAMES = {
@@ -53,7 +54,8 @@
  "suite_transcriptomics": "transcriptomics_workbench_wip.zip",
  "suite_seizure_manuscript": "Seizure_Transcriptomics_Workbench_v0.7.4.3_Manuscript_Source_2026-10-26.zip",
  "statweave_suite": "StatWeave_Python_Web_Suite_v0.9.5.zip",
- "suite_condensate_atlas": "condensate-pharmacology"
+ "suite_condensate_atlas": "condensate-pharmacology",
+ "suite_trpm8_oscillator": "trpm8-osmo-cold"
  };
  
  function resolveZipHref(key) {
@@ -287,6 +289,28 @@
  "3 Binary .simularium 3D Mesoscale Trajectories (Signalosome, Nucleolus, Stress Granule)"
  ],
  pythonParity: "Built with Python 3.12, OpenMM/CALVADOS-2/3 CUDA, RDKit, AutoDock Vina v1.2.7, simulariumio, and self-contained offline WebGL viewers. Audited via Chapter 12 Tier A–F empirical falsification ledger."
+ },
+ {
+ id: "suite_trpm8_oscillator",
+ cat: "biophysics",
+ badge: "Open Preprint + 5-ODE Cockpit • v2.0",
+ badgeColor: "#38BDF8",
+ title: "TRPM8 Osmosensation & Electro-Metabolic Relaxation Oscillator Suite",
+ size: "Open Portal + PDF + PWA",
+ isExternalArchive: true,
+ portalUrl: "https://yorekms.github.io/trpm8-osmo-cold/",
+ portalLabel: "Open Portal & ODE",
+ pdfUrl: "https://yorekms.github.io/trpm8-osmo-cold/assets/TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf",
+ pdfLabel: "Preprint PDF",
+ githubUrl: "https://github.com/yorekms/trpm8-osmo-cold",
+ summary: "5-variable electro-metabolic relaxation oscillator (TRPM8–NaV1.8–CaV1.2/1.3–MICU1/MCU/TMBIM5 H+) coupled to stratum corneum water-activity leverage (-55.8 Osm/kg), human genetics, diabetic MCU KO, neurovascular DHP de-confounding, and dew-point VPD mobile EMA.",
+ files: [
+ "TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf (6 main figures, 5 tables, 120 refs)",
+ "trpm8_oscillator_ode.py (29 Radau/BDF regimes) • power_and_simulation.py • build_drive_figures.py",
+ "Interactive Browser 5-ODE Oscillator Cockpit & SC Water-Activity Leverage Calculator",
+ "app/index.html — Offline-capable Dew-Point Local VPD & N-of-1 Psychophysics Web App"
+ ],
+ pythonParity: "PEP 723 self-bootstrapping Python 3.12 SciPy Radau/BDF suite paired with a zero-dependency client-side HTML5 Canvas RK4 oscillator engine and offline psychrometric EMA application."
  }
  ];
  

@@ -238,6 +238,14 @@
       desc: 'Cross-species human, mouse & rat seizure meta-regression portal (43-page open preprint PDF, Figures 1–5, interactive Rab visualizer, searchable CSV tables, and Bayesian forecasts on 16 human donors).'
     },
     {
+      badge: 'Open Preprint • Live 5-ODE Oscillator + VPD App',
+      accent: '#38BDF8',
+      title: 'TRPM8 Osmosensation & Cold Oscillator Portal',
+      domainPrefix: '', domainRest: 'yorekms.github.io/trpm8-osmo-cold',
+      url: 'https://yorekms.github.io/trpm8-osmo-cold/',
+      desc: 'Electro-metabolic relaxation oscillator model (TRPM8–NaV1.8–CaV1.2/1.3–MICU1/MCU/TMBIM5 H+) unifying classical & Brock corneal NTI bursting, 99.8%-shielded epidermal water-activity leverage, human genetics, diabetic MCU KO, and 7 falsification tests.'
+    },
+    {
       badge: 'Conversational Stats & SVG Figures',
       accent: '#10B981',
       title: 'StatWeave Statistics & Figure Workbench',
