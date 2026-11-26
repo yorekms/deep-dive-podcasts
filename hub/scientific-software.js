@@ -293,7 +293,7 @@
  {
  id: "suite_trpm8_oscillator",
  cat: "biophysics",
- badge: "Open Preprint + 5-ODE Cockpit • v2.1",
+ badge: "Open Preprint + 5-ODE Cockpit • v2.2",
  badgeColor: "#38BDF8",
  title: "TRPM8 Osmosensation & Electro-Metabolic Relaxation Oscillator Suite",
  size: "Open Portal + PDF + PWA",
@@ -303,9 +303,9 @@
  pdfUrl: "https://yorekms.github.io/trpm8-osmo-cold/assets/TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf",
  pdfLabel: "Preprint PDF",
  githubUrl: "https://github.com/yorekms/trpm8-osmo-cold",
- summary: "5-variable electro-metabolic relaxation oscillator (TRPM8–NaV1.8–CaV1.2/1.3–MICU1/MCU/TMBIM5 H+) coupled to stratum corneum water-activity leverage (-55.8 Osm/kg), human genetics, diabetic MCU KO, neurovascular DHP de-confounding, and dew-point VPD mobile EMA.",
+ summary: "5-variable electro-metabolic relaxation oscillator (TRPM8–NaV1.8–CaV1.2/1.3–MICU1/MCU/TMBIM5 H+) coupled to stratum corneum water-activity leverage (-55.8 Osm/kg), quantitative rebuttals to 6 competing paradigms, human genetics, diabetic MCU KO, neurovascular DHP de-confounding, and dew-point VPD mobile EMA.",
  files: [
- "TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf (6 main figures, 5 tables, 145 refs)",
+ "TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf (6 main figures, 5 tables, 184 refs)",
  "trpm8_oscillator_ode.py (29 Radau/BDF regimes) • power_and_simulation.py • build_drive_figures.py",
  "Interactive Browser 5-ODE Oscillator Cockpit & SC Water-Activity Leverage Calculator",
  "app/index.html — Offline-capable Dew-Point Local VPD & N-of-1 Psychophysics Web App"
