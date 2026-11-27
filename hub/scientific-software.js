@@ -293,7 +293,7 @@
  {
  id: "suite_trpm8_oscillator",
  cat: "biophysics",
- badge: "Open Preprint + 6-ODE & Cryo-EM • v2.3",
+ badge: "Open Chapter Preprint + OpenMM/PROPKA • v2.4",
  badgeColor: "#38BDF8",
  title: "TRPM8 Osmosensation & Electro-Metabolic Relaxation Oscillator Suite",
  size: "Open Portal + PDF + PWA",
@@ -303,14 +303,14 @@
  pdfUrl: "https://yorekms.github.io/trpm8-osmo-cold/assets/TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf",
  pdfLabel: "Preprint PDF",
  githubUrl: "https://github.com/yorekms/trpm8-osmo-cold",
- summary: "Electro-metabolic relaxation oscillator (TRPM8–NaV1.8–CaV1.2/1.3–MICU1/MCU/TMBIM5 H+) coupled to stratum corneum water-activity leverage (-55.8 Osm/kg), head-to-head 6-ODE rival benchmarks (PMCA, PIP2, CaV3.2), cryo-EM/AlphaFold point-mutant kill-switches (TRPM8 H845Q/H667Q, TMBIM5 D294R/D325R), and dew-point VPD mobile EMA.",
+ summary: "Electro-metabolic relaxation oscillator (TRPM8–NaV1.8–CaV1.2/1.3–MICU1/MCU/TMBIM5 H+) coupled to stratum corneum water-activity leverage (-55.8 Osm/kg), full 6-paradigm dialectical rebuttals, 6-ODE rival benchmarks (PMCA, PIP2, CaV3.2), OpenMM Amber14/OBC2 + PROPKA 3.5 electrostatics across 11 cryo-EM TRPM8 states & human TMBIM5 (His667 pKa 7.05, His845 menthol pKa 3.22–4.23, Asp294–Asp325 4.84/9.60), and dew-point VPD mobile EMA.",
  files: [
- "TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf (7 main figures, 6 tables, 189 refs)",
- "trpm8_oscillator_ode.py • trpm8_rival_rebuttals_ode.py (6-ODE rival & mutant suite) • power_and_simulation.py",
+ "TRPM8_Electro_Metabolic_Oscillator_Preprint_Yorek.pdf (8 main figures, 8 tables, 193 refs)",
+ "trpm8_oscillator_ode.py • trpm8_rival_rebuttals_ode.py • trpm8_propka_openmm_pka.py (OpenMM/PROPKA suite)",
  "Interactive Browser ODE Cockpit (16 Presets incl. TRPM8 H845Q & TMBIM5 D294R/D325R) & SC Calculator",
  "app/index.html — Offline-capable Dew-Point Local VPD & N-of-1 Psychophysics Web App"
  ],
- pythonParity: "PEP 723 self-bootstrapping Python 3.12 SciPy Radau/BDF + Gemmi cryo-EM/AlphaFold suite paired with a zero-dependency client-side HTML5 Canvas RK4 oscillator engine and offline psychrometric EMA application."
+ pythonParity: "PEP 723 self-bootstrapping Python 3.12 SciPy Radau/BDF + OpenMM 8.1 Amber14/OBC2 + PROPKA 3.5 + Gemmi suite paired with a zero-dependency client-side HTML5 Canvas RK4 oscillator engine and offline psychrometric EMA application."
  }
  ];
  
